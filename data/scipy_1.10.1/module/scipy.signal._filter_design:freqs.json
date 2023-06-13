@@ -1,0 +1,467 @@
+{
+  "aliases": [
+    "scipy.signal.freqs"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Given the M-order numerator "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "b",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "b"
+            },
+            {
+              "type": "text",
+              "value": " and N-order denominator "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "a",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " of an analog filter, compute its frequency response           "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "        b[0]*(jw)**M + b[1]*(jw)**(M-1) + ... + b[M]\nH(w) = ----------------------------------------------\n        a[0]*(jw)**N + a[1]*(jw)**(N-1) + ... + a[N]"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Using Matplotlib's \"plot\" function as the callable for "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "plot",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "plot"
+            },
+            {
+              "type": "text",
+              "value": " produces unexpected results, this plots the real part of the complex transfer function, not the magnitude. Try "
+            },
+            {
+              "type": "inlineCode",
+              "value": "lambda w, h: plot(w, abs(h))"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Numerator of a linear filter."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "b",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Denominator of a linear filter."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "a",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If None, then compute at 200 frequencies around the interesting parts of the response curve (determined by pole-zero locations). If a single integer, then compute at that many frequencies. Otherwise, compute the response at the angular frequencies (e.g., rad/s) given in "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "worN",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "worN"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "worN",
+              "type": "Param",
+              "type_": "{None, int, array_like}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A callable that takes two arguments. If given, the return parameters "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "w",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "w"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "h",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "h"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are passed to plot. Useful for plotting the frequency response inside "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "freqs"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "plot",
+              "type": "Param",
+              "type_": "callable, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The angular frequencies at which "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "h",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "h"
+                    },
+                    {
+                      "type": "text",
+                      "value": " was computed."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "w",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The frequency response."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "h",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute frequency response of analog filter."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from scipy.signal import freqs, iirfilter\nimport numpy as np"
+      },
+      {
+        "type": "code",
+        "value": "b, a = iirfilter(4, [1, 10], 1, 60, analog=True, ftype='cheby1')"
+      },
+      {
+        "type": "code",
+        "value": "w, h = freqs(b, a, worN=np.logspace(-1, 2, 1000))"
+      },
+      {
+        "type": "code",
+        "value": "import matplotlib.pyplot as plt\nplt.semilogx(w, 20 * np.log10(abs(h)))\nplt.xlabel('Frequency')\nplt.ylabel('Amplitude response [dB]')\nplt.grid(True)\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.signal._filter_design:freqs-0-572e66c5.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/signal/_filter_design.py",
+  "item_line": 119,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute the frequency response of a digital filter."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "freqz",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "freqz"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(b, a, worN=200, plot=None)"
+  },
+  "type": "DocBlob"
+}

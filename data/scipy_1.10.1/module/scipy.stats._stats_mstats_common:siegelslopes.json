@@ -1,0 +1,559 @@
+{
+  "aliases": [
+    "scipy.stats.siegelslopes"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "siegelslopes"
+            },
+            {
+              "type": "text",
+              "value": " implements a method for robust linear regression using repeated medians (see ) to fit a line to the points (x, y). The method is robust to outliers with an asymptotic breakdown point of 50%."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "With "
+            },
+            {
+              "type": "inlineCode",
+              "value": "n = len(y)"
+            },
+            {
+              "type": "text",
+              "value": ", compute "
+            },
+            {
+              "type": "inlineCode",
+              "value": "m_j"
+            },
+            {
+              "type": "text",
+              "value": " as the median of the slopes from the point "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(x[j], y[j])"
+            },
+            {
+              "type": "text",
+              "value": " to all other "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "n-1"
+            },
+            {
+              "type": "text",
+              "value": " points. "
+            },
+            {
+              "type": "inlineCode",
+              "value": "slope"
+            },
+            {
+              "type": "text",
+              "value": " is then the median of all slopes "
+            },
+            {
+              "type": "inlineCode",
+              "value": "m_j"
+            },
+            {
+              "type": "text",
+              "value": ". Two ways are given to estimate the intercept in  which can be chosen via the parameter "
+            },
+            {
+              "type": "inlineCode",
+              "value": "method"
+            },
+            {
+              "type": "text",
+              "value": ". The hierarchical approach uses the estimated slope "
+            },
+            {
+              "type": "inlineCode",
+              "value": "slope"
+            },
+            {
+              "type": "text",
+              "value": " and computes "
+            },
+            {
+              "type": "inlineCode",
+              "value": "intercept"
+            },
+            {
+              "type": "text",
+              "value": " as the median of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "y - slope*x"
+            },
+            {
+              "type": "text",
+              "value": ". The other approach estimates the intercept separately as follows: for each point "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(x[j], y[j])"
+            },
+            {
+              "type": "text",
+              "value": ", compute the intercepts of all the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "n-1"
+            },
+            {
+              "type": "text",
+              "value": " lines through the remaining points and take the median "
+            },
+            {
+              "type": "inlineCode",
+              "value": "i_j"
+            },
+            {
+              "type": "text",
+              "value": ". "
+            },
+            {
+              "type": "inlineCode",
+              "value": "intercept"
+            },
+            {
+              "type": "text",
+              "value": " is the median of the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "i_j"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The implementation computes "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "n"
+            },
+            {
+              "type": "text",
+              "value": " times the median of a vector of size "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "n"
+            },
+            {
+              "type": "text",
+              "value": " which can be slow for large vectors. There are more efficient algorithms (see ) which are not implemented here."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For compatibility with older versions of SciPy, the return value acts like a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "namedtuple"
+            },
+            {
+              "type": "text",
+              "value": " of length 2, with fields "
+            },
+            {
+              "type": "inlineCode",
+              "value": "slope"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "intercept"
+            },
+            {
+              "type": "text",
+              "value": ", so one can continue to write      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "slope, intercept = siegelslopes(y, x)"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Dependent variable."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "y",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Independent variable. If None, use "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "arange(len(y))"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instead."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "array_like or None, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If 'hierarchical', estimate the intercept using the estimated slope "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "slope"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (default option). If 'separate', estimate the intercept independent of the estimated slope. See Notes for details."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "method",
+              "type": "Param",
+              "type_": "{'hierarchical', 'separate'}"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The return value is an object with the following attributes:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "slope"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "slope"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "intercept"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "intercept"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "param": "result",
+              "type": "Param",
+              "type_": "``SiegelslopesResult`` instance"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Computes the Siegel estimator for a set of points (x, y)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy import stats\nimport matplotlib.pyplot as plt"
+      },
+      {
+        "type": "code",
+        "value": "x = np.linspace(-5, 5, num=150)\ny = x + np.random.normal(size=x.size)\ny[11:15] += 10  # add outliers\ny[-5:] -= 7"
+      },
+      {
+        "type": "text",
+        "value": "Compute the slope and intercept.  For comparison, also compute the\nleast-squares fit with `linregress`:"
+      },
+      {
+        "type": "code",
+        "value": "res = stats.siegelslopes(y, x)\nlsq_res = stats.linregress(x, y)"
+      },
+      {
+        "type": "text",
+        "value": "Plot the results. The Siegel regression line is shown in red. The green\nline shows the least-squares fit for comparison."
+      },
+      {
+        "type": "code",
+        "value": "fig = plt.figure()\nax = fig.add_subplot(111)\nax.plot(x, y, 'b.')\nax.plot(x, res[1] + res[0] * x, 'r-')\nax.plot(x, lsq_res[1] + lsq_res[0] * x, 'g-')\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.stats._stats_mstats_common:siegelslopes-0-d6c1711d.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_stats_mstats_common.py",
+  "item_line": 392,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "a similar technique without repeated medians"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "theilslopes",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "theilslopes"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(y, x=None, method='hierarchical')"
+  },
+  "type": "DocBlob"
+}

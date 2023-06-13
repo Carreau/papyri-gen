@@ -1,0 +1,306 @@
+{
+  "aliases": [
+    "skimage.graph.pixel_graph"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Pixels where the mask is True are nodes in the returned graph, and they are connected by edges to their neighbors according to the connectivity parameter. By default, the "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "value"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " of an edge when a mask is given, or when the image is itself the mask, is the euclidean distance betwene the pixels."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "However, if an int- or float-valued image is given with no mask, the value of the edges is the absolute difference in intensity between adjacent pixels, weighted by the euclidean distance."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The input image. If the image is of type bool, it will be used as the mask as well."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "image",
+              "type": "Param",
+              "type_": "array"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Which pixels to use. If None, the graph for the whole image is used."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mask",
+              "type": "Param",
+              "type_": "array of bool"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A function taking an array of pixel values, and an array of neighbor pixel values, and an array of distances, and returning a value for the edge. If no function is given, the value of an edge is just the distance."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "edge_function",
+              "type": "Param",
+              "type_": "callable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The square connectivity of the pixel neighborhood: the number of orthogonal steps allowed to consider a pixel a neigbor. See "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "scipy",
+                        "path": "scipy.ndimage._morphology:generate_binary_structure",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "scipy.ndimage.generate_binary_structure"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for details."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "connectivity",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The spacing between pixels along each axis."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "spacing",
+              "type": "Param",
+              "type_": "tuple of float"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A sparse adjacency matrix in which entry (i, j) is 1 if nodes i and j are neighbors, 0 otherwise."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "graph",
+              "type": "Param",
+              "type_": "scipy.sparse.csr_matrix"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The nodes of the graph. These correspond to the raveled indices of the nonzero pixels in the mask."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "nodes",
+              "type": "Param",
+              "type_": "array of int"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Create an adjacency graph of pixels in an image."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/skimage/graph/_graph.py",
+  "item_line": 33,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(image, *, mask=None, edge_function=None, connectivity=1, spacing=None)"
+  },
+  "type": "DocBlob"
+}

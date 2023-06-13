@@ -1,0 +1,299 @@
+{
+  "aliases": [
+    "dask.array.rechunk"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Array to be rechunked."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x: dask array",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The new block dimensions to create. -1 indicates the full size of the corresponding dimension. Default is \"auto\" which automatically determines chunk sizes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "chunks:  int, tuple, dict or str, optional",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The graph growth factor under which we don't bother introducing an intermediate step."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "threshold: int, optional",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The maximum block size (in bytes) we want to produce Defaults to the configuration value "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "array.chunk-size"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "block_size_limit: int, optional",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, try to make each chunk to be the same size."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This means "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "balance=True"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will remove any small leftover chunks, so using "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x.rechunk(chunks=len(x) // N, balance=True)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will almost certainly result in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "N"
+                    },
+                    {
+                      "type": "text",
+                      "value": " chunks."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "balance",
+              "type": "Param",
+              "type_": "bool, default False"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Convert blocks in dask array x for new chunks."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import dask.array as da\nx = da.ones((1000, 1000), chunks=(100, 100))"
+      },
+      {
+        "type": "text",
+        "value": "Specify uniform chunk sizes with a tuple"
+      },
+      {
+        "type": "code",
+        "value": "y = x.rechunk((1000, 10))"
+      },
+      {
+        "type": "text",
+        "value": "Or chunk only specific dimensions with a dictionary"
+      },
+      {
+        "type": "code",
+        "value": "y = x.rechunk({0: 1000})"
+      },
+      {
+        "type": "text",
+        "value": "Use the value ``-1`` to specify that you want a single chunk along a\ndimension or the value ``\"auto\"`` to specify that dask can freely rechunk a\ndimension to attain blocks of a uniform block size"
+      },
+      {
+        "type": "code",
+        "value": "y = x.rechunk({0: -1, 1: 'auto'}, block_size_limit=1e8)"
+      },
+      {
+        "type": "text",
+        "value": "If a chunk size does not divide the dimension then rechunk will leave any\nunevenness to the last chunk."
+      },
+      {
+        "type": "code",
+        "value": "x.rechunk(chunks=(400, -1)).chunks"
+      },
+      {
+        "type": "text",
+        "value": "However if you want more balanced chunks, and don't mind Dask choosing a\ndifferent chunksize for you then you can use the ``balance=True`` option."
+      },
+      {
+        "type": "code",
+        "value": "x.rechunk(chunks=(400, -1), balance=True).chunks"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dask/array/rechunk.py",
+  "item_line": 228,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(x, chunks='auto', threshold=None, block_size_limit=None, balance=False)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,411 @@
+{
+  "aliases": [
+    "dask.array.core.insert_to_ooc"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Dask keys of the input array"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "keys: list",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Dask chunks of the input array"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "chunks: tuple",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Where to store results to"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "out: array-like",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "First element of dask keys"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "name: str",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to lock or with what (default is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", which means a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "threading.Lock"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instance)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "lock: Lock-like or bool, optional",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Where in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "out"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to store "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "arr"
+                    },
+                    {
+                      "type": "text",
+                      "value": "'s results (default is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", meaning all of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "out"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "region: slice-like, optional",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to return "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "out"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (default is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", meaning "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is returned)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "return_stored: bool, optional",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to handling loading from "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "out"
+                    },
+                    {
+                      "type": "text",
+                      "value": " at the same time. Ignored if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "return_stored"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is not "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". (default is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", meaning defer to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "return_stored"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "load_stored: bool, optional",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "dask graph of store operation"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Creates a Dask graph for storing chunks from "
+            },
+            {
+              "type": "inlineCode",
+              "value": "arr"
+            },
+            {
+              "type": "text",
+              "value": " in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "out"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import dask.array as da\nd = da.ones((5, 6), chunks=(2, 3))\na = np.empty(d.shape)\ninsert_to_ooc(d.__dask_keys__(), d.chunks, a, \"store-123\")  # doctest: +SKIP"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dask/array/core.py",
+  "item_line": 4398,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(keys: 'list', chunks: 'tuple[tuple[int, ...], ...]', out: 'ArrayLike', name: 'str', *, lock: 'Lock | bool' = True, region: 'tuple[slice, ...] | slice | None' = None, return_stored: 'bool' = False, load_stored: 'bool' = False) -> 'dict'"
+  },
+  "type": "DocBlob"
+}

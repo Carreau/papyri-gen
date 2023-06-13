@@ -1,0 +1,919 @@
+{
+  "aliases": [
+    "scipy.signal.spectrogram"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Spectrograms can be used as a way of visualizing the change of a nonstationary signal's frequency content over time."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "An appropriate amount of overlap will depend on the choice of window and on your requirements. In contrast to welch's method, where the entire data stream is averaged over, one may wish to use a smaller overlap (or perhaps none at all) when computing a spectrogram, to maintain some statistical independence between individual segments. It is for this reason that the default window is a Tukey window with 1/8th of a window's length overlap at each end."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 0.16.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Time series of measurement values"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Sampling frequency of the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " time series. Defaults to 1.0."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fs",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Desired window to use. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "window",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "window"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a string or tuple, it is passed to "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "scipy",
+                        "path": "scipy.signal.windows._windows:get_window",
+                        "type": "RefInfo",
+                        "version": "1.10.1"
+                      },
+                      "type": "Link",
+                      "value": "get_window"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to generate the window values, which are DFT-even by default. See "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "scipy",
+                        "path": "scipy.signal.windows._windows:get_window",
+                        "type": "RefInfo",
+                        "version": "1.10.1"
+                      },
+                      "type": "Link",
+                      "value": "get_window"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for a list of windows and required parameters. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "window",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "window"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is array_like it will be used directly as the window and its length must be nperseg. Defaults to a Tukey window with shape parameter of 0.25."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "window",
+              "type": "Param",
+              "type_": "str or tuple or array_like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Length of each segment. Defaults to None, but if window is str or tuple, is set to 256, and if window is array_like, is set to the length of the window."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "nperseg",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of points to overlap between segments. If "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "noverlap = nperseg // 8"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Defaults to "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "noverlap",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Length of the FFT used, if a zero padded FFT is desired. If "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the FFT length is "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "nperseg",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "nperseg"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Defaults to "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "nfft",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Specifies how to detrend each segment. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "detrend",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "detrend"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a string, it is passed as the "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "type"
+                    },
+                    {
+                      "type": "text",
+                      "value": " argument to the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "detrend",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "detrend"
+                    },
+                    {
+                      "type": "text",
+                      "value": " function. If it is a function, it takes a segment and returns a detrended segment. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "detrend",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "detrend"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", no detrending is done. Defaults to 'constant'."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "detrend",
+              "type": "Param",
+              "type_": "str or function or `False`, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", return a one-sided spectrum for real data. If "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": " return a two-sided spectrum. Defaults to "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", but for complex data, a two-sided spectrum is always returned."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "return_onesided",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Selects between computing the power spectral density ('density') where "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "Sxx",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "Sxx"
+                    },
+                    {
+                      "type": "text",
+                      "value": " has units of V**2/Hz and computing the power spectrum ('spectrum') where "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "Sxx",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "Sxx"
+                    },
+                    {
+                      "type": "text",
+                      "value": " has units of V**2, if "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is measured in V and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "fs",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "fs"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is measured in Hz. Defaults to 'density'."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "scaling",
+              "type": "Param",
+              "type_": "{ 'density', 'spectrum' }, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Axis along which the spectrogram is computed; the default is over the last axis (i.e. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "axis=-1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "axis",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Defines what kind of return values are expected. Options are ['psd', 'complex', 'magnitude', 'angle', 'phase']. 'complex' is equivalent to the output of "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "stft"
+                    },
+                    {
+                      "type": "text",
+                      "value": " with no padding or boundary extension. 'magnitude' returns the absolute magnitude of the STFT. 'angle' and 'phase' return the complex angle of the STFT, with and without unwrapping, respectively."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mode",
+              "type": "Param",
+              "type_": "str, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Array of sample frequencies."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "f",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Array of segment times."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "t",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Spectrogram of x. By default, the last axis of Sxx corresponds to the segment times."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "Sxx",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute a spectrogram with consecutive Fourier transforms."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy import signal\nfrom scipy.fft import fftshift\nimport matplotlib.pyplot as plt\nrng = np.random.default_rng()"
+      },
+      {
+        "type": "text",
+        "value": "Generate a test signal, a 2 Vrms sine wave whose frequency is slowly\nmodulated around 3kHz, corrupted by white noise of exponentially\ndecreasing magnitude sampled at 10 kHz."
+      },
+      {
+        "type": "code",
+        "value": "fs = 10e3\nN = 1e5\namp = 2 * np.sqrt(2)\nnoise_power = 0.01 * fs / 2\ntime = np.arange(N) / float(fs)\nmod = 500*np.cos(2*np.pi*0.25*time)\ncarrier = amp * np.sin(2*np.pi*3e3*time + mod)\nnoise = rng.normal(scale=np.sqrt(noise_power), size=time.shape)\nnoise *= np.exp(-time/5)\nx = carrier + noise"
+      },
+      {
+        "type": "text",
+        "value": "Compute and plot the spectrogram."
+      },
+      {
+        "type": "code",
+        "value": "f, t, Sxx = signal.spectrogram(x, fs)\nplt.pcolormesh(t, f, Sxx, shading='gouraud')\nplt.ylabel('Frequency [Hz]')\nplt.xlabel('Time [sec]')\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.signal._spectral_py:spectrogram-0-98e946d2.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      },
+      {
+        "type": "text",
+        "value": "Note, if using output that is not one sided, then use the following:"
+      },
+      {
+        "type": "code",
+        "value": "f, t, Sxx = signal.spectrogram(x, fs, return_onesided=False)\nplt.pcolormesh(t, fftshift(f), fftshift(Sxx, axes=0), shading='gouraud')\nplt.ylabel('Frequency [Hz]')\nplt.xlabel('Time [sec]')\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.signal._spectral_py:spectrogram-1-1f755e1c.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/signal/_spectral_py.py",
+  "item_line": 617,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Simple, optionally modified periodogram"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._spectral_py:periodogram",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "periodogram"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Lomb-Scargle periodogram for unevenly sampled data"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "lombscargle",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "lombscargle"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Power spectral density by Welch's method."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._spectral_py:welch",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "welch"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Cross spectral density by Welch's method."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._spectral_py:csd",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "csd"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(x, fs=1.0, window=('tukey', 0.25), nperseg=None, noverlap=None, nfft=None, detrend='constant', return_onesided=True, scaling='density', axis=-1, mode='psd')"
+  },
+  "type": "DocBlob"
+}

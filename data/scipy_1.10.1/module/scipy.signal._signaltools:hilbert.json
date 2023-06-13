@@ -1,0 +1,402 @@
+{
+  "aliases": [
+    "scipy.signal.hilbert"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The transformation is done along the last axis by default."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The analytic signal "
+            },
+            {
+              "type": "inlineCode",
+              "value": "x_a(t)"
+            },
+            {
+              "type": "text",
+              "value": " of signal "
+            },
+            {
+              "type": "inlineCode",
+              "value": "x(t)"
+            },
+            {
+              "type": "text",
+              "value": " is:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "x_a = F^{-1}(F(x) 2U) = x + i y"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "F"
+            },
+            {
+              "type": "text",
+              "value": " is the Fourier transform, "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "U"
+            },
+            {
+              "type": "text",
+              "value": " the unit step function, and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "y"
+            },
+            {
+              "type": "text",
+              "value": " the Hilbert transform of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "x",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "x"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In other words, the negative half of the frequency spectrum is zeroed out, turning the real-valued signal into a complex signal.  The Hilbert transformed signal can be obtained from "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.imag(hilbert(x))"
+            },
+            {
+              "type": "text",
+              "value": ", and the original signal from "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.real(hilbert(x))"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Signal data.  Must be real."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of Fourier components.  Default: "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x.shape[axis]"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "N",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Axis along which to do the transformation.  Default: -1."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "axis",
+              "type": "Param",
+              "type_": "int, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Analytic signal of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", of each 1-D array along "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "axis",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "axis"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "xa",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute the analytic signal, using the Hilbert transform."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "In this example we use the Hilbert transform to determine the amplitude\nenvelope and instantaneous frequency of an amplitude-modulated signal."
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.signal import hilbert, chirp"
+      },
+      {
+        "type": "code",
+        "value": "duration = 1.0\nfs = 400.0\nsamples = int(fs*duration)\nt = np.arange(samples) / fs"
+      },
+      {
+        "type": "text",
+        "value": "We create a chirp of which the frequency increases from 20 Hz to 100 Hz and\napply an amplitude modulation."
+      },
+      {
+        "type": "code",
+        "value": "signal = chirp(t, 20.0, t[-1], 100.0)\nsignal *= (1.0 + 0.5 * np.sin(2.0*np.pi*3.0*t) )"
+      },
+      {
+        "type": "text",
+        "value": "The amplitude envelope is given by magnitude of the analytic signal. The\ninstantaneous frequency can be obtained by differentiating the\ninstantaneous phase in respect to time. The instantaneous phase corresponds\nto the phase angle of the analytic signal."
+      },
+      {
+        "type": "code",
+        "value": "analytic_signal = hilbert(signal)\namplitude_envelope = np.abs(analytic_signal)\ninstantaneous_phase = np.unwrap(np.angle(analytic_signal))\ninstantaneous_frequency = (np.diff(instantaneous_phase) /\n                           (2.0*np.pi) * fs)"
+      },
+      {
+        "type": "code",
+        "value": "fig, (ax0, ax1) = plt.subplots(nrows=2)\nax0.plot(t, signal, label='signal')\nax0.plot(t, amplitude_envelope, label='envelope')\nax0.set_xlabel(\"time in seconds\")\nax0.legend()\nax1.plot(t[1:], instantaneous_frequency)\nax1.set_xlabel(\"time in seconds\")\nax1.set_ylim(0.0, 120.0)\nfig.tight_layout()"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/signal/_signaltools.py",
+  "item_line": 2269,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(x, N=None, axis=-1)"
+  },
+  "type": "DocBlob"
+}

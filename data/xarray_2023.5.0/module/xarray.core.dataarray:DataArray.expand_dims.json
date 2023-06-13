@@ -1,0 +1,264 @@
+{
+  "aliases": [
+    "xarray.DataArray.expand_dims"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If dim is already a scalar coordinate, it will be promoted to a 1D coordinate consisting of a single value."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Dimensions to include on the new variable. If provided as str or sequence of str, then dimensions are inserted with length 1. If provided as a dict, then the keys are the new dimensions and the values are either integers (giving the length of the new dimensions) or sequence/ndarray (giving the coordinates of the new dimensions)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dim",
+              "type": "Param",
+              "type_": "Hashable, sequence of Hashable, dict, or None, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Axis position(s) where new axis is to be inserted (position(s) on the result array). If a sequence of integers is passed, multiple axes are inserted. In this case, dim arguments should be same length list. If axis=None is passed, all the axes will be inserted to the start of the result array."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "axis",
+              "type": "Param",
+              "type_": "int, sequence of int, or None, default: None"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The keywords are arbitrary dimensions being inserted and the values are either the lengths of the new dims (if int is given), or their coordinates. Note, this is an alternative to passing a dict to the dim kwarg and will only be used if dim is None."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "**dim_kwargs",
+              "type": "Param",
+              "type_": "int or sequence or ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This object, but with additional dimension(s)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "expanded",
+              "type": "Param",
+              "type_": "DataArray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Return a new object with an additional axis (or axes) inserted at the corresponding position in the array shape. The new object is a view into the underlying array, not a copy."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "da = xr.DataArray(np.arange(5), dims=(\"x\"))\nda"
+      },
+      {
+        "type": "text",
+        "value": "Add new dimension of length 2:"
+      },
+      {
+        "type": "code",
+        "value": "da.expand_dims(dim={\"y\": 2})"
+      },
+      {
+        "type": "code",
+        "value": "da.expand_dims(dim={\"y\": 2}, axis=1)"
+      },
+      {
+        "type": "text",
+        "value": "Add a new dimension with coordinates from array:"
+      },
+      {
+        "type": "code",
+        "value": "da.expand_dims(dim={\"y\": np.arange(5)}, axis=0)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/xarray/core/dataarray.py",
+  "item_line": 2443,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "xarray",
+          "path": "xarray.core.dataset:Dataset.expand_dims",
+          "type": "RefInfo",
+          "version": "2023.5.0"
+        },
+        "type": "Link",
+        "value": "Dataset.expand_dims"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, dim: 'None | Hashable | Sequence[Hashable] | Mapping[Any, Any]' = None, axis: 'None | int | Sequence[int]' = None, **dim_kwargs: 'Any') -> 'DataArray'"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,522 @@
+{
+  "aliases": [
+    "scipy.signal.sosfreqz"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Given "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "sos",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "sos"
+            },
+            {
+              "type": "text",
+              "value": ", an array with shape (n, 6) of second order sections of a digital filter, compute the frequency response of the system function             "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "       B0(z)   B1(z)         B{n-1}(z)\nH(z) = ----- * ----- * ... * ---------\n       A0(z)   A1(z)         A{n-1}(z)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "for z = exp(omega*1j), where B{k}(z) and A{k}(z) are numerator and denominator of the transfer function of the k-th second order section."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 0.19.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Array of second-order filter coefficients, must have shape "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(n_sections, 6)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Each row corresponds to a second-order section, with the first three columns providing the numerator coefficients and the last three providing the denominator coefficients."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sos",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If a single integer, then compute at that many frequencies (default is N=512).  Using a number that is fast for FFT computations can result in faster computations (see Notes of "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "freqz"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If an array_like, compute the response at the frequencies given (must be 1-D). These are in the same units as "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "fs",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "fs"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "worN",
+              "type": "Param",
+              "type_": "{None, int, array_like}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Normally, frequencies are computed from 0 to the Nyquist frequency, fs/2 (upper-half of unit-circle). If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "whole",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "whole"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is True, compute frequencies from 0 to fs."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "whole",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The sampling frequency of the digital system. Defaults to 2*pi radians/sample (so w is from 0 to pi)."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.2.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "fs",
+              "type": "Param",
+              "type_": "float, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The frequencies at which "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "h",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "h"
+                    },
+                    {
+                      "type": "text",
+                      "value": " was computed, in the same units as "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "fs",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "fs"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". By default, "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "w",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "w"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is normalized to the range [0, pi) (radians/sample)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "w",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The frequency response, as complex numbers."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "h",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute the frequency response of a digital filter in SOS format."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Design a 15th-order bandpass filter in SOS format."
+      },
+      {
+        "type": "code",
+        "value": "from scipy import signal\nimport numpy as np\nsos = signal.ellip(15, 0.5, 60, (0.2, 0.4), btype='bandpass',\n                   output='sos')"
+      },
+      {
+        "type": "text",
+        "value": "Compute the frequency response at 1500 points from DC to Nyquist."
+      },
+      {
+        "type": "code",
+        "value": "w, h = signal.sosfreqz(sos, worN=1500)"
+      },
+      {
+        "type": "text",
+        "value": "Plot the response."
+      },
+      {
+        "type": "code",
+        "value": "import matplotlib.pyplot as plt\nplt.subplot(2, 1, 1)\ndb = 20*np.log10(np.maximum(np.abs(h), 1e-5))\nplt.plot(w/np.pi, db)\nplt.ylim(-75, 5)\nplt.grid(True)\nplt.yticks([0, -20, -40, -60])\nplt.ylabel('Gain [dB]')\nplt.title('Frequency Response')\nplt.subplot(2, 1, 2)\nplt.plot(w/np.pi, np.angle(h))\nplt.grid(True)\nplt.yticks([-np.pi, -0.5*np.pi, 0, 0.5*np.pi, np.pi],\n           [r'$-\\pi$', r'$-\\pi/2$', '0', r'$\\pi/2$', r'$\\pi$'])\nplt.ylabel('Phase [rad]')\nplt.xlabel('Normalized frequency (1.0 = Nyquist)')\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.signal._filter_design:sosfreqz-0-e718c219.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      },
+      {
+        "type": "text",
+        "value": "If the same filter is implemented as a single transfer function,\nnumerical error corrupts the frequency response:"
+      },
+      {
+        "type": "code",
+        "value": "b, a = signal.ellip(15, 0.5, 60, (0.2, 0.4), btype='bandpass',\n                   output='ba')\nw, h = signal.freqz(b, a, worN=1500)\nplt.subplot(2, 1, 1)\ndb = 20*np.log10(np.maximum(np.abs(h), 1e-5))\nplt.plot(w/np.pi, db)\nplt.ylim(-75, 5)\nplt.grid(True)\nplt.yticks([0, -20, -40, -60])\nplt.ylabel('Gain [dB]')\nplt.title('Frequency Response')\nplt.subplot(2, 1, 2)\nplt.plot(w/np.pi, np.angle(h))\nplt.grid(True)\nplt.yticks([-np.pi, -0.5*np.pi, 0, 0.5*np.pi, np.pi],\n           [r'$-\\pi$', r'$-\\pi/2$', '0', r'$\\pi/2$', r'$\\pi$'])\nplt.ylabel('Phase [rad]')\nplt.xlabel('Normalized frequency (1.0 = Nyquist)')\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.signal._filter_design:sosfreqz-1-5e2ab888.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/signal/_filter_design.py",
+  "item_line": 731,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "freqz",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "freqz"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "sosfilt",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "sosfilt"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(sos, worN=512, whole=False, fs=6.283185307179586)"
+  },
+  "type": "DocBlob"
+}

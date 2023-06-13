@@ -1,0 +1,1697 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This guide documents the development of IPython itself.  Alternatively, developers of third party tools and libraries that use IPython should see the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "../development/index"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For instructions on how to make a developer install see "
+            },
+            {
+              "type": "inlineCode",
+              "value": "devinstall"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": "core_developer_guide",
+      "title": "Guide for IPython core Developers",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "All pull requests should usually be made against "
+            },
+            {
+              "type": "inlineCode",
+              "value": "main"
+            },
+            {
+              "type": "text",
+              "value": ", if a Pull Request need to be backported to an earlier release; then it should be tagged with the correct "
+            },
+            {
+              "type": "inlineCode",
+              "value": "milestone"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If you tag a pull request with a milestone "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "before"
+                }
+              ],
+              "type": "strong"
+            },
+            {
+              "type": "text",
+              "value": " merging the pull request, and the base ref is "
+            },
+            {
+              "type": "inlineCode",
+              "value": "main"
+            },
+            {
+              "type": "text",
+              "value": ", then our backport bot should automatically create a corresponding pull-request that backport on the correct branch."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If you have write access to the IPython repository you can also just mention the "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "backport bot"
+                }
+              ],
+              "type": "strong"
+            },
+            {
+              "type": "text",
+              "value": " to do the work for you. The bot is evolving so instructions may be different. At the time of this writing you can use      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "@meeseeksdev[bot] backport [to] <branchname>"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The bot will attempt to backport the current pull-request and issue a PR if possible."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "note "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "The "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "@"
+                },
+                {
+                  "type": "text",
+                  "value": " and "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "[bot]"
+                },
+                {
+                  "type": "text",
+                  "value": " when mentioning the bot should be optional and can be omitted."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If the pull request cannot be automatically backported, the bot should tell you so on the PR and apply a \"Need manual backport\" tag to the origin PR."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Backporting Pull requests",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This document contains the process that is used to create an IPython release."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Conveniently, the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "release"
+            },
+            {
+              "type": "text",
+              "value": " script in the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "tools"
+            },
+            {
+              "type": "text",
+              "value": " directory of the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "IPython"
+            },
+            {
+              "type": "text",
+              "value": " repository automates most of the release process. This document serves as a handy reminder and checklist for the release manager."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "During the release process, you might need the extra following dependencies:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "inlineCode",
+                          "value": "keyring"
+                        },
+                        {
+                          "type": "text",
+                          "value": " to access your GitHub authentication tokens"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "inlineCode",
+                          "value": "graphviz"
+                        },
+                        {
+                          "type": "text",
+                          "value": " to generate some graphs in the documentation"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "inlineCode",
+                          "value": "ghpro"
+                        },
+                        {
+                          "type": "text",
+                          "value": " to generate the stats"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                }
+              ],
+              "ordered": false,
+              "spread": false,
+              "start": 1,
+              "type": "list"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Make sure you have all the required dependencies to run the tests as well."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You can try to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "source tools/release_helper.sh"
+            },
+            {
+              "type": "text",
+              "value": " when releasing via bash, it  should guide you through most of the process."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": "release_process",
+      "title": "IPython release process",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Set environment variables to document previous release tag, current release milestone, current release version, and git tag."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "These variables may be used later to copy/paste as answers to the script questions instead of typing the appropriate command when the time comes. These variables are not used by the scripts directly; therefore, there is no need to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "export"
+            },
+            {
+              "type": "text",
+              "value": " them. The format for bash is as follows, but note that these values are just an example valid only for the 5.0 release; you'll need to update them for the release you are actually making      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "PREV_RELEASE=4.2.1\nMILESTONE=5.0\nVERSION=5.0.0\nBRANCH=main"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "reproducibility of builds"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://reproducible-builds.org/specs/source-date-epoch/"
+            },
+            {
+              "type": "text",
+              "value": ", we recommend setting "
+            },
+            {
+              "type": "inlineCode",
+              "value": "SOURCE_DATE_EPOCH"
+            },
+            {
+              "type": "text",
+              "value": " prior to running the build; record the used value of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "SOURCE_DATE_EPOCH"
+            },
+            {
+              "type": "text",
+              "value": " as it may not be available from build artifact. You should be able to use "
+            },
+            {
+              "type": "inlineCode",
+              "value": "date +%s"
+            },
+            {
+              "type": "text",
+              "value": " to get a formatted timestamp      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "SOURCE_DATE_EPOCH=$(date +%s)"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "1. Set Environment variables",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "note "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "This step is optional if making a Beta or RC release."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "note "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Before generating the GitHub stats, verify that all closed issues and pull requests have "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "appropriate milestones\n<https://github.com/ipython/ipython/wiki/Dev:-GitHub-workflow#milestones>"
+                },
+                {
+                  "type": "text",
+                  "value": ". "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "This search\n<https://github.com/ipython/ipython/issues?q=is%3Aclosed+no%3Amilestone+is%3Aissue>"
+                },
+                {
+                  "type": "text",
+                  "value": " should return no results before creating the GitHub stats."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If a major release:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "merge any pull request notes into what's new            "
+                        }
+                      ],
+                      "type": "paragraph"
+                    },
+                    {
+                      "type": "code",
+                      "value": "python tools/update_whatsnew.py"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "update "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "docs/source/whatsnew/development.rst"
+                        },
+                        {
+                          "type": "text",
+                          "value": ", to ensure it covers       the major release features"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "move the contents of "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "development.rst"
+                        },
+                        {
+                          "type": "text",
+                          "value": " to "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "versionX.rst"
+                        },
+                        {
+                          "type": "text",
+                          "value": " where "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "X"
+                        },
+                        {
+                          "type": "text",
+                          "value": " is       the numerical release version"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "generate summary of GitHub contributions, which can be done with            "
+                        }
+                      ],
+                      "type": "paragraph"
+                    },
+                    {
+                      "type": "code",
+                      "value": "python tools/github_stats.py --milestone $MILESTONE > stats.rst"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "which may need some manual cleanup of "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "stats.rst"
+                        },
+                        {
+                          "type": "text",
+                          "value": ". Add the cleaned       "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "stats.rst"
+                        },
+                        {
+                          "type": "text",
+                          "value": " results to "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "docs/source/whatsnew/github-stats-X.rst"
+                        },
+                        {
+                          "type": "text",
+                          "value": "       where "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "X"
+                        },
+                        {
+                          "type": "text",
+                          "value": " is the numerical release version (don't forget to add it to       the git repository as well). If creating a major release, make a new       "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "github-stats-X.rst"
+                        },
+                        {
+                          "type": "text",
+                          "value": " file; if creating a minor release, the content       from "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "stats.rst"
+                        },
+                        {
+                          "type": "text",
+                          "value": " may simply be added to the top of an existing       "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "github-stats-X.rst"
+                        },
+                        {
+                          "type": "text",
+                          "value": " file."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Edit "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "docs/source/whatsnew/index.rst"
+                        },
+                        {
+                          "type": "text",
+                          "value": " to list the new "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "github-stats-X"
+                        },
+                        {
+                          "type": "text",
+                          "value": "       file you just created."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "You do not need to temporarily remove the first entry called       "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "development"
+                        },
+                        {
+                          "type": "text",
+                          "value": ", nor re-add it after the release, it will automatically be       hidden when releasing a stable version of IPython (if "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "_version_extra"
+                        },
+                        {
+                          "type": "text",
+                          "value": "       in "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "release.py"
+                        },
+                        {
+                          "type": "text",
+                          "value": " is an empty string."
+                        }
+                      ],
+                      "type": "paragraph"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Make sure that the stats file has a header or it won't be rendered in       the final documentation."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                }
+              ],
+              "ordered": false,
+              "spread": false,
+              "start": 1,
+              "type": "list"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To find duplicates and update "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": ".mailmap"
+            },
+            {
+              "type": "text",
+              "value": ", use      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "git log --format=\"%aN <%aE>\" $PREV_RELEASE... | sort -u -f"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If a minor release you might need to do some of the above points manually, and forward port the changes."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "2. Create GitHub stats and finish release note",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Remove all non-tracked files with:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "git clean -xfdi"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This will ask for confirmation before removing all untracked files. Make    sure the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "dist/"
+                    },
+                    {
+                      "type": "text",
+                      "value": " folder is clean to avoid any stale builds from    previous build attempts."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "of any file that could be problematic."
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            }
+          ],
+          "type": "DefList"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "3. Make sure the repository is clean",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Edit "
+            },
+            {
+              "type": "inlineCode",
+              "value": "IPython/core/release.py"
+            },
+            {
+              "type": "text",
+              "value": " to have the current version."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "in particular, update version number and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_version_extra"
+            },
+            {
+              "type": "text",
+              "value": " content in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "IPython/core/release.py"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Step 5 will validate your changes automatically, but you might still want to make sure the version number matches pep440."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In particular, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "rc"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "beta"
+            },
+            {
+              "type": "text",
+              "value": " are not separated by "
+            },
+            {
+              "type": "inlineCode",
+              "value": "."
+            },
+            {
+              "type": "text",
+              "value": " or the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "sdist"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "bdist"
+            },
+            {
+              "type": "text",
+              "value": " will appear as different releases. For example, a valid version number for a release candidate (rc) release is: "
+            },
+            {
+              "type": "inlineCode",
+              "value": "1.3rc1"
+            },
+            {
+              "type": "text",
+              "value": ". Notice that there is no separator between the '3' and the 'r'. Check the environment variable "
+            },
+            {
+              "type": "inlineCode",
+              "value": "$VERSION"
+            },
+            {
+              "type": "text",
+              "value": " as well."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You will likely just have to modify/comment/uncomment one of the lines setting "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_version_extra"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "4. Update the release version number",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Running "
+            },
+            {
+              "type": "inlineCode",
+              "value": "tools/build_release"
+            },
+            {
+              "type": "text",
+              "value": " does all the file checking and building that the real release script will do. This makes test installations, checks that the build procedure runs OK, and tests other steps in the release process."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "type": "inlineCode",
+              "value": "build_release"
+            },
+            {
+              "type": "text",
+              "value": " script will in particular verify that the version number match PEP 440, in order to avoid surprise at the time of build upload."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "We encourage creating a test build of the docs as well."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "5. Run the `tools/build_release` script",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Commit the changes to release.py      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "git commit -am \"release $VERSION\" -S\ngit push origin $BRANCH"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "(omit the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "-S"
+            },
+            {
+              "type": "text",
+              "value": " if you are no signing the package)"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Create and push the tag      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "git tag -am \"release $VERSION\" \"$VERSION\" -s\ngit push origin $VERSION"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "(omit the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "-s"
+            },
+            {
+              "type": "text",
+              "value": " if you are no signing the package)"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Update release.py back to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "x.y-dev"
+            },
+            {
+              "type": "text",
+              "value": " or "
+            },
+            {
+              "type": "inlineCode",
+              "value": "x.y-maint"
+            },
+            {
+              "type": "text",
+              "value": " commit and push      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "git commit -am \"back to development\" -S\ngit push origin $BRANCH"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "(omit the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "-S"
+            },
+            {
+              "type": "text",
+              "value": " if you are no signing the package)"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Now checkout the tag we just made      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "git checkout $VERSION"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "6. Create and push the new tag",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Run the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "release"
+            },
+            {
+              "type": "text",
+              "value": " script, this step requires having a current wheel, Python >=3.4 and Python 2.7.      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "./tools/release"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This makes the tarballs and wheels, and puts them under the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "dist/"
+            },
+            {
+              "type": "text",
+              "value": " folder. Be sure to test the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "wheels"
+            },
+            {
+              "type": "text",
+              "value": "  and the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "sdist"
+            },
+            {
+              "type": "text",
+              "value": " locally before uploading them to PyPI. We do not use an universal wheel as each wheel installs an "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ipython2"
+            },
+            {
+              "type": "text",
+              "value": " or "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ipython3"
+            },
+            {
+              "type": "text",
+              "value": " script, depending on the version of Python it is built for. Using an universal wheel would prevent this."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Check the shasum of files with      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "shasum -a 256 dist/*"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "and takes notes of them you might need them to update the conda-forge recipes. Rerun the command and check the hash have not changed      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "./tools/release\nshasum -a 256 dist/*"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Use the following to actually upload the result of the build      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "./tools/release upload"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "It should posts them to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "archive.ipython.org"
+            },
+            {
+              "type": "text",
+              "value": " and to PyPI."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "PyPI/Warehouse will automatically hide previous releases. If you are uploading a non-stable version, make sure to log-in to PyPI and un-hide previous version."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "7. Run the release script",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The announcement should include:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "release highlights"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "a link to the html version of the "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "What's new"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " section of the documentation"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "a link to upgrade or installation tips (if necessary)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Post the announcement to the mailing list and or blog, and link from Twitter."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "note "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "If you are doing a RC or Beta, you can likely skip the next steps."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "8. Draft a short release announcement",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "These steps will bring milestones up to date:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "close the just released milestone"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "open a new milestone for the next release (x, y+1), if the milestone doesn't   exist already"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "9. Update milestones on GitHub",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The IPython website should document the new release:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "add release announcement (news, announcements)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "update current version and download links"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "update links on the documentation page (especially if a major release)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "10. Update the IPython website",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Make sure to update readthedocs and set the latest tag as stable, as well as checking that previous release is still building under its own tag."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "11. Update readthedocs",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Follow the instructions on "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "the repository"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/conda-forge/ipython-feedstock"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "12. Update the Conda-Forge feedstock",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Celebrate the release and please thank the contributors for their work. Great job!"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "13. Celebrate!",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Out of date documentation is still available and have been kept for archival purposes."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "note "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Developers documentation used to be on the IPython wiki, but are now out of date. The wiki is though still available for historical reasons: "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "Old IPython\nGitHub Wiki.  <https://github.com/ipython/ipython/wiki/Dev:-Index>"
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Old Documentation",
+      "type": "Section"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

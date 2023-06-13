@@ -1,0 +1,543 @@
+{
+  "aliases": [
+    "xarray.DataArray.to_netcdf"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Only xarray.Dataset objects can be written to netCDF files, so the xarray.DataArray is converted to a xarray.Dataset object containing a single variable. If the DataArray has no name, or if the name is the same as a coordinate name, then it is given the name "
+            },
+            {
+              "type": "inlineCode",
+              "value": "\"__xarray_dataarray_variable__\""
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Path to which to save this dataset. File-like objects are only supported by the scipy engine. If no path is provided, this function returns the resulting netCDF file as bytes; in this case, we need to use scipy, which does not support netCDF version 4 (the default format becomes NETCDF3_64BIT)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "path",
+              "type": "Param",
+              "type_": "str, path-like or None, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Write ('w') or append ('a') mode. If mode='w', any existing file at this location will be overwritten. If mode='a', existing variables will be overwritten."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mode",
+              "type": "Param",
+              "type_": "{\"w\", \"a\"}, default: \"w\""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "File format for the resulting netCDF file:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "NETCDF4: Data is stored in an HDF5 file, using netCDF4 API   features."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "NETCDF4_CLASSIC: Data is stored in an HDF5 file, using only   netCDF 3 compatible API features."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "NETCDF3_64BIT: 64-bit offset version of the netCDF 3 file format,   which fully supports 2+ GB files, but is only compatible with   clients linked against netCDF version 3.6.0 or later."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "NETCDF3_CLASSIC: The classic netCDF 3 file format. It does not   handle 2+ GB files very well."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "All formats are supported by the netCDF4-python library. scipy.io.netcdf only supports the last two formats."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The default format is NETCDF4 if you are saving a file to disk and have the netCDF4-python library available. Otherwise, xarray falls back to using scipy to write netCDF files and defaults to the NETCDF3_64BIT format (scipy does not support netCDF4)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "format",
+              "type": "Param",
+              "type_": "{\"NETCDF4\", \"NETCDF4_CLASSIC\", \"NETCDF3_64BIT\",                   \"NETCDF3_CLASSIC\"}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Path to the netCDF4 group in the given file to open (only works for format='NETCDF4'). The group(s) will be created if necessary."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "group",
+              "type": "Param",
+              "type_": "str, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Engine to use when writing netCDF files. If not provided, the default engine is chosen based on available dependencies, with a preference for 'netcdf4' if writing to a file on disk."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "engine",
+              "type": "Param",
+              "type_": "{\"netcdf4\", \"scipy\", \"h5netcdf\"}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Nested dictionary with variable names as keys and dictionaries of variable specific encodings as values, e.g., "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "{\"my_variable\": {\"dtype\": \"int16\", \"scale_factor\": 0.1,\n\"zlib\": True}, ...}"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "h5netcdf"
+                    },
+                    {
+                      "type": "text",
+                      "value": " engine supports both the NetCDF4-style compression encoding parameters "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "{\"zlib\": True, \"complevel\": 9}"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and the h5py ones "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "{\"compression\": \"gzip\", \"compression_opts\": 9}"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". This allows using any compression plugin installed in the HDF5 library, e.g. LZF."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "encoding",
+              "type": "Param",
+              "type_": "dict, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Dimension(s) that should be serialized as unlimited dimensions. By default, no dimensions are treated as unlimited dimensions. Note that unlimited_dims may also be set via "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "dataset.encoding[\"unlimited_dims\"]"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "unlimited_dims",
+              "type": "Param",
+              "type_": "iterable of Hashable, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If true compute immediately, otherwise return a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "dask.delayed.Delayed"
+                    },
+                    {
+                      "type": "text",
+                      "value": " object that can be computed later."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "compute: bool, default: True",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Only valid along with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "engine=\"h5netcdf\""
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If True, allow writing hdf5 files which are invalid netcdf as described in https://github.com/h5netcdf/h5netcdf."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "invalid_netcdf: bool, default: False",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "inlineCode",
+                              "value": "bytes"
+                            },
+                            {
+                              "type": "text",
+                              "value": " if path is None"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "inlineCode",
+                              "value": "dask.delayed.Delayed"
+                            },
+                            {
+                              "type": "text",
+                              "value": " if compute is False"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "None otherwise"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "store: bytes or Delayed or None"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Write DataArray contents to a netCDF file."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/xarray/core/dataarray.py",
+  "item_line": 3865,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "xarray",
+          "path": "xarray.core.dataset:Dataset.to_netcdf",
+          "type": "RefInfo",
+          "version": "2023.5.0"
+        },
+        "type": "Link",
+        "value": "Dataset.to_netcdf"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, path: 'str | PathLike | None' = None, mode: \"Literal['w', 'a']\" = 'w', format: 'T_NetcdfTypes | None' = None, group: 'str | None' = None, engine: 'T_NetcdfEngine | None' = None, encoding: 'Mapping[Hashable, Mapping[str, Any]] | None' = None, unlimited_dims: 'Iterable[Hashable] | None' = None, compute: 'bool' = True, invalid_netcdf: 'bool' = False) -> 'bytes | Delayed | None'"
+  },
+  "type": "DocBlob"
+}

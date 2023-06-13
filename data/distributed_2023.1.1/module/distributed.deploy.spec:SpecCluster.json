@@ -1,0 +1,309 @@
+{
+  "aliases": [
+    "distributed.SpecCluster"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The SpecCluster class expects a full specification of the Scheduler and Workers to use.  It removes any handling of user inputs (like threads vs processes, number of cores, and so on) and any handling of cluster resource managers (like pods, jobs, and so on).  Instead, it expects this information to be passed in scheduler and worker specifications.  This class does handle all of the logic around asynchronously cleanly setting up and tearing things down at the right times.  Hopefully it can form a base for other more user-centric classes."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A dictionary mapping names to worker classes and their specifications See example below"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "workers: dict",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A similar mapping for a scheduler"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "scheduler: dict, optional",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A specification of a single worker. This is used for any new workers that are created."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "worker: dict",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If this is intended to be used directly within an event loop with async/await"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "asynchronous: bool",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether or not we should silence logging when setting up the cluster."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "silence_logs: bool",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A name to use when printing out the cluster, defaults to type name"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "name: str, optional",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Cluster that requires a full specification of workers"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "To create a SpecCluster you specify how to set up a Scheduler and Workers"
+      },
+      {
+        "type": "code",
+        "value": "from dask.distributed import Scheduler, Worker, Nanny\nscheduler = {'cls': Scheduler, 'options': {\"dashboard_address\": ':8787'}}\nworkers = {\n    'my-worker': {\"cls\": Worker, \"options\": {\"nthreads\": 1}},\n    'my-nanny': {\"cls\": Nanny, \"options\": {\"nthreads\": 2}},\n}\ncluster = SpecCluster(scheduler=scheduler, workers=workers)"
+      },
+      {
+        "type": "text",
+        "value": "The worker spec is stored as the ``.worker_spec`` attribute"
+      },
+      {
+        "type": "code",
+        "value": "cluster.worker_spec"
+      },
+      {
+        "type": "text",
+        "value": "While the instantiation of this spec is stored in the ``.workers``\nattribute"
+      },
+      {
+        "type": "code",
+        "value": "cluster.workers"
+      },
+      {
+        "type": "text",
+        "value": "Should the spec change, we can await the cluster or call the\n``._correct_state`` method to align the actual state to the specified\nstate."
+      },
+      {
+        "type": "text",
+        "value": "We can also ``.scale(...)`` the cluster, which adds new workers of a given\nform."
+      },
+      {
+        "type": "code",
+        "value": "worker = {'cls': Worker, 'options': {}}\ncluster = SpecCluster(scheduler=scheduler, worker=worker)\ncluster.worker_spec"
+      },
+      {
+        "type": "code",
+        "value": "cluster.scale(3)\ncluster.worker_spec"
+      },
+      {
+        "type": "text",
+        "value": "Note that above we are using the standard ``Worker`` and ``Nanny`` classes,\nhowever in practice other classes could be used that handle resource\nmanagement like ``KubernetesPod`` or ``SLURMJob``.  The spec does not need\nto conform to the expectations of the standard Dask Worker class.  It just\nneeds to be called with the provided options, support ``__await__`` and\n``close`` methods and the ``worker_address`` property.."
+      },
+      {
+        "type": "text",
+        "value": "Also note that uniformity of the specification is not required.  Other API\ncould be added externally (in subclasses) that adds workers of different\nspecifications into the same dictionary."
+      },
+      {
+        "type": "text",
+        "value": "If a single entry in the spec will generate multiple dask workers then\nplease provide a `\"group\"` element to the spec, that includes the suffixes\nthat will be added to each name (this should be handled by your worker\nclass)."
+      },
+      {
+        "type": "code",
+        "value": "cluster.worker_spec"
+      },
+      {
+        "type": "text",
+        "value": "These suffixes should correspond to the names used by the workers when\nthey deploy."
+      },
+      {
+        "type": "code",
+        "value": "[ws.name for ws in cluster.scheduler.workers.values()]"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/distributed/deploy/spec.py",
+  "item_line": 122,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

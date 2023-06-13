@@ -1,0 +1,544 @@
+{
+  "aliases": [
+    "scipy.interpolate.interpn"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Strictly speaking, not all regular grids are supported - this function works on "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "rectilinear"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " grids, that is, a rectangular grid with even or uneven spacing."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 0.14"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In the case that "
+            },
+            {
+              "type": "inlineCode",
+              "value": "xi.ndim == 1"
+            },
+            {
+              "type": "text",
+              "value": " a new axis is inserted into the 0 position of the returned array, values_x, so its shape is instead "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(1,) + values.shape[ndim:]"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If the input data is such that input dimensions have incommensurate units and differ by many orders of magnitude, the interpolant may have numerical artifacts. Consider rescaling the data before interpolation."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The points defining the regular grid in n dimensions. The points in each dimension (i.e. every elements of the points tuple) must be strictly ascending or descending."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "points",
+              "type": "Param",
+              "type_": "tuple of ndarray of float, with shapes (m1, ), ..., (mn, )"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The data on the regular grid in n dimensions. Complex data can be acceptable."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "values",
+              "type": "Param",
+              "type_": "array_like, shape (m1, ..., mn, ...)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The coordinates to sample the gridded data at"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "xi",
+              "type": "Param",
+              "type_": "ndarray of shape (..., ndim)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The method of interpolation to perform. Supported are \"linear\", \"nearest\", \"slinear\", \"cubic\", \"quintic\", \"pchip\", and \"splinef2d\". \"splinef2d\" is only supported for 2-dimensional data."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "method",
+              "type": "Param",
+              "type_": "str, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, when interpolated values are requested outside of the domain of the input data, a ValueError is raised. If False, then "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "fill_value",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "fill_value"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is used."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "bounds_error",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If provided, the value to use for points outside of the interpolation domain. If None, values outside the domain are extrapolated.  Extrapolation is not supported by method \"splinef2d\"."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fill_value",
+              "type": "Param",
+              "type_": "number, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Interpolated values at "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "xi",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "xi"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". See notes for behaviour when "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "xi.ndim == 1"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "values_x",
+              "type": "Param",
+              "type_": "ndarray, shape xi.shape[:-1] + values.shape[ndim:]"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Multidimensional interpolation on regular or rectilinear grids."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Evaluate a simple example function on the points of a regular 3-D grid:"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.interpolate import interpn\ndef value_func_3d(x, y, z):\n    return 2 * x + 3 * y - z\nx = np.linspace(0, 4, 5)\ny = np.linspace(0, 5, 6)\nz = np.linspace(0, 6, 7)\npoints = (x, y, z)\nvalues = value_func_3d(*np.meshgrid(*points, indexing='ij'))"
+      },
+      {
+        "type": "text",
+        "value": "Evaluate the interpolating function at a point"
+      },
+      {
+        "type": "code",
+        "value": "point = np.array([2.21, 3.12, 1.15])\nprint(interpn(points, values, point))"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/interpolate/_rgi.py",
+  "item_line": 516,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "Examples",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Nearest neighbor interpolation on unstructured data in N dimensions"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "NearestNDInterpolator",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "NearestNDInterpolator"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Piecewise linear interpolant on unstructured data in N dimensions"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "LinearNDInterpolator",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "LinearNDInterpolator"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "interpolation on a regular or rectilinear grid in arbitrary dimensions ("
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "interpn"
+            },
+            {
+              "type": "text",
+              "value": " wraps this class)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "RegularGridInterpolator",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "RegularGridInterpolator"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Bivariate spline approximation over a rectangular mesh"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "RectBivariateSpline",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "RectBivariateSpline"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "interpolation on grids with equal spacing (suitable for e.g., N-D image resampling)"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.ndimage._interpolation:map_coordinates",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "scipy.ndimage.map_coordinates"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(points, values, xi, method='linear', bounds_error=True, fill_value=nan)"
+  },
+  "type": "DocBlob"
+}

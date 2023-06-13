@@ -1,0 +1,515 @@
+{
+  "aliases": [
+    "scipy.io.loadmat"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "v4 (Level 1.0), v6 and v7 to 7.2 matfiles are supported."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You will need an HDF5 Python library to read MATLAB 7.3 format mat files. Because SciPy does not supply one, we do not implement the HDF5 / 7.3 interface here."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Name of the mat file (do not need .mat extension if appendmat==True). Can also pass open file-like object."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "file_name",
+              "type": "Param",
+              "type_": "str"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Dictionary in which to insert matfile variables."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mdict",
+              "type": "Param",
+              "type_": "dict, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "True to append the .mat extension to the end of the given filename, if not already present. Default is True."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "appendmat",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "None by default, implying byte order guessed from mat file. Otherwise can be one of ('native', '=', 'little', '<', 'BIG', '>')."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "byte_order",
+              "type": "Param",
+              "type_": "str or None, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, return arrays in same dtype as would be loaded into MATLAB (instead of the dtype with which they are saved)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mat_dtype",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to squeeze unit matrix dimensions or not."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "squeeze_me",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to convert char arrays to string arrays."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "chars_as_strings",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Returns matrices as would be loaded by MATLAB (implies squeeze_me=False, chars_as_strings=False, mat_dtype=True, struct_as_record=True)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "matlab_compatible",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to load MATLAB structs as NumPy record arrays, or as old-style NumPy arrays with dtype=object. Setting this flag to False replicates the behavior of scipy version 0.7.x (returning NumPy object arrays). The default setting is True, because it allows easier round-trip load and save of MATLAB files."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "struct_as_record",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether the length of compressed sequences in the MATLAB file should be checked, to ensure that they are not longer than we expect. It is advisable to enable this (the default) because overlong compressed sequences in MATLAB files generally indicate that the files have experienced some sort of corruption."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "verify_compressed_data_integrity",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If None (the default) - read all variables in file. Otherwise, "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "variable_names",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "variable_names"
+                    },
+                    {
+                      "type": "text",
+                      "value": " should be a sequence of strings, giving names of the MATLAB variables to read from the file. The reader will skip any variable with a name not in this sequence, possibly saving some read processing."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "variable_names",
+              "type": "Param",
+              "type_": "None or sequence"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, return a simplified dict structure (which is useful if the mat file contains cell arrays). Note that this only affects the structure of the result and not its contents (which is identical for both output structures). If True, this automatically sets "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "struct_as_record",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "struct_as_record"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to False and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "squeeze_me",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "squeeze_me"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to True, which is required to simplify cells."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "simplify_cells",
+              "type": "Param",
+              "type_": "False, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "dictionary with variable names as keys, and loaded matrices as values."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mat_dict",
+              "type": "Param",
+              "type_": "dict"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Load MATLAB file."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from os.path import dirname, join as pjoin\nimport scipy.io as sio"
+      },
+      {
+        "type": "text",
+        "value": "Get the filename for an example .mat file from the tests/data directory."
+      },
+      {
+        "type": "code",
+        "value": "data_dir = pjoin(dirname(sio.__file__), 'matlab', 'tests', 'data')\nmat_fname = pjoin(data_dir, 'testdouble_7.4_GLNX86.mat')"
+      },
+      {
+        "type": "text",
+        "value": "Load the .mat file contents."
+      },
+      {
+        "type": "code",
+        "value": "mat_contents = sio.loadmat(mat_fname)"
+      },
+      {
+        "type": "text",
+        "value": "The result is a dictionary, one key/value pair for each variable:"
+      },
+      {
+        "type": "code",
+        "value": "sorted(mat_contents.keys())"
+      },
+      {
+        "type": "code",
+        "value": "mat_contents['testdouble']"
+      },
+      {
+        "type": "text",
+        "value": "By default SciPy reads MATLAB structs as structured NumPy arrays where the\ndtype fields are of type `object` and the names correspond to the MATLAB\nstruct field names. This can be disabled by setting the optional argument\n`struct_as_record=False`."
+      },
+      {
+        "type": "text",
+        "value": "Get the filename for an example .mat file that contains a MATLAB struct\ncalled `teststruct` and load the contents."
+      },
+      {
+        "type": "code",
+        "value": "matstruct_fname = pjoin(data_dir, 'teststruct_7.4_GLNX86.mat')\nmatstruct_contents = sio.loadmat(matstruct_fname)\nteststruct = matstruct_contents['teststruct']\nteststruct.dtype"
+      },
+      {
+        "type": "text",
+        "value": "The size of the structured array is the size of the MATLAB struct, not the\nnumber of elements in any particular field. The shape defaults to 2-D\nunless the optional argument `squeeze_me=True`, in which case all length 1\ndimensions are removed."
+      },
+      {
+        "type": "code",
+        "value": "teststruct.size"
+      },
+      {
+        "type": "code",
+        "value": "teststruct.shape"
+      },
+      {
+        "type": "text",
+        "value": "Get the 'stringfield' of the first element in the MATLAB struct."
+      },
+      {
+        "type": "code",
+        "value": "teststruct[0, 0]['stringfield']"
+      },
+      {
+        "type": "text",
+        "value": "Get the first element of the 'doublefield'."
+      },
+      {
+        "type": "code",
+        "value": "teststruct['doublefield'][0, 0]"
+      },
+      {
+        "type": "text",
+        "value": "Load the MATLAB struct, squeezing out length 1 dimensions, and get the item\nfrom the 'complexfield'."
+      },
+      {
+        "type": "code",
+        "value": "matstruct_squeezed = sio.loadmat(matstruct_fname, squeeze_me=True)\nmatstruct_squeezed['teststruct'].shape"
+      },
+      {
+        "type": "code",
+        "value": "matstruct_squeezed['teststruct']['complexfield'].shape"
+      },
+      {
+        "type": "code",
+        "value": "matstruct_squeezed['teststruct']['complexfield'].item()"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/io/matlab/_mio.py",
+  "item_line": 86,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(file_name, mdict=None, appendmat=True, **kwargs)"
+  },
+  "type": "DocBlob"
+}

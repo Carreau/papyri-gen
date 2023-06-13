@@ -1,0 +1,351 @@
+{
+  "aliases": [
+    "networkx.distance_measures._extrema_bounding"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Computation is based on smart lower and upper bounds, and in practice linear in the number of nodes, rather than quadratic (except for some border cases such as complete graphs or circle shaped graphs)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This algorithm was proposed in  and discussed further in  and ."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An undirected graph"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "G",
+              "type": "Param",
+              "type_": "NetworkX graph"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "\"diameter\" for the maximal eccentricity value, \"radius\" for the minimal eccentricity value, \"periphery\" for the set of nodes with eccentricity equal to the diameter, \"center\" for the set of nodes with eccentricity equal to the radius, \"eccentricities\" for the maximum distance from each node to all other nodes in G"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "compute",
+              "type": "Param",
+              "type_": "string denoting the requesting metric"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If this is a string, then edge weights will be accessed via the edge attribute with this key (that is, the weight of the edge joining "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "u"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "v"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will be "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "G.edges[u, v][weight]"
+                    },
+                    {
+                      "type": "text",
+                      "value": "). If no such edge attribute exists, the weight of the edge is assumed to be one."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If this is a function, the weight of an edge is the value returned by the function. The function must accept exactly three positional arguments: the two endpoints of an edge and the dictionary of edge attributes for that edge. The function must return a number."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If this is None, every edge has weight/distance/cost 1."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Weights stored as floating point values can lead to small round-off errors in distances. Use integer weights to avoid this."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Weights should be positive, since they are distances."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "weight",
+              "type": "Param",
+              "type_": "string, function, or None"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If the graph consists of multiple components"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "NetworkXError"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "compute",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "compute"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is not one of \"diameter\", \"radius\", \"periphery\", \"center\", or \"eccentricities\"."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "ValueError"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "int for \"diameter\" and \"radius\" or list of nodes for \"center\" and \"periphery\" or dictionary of eccentricity values keyed by node for \"eccentricities\""
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "value",
+              "type": "Param",
+              "type_": "value of the requested metric"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute requested extreme distance metric of undirected graph G"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/algorithms/distance_measures.py",
+  "item_line": 17,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "Notes",
+    "References"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(G, compute='diameter', weight=None)"
+  },
+  "type": "DocBlob"
+}

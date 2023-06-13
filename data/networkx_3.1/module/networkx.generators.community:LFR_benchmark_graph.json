@@ -1,0 +1,1052 @@
+{
+  "aliases": [
+    "networkx.LFR_benchmark_graph"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This algorithm proceeds as follows:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Find a degree sequence with a power law distribution, and minimum    value "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "min_degree"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", which has approximate average degree    "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "average_degree"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". This is accomplished by either"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "specifying "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "min_degree"
+                            },
+                            {
+                              "type": "text",
+                              "value": " and not "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "average_degree"
+                            },
+                            {
+                              "type": "text",
+                              "value": ","
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "specifying "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "average_degree"
+                            },
+                            {
+                              "type": "text",
+                              "value": " and not "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "min_degree"
+                            },
+                            {
+                              "type": "text",
+                              "value": ", in which       case a suitable minimum degree will be found."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": true,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "max_degree"
+                    },
+                    {
+                      "type": "text",
+                      "value": " can also be specified, otherwise it will be set to    "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "n"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Each node "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "u"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will have $\\mu \\mathrm{deg}(u)$ edges    joining it to nodes in communities other than its own and $(1 -    \\mu) \\mathrm{deg}(u)$ edges joining it to nodes in its own    community."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Generate community sizes according to a power law distribution    with exponent "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "tau2"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "min_community"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and    "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "max_community"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are not specified they will be selected to be    "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "min_degree"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "max_degree"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", respectively.  Community sizes    are generated until the sum of their sizes equals "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "n"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Each node will be randomly assigned a community with the    condition that the community is large enough for the node's    intra-community degree, $(1 - \\mu) \\mathrm{deg}(u)$ as    described in step 2. If a community grows too large, a random node    will be selected for reassignment to a new community, until all    nodes have been assigned a community."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Each node "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "u"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " then adds $(1 - \\mu) \\mathrm{deg}(u)$    intra-community edges and $\\mu \\mathrm{deg}(u)$ inter-community    edges."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": true,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This algorithm differs slightly from the original way it was presented in [1]."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Rather than connecting the graph via a configuration model then    rewiring to match the intra-community and inter-community    degrees, we do this wiring explicitly at the end, which should be    equivalent."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The code posted on the author's website [2] calculates the random    power law distributed variables and their average using    continuous approximations, whereas we use the discrete    distributions here as both degree and community size are    discrete."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": true,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Though the authors describe the algorithm as quite robust, testing during development indicates that a somewhat narrower parameter set is likely to successfully produce a graph. Some suggestions have been provided in the event of exceptions."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of nodes in the created graph."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "n",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Power law exponent for the degree distribution of the created graph. This value must be strictly greater than one."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "tau1",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Power law exponent for the community size distribution in the created graph. This value must be strictly greater than one."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "tau2",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Fraction of inter-community edges incident to each node. This value must be in the interval [0, 1]."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mu",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Desired average degree of nodes in the created graph. This value must be in the interval [0, "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "n"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": "]. Exactly one of this and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "min_degree"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must be specified, otherwise a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "NetworkXError"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is raised."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "average_degree",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Minimum degree of nodes in the created graph. This value must be in the interval [0, "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "n"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": "]. Exactly one of this and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "average_degree"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must be specified, otherwise a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "NetworkXError"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is raised."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "min_degree",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum degree of nodes in the created graph. If not specified, this is set to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "n"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the total number of nodes in the graph."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "max_degree",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Minimum size of communities in the graph. If not specified, this is set to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "min_degree"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "min_community",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum size of communities in the graph. If not specified, this is set to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "n"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the total number of nodes in the graph."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "max_community",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Tolerance when comparing floats, specifically when comparing average degree values."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "tol",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum number of iterations to try to create the community sizes, degree distribution, and community affiliations."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "max_iters",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Indicator of random number generation state. See "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Randomness<randomness>"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "seed",
+              "type": "Param",
+              "type_": "integer, random_state, or None (default)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If any of the parameters do not meet their upper and lower bounds:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "inlineCode",
+                              "value": "tau1"
+                            },
+                            {
+                              "type": "text",
+                              "value": " and "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "tau2"
+                            },
+                            {
+                              "type": "text",
+                              "value": " must be strictly greater than 1."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "inlineCode",
+                              "value": "mu"
+                            },
+                            {
+                              "type": "text",
+                              "value": " must be in [0, 1]."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "inlineCode",
+                              "value": "max_degree"
+                            },
+                            {
+                              "type": "text",
+                              "value": " must be in {1, ..., "
+                            },
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "n"
+                                }
+                              ],
+                              "type": "emphasis"
+                            },
+                            {
+                              "type": "text",
+                              "value": "}."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "inlineCode",
+                              "value": "min_community"
+                            },
+                            {
+                              "type": "text",
+                              "value": " and "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "max_community"
+                            },
+                            {
+                              "type": "text",
+                              "value": " must be in {0, ...,   "
+                            },
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "n"
+                                }
+                              ],
+                              "type": "emphasis"
+                            },
+                            {
+                              "type": "text",
+                              "value": "}."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If not exactly one of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "average_degree"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "min_degree"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is specified."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "min_degree"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is not specified and a suitable "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "min_degree"
+                    },
+                    {
+                      "type": "text",
+                      "value": " cannot be found."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "NetworkXError"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If a valid degree sequence cannot be created within "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "max_iters"
+                    },
+                    {
+                      "type": "text",
+                      "value": " number of iterations."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If a valid set of community sizes cannot be created within "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "max_iters"
+                    },
+                    {
+                      "type": "text",
+                      "value": " number of iterations."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If a valid community assignment cannot be created within "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "10 *\nn * max_iters"
+                    },
+                    {
+                      "type": "text",
+                      "value": " number of iterations."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "ExceededMaxIterations"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The LFR benchmark graph generated according to the specified parameters."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Each node in the graph has a node attribute "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "'community'"
+                    },
+                    {
+                      "type": "text",
+                      "value": " that stores the community (that is, the set of nodes) that includes it."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "G",
+              "type": "Param",
+              "type_": "NetworkX graph"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Returns the LFR benchmark graph."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Basic usage::"
+      },
+      {
+        "type": "text",
+        "value": "    >>> from networkx.generators.community import LFR_benchmark_graph\n    >>> n = 250\n    >>> tau1 = 3\n    >>> tau2 = 1.5\n    >>> mu = 0.1\n    >>> G = LFR_benchmark_graph(\n    ...     n, tau1, tau2, mu, average_degree=5, min_community=20, seed=10\n    ... )"
+      },
+      {
+        "type": "text",
+        "value": "Continuing the example above, you can get the communities from the\nnode attributes of the graph::"
+      },
+      {
+        "type": "text",
+        "value": "    >>> communities = {frozenset(G.nodes[v][\"community\"]) for v in G}"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/generators/community.py",
+  "item_line": 801,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "Examples",
+    "Notes",
+    "References"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(n, tau1, tau2, mu, average_degree=None, min_degree=None, max_degree=None, min_community=None, max_community=None, tol=1e-07, max_iters=500, seed=None)"
+  },
+  "type": "DocBlob"
+}

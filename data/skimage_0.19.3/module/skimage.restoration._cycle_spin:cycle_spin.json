@@ -1,0 +1,521 @@
+{
+  "aliases": [
+    "skimage.restoration.cycle_spin"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Cycle spinning was proposed as a way to approach shift-invariance via performing several circular shifts of a shift-variant transform ."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For a n-level discrete wavelet transforms, one may wish to perform all shifts up to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "max_shifts = 2**n - 1"
+            },
+            {
+              "type": "text",
+              "value": ". In practice, much of the benefit can often be realized with only a small number of shifts per axis."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For transforms such as the blockwise discrete cosine transform, one may wish to evaluate shifts up to the block size used by the transform."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Deprecated in favor of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "channel_axis",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "channel_axis"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "deprecated 0.19"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "multichannel",
+              "type": "Param",
+              "type_": "DEPRECATED"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Data for input to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "func"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "array-like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A function to apply to circularly shifted versions of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  Should take "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " as its first argument. Any additional arguments can be supplied via "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "func_kw"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "func",
+              "type": "Param",
+              "type_": "function"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If an integer, shifts in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "range(0, max_shifts+1)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will be used along each axis of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If a tuple, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "range(0, max_shifts[i]+1)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will be along axis i."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "max_shifts",
+              "type": "Param",
+              "type_": "int or tuple"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The step size for the shifts applied along axis, i, are "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "range((0, max_shifts[i]+1, shift_steps[i]))"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If an integer is provided, the same step size is used for all axes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "shift_steps",
+              "type": "Param",
+              "type_": "int or tuple, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The number of parallel threads to use during cycle spinning. If set to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the full set of available cores are used."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "num_workers",
+              "type": "Param",
+              "type_": "int or None, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to treat the final axis as channels (no cycle shifts are performed over the channels axis). This argument is deprecated: specify "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "channel_axis",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "channel_axis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instead."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "multichannel",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Additional keyword arguments to supply to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "func"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "func_kw",
+              "type": "Param",
+              "type_": "dict, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If None, the image is assumed to be a grayscale (single channel) image. Otherwise, this parameter indicates which axis of the array corresponds to channels."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 0.19"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "inlineCode",
+                          "value": "channel_axis"
+                        },
+                        {
+                          "type": "text",
+                          "value": " was added in 0.19."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "channel_axis",
+              "type": "Param",
+              "type_": "int or None, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The output of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "func(x, **func_kw)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " averaged over all combinations of the specified axis shifts."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "avg_y",
+              "type": "Param",
+              "type_": "np.ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Cycle spinning (repeatedly apply func to shifted versions of x)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import skimage.data\nfrom skimage import img_as_float\nfrom skimage.restoration import denoise_wavelet, cycle_spin\nimg = img_as_float(skimage.data.camera())\nsigma = 0.1\nimg = img + sigma * np.random.standard_normal(img.shape)\ndenoised = cycle_spin(img, func=denoise_wavelet,\n                      max_shifts=3)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/skimage/restoration/_cycle_spin.py",
+  "item_line": 50,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Other Parameters",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(x, func, max_shifts, shift_steps=1, num_workers=None, multichannel=False, func_kw={}, *, channel_axis=None)"
+  },
+  "type": "DocBlob"
+}

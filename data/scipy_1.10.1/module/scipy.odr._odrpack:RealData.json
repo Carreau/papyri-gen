@@ -1,0 +1,784 @@
+{
+  "aliases": [
+    "scipy.odr.RealData"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The weights "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "wd"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "we"
+            },
+            {
+              "type": "text",
+              "value": " are computed from provided values as follows:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "sx",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "sx"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "sy",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "sy"
+            },
+            {
+              "type": "text",
+              "value": " are converted to weights by dividing 1.0 by their squares. For example, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "wd = 1./numpy.power(`sx`, 2)"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "covx",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "covx"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "covy",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "covy"
+            },
+            {
+              "type": "text",
+              "value": " are arrays of covariance matrices and are converted to weights by performing a matrix inversion on each observation's covariance matrix. For example, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "we[i] = numpy.linalg.inv(covy[i])"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "These arguments follow the same structured argument conventions as wd and we only restricted by their natures: "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "sx",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "sx"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "sy",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "sy"
+            },
+            {
+              "type": "text",
+              "value": " can't be rank-3, but "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "covx",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "covx"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "covy",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "covy"
+            },
+            {
+              "type": "text",
+              "value": " can be."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Only set "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "either"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "sx",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "sx"
+            },
+            {
+              "type": "text",
+              "value": " or "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "covx",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "covx"
+            },
+            {
+              "type": "text",
+              "value": " (not both). Setting both will raise an exception. Same with "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "sy",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "sy"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "covy",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "covy"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Observed data for the independent variable of the regression"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If array-like, observed data for the dependent variable of the regression. A scalar input implies that the model to be used on the data is implicit."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "y",
+              "type": "Param",
+              "type_": "array_like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Standard deviations of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "sx",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "sx"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are standard deviations of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and are converted to weights by dividing 1.0 by their squares."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sx",
+              "type": "Param",
+              "type_": "array_like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Standard deviations of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "y",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "y"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "sy",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "sy"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are standard deviations of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "y",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "y"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and are converted to weights by dividing 1.0 by their squares."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sy",
+              "type": "Param",
+              "type_": "array_like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Covariance of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "covx",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "covx"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is an array of covariance matrices of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and are converted to weights by performing a matrix inversion on each observation's covariance matrix."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "covx",
+              "type": "Param",
+              "type_": "array_like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Covariance of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "y",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "y"
+                    },
+                    {
+                      "type": "text",
+                      "value": " "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "covy",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "covy"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is an array of covariance matrices and are converted to weights by performing a matrix inversion on each observation's covariance matrix."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "covy",
+              "type": "Param",
+              "type_": "array_like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The argument and member fix is the same as Data.fix and ODR.ifixx: It is an array of integers with the same shape as "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " that determines which input observations are treated as fixed. One can use a sequence of length m (the dimensionality of the input observations) to fix some dimensions for all observations. A value of 0 fixes the observation, a value > 0 makes it free."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fix",
+              "type": "Param",
+              "type_": "array_like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Free-form dictionary for metadata."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "meta",
+              "type": "Param",
+              "type_": "dict, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The data, with weightings as actual standard deviations and/or covariances."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/odr/_odrpack.py",
+  "item_line": 296,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Notes"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

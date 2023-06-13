@@ -1,0 +1,456 @@
+{
+  "aliases": [
+    "scipy.stats._qmc._lloyd_centroidal_voronoi_tessellation"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Perturb samples in N-dimensions using Lloyd-Max algorithm."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Lloyd-Max algorithm is an iterative process with the purpose of improving the dispersion of samples. For given sample: (i) compute a Voronoi Tessellation; (ii) find the centroid of each Voronoi cell; (iii) move the samples toward the centroid of their respective cell. See , ."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A relaxation factor is used to control how fast samples can move at each iteration. This factor is starting at 2 and ending at 1 after "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "maxiter",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "maxiter"
+            },
+            {
+              "type": "text",
+              "value": " following an exponential decay."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The process converges to equally spaced samples. It implies that measures like the discrepancy could suffer from too many iterations. On the other hand, L1 and L2 distances should improve. This is especially true with QMC methods which tend to favor the discrepancy over other criteria."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "note "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "The current implementation does not intersect the Voronoi Tessellation with the boundaries. This implies that for a low number of samples, empirically below 20, no Voronoi cell is touching the boundaries. Hence, samples cannot be moved close to the boundaries."
+                }
+              ],
+              "type": "paragraph"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Further improvements could consider the samples at infinity so that all boundaries are segments of some Voronoi cells. This would fix the computation of the centroid position."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "warning "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "The Voronoi Tessellation step is expensive and quickly becomes intractable with dimensions as low as 10 even for a sample of size as low as 1000."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 1.9.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The sample to iterate on. With "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "n"
+                    },
+                    {
+                      "type": "text",
+                      "value": " the number of samples and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "d"
+                    },
+                    {
+                      "type": "text",
+                      "value": " the dimension. Samples must be in "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "[0, 1]^d"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "d>=2"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sample",
+              "type": "Param",
+              "type_": "array_like (n, d)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Tolerance for termination. If the min of the L1-norm over the samples changes less than "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "tol",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "tol"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", it stops the algorithm. Default is 1e-5."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "tol",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum number of iterations. It will stop the algorithm even if "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "tol",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "tol"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is above the threshold. Too many iterations tend to cluster the samples as a hypersphere. Default is 10."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "maxiter",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Additional options to pass to Qhull. See Qhull manual for details. (Default: \"Qbb Qc Qz Qj Qx\" for ndim > 4 and \"Qbb Qc Qz Qj\" otherwise.)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "qhull_options",
+              "type": "Param",
+              "type_": "str, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The sample after being processed by Lloyd-Max algorithm."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sample",
+              "type": "Param",
+              "type_": "array_like (n, d)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Approximate Centroidal Voronoi Tessellation."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.spatial import distance\nrng = np.random.default_rng()\nsample = rng.random((128, 2))"
+      },
+      {
+        "type": "text",
+        "value": ".. note::"
+      },
+      {
+        "type": "text",
+        "value": "    The samples need to be in :math:`[0, 1]^d`. `scipy.stats.qmc.scale`\n    can be used to scale the samples from their\n    original bounds to :math:`[0, 1]^d`. And back to their original bounds."
+      },
+      {
+        "type": "text",
+        "value": "Compute the quality of the sample using the L1 criterion."
+      },
+      {
+        "type": "code",
+        "value": "def l1_norm(sample):\n   return distance.pdist(sample, 'cityblock').min()"
+      },
+      {
+        "type": "code",
+        "value": "l1_norm(sample)"
+      },
+      {
+        "type": "text",
+        "value": "Now process the sample using Lloyd's algorithm and check the improvement\non the L1. The value should increase."
+      },
+      {
+        "type": "code",
+        "value": "sample = _lloyd_centroidal_voronoi_tessellation(sample)\nl1_norm(sample)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_qmc.py",
+  "item_line": 2362,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(sample: 'npt.ArrayLike', *, tol: 'DecimalNumber' = 1e-05, maxiter: 'IntNumber' = 10, qhull_options: 'Optional[str]' = None, **kwargs: 'Dict') -> 'np.ndarray'"
+  },
+  "type": "DocBlob"
+}

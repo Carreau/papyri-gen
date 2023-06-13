@@ -1,0 +1,282 @@
+{
+  "aliases": [
+    "scipy.signal.windows.kaiser_bessel_derived"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "It is designed to be suitable for use with the modified discrete cosine transform (MDCT) and is mainly used in audio signal processing and audio coding."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 1.9.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of points in the output window. If zero, an empty array is returned. An exception is thrown when it is negative. Note that this window is only defined for an even number of points."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "M",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Kaiser window shape parameter."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "beta",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This parameter only exists to comply with the interface offered by the other window functions and to be callable by "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "scipy",
+                        "path": "scipy.signal.windows._windows:get_window",
+                        "type": "RefInfo",
+                        "version": "1.10.1"
+                      },
+                      "type": "Link",
+                      "value": "get_window"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". When True (default), generates a symmetric window, for use in filter design."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sym",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The window, normalized to fulfil the Princen-Bradley condition."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "w",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Return a Kaiser-Bessel derived window."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Plot the Kaiser-Bessel derived window based on the wikipedia\nreference [2]_:"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy import signal\nimport matplotlib.pyplot as plt\nfig, ax = plt.subplots()\nN = 50\nfor alpha in [0.64, 2.55, 7.64, 31.83]:\n    ax.plot(signal.windows.kaiser_bessel_derived(2*N, np.pi*alpha),\n            label=f\"{alpha=}\")\nax.grid(True)\nax.set_title(\"Kaiser-Bessel derived window\")\nax.set_ylabel(\"Amplitude\")\nax.set_xlabel(\"Sample\")\nax.set_xticks([0, N, 2*N-1])\nax.set_xticklabels([\"0\", \"N\", \"2N+1\"])  # doctest: +SKIP\nax.set_yticks([0.0, 0.2, 0.4, 0.6, 0.707, 0.8, 1.0])\nfig.legend(loc=\"center\")\nfig.tight_layout()\nfig.show()"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/signal/windows/_windows.py",
+  "item_line": 1234,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "kaiser",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "kaiser"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(M, beta, *, sym=True)"
+  },
+  "type": "DocBlob"
+}

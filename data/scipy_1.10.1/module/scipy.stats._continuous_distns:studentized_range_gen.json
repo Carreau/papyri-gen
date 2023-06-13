@@ -1,0 +1,386 @@
+{
+  "aliases": [
+    "scipy.stats._continuous_distns.studentized_range_gen"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "%(before_notes)s"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The probability density function for "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "studentized_range"
+            },
+            {
+              "type": "text",
+              "value": " is:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "f(x; k, \\nu) = \\frac{k(k-1)\\nu^{\\nu/2}}{\\Gamma(\\nu/2)\n               2^{\\nu/2-1}} \\int_{0}^{\\infty} \\int_{-\\infty}^{\\infty}\n               s^{\\nu} e^{-\\nu s^2/2} \\phi(z) \\phi(sx + z)\n               [\\Phi(sx + z) - \\Phi(z)]^{k-2} \\,dz \\,ds"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "for "
+            },
+            {
+              "type": "inlineMath",
+              "value": "x \u2265 0"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineMath",
+              "value": "k > 1"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\nu > 0"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "studentized_range"
+            },
+            {
+              "type": "text",
+              "value": " takes "
+            },
+            {
+              "type": "inlineCode",
+              "value": "k"
+            },
+            {
+              "type": "text",
+              "value": " for "
+            },
+            {
+              "type": "inlineMath",
+              "value": "k"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "df"
+            },
+            {
+              "type": "text",
+              "value": " for "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\nu"
+            },
+            {
+              "type": "text",
+              "value": " as shape parameters."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\nu"
+            },
+            {
+              "type": "text",
+              "value": " exceeds 100,000, an asymptotic approximation (infinite degrees of freedom) is used to compute the cumulative distribution function  and probability distribution function."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "%(after_notes)s"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A studentized range continuous random variable."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.stats import studentized_range\nimport matplotlib.pyplot as plt\nfig, ax = plt.subplots(1, 1)"
+      },
+      {
+        "type": "text",
+        "value": "Calculate the first four moments:"
+      },
+      {
+        "type": "code",
+        "value": "k, df = 3, 10\nmean, var, skew, kurt = studentized_range.stats(k, df, moments='mvsk')"
+      },
+      {
+        "type": "text",
+        "value": "Display the probability density function (``pdf``):"
+      },
+      {
+        "type": "code",
+        "value": "x = np.linspace(studentized_range.ppf(0.01, k, df),\n                studentized_range.ppf(0.99, k, df), 100)\nax.plot(x, studentized_range.pdf(x, k, df),\n        'r-', lw=5, alpha=0.6, label='studentized_range pdf')"
+      },
+      {
+        "type": "text",
+        "value": "Alternatively, the distribution object can be called (as a function)\nto fix the shape, location and scale parameters. This returns a \"frozen\"\nRV object holding the given parameters fixed."
+      },
+      {
+        "type": "text",
+        "value": "Freeze the distribution and display the frozen ``pdf``:"
+      },
+      {
+        "type": "code",
+        "value": "rv = studentized_range(k, df)\nax.plot(x, rv.pdf(x), 'k-', lw=2, label='frozen pdf')"
+      },
+      {
+        "type": "text",
+        "value": "Check accuracy of ``cdf`` and ``ppf``:"
+      },
+      {
+        "type": "code",
+        "value": "vals = studentized_range.ppf([0.001, 0.5, 0.999], k, df)\nnp.allclose([0.001, 0.5, 0.999], studentized_range.cdf(vals, k, df))"
+      },
+      {
+        "type": "text",
+        "value": "Rather than using (``studentized_range.rvs``) to generate random variates,\nwhich is very slow for this distribution, we can approximate the inverse\nCDF using an interpolator, and then perform inverse transform sampling\nwith this approximate inverse CDF."
+      },
+      {
+        "type": "text",
+        "value": "This distribution has an infinite but thin right tail, so we focus our\nattention on the leftmost 99.9 percent."
+      },
+      {
+        "type": "code",
+        "value": "a, b = studentized_range.ppf([0, .999], k, df)\na, b"
+      },
+      {
+        "type": "code",
+        "value": "from scipy.interpolate import interp1d\nrng = np.random.default_rng()\nxs = np.linspace(a, b, 50)\ncdf = studentized_range.cdf(xs, k, df)"
+      },
+      {
+        "type": "code",
+        "value": "ppf = interp1d(cdf, xs, fill_value='extrapolate')"
+      },
+      {
+        "type": "code",
+        "value": "r = ppf(rng.uniform(size=1000))"
+      },
+      {
+        "type": "text",
+        "value": "And compare the histogram:"
+      },
+      {
+        "type": "code",
+        "value": "ax.hist(r, density=True, histtype='stepfilled', alpha=0.2)\nax.legend(loc='best', frameon=False)\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.stats._continuous_distns:studentized_range_gen-0-70614bbd.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_continuous_distns.py",
+  "item_line": 10107,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Student's t distribution"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "t",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "t"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,451 @@
+{
+  "aliases": [
+    "numpy.lib.Arrayterator"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "var",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [],
+              "param": "buf_size",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [],
+              "param": "start",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [],
+              "param": "stop",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [],
+              "param": "step",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [],
+              "param": "shape",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [],
+              "param": "flat",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "Arrayterator"
+            },
+            {
+              "type": "text",
+              "value": " creates a buffered iterator for reading big arrays in small contiguous blocks. The class is useful for objects stored in the file system. It allows iteration over the object "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "without"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " reading everything in memory; instead, small blocks are read and iterated over."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "Arrayterator"
+            },
+            {
+              "type": "text",
+              "value": " can be used with any object that supports multidimensional slices. This includes NumPy arrays, but also variables from Scientific.IO.NetCDF or pynetcdf for example."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The algorithm works by first finding a \"running dimension\", along which the blocks will be extracted. Given an array of dimensions "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(d1, d2, ..., dn)"
+            },
+            {
+              "type": "text",
+              "value": ", e.g. if "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "buf_size",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "buf_size"
+            },
+            {
+              "type": "text",
+              "value": " is smaller than "
+            },
+            {
+              "type": "inlineCode",
+              "value": "d1"
+            },
+            {
+              "type": "text",
+              "value": ", the first dimension will be used. If, on the other hand, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "d1 < buf_size < d1*d2"
+            },
+            {
+              "type": "text",
+              "value": " the second dimension will be used, and so on. Blocks are extracted along this dimension, and when the last block is returned the process continues from the next dimension, until all elements have been read."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The object to iterate over."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "var",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The buffer size. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "buf_size",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "buf_size"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is supplied, the maximum amount of data that will be read into memory is "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "buf_size",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "buf_size"
+                    },
+                    {
+                      "type": "text",
+                      "value": " elements. Default is None, which will read as many element as possible into memory."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "buf_size",
+              "type": "Param",
+              "type_": "int, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Buffered iterator for big arrays."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "a = np.arange(3 * 4 * 5 * 6).reshape(3, 4, 5, 6)\na_itor = np.lib.Arrayterator(a, 2)\na_itor.shape"
+      },
+      {
+        "type": "text",
+        "value": "Now we can iterate over ``a_itor``, and it will return arrays of size\ntwo. Since `buf_size` was smaller than any dimension, the first\ndimension will be iterated over first:"
+      },
+      {
+        "type": "code",
+        "value": "for subarr in a_itor:\n    if not subarr.all():\n        print(subarr, subarr.shape) # doctest: +SKIP\n# [[[[0 1]]]] (1, 1, 1, 2)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/numpy/lib/arrayterator.py",
+  "item_line": 16,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Attributes",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Multidimensional array iterator."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "ndenumerate",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "ndenumerate"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Flat array iterator."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "numpy",
+          "path": "numpy:flatiter",
+          "type": "RefInfo",
+          "version": "1.24.1"
+        },
+        "type": "Link",
+        "value": "flatiter"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Create a memory-map to an array stored in a binary file on disk."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "memmap",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "memmap"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,415 @@
+{
+  "aliases": [
+    "numpy.add_newdoc"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The purpose is to allow easier editing of the docstrings without requiring a re-compile. This exists primarily for internal use within numpy itself."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This routine never raises an error if the docstring can't be written, but will raise an error if the object being documented does not exist."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This routine cannot modify read-only docstrings, as appear in new-style classes or built-in functions. Because this routine never raises an error the caller must check manually that the docstrings were changed."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Since this function grabs the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "char *"
+            },
+            {
+              "type": "text",
+              "value": " from a c-level str object and puts it into the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "tp_doc"
+            },
+            {
+              "type": "text",
+              "value": " slot of the type of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "obj",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "obj"
+            },
+            {
+              "type": "text",
+              "value": ", it violates a number of C-API best-practices, by:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "modifying a "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "PyTypeObject"
+                    },
+                    {
+                      "type": "text",
+                      "value": " after calling "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "PyType_Ready"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "calling "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "Py_INCREF"
+                    },
+                    {
+                      "type": "text",
+                      "value": " on the str and losing the reference, so the str   will never be released"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If possible it should be avoided."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The absolute name of the module to import from"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "place",
+              "type": "Param",
+              "type_": "str"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The name of the object to add documentation to, typically a class or function name"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "obj",
+              "type": "Param",
+              "type_": "str"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If a string, the documentation to apply to "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "obj",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "obj"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If a tuple, then the first element is interpreted as an attribute of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "obj",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "obj"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and the second as the docstring to apply - "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(method, docstring)"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If a list, then each element of the list should be a tuple of length two - "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "[(method1, docstring1), (method2, docstring2), ...]"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "doc",
+              "type": "Param",
+              "type_": "{str, Tuple[str, str], List[Tuple[str, str]]}"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, the default, emit "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "UserWarning"
+                    },
+                    {
+                      "type": "text",
+                      "value": " if this is used to attach documentation to a pure-python object."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "warn_on_python",
+              "type": "Param",
+              "type_": "bool"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Add documentation to an existing object, typically one defined in C"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/numpy/core/function_base.py",
+  "item_line": 483,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Notes"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(place, obj, doc, warn_on_python=True)"
+  },
+  "type": "DocBlob"
+}

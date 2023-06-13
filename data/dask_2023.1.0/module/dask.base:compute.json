@@ -1,0 +1,278 @@
+{
+  "aliases": [
+    "dask.compute"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Any number of objects. If it is a dask object, it's computed and the result is returned. By default, python builtin collections are also traversed to look for dask objects (for more information see the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "traverse"
+                    },
+                    {
+                      "type": "text",
+                      "value": " keyword). Non-dask arguments are passed through unchanged."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "args",
+              "type": "Param",
+              "type_": "object"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "By default dask traverses builtin python collections looking for dask objects passed to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "compute"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". For large collections this can be expensive. If none of the arguments contain any dask objects, set "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "traverse=False"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to avoid doing this traversal."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "traverse",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Which scheduler to use like \"threads\", \"synchronous\" or \"processes\". If not provided, the default is to check the global settings first, and then fall back to the collection defaults."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "scheduler",
+              "type": "Param",
+              "type_": "string, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True [default], the optimizations for each collection are applied before computation. Otherwise the graph is run as is. This can be useful for debugging."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "optimize_graph",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Should be left to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": " The get= keyword has been removed."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "get",
+              "type": "Param",
+              "type_": "``None``"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Extra keywords to forward to the scheduler function."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "kwargs",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute several dask collections at once."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import dask\nimport dask.array as da\na = da.arange(10, chunks=2).sum()\nb = da.arange(10, chunks=2).mean()\ndask.compute(a, b)"
+      },
+      {
+        "type": "text",
+        "value": "By default, dask objects inside python collections will also be computed:"
+      },
+      {
+        "type": "code",
+        "value": "dask.compute({'a': a, 'b': b, 'c': 1})"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dask/base.py",
+  "item_line": 538,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(*args, traverse=True, optimize_graph=True, scheduler=None, get=None, **kwargs)"
+  },
+  "type": "DocBlob"
+}

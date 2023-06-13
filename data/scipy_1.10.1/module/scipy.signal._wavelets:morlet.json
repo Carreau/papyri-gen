@@ -1,0 +1,462 @@
+{
+  "aliases": [
+    "scipy.signal.morlet"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The standard version      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "pi**-0.25 * exp(1j*w*x) * exp(-0.5*(x**2))"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This commonly used wavelet is often referred to simply as the Morlet wavelet.  Note that this simplified version can cause admissibility problems at low values of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "w",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "w"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The complete version      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "pi**-0.25 * (exp(1j*w*x) - exp(-0.5*(w**2))) * exp(-0.5*(x**2))"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This version has a correction term to improve admissibility. For "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "w",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "w"
+            },
+            {
+              "type": "text",
+              "value": " greater than 5, the correction term is negligible."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Note that the energy of the return wavelet is not normalised according to "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "s",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "s"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The fundamental frequency of this wavelet in Hz is given by "
+            },
+            {
+              "type": "inlineCode",
+              "value": "f = 2*s*w*r / M"
+            },
+            {
+              "type": "text",
+              "value": " where "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "r"
+            },
+            {
+              "type": "text",
+              "value": " is the sampling rate."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Note: This function was created before "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "cwt"
+            },
+            {
+              "type": "text",
+              "value": " and is not compatible with it."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Length of the wavelet."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "M",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Omega0. Default is 5"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "w",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Scaling factor, windowed from "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "-s*2*pi"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "+s*2*pi"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Default is 1."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "s",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to use the complete or the standard version."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "complete",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "morlet",
+              "type": "Param",
+              "type_": "(M,) ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Complex Morlet wavelet."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from scipy import signal\nimport matplotlib.pyplot as plt"
+      },
+      {
+        "type": "code",
+        "value": "M = 100\ns = 4.0\nw = 2.0\nwavelet = signal.morlet(M, s, w)\nplt.plot(wavelet)\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.signal._wavelets:morlet-0-3f4c8d44.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/signal/_wavelets.py",
+  "item_line": 204,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Implementation of Morlet wavelet, compatible with "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "cwt"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._wavelets:morlet2",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "morlet2"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._waveforms:gausspulse",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "scipy.signal.gausspulse"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(M, w=5.0, s=1.0, complete=True)"
+  },
+  "type": "DocBlob"
+}

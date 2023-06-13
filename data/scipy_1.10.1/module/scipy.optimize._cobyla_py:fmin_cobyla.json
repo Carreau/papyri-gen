@@ -1,0 +1,496 @@
+{
+  "aliases": [
+    "scipy.optimize.fmin_cobyla"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This algorithm is based on linear approximations to the objective function and each constraint. We briefly describe the algorithm."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Suppose the function is being minimized over k variables. At the jth iteration the algorithm has k+1 points v_1, ..., v_(k+1), an approximate solution x_j, and a radius RHO_j. (i.e., linear plus a constant) approximations to the objective function and constraint functions such that their function values agree with the linear approximation on the k+1 points v_1,.., v_(k+1). This gives a linear program to solve (where the linear approximations of the constraint functions are constrained to be non-negative)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "However, the linear approximations are likely only good approximations near the current simplex, so the linear program is given the further requirement that the solution, which will become x_(j+1), must be within RHO_j from x_j. RHO_j only decreases, never increases. The initial RHO_j is rhobeg and the final RHO_j is rhoend. In this way COBYLA's iterations behave like a trust region algorithm."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Additionally, the linear program may be inconsistent, or the approximation may give poor improvement. For details about how these issues are resolved, as well as how the points v_i are updated, refer to the source code or the references below."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Function to minimize. In the form func(x, \\*args)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "func",
+              "type": "Param",
+              "type_": "callable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Initial guess."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x0",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Constraint functions; must all be "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": ">=0"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (a single function if only 1 constraint). Each function takes the parameters "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " as its first argument, and it can return either a single number or an array or list of numbers."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "cons",
+              "type": "Param",
+              "type_": "sequence"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Extra arguments to pass to function."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "args",
+              "type": "Param",
+              "type_": "tuple, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Extra arguments to pass to constraint functions (default of None means use same extra arguments as those passed to func). Use "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "()"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for no extra arguments."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "consargs",
+              "type": "Param",
+              "type_": "tuple, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Reasonable initial changes to the variables."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "rhobeg",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Final accuracy in the optimization (not precisely guaranteed). This is a lower bound on the size of the trust region."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "rhoend",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Controls the frequency of output; 0 implies no output."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "disp",
+              "type": "Param",
+              "type_": "{0, 1, 2, 3}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum number of function evaluations."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "maxfun",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Absolute tolerance for constraint violations."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "catol",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Called after each iteration, as "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "callback(x)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the current parameter vector."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "callback",
+              "type": "Param",
+              "type_": "callable, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The argument that minimises "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "scipy",
+                        "path": "scipy.optimize._bglu_dense:_consider_refactor.<locals>.f",
+                        "type": "RefInfo",
+                        "version": "1.10.1"
+                      },
+                      "type": "Link",
+                      "value": "f"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Minimize a function using the Constrained Optimization By Linear Approximation (COBYLA) method. This method wraps a FORTRAN implementation of the algorithm."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Minimize the objective function f(x,y) = x*y subject\nto the constraints x**2 + y**2 < 1 and y > 0::"
+      },
+      {
+        "type": "text",
+        "value": "    >>> def objective(x):\n    ...     return x[0]*x[1]\n    ...\n    >>> def constr1(x):\n    ...     return 1 - (x[0]**2 + x[1]**2)\n    ...\n    >>> def constr2(x):\n    ...     return x[1]\n    ...\n    >>> from scipy.optimize import fmin_cobyla\n    >>> fmin_cobyla(objective, [0.0, 0.1], [constr1, constr2], rhoend=1e-7)\n    array([-0.70710685,  0.70710671])"
+      },
+      {
+        "type": "text",
+        "value": "The exact solution is (-sqrt(2)/2, sqrt(2)/2)."
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/optimize/_cobyla_py.py",
+  "item_line": 37,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Interface to minimization algorithms for multivariate functions. See the 'COBYLA' "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "method"
+            },
+            {
+              "type": "text",
+              "value": " in particular."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.optimize._shgo:SHGO.minimize",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "minimize"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(func, x0, cons, args=(), consargs=None, rhobeg=1.0, rhoend=0.0001, maxfun=1000, disp=None, catol=0.0002, *, callback=None)"
+  },
+  "type": "DocBlob"
+}

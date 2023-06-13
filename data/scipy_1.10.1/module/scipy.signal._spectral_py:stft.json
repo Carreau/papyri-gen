@@ -1,0 +1,1305 @@
+{
+  "aliases": [
+    "scipy.signal.stft"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "STFTs can be used as a way of quantifying the change of a nonstationary signal's frequency and phase content over time."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In order to enable inversion of an STFT via the inverse STFT in "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.signal._spectral_py:istft",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "istft"
+            },
+            {
+              "type": "text",
+              "value": ", the signal windowing must obey the constraint of \"Nonzero OverLap Add\" (NOLA), and the input signal must have complete windowing coverage (i.e. "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(x.shape[axis] - nperseg) %\n(nperseg-noverlap) == 0"
+            },
+            {
+              "type": "text",
+              "value": "). The "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "padded",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "padded"
+            },
+            {
+              "type": "text",
+              "value": " argument may be used to accomplish this."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Given a time-domain signal "
+            },
+            {
+              "type": "inlineMath",
+              "value": "x[n]"
+            },
+            {
+              "type": "text",
+              "value": ", a window "
+            },
+            {
+              "type": "inlineMath",
+              "value": "w[n]"
+            },
+            {
+              "type": "text",
+              "value": ", and a hop size "
+            },
+            {
+              "type": "inlineMath",
+              "value": "H"
+            },
+            {
+              "type": "text",
+              "value": " = "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "nperseg - noverlap"
+            },
+            {
+              "type": "text",
+              "value": ", the windowed frame at time index "
+            },
+            {
+              "type": "inlineMath",
+              "value": "t"
+            },
+            {
+              "type": "text",
+              "value": " is given by"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "x_{t}[n]=x[n]w[n-tH]"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The overlap-add (OLA) reconstruction equation is given by"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "x[n]=\\frac{\\sum_{t}x_{t}[n]w[n-tH]}{\\sum_{t}w^{2}[n-tH]}"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The NOLA constraint ensures that every normalization term that appears in the denomimator of the OLA reconstruction equation is nonzero. Whether a choice of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "window",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "window"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "nperseg",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "nperseg"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "noverlap",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "noverlap"
+            },
+            {
+              "type": "text",
+              "value": " satisfy this constraint can be tested with "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.signal._spectral_py:check_NOLA",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "check_NOLA"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 0.19.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Time series of measurement values"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Sampling frequency of the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " time series. Defaults to 1.0."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fs",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Desired window to use. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "window",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "window"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a string or tuple, it is passed to "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "scipy",
+                        "path": "scipy.signal.windows._windows:get_window",
+                        "type": "RefInfo",
+                        "version": "1.10.1"
+                      },
+                      "type": "Link",
+                      "value": "get_window"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to generate the window values, which are DFT-even by default. See "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "scipy",
+                        "path": "scipy.signal.windows._windows:get_window",
+                        "type": "RefInfo",
+                        "version": "1.10.1"
+                      },
+                      "type": "Link",
+                      "value": "get_window"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for a list of windows and required parameters. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "window",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "window"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is array_like it will be used directly as the window and its length must be nperseg. Defaults to a Hann window."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "window",
+              "type": "Param",
+              "type_": "str or tuple or array_like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Length of each segment. Defaults to 256."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "nperseg",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of points to overlap between segments. If "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "noverlap = nperseg // 2"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Defaults to "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". When specified, the COLA constraint must be met (see Notes below)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "noverlap",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Length of the FFT used, if a zero padded FFT is desired. If "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the FFT length is "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "nperseg",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "nperseg"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Defaults to "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "nfft",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Specifies how to detrend each segment. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "detrend",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "detrend"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a string, it is passed as the "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "type"
+                    },
+                    {
+                      "type": "text",
+                      "value": " argument to the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "detrend",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "detrend"
+                    },
+                    {
+                      "type": "text",
+                      "value": " function. If it is a function, it takes a segment and returns a detrended segment. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "detrend",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "detrend"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", no detrending is done. Defaults to "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "detrend",
+              "type": "Param",
+              "type_": "str or function or `False`, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", return a one-sided spectrum for real data. If "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": " return a two-sided spectrum. Defaults to "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", but for complex data, a two-sided spectrum is always returned."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "return_onesided",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Specifies whether the input signal is extended at both ends, and how to generate the new values, in order to center the first windowed segment on the first input point. This has the benefit of enabling reconstruction of the first input point when the employed window function starts at zero. Valid options are "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "['even', 'odd', 'constant', 'zeros', None]"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Defaults to 'zeros', for zero padding extension. I.e. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "[1, 2, 3, 4]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is extended to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "[0, 1, 2, 3, 4, 0]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "nperseg=3"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "boundary",
+              "type": "Param",
+              "type_": "str or None, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Specifies whether the input signal is zero-padded at the end to make the signal fit exactly into an integer number of window segments, so that all of the signal is included in the output. Defaults to "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Padding occurs after boundary extension, if "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "boundary",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "boundary"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is not "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "padded",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "padded"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", as is the default."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "padded",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Axis along which the STFT is computed; the default is over the last axis (i.e. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "axis=-1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "axis",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The default 'spectrum' scaling allows each frequency line of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "Zxx",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "Zxx"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to be interpreted as a magnitude spectrum. The 'psd' option scales each line to a power spectral density - it allows to calculate the signal's energy by numerically integrating over "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "abs(Zxx)**2"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.9.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "scaling: {'spectrum', 'psd'}",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Array of sample frequencies."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "f",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Array of segment times."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "t",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "STFT of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". By default, the last axis of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "Zxx",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "Zxx"
+                    },
+                    {
+                      "type": "text",
+                      "value": " corresponds to the segment times."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "Zxx",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute the Short Time Fourier Transform (STFT)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy import signal\nimport matplotlib.pyplot as plt\nrng = np.random.default_rng()"
+      },
+      {
+        "type": "text",
+        "value": "Generate a test signal, a 2 Vrms sine wave whose frequency is slowly\nmodulated around 3kHz, corrupted by white noise of exponentially\ndecreasing magnitude sampled at 10 kHz."
+      },
+      {
+        "type": "code",
+        "value": "fs = 10e3\nN = 1e5\namp = 2 * np.sqrt(2)\nnoise_power = 0.01 * fs / 2\ntime = np.arange(N) / float(fs)\nmod = 500*np.cos(2*np.pi*0.25*time)\ncarrier = amp * np.sin(2*np.pi*3e3*time + mod)\nnoise = rng.normal(scale=np.sqrt(noise_power),\n                   size=time.shape)\nnoise *= np.exp(-time/5)\nx = carrier + noise"
+      },
+      {
+        "type": "text",
+        "value": "Compute and plot the STFT's magnitude."
+      },
+      {
+        "type": "code",
+        "value": "f, t, Zxx = signal.stft(x, fs, nperseg=1000)\nplt.pcolormesh(t, f, np.abs(Zxx), vmin=0, vmax=amp, shading='gouraud')\nplt.title('STFT Magnitude')\nplt.ylabel('Frequency [Hz]')\nplt.xlabel('Time [sec]')\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.signal._spectral_py:stft-0-02a27cd2.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      },
+      {
+        "type": "text",
+        "value": "Compare the energy of the signal `x` with the energy of its STFT:"
+      },
+      {
+        "type": "code",
+        "value": "E_x = sum(x**2) / fs  # Energy of x\n# Calculate a two-sided STFT with PSD scaling:\nf, t, Zxx = signal.stft(x, fs, nperseg=1000, return_onesided=False,\n                        scaling='psd')\n# Integrate numerically over abs(Zxx)**2:\ndf, dt = f[1] - f[0], t[1] - t[0]\nE_Zxx = sum(np.sum(Zxx.real**2 + Zxx.imag**2, axis=0) * df) * dt\n# The energy is the same, but the numerical errors are quite large:\nnp.isclose(E_x, E_Zxx, rtol=1e-2)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/signal/_spectral_py.py",
+  "item_line": 1038,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Inverse Short Time Fourier Transform"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._spectral_py:istft",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "istft"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Check whether the Constant OverLap Add (COLA) constraint is met"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._spectral_py:check_COLA",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "check_COLA"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Check whether the Nonzero Overlap Add (NOLA) constraint is met"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._spectral_py:check_NOLA",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "check_NOLA"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Power spectral density by Welch's method."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._spectral_py:welch",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "welch"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Spectrogram by Welch's method."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._spectral_py:spectrogram",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "spectrogram"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Cross spectral density by Welch's method."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._spectral_py:csd",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "csd"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Lomb-Scargle periodogram for unevenly sampled data"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "lombscargle",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "lombscargle"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(x, fs=1.0, window='hann', nperseg=256, noverlap=None, nfft=None, detrend=False, return_onesided=True, boundary='zeros', padded=True, axis=-1, scaling='spectrum')"
+  },
+  "type": "DocBlob"
+}

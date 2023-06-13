@@ -1,0 +1,768 @@
+{
+  "aliases": [
+    "dask.array.diagonal"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This docstring was copied from numpy.diagonal."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Some inconsistencies with the Dask version may exist."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "a",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " is 2-D, returns the diagonal of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "a",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " with the given offset, i.e., the collection of elements of the form "
+            },
+            {
+              "type": "inlineCode",
+              "value": "a[i, i+offset]"
+            },
+            {
+              "type": "text",
+              "value": ".  If "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "a",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " has more than two dimensions, then the axes specified by "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "axis1",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "axis1"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "axis2",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "axis2"
+            },
+            {
+              "type": "text",
+              "value": " are used to determine the 2-D sub-array whose diagonal is returned.  The shape of the resulting array can be determined by removing "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "axis1",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "axis1"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "axis2",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "axis2"
+            },
+            {
+              "type": "text",
+              "value": " and appending an index to the right equal to the size of the resulting diagonals."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In versions of NumPy prior to 1.7, this function always returned a new, independent array containing a copy of the values in the diagonal."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In NumPy 1.7 and 1.8, it continues to return a copy of the diagonal, but depending on this fact is deprecated. Writing to the resulting array continues to work as it used to, but a FutureWarning is issued."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Starting in NumPy 1.9 it returns a read-only view on the original array. Attempting to write to the resulting array will produce an error."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In some future release, it will return a read/write view and writing to the returned array will alter your original array.  The returned array will have the same type as the input array."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If you don't write to the array returned by this function, then you can just ignore all of the above."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If you depend on the current behavior, then we suggest copying the returned array explicitly, i.e., use "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.diagonal(a).copy()"
+            },
+            {
+              "type": "text",
+              "value": " instead of just "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.diagonal(a)"
+            },
+            {
+              "type": "text",
+              "value": ". This will work with both past and future versions of NumPy."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Array from which the diagonals are taken."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "a",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Offset of the diagonal from the main diagonal.  Can be positive or negative.  Defaults to main diagonal (0)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "offset",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Axis to be used as the first axis of the 2-D sub-arrays from which the diagonals should be taken.  Defaults to first axis (0)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "axis1",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Axis to be used as the second axis of the 2-D sub-arrays from which the diagonals should be taken. Defaults to second axis (1)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "axis2",
+              "type": "Param",
+              "type_": "int, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If the dimension of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is less than 2."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "ValueError"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is 2-D, then a 1-D array containing the diagonal and of the same type as "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is returned unless "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "matrix"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", in which case a 1-D array rather than a (2-D) "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "matrix"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is returned in order to maintain backward compatibility."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "a.ndim > 2"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", then the dimensions specified by "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "axis1",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "axis1"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "axis2",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "axis2"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are removed, and a new axis inserted at the end corresponding to the diagonal."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "array_of_diagonals",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Return specified diagonals."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "a = np.arange(4).reshape(2,2)  # doctest: +SKIP\na  # doctest: +SKIP"
+      },
+      {
+        "type": "code",
+        "value": "a.diagonal()  # doctest: +SKIP"
+      },
+      {
+        "type": "code",
+        "value": "a.diagonal(1)  # doctest: +SKIP"
+      },
+      {
+        "type": "text",
+        "value": "A 3-D example:"
+      },
+      {
+        "type": "code",
+        "value": "a = np.arange(8).reshape(2,2,2); a  # doctest: +SKIP"
+      },
+      {
+        "type": "code",
+        "value": "a.diagonal(0,  # Main diagonals of two arrays created by skipping  # doctest: +SKIP\n           0,  # across the outer(left)-most axis last and\n           1)  # the \"middle\" (row) axis first."
+      },
+      {
+        "type": "text",
+        "value": "The sub-arrays whose main diagonals we just obtained; note that each\ncorresponds to fixing the right-most (column) axis, and that the\ndiagonals are \"packed\" in rows."
+      },
+      {
+        "type": "code",
+        "value": "a[:,:,0]  # main diagonal is [0 6]  # doctest: +SKIP"
+      },
+      {
+        "type": "code",
+        "value": "a[:,:,1]  # main diagonal is [1 7]  # doctest: +SKIP"
+      },
+      {
+        "type": "text",
+        "value": "The anti-diagonal can be obtained by reversing the order of elements\nusing either `numpy.flipud` or `numpy.fliplr`."
+      },
+      {
+        "type": "code",
+        "value": "a = np.arange(9).reshape(3, 3)  # doctest: +SKIP\na  # doctest: +SKIP"
+      },
+      {
+        "type": "code",
+        "value": "np.fliplr(a).diagonal()  # Horizontal flip  # doctest: +SKIP"
+      },
+      {
+        "type": "code",
+        "value": "np.flipud(a).diagonal()  # Vertical flip  # doctest: +SKIP"
+      },
+      {
+        "type": "text",
+        "value": "Note that the order in which the diagonal is retrieved varies depending\non the flip function."
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dask/array/creation.py",
+  "item_line": 633,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "See Also",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "MATLAB work-a-like for 1-D and 2-D arrays."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "diag",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "diag"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Create diagonal arrays."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "diagflat",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "diagflat"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Sum along diagonals."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "dask",
+          "path": "dask.array.core:Array.trace",
+          "type": "RefInfo",
+          "version": "2023.1.0"
+        },
+        "type": "Link",
+        "value": "trace"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(a, offset=0, axis1=0, axis2=1)"
+  },
+  "type": "DocBlob"
+}

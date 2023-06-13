@@ -1,0 +1,353 @@
+{
+  "aliases": [
+    "IPython.core.interactiveshell.Struct.merge"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This is similar to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "update"
+            },
+            {
+              "type": "text",
+              "value": ", but much more flexible. First, a dict is made from data+key=value pairs. When merging this dict with the Struct S, the optional dictionary 'conflict' is used to decide what to do."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If conflict is not given, the default behavior is to preserve any keys with their current value (the opposite of the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "update"
+            },
+            {
+              "type": "text",
+              "value": " method's behavior)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "__conflict_solve",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "__conflict_solve"
+            },
+            {
+              "type": "text",
+              "value": " dict is a dictionary of binary functions which will be used to solve key conflicts.  Here is an example      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "__conflict_solve = dict(\n    func1=['a','b','c'],\n    func2=['d','e']\n)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In this case, the function "
+            },
+            {
+              "type": "inlineCode",
+              "value": "func1"
+            },
+            {
+              "type": "text",
+              "value": " will be used to resolve keys 'a', 'b' and 'c' and the function "
+            },
+            {
+              "type": "inlineCode",
+              "value": "func2"
+            },
+            {
+              "type": "text",
+              "value": " will be used for keys 'd' and 'e'.  This could also be written as      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "__conflict_solve = dict(func1='a b c',func2='d e')"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "These functions will be called for each key they apply to with the form      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "func1(self['a'], other['a'])"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The return value is used as the final merged value."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "As a convenience, merge() provides five (the most commonly needed) pre-defined policies: preserve, update, add, add_flip and add_s. The easiest explanation is their implementation      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "preserve = lambda old,new: old\nupdate   = lambda old,new: new\nadd      = lambda old,new: old + new\nadd_flip = lambda old,new: new + old  # note change of order!\nadd_s    = lambda old,new: old + ' ' + new  # only for str!"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You can use those four words (as strings) as keys instead of defining them as functions, and the merge method will substitute the appropriate functions for you."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For more complicated conflict resolution policies, you still need to construct your own functions."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The data to merge into self"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "__loc_data__",
+              "type": "Param",
+              "type_": "dict, Struct"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The conflict policy dict.  The keys are binary functions used to resolve the conflict and the values are lists of strings naming the keys the conflict resolution function applies to.  Instead of a list of strings a space separated string can be used, like 'a b c'."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "__conflict_solve",
+              "type": "Param",
+              "type_": "dict"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Additional key, value pairs to merge in"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "**kw",
+              "type": "Param",
+              "type_": "dict"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Merge two Structs with customizable conflict resolution."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "This show the default policy:"
+      },
+      {
+        "type": "code",
+        "value": "s = Struct(a=10,b=30)\ns2 = Struct(a=20,c=40)\ns.merge(s2)\nsorted(s.items())"
+      },
+      {
+        "type": "text",
+        "value": "Now, show how to specify a conflict dict:"
+      },
+      {
+        "type": "code",
+        "value": "s = Struct(a=10,b=30)\ns2 = Struct(a=20,b=40)\nconflict = {'update':'a','add':'b'}\ns.merge(s2,conflict)\nsorted(s.items())"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dev/ipython/IPython/utils/ipstruct.py",
+  "item_line": 263,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, __loc_data__=None, _Struct__conflict_solve=None, **kw)"
+  },
+  "type": "DocBlob"
+}

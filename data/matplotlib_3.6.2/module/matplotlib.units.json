@@ -6,49 +6,33 @@
     {
       "children": [
         {
-          "data": {
-            "children": [
-              {
-                "data": {
-                  "value": "The classes here provide support for using custom classes with Matplotlib, e.g., those that do not expose the array interface but know how to convert themselves to arrays.  It also supports classes with units and units conversion.  Use cases include converters for custom objects, e.g., a list of datetime objects, as well as for objects that are unit aware.  We don't assume any particular units implementation; rather a units implementation must register with the Registry converter dictionary and provide a "
-                },
-                "type": "Words"
-              },
-              {
-                "data": {
-                  "anchor": null,
-                  "exists": true,
-                  "kind": "module",
-                  "reference": {
-                    "kind": "module",
-                    "module": "matplotlib",
-                    "path": "matplotlib.units.ConversionInterface",
-                    "version": "3.6.2"
-                  },
-                  "value": "ConversionInterface"
-                },
-                "type": "Link"
-              },
-              {
-                "data": {
-                  "value": ".  For example, here is a complete implementation which supports plotting with native datetime objects:      "
-                },
-                "type": "Words"
-              }
-            ]
-          },
-          "type": "Paragraph"
+          "children": [
+            {
+              "type": "text",
+              "value": "The classes here provide support for using custom classes with Matplotlib, e.g., those that do not expose the array interface but know how to convert themselves to arrays.  It also supports classes with units and units conversion.  Use cases include converters for custom objects, e.g., a list of datetime objects, as well as for objects that are unit aware.  We don't assume any particular units implementation; rather a units implementation must register with the Registry converter dictionary and provide a "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "ConversionInterface"
+            },
+            {
+              "type": "text",
+              "value": ".  For example, here is a complete implementation which supports plotting with native datetime objects      "
+            }
+          ],
+          "type": "paragraph"
         },
         {
-          "data": {
-            "value": "import matplotlib.units as units\nimport matplotlib.dates as dates\nimport matplotlib.ticker as ticker\nimport datetime\n\nclass DateConverter(units.ConversionInterface):\n\n    @staticmethod\n    def convert(value, unit, axis):\n        \"Convert a datetime value to a scalar or array.\"\n        return dates.date2num(value)\n\n    @staticmethod\n    def axisinfo(unit, axis):\n        \"Return major and minor tick locators and formatters.\"\n        if unit != 'date':\n            return None\n        majloc = dates.AutoDateLocator()\n        majfmt = dates.AutoDateFormatter(majloc)\n        return units.AxisInfo(majloc=majloc, majfmt=majfmt, label='date')\n\n    @staticmethod\n    def default_units(x, axis):\n        \"Return the default unit for x or None.\"\n        return 'date'\n\n# Finally we register our object type with the Matplotlib units registry.\nunits.registry[datetime.date] = DateConverter()"
-          },
-          "type": "BlockVerbatim"
+          "type": "code",
+          "value": "import matplotlib.units as units\nimport matplotlib.dates as dates\nimport matplotlib.ticker as ticker\nimport datetime\n\nclass DateConverter(units.ConversionInterface):\n\n    @staticmethod\n    def convert(value, unit, axis):\n        \"Convert a datetime value to a scalar or array.\"\n        return dates.date2num(value)\n\n    @staticmethod\n    def axisinfo(unit, axis):\n        \"Return major and minor tick locators and formatters.\"\n        if unit != 'date':\n            return None\n        majloc = dates.AutoDateLocator()\n        majfmt = dates.AutoDateFormatter(majloc)\n        return units.AxisInfo(majloc=majloc, majfmt=majfmt, label='date')\n\n    @staticmethod\n    def default_units(x, axis):\n        \"Return the default unit for x or None.\"\n        return 'date'\n\n# Finally we register our object type with the Matplotlib units registry.\nunits.registry[datetime.date] = DateConverter()"
         }
       ],
       "level": 0,
       "target": null,
-      "title": null
+      "title": null,
+      "type": "Section"
     }
   ],
   "content": {
@@ -56,179 +40,165 @@
       "children": [],
       "level": 0,
       "target": null,
-      "title": null
+      "title": null,
+      "type": "Section"
     },
     "Extended Summary": {
       "children": [
         {
-          "data": {
-            "children": [
-              {
-                "data": {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "import matplotlib.units as units     import matplotlib.dates as dates     import matplotlib.ticker as ticker     import datetime"
+                }
+              ],
+              "type": "paragraph"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "class DateConverter(units.ConversionInterface):"
+                }
+              ],
+              "type": "paragraph"
+            },
+            {
+              "children": [
+                {
                   "children": [
                     {
-                      "data": {
-                        "value": "import matplotlib.units as units     import matplotlib.dates as dates     import matplotlib.ticker as ticker     import datetime"
-                      },
-                      "type": "Words"
+                      "type": "text",
+                      "value": "@staticmethod         def convert(value, unit, axis):             \"Convert a datetime value to a scalar or array.\"             return dates.date2num(value)"
                     }
-                  ]
+                  ],
+                  "type": "paragraph"
                 },
-                "type": "Paragraph"
-              },
-              {
-                "data": {
+                {
                   "children": [
                     {
-                      "data": {
-                        "value": "class DateConverter(units.ConversionInterface):"
-                      },
-                      "type": "Words"
+                      "type": "text",
+                      "value": "@staticmethod         def axisinfo(unit, axis):             \"Return major and minor tick locators and formatters.\"             if unit != 'date':                 return None             majloc = dates.AutoDateLocator()             majfmt = dates.AutoDateFormatter(majloc)             return units.AxisInfo(majloc=majloc, majfmt=majfmt, label='date')"
                     }
-                  ]
+                  ],
+                  "type": "paragraph"
                 },
-                "type": "Paragraph"
-              },
-              {
-                "data": {
+                {
                   "children": [
                     {
-                      "data": {
-                        "children": [
-                          {
-                            "data": {
-                              "value": "@staticmethod         def convert(value, unit, axis):             \"Convert a datetime value to a scalar or array.\"             return dates.date2num(value)"
-                            },
-                            "type": "Words"
-                          }
-                        ]
-                      },
-                      "type": "Paragraph"
-                    },
-                    {
-                      "data": {
-                        "children": [
-                          {
-                            "data": {
-                              "value": "@staticmethod         def axisinfo(unit, axis):             \"Return major and minor tick locators and formatters.\"             if unit != 'date':                 return None             majloc = dates.AutoDateLocator()             majfmt = dates.AutoDateFormatter(majloc)             return units.AxisInfo(majloc=majloc, majfmt=majfmt, label='date')"
-                            },
-                            "type": "Words"
-                          }
-                        ]
-                      },
-                      "type": "Paragraph"
-                    },
-                    {
-                      "data": {
-                        "children": [
-                          {
-                            "data": {
-                              "value": "@staticmethod         def default_units(x, axis):             \"Return the default unit for x or None.\"             return 'date'"
-                            },
-                            "type": "Words"
-                          }
-                        ]
-                      },
-                      "type": "Paragraph"
+                      "type": "text",
+                      "value": "@staticmethod         def default_units(x, axis):             \"Return the default unit for x or None.\"             return 'date'"
                     }
-                  ]
-                },
-                "type": "BlockQuote"
-              },
-              {
-                "data": {
-                  "children": [
-                    {
-                      "data": {
-                        "value": "# Finally we register our object type with the Matplotlib units registry.     units.registry[datetime.date] = DateConverter()"
-                      },
-                      "type": "Words"
-                    }
-                  ]
-                },
-                "type": "Paragraph"
-              }
-            ]
-          },
-          "type": "BlockQuote"
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "type": "blockquote"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "# Finally we register our object type with the Matplotlib units registry.     units.registry[datetime.date] = DateConverter()"
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "type": "blockquote"
         }
       ],
       "level": 0,
       "target": null,
-      "title": null
+      "title": null,
+      "type": "Section"
     },
     "Methods": {
       "children": [],
       "level": 0,
       "target": null,
-      "title": null
+      "title": null,
+      "type": "Section"
     },
     "Notes": {
       "children": [],
       "level": 0,
       "target": null,
-      "title": null
+      "title": null,
+      "type": "Section"
     },
     "Other Parameters": {
       "children": [],
       "level": 0,
       "target": null,
-      "title": null
+      "title": null,
+      "type": "Section"
     },
     "Parameters": {
       "children": [],
       "level": 0,
       "target": null,
-      "title": null
+      "title": null,
+      "type": "Section"
     },
     "Raises": {
       "children": [],
       "level": 0,
       "target": null,
-      "title": null
+      "title": null,
+      "type": "Section"
     },
     "Receives": {
       "children": [],
       "level": 0,
       "target": null,
-      "title": null
+      "title": null,
+      "type": "Section"
     },
     "Returns": {
       "children": [],
       "level": 0,
       "target": null,
-      "title": null
+      "title": null,
+      "type": "Section"
     },
     "Summary": {
       "children": [],
       "level": 0,
       "target": null,
-      "title": null
+      "title": null,
+      "type": "Section"
     },
     "Warnings": {
       "children": [],
       "level": 0,
       "target": null,
-      "title": null
+      "title": null,
+      "type": "Section"
     },
     "Warns": {
       "children": [],
       "level": 0,
       "target": null,
-      "title": null
+      "title": null,
+      "type": "Section"
     },
     "Yields": {
       "children": [],
       "level": 0,
       "target": null,
-      "title": null
+      "title": null,
+      "type": "Section"
     }
   },
   "example_section_data": {
     "children": [],
     "level": 0,
     "target": null,
-    "title": null
+    "title": null,
+    "type": "Section"
   },
   "item_file": "/matplotlib/units.py",
   "item_line": 0,
@@ -240,6 +210,8 @@
   "references": null,
   "see_also": [],
   "signature": {
+    "type": "Signature",
     "value": null
-  }
+  },
+  "type": "DocBlob"
 }

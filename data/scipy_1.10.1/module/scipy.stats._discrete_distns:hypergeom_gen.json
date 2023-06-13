@@ -1,0 +1,363 @@
+{
+  "aliases": [
+    "scipy.stats._discrete_distns.hypergeom_gen"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The hypergeometric distribution models drawing objects from a bin. "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "M"
+            },
+            {
+              "type": "text",
+              "value": " is the total number of objects, "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "n"
+            },
+            {
+              "type": "text",
+              "value": " is total number of Type I objects. The random variate represents the number of Type I objects in "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "N"
+            },
+            {
+              "type": "text",
+              "value": " drawn without replacement from the total population."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "%(before_notes)s"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The symbols used to denote the shape parameters ("
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "M"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "n"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "N"
+            },
+            {
+              "type": "text",
+              "value": ") are not universally accepted.  See the Examples for a clarification of the definitions used here."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The probability mass function is defined as,"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "p(k, M, n, N) = \\frac{\\binom{n}{k} \\binom{M - n}{N - k}}{\\binom{M}{N}}"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "for "
+            },
+            {
+              "type": "inlineMath",
+              "value": "k \\in [\\max(0, N - M + n), \\min(n, N)]"
+            },
+            {
+              "type": "text",
+              "value": ", where the binomial coefficients are defined as,"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "\\binom{n}{k} \\equiv \\frac{n!}{k! (n - k)!}."
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "%(after_notes)s"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A hypergeometric discrete random variable."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.stats import hypergeom\nimport matplotlib.pyplot as plt"
+      },
+      {
+        "type": "text",
+        "value": "Suppose we have a collection of 20 animals, of which 7 are dogs.  Then if\nwe want to know the probability of finding a given number of dogs if we\nchoose at random 12 of the 20 animals, we can initialize a frozen\ndistribution and plot the probability mass function:"
+      },
+      {
+        "type": "code",
+        "value": "[M, n, N] = [20, 7, 12]\nrv = hypergeom(M, n, N)\nx = np.arange(0, n+1)\npmf_dogs = rv.pmf(x)"
+      },
+      {
+        "type": "code",
+        "value": "fig = plt.figure()\nax = fig.add_subplot(111)\nax.plot(x, pmf_dogs, 'bo')\nax.vlines(x, 0, pmf_dogs, lw=2)\nax.set_xlabel('# of dogs in our group of chosen animals')\nax.set_ylabel('hypergeom PMF')\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.stats._discrete_distns:hypergeom_gen-0-3c041d5c.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      },
+      {
+        "type": "text",
+        "value": "Instead of using a frozen distribution we can also use `hypergeom`\nmethods directly.  To for example obtain the cumulative distribution\nfunction, use:"
+      },
+      {
+        "type": "code",
+        "value": "prb = hypergeom.cdf(x, M, n, N)"
+      },
+      {
+        "type": "text",
+        "value": "And to generate random numbers:"
+      },
+      {
+        "type": "code",
+        "value": "R = hypergeom.rvs(M, n, N, size=10)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_discrete_distns.py",
+  "item_line": 454,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Notes",
+    "Examples",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "nhypergeom",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "nhypergeom"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "binom",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "binom"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "nbinom",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "nbinom"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

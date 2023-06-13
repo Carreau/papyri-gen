@@ -1,0 +1,287 @@
+{
+  "aliases": [
+    "scipy.fftpack.next_fast_len"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "SciPy's FFTPACK has efficient functions for radix {2, 3, 4, 5}, so this returns the next composite of the prime factors 2, 3, and 5 which is greater than or equal to "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "target",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "target"
+            },
+            {
+              "type": "text",
+              "value": ". (These are also known as 5-smooth numbers, regular numbers, or Hamming numbers.)"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 0.18.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Length to start searching from. Must be a positive integer."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "target",
+              "type": "Param",
+              "type_": "int"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The first 5-smooth number greater than or equal to "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "target",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "target"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "out",
+              "type": "Param",
+              "type_": "int"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Find the next fast size of input data to "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.fft",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "fft"
+            },
+            {
+              "type": "text",
+              "value": ", for zero-padding, etc."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "On a particular machine, an FFT of prime length takes 133 ms:"
+      },
+      {
+        "type": "code",
+        "value": "from scipy import fftpack\nimport numpy as np\nrng = np.random.default_rng()\nmin_len = 10007  # prime length is worst case for speed\na = rng.standard_normal(min_len)\nb = fftpack.fft(a)"
+      },
+      {
+        "type": "text",
+        "value": "Zero-padding to the next 5-smooth length reduces computation time to\n211 us, a speedup of 630 times:"
+      },
+      {
+        "type": "code",
+        "value": "fftpack.next_fast_len(min_len)"
+      },
+      {
+        "type": "code",
+        "value": "b = fftpack.fft(a, 10125)"
+      },
+      {
+        "type": "text",
+        "value": "Rounding up to the next power of 2 is not optimal, taking 367 us to\ncompute, 1.7 times as long as the 5-smooth size:"
+      },
+      {
+        "type": "code",
+        "value": "b = fftpack.fft(a, 16384)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/fftpack/_helper.py",
+  "item_line": 51,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(target)"
+  },
+  "type": "DocBlob"
+}

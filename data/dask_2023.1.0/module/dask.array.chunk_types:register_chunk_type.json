@@ -1,0 +1,341 @@
+{
+  "aliases": [
+    "dask.array.register_chunk_type"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A "
+            },
+            {
+              "type": "inlineCode",
+              "value": "dask.array.Array"
+            },
+            {
+              "type": "text",
+              "value": " can contain any sufficiently \"NumPy-like\" array in its chunks. These are also referred to as \"duck arrays\" since they match the most important parts of NumPy's array API, and so, behave the same way when relying on duck typing."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "However, for multiple duck array types to interoperate properly, they need to properly defer to each other in arithmetic operations and NumPy functions/ufuncs according to a well-defined type casting hierarchy ( "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "see NEP 13"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://numpy.org/neps/nep-0013-ufunc-overrides.html#type-casting-hierarchy"
+            },
+            {
+              "type": "text",
+              "value": " ). In an effort to maintain this hierarchy, Dask defers to all other duck array types except those in its internal registry. By default, this registry contains"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "numpy.ndarray"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "numpy.ma.MaskedArray"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "cupy.ndarray"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "sparse.SparseArray"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "scipy.sparse.spmatrix"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function exists to append any other types to this registry. If a type is not in this registry, and yet is a downcast type (it comes below "
+            },
+            {
+              "type": "inlineCode",
+              "value": "dask.array.Array"
+            },
+            {
+              "type": "text",
+              "value": " in the type casting hierarchy), a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "TypeError"
+            },
+            {
+              "type": "text",
+              "value": " will be raised due to all operand types returning "
+            },
+            {
+              "type": "inlineCode",
+              "value": "NotImplemented"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Duck array type to be registered as a type Dask can safely wrap as a chunk and to which Dask does not defer in arithmetic operations and NumPy functions/ufuncs."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "type",
+              "type": "Param",
+              "type_": "type"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Register the given type as a valid chunk and downcast array type"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Using a mock ``FlaggedArray`` class as an example chunk type unknown to Dask with\nminimal duck array API:"
+      },
+      {
+        "type": "code",
+        "value": "import numpy.lib.mixins\nclass FlaggedArray(numpy.lib.mixins.NDArrayOperatorsMixin):\n    def __init__(self, a, flag=False):\n        self.a = a\n        self.flag = flag\n    def __repr__(self):\n        return f\"Flag: {self.flag}, Array: \" + repr(self.a)\n    def __array__(self):\n        return np.asarray(self.a)\n    def __array_ufunc__(self, ufunc, method, *inputs, **kwargs):\n        if method == '__call__':\n            downcast_inputs = []\n            flag = False\n            for input in inputs:\n                if isinstance(input, self.__class__):\n                    flag = flag or input.flag\n                    downcast_inputs.append(input.a)\n                elif isinstance(input, np.ndarray):\n                    downcast_inputs.append(input)\n                else:\n                    return NotImplemented\n            return self.__class__(ufunc(*downcast_inputs, **kwargs), flag)\n        else:\n            return NotImplemented\n    @property\n    def shape(self):\n        return self.a.shape\n    @property\n    def ndim(self):\n        return self.a.ndim\n    @property\n    def dtype(self):\n        return self.a.dtype\n    def __getitem__(self, key):\n        return type(self)(self.a[key], self.flag)\n    def __setitem__(self, key, value):\n        self.a[key] = value"
+      },
+      {
+        "type": "text",
+        "value": "Before registering ``FlaggedArray``, both types will attempt to defer to the\nother:"
+      },
+      {
+        "type": "code",
+        "value": "import dask.array as da\nda.ones(5) - FlaggedArray(np.ones(5), True)"
+      },
+      {
+        "type": "text",
+        "value": "However, once registered, Dask will be able to handle operations with this new\ntype:"
+      },
+      {
+        "type": "code",
+        "value": "da.register_chunk_type(FlaggedArray)\nx = da.ones(5) - FlaggedArray(np.ones(5), True)\nx"
+      },
+      {
+        "type": "code",
+        "value": "x.compute()"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dask/array/chunk_types.py",
+  "item_line": 7,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(type)"
+  },
+  "type": "DocBlob"
+}

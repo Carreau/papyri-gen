@@ -1,0 +1,253 @@
+{
+  "aliases": [
+    "networkx.nx_agraph.pygraphviz_layout"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If you use complex node objects, they may have the same string representation and GraphViz could treat them as the same node. The layout may assign both nodes a single location. See Issue #1568 If this occurs in your case, consider relabeling the nodes just for the layout computation using something similar to      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> H = nx.convert_node_labels_to_integers(G, label_attribute=\"node_label\")\n>>> H_layout = nx.nx_agraph.pygraphviz_layout(G, prog=\"dot\")\n>>> G_layout = {H.nodes[n][\"node_label\"]: p for n, p in H_layout.items()}"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Note that some graphviz layouts are not guaranteed to be deterministic, see https://gitlab.com/graphviz/graphviz/-/issues/1767 for more info."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A graph created with NetworkX"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "G",
+              "type": "Param",
+              "type_": "NetworkX graph"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Name of Graphviz layout program"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "prog",
+              "type": "Param",
+              "type_": "string"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Root node for twopi layout"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "root",
+              "type": "Param",
+              "type_": "string, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Extra arguments to Graphviz layout program"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "args",
+              "type": "Param",
+              "type_": "string, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Dictionary of x, y, positions keyed by node."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "node_pos",
+              "type": "Param",
+              "type_": "dict"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Create node positions for G using Graphviz."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "G = nx.petersen_graph()\npos = nx.nx_agraph.graphviz_layout(G)\npos = nx.nx_agraph.graphviz_layout(G, prog=\"dot\")"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/drawing/nx_agraph.py",
+  "item_line": 254,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Examples",
+    "Notes"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(G, prog='neato', root=None, args='')"
+  },
+  "type": "DocBlob"
+}

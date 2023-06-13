@@ -1,0 +1,301 @@
+{
+  "aliases": [
+    "dask.blockwise.make_blockwise_graph"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Applies a function, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "func"
+            },
+            {
+              "type": "text",
+              "value": ", across blocks from many different input collections.  We arrange the pattern with which those blocks interact with sets of matching indices.  E.g.      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "make_blockwise_graph(func, 'z', 'i', 'x', 'i', 'y', 'i')"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "yield an embarrassingly parallel communication pattern and is read as"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "$$ z_i = func(x_i, y_i) $$"
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "More complex patterns may emerge, including multiple indices      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "make_blockwise_graph(func, 'z', 'ij', 'x', 'ij', 'y', 'ji')\n\n$$ z_{ij} = func(x_{ij}, y_{ji}) $$"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Indices missing in the output but present in the inputs results in many inputs being sent to one function (see examples)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Tensor operation"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Simple embarrassing map operation"
+      },
+      {
+        "type": "code",
+        "value": "inc = lambda x: x + 1\nmake_blockwise_graph(inc, 'z', 'ij', 'x', 'ij', numblocks={'x': (2, 2)})  # doctest: +SKIP"
+      },
+      {
+        "type": "text",
+        "value": "Simple operation on two datasets"
+      },
+      {
+        "type": "code",
+        "value": "add = lambda x, y: x + y\nmake_blockwise_graph(add, 'z', 'ij', 'x', 'ij', 'y', 'ij', numblocks={'x': (2, 2),\n                                                     'y': (2, 2)})  # doctest: +SKIP"
+      },
+      {
+        "type": "text",
+        "value": "Operation that flips one of the datasets"
+      },
+      {
+        "type": "code",
+        "value": "addT = lambda x, y: x + y.T  # Transpose each chunk\n#                                        z_ij ~ x_ij y_ji\n#               ..         ..         .. notice swap\nmake_blockwise_graph(addT, 'z', 'ij', 'x', 'ij', 'y', 'ji', numblocks={'x': (2, 2),\n                                                      'y': (2, 2)})  # doctest: +SKIP"
+      },
+      {
+        "type": "text",
+        "value": "Dot product with contraction over ``j`` index.  Yields list arguments"
+      },
+      {
+        "type": "code",
+        "value": "make_blockwise_graph(dotmany, 'z', 'ik', 'x', 'ij', 'y', 'jk', numblocks={'x': (2, 2),\n                                                         'y': (2, 2)})  # doctest: +SKIP"
+      },
+      {
+        "type": "text",
+        "value": "Pass ``concatenate=True`` to concatenate arrays ahead of time"
+      },
+      {
+        "type": "code",
+        "value": "make_blockwise_graph(f, 'z', 'i', 'x', 'ij', 'y', 'ij', concatenate=True,\n    numblocks={'x': (2, 2), 'y': (2, 2,)})  # doctest: +SKIP"
+      },
+      {
+        "type": "text",
+        "value": "Supports Broadcasting rules"
+      },
+      {
+        "type": "code",
+        "value": "make_blockwise_graph(add, 'z', 'ij', 'x', 'ij', 'y', 'ij', numblocks={'x': (1, 2),\n                                                     'y': (2, 2)})  # doctest: +SKIP"
+      },
+      {
+        "type": "text",
+        "value": "Support keyword arguments with apply"
+      },
+      {
+        "type": "code",
+        "value": "def f(a, b=0): return a + b\nmake_blockwise_graph(f, 'z', 'i', 'x', 'i', numblocks={'x': (2,)}, b=10)  # doctest: +SKIP"
+      },
+      {
+        "type": "text",
+        "value": "Include literals by indexing with ``None``"
+      },
+      {
+        "type": "code",
+        "value": "make_blockwise_graph(add, 'z', 'i', 'x', 'i', 100, None,  numblocks={'x': (2,)})  # doctest: +SKIP"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dask/blockwise.py",
+  "item_line": 961,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Examples",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "dask",
+          "path": "dask.array.blockwise:blockwise",
+          "type": "RefInfo",
+          "version": "2023.1.1"
+        },
+        "type": "Link",
+        "value": "dask.array.blockwise"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "dask",
+          "path": "dask.blockwise:blockwise",
+          "type": "RefInfo",
+          "version": "2023.1.1"
+        },
+        "type": "Link",
+        "value": "dask.blockwise.blockwise"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(func, output, out_indices, *arrind_pairs, numblocks=None, concatenate=None, new_axes=None, output_blocks=None, dims=None, deserializing=False, func_future_args=None, return_key_deps=False, io_deps=None)"
+  },
+  "type": "DocBlob"
+}

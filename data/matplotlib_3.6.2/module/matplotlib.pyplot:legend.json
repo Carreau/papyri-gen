@@ -1,0 +1,1631 @@
+{
+  "aliases": [
+    "matplotlib.pyplot.legend"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Call signatures      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "legend()\nlegend(handles, labels)\nlegend(handles=handles)\nlegend(labels)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The call signatures correspond to the following different ways to use this method:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "1. Automatic detection of elements to be shown in the legend"
+                }
+              ],
+              "type": "strong"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The elements to be added to the legend are automatically determined, when you do not pass in any extra arguments."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In this case, the labels are taken from the artist. You can specify them either at artist creation or by calling the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "~.Artist.set_label"
+            },
+            {
+              "type": "text",
+              "value": " method on the artist      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "ax.plot([1, 2, 3], label='Inline label')\nax.legend()"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "or      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "line, = ax.plot([1, 2, 3])\nline.set_label('Label via method')\nax.legend()"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "note "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Specific artists can be excluded from the automatic legend element selection by using a label starting with an underscore, \"_\". A string starting with an underscore is the default label for all artists, so calling "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": ".Axes.legend"
+                },
+                {
+                  "type": "text",
+                  "value": " without any arguments and without setting the labels manually will result in no legend being drawn."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "2. Explicitly listing the artists and labels in the legend"
+                }
+              ],
+              "type": "strong"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For full control of which artists have a legend entry, it is possible to pass an iterable of legend artists followed by an iterable of legend labels respectively      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "ax.legend([line1, line2, line3], ['label1', 'label2', 'label3'])"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "3. Explicitly listing the artists in the legend"
+                }
+              ],
+              "type": "strong"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This is similar to 2, but the labels are taken from the artists' label properties. Example      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "line1, = ax.plot([1, 2, 3], label='label1')\nline2, = ax.plot([1, 2, 3], label='label2')\nax.legend(handles=[line1, line2])"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "4. Labeling existing plot elements"
+                }
+              ],
+              "type": "strong"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "Discouraged",
+          "children": [],
+          "name": "admonition",
+          "options": {},
+          "type": "mystDirective",
+          "value": "This call signature is discouraged, because the relation between\nplot elements and labels is only implicit by their order and can\neasily be mixed up."
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To make a legend for all artists on an Axes, call this function with an iterable of strings, one for each legend item. For example      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "ax.plot([1, 2, 3])\nax.plot([5, 6, 7])\nax.legend(['First line', 'Second line'])"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Some artists are not supported by this function.  See "
+            },
+            {
+              "type": "inlineCode",
+              "value": "/tutorials/intermediate/legend_guide"
+            },
+            {
+              "type": "text",
+              "value": " for details."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The location of the legend."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The strings "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "'upper left', 'upper right', 'lower left', 'lower right'"
+                    },
+                    {
+                      "type": "text",
+                      "value": " place the legend at the corresponding corner of the axes/figure."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The strings "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "'upper center', 'lower center', 'center left', 'center right'"
+                    },
+                    {
+                      "type": "text",
+                      "value": " place the legend at the center of the corresponding edge of the axes/figure."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The string "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "'center'"
+                    },
+                    {
+                      "type": "text",
+                      "value": " places the legend at the center of the axes/figure."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The string "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "'best'"
+                    },
+                    {
+                      "type": "text",
+                      "value": " places the legend at the location, among the nine locations defined so far, with the minimum overlap with other drawn artists.  This option can be quite slow for plots with large amounts of data; your plotting speed may benefit from providing a specific location."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The location can also be a 2-tuple giving the coordinates of the lower-left corner of the legend in axes coordinates (in which case "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "bbox_to_anchor"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will be ignored)."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "For back-compatibility, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "'center right'"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (but no other location) can also be spelled "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "'right'"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", and each \"string\" locations can also be given as a numeric value:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "===============   =============     Location String   Location Code     ===============   =============     'best'            0     'upper right'     1     'upper left'      2     'lower left'      3     'lower right'     4     'right'           5     'center left'     6     'center right'    7     'lower center'    8     'upper center'    9     'center'          10     ===============   ============="
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "type": "blockquote"
+                }
+              ],
+              "param": "loc",
+              "type": "Param",
+              "type_": "str or pair of floats, default: :rc:`legend.loc` ('best' for axes, 'upper right' for figures)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Box that is used to position the legend in conjunction with "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "loc"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Defaults to "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "axes.bbox"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (if called as a method to "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": ".Axes.legend"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") or "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "figure.bbox"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (if "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": ".Figure.legend"
+                    },
+                    {
+                      "type": "text",
+                      "value": ").  This argument allows arbitrary placement of the legend."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Bbox coordinates are interpreted in the coordinate system given by "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "bbox_transform"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", with the default transform Axes or Figure coordinates, depending on which "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "legend"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is called."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If a 4-tuple or "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": ".BboxBase"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is given, then it specifies the bbox "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(x, y, width, height)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " that the legend is placed in. To put the legend in the best location in the bottom right quadrant of the axes (or figure)      "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "loc='best', bbox_to_anchor=(0.5, 0., 0.5, 0.5)"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A 2-tuple "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(x, y)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " places the corner of the legend specified by "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "loc"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " at x, y.  For example, to put the legend's upper right-hand corner in the center of the axes (or figure) the following keywords can be used      "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "loc='upper right', bbox_to_anchor=(0.5, 0.5)"
+                }
+              ],
+              "param": "bbox_to_anchor",
+              "type": "Param",
+              "type_": "`.BboxBase`, 2-tuple, or 4-tuple of floats"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The number of columns that the legend has."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "For backward compatibility, the spelling "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "ncol"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is also supported but it is discouraged. If both are given, "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "ncols"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " takes precedence."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ncols",
+              "type": "Param",
+              "type_": "int, default: 1"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The font properties of the legend. If None (default), the current "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "matplotlib.rcParams"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will be used."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "prop",
+              "type": "Param",
+              "type_": "None or `matplotlib.font_manager.FontProperties` or dict"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The font size of the legend. If the value is numeric the size will be the absolute font size in points. String values are relative to the current default font size. This argument is only used if "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "prop"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is not specified."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fontsize",
+              "type": "Param",
+              "type_": "int or {'xx-small', 'x-small', 'small', 'medium', 'large', 'x-large', 'xx-large'}"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The color of the text in the legend. Either a valid color string (for example, 'red'), or a list of color strings. The labelcolor can also be made to match the color of the line or marker using 'linecolor', 'markerfacecolor' (or 'mfc'), or 'markeredgecolor' (or 'mec')."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Labelcolor can be set globally using "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "legend.labelcolor"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If None, use "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "text.color"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "labelcolor",
+              "type": "Param",
+              "type_": "str or list, default: :rc:`legend.labelcolor`"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The number of marker points in the legend when creating a legend entry for a "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": ".Line2D"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (line)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "numpoints",
+              "type": "Param",
+              "type_": "int, default: :rc:`legend.numpoints`"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The number of marker points in the legend when creating a legend entry for a "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": ".PathCollection"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (scatter plot)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "scatterpoints",
+              "type": "Param",
+              "type_": "int, default: :rc:`legend.scatterpoints`"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The vertical offset (relative to the font size) for the markers created for a scatter plot legend entry. 0.0 is at the base the legend text, and 1.0 is at the top. To draw all markers at the same height, set to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "[0.5]"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "scatteryoffsets",
+              "type": "Param",
+              "type_": "iterable of floats, default: ``[0.375, 0.5, 0.3125]``"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The relative size of legend markers compared with the originally drawn ones."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "markerscale",
+              "type": "Param",
+              "type_": "float, default: :rc:`legend.markerscale`"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "True"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", legend marker is placed to the left of the legend label. If "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "False"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", legend marker is placed to the right of the legend label."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "markerfirst",
+              "type": "Param",
+              "type_": "bool, default: True"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether the legend should be drawn on a patch (frame)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "frameon",
+              "type": "Param",
+              "type_": "bool, default: :rc:`legend.frameon`"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether round edges should be enabled around the "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": ".FancyBboxPatch"
+                    },
+                    {
+                      "type": "text",
+                      "value": " which makes up the legend's background."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fancybox",
+              "type": "Param",
+              "type_": "bool, default: :rc:`legend.fancybox`"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to draw a shadow behind the legend."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "shadow",
+              "type": "Param",
+              "type_": "bool, default: :rc:`legend.shadow`"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The alpha transparency of the legend's background. If "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "shadow"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is activated and "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "framealpha"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the default value is ignored."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "framealpha",
+              "type": "Param",
+              "type_": "float, default: :rc:`legend.framealpha`"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The legend's background color. If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "\"inherit\""
+                    },
+                    {
+                      "type": "text",
+                      "value": ", use "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "axes.facecolor"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "facecolor",
+              "type": "Param",
+              "type_": "\"inherit\" or color, default: :rc:`legend.facecolor`"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The legend's background patch edge color. If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "\"inherit\""
+                    },
+                    {
+                      "type": "text",
+                      "value": ", use take "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "axes.edgecolor"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "edgecolor",
+              "type": "Param",
+              "type_": "\"inherit\" or color, default: :rc:`legend.edgecolor`"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "mode"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is set to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "\"expand\""
+                    },
+                    {
+                      "type": "text",
+                      "value": " the legend will be horizontally expanded to fill the axes area (or "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "bbox_to_anchor"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " if defines the legend's size)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mode",
+              "type": "Param",
+              "type_": "{\"expand\", None}"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The transform for the bounding box ("
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "bbox_to_anchor"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": "). For a value of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (default) the Axes' "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "~matplotlib.axes.Axes.transAxes"
+                    },
+                    {
+                      "type": "text",
+                      "value": " transform will be used."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "bbox_transform",
+              "type": "Param",
+              "type_": "None or `matplotlib.transforms.Transform`"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The legend's title. Default is no title ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "title",
+              "type": "Param",
+              "type_": "str or None"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The font properties of the legend's title. If None (default), the "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "title_fontsize"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " argument will be used if present; if "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "title_fontsize"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is also None, the current "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "legend.title_fontsize"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will be used."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "title_fontproperties",
+              "type": "Param",
+              "type_": "None or `matplotlib.font_manager.FontProperties` or dict"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The font size of the legend's title. Note: This cannot be combined with "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "title_fontproperties"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If you want to set the fontsize alongside other font properties, use the "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "size"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " parameter in "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "title_fontproperties"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "title_fontsize",
+              "type": "Param",
+              "type_": "int or {'xx-small', 'x-small', 'small', 'medium', 'large', 'x-large', 'xx-large'}, default: :rc:`legend.title_fontsize`"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The alignment of the legend title and the box of entries. The entries are aligned as a single block, so that markers always lined up."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "alignment",
+              "type": "Param",
+              "type_": "{'center', 'left', 'right'}, default: 'center'"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The fractional whitespace inside the legend border, in font-size units."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "borderpad",
+              "type": "Param",
+              "type_": "float, default: :rc:`legend.borderpad`"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The vertical space between the legend entries, in font-size units."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "labelspacing",
+              "type": "Param",
+              "type_": "float, default: :rc:`legend.labelspacing`"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The length of the legend handles, in font-size units."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "handlelength",
+              "type": "Param",
+              "type_": "float, default: :rc:`legend.handlelength`"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The height of the legend handles, in font-size units."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "handleheight",
+              "type": "Param",
+              "type_": "float, default: :rc:`legend.handleheight`"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The pad between the legend handle and text, in font-size units."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "handletextpad",
+              "type": "Param",
+              "type_": "float, default: :rc:`legend.handletextpad`"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The pad between the axes and legend border, in font-size units."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "borderaxespad",
+              "type": "Param",
+              "type_": "float, default: :rc:`legend.borderaxespad`"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The spacing between columns, in font-size units."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "columnspacing",
+              "type": "Param",
+              "type_": "float, default: :rc:`legend.columnspacing`"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The custom dictionary mapping instances or types to a legend handler. This "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "handler_map"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " updates the default handler map found at "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "matplotlib.legend",
+                        "path": "matplotlib.legend:Legend.get_legend_handler_map",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "matplotlib.legend.Legend.get_legend_handler_map"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "handler_map",
+              "type": "Param",
+              "type_": "dict or None"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A list of Artists (lines, patches) to be added to the legend. Use this together with "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "labels"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", if you need full control on what is shown in the legend and the automatic mechanism described above is not sufficient."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The length of handles and labels should be the same in this case. If they are not, they are truncated to the smaller length."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "handles",
+              "type": "Param",
+              "type_": "sequence of `.Artist`, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A list of labels to show next to the artists. Use this together with "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "handles"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", if you need full control on what is shown in the legend and the automatic mechanism described above is not sufficient."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "labels",
+              "type": "Param",
+              "type_": "list of str, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "`~matplotlib.legend.Legend`"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Place a legend on the Axes."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": ".. plot:: gallery/text_labels_and_annotations/legend.py"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/matplotlib/pyplot.py",
+  "item_line": 2636,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Other Parameters",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": ".Figure.legend",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": ".Figure.legend"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(*args, **kwargs)"
+  },
+  "type": "DocBlob"
+}

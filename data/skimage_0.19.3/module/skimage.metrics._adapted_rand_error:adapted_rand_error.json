@@ -1,0 +1,317 @@
+{
+  "aliases": [
+    "skimage.metrics.adapted_rand_error"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Pixels with label 0 in the true segmentation are ignored in the score."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Ground-truth label image, same shape as im_test."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "image_true",
+              "type": "Param",
+              "type_": "ndarray of int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Test image."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "image_test",
+              "type": "Param",
+              "type_": "ndarray of int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A contingency table built with skimage.evaluate.contingency_table. If None, it will be computed on the fly."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "table",
+              "type": "Param",
+              "type_": "scipy.sparse array in crs format, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Labels to ignore. Any part of the true image labeled with any of these values will not be counted in the score."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ignore_labels",
+              "type": "Param",
+              "type_": "sequence of int, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The adapted Rand error; equal to "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "1 - \\frac{2pr}{p + r}"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "p"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "r"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are the precision and recall described below."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "are",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The adapted Rand precision: this is the number of pairs of pixels that have the same label in the test label image "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "and"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " in the true image, divided by the number in the test image."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "prec",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The adapted Rand recall: this is the number of pairs of pixels that have the same label in the test label image "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "and"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " in the true image, divided by the number in the true image."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "rec",
+              "type": "Param",
+              "type_": "float"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute Adapted Rand error as defined by the SNEMI3D contest."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/skimage/metrics/_adapted_rand_error.py",
+  "item_line": 7,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(image_true=None, image_test=None, *, table=None, ignore_labels=(0,))"
+  },
+  "type": "DocBlob"
+}

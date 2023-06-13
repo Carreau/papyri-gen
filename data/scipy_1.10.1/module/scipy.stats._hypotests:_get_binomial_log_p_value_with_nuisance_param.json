@@ -1,0 +1,289 @@
+{
+  "aliases": [
+    "scipy.stats._hypotests._get_binomial_log_p_value_with_nuisance_param"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Both Barnard's test and Boschloo's test iterate over a nuisance parameter "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\pi \\in [0, 1]"
+            },
+            {
+              "type": "text",
+              "value": " to find the maximum p-value. To search this maxima, this function return the negative log pvalue with respect to the nuisance parameter passed in params. This negative log p-value is then used in "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "shgo"
+            },
+            {
+              "type": "text",
+              "value": " to find the minimum negative pvalue which is our maximum pvalue."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Also, to compute the different combination used in the p-values' computation formula, this function uses "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "gammaln"
+            },
+            {
+              "type": "text",
+              "value": " which is more tolerant for large value than "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "scipy.special._basic",
+                "path": "scipy.special._basic:comb",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "scipy.special.comb"
+            },
+            {
+              "type": "text",
+              "value": ". "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "gammaln"
+            },
+            {
+              "type": "text",
+              "value": " gives a log combination. For the little precision loss, performances are improved a lot."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "nuisance parameter used in the computation of the maximisation of the p-value. Must be between 0 and 1"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "nuisance_param",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Sum of x1 and x2 inside barnard_exact"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x1_sum_x2",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "sum of the log combination of x1 and x2"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x1_sum_x2_log_comb",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [],
+              "param": "index_arr",
+              "type": "Param",
+              "type_": "ndarray of boolean"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Return the maximum p-value considering every nuisance paramater between 0 and 1"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "p_value",
+              "type": "Param",
+              "type_": "float"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute the log pvalue in respect of a nuisance parameter considering a 2x2 sample space."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_hypotests.py",
+  "item_line": 1389,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Notes"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(nuisance_param, x1_sum_x2, x1_sum_x2_log_comb, index_arr)"
+  },
+  "type": "DocBlob"
+}

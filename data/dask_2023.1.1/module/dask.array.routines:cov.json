@@ -1,0 +1,835 @@
+{
+  "aliases": [
+    "dask.array.cov"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This docstring was copied from numpy.cov."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Some inconsistencies with the Dask version may exist."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Covariance indicates the level to which two variables vary together. If we examine N-dimensional samples, "
+            },
+            {
+              "type": "inlineMath",
+              "value": "X = [x_1, x_2, ... x_N]^T"
+            },
+            {
+              "type": "text",
+              "value": ", then the covariance matrix element "
+            },
+            {
+              "type": "inlineMath",
+              "value": "C_{ij}"
+            },
+            {
+              "type": "text",
+              "value": " is the covariance of "
+            },
+            {
+              "type": "inlineMath",
+              "value": "x_i"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "x_j"
+            },
+            {
+              "type": "text",
+              "value": ". The element "
+            },
+            {
+              "type": "inlineMath",
+              "value": "C_{ii}"
+            },
+            {
+              "type": "text",
+              "value": " is the variance of "
+            },
+            {
+              "type": "inlineMath",
+              "value": "x_i"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "See the notes for an outline of the algorithm."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Assume that the observations are in the columns of the observation array "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "m",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "m"
+            },
+            {
+              "type": "text",
+              "value": " and let "
+            },
+            {
+              "type": "inlineCode",
+              "value": "f = fweights"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "a = aweights"
+            },
+            {
+              "type": "text",
+              "value": " for brevity. The steps to compute the weighted covariance are as follows      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> m = np.arange(10, dtype=np.float64)  # doctest: +SKIP\n>>> f = np.arange(10) * 2  # doctest: +SKIP\n>>> a = np.arange(10) ** 2.  # doctest: +SKIP\n>>> ddof = 1  # doctest: +SKIP\n>>> w = f * a  # doctest: +SKIP\n>>> v1 = np.sum(w)  # doctest: +SKIP\n>>> v2 = np.sum(w * a)  # doctest: +SKIP\n>>> m -= np.sum(m * w, axis=None, keepdims=True) / v1  # doctest: +SKIP\n>>> cov = np.dot(m * w, m.T) * v1 / (v1**2 - ddof * v2)  # doctest: +SKIP"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Note that when "
+            },
+            {
+              "type": "inlineCode",
+              "value": "a == 1"
+            },
+            {
+              "type": "text",
+              "value": ", the normalization factor "
+            },
+            {
+              "type": "inlineCode",
+              "value": "v1 / (v1**2 - ddof * v2)"
+            },
+            {
+              "type": "text",
+              "value": " goes over to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "1 / (np.sum(f) - ddof)"
+            },
+            {
+              "type": "text",
+              "value": " as it should."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A 1-D or 2-D array containing multiple variables and observations. Each row of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "m",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "m"
+                    },
+                    {
+                      "type": "text",
+                      "value": " represents a variable, and each column a single observation of all those variables. Also see "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "rowvar",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "rowvar"
+                    },
+                    {
+                      "type": "text",
+                      "value": " below."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "m",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An additional set of variables and observations. "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "y",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "y"
+                    },
+                    {
+                      "type": "text",
+                      "value": " has the same form as that of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "m",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "m"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "y",
+              "type": "Param",
+              "type_": "array_like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "rowvar",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "rowvar"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is True (default), then each row represents a variable, with observations in the columns. Otherwise, the relationship is transposed: each column represents a variable, while the rows contain observations."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "rowvar",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Default normalization (False) is by "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(N - 1)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "N"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the number of observations given (unbiased estimate). If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "bias",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "bias"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is True, then normalization is by "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "N"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". These values can be overridden by using the keyword "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ddof"
+                    },
+                    {
+                      "type": "text",
+                      "value": " in numpy versions >= 1.5."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "bias",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If not "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": " the default value implied by "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "bias",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "bias"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is overridden. Note that "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ddof=1"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will return the unbiased estimate, even if both "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "fweights",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "fweights"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "aweights",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "aweights"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are specified, and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ddof=0"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will return the simple average. See the notes for the details. The default value is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.5"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "ddof",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "1-D array of integer frequency weights; the number of times each observation vector should be repeated."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.10"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "fweights",
+              "type": "Param",
+              "type_": "array_like, int, optional  (Not supported in Dask)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "1-D array of observation vector weights. These relative weights are typically large for observations considered \"important\" and smaller for observations considered less \"important\". If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ddof=0"
+                    },
+                    {
+                      "type": "text",
+                      "value": " the array of weights can be used to assign probabilities to observation vectors."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.10"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "aweights",
+              "type": "Param",
+              "type_": "array_like, optional  (Not supported in Dask)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Data-type of the result. By default, the return data-type will have at least "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "numpy:float64",
+                        "path": "numpy:float64",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "numpy.float64"
+                    },
+                    {
+                      "type": "text",
+                      "value": " precision."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.20"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "dtype",
+              "type": "Param",
+              "type_": "data-type, optional  (Not supported in Dask)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The covariance matrix of the variables."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "out",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Estimate a covariance matrix, given data and weights."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Consider two variables, :math:`x_0` and :math:`x_1`, which\ncorrelate perfectly, but in opposite directions:"
+      },
+      {
+        "type": "code",
+        "value": "x = np.array([[0, 2], [1, 1], [2, 0]]).T  # doctest: +SKIP\nx  # doctest: +SKIP"
+      },
+      {
+        "type": "text",
+        "value": "Note how :math:`x_0` increases while :math:`x_1` decreases. The covariance\nmatrix shows this clearly:"
+      },
+      {
+        "type": "code",
+        "value": "np.cov(x)  # doctest: +SKIP"
+      },
+      {
+        "type": "text",
+        "value": "Note that element :math:`C_{0,1}`, which shows the correlation between\n:math:`x_0` and :math:`x_1`, is negative."
+      },
+      {
+        "type": "text",
+        "value": "Further, note how `x` and `y` are combined:"
+      },
+      {
+        "type": "code",
+        "value": "x = [-2.1, -1,  4.3]  # doctest: +SKIP\ny = [3,  1.1,  0.12]  # doctest: +SKIP\nX = np.stack((x, y), axis=0)  # doctest: +SKIP\nnp.cov(X)  # doctest: +SKIP"
+      },
+      {
+        "type": "code",
+        "value": "np.cov(x, y)  # doctest: +SKIP"
+      },
+      {
+        "type": "code",
+        "value": "np.cov(x)  # doctest: +SKIP"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dask/array/routines.py",
+  "item_line": 1513,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Normalized covariance matrix"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "dask",
+          "path": "dask.array.routines:corrcoef",
+          "type": "RefInfo",
+          "version": "2023.1.1"
+        },
+        "type": "Link",
+        "value": "corrcoef"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(m, y=None, rowvar=1, bias=0, ddof=None)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,471 @@
+{
+  "aliases": [
+    "scipy.stats.kstatvar"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "See "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "kstat"
+            },
+            {
+              "type": "text",
+              "value": " for more details of the k-statistic."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The variances of the first few k-statistics are given by:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "var(k_{1}) = \\frac{\\kappa^2}{n}\nvar(k_{2}) = \\frac{\\kappa^4}{n} + \\frac{2\\kappa^2_{2}}{n - 1}\nvar(k_{3}) = \\frac{\\kappa^6}{n} + \\frac{9 \\kappa_2 \\kappa_4}{n - 1} +\n             \\frac{9 \\kappa^2_{3}}{n - 1} +\n             \\frac{6 n \\kappa^3_{2}}{(n-1) (n-2)}\nvar(k_{4}) = \\frac{\\kappa^8}{n} + \\frac{16 \\kappa_2 \\kappa_6}{n - 1} +\n             \\frac{48 \\kappa_{3} \\kappa_5}{n - 1} +\n             \\frac{34 \\kappa^2_{4}}{n-1} + \\frac{72 n \\kappa^2_{2} \\kappa_4}{(n - 1) (n - 2)} +\n             \\frac{144 n \\kappa_{2} \\kappa^2_{3}}{(n - 1) (n - 2)} +\n             \\frac{24 (n + 1) n \\kappa^4_{2}}{(n - 1) (n - 2) (n - 3)}"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Beginning in SciPy 1.9, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.matrix"
+            },
+            {
+              "type": "text",
+              "value": " inputs (not recommended for new code) are converted to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.ndarray"
+            },
+            {
+              "type": "text",
+              "value": " before the calculation is performed. In this case, the output will be a scalar or "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.ndarray"
+            },
+            {
+              "type": "text",
+              "value": " of appropriate shape rather than a 2D "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.matrix"
+            },
+            {
+              "type": "text",
+              "value": ". Similarly, while masked elements of masked arrays are ignored, the output will be a scalar or "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.ndarray"
+            },
+            {
+              "type": "text",
+              "value": " rather than a masked array with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "mask=False"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Input array. Note that n-D input gets flattened."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "data",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Default is equal to 2."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "n",
+              "type": "Param",
+              "type_": "int, {1, 2}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If an int, the axis of the input along which to compute the statistic. The statistic of each axis-slice (e.g. row) of the input will appear in a corresponding element of the output. If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the input will be raveled before computing the statistic."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "axis",
+              "type": "Param",
+              "type_": "int or None, default: None"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Defines how to handle input NaNs."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "inlineCode",
+                              "value": "propagate"
+                            },
+                            {
+                              "type": "text",
+                              "value": ": if a NaN is present in the axis slice (e.g. row) along   which the  statistic is computed, the corresponding entry of the output   will be NaN."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "inlineCode",
+                              "value": "omit"
+                            },
+                            {
+                              "type": "text",
+                              "value": ": NaNs will be omitted when performing the calculation.   If insufficient data remains in the axis slice along which the   statistic is computed, the corresponding entry of the output will be   NaN."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "inlineCode",
+                              "value": "raise"
+                            },
+                            {
+                              "type": "text",
+                              "value": ": if a NaN is present, a "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "ValueError"
+                            },
+                            {
+                              "type": "text",
+                              "value": " will be raised."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "param": "nan_policy",
+              "type": "Param",
+              "type_": "{'propagate', 'omit', 'raise'}"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If this is set to True, the axes which are reduced are left in the result as dimensions with size one. With this option, the result will broadcast correctly against the input array."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "keepdims",
+              "type": "Param",
+              "type_": "bool, default: False"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The nth k-statistic variance."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "kstatvar",
+              "type": "Param",
+              "type_": "float"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Return an unbiased estimator of the variance of the k-statistic."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_morestats.py",
+  "item_line": 318,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Returns the n-th k-statistic."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "kstat",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "kstat"
+      },
+      "type": "func"
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Returns the n-th central moment about the mean for a sample."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "moment",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "moment"
+      },
+      "type": "func"
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(data, n=2, *, axis=None, nan_policy='propagate', keepdims=False)"
+  },
+  "type": "DocBlob"
+}

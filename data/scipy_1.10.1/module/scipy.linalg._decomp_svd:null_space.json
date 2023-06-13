@@ -1,0 +1,295 @@
+{
+  "aliases": [
+    "scipy.linalg.null_space"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Input array"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "A",
+              "type": "Param",
+              "type_": "(M, N) array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Relative condition number. Singular values "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "s"
+                    },
+                    {
+                      "type": "text",
+                      "value": " smaller than "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "rcond * max(s)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are considered zero. Default: floating point eps * max(M,N)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "rcond",
+              "type": "Param",
+              "type_": "float, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Orthonormal basis for the null space of A. K = dimension of effective null space, as determined by rcond"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "Z",
+              "type": "Param",
+              "type_": "(N, K) ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Construct an orthonormal basis for the null space of A using SVD"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "1-D null space:"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.linalg import null_space\nA = np.array([[1, 1], [1, 1]])\nns = null_space(A)\nns * np.sign(ns[0,0])  # Remove the sign ambiguity of the vector"
+      },
+      {
+        "type": "text",
+        "value": "2-D null space:"
+      },
+      {
+        "type": "code",
+        "value": "from numpy.random import default_rng\nrng = default_rng()\nB = rng.random((3, 5))\nZ = null_space(B)\nZ.shape"
+      },
+      {
+        "type": "code",
+        "value": "np.allclose(B.dot(Z), 0)"
+      },
+      {
+        "type": "text",
+        "value": "The basis vectors are orthonormal (up to rounding error):"
+      },
+      {
+        "type": "code",
+        "value": "Z.T.dot(Z)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/linalg/_decomp_svd.py",
+  "item_line": 335,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Singular value decomposition of a matrix"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "svd",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "svd"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Matrix range"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "orth",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "orth"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(A, rcond=None)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,5720 @@
+{
+  "aliases": [
+    "scipy.special.cython_special"
+  ],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "args": "cython",
+          "children": [],
+          "name": "highlight",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Scalar, typed versions of many of the functions in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "scipy.special"
+            },
+            {
+              "type": "text",
+              "value": " can be accessed directly from Cython; the complete list is given below. Functions are overloaded using Cython fused types so their names match their Python counterpart. The module follows the following conventions:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If a function's Python counterpart returns multiple values, then the   function returns its outputs via pointers in the final arguments."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If a function's Python counterpart returns a single value, then the   function's output is returned directly."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The module is usable from Cython via      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "cimport scipy.special.cython_special"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": "Cython API for special functions",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Functions can indicate an error by returning "
+            },
+            {
+              "type": "inlineCode",
+              "value": "nan"
+            },
+            {
+              "type": "text",
+              "value": "; however they cannot emit warnings like their counterparts in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "scipy.special"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Error handling",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.voigt_profile"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double voigt_profile(double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.agm"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double agm(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.airy"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "void airy(double, double *, double *, double *, double *)\nvoid airy(double complex, double complex *, double complex *, double complex *, double complex *)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.airye"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "void airye(double complex, double complex *, double complex *, double complex *, double complex *)\nvoid airye(double, double *, double *, double *, double *)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.bdtr"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double bdtr(double, double, double)\ndouble bdtr(double, long, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.bdtrc"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double bdtrc(double, double, double)\ndouble bdtrc(double, long, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.bdtri"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double bdtri(double, double, double)\ndouble bdtri(double, long, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.bdtrik"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double bdtrik(double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.bdtrin"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double bdtrin(double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.bei"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double bei(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.beip"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double beip(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.ber"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double ber(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.berp"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double berp(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.besselpoly"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double besselpoly(double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.beta"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double beta(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.betainc"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double betainc(double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.betaincinv"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double betaincinv(double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.betaln"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double betaln(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.binom"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double binom(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.boxcox"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double boxcox(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.boxcox1p"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double boxcox1p(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.btdtr"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double btdtr(double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.btdtri"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double btdtri(double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.btdtria"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double btdtria(double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.btdtrib"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double btdtrib(double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.cbrt"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double cbrt(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.chdtr"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double chdtr(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.chdtrc"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double chdtrc(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.chdtri"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double chdtri(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.chdtriv"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double chdtriv(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.chndtr"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double chndtr(double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.chndtridf"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double chndtridf(double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.chndtrinc"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double chndtrinc(double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.chndtrix"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double chndtrix(double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.cosdg"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double cosdg(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.cosm1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double cosm1(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.cotdg"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double cotdg(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.dawsn"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double dawsn(double)\ndouble complex dawsn(double complex)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.ellipe"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double ellipe(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.ellipeinc"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double ellipeinc(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.ellipj"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "void ellipj(double, double, double *, double *, double *, double *)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.ellipkinc"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double ellipkinc(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.ellipkm1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double ellipkm1(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.ellipk"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double ellipk(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.elliprc"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double elliprc(double, double)\ndouble complex elliprc(double complex, double complex)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.elliprd"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double elliprd(double, double, double)\ndouble complex elliprd(double complex, double complex, double complex)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.elliprf"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double elliprf(double, double, double)\ndouble complex elliprf(double complex, double complex, double complex)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.elliprg"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double elliprg(double, double, double)\ndouble complex elliprg(double complex, double complex, double complex)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.elliprj"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double elliprj(double, double, double, double)\ndouble complex elliprj(double complex, double complex, double complex, double complex)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.entr"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double entr(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.erf"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex erf(double complex)\ndouble erf(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.erfc"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex erfc(double complex)\ndouble erfc(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.erfcx"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double erfcx(double)\ndouble complex erfcx(double complex)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.erfi"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double erfi(double)\ndouble complex erfi(double complex)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.erfinv"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "float erfinv(float)\ndouble erfinv(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.erfcinv"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double erfcinv(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.eval_chebyc"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex eval_chebyc(double, double complex)\ndouble eval_chebyc(double, double)\ndouble eval_chebyc(long, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.eval_chebys"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex eval_chebys(double, double complex)\ndouble eval_chebys(double, double)\ndouble eval_chebys(long, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.eval_chebyt"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex eval_chebyt(double, double complex)\ndouble eval_chebyt(double, double)\ndouble eval_chebyt(long, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.eval_chebyu"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex eval_chebyu(double, double complex)\ndouble eval_chebyu(double, double)\ndouble eval_chebyu(long, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.eval_gegenbauer"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex eval_gegenbauer(double, double, double complex)\ndouble eval_gegenbauer(double, double, double)\ndouble eval_gegenbauer(long, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.eval_genlaguerre"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex eval_genlaguerre(double, double, double complex)\ndouble eval_genlaguerre(double, double, double)\ndouble eval_genlaguerre(long, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.eval_hermite"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double eval_hermite(long, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.eval_hermitenorm"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double eval_hermitenorm(long, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.eval_jacobi"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex eval_jacobi(double, double, double, double complex)\ndouble eval_jacobi(double, double, double, double)\ndouble eval_jacobi(long, double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.eval_laguerre"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex eval_laguerre(double, double complex)\ndouble eval_laguerre(double, double)\ndouble eval_laguerre(long, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.eval_legendre"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex eval_legendre(double, double complex)\ndouble eval_legendre(double, double)\ndouble eval_legendre(long, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.eval_sh_chebyt"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex eval_sh_chebyt(double, double complex)\ndouble eval_sh_chebyt(double, double)\ndouble eval_sh_chebyt(long, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.eval_sh_chebyu"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex eval_sh_chebyu(double, double complex)\ndouble eval_sh_chebyu(double, double)\ndouble eval_sh_chebyu(long, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.eval_sh_jacobi"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex eval_sh_jacobi(double, double, double, double complex)\ndouble eval_sh_jacobi(double, double, double, double)\ndouble eval_sh_jacobi(long, double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.eval_sh_legendre"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex eval_sh_legendre(double, double complex)\ndouble eval_sh_legendre(double, double)\ndouble eval_sh_legendre(long, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.exp1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex exp1(double complex)\ndouble exp1(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.exp10"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double exp10(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.exp2"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double exp2(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.expi"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex expi(double complex)\ndouble expi(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.expit"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double expit(double)\nfloat expit(float)\nlong double expit(long double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.expm1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex expm1(double complex)\ndouble expm1(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.expn"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double expn(double, double)\ndouble expn(long, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.exprel"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double exprel(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.fdtr"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double fdtr(double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.fdtrc"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double fdtrc(double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.fdtri"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double fdtri(double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.fdtridfd"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double fdtridfd(double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.fresnel"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "void fresnel(double, double *, double *)\nvoid fresnel(double complex, double complex *, double complex *)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.gamma"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex gamma(double complex)\ndouble gamma(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.gammainc"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double gammainc(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.gammaincc"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double gammaincc(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.gammainccinv"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double gammainccinv(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.gammaincinv"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double gammaincinv(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.gammaln"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double gammaln(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.gammasgn"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double gammasgn(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.gdtr"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double gdtr(double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.gdtrc"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double gdtrc(double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.gdtria"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double gdtria(double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.gdtrib"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double gdtrib(double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.gdtrix"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double gdtrix(double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.hankel1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex hankel1(double, double complex)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.hankel1e"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex hankel1e(double, double complex)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.hankel2"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex hankel2(double, double complex)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.hankel2e"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex hankel2e(double, double complex)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.huber"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double huber(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.hyp0f1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex hyp0f1(double, double complex)\ndouble hyp0f1(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.hyp1f1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double hyp1f1(double, double, double)\ndouble complex hyp1f1(double, double, double complex)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.hyp2f1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double hyp2f1(double, double, double, double)\ndouble complex hyp2f1(double, double, double, double complex)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.hyperu"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double hyperu(double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.i0"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double i0(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.i0e"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double i0e(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.i1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double i1(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.i1e"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double i1e(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.inv_boxcox"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double inv_boxcox(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.inv_boxcox1p"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double inv_boxcox1p(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.it2i0k0"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "void it2i0k0(double, double *, double *)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.it2j0y0"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "void it2j0y0(double, double *, double *)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.it2struve0"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double it2struve0(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.itairy"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "void itairy(double, double *, double *, double *, double *)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.iti0k0"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "void iti0k0(double, double *, double *)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.itj0y0"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "void itj0y0(double, double *, double *)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.itmodstruve0"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double itmodstruve0(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.itstruve0"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double itstruve0(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.iv"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex iv(double, double complex)\ndouble iv(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.ive"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex ive(double, double complex)\ndouble ive(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.j0"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double j0(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.j1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double j1(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.jv"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex jv(double, double complex)\ndouble jv(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.jve"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex jve(double, double complex)\ndouble jve(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.k0"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double k0(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.k0e"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double k0e(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.k1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double k1(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.k1e"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double k1e(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.kei"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double kei(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.keip"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double keip(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.kelvin"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "void kelvin(double, double complex *, double complex *, double complex *, double complex *)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.ker"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double ker(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.kerp"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double kerp(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.kl_div"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double kl_div(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.kn"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double kn(double, double)\ndouble kn(long, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.kolmogi"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double kolmogi(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.kolmogorov"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double kolmogorov(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.kv"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex kv(double, double complex)\ndouble kv(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.kve"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex kve(double, double complex)\ndouble kve(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.log1p"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex log1p(double complex)\ndouble log1p(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.log_expit"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double log_expit(double)\nfloat log_expit(float)\nlong double log_expit(long double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.log_ndtr"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double log_ndtr(double)\ndouble complex log_ndtr(double complex)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.loggamma"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double loggamma(double)\ndouble complex loggamma(double complex)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.logit"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double logit(double)\nfloat logit(float)\nlong double logit(long double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.lpmv"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double lpmv(double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.mathieu_a"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double mathieu_a(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.mathieu_b"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double mathieu_b(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.mathieu_cem"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "void mathieu_cem(double, double, double, double *, double *)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.mathieu_modcem1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "void mathieu_modcem1(double, double, double, double *, double *)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.mathieu_modcem2"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "void mathieu_modcem2(double, double, double, double *, double *)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.mathieu_modsem1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "void mathieu_modsem1(double, double, double, double *, double *)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.mathieu_modsem2"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "void mathieu_modsem2(double, double, double, double *, double *)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.mathieu_sem"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "void mathieu_sem(double, double, double, double *, double *)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.modfresnelm"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "void modfresnelm(double, double complex *, double complex *)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.modfresnelp"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "void modfresnelp(double, double complex *, double complex *)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.modstruve"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double modstruve(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.nbdtr"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double nbdtr(double, double, double)\ndouble nbdtr(long, long, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.nbdtrc"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double nbdtrc(double, double, double)\ndouble nbdtrc(long, long, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.nbdtri"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double nbdtri(double, double, double)\ndouble nbdtri(long, long, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.nbdtrik"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double nbdtrik(double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.nbdtrin"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double nbdtrin(double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.ncfdtr"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double ncfdtr(double, double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.ncfdtri"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double ncfdtri(double, double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.ncfdtridfd"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double ncfdtridfd(double, double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.ncfdtridfn"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double ncfdtridfn(double, double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.ncfdtrinc"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double ncfdtrinc(double, double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.nctdtr"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double nctdtr(double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.nctdtridf"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double nctdtridf(double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.nctdtrinc"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double nctdtrinc(double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.nctdtrit"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double nctdtrit(double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.ndtr"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex ndtr(double complex)\ndouble ndtr(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.ndtri"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double ndtri(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.nrdtrimn"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double nrdtrimn(double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.nrdtrisd"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double nrdtrisd(double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.obl_ang1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "void obl_ang1(double, double, double, double, double *, double *)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.obl_ang1_cv"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "void obl_ang1_cv(double, double, double, double, double, double *, double *)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.obl_cv"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double obl_cv(double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.obl_rad1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "void obl_rad1(double, double, double, double, double *, double *)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.obl_rad1_cv"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "void obl_rad1_cv(double, double, double, double, double, double *, double *)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.obl_rad2"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "void obl_rad2(double, double, double, double, double *, double *)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.obl_rad2_cv"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "void obl_rad2_cv(double, double, double, double, double, double *, double *)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.owens_t"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double owens_t(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.pbdv"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "void pbdv(double, double, double *, double *)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.pbvv"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "void pbvv(double, double, double *, double *)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.pbwa"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "void pbwa(double, double, double *, double *)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.pdtr"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double pdtr(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.pdtrc"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double pdtrc(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.pdtri"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double pdtri(double, double)\ndouble pdtri(long, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.pdtrik"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double pdtrik(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.poch"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double poch(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.powm1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "float powm1(float, float)\ndouble powm1(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.pro_ang1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "void pro_ang1(double, double, double, double, double *, double *)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.pro_ang1_cv"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "void pro_ang1_cv(double, double, double, double, double, double *, double *)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.pro_cv"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double pro_cv(double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.pro_rad1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "void pro_rad1(double, double, double, double, double *, double *)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.pro_rad1_cv"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "void pro_rad1_cv(double, double, double, double, double, double *, double *)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.pro_rad2"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "void pro_rad2(double, double, double, double, double *, double *)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.pro_rad2_cv"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "void pro_rad2_cv(double, double, double, double, double, double *, double *)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.pseudo_huber"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double pseudo_huber(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.psi"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex psi(double complex)\ndouble psi(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.radian"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double radian(double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.rel_entr"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double rel_entr(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.rgamma"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex rgamma(double complex)\ndouble rgamma(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.round"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double round(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.shichi"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "void shichi(double complex, double complex *, double complex *)\nvoid shichi(double, double *, double *)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.sici"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "void sici(double complex, double complex *, double complex *)\nvoid sici(double, double *, double *)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.sindg"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double sindg(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.smirnov"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double smirnov(double, double)\ndouble smirnov(long, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.smirnovi"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double smirnovi(double, double)\ndouble smirnovi(long, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.spence"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex spence(double complex)\ndouble spence(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.sph_harm"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex sph_harm(double, double, double, double)\ndouble complex sph_harm(long, long, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.stdtr"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double stdtr(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.stdtridf"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double stdtridf(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.stdtrit"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double stdtrit(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.struve"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double struve(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.tandg"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double tandg(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.tklmbda"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double tklmbda(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.wofz"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex wofz(double complex)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.wrightomega"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex wrightomega(double complex)\ndouble wrightomega(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.xlog1py"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double xlog1py(double, double)\ndouble complex xlog1py(double complex, double complex)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.xlogy"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double xlogy(double, double)\ndouble complex xlogy(double complex, double complex)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.y0"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double y0(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.y1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double y1(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.yn"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double yn(double, double)\ndouble yn(long, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.yv"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex yv(double, double complex)\ndouble yv(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.yve"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex yve(double, double complex)\ndouble yve(double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.zetac"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double zetac(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.wright_bessel"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double wright_bessel(double, double, double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.ndtri_exp"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double ndtri_exp(double)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Available functions",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Some functions in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "scipy.special"
+            },
+            {
+              "type": "text",
+              "value": " which are not ufuncs have custom Cython wrappers."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Custom functions",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The optional "
+            },
+            {
+              "type": "inlineCode",
+              "value": "derivative"
+            },
+            {
+              "type": "text",
+              "value": " boolean argument is replaced with an optional Cython "
+            },
+            {
+              "type": "inlineCode",
+              "value": "bint"
+            },
+            {
+              "type": "text",
+              "value": ", leading to the following signatures."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.spherical_jn"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex spherical_jn(long, double complex)\ndouble complex spherical_jn(long, double complex, bint)\ndouble spherical_jn(long, double)\ndouble spherical_jn(long, double, bint)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.spherical_yn"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex spherical_yn(long, double complex)\ndouble complex spherical_yn(long, double complex, bint)\ndouble spherical_yn(long, double)\ndouble spherical_yn(long, double, bint)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.spherical_in"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex spherical_in(long, double complex)\ndouble complex spherical_in(long, double complex, bint)\ndouble spherical_in(long, double)\ndouble spherical_in(long, double, bint)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~scipy.special.spherical_kn"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":          "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double complex spherical_kn(long, double complex)\ndouble complex spherical_kn(long, double complex, bint)\ndouble spherical_kn(long, double)\ndouble spherical_kn(long, double, bint)"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Spherical Bessel functions",
+      "type": "Section"
+    }
+  ],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To remove in the future \u2013\u2013 scipy.special.cython_special"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/special/cython_special.cpython-311-darwin.so",
+  "item_line": null,
+  "item_type": "<class 'module'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

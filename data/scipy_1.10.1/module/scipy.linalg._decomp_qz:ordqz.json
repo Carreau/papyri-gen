@@ -1,0 +1,643 @@
+{
+  "aliases": [
+    "scipy.linalg.ordqz"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "On exit, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(ALPHAR(j) + ALPHAI(j)*i)/BETA(j), j=1,...,N"
+            },
+            {
+              "type": "text",
+              "value": ", will be the generalized eigenvalues.  "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ALPHAR(j) + ALPHAI(j)*i"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "BETA(j),j=1,...,N"
+            },
+            {
+              "type": "text",
+              "value": " are the diagonals of the complex Schur form (S,T) that would result if the 2-by-2 diagonal blocks of the real generalized Schur form of (A,B) were further reduced to triangular form using complex unitary transformations. If ALPHAI(j) is zero, then the jth eigenvalue is real; if positive, then the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "j``th and ``(j+1)``st eigenvalues are a\ncomplex conjugate pair, with ``ALPHAI(j+1)"
+            },
+            {
+              "type": "text",
+              "value": " negative."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 0.17.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "2-D array to decompose"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "A",
+              "type": "Param",
+              "type_": "(N, N) array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "2-D array to decompose"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "B",
+              "type": "Param",
+              "type_": "(N, N) array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Specifies whether the upper eigenvalues should be sorted. A callable may be passed that, given an ordered pair "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(alpha,\nbeta)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " representing the eigenvalue "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x = (alpha/beta)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", returns a boolean denoting whether the eigenvalue should be sorted to the top-left (True). For the real matrix pairs "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "beta"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is real while "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "alpha"
+                    },
+                    {
+                      "type": "text",
+                      "value": " can be complex, and for complex matrix pairs both "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "alpha"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "beta"
+                    },
+                    {
+                      "type": "text",
+                      "value": " can be complex. The callable must be able to accept a NumPy array. Alternatively, string parameters may be used:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "'lhp'   Left-hand plane (x.real < 0.0)"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "'rhp'   Right-hand plane (x.real > 0.0)"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "'iuc'   Inside the unit circle (x*x.conjugate() < 1.0)"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "'ouc'   Outside the unit circle (x*x.conjugate() > 1.0)"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        }
+                      ],
+                      "ordered": false,
+                      "spread": false,
+                      "start": 1,
+                      "type": "list"
+                    }
+                  ],
+                  "type": "blockquote"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "With the predefined sorting functions, an infinite eigenvalue (i.e., "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "alpha != 0"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "beta = 0"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") is considered to lie in neither the left-hand nor the right-hand plane, but it is considered to lie outside the unit circle. For the eigenvalue "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(alpha, beta) = (0, 0)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the predefined sorting functions all return "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sort",
+              "type": "Param",
+              "type_": "{callable, 'lhp', 'rhp', 'iuc', 'ouc'}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Construct the real or complex QZ decomposition for real matrices. Default is 'real'."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "output",
+              "type": "Param",
+              "type_": "str {'real','complex'}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, the contents of A are overwritten."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "overwrite_a",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, the contents of B are overwritten."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "overwrite_b",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If true checks the elements of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "A",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "A"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "B",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "B"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are finite numbers. If false does no checking and passes matrix through to underlying algorithm."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "check_finite",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Generalized Schur form of A."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "AA",
+              "type": "Param",
+              "type_": "(N, N) ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Generalized Schur form of B."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "BB",
+              "type": "Param",
+              "type_": "(N, N) ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "alpha = alphar + alphai * 1j. See notes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "alpha",
+              "type": "Param",
+              "type_": "(N,) ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "See notes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "beta",
+              "type": "Param",
+              "type_": "(N,) ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The left Schur vectors."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "Q",
+              "type": "Param",
+              "type_": "(N, N) ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The right Schur vectors."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "Z",
+              "type": "Param",
+              "type_": "(N, N) ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "QZ decomposition for a pair of matrices with reordering."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.linalg import ordqz\nA = np.array([[2, 5, 8, 7], [5, 2, 2, 8], [7, 5, 6, 6], [5, 4, 4, 8]])\nB = np.array([[0, 6, 0, 0], [5, 0, 2, 1], [5, 2, 6, 6], [4, 7, 7, 7]])\nAA, BB, alpha, beta, Q, Z = ordqz(A, B, sort='lhp')"
+      },
+      {
+        "type": "text",
+        "value": "Since we have sorted for left half plane eigenvalues, negatives come first"
+      },
+      {
+        "type": "code",
+        "value": "(alpha/beta).real < 0"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/linalg/_decomp_qz.py",
+  "item_line": 319,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "qz",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "qz"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(A, B, sort='lhp', output='real', overwrite_a=False, overwrite_b=False, check_finite=True)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,365 @@
+{
+  "aliases": [
+    "skimage.feature.match_template"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The output is an array with values between -1.0 and 1.0. The value at a given position corresponds to the correlation coefficient between the image and the template."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "pad_input=True"
+            },
+            {
+              "type": "text",
+              "value": " matches correspond to the center and otherwise to the top-left corner of the template. To find the best match you must search for peaks in the response (output) image."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Details on the cross-correlation are presented in . This implementation uses FFT convolutions of the image and the template. Reference  presents similar derivations but the approximation presented in this reference is not used in our implementation."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "2-D or 3-D input image."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "image",
+              "type": "Param",
+              "type_": "(M, N[, D]) array"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Template to locate. It must be "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "(m <= M, n <= N[, d <= D])"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "template",
+              "type": "Param",
+              "type_": "(m, n[, d]) array"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, pad "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "image",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "image"
+                    },
+                    {
+                      "type": "text",
+                      "value": " so that output is the same size as the image, and output values correspond to the template center. Otherwise, the output is an array with shape "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "(M - m + 1, N - n + 1)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for an "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "(M, N)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " image and an "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "(m, n)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " template, and matches correspond to origin (top-left corner) of the template."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "pad_input",
+              "type": "Param",
+              "type_": "bool"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Padding mode."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mode",
+              "type": "Param",
+              "type_": "see `numpy.pad`, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Constant values used in conjunction with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "mode='constant'"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "constant_values",
+              "type": "Param",
+              "type_": "see `numpy.pad`, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Response image with correlation coefficients."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "output",
+              "type": "Param",
+              "type_": "array"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Match a template to a 2-D or 3-D image using normalized correlation."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "template = np.zeros((3, 3))\ntemplate[1, 1] = 1\ntemplate"
+      },
+      {
+        "type": "code",
+        "value": "image = np.zeros((6, 6))\nimage[1, 1] = 1\nimage[4, 4] = -1\nimage"
+      },
+      {
+        "type": "code",
+        "value": "result = match_template(image, template)\nnp.round(result, 3)"
+      },
+      {
+        "type": "code",
+        "value": "result = match_template(image, template, pad_input=True)\nnp.round(result, 3)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/skimage/feature/template.py",
+  "item_line": 31,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(image, template, pad_input=False, mode='constant', constant_values=0)"
+  },
+  "type": "DocBlob"
+}

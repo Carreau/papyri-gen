@@ -1,0 +1,615 @@
+{
+  "aliases": [
+    "scipy.signal.freqz_zpk"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Given the Zeros, Poles and Gain of a digital filter, compute its frequency response:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "inlineMath",
+              "value": "H(z)=k \\prod_i (z - Z[i]) / \\prod_j (z - P[j])"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where "
+            },
+            {
+              "type": "inlineMath",
+              "value": "k"
+            },
+            {
+              "type": "text",
+              "value": " is the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "gain"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineMath",
+              "value": "Z"
+            },
+            {
+              "type": "text",
+              "value": " are the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.optimize.zeros",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "zeros"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "P"
+            },
+            {
+              "type": "text",
+              "value": " are the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "poles"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 0.19.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Zeroes of a linear filter"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "z",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Poles of a linear filter"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "p",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Gain of a linear filter"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "k",
+              "type": "Param",
+              "type_": "scalar"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If a single integer, then compute at that many frequencies (default is N=512)."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If an array_like, compute the response at the frequencies given. These are in the same units as "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "fs",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "fs"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "worN",
+              "type": "Param",
+              "type_": "{None, int, array_like}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Normally, frequencies are computed from 0 to the Nyquist frequency, fs/2 (upper-half of unit-circle). If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "whole",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "whole"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is True, compute frequencies from 0 to fs. Ignored if w is array_like."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "whole",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The sampling frequency of the digital system. Defaults to 2*pi radians/sample (so w is from 0 to pi)."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.2.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "fs",
+              "type": "Param",
+              "type_": "float, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The frequencies at which "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "h",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "h"
+                    },
+                    {
+                      "type": "text",
+                      "value": " was computed, in the same units as "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "fs",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "fs"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". By default, "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "w",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "w"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is normalized to the range [0, pi) (radians/sample)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "w",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The frequency response, as complex numbers."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "h",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute the frequency response of a digital filter in ZPK form."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Design a 4th-order digital Butterworth filter with cut-off of 100 Hz in a\nsystem with sample rate of 1000 Hz, and plot the frequency response:"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy import signal\nz, p, k = signal.butter(4, 100, output='zpk', fs=1000)\nw, h = signal.freqz_zpk(z, p, k, fs=1000)"
+      },
+      {
+        "type": "code",
+        "value": "import matplotlib.pyplot as plt\nfig = plt.figure()\nax1 = fig.add_subplot(1, 1, 1)\nax1.set_title('Digital filter frequency response')"
+      },
+      {
+        "type": "code",
+        "value": "ax1.plot(w, 20 * np.log10(abs(h)), 'b')\nax1.set_ylabel('Amplitude [dB]', color='b')\nax1.set_xlabel('Frequency [Hz]')\nax1.grid(True)"
+      },
+      {
+        "type": "code",
+        "value": "ax2 = ax1.twinx()\nangles = np.unwrap(np.angle(h))\nax2.plot(w, angles, 'g')\nax2.set_ylabel('Angle [radians]', color='g')"
+      },
+      {
+        "type": "code",
+        "value": "plt.axis('tight')\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.signal._filter_design:freqz_zpk-0-09510a97.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/signal/_filter_design.py",
+  "item_line": 491,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute the frequency response of an analog filter in TF form"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "freqs",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "freqs"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute the frequency response of an analog filter in ZPK form"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._filter_design:freqs_zpk",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "freqs_zpk"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute the frequency response of a digital filter in TF form"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "freqz",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "freqz"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(z, p, k, worN=512, whole=False, fs=6.283185307179586)"
+  },
+  "type": "DocBlob"
+}

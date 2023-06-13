@@ -1,0 +1,1522 @@
+{
+  "aliases": [
+    "scipy.linalg.interpolative"
+  ],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "args": "Kenneth L. Ho <klho@stanford.edu>",
+          "children": [],
+          "name": "moduleauthor",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 0.13"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "args": "scipy.linalg.interpolative",
+          "children": [],
+          "name": "currentmodule",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "An interpolative decomposition (ID) of a matrix "
+            },
+            {
+              "type": "inlineMath",
+              "value": "A \\in\n\\mathbb{C}^{m \\times n}"
+            },
+            {
+              "type": "text",
+              "value": " of rank "
+            },
+            {
+              "type": "inlineMath",
+              "value": "k \\leq \\min \\{ m, n \\}"
+            },
+            {
+              "type": "text",
+              "value": " is a factorization"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "A \\Pi =\n\\begin{bmatrix}\n A \\Pi_{1} & A \\Pi_{2}\n\\end{bmatrix} =\nA \\Pi_{1}\n\\begin{bmatrix}\n I & T\n\\end{bmatrix},"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\Pi = [\\Pi_{1}, \\Pi_{2}]"
+            },
+            {
+              "type": "text",
+              "value": " is a permutation matrix with "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\Pi_{1} \\in \\{ 0, 1 \\}^{n \\times k}"
+            },
+            {
+              "type": "text",
+              "value": ", i.e., "
+            },
+            {
+              "type": "inlineMath",
+              "value": "A \\Pi_{2} =\nA \\Pi_{1} T"
+            },
+            {
+              "type": "text",
+              "value": ". This can equivalently be written as "
+            },
+            {
+              "type": "inlineMath",
+              "value": "A = BP"
+            },
+            {
+              "type": "text",
+              "value": ", where "
+            },
+            {
+              "type": "inlineMath",
+              "value": "B = A \\Pi_{1}"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "P = [I, T] \\Pi^{\\mathsf{T}}"
+            },
+            {
+              "type": "text",
+              "value": " are the "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "skeleton"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "interpolation matrices"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": ", respectively."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If "
+            },
+            {
+              "type": "inlineMath",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": " does not have exact rank "
+            },
+            {
+              "type": "inlineMath",
+              "value": "k"
+            },
+            {
+              "type": "text",
+              "value": ", then there exists an approximation in the form of an ID such that "
+            },
+            {
+              "type": "inlineMath",
+              "value": "A = BP + E"
+            },
+            {
+              "type": "text",
+              "value": ", where "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\| E \\| \\sim \\sigma_{k + 1}"
+            },
+            {
+              "type": "text",
+              "value": " is on the order of the "
+            },
+            {
+              "type": "inlineMath",
+              "value": "(k +\n1)"
+            },
+            {
+              "type": "text",
+              "value": "-th largest singular value of "
+            },
+            {
+              "type": "inlineMath",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": ". Note that "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\sigma_{k\n+ 1}"
+            },
+            {
+              "type": "text",
+              "value": " is the best possible error for a rank-"
+            },
+            {
+              "type": "inlineMath",
+              "value": "k"
+            },
+            {
+              "type": "text",
+              "value": " approximation and, in fact, is achieved by the singular value decomposition (SVD) "
+            },
+            {
+              "type": "inlineMath",
+              "value": "A \\approx U S V^{*}"
+            },
+            {
+              "type": "text",
+              "value": ", where "
+            },
+            {
+              "type": "inlineMath",
+              "value": "U \\in \\mathbb{C}^{m \\times\nk}"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "V \\in \\mathbb{C}^{n \\times k}"
+            },
+            {
+              "type": "text",
+              "value": " have orthonormal columns and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "S = \\mathop{\\mathrm{diag}} (\\sigma_{i}) \\in \\mathbb{C}^{k\n\\times k}"
+            },
+            {
+              "type": "text",
+              "value": " is diagonal with nonnegative entries. The principal advantages of using an ID over an SVD are that:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "it is cheaper to construct;"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "it preserves the structure of "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "A"
+                    },
+                    {
+                      "type": "text",
+                      "value": "; and"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "it is more efficient to compute with in light of the identity submatrix of "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "P"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": "Interpolative matrix decomposition (:mod:`scipy.linalg.interpolative`)",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Main functionality:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ".. autosummary:: \n    :toctree:generated/\n    interp_decomp\n    reconstruct_matrix_from_id\n    reconstruct_interp_matrix\n    reconstruct_skel_matrix\n    id_to_svd\n    svd\n    estimate_spectral_norm\n    estimate_spectral_norm_diff\n    estimate_rank"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Support functions:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ".. autosummary:: \n    :toctree:generated/\n    seed\n    rand"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Routines",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This module uses the ID software package  by Martinsson, Rokhlin, Shkolnisky, and Tygert, which is a Fortran library for computing IDs using various algorithms, including the rank-revealing QR approach of  and the more recent randomized methods described in , , and . This module exposes its functionality in a way convenient for Python users. Note that this module does not add any functionality beyond that of organizing a simpler and more consistent interface."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "We advise the user to consult also the "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "documentation for the ID package"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "http://tygert.com/id_doc.4.pdf"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "placeholder": "footnote",
+          "type": "Unimplemented",
+          "value": ".. [1] P.G. Martinsson, V. Rokhlin, Y. Shkolnisky, M. Tygert. \"ID: a\n    software package for low-rank approximation of matrices via interpolative\n    decompositions, version 0.2.\" http://tygert.com/id_doc.4.pdf."
+        },
+        {
+          "placeholder": "footnote",
+          "type": "Unimplemented",
+          "value": ".. [2] H. Cheng, Z. Gimbutas, P.G. Martinsson, V. Rokhlin. \"On the\n    compression of low rank matrices.\" *SIAM J. Sci. Comput.* 26 (4): 1389--1404,\n    2005. :doi:`10.1137/030602678`."
+        },
+        {
+          "placeholder": "footnote",
+          "type": "Unimplemented",
+          "value": ".. [3] E. Liberty, F. Woolfe, P.G. Martinsson, V. Rokhlin, M.\n    Tygert. \"Randomized algorithms for the low-rank approximation of matrices.\"\n    *Proc. Natl. Acad. Sci. U.S.A.* 104 (51): 20167--20172, 2007.\n    :doi:`10.1073/pnas.0709640104`."
+        },
+        {
+          "placeholder": "footnote",
+          "type": "Unimplemented",
+          "value": ".. [4] P.G. Martinsson, V. Rokhlin, M. Tygert. \"A randomized\n    algorithm for the decomposition of matrices.\" *Appl. Comput. Harmon. Anal.* 30\n    (1): 47--68,  2011. :doi:`10.1016/j.acha.2010.02.003`."
+        },
+        {
+          "placeholder": "footnote",
+          "type": "Unimplemented",
+          "value": ".. [5] F. Woolfe, E. Liberty, V. Rokhlin, M. Tygert. \"A fast\n    randomized algorithm for the approximation of matrices.\" *Appl. Comput.\n    Harmon. Anal.* 25 (3): 335--366, 2008. :doi:`10.1016/j.acha.2007.12.002`."
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "References",
+      "type": "Section"
+    },
+    {
+      "children": [],
+      "level": 1,
+      "target": null,
+      "title": "Tutorial",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The first step is to import "
+            },
+            {
+              "type": "inlineCode",
+              "value": "scipy.linalg.interpolative"
+            },
+            {
+              "type": "text",
+              "value": " by issuing the command:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> import scipy.linalg.interpolative as sli"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Now let's build a matrix. For this, we consider a Hilbert matrix, which is well know to have low rank:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> from scipy.linalg import hilbert\n>>> n = 1000\n>>> A = hilbert(n)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "We can also do this explicitly via:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> import numpy as np\n>>> n = 1000\n>>> A = np.empty((n, n), order='F')\n>>> for j in range(n):\n>>>     for i in range(n):\n>>>         A[i,j] = 1. / (i + j + 1)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Note the use of the flag "
+            },
+            {
+              "type": "inlineCode",
+              "value": "order='F'"
+            },
+            {
+              "type": "text",
+              "value": " in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.empty"
+            },
+            {
+              "type": "text",
+              "value": ". This instantiates the matrix in Fortran-contiguous order and is important for avoiding data copying when passing to the backend."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "We then define multiplication routines for the matrix by regarding it as a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "scipy.sparse.linalg.LinearOperator"
+            },
+            {
+              "type": "text",
+              "value": ":"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> from scipy.sparse.linalg import aslinearoperator\n>>> L = aslinearoperator(A)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This automatically sets up methods describing the action of the matrix and its adjoint on a vector."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Initializing",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "We have several choices of algorithm to compute an ID. These fall largely according to two dichotomies:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "how the matrix is represented, i.e., via its entries or via its action on a    vector; and"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "whether to approximate it to a fixed relative precision or to a fixed rank."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": true,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "We step through each choice in turn below."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In all cases, the ID is represented by three parameters:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "a rank "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "k"
+                    },
+                    {
+                      "type": "text",
+                      "value": ";"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "an index array "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "idx"
+                    },
+                    {
+                      "type": "text",
+                      "value": "; and"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "interpolation coefficients "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "proj"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": true,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The ID is specified by the relation "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.dot(A[:,idx[:k]], proj) == A[:,idx[k:]]"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Computing an ID",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "We first consider a matrix given in terms of its entries."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To compute an ID to a fixed precision, type:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> k, idx, proj = sli.interp_decomp(A, eps)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where "
+            },
+            {
+              "type": "inlineCode",
+              "value": "eps < 1"
+            },
+            {
+              "type": "text",
+              "value": " is the desired precision."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To compute an ID to a fixed rank, use:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> idx, proj = sli.interp_decomp(A, k)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where "
+            },
+            {
+              "type": "inlineCode",
+              "value": "k >= 1"
+            },
+            {
+              "type": "text",
+              "value": " is the desired rank."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Both algorithms use random sampling and are usually faster than the corresponding older, deterministic algorithms, which can be accessed via the commands:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> k, idx, proj = sli.interp_decomp(A, eps, rand=False)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "and:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> idx, proj = sli.interp_decomp(A, k, rand=False)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "respectively."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 3,
+      "target": null,
+      "title": "From matrix entries",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Now consider a matrix given in terms of its action on a vector as a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "scipy.sparse.linalg.LinearOperator"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To compute an ID to a fixed precision, type:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> k, idx, proj = sli.interp_decomp(L, eps)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To compute an ID to a fixed rank, use:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> idx, proj = sli.interp_decomp(L, k)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "These algorithms are randomized."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 3,
+      "target": null,
+      "title": "From matrix action",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The ID routines above do not output the skeleton and interpolation matrices explicitly but instead return the relevant information in a more compact (and sometimes more useful) form. To build these matrices, write:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> B = sli.reconstruct_skel_matrix(A, k, idx)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "for the skeleton matrix and:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> P = sli.reconstruct_interp_matrix(idx, proj)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "for the interpolation matrix. The ID approximation can then be computed as:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> C = np.dot(B, P)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This can also be constructed directly using:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> C = sli.reconstruct_matrix_from_id(B, idx, proj)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "without having to first compute "
+            },
+            {
+              "type": "inlineCode",
+              "value": "P"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Alternatively, this can be done explicitly as well using:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> B = A[:,idx[:k]]\n>>> P = np.hstack([np.eye(k), proj])[:,np.argsort(idx)]\n>>> C = np.dot(B, P)"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Reconstructing an ID",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "An ID can be converted to an SVD via the command:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> U, S, V = sli.id_to_svd(B, idx, proj)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The SVD approximation is then:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> C = np.dot(U, np.dot(np.diag(S), np.dot(V.conj().T)))"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The SVD can also be computed \"fresh\" by combining both the ID and conversion steps into one command. Following the various ID algorithms above, there are correspondingly various SVD algorithms that one can employ."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Computing an SVD",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "We consider first SVD algorithms for a matrix given in terms of its entries."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To compute an SVD to a fixed precision, type:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> U, S, V = sli.svd(A, eps)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To compute an SVD to a fixed rank, use:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> U, S, V = sli.svd(A, k)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Both algorithms use random sampling; for the determinstic versions, issue the keyword "
+            },
+            {
+              "type": "inlineCode",
+              "value": "rand=False"
+            },
+            {
+              "type": "text",
+              "value": " as above."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 3,
+      "target": null,
+      "title": "From matrix entries",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Now consider a matrix given in terms of its action on a vector."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To compute an SVD to a fixed precision, type:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> U, S, V = sli.svd(L, eps)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To compute an SVD to a fixed rank, use:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> U, S, V = sli.svd(L, k)"
+        }
+      ],
+      "level": 3,
+      "target": null,
+      "title": "From matrix action",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Several utility routines are also available."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To estimate the spectral norm of a matrix, use:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> snorm = sli.estimate_spectral_norm(A)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This algorithm is based on the randomized power method and thus requires only matrix-vector products. The number of iterations to take can be set using the keyword "
+            },
+            {
+              "type": "inlineCode",
+              "value": "its"
+            },
+            {
+              "type": "text",
+              "value": " (default: "
+            },
+            {
+              "type": "inlineCode",
+              "value": "its=20"
+            },
+            {
+              "type": "text",
+              "value": "). The matrix is interpreted as a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "scipy.sparse.linalg.LinearOperator"
+            },
+            {
+              "type": "text",
+              "value": ", but it is also valid to supply it as a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.ndarray"
+            },
+            {
+              "type": "text",
+              "value": ", in which case it is trivially converted using "
+            },
+            {
+              "type": "inlineCode",
+              "value": "scipy.sparse.linalg.aslinearoperator"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The same algorithm can also estimate the spectral norm of the difference of two matrices "
+            },
+            {
+              "type": "inlineCode",
+              "value": "A1"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "A2"
+            },
+            {
+              "type": "text",
+              "value": " as follows:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> diff = sli.estimate_spectral_norm_diff(A1, A2)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This is often useful for checking the accuracy of a matrix approximation."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Some routines in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "scipy.linalg.interpolative"
+            },
+            {
+              "type": "text",
+              "value": " require estimating the rank of a matrix as well. This can be done with either:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> k = sli.estimate_rank(A, eps)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "or:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> k = sli.estimate_rank(L, eps)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "depending on the representation. The parameter "
+            },
+            {
+              "type": "inlineCode",
+              "value": "eps"
+            },
+            {
+              "type": "text",
+              "value": " controls the definition of the numerical rank."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Finally, the random number generation required for all randomized routines can be controlled via "
+            },
+            {
+              "type": "inlineCode",
+              "value": "scipy.linalg.interpolative.seed"
+            },
+            {
+              "type": "text",
+              "value": ". To reset the seed values to their original values, use:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> sli.seed('default')"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To specify the seed values, use:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> sli.seed(s)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where "
+            },
+            {
+              "type": "inlineCode",
+              "value": "s"
+            },
+            {
+              "type": "text",
+              "value": " must be an integer or array of 55 floats. If an integer, the array of floats is obtained by using "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.random.rand"
+            },
+            {
+              "type": "text",
+              "value": " with the given integer seed."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To simply generate some random numbers, type:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> sli.rand(n)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where "
+            },
+            {
+              "type": "inlineCode",
+              "value": "n"
+            },
+            {
+              "type": "text",
+              "value": " is the number of random numbers to generate."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Utility routines",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The above functions all automatically detect the appropriate interface and work with both real and complex data types, passing input arguments to the proper backend routine."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Remarks",
+      "type": "Section"
+    }
+  ],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To remove in the future \u2013\u2013 scipy.linalg.interpolative"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/linalg/interpolative.py",
+  "item_line": 0,
+  "item_type": "<class 'module'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

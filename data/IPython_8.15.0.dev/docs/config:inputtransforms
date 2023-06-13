@@ -1,0 +1,386 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "IPython extends Python syntax to allow things like magic commands, and help with the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "?"
+            },
+            {
+              "type": "text",
+              "value": " syntax. There are several ways to customise how the user's input is processed into Python code to be executed."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "These hooks are mainly for other projects using IPython as the core of their interactive interface. Using them carelessly can easily break IPython!"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": "Custom input transformation",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "args": "IPython.core.inputtransforms",
+          "children": [],
+          "name": "currentmodule",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When the user enters code, it is first processed as a string. By the end of this stage, it must be valid Python syntax."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionchanged 7.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "The API for string and token-based transformations has been completely redesigned. Any third party code extending input transformation will need to be rewritten. The new API is, hopefully, simpler."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "String based transformations are functions which accept a list of strings: each string is a single line of the input cell, including its line ending. The transformation function should return output in the same structure."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "These transformations are in two groups, accessible as attributes of the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "~IPython.core.interactiveshell.InteractiveShell"
+            },
+            {
+              "type": "text",
+              "value": " instance. Each group is a list of transformation functions."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "input_transformers_cleanup"
+                    },
+                    {
+                      "type": "text",
+                      "value": " run first on input, to do things like stripping   prompts and leading indents from copied code. It may not be possible at this   stage to parse the input as valid Python code."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Then IPython runs its own transformations to handle its special syntax, like   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%magics"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "!system"
+                    },
+                    {
+                      "type": "text",
+                      "value": " commands. This part does not expose extension   points."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "input_transformers_post"
+                    },
+                    {
+                      "type": "text",
+                      "value": " run as the last step, to do things like converting   float literals into decimal objects. These may attempt to parse the input as   Python code."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "These transformers may raise "
+            },
+            {
+              "type": "inlineCode",
+              "value": "SyntaxError"
+            },
+            {
+              "type": "text",
+              "value": " if the input code is invalid, but in most cases it is clearer to pass unrecognised code through unmodified and let Python's own parser decide whether it is valid."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For example, imagine we want to obfuscate our code by reversing each line, so we'd write "
+            },
+            {
+              "type": "inlineCode",
+              "value": ")5(f =+ a"
+            },
+            {
+              "type": "text",
+              "value": " instead of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "a += f(5)"
+            },
+            {
+              "type": "text",
+              "value": ". Here's how we could swap it back the right way before IPython tries to run it      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "def reverse_line_chars(lines):\n    new_lines = []\n    for line in lines:\n        chars = line[:-1]  # the newline needs to stay at the end\n        new_lines.append(chars[::-1] + '\\n')\n    return new_lines"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To start using this      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "ip = get_ipython()\nip.input_transformers_cleanup.append(reverse_line_chars)"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 7.17"
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "input_transformers can now have an attribute "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "has_side_effects"
+                },
+                {
+                  "type": "text",
+                  "value": " set to "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "True"
+                },
+                {
+                  "type": "text",
+                  "value": ", which will prevent the transformers from being ran when IPython is trying to guess whether the user input is complete."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "String based transformations",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "After the code has been parsed as Python syntax, you can use Python's powerful "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Abstract Syntax Tree"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " tools to modify it. Subclass "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ast.NodeTransformer"
+            },
+            {
+              "type": "text",
+              "value": ", and add an instance to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "shell.ast_transformers"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This example wraps integer literals in an "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Integer"
+            },
+            {
+              "type": "text",
+              "value": " class, which is useful for mathematical frameworks that want to handle e.g. "
+            },
+            {
+              "type": "inlineCode",
+              "value": "1/3"
+            },
+            {
+              "type": "text",
+              "value": " as a precise fraction       "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "class IntegerWrapper(ast.NodeTransformer):\n    \"\"\"Wraps all integers in a call to Integer()\"\"\"\n    def visit_Num(self, node):\n        if isinstance(node.n, int):\n            return ast.Call(func=ast.Name(id='Integer', ctx=ast.Load()),\n                            args=[node], keywords=[])\n        return node"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "AST transformations",
+      "type": "Section"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

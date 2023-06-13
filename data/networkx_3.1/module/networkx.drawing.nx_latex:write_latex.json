@@ -1,0 +1,290 @@
+{
+  "aliases": [
+    "networkx.write_latex"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This convenience function creates the latex drawing code as a string and writes that to a file ready to be compiled when "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "as_document"
+            },
+            {
+              "type": "text",
+              "value": " is True or ready to be "
+            },
+            {
+              "type": "inlineCode",
+              "value": "import"
+            },
+            {
+              "type": "text",
+              "value": " ed or "
+            },
+            {
+              "type": "inlineCode",
+              "value": "include"
+            },
+            {
+              "type": "text",
+              "value": " ed into your main LaTeX document."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "path",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "path"
+            },
+            {
+              "type": "text",
+              "value": " argument can be a string filename or a file handle to write to."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If Gbunch is a graph, it is drawn in a figure environment. If Gbunch is an iterable of graphs, each is drawn in a subfigure environment within a single figure environment."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "Gbunch",
+              "type": "Param",
+              "type_": "NetworkX graph or iterable of NetworkX graphs"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Filename or file handle to write to"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "path",
+              "type": "Param",
+              "type_": "filename"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "By default, TikZ is used with options: (others are ignored)      "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "pos : string or dict or list\n    The name of the node attribute on `G` that holds the position of each node.\n    Positions can be sequences of length 2 with numbers for (x,y) coordinates.\n    They can also be strings to denote positions in TikZ style, such as (x, y)\n    or (angle:radius).\n    If a dict, it should be keyed by node to a position.\n    If an empty dict, a circular layout is computed by TikZ.\n    If you are drawing many graphs in subfigures, use a list of position dicts.\ntikz_options : string\n    The tikzpicture options description defining the options for the picture.\n    Often large scale options like `[scale=2]`.\ndefault_node_options : string\n    The draw options for a path of nodes. Individual node options override these.\nnode_options : string or dict\n    The name of the node attribute on `G` that holds the options for each node.\n    Or a dict keyed by node to a string holding the options for that node.\nnode_label : string or dict\n    The name of the node attribute on `G` that holds the node label (text)\n    displayed for each node. If the attribute is \"\" or not present, the node\n    itself is drawn as a string. LaTeX processing such as ``\"$A_1$\"`` is allowed.\n    Or a dict keyed by node to a string holding the label for that node.\ndefault_edge_options : string\n    The options for the scope drawing all edges. The default is \"[-]\" for\n    undirected graphs and \"[->]\" for directed graphs.\nedge_options : string or dict\n    The name of the edge attribute on `G` that holds the options for each edge.\n    If the edge is a self-loop and ``\"loop\" not in edge_options`` the option\n    \"loop,\" is added to the options for the self-loop edge. Hence you can\n    use \"[loop above]\" explicitly, but the default is \"[loop]\".\n    Or a dict keyed by edge to a string holding the options for that edge.\nedge_label : string or dict\n    The name of the edge attribute on `G` that holds the edge label (text)\n    displayed for each edge. If the attribute is \"\" or not present, no edge\n    label is drawn.\n    Or a dict keyed by edge to a string holding the label for that edge.\nedge_label_options : string or dict\n    The name of the edge attribute on `G` that holds the label options for\n    each edge. For example, \"[sloped,above,blue]\". The default is no options.\n    Or a dict keyed by edge to a string holding the label options for that edge.\ncaption : string\n    The caption string for the figure environment\nlatex_label : string\n    The latex label used for the figure for easy referral from the main text\nsub_captions : list of strings\n    The sub_caption string for each subfigure in the figure\nsub_latex_labels : list of strings\n    The latex label for each subfigure in the figure\nn_rows : int\n    The number of rows of subfigures to arrange for multiple graphs\nas_document : bool\n    Whether to wrap the latex code in a document environment for compiling\ndocument_wrapper : formatted text string with variable ``content``.\n    This text is called to evaluate the content embedded in a document\n    environment with a preamble setting up the TikZ syntax.\nfigure_wrapper : formatted text string\n    This text is evaluated with variables ``content``, ``caption`` and ``label``.\n    It wraps the content and if a caption is provided, adds the latex code for\n    that caption, and if a label is provided, adds the latex code for a label.\nsubfigure_wrapper : formatted text string\n    This text evaluate variables ``size``, ``content``, ``caption`` and ``label``.\n    It wraps the content and if a caption is provided, adds the latex code for\n    that caption, and if a label is provided, adds the latex code for a label.\n    The size is the vertical size of each row of subfigures as a fraction."
+                }
+              ],
+              "param": "options",
+              "type": "Param",
+              "type_": "dict"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Write the latex code to draw the graph(s) onto "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "path",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "path"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/drawing/nx_latex.py",
+  "item_line": 482,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "to_latex",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "to_latex"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(Gbunch, path, **options)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,802 @@
+{
+  "aliases": [
+    "scipy.interpolate.SmoothBivariateSpline"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The length of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "x",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "x"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "y",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "y"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "z",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "z"
+            },
+            {
+              "type": "text",
+              "value": " should be at least "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(kx+1) * (ky+1)"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If the input data is such that input dimensions have incommensurate units and differ by many orders of magnitude, the interpolant may have numerical artifacts. Consider rescaling the data before interpolating."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This routine constructs spline knot vectors automatically via the FITPACK algorithm. The spline knots may be placed away from the data points. For some data sets, this routine may fail to construct an interpolating spline, even if one is requested via "
+            },
+            {
+              "type": "inlineCode",
+              "value": "s=0"
+            },
+            {
+              "type": "text",
+              "value": " parameter. In such situations, it is recommended to use "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.interpolate._fitpack_impl:bisplrep",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "bisplrep"
+            },
+            {
+              "type": "text",
+              "value": " / "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.interpolate._fitpack_impl:bisplev",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "bisplev"
+            },
+            {
+              "type": "text",
+              "value": " directly instead of this routine and, if needed, increase the values of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "nxest"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "nyest"
+            },
+            {
+              "type": "text",
+              "value": " parameters of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.interpolate._fitpack_impl:bisplrep",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "bisplrep"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For linear interpolation, prefer "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "LinearNDInterpolator"
+            },
+            {
+              "type": "text",
+              "value": ". See "
+            },
+            {
+              "type": "inlineCode",
+              "value": "https://gist.github.com/ev-br/8544371b40f414b7eaf3fe6217209bff"
+            },
+            {
+              "type": "text",
+              "value": " for discussion."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "1-D sequences of data points (order is not important)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x, y, z",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Positive 1-D sequence of weights, of same length as "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "y",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "y"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "z",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "z"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "w",
+              "type": "Param",
+              "type_": "array_like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Sequence of length 4 specifying the boundary of the rectangular approximation domain.  By default, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "bbox=[min(x), max(x), min(y), max(y)]"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "bbox",
+              "type": "Param",
+              "type_": "array_like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Degrees of the bivariate spline. Default is 3."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "kx, ky",
+              "type": "Param",
+              "type_": "ints, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Positive smoothing factor defined for estimation condition: "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "sum((w[i]*(z[i]-s(x[i], y[i])))**2, axis=0) <= s"
+                    },
+                    {
+                      "type": "text",
+                      "value": " Default "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "s=len(w)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " which should be a good value if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "1/w[i]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is an estimate of the standard deviation of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "z[i]"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "s",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A threshold for determining the effective rank of an over-determined linear system of equations. "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "eps",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "eps"
+                    },
+                    {
+                      "type": "text",
+                      "value": " should have a value within the open interval "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(0, 1)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the default is 1e-16."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "eps",
+              "type": "Param",
+              "type_": "float, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Smooth bivariate spline approximation."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/interpolate/_fitpack2.py",
+  "item_line": 1227,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "See Also",
+    "Notes"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "a base class for bivariate splines."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "BivariateSpline",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "BivariateSpline"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "a smooth univariate spline to fit a given set of data points."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "UnivariateSpline",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "UnivariateSpline"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "a bivariate spline using weighted least-squares fitting"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "LSQBivariateSpline",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "LSQBivariateSpline"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "a bivariate spline over a rectangular mesh on a sphere"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "RectSphereBivariateSpline",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "RectSphereBivariateSpline"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "a smoothing bivariate spline in spherical coordinates"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "SmoothSphereBivariateSpline",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "SmoothSphereBivariateSpline"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "a bivariate spline in spherical coordinates using weighted least-squares fitting"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "LSQSphereBivariateSpline",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "LSQSphereBivariateSpline"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "a bivariate spline over a rectangular mesh"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "RectBivariateSpline",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "RectBivariateSpline"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "a function to find a bivariate B-spline representation of a surface"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.interpolate._fitpack_impl:bisplrep",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "bisplrep"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "a function to evaluate a bivariate B-spline and its derivatives"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.interpolate._fitpack_impl:bisplev",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "bisplev"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

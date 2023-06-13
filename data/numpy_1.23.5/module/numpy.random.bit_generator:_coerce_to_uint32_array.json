@@ -1,0 +1,279 @@
+{
+  "aliases": [
+    "numpy.random.bit_generator._coerce_to_uint32_array"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If a "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "uint32"
+            },
+            {
+              "type": "text",
+              "value": " array, pass it through directly. If a non-negative integer, then break it up into "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "uint32"
+            },
+            {
+              "type": "text",
+              "value": " words, lowest bits first. If a string starting with \"0x\", then interpret as a hex integer, as above. If a string of decimal digits, interpret as a decimal integer, as above. If a sequence of ints or strings, interpret each element as above and concatenate."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Note that the handling of "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "int64"
+            },
+            {
+              "type": "text",
+              "value": " or "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "uint64"
+            },
+            {
+              "type": "text",
+              "value": " arrays are not just straightforward views as "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "uint32"
+            },
+            {
+              "type": "text",
+              "value": " arrays. If an element is small enough to fit into a "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "uint32"
+            },
+            {
+              "type": "text",
+              "value": ", then it will only take up one "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "uint32"
+            },
+            {
+              "type": "text",
+              "value": " element in the output. This is to make sure that the interpretation of a sequence of integers is the same regardless of numpy's default integer type, which differs on different platforms."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "x",
+              "type": "Param",
+              "type_": "int, str, sequence of int or str"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "seed_array",
+              "type": "Param",
+              "type_": "uint32 array"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Coerce an input to a uint32 array."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom numpy.random.bit_generator import _coerce_to_uint32_array\n_coerce_to_uint32_array(12345)"
+      },
+      {
+        "type": "code",
+        "value": "_coerce_to_uint32_array('12345')"
+      },
+      {
+        "type": "code",
+        "value": "_coerce_to_uint32_array('0x12345')"
+      },
+      {
+        "type": "code",
+        "value": "_coerce_to_uint32_array([12345, '67890'])"
+      },
+      {
+        "type": "code",
+        "value": "_coerce_to_uint32_array(np.array([12345, 67890], dtype=np.uint32))"
+      },
+      {
+        "type": "code",
+        "value": "_coerce_to_uint32_array(np.array([12345, 67890], dtype=np.int64))"
+      },
+      {
+        "type": "code",
+        "value": "_coerce_to_uint32_array([12345, 0x10deadbeef, 67890, 0xdeadbeef])"
+      },
+      {
+        "type": "code",
+        "value": "_coerce_to_uint32_array(1234567890123456789012345678901234567890)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": "<class 'builtin_function_or_method'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

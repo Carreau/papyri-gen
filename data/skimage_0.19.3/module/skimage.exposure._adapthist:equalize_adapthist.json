@@ -1,0 +1,442 @@
+{
+  "aliases": [
+    "skimage.exposure.equalize_adapthist"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "An algorithm for local contrast enhancement, that uses histograms computed over different tile regions of the image. Local details can therefore be enhanced even in regions that are darker or lighter than most of the image."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "value": "The image is converted to HSV color space"
+                                    }
+                                  ],
+                                  "type": "paragraph"
+                                }
+                              ],
+                              "spread": false,
+                              "type": "listItem"
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "value": "The CLAHE algorithm is run on the V (Value) channel"
+                                    }
+                                  ],
+                                  "type": "paragraph"
+                                }
+                              ],
+                              "spread": false,
+                              "type": "listItem"
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "value": "The image is converted back to RGB space and returned"
+                                    }
+                                  ],
+                                  "type": "paragraph"
+                                }
+                              ],
+                              "spread": false,
+                              "type": "listItem"
+                            }
+                          ],
+                          "ordered": false,
+                          "spread": false,
+                          "start": 1,
+                          "type": "list"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "For color images, the following steps are performed:"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "For RGBA images, the original alpha channel is removed."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionchanged 0.17"
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "The values returned by this function are slightly shifted upwards because of an internal change in rounding behavior."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Input image."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "image",
+              "type": "Param",
+              "type_": "(N1, ...,NN[, C]) ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Defines the shape of contextual regions used in the algorithm. If iterable is passed, it must have the same number of elements as "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "image.ndim"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (without color channel). If integer, it is broadcasted to each "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "image",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "image"
+                    },
+                    {
+                      "type": "text",
+                      "value": " dimension. By default, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "kernel_size"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is 1/8 of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "image"
+                    },
+                    {
+                      "type": "text",
+                      "value": " height by 1/8 of its width."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "kernel_size",
+              "type": "Param",
+              "type_": "int or array_like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Clipping limit, normalized between 0 and 1 (higher values give more contrast)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "clip_limit",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of gray bins for histogram (\"data range\")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "nbins",
+              "type": "Param",
+              "type_": "int, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Equalized image with float64 dtype."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "out",
+              "type": "Param",
+              "type_": "(N1, ...,NN[, C]) ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Contrast Limited Adaptive Histogram Equalization (CLAHE)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/skimage/exposure/_adapthist.py",
+  "item_line": 28,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "skimage",
+          "path": "skimage.exposure.exposure:equalize_hist",
+          "type": "RefInfo",
+          "version": "0.19.3"
+        },
+        "type": "Link",
+        "value": "equalize_hist"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "skimage",
+          "path": "skimage.exposure.exposure:rescale_intensity",
+          "type": "RefInfo",
+          "version": "0.19.3"
+        },
+        "type": "Link",
+        "value": "rescale_intensity"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(image, kernel_size=None, clip_limit=0.01, nbins=256)"
+  },
+  "type": "DocBlob"
+}

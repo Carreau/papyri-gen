@@ -1,0 +1,361 @@
+{
+  "aliases": [
+    "networkx.isomorphism.ISMAGS.analyze_symmetry"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The graph whose symmetry should be analyzed."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "graph",
+              "type": "Param",
+              "type_": "networkx.Graph"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A list of sets containing node keys. Node keys in the same set are considered equivalent. Every node key in "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "graph",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "graph"
+                    },
+                    {
+                      "type": "text",
+                      "value": " should be in exactly one of the sets. If all nodes are equivalent, this should be "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "[set(graph.nodes)]"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "node_partitions",
+              "type": "Param",
+              "type_": "list of sets"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A dict mapping every edge in "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "graph",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "graph"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to its corresponding color. Edges with the same color are considered equivalent. If all edges are equivalent, this should be "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "{e: 0 for e in graph.edges}"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "edge_colors",
+              "type": "Param",
+              "type_": "dict mapping edges to their colors"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The found permutations. This is a set of frozensets of pairs of node keys which can be exchanged without changing "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "subgraph"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "set[frozenset]"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The found co-sets. The co-sets is a dictionary of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "{node key: set of node keys}"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Every key-value pair describes which "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "values"
+                    },
+                    {
+                      "type": "text",
+                      "value": " can be interchanged without changing nodes less than "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "key"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "dict[collections.abc.Hashable, set[collections.abc.Hashable]]"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Find a minimal set of permutations and corresponding co-sets that describe the symmetry of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "graph",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "graph"
+            },
+            {
+              "type": "text",
+              "value": ", given the node and edge equalities given by "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "node_partitions",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "node_partitions"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "edge_colors",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "edge_colors"
+            },
+            {
+              "type": "text",
+              "value": ", respectively."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/algorithms/isomorphism/ismags.py",
+  "item_line": 578,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, graph, node_partitions, edge_colors)"
+  },
+  "type": "DocBlob"
+}

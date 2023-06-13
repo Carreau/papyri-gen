@@ -1,0 +1,586 @@
+{
+  "aliases": [
+    "scipy.stats._qmc.discrepancy"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The discrepancy is a uniformity criterion used to assess the space filling of a number of samples in a hypercube. A discrepancy quantifies the distance between the continuous uniform distribution on a hypercube and the discrete uniform distribution on "
+            },
+            {
+              "type": "inlineMath",
+              "value": "n"
+            },
+            {
+              "type": "text",
+              "value": " distinct sample points."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The lower the value is, the better the coverage of the parameter space is."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For a collection of subsets of the hypercube, the discrepancy is the difference between the fraction of sample points in one of those subsets and the volume of that subset. There are different definitions of discrepancy corresponding to different collections of subsets. Some versions take a root mean square difference over subsets instead of a maximum."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A measure of uniformity is reasonable if it satisfies the following criteria :"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "It is invariant under permuting factors and/or runs."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "It is invariant under rotation of the coordinates."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "It can measure not only uniformity of the sample over the hypercube,    but also the projection uniformity of the sample over non-empty    subset of lower dimension hypercubes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "There is some reasonable geometric meaning."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "It is easy to compute."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "It satisfies the Koksma-Hlawka-like inequality."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "It is consistent with other criteria in experimental design."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": true,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Four methods are available:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "CD"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": Centered Discrepancy - subspace involves a corner of the   hypercube"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "WD"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": Wrap-around Discrepancy - subspace can wrap around bounds"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "MD"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": Mixture Discrepancy - mix between CD/WD covering more criteria"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "L2-star"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": L2-star discrepancy - like CD BUT variant to rotation"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "See  for precise definitions of each method."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Lastly, using "
+            },
+            {
+              "type": "inlineCode",
+              "value": "iterative=True"
+            },
+            {
+              "type": "text",
+              "value": ", it is possible to compute the discrepancy as if we had "
+            },
+            {
+              "type": "inlineMath",
+              "value": "n+1"
+            },
+            {
+              "type": "text",
+              "value": " samples. This is useful if we want to add a point to a sampling and check the candidate which would give the lowest discrepancy. Then you could just update the discrepancy with each candidate using "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "update_discrepancy"
+            },
+            {
+              "type": "text",
+              "value": ". This method is faster than computing the discrepancy for a large number of candidates."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The sample to compute the discrepancy from."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sample",
+              "type": "Param",
+              "type_": "array_like (n, d)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Must be False if not using it for updating the discrepancy. Default is False. Refer to the notes for more details."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "iterative",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Type of discrepancy, can be "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "CD"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "WD"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "MD"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "L2-star"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Refer to the notes for more details. Default is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "CD"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "method",
+              "type": "Param",
+              "type_": "str, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of workers to use for parallel processing. If -1 is given all CPU threads are used. Default is 1."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "workers",
+              "type": "Param",
+              "type_": "int, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Discrepancy."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "discrepancy",
+              "type": "Param",
+              "type_": "float"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Discrepancy of a given sample."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Calculate the quality of the sample using the discrepancy:"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.stats import qmc\nspace = np.array([[1, 3], [2, 6], [3, 2], [4, 5], [5, 1], [6, 4]])\nl_bounds = [0.5, 0.5]\nu_bounds = [6.5, 6.5]\nspace = qmc.scale(space, l_bounds, u_bounds, reverse=True)\nspace"
+      },
+      {
+        "type": "code",
+        "value": "qmc.discrepancy(space)"
+      },
+      {
+        "type": "text",
+        "value": "We can also compute iteratively the ``CD`` discrepancy by using\n``iterative=True``."
+      },
+      {
+        "type": "code",
+        "value": "disc_init = qmc.discrepancy(space[:-1], iterative=True)\ndisc_init"
+      },
+      {
+        "type": "code",
+        "value": "qmc.update_discrepancy(space[-1], space[:-1], disc_init)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_qmc.py",
+  "item_line": 174,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(sample: 'npt.ArrayLike', *, iterative: 'bool' = False, method: \"Literal['CD', 'WD', 'MD', 'L2-star']\" = 'CD', workers: 'IntNumber' = 1) -> 'float'"
+  },
+  "type": "DocBlob"
+}

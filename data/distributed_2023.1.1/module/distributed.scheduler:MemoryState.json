@@ -1,0 +1,467 @@
+{
+  "aliases": [
+    "distributed.scheduler.MemoryState"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "See "
+            },
+            {
+              "type": "inlineCode",
+              "value": "worker-memory"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Attributes / properties:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Sum of the output of sizeof() for all dask keys held by the worker in memory,     plus number of bytes spilled to disk"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "managed_total"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Sum of the output of sizeof() for the dask keys held in RAM. Note that this may     be inaccurate, which may cause inaccurate unmanaged memory (see below)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "managed"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of bytes  for the dask keys spilled to the hard drive.     Note that this is the size on disk; size in memory may be different due to     compression and inaccuracies in sizeof(). In other words, given the same keys,     'managed' will change depending on the keys being in memory or spilled."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "spilled"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Total RSS memory measured by the OS on the worker process.     This is always exactly equal to managed + unmanaged."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "process"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "process - managed. This is the sum of"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Python interpreter and modules"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "global variables"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "memory temporarily allocated by the dask tasks that are currently running"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "memory fragmentation"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "memory leaks"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "memory not yet garbage collected"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "memory not yet free()'d by the Python memory manager to the OS"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "unmanaged"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Minimum of the 'unmanaged' measures over the last     "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "distributed.memory.recent-to-old-time"
+                    },
+                    {
+                      "type": "text",
+                      "value": " seconds"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "unmanaged_old"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "unmanaged - unmanaged_old; in other words process memory that has been recently     allocated but is not accounted for by dask; hopefully it's mostly a temporary     spike."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "unmanaged_recent"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "managed + unmanaged_old; in other words the memory held long-term by     the process under the hopeful assumption that all unmanaged_recent memory is a     temporary spike"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "optimistic"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            }
+          ],
+          "type": "DefList"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Memory readings on a worker or on the whole cluster."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/distributed/scheduler.py",
+  "item_line": 233,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

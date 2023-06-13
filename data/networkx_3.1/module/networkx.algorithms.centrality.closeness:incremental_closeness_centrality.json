@@ -1,0 +1,578 @@
+{
+  "aliases": [
+    "networkx.incremental_closeness_centrality"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute closeness centrality for nodes using level-based work filtering as described in Incremental Algorithms for Closeness Centrality by Sariyuce et al."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Level-based work filtering detects unnecessary updates to the closeness centrality and filters them out."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "--- From \"Incremental Algorithms for Closeness Centrality\":"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Theorem 1: Let "
+            },
+            {
+              "type": "inlineMath",
+              "value": "G = (V, E)"
+            },
+            {
+              "type": "text",
+              "value": " be a graph and u and v be two vertices in V such that there is no edge (u, v) in E. Let "
+            },
+            {
+              "type": "inlineMath",
+              "value": "G' = (V, E \\cup uv)"
+            },
+            {
+              "type": "text",
+              "value": " Then "
+            },
+            {
+              "type": "inlineMath",
+              "value": "cc[s] = cc'[s]"
+            },
+            {
+              "type": "text",
+              "value": " if and only if "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\left|dG(s, u) - dG(s, v)\\right| \\leq 1"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Where "
+            },
+            {
+              "type": "inlineMath",
+              "value": "dG(u, v)"
+            },
+            {
+              "type": "text",
+              "value": " denotes the length of the shortest path between two vertices u, v in a graph G, cc[s] is the closeness centrality for a vertex s in V, and cc'[s] is the closeness centrality for a vertex s in V, with the (u, v) edge added. ---"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "We use Theorem 1 to filter out updates when adding or removing an edge. When adding an edge (u, v), we compute the shortest path lengths from all other nodes to u and to v before the node is added. When removing an edge, we compute the shortest path lengths after the edge is removed. Then we apply Theorem 1 to use previously computed closeness centrality for nodes where "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\left|dG(s, u) - dG(s, v)\\right| \\leq 1"
+            },
+            {
+              "type": "text",
+              "value": ". This works only for undirected, unweighted graphs; the distance argument is not supported."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Closeness centrality  of a node "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "u"
+            },
+            {
+              "type": "text",
+              "value": " is the reciprocal of the sum of the shortest path distances from "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "u"
+            },
+            {
+              "type": "text",
+              "value": " to all "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "n-1"
+            },
+            {
+              "type": "text",
+              "value": " other nodes. Since the sum of distances depends on the number of nodes in the graph, closeness is normalized by the sum of minimum possible distances "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "n-1"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "C(u) = \\frac{n - 1}{\\sum_{v=1}^{n-1} d(v, u)},"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "d(v, u)"
+            },
+            {
+              "type": "text",
+              "value": " is the shortest-path distance between "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "v"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "u"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "n"
+            },
+            {
+              "type": "text",
+              "value": " is the number of nodes in the graph."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Notice that higher values of closeness indicate higher centrality."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The closeness centrality is normalized to "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "(n-1)/(|G|-1)"
+            },
+            {
+              "type": "text",
+              "value": " where "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "n"
+            },
+            {
+              "type": "text",
+              "value": " is the number of nodes in the connected part of graph containing the node.  If the graph is not completely connected, this algorithm computes the closeness centrality for each connected part separately."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A NetworkX graph"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "G",
+              "type": "Param",
+              "type_": "graph"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The modified edge (u, v) in the graph."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "edge",
+              "type": "Param",
+              "type_": "tuple"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The previous closeness centrality for all nodes in the graph."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "prev_cc",
+              "type": "Param",
+              "type_": "dictionary"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True (default) the edge was inserted, otherwise it was deleted from the graph."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "insertion",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, scale by the fraction of nodes reachable. This gives the Wasserman and Faust improved formula. For single component graphs it is the same as the original formula."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "wf_improved",
+              "type": "Param",
+              "type_": "bool, optional (default=True)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Dictionary of nodes with closeness centrality as the value."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "nodes",
+              "type": "Param",
+              "type_": "dictionary"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Incremental closeness centrality for nodes."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/algorithms/centrality/closeness.py",
+  "item_line": 138,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "betweenness_centrality",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "betweenness_centrality"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "networkx",
+          "path": "networkx.algorithms.centrality.load:edge_load_centrality",
+          "type": "RefInfo",
+          "version": "3.1"
+        },
+        "type": "Link",
+        "value": "load_centrality"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "eigenvector_centrality",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "eigenvector_centrality"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "degree_centrality",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "degree_centrality"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "closeness_centrality",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "closeness_centrality"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(G, edge, prev_cc=None, insertion=True, wf_improved=True)"
+  },
+  "type": "DocBlob"
+}

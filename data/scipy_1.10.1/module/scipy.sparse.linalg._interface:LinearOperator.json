@@ -1,0 +1,521 @@
+{
+  "aliases": [
+    "scipy.optimize._differentiable_functions.LinearOperator"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "For linear operators describing products etc. of other linear operators, the operands of the binary operation."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "args",
+              "type": "Param",
+              "type_": "tuple"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of dimensions (this is always 2)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ndim",
+              "type": "Param",
+              "type_": "int"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Many iterative methods (e.g. cg, gmres) do not need to know the individual entries of a matrix to solve a linear system A*x=b. Such solvers only require the computation of matrix vector products, A*v where v is a dense vector.  This class serves as an abstract interface between iterative solvers and matrix-like objects."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To construct a concrete LinearOperator, either pass appropriate callables to the constructor of this class, or subclass it."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A subclass must implement either one of the methods "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_matvec"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_matmat"
+            },
+            {
+              "type": "text",
+              "value": ", and the attributes/properties "
+            },
+            {
+              "type": "inlineCode",
+              "value": "shape"
+            },
+            {
+              "type": "text",
+              "value": " (pair of integers) and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "dtype"
+            },
+            {
+              "type": "text",
+              "value": " (may be None). It may call the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "__init__"
+            },
+            {
+              "type": "text",
+              "value": " on this class to have these attributes validated. Implementing "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_matvec"
+            },
+            {
+              "type": "text",
+              "value": " automatically implements "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_matmat"
+            },
+            {
+              "type": "text",
+              "value": " (using a naive algorithm) and vice-versa."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Optionally, a subclass may implement "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_rmatvec"
+            },
+            {
+              "type": "text",
+              "value": " or "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_adjoint"
+            },
+            {
+              "type": "text",
+              "value": " to implement the Hermitian adjoint (conjugate transpose). As with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_matvec"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_matmat"
+            },
+            {
+              "type": "text",
+              "value": ", implementing either "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_rmatvec"
+            },
+            {
+              "type": "text",
+              "value": " or "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_adjoint"
+            },
+            {
+              "type": "text",
+              "value": " implements the other automatically. Implementing "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_adjoint"
+            },
+            {
+              "type": "text",
+              "value": " is preferable; "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_rmatvec"
+            },
+            {
+              "type": "text",
+              "value": " is mostly there for backwards compatibility."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The user-defined matvec() function must properly handle the case where v has shape (N,) as well as the (N,1) case.  The shape of the return type is handled internally by LinearOperator."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "LinearOperator instances can also be multiplied, added with each other and exponentiated, all lazily: the result of these operations is always a new, composite LinearOperator, that defers linear operations to the original operators and combines the results."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "More details regarding how to subclass a LinearOperator and several examples of concrete LinearOperator instances can be found in the external project "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "PyLops"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://pylops.readthedocs.io"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Matrix dimensions (M, N)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "shape",
+              "type": "Param",
+              "type_": "tuple"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Returns returns A * v."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "matvec",
+              "type": "Param",
+              "type_": "callable f(v)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Returns A^H * v, where A^H is the conjugate transpose of A."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "rmatvec",
+              "type": "Param",
+              "type_": "callable f(v)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Returns A * V, where V is a dense matrix with dimensions (N, K)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "matmat",
+              "type": "Param",
+              "type_": "callable f(V)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Data type of the matrix."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dtype",
+              "type": "Param",
+              "type_": "dtype"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Returns A^H * V, where V is a dense matrix with dimensions (M, K)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "rmatmat",
+              "type": "Param",
+              "type_": "callable f(V)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Common interface for performing matrix vector products"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.sparse.linalg import LinearOperator\ndef mv(v):\n    return np.array([2*v[0], 3*v[1]])"
+      },
+      {
+        "type": "code",
+        "value": "A = LinearOperator((2,2), matvec=mv)\nA"
+      },
+      {
+        "type": "code",
+        "value": "A.matvec(np.ones(2))"
+      },
+      {
+        "type": "code",
+        "value": "A * np.ones(2)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/sparse/linalg/_interface.py",
+  "item_line": 53,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Attributes",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Construct LinearOperators"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "aslinearoperator",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "aslinearoperator"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

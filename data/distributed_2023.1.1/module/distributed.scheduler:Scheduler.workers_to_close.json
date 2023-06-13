@@ -1,0 +1,323 @@
+{
+  "aliases": [
+    "distributed.Scheduler.workers_to_close"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This returns a list of workers that are good candidates to retire. These workers are not running anything and are storing relatively little data relative to their peers.  If all workers are idle then we still maintain enough workers to have enough RAM to store our data, with a comfortable buffer."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This is for use with systems like "
+            },
+            {
+              "type": "inlineCode",
+              "value": "distributed.deploy.adaptive"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Amount of extra space we want to have for our stored data. Defaults to 2, or that we want to have twice as much memory as we currently have data."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "memory_ratio",
+              "type": "Param",
+              "type_": "Number"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of workers to close"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "n",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Minimum number of workers to keep around"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "minimum",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An optional callable mapping a WorkerState object to a group affiliation. Groups will be closed together. This is useful when closing workers must be done collectively, such as by hostname."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "key",
+              "type": "Param",
+              "type_": "Callable(WorkerState)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Target number of workers to have after we close"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "target",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The attribute of the WorkerState object to return, like \"address\" or \"name\".  Defaults to \"address\"."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "attribute",
+              "type": "Param",
+              "type_": "str"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "to_close: list of worker addresses that are OK to close"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Find workers that we can close with low cost"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "scheduler.workers_to_close()"
+      },
+      {
+        "type": "text",
+        "value": "Group workers by hostname prior to closing"
+      },
+      {
+        "type": "code",
+        "value": "scheduler.workers_to_close(key=lambda ws: ws.host)"
+      },
+      {
+        "type": "text",
+        "value": "Remove two workers"
+      },
+      {
+        "type": "code",
+        "value": "scheduler.workers_to_close(n=2)"
+      },
+      {
+        "type": "text",
+        "value": "Keep enough workers to have twice as much memory as we we need."
+      },
+      {
+        "type": "code",
+        "value": "scheduler.workers_to_close(memory_ratio=2)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/distributed/scheduler.py",
+  "item_line": 6503,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Examples",
+    "Returns",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "distributed",
+          "path": "distributed.scheduler:Scheduler.retire_workers",
+          "type": "RefInfo",
+          "version": "2023.1.1"
+        },
+        "type": "Link",
+        "value": "Scheduler.retire_workers"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, comm=None, memory_ratio: 'int | float | None' = None, n: 'int | None' = None, key: 'Callable[[WorkerState], Hashable] | bytes | None' = None, minimum: 'int | None' = None, target: 'int | None' = None, attribute: 'str' = 'address') -> 'list[str]'"
+  },
+  "type": "DocBlob"
+}

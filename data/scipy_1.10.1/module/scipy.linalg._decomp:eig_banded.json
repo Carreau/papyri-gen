@@ -1,0 +1,545 @@
+{
+  "aliases": [
+    "scipy.linalg.eig_banded"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Find eigenvalues w and optionally right eigenvectors v of a      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "a v[:,i] = w[i] v[:,i]\nv.H v    = identity"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The matrix a is stored in a_band either in lower diagonal or upper diagonal ordered form:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "a_band[u + i - j, j] == a[i,j]        (if upper form; i <= j)     a_band[    i - j, j] == a[i,j]        (if lower form; i >= j)"
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where u is the number of bands above the diagonal."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Example of a_band (shape of a is (6,6), u=2)      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "upper form:\n*   *   a02 a13 a24 a35\n*   a01 a12 a23 a34 a45\na00 a11 a22 a33 a44 a55\n\nlower form:\na00 a11 a22 a33 a44 a55\na10 a21 a32 a43 a54 *\na20 a31 a42 a53 *   *"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Cells marked with * are not used."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The bands of the M by M matrix a."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "a_band",
+              "type": "Param",
+              "type_": "(u+1, M) array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Is the matrix in the lower form. (Default is upper form)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "lower",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Compute only the eigenvalues and no eigenvectors. (Default: calculate also eigenvectors)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "eigvals_only",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Discard data in a_band (may enhance performance)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "overwrite_a_band",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Which eigenvalues to calculate"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "======  ======================================== select  calculated ======  ======================================== 'a'     All eigenvalues 'v'     Eigenvalues in the interval (min, max] 'i'     Eigenvalues with indices min <= i <= max ======  ========================================"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "select",
+              "type": "Param",
+              "type_": "{'a', 'v', 'i'}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Range of selected eigenvalues"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "select_range",
+              "type": "Param",
+              "type_": "(min, max), optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "For select=='v', maximum number of eigenvalues expected. For other values of select, has no meaning."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "In doubt, leave this parameter untouched."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "max_ev",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to check that the input matrix contains only finite numbers. Disabling may give a performance gain, but may result in problems (crashes, non-termination) if the inputs do contain infinities or NaNs."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "check_finite",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If eigenvalue computation does not converge."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "LinAlgError"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The eigenvalues, in ascending order, each repeated according to its multiplicity."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "w",
+              "type": "Param",
+              "type_": "(M,) ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The normalized eigenvector corresponding to the eigenvalue w[i] is the column v[:,i]."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "v",
+              "type": "Param",
+              "type_": "(M, M) float or complex ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Solve real symmetric or complex Hermitian band matrix eigenvalue problem."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.linalg import eig_banded\nA = np.array([[1, 5, 2, 0], [5, 2, 5, 2], [2, 5, 3, 5], [0, 2, 5, 4]])\nAb = np.array([[1, 2, 3, 4], [5, 5, 5, 0], [2, 2, 0, 0]])\nw, v = eig_banded(Ab, lower=True)\nnp.allclose(A @ v - v @ np.diag(w), np.zeros((4, 4)))"
+      },
+      {
+        "type": "code",
+        "value": "w = eig_banded(Ab, lower=True, eigvals_only=True)\nw"
+      },
+      {
+        "type": "text",
+        "value": "Request only the eigenvalues between ``[-3, 4]``"
+      },
+      {
+        "type": "code",
+        "value": "w, v = eig_banded(Ab, lower=True, select='v', select_range=[-3, 4])\nw"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/linalg/_decomp.py",
+  "item_line": 660,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "See Also",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "eigenvalues for symmetric/Hermitian band matrices"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.linalg._decomp:eigvals_banded",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "eigvals_banded"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "eigenvalues and right eigenvectors of general arrays."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "eig",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "eig"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "eigenvalues and right eigenvectors for symmetric/Hermitian arrays"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "eigh",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "eigh"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "eigenvalues and right eigenvectors for symmetric/Hermitian tridiagonal matrices"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.linalg._decomp:eigh_tridiagonal",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "eigh_tridiagonal"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(a_band, lower=False, eigvals_only=False, overwrite_a_band=False, select='a', select_range=None, max_ev=0, check_finite=True)"
+  },
+  "type": "DocBlob"
+}

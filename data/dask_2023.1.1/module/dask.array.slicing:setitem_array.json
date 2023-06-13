@@ -1,0 +1,394 @@
+{
+  "aliases": [
+    "dask.array.core.setitem_array"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function, that is intended to be called by "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "dask",
+                "path": "dask.array.core:Array.__setitem__",
+                "type": "RefInfo",
+                "version": "2023.1.1"
+              },
+              "type": "Link",
+              "value": "Array.__setitem__"
+            },
+            {
+              "type": "text",
+              "value": ", creates a new dask that assigns values to each block that is touched by the indices, leaving other blocks unchanged."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Each block that overlaps the indices is assigned from the approriate part of the assignment value. The dasks of these value parts are included in the output dask dictionary, as are the dasks of any 1-d dask array indices. This ensures that the dask array assignment value and any dask array indices are not computed until the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "dask",
+                "path": "dask.array.core:Array.__setitem__",
+                "type": "RefInfo",
+                "version": "2023.1.1"
+              },
+              "type": "Link",
+              "value": "Array.__setitem__"
+            },
+            {
+              "type": "text",
+              "value": " operation is computed."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The part of the assignment value applies to block is created as a \"getitem\" slice of the full asignment value."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The dask variable output name."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "out_name",
+              "type": "Param",
+              "type_": "`str`"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The dask array that is being assigned to."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "array",
+              "type": "Param",
+              "type_": "dask array"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Indices to array defining the elements to be assigned."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "indices",
+              "type": "Param",
+              "type_": "numpy-style indices"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The assignment value, i.e. the values which will be assigned to elements of array."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "value",
+              "type": "Param",
+              "type_": "dask array"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "A dictionary where the keys are new unique tokens for each  block of the form"
+                        }
+                      ],
+                      "type": "paragraph"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "(out_name, dim_index[, dim_index[, ...]])"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "type": "blockquote"
+                    }
+                  ],
+                  "type": "blockquote"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "and the values are either"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "(key,)"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "type": "blockquote"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "or"
+                        }
+                      ],
+                      "type": "paragraph"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "(setitem, key, v_key, block_indices)"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "type": "blockquote"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "where key is an existing top-level dask key of array."
+                        }
+                      ],
+                      "type": "paragraph"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "The first case occurs when the block represented by key does  not overlap the indices."
+                        }
+                      ],
+                      "type": "paragraph"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "The second case occurs when the block represented by key does  overlap the indices. setitem is the chunk assignment function;  v_key is the dask key of the the part of the assignment value  that corresponds to the block; and block_indices are the  assigment indices that apply to the block."
+                        }
+                      ],
+                      "type": "paragraph"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "The dictionary also includes any additional key/value pairs  needed to define v_key, as well as any any additional  key/value pairs needed to define dask keys contained in the  block_indices list as references to dask array indices."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "type": "blockquote"
+                }
+              ],
+              "param": "dsk",
+              "type": "Param",
+              "type_": "`dict`"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Master function for array assignment."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dask/array/slicing.py",
+  "item_line": 1513,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(out_name, array, indices, value)"
+  },
+  "type": "DocBlob"
+}

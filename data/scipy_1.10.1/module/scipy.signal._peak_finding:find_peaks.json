@@ -1,0 +1,1682 @@
+{
+  "aliases": [
+    "scipy.signal.find_peaks"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function takes a 1-D array and finds all local maxima by simple comparison of neighboring values. Optionally, a subset of these peaks can be selected by specifying conditions for a peak's properties."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In the context of this function, a peak or local maximum is defined as any sample whose two direct neighbours have a smaller amplitude. For flat peaks (more than one sample of equal amplitude wide) the index of the middle sample is returned (rounded down in case the number of samples is even). For noisy signals the peak locations can be off because the noise might change the position of local maxima. In those cases consider smoothing the signal before searching for peaks or use other peak finding and fitting methods (like "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.signal._peak_finding:find_peaks_cwt",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "find_peaks_cwt"
+            },
+            {
+              "type": "text",
+              "value": ")."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Some additional comments on specifying conditions:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Almost all conditions (excluding "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "distance",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "distance"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") can be given as half-open or   closed intervals, e.g., "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "1"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(1, None)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " defines the half-open   interval "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "[1, \\infty]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " while "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(None, 1)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " defines the interval   "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "[-\\infty, 1]"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". The open interval "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(None, None)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " can be specified   as well, which returns the matching properties without exclusion of peaks."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The border is always included in the interval used to select valid peaks."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "For several conditions the interval borders can be specified with   arrays matching "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " in shape which enables dynamic constrains based on   the sample position."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The conditions are evaluated in the following order: "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "plateau_size",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "plateau_size"
+                    },
+                    {
+                      "type": "text",
+                      "value": ",   "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "height",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "height"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "threshold",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "threshold"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "distance",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "distance"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "prominence",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "prominence"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "width",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "width"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". In most cases   this order is the fastest one because faster operations are applied first   to reduce the number of peaks that need to be evaluated later."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "While indices in "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "peaks",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "peaks"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are guaranteed to be at least "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "distance",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "distance"
+                    },
+                    {
+                      "type": "text",
+                      "value": " samples   apart, edges of flat peaks may be closer than the allowed "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "distance",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "distance"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Use "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "wlen",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "wlen"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to reduce the time it takes to evaluate the conditions for   "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "prominence",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "prominence"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "width",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "width"
+                    },
+                    {
+                      "type": "text",
+                      "value": " if "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is large or has many local maxima   (see "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "peak_prominences"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 1.1.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A signal with peaks."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "sequence"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Required height of peaks. Either a number, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", an array matching "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or a 2-element sequence of the former. The first element is always interpreted as the  minimal and the second, if supplied, as the maximal required height."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "height",
+              "type": "Param",
+              "type_": "number or ndarray or sequence, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Required threshold of peaks, the vertical distance to its neighboring samples. Either a number, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", an array matching "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or a 2-element sequence of the former. The first element is always interpreted as the  minimal and the second, if supplied, as the maximal required threshold."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "threshold",
+              "type": "Param",
+              "type_": "number or ndarray or sequence, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Required minimal horizontal distance (>= 1) in samples between neighbouring peaks. Smaller peaks are removed first until the condition is fulfilled for all remaining peaks."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "distance",
+              "type": "Param",
+              "type_": "number, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Required prominence of peaks. Either a number, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", an array matching "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or a 2-element sequence of the former. The first element is always interpreted as the  minimal and the second, if supplied, as the maximal required prominence."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "prominence",
+              "type": "Param",
+              "type_": "number or ndarray or sequence, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Required width of peaks in samples. Either a number, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", an array matching "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or a 2-element sequence of the former. The first element is always interpreted as the  minimal and the second, if supplied, as the maximal required width."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "width",
+              "type": "Param",
+              "type_": "number or ndarray or sequence, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Used for calculation of the peaks prominences, thus it is only used if one of the arguments "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "prominence",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "prominence"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "width",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "width"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is given. See argument "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "wlen",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "wlen"
+                    },
+                    {
+                      "type": "text",
+                      "value": " in "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "peak_prominences"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for a full description of its effects."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "wlen",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Used for calculation of the peaks width, thus it is only used if "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "width",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "width"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is given. See argument  "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "rel_height",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "rel_height"
+                    },
+                    {
+                      "type": "text",
+                      "value": " in "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "peak_widths"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for a full description of its effects."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "rel_height",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Required size of the flat top of peaks in samples. Either a number, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", an array matching "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or a 2-element sequence of the former. The first element is always interpreted as the minimal and the second, if supplied as the maximal required plateau size."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.2.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "plateau_size",
+              "type": "Param",
+              "type_": "number or ndarray or sequence, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Indices of peaks in "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " that satisfy all given conditions."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "peaks",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A dictionary containing properties of the returned peaks which were calculated as intermediate results during evaluation of the specified conditions:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "dd": [
+                                {
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "value": "If "
+                                    },
+                                    {
+                                      "anchor": null,
+                                      "exists": true,
+                                      "kind": "local",
+                                      "reference": {
+                                        "kind": "local",
+                                        "module": null,
+                                        "path": "height",
+                                        "type": "RefInfo",
+                                        "version": null
+                                      },
+                                      "type": "Link",
+                                      "value": "height"
+                                    },
+                                    {
+                                      "type": "text",
+                                      "value": " is given, the height of each peak in "
+                                    },
+                                    {
+                                      "anchor": null,
+                                      "exists": true,
+                                      "kind": "local",
+                                      "reference": {
+                                        "kind": "local",
+                                        "module": null,
+                                        "path": "x",
+                                        "type": "RefInfo",
+                                        "version": null
+                                      },
+                                      "type": "Link",
+                                      "value": "x"
+                                    },
+                                    {
+                                      "type": "text",
+                                      "value": "."
+                                    }
+                                  ],
+                                  "type": "paragraph"
+                                }
+                              ],
+                              "dt": {
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "value": "'peak_heights'"
+                                  }
+                                ],
+                                "type": "paragraph"
+                              },
+                              "type": "DefListItem"
+                            }
+                          ],
+                          "type": "DefList"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "dd": [
+                                {
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "value": "If "
+                                    },
+                                    {
+                                      "anchor": null,
+                                      "exists": true,
+                                      "kind": "local",
+                                      "reference": {
+                                        "kind": "local",
+                                        "module": null,
+                                        "path": "threshold",
+                                        "type": "RefInfo",
+                                        "version": null
+                                      },
+                                      "type": "Link",
+                                      "value": "threshold"
+                                    },
+                                    {
+                                      "type": "text",
+                                      "value": " is given, these keys contain a peaks vertical       distance to its neighbouring samples."
+                                    }
+                                  ],
+                                  "type": "paragraph"
+                                }
+                              ],
+                              "dt": {
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "value": "'left_thresholds', 'right_thresholds'"
+                                  }
+                                ],
+                                "type": "paragraph"
+                              },
+                              "type": "DefListItem"
+                            }
+                          ],
+                          "type": "DefList"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "dd": [
+                                {
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "value": "If "
+                                    },
+                                    {
+                                      "anchor": null,
+                                      "exists": true,
+                                      "kind": "local",
+                                      "reference": {
+                                        "kind": "local",
+                                        "module": null,
+                                        "path": "prominence",
+                                        "type": "RefInfo",
+                                        "version": null
+                                      },
+                                      "type": "Link",
+                                      "value": "prominence"
+                                    },
+                                    {
+                                      "type": "text",
+                                      "value": " is given, these keys are accessible. See       "
+                                    },
+                                    {
+                                      "domain": null,
+                                      "role": null,
+                                      "type": "Directive",
+                                      "value": "peak_prominences"
+                                    },
+                                    {
+                                      "type": "text",
+                                      "value": " for a description of their content."
+                                    }
+                                  ],
+                                  "type": "paragraph"
+                                }
+                              ],
+                              "dt": {
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "value": "'prominences', 'right_bases', 'left_bases'"
+                                  }
+                                ],
+                                "type": "paragraph"
+                              },
+                              "type": "DefListItem"
+                            }
+                          ],
+                          "type": "DefList"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "dd": [
+                                {
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "value": "If "
+                                    },
+                                    {
+                                      "anchor": null,
+                                      "exists": true,
+                                      "kind": "local",
+                                      "reference": {
+                                        "kind": "local",
+                                        "module": null,
+                                        "path": "width",
+                                        "type": "RefInfo",
+                                        "version": null
+                                      },
+                                      "type": "Link",
+                                      "value": "width"
+                                    },
+                                    {
+                                      "type": "text",
+                                      "value": " is given, these keys are accessible. See "
+                                    },
+                                    {
+                                      "domain": null,
+                                      "role": null,
+                                      "type": "Directive",
+                                      "value": "peak_widths"
+                                    },
+                                    {
+                                      "type": "text",
+                                      "value": "       for a description of their content."
+                                    }
+                                  ],
+                                  "type": "paragraph"
+                                }
+                              ],
+                              "dt": {
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "value": "'width_heights', 'left_ips', 'right_ips'"
+                                  }
+                                ],
+                                "type": "paragraph"
+                              },
+                              "type": "DefListItem"
+                            }
+                          ],
+                          "type": "DefList"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "dd": [
+                                {
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "value": "If "
+                                    },
+                                    {
+                                      "anchor": null,
+                                      "exists": true,
+                                      "kind": "local",
+                                      "reference": {
+                                        "kind": "local",
+                                        "module": null,
+                                        "path": "plateau_size",
+                                        "type": "RefInfo",
+                                        "version": null
+                                      },
+                                      "type": "Link",
+                                      "value": "plateau_size"
+                                    },
+                                    {
+                                      "type": "text",
+                                      "value": " is given, these keys are accessible and contain       the indices of a peak's edges (edges are still part of the       plateau) and the calculated plateau sizes."
+                                    }
+                                  ],
+                                  "type": "paragraph"
+                                },
+                                {
+                                  "children": [
+                                    {
+                                      "children": [
+                                        {
+                                          "type": "text",
+                                          "value": "versionadded 1.2.0"
+                                        }
+                                      ],
+                                      "type": "admonitionTitle"
+                                    }
+                                  ],
+                                  "kind": "note",
+                                  "type": "admonition"
+                                }
+                              ],
+                              "dt": {
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "value": "'plateau_sizes', left_edges', 'right_edges'"
+                                  }
+                                ],
+                                "type": "paragraph"
+                              },
+                              "type": "DefListItem"
+                            }
+                          ],
+                          "type": "DefList"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "To calculate and return properties without excluding peaks, provide the open interval "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(None, None)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " as a value to the appropriate argument (excluding "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "distance",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "distance"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "properties",
+              "type": "Param",
+              "type_": "dict"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Find peaks inside a signal based on peak properties."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function may return unexpected results for data containing NaNs. To avoid this, NaNs should either be removed or replaced."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Raised if a peak's properties have unexpected values (see "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "peak_prominences"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "peak_widths"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "PeakPropertyWarning"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "To demonstrate this function's usage we use a signal `x` supplied with\nSciPy (see `scipy.datasets.electrocardiogram`). Let's find all peaks (local\nmaxima) in `x` whose amplitude lies above 0."
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.datasets import electrocardiogram\nfrom scipy.signal import find_peaks\nx = electrocardiogram()[2000:4000]\npeaks, _ = find_peaks(x, height=0)\nplt.plot(x)\nplt.plot(peaks, x[peaks], \"x\")\nplt.plot(np.zeros_like(x), \"--\", color=\"gray\")\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.signal._peak_finding:find_peaks-0-1fb8aaa4.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      },
+      {
+        "type": "text",
+        "value": "We can select peaks below 0 with ``height=(None, 0)`` or use arrays matching\n`x` in size to reflect a changing condition for different parts of the\nsignal."
+      },
+      {
+        "type": "code",
+        "value": "border = np.sin(np.linspace(0, 3 * np.pi, x.size))\npeaks, _ = find_peaks(x, height=(-border, border))\nplt.plot(x)\nplt.plot(-border, \"--\", color=\"gray\")\nplt.plot(border, \":\", color=\"gray\")\nplt.plot(peaks, x[peaks], \"x\")\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.signal._peak_finding:find_peaks-1-f6d9a3a1.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      },
+      {
+        "type": "text",
+        "value": "Another useful condition for periodic signals can be given with the\n`distance` argument. In this case, we can easily select the positions of\nQRS complexes within the electrocardiogram (ECG) by demanding a distance of\nat least 150 samples."
+      },
+      {
+        "type": "code",
+        "value": "peaks, _ = find_peaks(x, distance=150)\nnp.diff(peaks)"
+      },
+      {
+        "type": "code",
+        "value": "plt.plot(x)\nplt.plot(peaks, x[peaks], \"x\")\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.signal._peak_finding:find_peaks-2-bcc27ebe.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      },
+      {
+        "type": "text",
+        "value": "Especially for noisy signals peaks can be easily grouped by their\nprominence (see `peak_prominences`). E.g., we can select all peaks except\nfor the mentioned QRS complexes by limiting the allowed prominence to 0.6."
+      },
+      {
+        "type": "code",
+        "value": "peaks, properties = find_peaks(x, prominence=(None, 0.6))\nproperties[\"prominences\"].max()"
+      },
+      {
+        "type": "code",
+        "value": "plt.plot(x)\nplt.plot(peaks, x[peaks], \"x\")\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.signal._peak_finding:find_peaks-3-6200a1d8.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      },
+      {
+        "type": "text",
+        "value": "And, finally, let's examine a different section of the ECG which contains\nbeat forms of different shape. To select only the atypical heart beats, we\ncombine two conditions: a minimal prominence of 1 and width of at least 20\nsamples."
+      },
+      {
+        "type": "code",
+        "value": "x = electrocardiogram()[17000:18000]\npeaks, properties = find_peaks(x, prominence=1, width=20)\nproperties[\"prominences\"], properties[\"widths\"]"
+      },
+      {
+        "type": "code",
+        "value": "plt.plot(x)\nplt.plot(peaks, x[peaks], \"x\")\nplt.vlines(x=peaks, ymin=x[peaks] - properties[\"prominences\"],\n           ymax = x[peaks], color = \"C1\")\nplt.hlines(y=properties[\"width_heights\"], xmin=properties[\"left_ips\"],\n           xmax=properties[\"right_ips\"], color = \"C1\")\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.signal._peak_finding:find_peaks-4-1f21bbe8.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/signal/_peak_finding.py",
+  "item_line": 729,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Warns",
+    "Warnings",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Find peaks using the wavelet transformation."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._peak_finding:find_peaks_cwt",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "find_peaks_cwt"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Directly calculate the prominence of peaks."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "peak_prominences",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "peak_prominences"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Directly calculate the width of peaks."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "peak_widths",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "peak_widths"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(x, height=None, threshold=None, distance=None, prominence=None, width=None, wlen=None, rel_height=0.5, plateau_size=None)"
+  },
+  "type": "DocBlob"
+}

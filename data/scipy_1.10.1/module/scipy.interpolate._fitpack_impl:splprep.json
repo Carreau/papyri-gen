@@ -1,0 +1,936 @@
+{
+  "aliases": [
+    "scipy.interpolate._fitpack_impl.splprep"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Given a list of N rank-1 arrays, "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "x",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "x"
+            },
+            {
+              "type": "text",
+              "value": ", which represent a curve in N-dimensional space parametrized by "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "u",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "u"
+            },
+            {
+              "type": "text",
+              "value": ", find a smooth approximating spline curve g("
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "u",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "u"
+            },
+            {
+              "type": "text",
+              "value": "). Uses the FORTRAN routine parcur from FITPACK."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "See "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "splev"
+            },
+            {
+              "type": "text",
+              "value": " for evaluation of the spline and its derivatives. The number of dimensions N must be smaller than 11."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A list of sample vector arrays representing the curve."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Strictly positive rank-1 array of weights the same length as "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "x[0]"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". The weights are used in computing the weighted least-squares spline fit. If the errors in the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " values have standard-deviation given by the vector d, then "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "w",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "w"
+                    },
+                    {
+                      "type": "text",
+                      "value": " should be 1/d. Default is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ones(len(x[0]))"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "w",
+              "type": "Param",
+              "type_": "array_like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An array of parameter values. If not given, these values are calculated automatically as "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "M = len(x[0])"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", where"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "v[0] = 0"
+                        }
+                      ],
+                      "type": "paragraph"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "v[i] = v[i-1] + distance("
+                        },
+                        {
+                          "domain": null,
+                          "role": null,
+                          "type": "Directive",
+                          "value": "x[i]"
+                        },
+                        {
+                          "type": "text",
+                          "value": ", "
+                        },
+                        {
+                          "domain": null,
+                          "role": null,
+                          "type": "Directive",
+                          "value": "x[i-1]"
+                        },
+                        {
+                          "type": "text",
+                          "value": ")"
+                        }
+                      ],
+                      "type": "paragraph"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "u[i] = v[i] / v[M-1]"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "type": "blockquote"
+                }
+              ],
+              "param": "u",
+              "type": "Param",
+              "type_": "array_like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The end-points of the parameters interval. Defaults to u[0] and u[-1]."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ub, ue",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Degree of the spline. Cubic splines are recommended. Even values of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "k",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "k"
+                    },
+                    {
+                      "type": "text",
+                      "value": " should be avoided especially with a small s-value. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "1 <= k <= 5"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", default is 3."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "k",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If task==0 (default), find t and c for a given smoothing factor, s. If task==1, find t and c for another value of the smoothing factor, s. There must have been a previous call with task=0 or task=1 for the same set of data. If task=-1 find the weighted least square spline for a given set of knots, t."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "task",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A smoothing condition. The amount of smoothness is determined by satisfying the conditions: "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "sum((w * (y - g))**2,axis=0) <= s"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", where g(x) is the smoothed interpolation of (x,y).  The user can use "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "s",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "s"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to control the trade-off between closeness and smoothness of fit. Larger "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "s",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "s"
+                    },
+                    {
+                      "type": "text",
+                      "value": " means more smoothing while smaller values of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "s",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "s"
+                    },
+                    {
+                      "type": "text",
+                      "value": " indicate less smoothing. Recommended values of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "s",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "s"
+                    },
+                    {
+                      "type": "text",
+                      "value": " depend on the weights, w.  If the weights represent the inverse of the standard-deviation of y, then a good "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "s",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "s"
+                    },
+                    {
+                      "type": "text",
+                      "value": " value should be found in the range "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(m-sqrt(2*m),m+sqrt(2*m))"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", where m is the number of data points in x, y, and w."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "s",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The knots needed for task=-1."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "t",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If non-zero, then return optional outputs."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "full_output",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An over-estimate of the total number of knots of the spline to help in determining the storage space. By default nest=m/2. Always large enough is nest=m+k+1."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "nest",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If non-zero, data points are considered periodic with period "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x[m-1] - x[0]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and a smooth periodic spline approximation is returned.  Values of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "y[m-1]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "w[m-1]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are not used."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "per",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Non-zero to suppress messages."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "quiet",
+              "type": "Param",
+              "type_": "int, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A tuple (t,c,k) containing the vector of knots, the B-spline coefficients, and the degree of the spline."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "tck",
+              "type": "Param",
+              "type_": "tuple"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An array of the values of the parameter."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "u",
+              "type": "Param",
+              "type_": "array"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The weighted sum of squared residuals of the spline approximation."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fp",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An integer flag about splrep success.  Success is indicated if ier<=0. If ier in [1,2,3] an error occurred but was not raised. Otherwise an error is raised."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ier",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A message corresponding to the integer flag, ier."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "msg",
+              "type": "Param",
+              "type_": "str"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Find the B-spline representation of an N-D curve."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/interpolate/_fitpack_impl.py",
+  "item_line": 107,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "splrep",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "splrep"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "splev",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "splev"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "sproot",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "sproot"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "spalde",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "spalde"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "splint",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "splint"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.interpolate._fitpack_impl:bisplrep",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "bisplrep"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.interpolate._fitpack_impl:bisplev",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "bisplev"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "UnivariateSpline",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "UnivariateSpline"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "BivariateSpline",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "BivariateSpline"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(x, w=None, u=None, ub=None, ue=None, k=3, task=0, s=None, t=None, full_output=0, nest=None, per=0, quiet=1)"
+  },
+  "type": "DocBlob"
+}

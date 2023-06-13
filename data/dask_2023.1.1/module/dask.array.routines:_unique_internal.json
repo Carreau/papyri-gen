@@ -1,0 +1,231 @@
+{
+  "aliases": [
+    "dask.array.routines._unique_internal"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Uses "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.unique"
+            },
+            {
+              "type": "text",
+              "value": " to find the unique values for the array chunk. Given this chunk may not represent the whole array, also take the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "indices"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "counts"
+            },
+            {
+              "type": "text",
+              "value": " that are in 1-to-1 correspondence to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ar"
+            },
+            {
+              "type": "text",
+              "value": " and reduce them in the same fashion as "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ar"
+            },
+            {
+              "type": "text",
+              "value": " is reduced. Namely sum any counts that correspond to the same value and take the smallest index that corresponds to the same value."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To handle the inverse mapping from the unique values to the original array, simply return a NumPy array created with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "arange"
+            },
+            {
+              "type": "text",
+              "value": " with enough values to correspond 1-to-1 to the unique values. While there is more work needed to be done to create the full inverse mapping for the original array, this provides enough information to generate the inverse mapping in Dask."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Given Dask likes to have one array returned from functions like "
+            },
+            {
+              "type": "inlineCode",
+              "value": "blockwise"
+            },
+            {
+              "type": "text",
+              "value": ", some formatting is done to stuff all of the resulting arrays into one big NumPy structured array. Dask is then able to handle this object and can split it apart into the separate results on the Dask side, which then can be passed back to this function in concatenated chunks for further reduction or can be return to the user to perform other forms of analysis."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "By handling the problem in this way, it does not matter where a chunk is in a larger array or how big it is. The chunk can still be computed on the same way. Also it does not matter if the chunk is the result of other chunks being run through this function multiple times. The end result will still be just as accurate using this strategy."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Helper/wrapper function for "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.unique"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dask/array/routines.py",
+  "item_line": 1590,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(ar, indices, counts, return_inverse=False)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,584 @@
+{
+  "aliases": [
+    "networkx.katz_centrality"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Katz centrality computes the centrality for a node based on the centrality of its neighbors. It is a generalization of the eigenvector centrality. The Katz centrality for node $i$ is"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "x_i = \\alpha \\sum_{j} A_{ij} x_j + \\beta,"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where $A$ is the adjacency matrix of graph G with eigenvalues $\\lambda$."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The parameter $\\beta$ controls the initial centrality and"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "\\alpha < \\frac{1}{\\lambda_{\\max}}."
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Katz centrality computes the relative influence of a node within a network by measuring the number of the immediate neighbors (first degree nodes) and also all other nodes in the network that connect to the node under consideration through these immediate neighbors."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Extra weight can be provided to immediate neighbors through the parameter $\\beta$.  Connections made with distant neighbors are, however, penalized by an attenuation factor $\\alpha$ which should be strictly less than the inverse largest eigenvalue of the adjacency matrix in order for the Katz centrality to be computed correctly. More information is provided in ."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Katz centrality was introduced by ."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This algorithm it uses the power method to find the eigenvector corresponding to the largest eigenvalue of the adjacency matrix of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "G"
+            },
+            {
+              "type": "text",
+              "value": ". The parameter "
+            },
+            {
+              "type": "inlineCode",
+              "value": "alpha"
+            },
+            {
+              "type": "text",
+              "value": " should be strictly less than the inverse of largest eigenvalue of the adjacency matrix for the algorithm to converge. You can use "
+            },
+            {
+              "type": "inlineCode",
+              "value": "max(nx.adjacency_spectrum(G))"
+            },
+            {
+              "type": "text",
+              "value": " to get $\\lambda_{\\max}$ the largest eigenvalue of the adjacency matrix. The iteration will stop after "
+            },
+            {
+              "type": "inlineCode",
+              "value": "max_iter"
+            },
+            {
+              "type": "text",
+              "value": " iterations or an error tolerance of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "number_of_nodes(G) * tol"
+            },
+            {
+              "type": "text",
+              "value": " has been reached."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When $\\alpha = 1/\\lambda_{\\max}$ and $\\beta=0$, Katz centrality is the same as eigenvector centrality."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For directed graphs this finds \"left\" eigenvectors which corresponds to the in-edges in the graph. For out-edges Katz centrality first reverse the graph with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "G.reverse()"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A NetworkX graph."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "G",
+              "type": "Param",
+              "type_": "graph"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Attenuation factor"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "alpha",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Weight attributed to the immediate neighborhood. If not a scalar, the dictionary must have an value for every node."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "beta",
+              "type": "Param",
+              "type_": "scalar or dictionary, optional (default=1.0)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum number of iterations in power method."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "max_iter",
+              "type": "Param",
+              "type_": "integer, optional (default=1000)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Error tolerance used to check convergence in power method iteration."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "tol",
+              "type": "Param",
+              "type_": "float, optional (default=1.0e-6)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Starting value of Katz iteration for each node."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "nstart",
+              "type": "Param",
+              "type_": "dictionary, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True normalize the resulting values."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "normalized",
+              "type": "Param",
+              "type_": "bool, optional (default=True)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If None, all edge weights are considered equal. Otherwise holds the name of the edge attribute used as weight. In this measure the weight is interpreted as the connection strength."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "weight",
+              "type": "Param",
+              "type_": "None or string, optional (default=None)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If the parameter "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "beta",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "beta"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is not a scalar but lacks a value for at least one node"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "NetworkXError"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If the algorithm fails to converge to the specified tolerance within the specified number of iterations of the power iteration method."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "PowerIterationFailedConvergence"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Dictionary of nodes with Katz centrality as the value."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "nodes",
+              "type": "Param",
+              "type_": "dictionary"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute the Katz centrality for the nodes of the graph G."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import math\nG = nx.path_graph(4)\nphi = (1 + math.sqrt(5)) / 2.0  # largest eigenvalue of adj matrix\ncentrality = nx.katz_centrality(G, 1 / phi - 0.01)\nfor n, c in sorted(centrality.items()):\n    print(f\"{n} {c:.2f}\")"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/algorithms/centrality/katz.py",
+  "item_line": 10,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "Examples",
+    "See Also",
+    "Notes",
+    "References"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "networkx",
+          "path": "networkx.algorithms.centrality.katz:katz_centrality_numpy",
+          "type": "RefInfo",
+          "version": "3.1"
+        },
+        "type": "Link",
+        "value": "katz_centrality_numpy"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "eigenvector_centrality",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "eigenvector_centrality"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "networkx",
+          "path": "networkx.algorithms.centrality.eigenvector:eigenvector_centrality_numpy",
+          "type": "RefInfo",
+          "version": "3.1"
+        },
+        "type": "Link",
+        "value": "eigenvector_centrality_numpy"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "pagerank",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "pagerank"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "hits",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "hits"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(G, alpha=0.1, beta=1.0, max_iter=1000, tol=1e-06, nstart=None, normalized=True, weight=None)"
+  },
+  "type": "DocBlob"
+}

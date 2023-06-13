@@ -1,0 +1,481 @@
+{
+  "aliases": [
+    "scipy.linalg.eigvalsh_tridiagonal"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Find eigenvalues "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "w",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "w"
+            },
+            {
+              "type": "text",
+              "value": " of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": "      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "a v[:,i] = w[i] v[:,i]\nv.H v    = identity"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For a real symmetric matrix "
+            },
+            {
+              "type": "inlineCode",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " with diagonal elements "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "d",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "d"
+            },
+            {
+              "type": "text",
+              "value": " and off-diagonal elements "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "e",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "e"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The diagonal elements of the array."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "d",
+              "type": "Param",
+              "type_": "ndarray, shape (ndim,)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The off-diagonal elements of the array."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "e",
+              "type": "Param",
+              "type_": "ndarray, shape (ndim-1,)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Which eigenvalues to calculate"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "======  ======================================== select  calculated ======  ======================================== 'a'     All eigenvalues 'v'     Eigenvalues in the interval (min, max] 'i'     Eigenvalues with indices min <= i <= max ======  ========================================"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "select",
+              "type": "Param",
+              "type_": "{'a', 'v', 'i'}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Range of selected eigenvalues"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "select_range",
+              "type": "Param",
+              "type_": "(min, max), optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to check that the input matrix contains only finite numbers. Disabling may give a performance gain, but may result in problems (crashes, non-termination) if the inputs do contain infinities or NaNs."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "check_finite",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The absolute tolerance to which each eigenvalue is required (only used when "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "lapack_driver='stebz'"
+                    },
+                    {
+                      "type": "text",
+                      "value": "). An eigenvalue (or cluster) is considered to have converged if it lies in an interval of this width. If <= 0. (default), the value "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "eps*|a|"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is used where eps is the machine precision, and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "|a|"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the 1-norm of the matrix "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "tol",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "LAPACK function to use, can be 'auto', 'stemr', 'stebz',  'sterf', or 'stev'. When 'auto' (default), it will use 'stemr' if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "select='a'"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and 'stebz' otherwise. 'sterf' and 'stev' can only be used when "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "select='a'"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "lapack_driver",
+              "type": "Param",
+              "type_": "str"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If eigenvalue computation does not converge."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "LinAlgError"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The eigenvalues, in ascending order, each repeated according to its multiplicity."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "w",
+              "type": "Param",
+              "type_": "(M,) ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Solve eigenvalue problem for a real symmetric tridiagonal matrix."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.linalg import eigvalsh_tridiagonal, eigvalsh\nd = 3*np.ones(4)\ne = -1*np.ones(3)\nw = eigvalsh_tridiagonal(d, e)\nA = np.diag(d) + np.diag(e, k=1) + np.diag(e, k=-1)\nw2 = eigvalsh(A)  # Verify with other eigenvalue routines\nnp.allclose(w - w2, np.zeros(4))"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/linalg/_decomp.py",
+  "item_line": 1123,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "See Also",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "eigenvalues and right eiegenvectors for symmetric/Hermitian tridiagonal matrices"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.linalg._decomp:eigh_tridiagonal",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "eigh_tridiagonal"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(d, e, select='a', select_range=None, check_finite=True, tol=0.0, lapack_driver='auto')"
+  },
+  "type": "DocBlob"
+}

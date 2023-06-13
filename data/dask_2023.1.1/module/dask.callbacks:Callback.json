@@ -1,0 +1,216 @@
+{
+  "aliases": [
+    "dask.callbacks.Callback"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Create a callback with functions of the following signatures:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> def start(dsk):\n...     pass\n>>> def start_state(dsk, state):\n...     pass\n>>> def pretask(key, dsk, state):\n...     pass\n>>> def posttask(key, result, dsk, state, worker_id):\n...     pass\n>>> def finish(dsk, state, failed):\n...     pass"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You may then construct a callback object with any number of them"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> cb = Callback(pretask=pretask, finish=finish)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "And use it either as a context manager over a compute/get call"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> with cb:            # doctest: +SKIP\n...     x.compute()"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Or globally with the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "register"
+            },
+            {
+              "type": "text",
+              "value": " method"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> cb.register()\n>>> cb.unregister()"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Alternatively subclass the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Callback"
+            },
+            {
+              "type": "text",
+              "value": " class with your own methods."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> class PrintKeys(Callback):\n...     def _pretask(self, key, dask, state):\n...         print(\"Computing: {0}!\".format(repr(key)))"
+        },
+        {
+          "type": "code",
+          "value": ">>> with PrintKeys():   # doctest: +SKIP\n...     x.compute()"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Base class for using the callback mechanism"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dask/callbacks.py",
+  "item_line": 10,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

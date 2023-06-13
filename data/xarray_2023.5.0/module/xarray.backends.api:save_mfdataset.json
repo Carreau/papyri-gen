@@ -1,0 +1,408 @@
+{
+  "aliases": [
+    "xarray.save_mfdataset"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function is intended for use with datasets consisting of dask.array objects, in which case it can write the multiple datasets to disk simultaneously using a shared thread pool."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When not using dask, it is no different than calling "
+            },
+            {
+              "type": "inlineCode",
+              "value": "to_netcdf"
+            },
+            {
+              "type": "text",
+              "value": " repeatedly."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "List of datasets to save."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "datasets",
+              "type": "Param",
+              "type_": "list of Dataset"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "List of paths to which to save each corresponding dataset."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "paths",
+              "type": "Param",
+              "type_": "list of str or list of path-like objects"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Write (\"w\") or append (\"a\") mode. If mode=\"w\", any existing file at these locations will be overwritten."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mode",
+              "type": "Param",
+              "type_": "{\"w\", \"a\"}, optional"
+            },
+            {
+              "desc": [],
+              "param": "format",
+              "type": "Param",
+              "type_": "{\"NETCDF4\", \"NETCDF4_CLASSIC\", \"NETCDF3_64BIT\",               \"NETCDF3_CLASSIC\"}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "File format for the resulting netCDF file:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "NETCDF4: Data is stored in an HDF5 file, using netCDF4 API   features."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "NETCDF4_CLASSIC: Data is stored in an HDF5 file, using only   netCDF 3 compatible API features."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "NETCDF3_64BIT: 64-bit offset version of the netCDF 3 file format,   which fully supports 2+ GB files, but is only compatible with   clients linked against netCDF version 3.6.0 or later."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "NETCDF3_CLASSIC: The classic netCDF 3 file format. It does not   handle 2+ GB files very well."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "All formats are supported by the netCDF4-python library. scipy.io.netcdf only supports the last two formats."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The default format is NETCDF4 if you are saving a file to disk and have the netCDF4-python library available. Otherwise, xarray falls back to using scipy to write netCDF files and defaults to the NETCDF3_64BIT format (scipy does not support netCDF4)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "**kwargs",
+              "type": "Param",
+              "type_": "additional arguments are passed along to ``to_netcdf``"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Paths to the netCDF4 group in each corresponding file to which to save datasets (only works for format=\"NETCDF4\"). The groups will be created if necessary."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "groups",
+              "type": "Param",
+              "type_": "list of str, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Engine to use when writing netCDF files. If not provided, the default engine is chosen based on available dependencies, with a preference for \"netcdf4\" if writing to a file on disk. See "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "xarray",
+                        "path": "xarray.core.dataset:Dataset.to_netcdf",
+                        "type": "RefInfo",
+                        "version": "2023.5.0"
+                      },
+                      "type": "Link",
+                      "value": "Dataset.to_netcdf"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for additional information."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "engine",
+              "type": "Param",
+              "type_": "{\"netcdf4\", \"scipy\", \"h5netcdf\"}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If true compute immediately, otherwise return a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "dask.delayed.Delayed"
+                    },
+                    {
+                      "type": "text",
+                      "value": " object that can be computed later."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "compute",
+              "type": "Param",
+              "type_": "bool"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Write multiple datasets to disk as netCDF files simultaneously."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Save a dataset into one netCDF per year of data:"
+      },
+      {
+        "type": "code",
+        "value": "ds = xr.Dataset(\n    {\"a\": (\"time\", np.linspace(0, 1, 48))},\n    coords={\"time\": pd.date_range(\"2010-01-01\", freq=\"M\", periods=48)},\n)\nds"
+      },
+      {
+        "type": "code",
+        "value": "years, datasets = zip(*ds.groupby(\"time.year\"))\npaths = [f\"{y}.nc\" for y in years]\nxr.save_mfdataset(datasets, paths)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/xarray/backends/api.py",
+  "item_line": 1322,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(datasets, paths, mode='w', format=None, groups=None, engine=None, compute=True, **kwargs)"
+  },
+  "type": "DocBlob"
+}

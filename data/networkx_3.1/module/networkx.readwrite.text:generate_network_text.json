@@ -1,0 +1,476 @@
+{
+  "aliases": [
+    "networkx.generate_network_text"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This works via a depth-first traversal of the graph and writing a line for each unique node encountered. Non-tree edges are written to the right of each node, and connection to a non-tree edge is indicated with an ellipsis. This representation works best when the input graph is a forest, but any graph can be represented."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This notation is original to networkx, although it is simple enough that it may be known in existing literature. See #5602 for details. The procedure is summarized as follows:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Given a set of source nodes (which can be specified, or automatically"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": true,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "discovered via finding the (strongly) connected components and choosing one node with minimum degree from each), we traverse the graph in depth first order."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Each reachable node will be printed exactly once on it's own line."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Edges are indicated in one of three ways:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "a parent \"L-style\" connection on the upper left. This corresponds to"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        }
+                      ],
+                      "ordered": true,
+                      "spread": false,
+                      "start": 1,
+                      "type": "list"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "a traversal in the directed DFS tree."
+                        }
+                      ],
+                      "type": "paragraph"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "a backref \"<-style\" connection shown directly on the right. For"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        }
+                      ],
+                      "ordered": true,
+                      "spread": false,
+                      "start": 1,
+                      "type": "list"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "directed graphs, these are drawn for any incoming edges to a node that     is not a parent edge. For undirected graphs, these are drawn for only     the non-parent edges that have already been represented (The edges that     have not been represented will be handled in the recursive case)."
+                        }
+                      ],
+                      "type": "paragraph"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "a child \"L-style\" connection on the lower right. Drawing of the"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        }
+                      ],
+                      "ordered": true,
+                      "spread": false,
+                      "start": 1,
+                      "type": "list"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "children are handled recursively."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "type": "blockquote"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The children of each node (wrt the directed DFS tree) are drawn"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": true,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "underneath and to the right of it. In the case that a child node has already been drawn the connection is replaced with an ellipsis (\"...\") to indicate that there is one or more connections represented elsewhere."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If a maximum depth is specified, an edge to nodes past this maximum"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": true,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "depth will be represented by an ellipsis."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Graph to represent"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "graph",
+              "type": "Param",
+              "type_": "nx.DiGraph | nx.Graph"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True will use the \"label\" attribute of a node to display if it exists otherwise it will use the node value itself. If given as a string, then that attribute name will be used instead of \"label\". Defaults to True."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "with_labels",
+              "type": "Param",
+              "type_": "bool | str"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Specifies which nodes to start traversal from. Note: nodes that are not reachable from one of these sources may not be shown. If unspecified, the minimal set of nodes needed to reach all others will be used."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sources",
+              "type": "Param",
+              "type_": "List"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The maximum depth to traverse before stopping. Defaults to None."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "max_depth",
+              "type": "Param",
+              "type_": "int | None"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True only ASCII characters are used to construct the visualization"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ascii_only",
+              "type": "Param",
+              "type_": "Boolean"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Generate lines in the \"network text\" format"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "str",
+              "type": "Param",
+              "type_": "a line of generated text"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/readwrite/text.py",
+  "item_line": 59,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Yields"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(graph, with_labels=True, sources=None, max_depth=None, ascii_only=False)"
+  },
+  "type": "DocBlob"
+}

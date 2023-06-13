@@ -1,0 +1,333 @@
+{
+  "aliases": [
+    "skimage.filters.rank.windowed_histogram"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Deprecated in favor of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "footprint",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "footprint"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "deprecated 0.19"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "selem",
+              "type": "Param",
+              "type_": "DEPRECATED"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Input image."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "image",
+              "type": "Param",
+              "type_": "2-D array (integer or float)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The neighborhood expressed as a 2-D array of 1's and 0's."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "footprint",
+              "type": "Param",
+              "type_": "2-D array (integer or float)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If None, a new array is allocated."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "out",
+              "type": "Param",
+              "type_": "2-D array (integer or float), optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Mask array that defines (>0) area of the image included in the local neighborhood. If None, the complete image is used (default)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mask",
+              "type": "Param",
+              "type_": "ndarray (integer or float), optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Offset added to the footprint center point. Shift is bounded to the footprint sizes (center must be inside the given footprint)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "shift_x, shift_y",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The number of histogram bins. Will default to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "image.max() + 1"
+                    },
+                    {
+                      "type": "text",
+                      "value": " if None is passed."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "n_bins",
+              "type": "Param",
+              "type_": "int or None"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Array of dimensions (H,W,N), where (H,W) are the dimensions of the input image and N is n_bins or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "image.max() + 1"
+                    },
+                    {
+                      "type": "text",
+                      "value": " if no value is provided as a parameter. Effectively, each pixel is a N-D feature vector that is the histogram. The sum of the elements in the feature vector will be 1, unless no pixels in the window were covered by both footprint and mask, in which case all elements will be 0."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "out",
+              "type": "Param",
+              "type_": "3-D array (float)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Normalized sliding window histogram"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from skimage import data\nfrom skimage.filters.rank import windowed_histogram\nfrom skimage.morphology import disk, ball\nimport numpy as np\nimg = data.camera()\nrng = np.random.default_rng()\nvolume = rng.integers(0, 255, size=(10,10,10), dtype=np.uint8)\nhist_img = windowed_histogram(img, disk(5))"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/skimage/filters/rank/generic.py",
+  "item_line": 1324,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Other Parameters",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(image, footprint, out=None, mask=None, shift_x=False, shift_y=False, n_bins=None)"
+  },
+  "type": "DocBlob"
+}

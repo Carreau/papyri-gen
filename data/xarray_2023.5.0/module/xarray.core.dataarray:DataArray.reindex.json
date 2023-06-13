@@ -1,0 +1,423 @@
+{
+  "aliases": [
+    "xarray.DataArray.reindex"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Dictionary with keys given by dimension names and values given by arrays of coordinates tick labels. Any mis-matched coordinate values will be filled in with NaN, and any mis-matched dimension names will simply be ignored. One of indexers or indexers_kwargs must be provided."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "indexers",
+              "type": "Param",
+              "type_": "dict, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "copy=True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", data in the return value is always copied. If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "copy=False"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and reindexing is unnecessary, or can be performed with only slice operations, then the output may share memory with the input. In either case, a new xarray object is always returned."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "copy",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Method to use for filling index values in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "indexers"
+                    },
+                    {
+                      "type": "text",
+                      "value": " not found on this data array:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "None (default): don't fill gaps"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "pad / ffill: propagate last valid index value forward"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "backfill / bfill: propagate next valid index value backward"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "nearest: use nearest valid index value"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "param": "method",
+              "type": "Param",
+              "type_": "{None, 'nearest', 'pad'/'ffill', 'backfill'/'bfill'}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum distance between original and new labels for inexact matches. The values of the index at the matching locations must satisfy the equation "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "abs(index[indexer] - target) <= tolerance"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Tolerance may be a scalar value, which applies the same tolerance to all values, or list-like, which applies variable tolerance per element. List-like must be the same size as the index and its dtype must exactly match the index\u2019s type."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "tolerance",
+              "type": "Param",
+              "type_": "float | Iterable[float] | None, default: None"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Value to use for newly missing values. If a dict-like, maps variable names (including coordinates) to fill values. Use this data array's name to refer to the data array's values."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fill_value",
+              "type": "Param",
+              "type_": "scalar or dict-like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The keyword arguments form of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "indexers"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". One of indexers or indexers_kwargs must be provided."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "**indexers_kwargs",
+              "type": "Param",
+              "type_": "{dim: indexer, ...}, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Another dataset array, with this array's data but replaced coordinates."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "reindexed",
+              "type": "Param",
+              "type_": "DataArray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Conform this object onto the indexes of another object, filling in missing values with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "fill_value"
+            },
+            {
+              "type": "text",
+              "value": ". The default fill value is NaN."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Reverse latitude:"
+      },
+      {
+        "type": "code",
+        "value": "da = xr.DataArray(\n    np.arange(4),\n    coords=[np.array([90, 89, 88, 87])],\n    dims=\"lat\",\n)\nda"
+      },
+      {
+        "type": "code",
+        "value": "da.reindex(lat=da.lat[::-1])"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/xarray/core/dataarray.py",
+  "item_line": 1977,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Examples",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "xarray",
+          "path": "xarray.core.dataarray:DataArray.reindex_like",
+          "type": "RefInfo",
+          "version": "2023.5.0"
+        },
+        "type": "Link",
+        "value": "DataArray.reindex_like"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "xarray",
+          "path": "xarray.core.alignment:Aligner.align",
+          "type": "RefInfo",
+          "version": "2023.5.0"
+        },
+        "type": "Link",
+        "value": "align"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(self: 'T_DataArray', indexers: 'Mapping[Any, Any] | None' = None, method: 'ReindexMethodOptions' = None, tolerance: 'float | Iterable[float] | None' = None, copy: 'bool' = True, fill_value=<NA>, **indexers_kwargs: 'Any') -> 'T_DataArray'"
+  },
+  "type": "DocBlob"
+}

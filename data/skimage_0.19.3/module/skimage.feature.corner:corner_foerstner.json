@@ -1,0 +1,246 @@
+{
+  "aliases": [
+    "skimage.feature.corner_foerstner"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This corner detector uses information from the auto-correlation matrix A      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "A = [(imx**2)   (imx*imy)] = [Axx Axy]\n    [(imx*imy)   (imy**2)]   [Axy Ayy]"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Where imx and imy are first derivatives, averaged with a gaussian filter. The corner measure is then defined as      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "w = det(A) / trace(A)           (size of error ellipse)\nq = 4 * det(A) / trace(A)**2    (roundness of error ellipse)"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Input image."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "image",
+              "type": "Param",
+              "type_": "(M, N) ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Standard deviation used for the Gaussian kernel, which is used as weighting function for the auto-correlation matrix."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sigma",
+              "type": "Param",
+              "type_": "float, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Error ellipse sizes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "w",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Roundness of error ellipse."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "q",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute Foerstner corner measure response image."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from skimage.feature import corner_foerstner, corner_peaks\nsquare = np.zeros([10, 10])\nsquare[2:8, 2:8] = 1\nsquare.astype(int)"
+      },
+      {
+        "type": "code",
+        "value": "w, q = corner_foerstner(square)\naccuracy_thresh = 0.5\nroundness_thresh = 0.3\nfoerstner = (q > roundness_thresh) * (w > accuracy_thresh) * w\ncorner_peaks(foerstner, min_distance=1)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/skimage/feature/corner.py",
+  "item_line": 694,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(image, sigma=1)"
+  },
+  "type": "DocBlob"
+}

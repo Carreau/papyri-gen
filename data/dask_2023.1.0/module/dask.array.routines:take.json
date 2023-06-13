@@ -1,0 +1,629 @@
+{
+  "aliases": [
+    "dask.array.take"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This docstring was copied from numpy.take."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Some inconsistencies with the Dask version may exist."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When axis is not None, this function does the same thing as \"fancy\" indexing (indexing arrays using arrays); however, it can be easier to use if you need elements along a given axis. A call such as "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.take(arr, indices, axis=3)"
+            },
+            {
+              "type": "text",
+              "value": " is equivalent to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "arr[:,:,:,indices,...]"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Explained without fancy indexing, this is equivalent to the following use of "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "ndindex"
+            },
+            {
+              "type": "text",
+              "value": ", which sets each of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ii"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "jj"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "kk"
+            },
+            {
+              "type": "text",
+              "value": " to a tuple of indices      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "Ni, Nk = a.shape[:axis], a.shape[axis+1:]\nNj = indices.shape\nfor ii in ndindex(Ni):\n    for jj in ndindex(Nj):\n        for kk in ndindex(Nk):\n            out[ii + jj + kk] = a[ii + (indices[jj],) + kk]"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "By eliminating the inner loop in the description above, and using "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "s_"
+            },
+            {
+              "type": "text",
+              "value": " to build simple slice objects, "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "take"
+            },
+            {
+              "type": "text",
+              "value": " can be expressed  in terms of applying fancy indexing to each 1-d slice      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "Ni, Nk = a.shape[:axis], a.shape[axis+1:]\nfor ii in ndindex(Ni):\n    for kk in ndindex(Nj):\n        out[ii + s_[...,] + kk] = a[ii + s_[:,] + kk][indices]"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For this reason, it is equivalent to (but faster than) the following use of "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "apply_along_axis"
+            },
+            {
+              "type": "text",
+              "value": ":      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "out = np.apply_along_axis(lambda a_1d: a_1d[indices], axis, a)"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The source array."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "a",
+              "type": "Param",
+              "type_": "array_like (Ni..., M, Nk...)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The indices of the values to extract."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.8.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Also allow scalars for indices."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "indices",
+              "type": "Param",
+              "type_": "array_like (Nj...)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The axis over which to select values. By default, the flattened input array is used."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "axis",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If provided, the result will be placed in this array. It should be of the appropriate shape and dtype. Note that "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "out",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "out"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is always buffered if "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "mode='raise'"
+                    },
+                    {
+                      "type": "text",
+                      "value": "; use other modes for better performance."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "out",
+              "type": "Param",
+              "type_": "ndarray, optional (Ni..., Nj..., Nk...)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Specifies how out-of-bounds indices will behave."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'raise' -- raise an error (default)"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'wrap' -- wrap around"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'clip' -- clip to the range"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "'clip' mode means that all indices that are too large are replaced by the index that addresses the last element along that axis. Note that this disables indexing with negative numbers."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mode",
+              "type": "Param",
+              "type_": "{'raise', 'wrap', 'clip'}, optional  (Not supported in Dask)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The returned array has the same type as "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "out",
+              "type": "Param",
+              "type_": "ndarray (Ni..., Nj..., Nk...)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Take elements from an array along an axis."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "a = [4, 3, 5, 7, 6, 8]  # doctest: +SKIP\nindices = [0, 1, 4]  # doctest: +SKIP\nnp.take(a, indices)  # doctest: +SKIP"
+      },
+      {
+        "type": "text",
+        "value": "In this example if `a` is an ndarray, \"fancy\" indexing can be used."
+      },
+      {
+        "type": "code",
+        "value": "a = np.array(a)  # doctest: +SKIP\na[indices]  # doctest: +SKIP"
+      },
+      {
+        "type": "text",
+        "value": "If `indices` is not one dimensional, the output also has these dimensions."
+      },
+      {
+        "type": "code",
+        "value": "np.take(a, [[0, 1], [2, 3]])  # doctest: +SKIP"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dask/array/routines.py",
+  "item_line": 1988,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Take elements using a boolean mask"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "compress",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "compress"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "equivalent method"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "ndarray.take",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "ndarray.take"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Take elements by matching the array and the index arrays"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "take_along_axis",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "take_along_axis"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(a, indices, axis=0)"
+  },
+  "type": "DocBlob"
+}

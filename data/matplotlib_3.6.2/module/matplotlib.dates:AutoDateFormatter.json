@@ -1,0 +1,204 @@
+{
+  "aliases": [
+    "matplotlib.dates.AutoDateFormatter"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": ".AutoDateFormatter"
+            },
+            {
+              "type": "text",
+              "value": " has a "
+            },
+            {
+              "type": "inlineCode",
+              "value": ".scale"
+            },
+            {
+              "type": "text",
+              "value": " dictionary that maps tick scales (the interval in days between one major tick) to format strings; this dictionary defaults to       "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "self.scaled = {\n    DAYS_PER_YEAR: rcParams['date.autoformatter.year'],\n    DAYS_PER_MONTH: rcParams['date.autoformatter.month'],\n    1: rcParams['date.autoformatter.day'],\n    1 / HOURS_PER_DAY: rcParams['date.autoformatter.hour'],\n    1 / MINUTES_PER_DAY: rcParams['date.autoformatter.minute'],\n    1 / SEC_PER_DAY: rcParams['date.autoformatter.second'],\n    1 / MUSECONDS_PER_DAY: rcParams['date.autoformatter.microsecond'],\n}"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The formatter uses the format string corresponding to the lowest key in the dictionary that is greater or equal to the current scale.  Dictionary entries can be customized      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "locator = AutoDateLocator()\nformatter = AutoDateFormatter(locator)\nformatter.scaled[1/(24*60)] = '%M:%S' # only show min and sec"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Custom callables can also be used instead of format strings.  The following example shows how to use a custom format function to strip trailing zeros from decimal seconds and adds the date to the first ticklabel      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "def my_format_function(x, pos=None):\n    x = matplotlib.dates.num2date(x)\n    if pos == 0:\n        fmt = '%D %H:%M:%S.%f'\n    else:\n        fmt = '%H:%M:%S.%f'\n    label = x.strftime(fmt)\n    label = label.rstrip(\"0\")\n    label = label.rstrip(\".\")\n    return label\n\nformatter.scaled[1/(24*60)] = my_format_function"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": ".Formatter"
+            },
+            {
+              "type": "text",
+              "value": " which attempts to figure out the best format to use.  This is most useful when used with the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "AutoDateLocator"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/matplotlib/dates.py",
+  "item_line": 868,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

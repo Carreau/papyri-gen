@@ -1,0 +1,631 @@
+{
+  "aliases": [
+    "networkx.connectivity.local_edge_connectivity"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Local edge connectivity for two nodes s and t is the minimum number of edges that must be removed to disconnect them."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This is a flow based implementation of edge connectivity. We compute the maximum flow on an auxiliary digraph build from the original network (see below for details). This is equal to the local edge connectivity because the value of a maximum s-t-flow is equal to the capacity of a minimum s-t-cut (Ford and Fulkerson theorem)  ."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This is a flow based implementation of edge connectivity. We compute the maximum flow using, by default, the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "edmonds_karp"
+            },
+            {
+              "type": "text",
+              "value": " algorithm on an auxiliary digraph build from the original input graph:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If the input graph is undirected, we replace each edge ("
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "u"
+            },
+            {
+              "type": "text",
+              "value": ",`v`) with two reciprocal arcs ("
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "u"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "v"
+            },
+            {
+              "type": "text",
+              "value": ") and ("
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "v"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "u"
+            },
+            {
+              "type": "text",
+              "value": ") and then we set the attribute 'capacity' for each arc to 1. If the input graph is directed we simply add the 'capacity' attribute. This is an implementation of algorithm 1 in ."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The maximum flow in the auxiliary network is equal to the local edge connectivity because the value of a maximum s-t-flow is equal to the capacity of a minimum s-t-cut (Ford and Fulkerson theorem)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Undirected or directed graph"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "G",
+              "type": "Param",
+              "type_": "NetworkX graph"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Source node"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "s",
+              "type": "Param",
+              "type_": "node"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Target node"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "t",
+              "type": "Param",
+              "type_": "node"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A function for computing the maximum flow among a pair of nodes. The function has to accept at least three parameters: a Digraph, a source node, and a target node. And return a residual network that follows NetworkX conventions (see "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "maximum_flow"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for details). If flow_func is None, the default maximum flow function ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "edmonds_karp"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") is used. See below for details. The choice of the default function may change from version to version and should not be relied on. Default value: None."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "flow_func",
+              "type": "Param",
+              "type_": "function"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Auxiliary digraph for computing flow based edge connectivity. If provided it will be reused instead of recreated. Default value: None."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "auxiliary",
+              "type": "Param",
+              "type_": "NetworkX DiGraph"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Residual network to compute maximum flow. If provided it will be reused instead of recreated. Default value: None."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "residual",
+              "type": "Param",
+              "type_": "NetworkX DiGraph"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If specified, the maximum flow algorithm will terminate when the flow value reaches or exceeds the cutoff. This only works for flows that support the cutoff parameter (most do) and is ignored otherwise."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "cutoff",
+              "type": "Param",
+              "type_": "integer, float, or None (default: None)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "local edge connectivity for nodes s and t."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "K",
+              "type": "Param",
+              "type_": "integer"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Returns local edge connectivity for nodes s and t in G."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "This function is not imported in the base NetworkX namespace, so you\nhave to explicitly import it from the connectivity package:"
+      },
+      {
+        "type": "code",
+        "value": "from networkx.algorithms.connectivity import local_edge_connectivity"
+      },
+      {
+        "type": "text",
+        "value": "We use in this example the platonic icosahedral graph, which has edge\nconnectivity 5."
+      },
+      {
+        "type": "code",
+        "value": "G = nx.icosahedral_graph()\nlocal_edge_connectivity(G, 0, 6)"
+      },
+      {
+        "type": "text",
+        "value": "If you need to compute local connectivity on several pairs of\nnodes in the same graph, it is recommended that you reuse the\ndata structures that NetworkX uses in the computation: the\nauxiliary digraph for edge connectivity, and the residual\nnetwork for the underlying maximum flow computation."
+      },
+      {
+        "type": "text",
+        "value": "Example of how to compute local edge connectivity among\nall pairs of nodes of the platonic icosahedral graph reusing\nthe data structures."
+      },
+      {
+        "type": "code",
+        "value": "import itertools\n# You also have to explicitly import the function for\n# building the auxiliary digraph from the connectivity package\nfrom networkx.algorithms.connectivity import build_auxiliary_edge_connectivity\nH = build_auxiliary_edge_connectivity(G)\n# And the function for building the residual network from the\n# flow package\nfrom networkx.algorithms.flow import build_residual_network\n# Note that the auxiliary digraph has an edge attribute named capacity\nR = build_residual_network(H, \"capacity\")\nresult = dict.fromkeys(G, dict())\n# Reuse the auxiliary digraph and the residual network by passing them\n# as parameters\nfor u, v in itertools.combinations(G, 2):\n    k = local_edge_connectivity(G, u, v, auxiliary=H, residual=R)\n    result[u][v] = k\nall(result[u][v] == 5 for u, v in itertools.combinations(G, 2))"
+      },
+      {
+        "type": "text",
+        "value": "You can also use alternative flow algorithms for computing edge\nconnectivity. For instance, in dense networks the algorithm\n:meth:`shortest_augmenting_path` will usually perform better than\nthe default :meth:`edmonds_karp` which is faster for sparse\nnetworks with highly skewed degree distributions. Alternative flow\nfunctions have to be explicitly imported from the flow package."
+      },
+      {
+        "type": "code",
+        "value": "from networkx.algorithms.flow import shortest_augmenting_path\nlocal_edge_connectivity(G, 0, 6, flow_func=shortest_augmenting_path)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/algorithms/connectivity/connectivity.py",
+  "item_line": 487,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Examples",
+    "Notes",
+    "See Also",
+    "References"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "meth"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "edge_connectivity",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "edge_connectivity"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "meth"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "local_node_connectivity",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "local_node_connectivity"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "meth"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "node_connectivity",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "node_connectivity"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "meth"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "maximum_flow",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "maximum_flow"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "meth"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "edmonds_karp",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "edmonds_karp"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "meth"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "preflow_push",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "preflow_push"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "meth"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "shortest_augmenting_path",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "shortest_augmenting_path"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(G, s, t, flow_func=None, auxiliary=None, residual=None, cutoff=None)"
+  },
+  "type": "DocBlob"
+}

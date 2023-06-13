@@ -1,0 +1,554 @@
+{
+  "aliases": [
+    "skimage.restoration.unsupervised_wiener"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Return the deconvolution with a Wiener-Hunt approach, where the hyperparameters are automatically estimated. The algorithm is a stochastic iterative process (Gibbs sampler) described in the reference below. See also "
+            },
+            {
+              "type": "inlineCode",
+              "value": "wiener"
+            },
+            {
+              "type": "text",
+              "value": " function."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The estimated image is design as the posterior mean of a probability law (from a Bayesian analysis). The mean is defined as a sum over all the possible images weighted by their respective probability. Given the size of the problem, the exact sum is not tractable. This algorithm use of MCMC to draw image under the posterior law. The practical idea is to only draw highly probable images since they have the biggest contribution to the mean. At the opposite, the less probable images are drawn less often since their contribution is low. Finally the empirical mean of these samples give us an estimation of the mean, and an exact computation with an infinite sample set."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "The keys of ``user_params`` are:",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The stopping criterion: the norm of the difference between to successive approximated solution (empirical mean of object samples, see Notes section). 1e-4 by default."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "threshold",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The number of sample to ignore to start computation of the mean. 15 by default."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "burnin",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The minimum number of iterations. 30 by default."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "min_num_iter",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The maximum number of iterations if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "threshold"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is not satisfied. 200 by default."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "max_num_iter",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A user provided callable to which is passed, if the function exists, the current image sample for whatever purpose. The user can store the sample, or compute other moments than the mean. It has no influence on the algorithm execution and is only for inspection."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "callback",
+              "type": "Param",
+              "type_": "callable (None by default)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The input degraded image."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "image",
+              "type": "Param",
+              "type_": "(M, N) ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The impulse response (input image's space) or the transfer function (Fourier space). Both are accepted. The transfer function is automatically recognized as being complex ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.iscomplexobj(psf)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "psf",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The regularisation operator. The Laplacian by default. It can be an impulse response or a transfer function, as for the psf."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "reg",
+              "type": "Param",
+              "type_": "ndarray, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Dictionary of parameters for the Gibbs sampler. See below."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "user_params",
+              "type": "Param",
+              "type_": "dict, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "True by default. If true, pixel values of the result above 1 or under -1 are thresholded for skimage pipeline compatibility."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "clip",
+              "type": "Param",
+              "type_": "boolean, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "random_state",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "random_state"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is None the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "numpy",
+                        "path": "numpy.random._generator:Generator",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "numpy.random.Generator"
+                    },
+                    {
+                      "type": "text",
+                      "value": " singleton is used. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "random_state",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "random_state"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is an int, a new "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Generator"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instance is used, seeded with "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "random_state",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "random_state"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "random_state",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "random_state"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is already a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Generator"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instance then that instance is used."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 0.19"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "random_state",
+              "type": "Param",
+              "type_": "{None, int, `numpy.random.Generator`}, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The deconvolved image (the posterior mean)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x_postmean",
+              "type": "Param",
+              "type_": "(M, N) ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The keys "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "noise"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "prior"
+                    },
+                    {
+                      "type": "text",
+                      "value": " contain the chain list of noise and prior precision respectively."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "chains",
+              "type": "Param",
+              "type_": "dict"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Unsupervised Wiener-Hunt deconvolution."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from skimage import color, data, restoration\nimg = color.rgb2gray(data.astronaut())\nfrom scipy.signal import convolve2d\npsf = np.ones((5, 5)) / 25\nimg = convolve2d(img, psf, 'same')\nrng = np.random.default_rng()\nimg += 0.1 * img.std() * rng.standard_normal(img.shape)\ndeconvolved_img = restoration.unsupervised_wiener(img, psf)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/skimage/restoration/deconvolution.py",
+  "item_line": 143,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Other Parameters",
+    "Examples",
+    "Notes",
+    "References"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(image, psf, reg=None, user_params=None, is_real=True, clip=True, *, random_state=None)"
+  },
+  "type": "DocBlob"
+}

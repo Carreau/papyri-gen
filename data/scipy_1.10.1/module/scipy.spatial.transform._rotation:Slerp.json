@@ -1,0 +1,276 @@
+{
+  "aliases": [
+    "scipy.spatial.transform.Slerp"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The interpolation between consecutive rotations is performed as a rotation around a fixed axis with a constant angular velocity . This ensures that the interpolated rotations follow the shortest path between initial and final orientations."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "__call__",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 1.2.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Times of the known rotations. At least 2 times must be specified."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "times",
+              "type": "Param",
+              "type_": "array_like, shape (N,)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Rotations to perform the interpolation between. Must contain N rotations."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "rotations",
+              "type": "Param",
+              "type_": "`Rotation` instance"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Spherical Linear Interpolation of Rotations."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from scipy.spatial.transform import Rotation as R\nfrom scipy.spatial.transform import Slerp"
+      },
+      {
+        "type": "text",
+        "value": "Setup the fixed keyframe rotations and times:"
+      },
+      {
+        "type": "code",
+        "value": "key_rots = R.random(5, random_state=2342345)\nkey_times = [0, 1, 2, 3, 4]"
+      },
+      {
+        "type": "text",
+        "value": "Create the interpolator object:"
+      },
+      {
+        "type": "code",
+        "value": "slerp = Slerp(key_times, key_rots)"
+      },
+      {
+        "type": "text",
+        "value": "Interpolate the rotations at the given times:"
+      },
+      {
+        "type": "code",
+        "value": "times = [0, 0.5, 0.25, 1, 1.5, 2, 2.75, 3, 3.25, 3.60, 4]\ninterp_rots = slerp(times)"
+      },
+      {
+        "type": "text",
+        "value": "The keyframe rotations expressed as Euler angles:"
+      },
+      {
+        "type": "code",
+        "value": "key_rots.as_euler('xyz', degrees=True)"
+      },
+      {
+        "type": "text",
+        "value": "The interpolated rotations expressed as Euler angles. These agree with the\nkeyframe rotations at both endpoints of the range of keyframe times."
+      },
+      {
+        "type": "code",
+        "value": "interp_rots.as_euler('xyz', degrees=True)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/spatial/transform/_rotation.cpython-311-darwin.so",
+  "item_line": null,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Methods",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "Rotation",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "Rotation"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

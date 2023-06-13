@@ -1,0 +1,579 @@
+{
+  "aliases": [
+    "numpy.gradient"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The gradient is computed using second order accurate central differences in the interior points and either first or second order accurate one-sides (forward or backwards) differences at the boundaries. The returned gradient hence has the same shape as the input array."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Assuming that "
+            },
+            {
+              "type": "inlineMath",
+              "value": "f\\in C^{3}"
+            },
+            {
+              "type": "text",
+              "value": " (i.e., "
+            },
+            {
+              "type": "inlineMath",
+              "value": "f"
+            },
+            {
+              "type": "text",
+              "value": " has at least 3 continuous derivatives) and let "
+            },
+            {
+              "type": "inlineMath",
+              "value": "h_{*}"
+            },
+            {
+              "type": "text",
+              "value": " be a non-homogeneous stepsize, we minimize the \"consistency error\" "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\eta_{i}"
+            },
+            {
+              "type": "text",
+              "value": " between the true gradient and its estimate from a linear combination of the neighboring grid-points:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "\\eta_{i} = f_{i}^{\\left(1\\right)} -\n            \\left[ \\alpha f\\left(x_{i}\\right) +\n                    \\beta f\\left(x_{i} + h_{d}\\right) +\n                    \\gamma f\\left(x_{i}-h_{s}\\right)\n            \\right]"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "By substituting "
+            },
+            {
+              "type": "inlineMath",
+              "value": "f(x_{i} + h_{d})"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "f(x_{i} - h_{s})"
+            },
+            {
+              "type": "text",
+              "value": " with their Taylor series expansion, this translates into solving the following the linear system:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "\\left\\{\n    \\begin{array}{r}\n        \\alpha+\\beta+\\gamma=0 \\\\\n        \\beta h_{d}-\\gamma h_{s}=1 \\\\\n        \\beta h_{d}^{2}+\\gamma h_{s}^{2}=0\n    \\end{array}\n\\right."
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The resulting approximation of "
+            },
+            {
+              "type": "inlineMath",
+              "value": "f_{i}^{(1)}"
+            },
+            {
+              "type": "text",
+              "value": " is the following:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "\\hat f_{i}^{(1)} =\n    \\frac{\n        h_{s}^{2}f\\left(x_{i} + h_{d}\\right)\n        + \\left(h_{d}^{2} - h_{s}^{2}\\right)f\\left(x_{i}\\right)\n        - h_{d}^{2}f\\left(x_{i}-h_{s}\\right)}\n        { h_{s}h_{d}\\left(h_{d} + h_{s}\\right)}\n    + \\mathcal{O}\\left(\\frac{h_{d}h_{s}^{2}\n                        + h_{s}h_{d}^{2}}{h_{d}\n                        + h_{s}}\\right)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "It is worth noting that if "
+            },
+            {
+              "type": "inlineMath",
+              "value": "h_{s}=h_{d}"
+            },
+            {
+              "type": "text",
+              "value": " (i.e., data are evenly spaced) we find the standard second order approximation:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "\\hat f_{i}^{(1)}=\n    \\frac{f\\left(x_{i+1}\\right) - f\\left(x_{i-1}\\right)}{2h}\n    + \\mathcal{O}\\left(h^{2}\\right)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "With a similar procedure the forward/backward approximations used for boundaries can be derived."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An N-dimensional array containing samples of a scalar function."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "f",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Spacing between f values. Default unitary spacing for all dimensions. Spacing can be specified using:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "single scalar to specify a sample distance for all dimensions."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "N scalars to specify a constant sample distance for each dimension.    i.e. "
+                            },
+                            {
+                              "domain": null,
+                              "role": null,
+                              "type": "Directive",
+                              "value": "dx"
+                            },
+                            {
+                              "type": "text",
+                              "value": ", "
+                            },
+                            {
+                              "domain": null,
+                              "role": null,
+                              "type": "Directive",
+                              "value": "dy"
+                            },
+                            {
+                              "type": "text",
+                              "value": ", "
+                            },
+                            {
+                              "domain": null,
+                              "role": null,
+                              "type": "Directive",
+                              "value": "dz"
+                            },
+                            {
+                              "type": "text",
+                              "value": ", ..."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "N arrays to specify the coordinates of the values along each    dimension of F. The length of the array must match the size of    the corresponding dimension"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Any combination of N scalars/arrays with the meaning of 2. and 3."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": true,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "axis",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "axis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is given, the number of varargs must equal the number of axes. Default: 1."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "varargs",
+              "type": "Param",
+              "type_": "list of scalar or array, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Gradient is calculated using N-th order accurate differences at the boundaries. Default: 1."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.9.1"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "edge_order",
+              "type": "Param",
+              "type_": "{1, 2}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Gradient is calculated only along the given axis or axes The default (axis = None) is to calculate the gradient for all the axes of the input array. axis may be negative, in which case it counts from the last to the first axis."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.11.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "axis",
+              "type": "Param",
+              "type_": "None or int or tuple of ints, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A list of ndarrays (or a single ndarray if there is only one dimension) corresponding to the derivatives of f with respect to each dimension. Each derivative has the same shape as f."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "gradient",
+              "type": "Param",
+              "type_": "ndarray or list of ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Return the gradient of an N-dimensional array."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "f = np.array([1, 2, 4, 7, 11, 16], dtype=float)\nnp.gradient(f)"
+      },
+      {
+        "type": "code",
+        "value": "np.gradient(f, 2)"
+      },
+      {
+        "type": "text",
+        "value": "Spacing can be also specified with an array that represents the coordinates\nof the values F along the dimensions.\nFor instance a uniform spacing:"
+      },
+      {
+        "type": "code",
+        "value": "x = np.arange(f.size)\nnp.gradient(f, x)"
+      },
+      {
+        "type": "text",
+        "value": "Or a non uniform one:"
+      },
+      {
+        "type": "code",
+        "value": "x = np.array([0., 1., 1.5, 3.5, 4., 6.], dtype=float)\nnp.gradient(f, x)"
+      },
+      {
+        "type": "text",
+        "value": "For two dimensional arrays, the return will be two arrays ordered by\naxis. In this example the first array stands for the gradient in\nrows and the second one in columns direction:"
+      },
+      {
+        "type": "code",
+        "value": "np.gradient(np.array([[1, 2, 6], [3, 4, 5]], dtype=float))"
+      },
+      {
+        "type": "text",
+        "value": "In this example the spacing is also specified:\nuniform for axis=0 and non uniform for axis=1"
+      },
+      {
+        "type": "code",
+        "value": "dx = 2.\ny = [1., 1.5, 3.5]\nnp.gradient(np.array([[1, 2, 6], [3, 4, 5]], dtype=float), dx, y)"
+      },
+      {
+        "type": "text",
+        "value": "It is possible to specify how boundaries are treated using `edge_order`"
+      },
+      {
+        "type": "code",
+        "value": "x = np.array([0, 1, 2, 3, 4])\nf = x**2\nnp.gradient(f, edge_order=1)"
+      },
+      {
+        "type": "code",
+        "value": "np.gradient(f, edge_order=2)"
+      },
+      {
+        "type": "text",
+        "value": "The `axis` keyword can be used to specify a subset of axes of which the\ngradient is calculated"
+      },
+      {
+        "type": "code",
+        "value": "np.gradient(np.array([[1, 2, 6], [3, 4, 5]], dtype=float), axis=0)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/numpy/lib/function_base.py",
+  "item_line": 970,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Examples",
+    "Notes",
+    "References"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(f, *varargs, axis=None, edge_order=1)"
+  },
+  "type": "DocBlob"
+}

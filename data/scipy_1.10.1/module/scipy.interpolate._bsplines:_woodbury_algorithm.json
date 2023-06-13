@@ -1,0 +1,289 @@
+{
+  "aliases": [
+    "scipy.interpolate._bsplines._woodbury_algorithm"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This algorithm works only for systems with banded matrix A plus a correction term U @ V.T, where the matrix U @ V.T gives upper right and lower left block of A The system is solved with the following steps:     1.  New systems of linear equations are constructed:         A @ z_i = u_i,         u_i - columnn vector of U,         i = 1, ..., k - 1     2.  Matrix Z is formed from vectors z_i:         Z = [ z_1 | z_2 | ... | z_{k - 1} ]     3.  Matrix H = (1 + V.T @ Z)^{-1}     4.  The system A' @ y = b is solved     5.  x = y - Z @ (H @ V.T @ y) Also, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "n"
+            },
+            {
+              "type": "text",
+              "value": " should be greater than "
+            },
+            {
+              "type": "inlineCode",
+              "value": "k"
+            },
+            {
+              "type": "text",
+              "value": ", otherwise corner block elements will intersect with diagonals."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Matrix of diagonals of original matrix(see "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "solve_banded"
+                    },
+                    {
+                      "type": "text",
+                      "value": " documentation)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "A",
+              "type": "Param",
+              "type_": "2-D array, shape(k, n)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Upper right block matrix."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ur",
+              "type": "Param",
+              "type_": "2-D array, shape(bs, bs)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Lower left block matrix."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ll",
+              "type": "Param",
+              "type_": "2-D array, shape(bs, bs)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Vector of constant terms of the system of linear equations."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "b",
+              "type": "Param",
+              "type_": "1-D array, shape(n,)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "B-spline degree."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "k",
+              "type": "Param",
+              "type_": "int"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Solution of the original system of linear equations."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "c",
+              "type": "Param",
+              "type_": "1-D array, shape(n,)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Solve a cyclic banded linear system with upper right and lower blocks of size "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(k-1) / 2"
+            },
+            {
+              "type": "text",
+              "value": " using the Woodbury formula"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Consider the case of n = 8, k = 5 (size of blocks - 2 x 2).\nThe matrix of a system:       U:          V:\n  x  x  x  *  *  a  b         a b 0 0     0 0 1 0\n  x  x  x  x  *  *  c         0 c 0 0     0 0 0 1\n  x  x  x  x  x  *  *         0 0 0 0     0 0 0 0\n  *  x  x  x  x  x  *         0 0 0 0     0 0 0 0\n  *  *  x  x  x  x  x         0 0 0 0     0 0 0 0\n  d  *  *  x  x  x  x         0 0 d 0     1 0 0 0\n  e  f  *  *  x  x  x         0 0 e f     0 1 0 0"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/interpolate/_bsplines.py",
+  "item_line": 879,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "Examples",
+    "References"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(A, ur, ll, b, k)"
+  },
+  "type": "DocBlob"
+}

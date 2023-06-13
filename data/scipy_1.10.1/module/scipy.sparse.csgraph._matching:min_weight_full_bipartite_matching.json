@@ -1,0 +1,478 @@
+{
+  "aliases": [
+    "scipy.sparse.csgraph.min_weight_full_bipartite_matching"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 1.6.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Let "
+            },
+            {
+              "type": "inlineMath",
+              "value": "G = ((U, V), E)"
+            },
+            {
+              "type": "text",
+              "value": " be a weighted bipartite graph with non-zero weights "
+            },
+            {
+              "type": "inlineMath",
+              "value": "w : E \\to \\mathbb{R} \\setminus \\{0\\}"
+            },
+            {
+              "type": "text",
+              "value": ". This function then produces a matching "
+            },
+            {
+              "type": "inlineMath",
+              "value": "M \\subseteq E"
+            },
+            {
+              "type": "text",
+              "value": " with cardinality"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "\\lvert M \\rvert = \\min(\\lvert U \\rvert, \\lvert V \\rvert),"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "which minimizes the sum of the weights of the edges included in the matching, "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\sum_{e \\in M} w(e)"
+            },
+            {
+              "type": "text",
+              "value": ", or raises an error if no such matching exists."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\lvert U \\rvert = \\lvert V \\rvert"
+            },
+            {
+              "type": "text",
+              "value": ", this is commonly referred to as a perfect matching; here, since we allow "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\lvert U \\rvert"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\lvert V \\rvert"
+            },
+            {
+              "type": "text",
+              "value": " to differ, we follow Karp  and refer to the matching as "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "full"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function implements the LAPJVsp algorithm , short for \"Linear assignment problem, Jonker--Volgenant, sparse\"."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The problem it solves is equivalent to the rectangular linear assignment problem.  As such, this function can be used to solve the same problems as "
+            },
+            {
+              "type": "inlineCode",
+              "value": "scipy.optimize.linear_sum_assignment"
+            },
+            {
+              "type": "text",
+              "value": ". That function may perform better when the input is dense, or for certain particular types of inputs, such as those for which the "
+            },
+            {
+              "type": "inlineMath",
+              "value": "(i, j)"
+            },
+            {
+              "type": "text",
+              "value": "'th entry is the distance between two points in Euclidean space."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If no full matching exists, this function raises a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ValueError"
+            },
+            {
+              "type": "text",
+              "value": ". For determining the size of the largest matching in the graph, see "
+            },
+            {
+              "type": "inlineCode",
+              "value": "maximum_bipartite_matching"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "We require that weights are non-zero only to avoid issues with the handling of explicit zeros when converting between different sparse representations. Zero weights can be handled by adding a constant to all weights, so that the resulting matrix contains no zeros."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Biadjacency matrix of the bipartite graph: A sparse matrix in CSR, CSC, or COO format whose rows represent one partition of the graph and whose columns represent the other partition. An edge between two vertices is indicated by the corresponding entry in the matrix, and the weight of the edge is given by the value of that entry. This should not be confused with the full adjacency matrix of the graph, as we only need the submatrix defining the bipartite structure."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "biadjacency_matrix",
+              "type": "Param",
+              "type_": "sparse matrix"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Calculates a maximum weight matching if true."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "maximize",
+              "type": "Param",
+              "type_": "bool (default: False)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An array of row indices and one of corresponding column indices giving the optimal matching. The total weight of the matching can be computed as "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "graph[row_ind, col_ind].sum()"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". The row indices will be sorted; in the case of a square matrix they will be equal to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "numpy.arange(graph.shape[0])"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "row_ind, col_ind",
+              "type": "Param",
+              "type_": "array"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Returns the minimum weight full matching of a bipartite graph."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from scipy.sparse import csr_matrix\nfrom scipy.sparse.csgraph import min_weight_full_bipartite_matching"
+      },
+      {
+        "type": "text",
+        "value": "Let us first consider an example in which all weights are equal:"
+      },
+      {
+        "type": "code",
+        "value": "biadjacency_matrix = csr_matrix([[1, 1, 1], [1, 0, 0], [0, 1, 0]])"
+      },
+      {
+        "type": "text",
+        "value": "Here, all we get is a perfect matching of the graph:"
+      },
+      {
+        "type": "code",
+        "value": "print(min_weight_full_bipartite_matching(biadjacency_matrix)[1])"
+      },
+      {
+        "type": "text",
+        "value": "That is, the first, second, and third rows are matched with the third,\nfirst, and second column respectively. Note that in this example, the 0\nin the input matrix does *not* correspond to an edge with weight 0, but\nrather a pair of vertices not paired by an edge."
+      },
+      {
+        "type": "text",
+        "value": "Note also that in this case, the output matches the result of applying\n:func:`maximum_bipartite_matching`:"
+      },
+      {
+        "type": "code",
+        "value": "from scipy.sparse.csgraph import maximum_bipartite_matching\nbiadjacency = csr_matrix([[1, 1, 1], [1, 0, 0], [0, 1, 0]])\nprint(maximum_bipartite_matching(biadjacency, perm_type='column'))"
+      },
+      {
+        "type": "text",
+        "value": "When multiple edges are available, the ones with lowest weights are\npreferred:"
+      },
+      {
+        "type": "code",
+        "value": "biadjacency = csr_matrix([[3, 3, 6], [4, 3, 5], [10, 1, 8]])\nrow_ind, col_ind = min_weight_full_bipartite_matching(biadjacency)\nprint(col_ind)"
+      },
+      {
+        "type": "text",
+        "value": "The total weight in this case is :math:`3 + 5 + 1 = 9`:"
+      },
+      {
+        "type": "code",
+        "value": "print(biadjacency[row_ind, col_ind].sum())"
+      },
+      {
+        "type": "text",
+        "value": "When the matrix is not square, i.e. when the two partitions have different\ncardinalities, the matching is as large as the smaller of the two\npartitions:"
+      },
+      {
+        "type": "code",
+        "value": "biadjacency = csr_matrix([[0, 1, 1], [0, 2, 3]])\nrow_ind, col_ind = min_weight_full_bipartite_matching(biadjacency)\nprint(row_ind, col_ind)"
+      },
+      {
+        "type": "code",
+        "value": "biadjacency = csr_matrix([[0, 1], [3, 1], [1, 4]])\nrow_ind, col_ind = min_weight_full_bipartite_matching(biadjacency)\nprint(row_ind, col_ind)"
+      },
+      {
+        "type": "text",
+        "value": "When one or both of the partitions are empty, the matching is empty as\nwell:"
+      },
+      {
+        "type": "code",
+        "value": "biadjacency = csr_matrix((2, 0))\nrow_ind, col_ind = min_weight_full_bipartite_matching(biadjacency)\nprint(row_ind, col_ind)"
+      },
+      {
+        "type": "text",
+        "value": "In general, we will always reach the same sum of weights as if we had used\n:func:`scipy.optimize.linear_sum_assignment` but note that for that one,\nmissing edges are represented by a matrix entry of ``float('inf')``. Let us\ngenerate a random sparse matrix with integer entries between 1 and 10:"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.sparse import random\nfrom scipy.optimize import linear_sum_assignment\nsparse = random(10, 10, random_state=42, density=.5, format='coo') * 10\nsparse.data = np.ceil(sparse.data)\ndense = sparse.toarray()\ndense = np.full(sparse.shape, np.inf)\ndense[sparse.row, sparse.col] = sparse.data\nsparse = sparse.tocsr()\nrow_ind, col_ind = linear_sum_assignment(dense)\nprint(dense[row_ind, col_ind].sum())"
+      },
+      {
+        "type": "code",
+        "value": "row_ind, col_ind = min_weight_full_bipartite_matching(sparse)\nprint(sparse[row_ind, col_ind].sum())"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": "<class 'builtin_function_or_method'>",
+  "ordered_sections": [
+    "Signature",
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "min_weight_full_bipartite_matching(biadjacency_matrix, maximize=False)"
+  },
+  "type": "DocBlob"
+}

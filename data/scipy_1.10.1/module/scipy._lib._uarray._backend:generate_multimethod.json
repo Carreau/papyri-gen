@@ -1,0 +1,284 @@
+{
+  "aliases": [
+    "scipy.fft._basic.generate_multimethod"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A callable which extracts the dispatchable arguments. Extracted arguments should be marked by the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Dispatchable"
+                    },
+                    {
+                      "type": "text",
+                      "value": " class. It has the same signature as the desired multimethod."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "argument_extractor",
+              "type": "Param",
+              "type_": "ArgumentExtractorType"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A callable with the signature (args, kwargs, dispatchables), which should also return an (args, kwargs) pair with the dispatchables replaced inside the args/kwargs."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "argument_replacer",
+              "type": "Param",
+              "type_": "ArgumentReplacerType"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A string value indicating the domain of this multimethod."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "domain",
+              "type": "Param",
+              "type_": "str"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The default implementation of this multimethod, where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (the default) specifies there is no default implementation."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "default: Optional[Callable], optional",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Generates a multimethod."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "In this example, ``a`` is to be dispatched over, so we return it, while marking it as an ``int``.\nThe trailing comma is needed because the args have to be returned as an iterable."
+      },
+      {
+        "type": "code",
+        "value": "def override_me(a, b):\n  return Dispatchable(a, int),"
+      },
+      {
+        "type": "text",
+        "value": "Next, we define the argument replacer that replaces the dispatchables inside args/kwargs with the\nsupplied ones."
+      },
+      {
+        "type": "code",
+        "value": "def override_replacer(args, kwargs, dispatchables):\n    return (dispatchables[0], args[1]), {}"
+      },
+      {
+        "type": "text",
+        "value": "Next, we define the multimethod."
+      },
+      {
+        "type": "code",
+        "value": "overridden_me = generate_multimethod(\n    override_me, override_replacer, \"ua_examples\"\n)"
+      },
+      {
+        "type": "text",
+        "value": "Notice that there's no default implementation, unless you supply one."
+      },
+      {
+        "type": "code",
+        "value": "overridden_me(1, \"a\")"
+      },
+      {
+        "type": "code",
+        "value": "overridden_me2 = generate_multimethod(\n    override_me, override_replacer, \"ua_examples\", default=lambda x, y: (x, y)\n)\noverridden_me2(1, \"a\")"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/_lib/_uarray/_backend.py",
+  "item_line": 174,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Examples",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "See the module documentation for how to override the method by creating backends."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy._lib.uarray",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "uarray"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(argument_extractor: Callable[..., Tuple[ForwardRef('Dispatchable'), ...]], argument_replacer: Callable[[Tuple, Dict, Tuple], Tuple[Tuple, Dict]], domain: str, default: Optional[Callable] = None)"
+  },
+  "type": "DocBlob"
+}

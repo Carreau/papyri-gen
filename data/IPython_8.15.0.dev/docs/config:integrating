@@ -1,0 +1,523 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [],
+      "level": 0,
+      "target": "integrating",
+      "title": "Integrating your objects with IPython",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To change the attributes displayed by tab-completing your object, define a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "__dir__(self)"
+            },
+            {
+              "type": "text",
+              "value": " method for it. For more details, see the documentation of the built-in "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "dir() function"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "http://docs.python.org/library/functions.html#dir"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You can also customise key completions for your objects, e.g. pressing tab after "
+            },
+            {
+              "type": "inlineCode",
+              "value": "obj[\"a"
+            },
+            {
+              "type": "text",
+              "value": ". To do so, define a method "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_ipython_key_completions_()"
+            },
+            {
+              "type": "text",
+              "value": ", which returns a list of objects which are possible keys in a subscript expression "
+            },
+            {
+              "type": "inlineCode",
+              "value": "obj[key]"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 5.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Custom key completions"
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Tab completion",
+      "type": "Section"
+    },
+    {
+      "children": [],
+      "level": 1,
+      "target": "integrating_rich_display",
+      "title": "Rich display",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "IPython can display richer representations of objects. To do this, you can define "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_ipython_display_()"
+            },
+            {
+              "type": "text",
+              "value": ", or any of a number of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_repr_*_()"
+            },
+            {
+              "type": "text",
+              "value": " methods. Note that these are surrounded by single, not double underscores."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "Supported ``_repr_*_`` methods",
+          "children": [],
+          "name": "list-table",
+          "options": {
+            "header-rows": "1",
+            "widths": "20 15 15 15"
+          },
+          "type": "mystDirective",
+          "value": "* - Format\n  - REPL\n  - Notebook\n  - Qt Console\n* - ``_repr_pretty_``\n  - yes\n  - yes\n  - yes\n* - ``_repr_svg_``\n  - no\n  - yes\n  - yes\n* - ``_repr_png_``\n  - no\n  - yes\n  - yes\n* - ``_repr_jpeg_``\n  - no\n  - yes\n  - yes\n* - ``_repr_html_``\n  - no\n  - yes\n  - no\n* - ``_repr_javascript_``\n  - no\n  - yes\n  - no\n* - ``_repr_markdown_``\n  - no\n  - yes\n  - no\n* - ``_repr_latex_``\n  - no\n  - yes\n  - no\n* - ``_repr_mimebundle_``\n  - no\n  - ?\n  - ?"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If the methods don't exist, the standard "
+            },
+            {
+              "type": "inlineCode",
+              "value": "repr()"
+            },
+            {
+              "type": "text",
+              "value": " is used. If a method exists and returns "
+            },
+            {
+              "type": "inlineCode",
+              "value": "None"
+            },
+            {
+              "type": "text",
+              "value": ", it is treated the same as if it does not exist. In general, "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "all"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " available formatters will be called when an object is displayed, and it is up to the UI to select which to display. A given formatter should not generally change its output based on what other formats are available - that should be handled at a different level, such as the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "~.DisplayFormatter"
+            },
+            {
+              "type": "text",
+              "value": ", or configuration."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "inlineCode",
+              "value": "_repr_*_"
+            },
+            {
+              "type": "text",
+              "value": " methods should "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "return"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " data of the expected format and have no side effects. For example, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_repr_html_"
+            },
+            {
+              "type": "text",
+              "value": " should return HTML as a "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "str"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_repr_png_"
+            },
+            {
+              "type": "text",
+              "value": " should return PNG data as "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "bytes"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If you wish to take control of display via your own side effects, use "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_ipython_display_()"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For example      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "class Shout(object):\n    def __init__(self, text):\n        self.text = text\n\n    def _repr_html_(self):\n        return \"<h1>\" + self.text + \"</h1>\""
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Custom methods",
+      "type": "Section"
+    },
+    {
+      "children": [],
+      "level": 3,
+      "target": null,
+      "title": "Special methods",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To customize how your object is pretty-printed, add a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_repr_pretty_"
+            },
+            {
+              "type": "text",
+              "value": " method to the class. The method should accept a pretty printer, and a boolean that indicates whether the printer detected a cycle. The method should act on the printer to produce your customized pretty output. Here is an example      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "class MyObject(object):\n\n    def _repr_pretty_(self, p, cycle):\n        if cycle:\n            p.text('MyObject(...)')\n        else:\n            p.text('MyObject[...]')"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For details on how to use the pretty printer, see "
+            },
+            {
+              "type": "inlineCode",
+              "value": "IPython.lib.pretty"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 4,
+      "target": null,
+      "title": "Pretty printing",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "args": "MyObject",
+          "children": [],
+          "name": "class",
+          "options": {},
+          "type": "mystDirective",
+          "value": ".. method:: _repr_mimebundle_(include=None, exclude=None)\n\n  Should return a dictionary of multiple formats, keyed by mimetype, or a tuple\n  of two dictionaries: *data, metadata* (see :ref:`Metadata`).\n  If this returns something, other ``_repr_*_`` methods are ignored.\n  The method should take keyword arguments ``include`` and ``exclude``, though\n  it is not required to respect them.\n\n.. method:: _ipython_display_()\n\n   Displays the object as a side effect; the return value is ignored. If this\n   is defined, all other display methods are ignored."
+        }
+      ],
+      "level": 4,
+      "target": null,
+      "title": "More powerful methods",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "We often want to provide frontends with guidance on how to display the data. To support this, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_repr_*_()"
+            },
+            {
+              "type": "text",
+              "value": " methods (except "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_repr_pretty_"
+            },
+            {
+              "type": "text",
+              "value": "?) can also return a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(data, metadata)"
+            },
+            {
+              "type": "text",
+              "value": " tuple where "
+            },
+            {
+              "type": "inlineCode",
+              "value": "metadata"
+            },
+            {
+              "type": "text",
+              "value": " is a dictionary containing arbitrary key-value pairs for the frontend to interpret. An example use case is "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_repr_jpeg_()"
+            },
+            {
+              "type": "text",
+              "value": ", which can be set to return a jpeg image and a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "{'height': 400, 'width': 600}"
+            },
+            {
+              "type": "text",
+              "value": " dictionary to inform the frontend how to size the image."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 3,
+      "target": null,
+      "title": "Metadata",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The user can also register formatters for types without modifying the class      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "from bar.baz import Foo\n\ndef foo_html(obj):\n    return '<marquee>Foo object %s</marquee>' % obj.name\n\nhtml_formatter = get_ipython().display_formatter.formatters['text/html']\nhtml_formatter.for_type(Foo, foo_html)\n\n# Or register a type without importing it - this does the same as above:\nhtml_formatter.for_type_by_name('bar.baz', 'Foo', foo_html)"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Formatters for third-party types",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Rarely, you might want to display a custom traceback when reporting an exception. To do this, define the custom traceback using "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "_render_traceback_(self)"
+            },
+            {
+              "type": "text",
+              "value": " method which returns a list of strings, one string for each line of the traceback. For example, the "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "ipyparallel"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://ipyparallel.readthedocs.io/"
+            },
+            {
+              "type": "text",
+              "value": " a parallel computing framework for IPython, does this to display errors from multiple engines."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Please be conservative in using this feature; by replacing the default traceback you may hide important information from the user."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Custom exception tracebacks",
+      "type": "Section"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

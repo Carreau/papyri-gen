@@ -1,0 +1,797 @@
+{
+  "aliases": [
+    "scipy.signal.resample"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The resampled signal starts at the same value as "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "x",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "x"
+            },
+            {
+              "type": "text",
+              "value": " but is sampled with a spacing of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "len(x) / num * (spacing of x)"
+            },
+            {
+              "type": "text",
+              "value": ".  Because a Fourier method is used, the signal is assumed to be periodic."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The argument "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "window",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "window"
+            },
+            {
+              "type": "text",
+              "value": " controls a Fourier-domain window that tapers the Fourier spectrum before zero-padding to alleviate ringing in the resampled values for sampled signals you didn't intend to be interpreted as band-limited."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "window",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "window"
+            },
+            {
+              "type": "text",
+              "value": " is a function, then it is called with a vector of inputs indicating the frequency bins (i.e. fftfreq(x.shape[axis]) )."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "window",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "window"
+            },
+            {
+              "type": "text",
+              "value": " is an array of the same length as "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "x.shape[axis]"
+            },
+            {
+              "type": "text",
+              "value": " it is assumed to be the window to be applied directly in the Fourier domain (with dc and low-frequency first)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For any other type of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "window",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "window"
+            },
+            {
+              "type": "text",
+              "value": ", the function "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "scipy.signal.windows._windows",
+                "path": "scipy.signal.windows._windows:get_window",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "scipy.signal.get_window"
+            },
+            {
+              "type": "text",
+              "value": " is called to generate the window."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The first sample of the returned vector is the same as the first sample of the input vector.  The spacing between samples is changed from "
+            },
+            {
+              "type": "inlineCode",
+              "value": "dx"
+            },
+            {
+              "type": "text",
+              "value": " to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "dx * len(x) / num"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "t",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "t"
+            },
+            {
+              "type": "text",
+              "value": " is not None, then it is used solely to calculate the resampled positions "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "resampled_t"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "As noted, "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.stats._kde:gaussian_kde.resample",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "resample"
+            },
+            {
+              "type": "text",
+              "value": " uses FFT transformations, which can be very slow if the number of input or output samples is large and prime; see "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "scipy.fft._basic",
+                "path": "scipy.fft._basic:fft",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "scipy.fft.fft"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The data to be resampled."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The number of samples in the resampled signal."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "num",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "t",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "t"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is given, it is assumed to be the equally spaced sample positions associated with the signal data in "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "t",
+              "type": "Param",
+              "type_": "array_like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The axis of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " that is resampled.  Default is 0."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "axis",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Specifies the window applied to the signal in the Fourier domain.  See below for details."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "window",
+              "type": "Param",
+              "type_": "array_like, callable, string, float, or tuple, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A string indicating the domain of the input "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "time"
+                    },
+                    {
+                      "type": "text",
+                      "value": " Consider the input "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " as time-domain (Default), "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "freq"
+                    },
+                    {
+                      "type": "text",
+                      "value": " Consider the input "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " as frequency-domain."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "domain",
+              "type": "Param",
+              "type_": "string, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Either the resampled array, or, if "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "t",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "t"
+                    },
+                    {
+                      "type": "text",
+                      "value": " was given, a tuple containing the resampled array and the corresponding resampled positions."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "resampled_x or (resampled_x, resampled_t)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Resample "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "x",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "x"
+            },
+            {
+              "type": "text",
+              "value": " to "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "num",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "num"
+            },
+            {
+              "type": "text",
+              "value": " samples using Fourier method along the given axis."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Note that the end of the resampled data rises to meet the first\nsample of the next cycle:"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy import signal"
+      },
+      {
+        "type": "code",
+        "value": "x = np.linspace(0, 10, 20, endpoint=False)\ny = np.cos(-x**2/6.0)\nf = signal.resample(y, 100)\nxnew = np.linspace(0, 10, 100, endpoint=False)"
+      },
+      {
+        "type": "code",
+        "value": "import matplotlib.pyplot as plt\nplt.plot(x, y, 'go-', xnew, f, '.-', 10, y[0], 'ro')\nplt.legend(['data', 'resampled'], loc='best')\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.signal._signaltools:resample-0-3c656976.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/signal/_signaltools.py",
+  "item_line": 3008,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Downsample the signal after applying an FIR or IIR filter."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._signaltools:decimate",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "decimate"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Resample using polyphase filtering and an FIR filter."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._signaltools:resample_poly",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "resample_poly"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(x, num, t=None, axis=0, window=None, domain='time')"
+  },
+  "type": "DocBlob"
+}

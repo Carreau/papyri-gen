@@ -1,0 +1,292 @@
+{
+  "aliases": [
+    "numpy.datetime_as_string"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The array of UTC timestamps to format."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "arr",
+              "type": "Param",
+              "type_": "array_like of datetime64"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "One of None, 'auto', or a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "datetime unit <arrays.dtypes.dateunits>"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "unit",
+              "type": "Param",
+              "type_": "str"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Timezone information to use when displaying the datetime. If 'UTC', end with a Z to indicate UTC time. If 'local', convert to the local timezone first, and suffix with a +-#### timezone offset. If a tzinfo object, then do as with 'local', but use the specified timezone."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "timezone",
+              "type": "Param",
+              "type_": "{'naive', 'UTC', 'local'} or tzinfo"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Casting to allow when changing between datetime units."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "casting",
+              "type": "Param",
+              "type_": "{'no', 'equiv', 'safe', 'same_kind', 'unsafe'}"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An array of strings the same shape as "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "arr",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "arr"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "str_arr",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Convert an array of datetimes into an array of strings."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import pytz\nd = np.arange('2002-10-27T04:30', 4*60, 60, dtype='M8[m]')\nd"
+      },
+      {
+        "type": "text",
+        "value": "Setting the timezone to UTC shows the same information, but with a Z suffix"
+      },
+      {
+        "type": "code",
+        "value": "np.datetime_as_string(d, timezone='UTC')"
+      },
+      {
+        "type": "text",
+        "value": "Note that we picked datetimes that cross a DST boundary. Passing in a\n``pytz`` timezone object will print the appropriate offset"
+      },
+      {
+        "type": "code",
+        "value": "np.datetime_as_string(d, timezone=pytz.timezone('US/Eastern'))"
+      },
+      {
+        "type": "text",
+        "value": "Passing in a unit will change the precision"
+      },
+      {
+        "type": "code",
+        "value": "np.datetime_as_string(d, unit='h')"
+      },
+      {
+        "type": "code",
+        "value": "np.datetime_as_string(d, unit='s')"
+      },
+      {
+        "type": "text",
+        "value": "'casting' can be used to specify whether precision can be changed"
+      },
+      {
+        "type": "code",
+        "value": "np.datetime_as_string(d, unit='h', casting='safe')"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Signature",
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "datetime_as_string(arr, unit=None, timezone='naive', casting='same_kind')"
+  },
+  "type": "DocBlob"
+}

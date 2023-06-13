@@ -1,0 +1,344 @@
+{
+  "aliases": [
+    "scipy.linalg.funm"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Returns the value of matrix-valued function "
+            },
+            {
+              "type": "inlineCode",
+              "value": "f"
+            },
+            {
+              "type": "text",
+              "value": " at "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "A",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": ". The function "
+            },
+            {
+              "type": "inlineCode",
+              "value": "f"
+            },
+            {
+              "type": "text",
+              "value": " is an extension of the scalar-valued function "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "func",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "func"
+            },
+            {
+              "type": "text",
+              "value": " to matrices."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function implements the general algorithm based on Schur decomposition (Algorithm 9.1.1. in )."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If the input matrix is known to be diagonalizable, then relying on the eigendecomposition is likely to be faster. For example, if your matrix is Hermitian, you can do"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> from scipy.linalg import eigh\n>>> def funm_herm(a, func, check_finite=False):\n...     w, v = eigh(a, check_finite=check_finite)\n...     ## if you further know that your matrix is positive semidefinite,\n...     ## you can optionally guard against precision errors by doing\n...     # w = np.maximum(w, 0)\n...     w = func(w)\n...     return (v * w).dot(v.conj().T)"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Matrix at which to evaluate the function"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "A",
+              "type": "Param",
+              "type_": "(N, N) array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Callable object that evaluates a scalar function f. Must be vectorized (eg. using vectorize)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "func",
+              "type": "Param",
+              "type_": "callable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Print warning if error in the result is estimated large instead of returning estimated error. (Default: True)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "disp",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Value of the matrix function specified by func evaluated at "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "A",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "A"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "funm",
+              "type": "Param",
+              "type_": "(N, N) ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "(if disp == False)"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "1-norm of the estimated error, ||err||_1 / ||A||_1"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "errest",
+              "type": "Param",
+              "type_": "float"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Evaluate a matrix function specified by a callable."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.linalg import funm\na = np.array([[1.0, 3.0], [1.0, 4.0]])\nfunm(a, lambda x: x*x)"
+      },
+      {
+        "type": "code",
+        "value": "a.dot(a)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/linalg/_matfuncs.py",
+  "item_line": 635,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(A, func, disp=True)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,521 @@
+{
+  "aliases": [
+    "scipy.optimize._linprog_ip._get_delta"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "As defined in [4], except:",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "True if the system to be solved is sparse. This is typically set True when the original "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "A_ub"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "A_eq"
+                    },
+                    {
+                      "type": "text",
+                      "value": " arrays are sparse."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sparse",
+              "type": "Param",
+              "type_": "bool"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "True if the system is ill-conditioned and/or (nearly) singular and thus a more robust least-squares solver is desired. This is sometimes needed as the solution is approached."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "lstsq",
+              "type": "Param",
+              "type_": "bool"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "True if the system matrix is symmetric positive definite Sometimes this needs to be set false as the solution is approached, even when the system should be symmetric positive definite, due to numerical difficulties."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sym_pos",
+              "type": "Param",
+              "type_": "bool"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "True if the system is to be solved by Cholesky, rather than LU, decomposition. This is typically faster unless the problem is very small or prone to numerical difficulties."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "cholesky",
+              "type": "Param",
+              "type_": "bool"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "True if the predictor-corrector method of Mehrota is to be used. This is almost always (if not always) beneficial. Even though it requires the solution of an additional linear system, the factorization is typically (implicitly) reused so solution is efficient, and the number of algorithm iterations is typically reduced."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "pc",
+              "type": "Param",
+              "type_": "bool"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "True if the improved initial point suggestion due to [4] section 4.3 is desired. It's unclear whether this is beneficial."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ip",
+              "type": "Param",
+              "type_": "bool"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "(Has effect only with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "sparse = True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "lstsq = False"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "sym_pos =\nTrue"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".) A matrix is factorized in each iteration of the algorithm. This option specifies how to permute the columns of the matrix for sparsity preservation. Acceptable values are:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "inlineCode",
+                              "value": "NATURAL"
+                            },
+                            {
+                              "type": "text",
+                              "value": ": natural ordering."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "inlineCode",
+                              "value": "MMD_ATA"
+                            },
+                            {
+                              "type": "text",
+                              "value": ": minimum degree ordering on the structure of A^T A."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "inlineCode",
+                              "value": "MMD_AT_PLUS_A"
+                            },
+                            {
+                              "type": "text",
+                              "value": ": minimum degree ordering on the structure of A^T+A."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "inlineCode",
+                              "value": "COLAMD"
+                            },
+                            {
+                              "type": "text",
+                              "value": ": approximate minimum degree column ordering."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This option can impact the convergence of the interior point algorithm; test different values to determine which performs best for your problem. For more information, refer to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "scipy.sparse.linalg.splu"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "permc_spec",
+              "type": "Param",
+              "type_": "str (default = 'MMD_AT_PLUS_A')"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "Search directions as defined in [4]"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Given standard form problem defined by "
+            },
+            {
+              "type": "inlineCode",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "b"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "c"
+            },
+            {
+              "type": "text",
+              "value": "; current variable estimates "
+            },
+            {
+              "type": "inlineCode",
+              "value": "x"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "y"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "z"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "tau"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "kappa"
+            },
+            {
+              "type": "text",
+              "value": "; algorithmic parameters "
+            },
+            {
+              "type": "inlineCode",
+              "value": "gamma and ``eta;\nand options ``sparse"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "lstsq"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "sym_pos"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "cholesky"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "pc"
+            },
+            {
+              "type": "text",
+              "value": " (predictor-corrector), and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ip"
+            },
+            {
+              "type": "text",
+              "value": " (initial point improvement), get the search direction for increments to the variable estimates."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/optimize/_linprog_ip.py",
+  "item_line": 132,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "References"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(A, b, c, x, y, z, tau, kappa, gamma, eta, sparse=False, lstsq=False, sym_pos=True, cholesky=True, pc=True, ip=False, permc_spec='MMD_AT_PLUS_A')"
+  },
+  "type": "DocBlob"
+}

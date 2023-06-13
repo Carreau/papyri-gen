@@ -1,0 +1,422 @@
+{
+  "aliases": [
+    "scipy.stats._axis_nan_policy._axis_nan_policy_factory"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Callable that returns an object of the type returned by the function being wrapped (e.g. the namedtuple or dataclass returned by a statistical test) provided the separate components (e.g. statistic, pvalue)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "tuple_to_result",
+              "type": "Param",
+              "type_": "callable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The default value of the axis argument. Standard is 0 except when backwards compatibility demands otherwise (e.g. "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "default_axis",
+              "type": "Param",
+              "type_": "int, default: 0"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The number of data samples accepted by the function (e.g. "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "mannwhitneyu"
+                    },
+                    {
+                      "type": "text",
+                      "value": "), a callable that accepts a dictionary of parameters passed into the function and returns the number of data samples (e.g. "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "wilcoxon"
+                    },
+                    {
+                      "type": "text",
+                      "value": "), or "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to indicate an arbitrary number of samples (e.g. "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "kruskal"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "n_samples",
+              "type": "Param",
+              "type_": "int or callable, default: 1"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether the function being wrapped treats the samples as paired (i.e. corresponding elements of each sample should be considered as different components of the same sample.)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "paired",
+              "type": "Param",
+              "type_": "{False, True}"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Function that unpacks the results of the function being wrapped into a tuple. This is essentially the inverse of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "tuple_to_result",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "tuple_to_result"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Default is "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", which is appropriate for statistical tests that return a statistic, pvalue tuple (rather than, e.g., a non-iterable datalass)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "result_to_tuple",
+              "type": "Param",
+              "type_": "callable, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The largest unnacceptably small sample for the function being wrapped. For example, some functions require samples of size two or more or they raise an error. This argument prevents the error from being raised when input is not 1D and instead places a NaN in the corresponding element of the result."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "too_small",
+              "type": "Param",
+              "type_": "int, default: 0"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The number of outputs produced by the function given 1d sample(s). For example, hypothesis tests that return a namedtuple or result object with attributes "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "statistic"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "pvalue"
+                    },
+                    {
+                      "type": "text",
+                      "value": " use the default "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "n_outputs=2"
+                    },
+                    {
+                      "type": "text",
+                      "value": "; summary statistics with scalar output use "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "n_outputs=1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Alternatively, may be a callable that accepts a dictionary of arguments passed into the wrapped function and returns the number of outputs corresponding with those arguments."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "n_outputs",
+              "type": "Param",
+              "type_": "int or callable, default: 2"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The names of keyword parameters that should be treated as samples. For example, "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "scipy",
+                        "path": "scipy.stats._stats_py:gmean",
+                        "type": "RefInfo",
+                        "version": "1.10.1"
+                      },
+                      "type": "Link",
+                      "value": "gmean"
+                    },
+                    {
+                      "type": "text",
+                      "value": " accepts as its first argument a sample "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": " but also "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "weights"
+                    },
+                    {
+                      "type": "text",
+                      "value": " as a fourth, optional keyword argument. In this case, we use "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "n_samples=1"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and kwd_samples=['weights']."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "kwd_samples",
+              "type": "Param",
+              "type_": "sequence, default: []"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Factory for a wrapper that adds axis/nan_policy params to a function."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_axis_nan_policy.py",
+  "item_line": 309,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(tuple_to_result, default_axis=0, n_samples=1, paired=False, result_to_tuple=None, too_small=0, n_outputs=2, kwd_samples=[])"
+  },
+  "type": "DocBlob"
+}

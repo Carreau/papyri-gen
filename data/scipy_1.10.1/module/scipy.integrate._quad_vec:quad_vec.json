@@ -1,0 +1,698 @@
+{
+  "aliases": [
+    "scipy.integrate.quad_vec"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The algorithm mainly follows the implementation of QUADPACK's DQAG* algorithms, implementing global error control and adaptive subdivision."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The algorithm here has some differences to the QUADPACK approach:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Instead of subdividing one interval at a time, the algorithm subdivides N intervals with largest errors at once. This enables (partial) parallelization of the integration."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The logic of subdividing \"next largest\" intervals first is then not implemented, and we rely on the above extension to avoid concentrating on \"small\" intervals only."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The Wynn epsilon table extrapolation is not used (QUADPACK uses it for infinite intervals). This is because the algorithm here is supposed to work on vector-valued functions, in an user-specified norm, and the extension of the epsilon algorithm to this case does not appear to be widely agreed. For max-norm, using elementwise Wynn epsilon could be possible, but we do not do this here with the hope that the epsilon extrapolation is mainly useful in special cases."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Vector-valued function f(x) to integrate."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "f",
+              "type": "Param",
+              "type_": "callable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Initial point."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "a",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Final point."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "b",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Absolute tolerance."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "epsabs",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Relative tolerance."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "epsrel",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Vector norm to use for error estimation."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "norm",
+              "type": "Param",
+              "type_": "{'max', '2'}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of bytes to use for memoization."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "cache_size",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An upper bound on the number of subintervals used in the adaptive algorithm."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "limit",
+              "type": "Param",
+              "type_": "float or int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "workers",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "workers"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is an integer, part of the computation is done in parallel subdivided to this many tasks (using "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "python:multiprocessing.pool.Pool"
+                    },
+                    {
+                      "type": "text",
+                      "value": "). Supply "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "-1"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to use all cores available to the Process. Alternatively, supply a map-like callable, such as "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "python:multiprocessing.pool.Pool.map"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for evaluating the population in parallel. This evaluation is carried out as "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "workers(func, iterable)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "workers",
+              "type": "Param",
+              "type_": "int or map-like callable, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "List of additional breakpoints."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "points",
+              "type": "Param",
+              "type_": "list, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Quadrature rule to use on subintervals. Options: 'gk21' (Gauss-Kronrod 21-point rule), 'gk15' (Gauss-Kronrod 15-point rule), 'trapezoid' (composite trapezoid rule). Default: 'gk21' for finite intervals and 'gk15' for (semi-)infinite"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "quadrature",
+              "type": "Param",
+              "type_": "{'gk21', 'gk15', 'trapezoid'}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Return an additional "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "info"
+                    },
+                    {
+                      "type": "text",
+                      "value": " dictionary."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "full_output",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Extra arguments to pass to function, if any."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.8.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "args",
+              "type": "Param",
+              "type_": "tuple, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Estimate for the result"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "res",
+              "type": "Param",
+              "type_": "{float, array-like}"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Error estimate for the result in the given norm"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "err",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Returned only when "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "full_output=True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Info dictionary. Is an object with the attributes:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "dd": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "success"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "success"
+                              }
+                            ],
+                            "type": "paragraph"
+                          },
+                          "type": "DefListItem"
+                        },
+                        {
+                          "dd": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "status"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "status"
+                              }
+                            ],
+                            "type": "paragraph"
+                          },
+                          "type": "DefListItem"
+                        },
+                        {
+                          "dd": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "neval"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "neval"
+                              }
+                            ],
+                            "type": "paragraph"
+                          },
+                          "type": "DefListItem"
+                        },
+                        {
+                          "dd": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "intervals"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "intervals"
+                              }
+                            ],
+                            "type": "paragraph"
+                          },
+                          "type": "DefListItem"
+                        },
+                        {
+                          "dd": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "integrals"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "integrals"
+                              }
+                            ],
+                            "type": "paragraph"
+                          },
+                          "type": "DefListItem"
+                        },
+                        {
+                          "dd": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "errors"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "errors"
+                              }
+                            ],
+                            "type": "paragraph"
+                          },
+                          "type": "DefListItem"
+                        }
+                      ],
+                      "type": "DefList"
+                    }
+                  ],
+                  "type": "blockquote"
+                }
+              ],
+              "param": "info",
+              "type": "Param",
+              "type_": "dict"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Adaptive integration of a vector-valued function."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "We can compute integrations of a vector-valued function:"
+      },
+      {
+        "type": "code",
+        "value": "from scipy.integrate import quad_vec\nimport numpy as np\nimport matplotlib.pyplot as plt\nalpha = np.linspace(0.0, 2.0, num=30)\nf = lambda x: x**alpha\nx0, x1 = 0, 2\ny, err = quad_vec(f, x0, x1)\nplt.plot(alpha, y)\nplt.xlabel(r\"$\\alpha$\")\nplt.ylabel(r\"$\\int_{0}^{2} x^\\alpha dx$\")\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.integrate._quad_vec:quad_vec-0-d1e8b6ec.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/integrate/_quad_vec.py",
+  "item_line": 104,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(f, a, b, epsabs=1e-200, epsrel=1e-08, norm='2', cache_size=100000000.0, limit=10000, workers=1, points=None, quadrature=None, full_output=False, *, args=())"
+  },
+  "type": "DocBlob"
+}

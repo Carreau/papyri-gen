@@ -1,0 +1,489 @@
+{
+  "aliases": [
+    "scipy.signal.invres"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "M"
+            },
+            {
+              "type": "text",
+              "value": " is the degree of numerator "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "b",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "b"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "N"
+            },
+            {
+              "type": "text",
+              "value": " the degree of denominator "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "a",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": ":            "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "        b(s)     b[0] s**(M) + b[1] s**(M-1) + ... + b[M]\nH(s) = ------ = ------------------------------------------\n        a(s)     a[0] s**(N) + a[1] s**(N-1) + ... + a[N]"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "then the partial-fraction expansion H(s) is defined as             "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "    r[0]       r[1]             r[-1]\n= -------- + -------- + ... + --------- + k(s)\n  (s-p[0])   (s-p[1])         (s-p[-1])"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If there are any repeated roots (closer together than "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "tol",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "tol"
+            },
+            {
+              "type": "text",
+              "value": "), then H(s) has terms like        "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "  r[i]      r[i+1]              r[i+n-1]\n-------- + ----------- + ... + -----------\n(s-p[i])  (s-p[i])**2          (s-p[i])**n"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function is used for polynomials in positive powers of s or z, such as analog filters or digital filters in controls engineering.  For negative powers of z (typical for digital filters in DSP), use "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.signal._signaltools:invresz",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "invresz"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Residues corresponding to the poles. For repeated poles, the residues must be ordered to correspond to ascending by power fractions."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "r",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Poles. Equal poles must be adjacent."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "p",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Coefficients of the direct polynomial term."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "k",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The tolerance for two roots to be considered equal in terms of the distance between them. Default is 1e-3. See "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "scipy",
+                        "path": "scipy.signal._signaltools:unique_roots",
+                        "type": "RefInfo",
+                        "version": "1.10.1"
+                      },
+                      "type": "Link",
+                      "value": "unique_roots"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for further details."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "tol",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Method for computing a root to represent a group of identical roots. Default is 'avg'. See "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "scipy",
+                        "path": "scipy.signal._signaltools:unique_roots",
+                        "type": "RefInfo",
+                        "version": "1.10.1"
+                      },
+                      "type": "Link",
+                      "value": "unique_roots"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for further details."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "rtype",
+              "type": "Param",
+              "type_": "{'avg', 'min', 'max'}, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Numerator polynomial coefficients."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "b",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Denominator polynomial coefficients."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "a",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute b(s) and a(s) from partial fraction expansion."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/signal/_signaltools.py",
+  "item_line": 2556,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "residue",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "residue"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._signaltools:invresz",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "invresz"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._signaltools:unique_roots",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "unique_roots"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(r, p, k, tol=0.001, rtype='avg')"
+  },
+  "type": "DocBlob"
+}

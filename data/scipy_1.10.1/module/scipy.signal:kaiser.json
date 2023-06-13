@@ -1,0 +1,387 @@
+{
+  "aliases": [
+    "scipy.signal.kaiser"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The Kaiser window is a taper formed by using a Bessel function."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "warning scipy.signal.kaiser is deprecated,"
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "use scipy.signal.windows.kaiser instead."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The Kaiser window is defined as"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "w(n) = I_0\\left( \\beta \\sqrt{1-\\frac{4n^2}{(M-1)^2}}\\right)/I_0(\\beta)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "with"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "\\quad -\\frac{M-1}{2} \\leq n \\leq \\frac{M-1}{2},"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where "
+            },
+            {
+              "type": "inlineMath",
+              "value": "I_0"
+            },
+            {
+              "type": "text",
+              "value": " is the modified zeroth-order Bessel function."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The Kaiser was named for Jim Kaiser, who discovered a simple approximation to the DPSS window based on Bessel functions. The Kaiser window is a very good approximation to the Digital Prolate Spheroidal Sequence, or Slepian window, which is the transform which maximizes the energy in the main lobe of the window relative to total energy."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The Kaiser can approximate other windows by varying the beta parameter. (Some literature uses alpha = beta/pi.)"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "====  ======================= beta  Window shape ====  ======================= 0     Rectangular 5     Similar to a Hamming 6     Similar to a Hann 8.6   Similar to a Blackman ====  ======================="
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A beta value of 14 is probably a good starting point. Note that as beta gets large, the window narrows, and so the number of samples needs to be large enough to sample the increasingly narrow spike, otherwise NaNs will be returned."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Most references to the Kaiser window come from the signal processing literature, where it is used as one of many windowing functions for smoothing values.  It is also known as an apodization (which means \"removing the foot\", i.e. smoothing discontinuities at the beginning and end of the sampled signal) or tapering function."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of points in the output window. If zero, an empty array is returned. An exception is thrown when it is negative."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "M",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Shape parameter, determines trade-off between main-lobe width and side lobe level. As beta gets large, the window narrows."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "beta",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "When True (default), generates a symmetric window, for use in filter design. When False, generates a periodic window, for use in spectral analysis."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sym",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The window, with the maximum value normalized to 1 (though the value 1 does not appear if "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "M",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "M"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is even and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "sym",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "sym"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is True)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "w",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Return a Kaiser window."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Plot the window and its frequency response:"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy import signal\nfrom scipy.fft import fft, fftshift\nimport matplotlib.pyplot as plt"
+      },
+      {
+        "type": "code",
+        "value": "window = signal.windows.kaiser(51, beta=14)\nplt.plot(window)\nplt.title(r\"Kaiser window ($\\beta$=14)\")\nplt.ylabel(\"Amplitude\")\nplt.xlabel(\"Sample\")"
+      },
+      {
+        "type": "code",
+        "value": "plt.figure()\nA = fft(window, 2048) / (len(window)/2.0)\nfreq = np.linspace(-0.5, 0.5, len(A))\nresponse = 20 * np.log10(np.abs(fftshift(A / abs(A).max())))\nplt.plot(freq, response)\nplt.axis([-0.5, 0.5, -120, 0])\nplt.title(r\"Frequency response of the Kaiser window ($\\beta$=14)\")\nplt.ylabel(\"Normalized magnitude [dB]\")\nplt.xlabel(\"Normalized frequency [cycles per sample]\")"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/signal/__init__.py",
+  "item_line": 353,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(*args, **kwargs)"
+  },
+  "type": "DocBlob"
+}

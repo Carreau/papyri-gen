@@ -1,0 +1,718 @@
+{
+  "aliases": [
+    "distributed.LocalCluster"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This creates a \"cluster\" of a scheduler and workers running on the local machine."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of workers to start"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "n_workers: int",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Sets the memory limit "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "per worker"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Notes regarding argument data type:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "If None or 0, no limit is applied."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "If \"auto\", the total system memory is split evenly between the workers."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "If a float, that fraction of the system memory is used "
+                            },
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "per worker"
+                                }
+                              ],
+                              "type": "emphasis"
+                            },
+                            {
+                              "type": "text",
+                              "value": "."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "If a string giving a number of bytes (like "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "\"1GiB\""
+                            },
+                            {
+                              "type": "text",
+                              "value": "), that amount is used "
+                            },
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "per worker"
+                                }
+                              ],
+                              "type": "emphasis"
+                            },
+                            {
+                              "type": "text",
+                              "value": "."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "If an int, that number of bytes is used "
+                            },
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "per worker"
+                                }
+                              ],
+                              "type": "emphasis"
+                            },
+                            {
+                              "type": "text",
+                              "value": "."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Note that the limit will only be enforced when "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "processes=True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", and the limit is only enforced on a best-effort basis \u2014 it's still possible for workers to exceed this limit."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "memory_limit: str, float, int, or None, default \"auto\"",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to use processes (True) or threads (False).  Defaults to True, unless worker_class=Worker, in which case it defaults to False."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "processes: bool",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of threads per each worker"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "threads_per_worker: int",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Port of the scheduler.  8786 by default, use 0 to choose a random port"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "scheduler_port: int",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Level of logs to print out to stdout.  "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "logging.WARN"
+                    },
+                    {
+                      "type": "text",
+                      "value": " by default. Use a falsey value like False or None for no change."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "silence_logs: logging level",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Host address on which the scheduler will listen, defaults to only localhost"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "host: string",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Deprecated.  See "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "host"
+                    },
+                    {
+                      "type": "text",
+                      "value": " above."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ip: string",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Address on which to listen for the Bokeh diagnostics server like 'localhost:8787' or '0.0.0.0:8787'.  Defaults to ':8787'. Set to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to disable the dashboard. Use ':0' for a random port."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dashboard_address: str",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Address on which to listen for the Bokeh worker diagnostics server like 'localhost:8787' or '0.0.0.0:8787'.  Defaults to None which disables the dashboard. Use ':0' for a random port."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "worker_dashboard_address: str",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Deprecated.  See dashboard_address."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "diagnostics_port: int",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Set to True if using this cluster within async/await functions or within Tornado gen.coroutines.  This should remain False for normal use."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "asynchronous: bool (False by default)",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A list of strings specifying a blocklist of handlers to disallow on the Scheduler, like "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "['feed', 'run_function']"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "blocked_handlers: List[str]",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Extra keywords to hand to the running services"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "service_kwargs: Dict[str, Dict]",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Configures communication security in this cluster. Can be a security object, or True. If True, temporary self-signed credentials will be created automatically."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "security",
+              "type": "Param",
+              "type_": "Security or bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Protocol to use like "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "tcp://"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "tls://"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "inproc://"
+                    },
+                    {
+                      "type": "text",
+                      "value": " This defaults to sensible choice given other keyword arguments like "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "processes"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "security"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "protocol: str (optional)",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Network interface to use.  Defaults to lo/localhost"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "interface: str (optional)",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Worker class used to instantiate workers from. Defaults to Worker if processes=False and Nanny if processes=True or omitted."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "worker_class: Worker",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Extra worker arguments. Any additional keyword arguments will be passed to the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Worker"
+                    },
+                    {
+                      "type": "text",
+                      "value": " class constructor."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "**worker_kwargs:",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Create local Scheduler and Workers"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "cluster = LocalCluster()  # Create a local cluster  # doctest: +SKIP\ncluster  # doctest: +SKIP"
+      },
+      {
+        "type": "code",
+        "value": "c = Client(cluster)  # connect to local cluster  # doctest: +SKIP"
+      },
+      {
+        "type": "text",
+        "value": "Scale the cluster to three workers"
+      },
+      {
+        "type": "code",
+        "value": "cluster.scale(3)  # doctest: +SKIP"
+      },
+      {
+        "type": "text",
+        "value": "Pass extra keyword arguments to Bokeh"
+      },
+      {
+        "type": "code",
+        "value": "LocalCluster(service_kwargs={'dashboard': {'prefix': '/foo'}})  # doctest: +SKIP"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/distributed/deploy/local.py",
+  "item_line": 23,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

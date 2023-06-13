@@ -1,0 +1,348 @@
+{
+  "aliases": [
+    "scipy.interpolate._fitpack_impl.insert"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Given the knots and coefficients of a B-spline representation, create a new B-spline with a knot inserted "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "m",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "m"
+            },
+            {
+              "type": "text",
+              "value": " times at point "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "x"
+            },
+            {
+              "type": "text",
+              "value": ". This is a wrapper around the FORTRAN routine insert of FITPACK."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Based on algorithms from  and ."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A 1-D point at which to insert a new knot(s).  If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "tck",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "tck"
+                    },
+                    {
+                      "type": "text",
+                      "value": " was returned from "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "splprep"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", then the parameter values, u should be given."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x (u)",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A tuple (t,c,k) returned by "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "splrep"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "splprep"
+                    },
+                    {
+                      "type": "text",
+                      "value": " containing the vector of knots, the B-spline coefficients, and the degree of the spline."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "tck",
+              "type": "Param",
+              "type_": "tuple"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The number of times to insert the given knot (its multiplicity). Default is 1."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "m",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If non-zero, the input spline is considered periodic."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "per",
+              "type": "Param",
+              "type_": "int, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A tuple (t,c,k) containing the vector of knots, the B-spline coefficients, and the degree of the new spline. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "t(k+1) <= x <= t(n-k)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", where k is the degree of the spline. In case of a periodic spline ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "per != 0"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") there must be either at least k interior knots t(j) satisfying "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "t(k+1)<t(j)<=x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or at least k interior knots t(j) satisfying "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x<=t(j)<t(n-k)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "tck",
+              "type": "Param",
+              "type_": "tuple"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Insert knots into a B-spline."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/interpolate/_fitpack_impl.py",
+  "item_line": 1086,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(x, tck, m=1, per=0)"
+  },
+  "type": "DocBlob"
+}

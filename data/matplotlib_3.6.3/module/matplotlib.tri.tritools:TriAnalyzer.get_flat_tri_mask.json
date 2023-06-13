@@ -1,0 +1,341 @@
+{
+  "aliases": [
+    "matplotlib.tri.TriAnalyzer.get_flat_tri_mask"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Returns a mask "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "new_mask"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " which allows to clean the encapsulated triangulation from its border-located flat triangles (according to their "
+            },
+            {
+              "type": "inlineCode",
+              "value": "circle_ratios"
+            },
+            {
+              "type": "text",
+              "value": "). This mask is meant to be subsequently applied to the triangulation using "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": ".Triangulation.set_mask"
+            },
+            {
+              "type": "text",
+              "value": ". "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "new_mask"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " is an extension of the initial triangulation mask in the sense that an initially masked triangle will remain masked."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "new_mask"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " array is computed recursively; at each step flat triangles are removed only if they share a side with the current mesh border. Thus no new holes in the triangulated domain will be created."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The rationale behind this function is that a Delaunay triangulation - of an unstructured set of points - sometimes contains almost flat triangles at its border, leading to artifacts in plots (especially for high-resolution contouring). Masked with computed "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "new_mask"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": ", the encapsulated triangulation would contain no more unmasked border triangles with a circle ratio below "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "min_circle_ratio"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": ", thus improving the mesh quality for subsequent plots or interpolation."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Border triangles with incircle/circumcircle radii ratio r/R will be removed if r/R < "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "min_circle_ratio"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "min_circle_ratio",
+              "type": "Param",
+              "type_": "float, default: 0.01"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, first, internally rescale (based on "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "scale_factors"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") so that the (unmasked) triangles fit exactly inside a unit square mesh.  This rescaling accounts for the difference of scale which might exist between the 2 axis."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "rescale",
+              "type": "Param",
+              "type_": "bool, default: True"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Mask to apply to encapsulated triangulation. All the initially masked triangles remain masked in the "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "new_mask"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "array of bool"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Eliminate excessively flat border triangles from the triangulation."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/matplotlib/tri/tritools.py",
+  "item_line": 117,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, min_circle_ratio=0.01, rescale=True)"
+  },
+  "type": "DocBlob"
+}

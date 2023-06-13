@@ -1,0 +1,379 @@
+{
+  "aliases": [
+    "xarray.decode_cf"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Object to decode."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "obj",
+              "type": "Param",
+              "type_": "Dataset or DataStore"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Should character arrays be concatenated to strings, for example: [\"h\", \"e\", \"l\", \"l\", \"o\"] -> \"hello\""
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "concat_characters",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Lazily scale (using scale_factor and add_offset) and mask (using _FillValue)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mask_and_scale",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Decode cf times (e.g., integers since \"hours since 2000-01-01\") to np.datetime64."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "decode_times",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Controls which variables are set as coordinate variables:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "\"coordinates\" or True: Set variables referred to in the   "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "'coordinates'"
+                            },
+                            {
+                              "type": "text",
+                              "value": " attribute of the datasets or individual variables   as coordinate variables."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "\"all\": Set variables referred to in  "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "'grid_mapping'"
+                            },
+                            {
+                              "type": "text",
+                              "value": ", "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "'bounds'"
+                            },
+                            {
+                              "type": "text",
+                              "value": " and   other attributes as coordinate variables."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "param": "decode_coords",
+              "type": "Param",
+              "type_": "bool or {\"coordinates\", \"all\"}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A variable or list of variables to exclude from being parsed from the dataset. This may be useful to drop variables with problems or inconsistent values."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "drop_variables",
+              "type": "Param",
+              "type_": "str or iterable, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Only relevant if encoded dates come from a standard calendar (e.g. \"gregorian\", \"proleptic_gregorian\", \"standard\", or not specified).  If None (default), attempt to decode times to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.datetime64[ns]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " objects; if this is not possible, decode times to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "cftime.datetime"
+                    },
+                    {
+                      "type": "text",
+                      "value": " objects. If True, always decode times to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "cftime.datetime"
+                    },
+                    {
+                      "type": "text",
+                      "value": " objects, regardless of whether or not they can be represented using "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.datetime64[ns]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " objects.  If False, always decode times to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.datetime64[ns]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " objects; if this is not possible raise an error."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "use_cftime",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, decode variables and coordinates with time units in {\"days\", \"hours\", \"minutes\", \"seconds\", \"milliseconds\", \"microseconds\"} into timedelta objects. If False, leave them encoded as numbers. If None (default), assume the same value of decode_time."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "decode_timedelta",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "decoded",
+              "type": "Param",
+              "type_": "Dataset"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Decode the given Dataset or Datastore according to CF conventions into a new Dataset."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/xarray/conventions.py",
+  "item_line": 489,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(obj: 'T_DatasetOrAbstractstore', concat_characters: 'bool' = True, mask_and_scale: 'bool' = True, decode_times: 'bool' = True, decode_coords: 'bool' = True, drop_variables: 'T_DropVariables' = None, use_cftime: 'bool | None' = None, decode_timedelta: 'bool | None' = None) -> 'Dataset'"
+  },
+  "type": "DocBlob"
+}

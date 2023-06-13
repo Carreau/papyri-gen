@@ -1,0 +1,621 @@
+{
+  "aliases": [
+    "scipy.signal.check_COLA"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In order to enable inversion of an STFT via the inverse STFT in "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.signal._spectral_py:istft",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "istft"
+            },
+            {
+              "type": "text",
+              "value": ", it is sufficient that the signal windowing obeys the constraint of \"Constant OverLap Add\" (COLA). This ensures that every point in the input data is equally weighted, thereby avoiding aliasing and allowing full reconstruction."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Rectangular window at overlap of 0, 1/2, 2/3, 3/4, ..."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Bartlett window at overlap of 1/2, 3/4, 5/6, ..."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Hann window at 1/2, 2/3, 3/4, ..."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Any Blackman family window at 2/3 overlap"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Any window with "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "noverlap = nperseg-1"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Some examples of windows that satisfy COLA:"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            }
+          ],
+          "type": "DefList"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A very comprehensive list of other windows may be found in , wherein the COLA condition is satisfied when the \"Amplitude Flatness\" is unity."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 0.19.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Desired window to use. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "window",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "window"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a string or tuple, it is passed to "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "scipy",
+                        "path": "scipy.signal.windows._windows:get_window",
+                        "type": "RefInfo",
+                        "version": "1.10.1"
+                      },
+                      "type": "Link",
+                      "value": "get_window"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to generate the window values, which are DFT-even by default. See "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "scipy",
+                        "path": "scipy.signal.windows._windows:get_window",
+                        "type": "RefInfo",
+                        "version": "1.10.1"
+                      },
+                      "type": "Link",
+                      "value": "get_window"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for a list of windows and required parameters. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "window",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "window"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is array_like it will be used directly as the window and its length must be nperseg."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "window",
+              "type": "Param",
+              "type_": "str or tuple or array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Length of each segment."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "nperseg",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of points to overlap between segments."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "noverlap",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The allowed variance of a bin's weighted sum from the median bin sum."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "tol",
+              "type": "Param",
+              "type_": "float, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": " if chosen combination satisfies COLA within "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "tol",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "tol"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": " otherwise"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "verdict",
+              "type": "Param",
+              "type_": "bool"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Check whether the Constant OverLap Add (COLA) constraint is met."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from scipy import signal"
+      },
+      {
+        "type": "text",
+        "value": "Confirm COLA condition for rectangular window of 75% (3/4) overlap:"
+      },
+      {
+        "type": "code",
+        "value": "signal.check_COLA(signal.windows.boxcar(100), 100, 75)"
+      },
+      {
+        "type": "text",
+        "value": "COLA is not true for 25% (1/4) overlap, though:"
+      },
+      {
+        "type": "code",
+        "value": "signal.check_COLA(signal.windows.boxcar(100), 100, 25)"
+      },
+      {
+        "type": "text",
+        "value": "\"Symmetrical\" Hann window (for filter design) is not COLA:"
+      },
+      {
+        "type": "code",
+        "value": "signal.check_COLA(signal.windows.hann(120, sym=True), 120, 60)"
+      },
+      {
+        "type": "text",
+        "value": "\"Periodic\" or \"DFT-even\" Hann window (for FFT analysis) is COLA for\noverlap of 1/2, 2/3, 3/4, etc.:"
+      },
+      {
+        "type": "code",
+        "value": "signal.check_COLA(signal.windows.hann(120, sym=False), 120, 60)"
+      },
+      {
+        "type": "code",
+        "value": "signal.check_COLA(signal.windows.hann(120, sym=False), 120, 80)"
+      },
+      {
+        "type": "code",
+        "value": "signal.check_COLA(signal.windows.hann(120, sym=False), 120, 90)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/signal/_spectral_py.py",
+  "item_line": 789,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Check whether the Nonzero Overlap Add (NOLA) constraint is met"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._spectral_py:check_NOLA",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "check_NOLA"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Short Time Fourier Transform"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "stft",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "stft"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Inverse Short Time Fourier Transform"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._spectral_py:istft",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "istft"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(window, nperseg, noverlap, tol=1e-10)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,412 @@
+{
+  "aliases": [
+    "xarray.DataArray.interp_like"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If interpolating along a single existing dimension, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "scipy.interpolate.interp1d"
+            },
+            {
+              "type": "text",
+              "value": " is called. When interpolating along multiple existing dimensions, an attempt is made to decompose the interpolation into multiple 1-dimensional interpolations. If this is possible, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "scipy.interpolate.interp1d"
+            },
+            {
+              "type": "text",
+              "value": " is called. Otherwise, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "scipy.interpolate.interpn"
+            },
+            {
+              "type": "text",
+              "value": " is called."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "scipy is required. If the dataarray has object-type coordinates, reindex is used for these coordinates instead of the interpolation."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Object with an 'indexes' attribute giving a mapping from dimension names to an 1d array-like, which provides coordinates upon which to index the variables in this dataset. Missing values are skipped."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "other",
+              "type": "Param",
+              "type_": "Dataset or DataArray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The method used to interpolate. The method should be supported by the scipy interpolator:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "{\"linear\", \"nearest\", \"zero\", \"slinear\", \"quadratic\", \"cubic\",   \"polynomial\"} when "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "interp1d"
+                            },
+                            {
+                              "type": "text",
+                              "value": " is called."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "{\"linear\", \"nearest\"} when "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "interpn"
+                            },
+                            {
+                              "type": "text",
+                              "value": " is called."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "\"polynomial\""
+                    },
+                    {
+                      "type": "text",
+                      "value": " is passed, the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "order"
+                    },
+                    {
+                      "type": "text",
+                      "value": " keyword argument must also be provided."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "method",
+              "type": "Param",
+              "type_": "{\"linear\", \"nearest\", \"zero\", \"slinear\", \"quadratic\", \"cubic\", \"polynomial\"}, default: \"linear\""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If False, values of coordinates that are interpolated over can be in any order and they are sorted first. If True, interpolated coordinates are assumed to be an array of monotonically increasing values."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "assume_sorted",
+              "type": "Param",
+              "type_": "bool, default: False"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Additional keyword passed to scipy's interpolator."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "kwargs",
+              "type": "Param",
+              "type_": "dict, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Another dataarray by interpolating this dataarray's data along the coordinates of the other object."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "interpolated",
+              "type": "Param",
+              "type_": "DataArray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Interpolate this object onto the coordinates of another object, filling out of range values with NaN."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "data = np.arange(12).reshape(4, 3)\nda1 = xr.DataArray(\n    data=data,\n    dims=[\"x\", \"y\"],\n    coords={\"x\": [10, 20, 30, 40], \"y\": [70, 80, 90]},\n)\nda1"
+      },
+      {
+        "type": "code",
+        "value": "da2 = xr.DataArray(\n    data=data,\n    dims=[\"x\", \"y\"],\n    coords={\"x\": [10, 20, 29, 39], \"y\": [70, 80, 90]},\n)\nda2"
+      },
+      {
+        "type": "text",
+        "value": "Interpolate the values in the coordinates of the other DataArray with respect to the source's values:"
+      },
+      {
+        "type": "code",
+        "value": "da2.interp_like(da1)"
+      },
+      {
+        "type": "text",
+        "value": "Could also extrapolate missing values:"
+      },
+      {
+        "type": "code",
+        "value": "da2.interp_like(da1, kwargs={\"fill_value\": \"extrapolate\"})"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/xarray/core/dataarray.py",
+  "item_line": 2212,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Examples",
+    "Notes",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "DataArray.interp",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "DataArray.interp"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "xarray",
+          "path": "xarray.core.dataarray:DataArray.reindex_like",
+          "type": "RefInfo",
+          "version": "2023.5.0"
+        },
+        "type": "Link",
+        "value": "DataArray.reindex_like"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(self: 'T_DataArray', other: 'DataArray | Dataset', method: 'InterpOptions' = 'linear', assume_sorted: 'bool' = False, kwargs: 'Mapping[str, Any] | None' = None) -> 'T_DataArray'"
+  },
+  "type": "DocBlob"
+}

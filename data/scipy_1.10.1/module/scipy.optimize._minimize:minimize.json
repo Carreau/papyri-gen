@@ -1,0 +1,2601 @@
+{
+  "aliases": [
+    "scipy.optimize.minimize"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This section describes the available solvers that can be selected by the 'method' parameter. The default method is "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "BFGS"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Unconstrained minimization"
+                }
+              ],
+              "type": "strong"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Method "
+            },
+            {
+              "type": "inlineCode",
+              "value": "CG <optimize.minimize-cg>"
+            },
+            {
+              "type": "text",
+              "value": " uses a nonlinear conjugate gradient algorithm by Polak and Ribiere, a variant of the Fletcher-Reeves method described in  pp.120-122. Only the first derivatives are used."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Method "
+            },
+            {
+              "type": "inlineCode",
+              "value": "BFGS <optimize.minimize-bfgs>"
+            },
+            {
+              "type": "text",
+              "value": " uses the quasi-Newton method of Broyden, Fletcher, Goldfarb, and Shanno (BFGS)  pp. 136. It uses the first derivatives only. BFGS has proven good performance even for non-smooth optimizations. This method also returns an approximation of the Hessian inverse, stored as "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "hess_inv"
+            },
+            {
+              "type": "text",
+              "value": " in the OptimizeResult object."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Method "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Newton-CG <optimize.minimize-newtoncg>"
+            },
+            {
+              "type": "text",
+              "value": " uses a Newton-CG algorithm  pp. 168 (also known as the truncated Newton method). It uses a CG method to the compute the search direction. See also "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "TNC"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " method for a box-constrained minimization with a similar algorithm. Suitable for large-scale problems."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Method "
+            },
+            {
+              "type": "inlineCode",
+              "value": "dogleg <optimize.minimize-dogleg>"
+            },
+            {
+              "type": "text",
+              "value": " uses the dog-leg trust-region algorithm  for unconstrained minimization. This algorithm requires the gradient and Hessian; furthermore the Hessian is required to be positive definite."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Method "
+            },
+            {
+              "type": "inlineCode",
+              "value": "trust-ncg <optimize.minimize-trustncg>"
+            },
+            {
+              "type": "text",
+              "value": " uses the Newton conjugate gradient trust-region algorithm  for unconstrained minimization. This algorithm requires the gradient and either the Hessian or a function that computes the product of the Hessian with a given vector. Suitable for large-scale problems."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Method "
+            },
+            {
+              "type": "inlineCode",
+              "value": "trust-krylov <optimize.minimize-trustkrylov>"
+            },
+            {
+              "type": "text",
+              "value": " uses the Newton GLTR trust-region algorithm ,  for unconstrained minimization. This algorithm requires the gradient and either the Hessian or a function that computes the product of the Hessian with a given vector. Suitable for large-scale problems. On indefinite problems it requires usually less iterations than the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "trust-ncg"
+            },
+            {
+              "type": "text",
+              "value": " method and is recommended for medium and large-scale problems."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Method "
+            },
+            {
+              "type": "inlineCode",
+              "value": "trust-exact <optimize.minimize-trustexact>"
+            },
+            {
+              "type": "text",
+              "value": " is a trust-region method for unconstrained minimization in which quadratic subproblems are solved almost exactly . This algorithm requires the gradient and the Hessian (which is "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "not"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " required to be positive definite). It is, in many situations, the Newton method to converge in fewer iterations and the most recommended for small and medium-size problems."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Bound-Constrained minimization"
+                }
+              ],
+              "type": "strong"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Method "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Nelder-Mead <optimize.minimize-neldermead>"
+            },
+            {
+              "type": "text",
+              "value": " uses the Simplex algorithm , . This algorithm is robust in many applications. However, if numerical computation of derivative can be trusted, other algorithms using the first and/or second derivatives information might be preferred for their better performance in general."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Method "
+            },
+            {
+              "type": "inlineCode",
+              "value": "L-BFGS-B <optimize.minimize-lbfgsb>"
+            },
+            {
+              "type": "text",
+              "value": " uses the L-BFGS-B algorithm ,  for bound constrained minimization."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Method "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Powell <optimize.minimize-powell>"
+            },
+            {
+              "type": "text",
+              "value": " is a modification of Powell's method ,  which is a conjugate direction method. It performs sequential one-dimensional minimizations along each vector of the directions set ("
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "direc"
+            },
+            {
+              "type": "text",
+              "value": " field in "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "options",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "options"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.io._mmio:MMFile.info",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "info"
+            },
+            {
+              "type": "text",
+              "value": "), which is updated at each iteration of the main minimization loop. The function need not be differentiable, and no derivatives are taken. If bounds are not provided, then an unbounded line search will be used. If bounds are provided and the initial guess is within the bounds, then every function evaluation throughout the minimization procedure will be within the bounds. If bounds are provided, the initial guess is outside the bounds, and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "direc"
+            },
+            {
+              "type": "text",
+              "value": " is full rank (default has full rank), then some function evaluations during the first iteration may be outside the bounds, but every function evaluation after the first iteration will be within the bounds. If "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "direc"
+            },
+            {
+              "type": "text",
+              "value": " is not full rank, then some parameters may not be optimized and the solution is not guaranteed to be within the bounds."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Method "
+            },
+            {
+              "type": "inlineCode",
+              "value": "TNC <optimize.minimize-tnc>"
+            },
+            {
+              "type": "text",
+              "value": " uses a truncated Newton algorithm ,  to minimize a function with variables subject to bounds. This algorithm uses gradient information; it is also called Newton Conjugate-Gradient. It differs from the "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Newton-CG"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " method described above as it wraps a C implementation and allows each variable to be given upper and lower bounds."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Constrained Minimization"
+                }
+              ],
+              "type": "strong"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Method "
+            },
+            {
+              "type": "inlineCode",
+              "value": "COBYLA <optimize.minimize-cobyla>"
+            },
+            {
+              "type": "text",
+              "value": " uses the Constrained Optimization BY Linear Approximation (COBYLA) method , , . The algorithm is based on linear approximations to the objective function and each constraint. The method wraps a FORTRAN implementation of the algorithm. The constraints functions 'fun' may return either a single number or an array or list of numbers."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Method "
+            },
+            {
+              "type": "inlineCode",
+              "value": "SLSQP <optimize.minimize-slsqp>"
+            },
+            {
+              "type": "text",
+              "value": " uses Sequential Least SQuares Programming to minimize a function of several variables with any combination of bounds, equality and inequality constraints. The method wraps the SLSQP Optimization subroutine originally implemented by Dieter Kraft . Note that the wrapper handles infinite values in bounds by converting them into large floating values."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Method "
+            },
+            {
+              "type": "inlineCode",
+              "value": "trust-constr <optimize.minimize-trustconstr>"
+            },
+            {
+              "type": "text",
+              "value": " is a trust-region algorithm for constrained optimization. It swiches between two implementations depending on the problem definition. It is the most versatile constrained minimization algorithm implemented in SciPy and the most appropriate for large-scale problems. For equality constrained problems it is an implementation of Byrd-Omojokun Trust-Region SQP method described in  and in , p. 549. When inequality constraints are imposed as well, it swiches to the trust-region interior point method described in . This interior point algorithm, in turn, solves inequality constraints by introducing slack variables and solving a sequence of equality-constrained barrier problems for progressively smaller values of the barrier parameter. The previously described equality constrained SQP method is used to solve the subproblems with increasing levels of accuracy as the iterate gets closer to a solution."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Finite-Difference Options"
+                }
+              ],
+              "type": "strong"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For Method "
+            },
+            {
+              "type": "inlineCode",
+              "value": "trust-constr <optimize.minimize-trustconstr>"
+            },
+            {
+              "type": "text",
+              "value": " the gradient and the Hessian may be approximated using three finite-difference schemes: {'2-point', '3-point', 'cs'}. The scheme 'cs' is, potentially, the most accurate but it requires the function to correctly handle complex inputs and to be differentiable in the complex plane. The scheme '3-point' is more accurate than '2-point' but requires twice as many operations. If the gradient is estimated via finite-differences the Hessian must be estimated using one of the quasi-Newton strategies."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Method specific options for the"
+                }
+              ],
+              "type": "strong"
+            },
+            {
+              "type": "text",
+              "value": " "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "hess",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "hess"
+            },
+            {
+              "type": "text",
+              "value": " "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "keyword"
+                }
+              ],
+              "type": "strong"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "+--------------+------+----------+-------------------------+-----+ | method/Hess  | None | callable | '2-point/'3-point'/'cs' | HUS | +==============+======+==========+=========================+=====+ | Newton-CG    | x    | (n, n)   | x                       | x   | |              |      | LO       |                         |     | +--------------+------+----------+-------------------------+-----+ | dogleg       |      | (n, n)   |                         |     | +--------------+------+----------+-------------------------+-----+ | trust-ncg    |      | (n, n)   | x                       | x   | +--------------+------+----------+-------------------------+-----+ | trust-krylov |      | (n, n)   | x                       | x   | +--------------+------+----------+-------------------------+-----+ | trust-exact  |      | (n, n)   |                         |     | +--------------+------+----------+-------------------------+-----+ | trust-constr | x    | (n, n)   |  x                      | x   | |              |      | LO       |                         |     | |              |      | sp       |                         |     | +--------------+------+----------+-------------------------+-----+"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where LO=LinearOperator, sp=Sparse matrix, HUS=HessianUpdateStrategy"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Custom minimizers"
+                }
+              ],
+              "type": "strong"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "It may be useful to pass a custom minimization method, for example when using a frontend to this method such as "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "scipy.optimize._basinhopping",
+                "path": "scipy.optimize._basinhopping:basinhopping",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "scipy.optimize.basinhopping"
+            },
+            {
+              "type": "text",
+              "value": " or a different library.  You can simply pass a callable as the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "method"
+            },
+            {
+              "type": "text",
+              "value": " parameter."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The callable is called as "
+            },
+            {
+              "type": "inlineCode",
+              "value": "method(fun, x0, args, **kwargs, **options)"
+            },
+            {
+              "type": "text",
+              "value": " where "
+            },
+            {
+              "type": "inlineCode",
+              "value": "kwargs"
+            },
+            {
+              "type": "text",
+              "value": " corresponds to any other parameters passed to "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.optimize._shgo:SHGO.minimize",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "minimize"
+            },
+            {
+              "type": "text",
+              "value": " (such as "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "callback",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "callback"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "hess",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "hess"
+            },
+            {
+              "type": "text",
+              "value": ", etc.), except the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "options",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "options"
+            },
+            {
+              "type": "text",
+              "value": " dict, which has its contents also passed as "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "method",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "method"
+            },
+            {
+              "type": "text",
+              "value": " parameters pair by pair.  Also, if "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "jac",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "jac"
+            },
+            {
+              "type": "text",
+              "value": " has been passed as a bool type, "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "jac",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "jac"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "fun",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "fun"
+            },
+            {
+              "type": "text",
+              "value": " are mangled so that "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "fun",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "fun"
+            },
+            {
+              "type": "text",
+              "value": " returns just the function values and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "jac",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "jac"
+            },
+            {
+              "type": "text",
+              "value": " is converted to a function returning the Jacobian.  The method shall return an "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "OptimizeResult"
+            },
+            {
+              "type": "text",
+              "value": " object."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The provided "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "method",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "method"
+            },
+            {
+              "type": "text",
+              "value": " callable must be able to accept (and possibly ignore) arbitrary parameters; the set of parameters accepted by "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.optimize._shgo:SHGO.minimize",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "minimize"
+            },
+            {
+              "type": "text",
+              "value": " may expand in future versions and then these parameters will be passed to the method.  You can find an example in the scipy.optimize tutorial."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The objective function to be minimized."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "inlineCode",
+                          "value": "fun(x, *args) -> float"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "type": "blockquote"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a 1-D array with shape (n,) and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "args"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a tuple of the fixed parameters needed to completely specify the function."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fun",
+              "type": "Param",
+              "type_": "callable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Initial guess. Array of real elements of size (n,), where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "n"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the number of independent variables."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x0",
+              "type": "Param",
+              "type_": "ndarray, shape (n,)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Extra arguments passed to the objective function and its derivatives ("
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "fun",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "fun"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "jac",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "jac"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "hess",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "hess"
+                    },
+                    {
+                      "type": "text",
+                      "value": " functions)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "args",
+              "type": "Param",
+              "type_": "tuple, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Type of solver.  Should be one of"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "'Nelder-Mead' "
+                                },
+                                {
+                                  "type": "inlineCode",
+                                  "value": "(see here) <optimize.minimize-neldermead>"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "'Powell'      "
+                                },
+                                {
+                                  "type": "inlineCode",
+                                  "value": "(see here) <optimize.minimize-powell>"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "'CG'          "
+                                },
+                                {
+                                  "type": "inlineCode",
+                                  "value": "(see here) <optimize.minimize-cg>"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "'BFGS'        "
+                                },
+                                {
+                                  "type": "inlineCode",
+                                  "value": "(see here) <optimize.minimize-bfgs>"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "'Newton-CG'   "
+                                },
+                                {
+                                  "type": "inlineCode",
+                                  "value": "(see here) <optimize.minimize-newtoncg>"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "'L-BFGS-B'    "
+                                },
+                                {
+                                  "type": "inlineCode",
+                                  "value": "(see here) <optimize.minimize-lbfgsb>"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "'TNC'         "
+                                },
+                                {
+                                  "type": "inlineCode",
+                                  "value": "(see here) <optimize.minimize-tnc>"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "'COBYLA'      "
+                                },
+                                {
+                                  "type": "inlineCode",
+                                  "value": "(see here) <optimize.minimize-cobyla>"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "'SLSQP'       "
+                                },
+                                {
+                                  "type": "inlineCode",
+                                  "value": "(see here) <optimize.minimize-slsqp>"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "'trust-constr'"
+                                },
+                                {
+                                  "type": "inlineCode",
+                                  "value": "(see here) <optimize.minimize-trustconstr>"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "'dogleg'      "
+                                },
+                                {
+                                  "type": "inlineCode",
+                                  "value": "(see here) <optimize.minimize-dogleg>"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "'trust-ncg'   "
+                                },
+                                {
+                                  "type": "inlineCode",
+                                  "value": "(see here) <optimize.minimize-trustncg>"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "'trust-exact' "
+                                },
+                                {
+                                  "type": "inlineCode",
+                                  "value": "(see here) <optimize.minimize-trustexact>"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "'trust-krylov' "
+                                },
+                                {
+                                  "type": "inlineCode",
+                                  "value": "(see here) <optimize.minimize-trustkrylov>"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "custom - a callable object, see below for description."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        }
+                      ],
+                      "ordered": false,
+                      "spread": false,
+                      "start": 1,
+                      "type": "list"
+                    }
+                  ],
+                  "type": "blockquote"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If not given, chosen to be one of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "BFGS"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "L-BFGS-B"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "SLSQP"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", depending on whether or not the problem has constraints or bounds."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "method",
+              "type": "Param",
+              "type_": "str or callable, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Method for computing the gradient vector. Only for CG, BFGS, Newton-CG, L-BFGS-B, TNC, SLSQP, dogleg, trust-ncg, trust-krylov, trust-exact and trust-constr. If it is a callable, it should be a function that returns the gradient vector:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "inlineCode",
+                          "value": "jac(x, *args) -> array_like, shape (n,)"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "type": "blockquote"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is an array with shape (n,) and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "args"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a tuple with the fixed parameters. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "jac",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "jac"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a Boolean and is True, "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "fun",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "fun"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is assumed to return a tuple "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(f, g)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " containing the objective function and the gradient. Methods 'Newton-CG', 'trust-ncg', 'dogleg', 'trust-exact', and 'trust-krylov' require that either a callable be supplied, or that "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "fun",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "fun"
+                    },
+                    {
+                      "type": "text",
+                      "value": " return the objective and gradient. If None or False, the gradient will be estimated using 2-point finite difference estimation with an absolute step size. Alternatively, the keywords  {'2-point', '3-point', 'cs'} can be used to select a finite difference scheme for numerical estimation of the gradient with a relative step size. These finite difference schemes obey any specified "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "bounds",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "bounds"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "jac",
+              "type": "Param",
+              "type_": "{callable,  '2-point', '3-point', 'cs', bool}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Method for computing the Hessian matrix. Only for Newton-CG, dogleg, trust-ncg, trust-krylov, trust-exact and trust-constr. If it is callable, it should return the Hessian matrix:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "inlineCode",
+                          "value": "hess(x, *args) -> {LinearOperator, spmatrix, array}, (n, n)"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "type": "blockquote"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a (n,) ndarray and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "args"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a tuple with the fixed parameters. The keywords {'2-point', '3-point', 'cs'} can also be used to select a finite difference scheme for numerical estimation of the hessian. Alternatively, objects implementing the "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "HessianUpdateStrategy"
+                    },
+                    {
+                      "type": "text",
+                      "value": " interface can be used to approximate the Hessian. Available quasi-Newton methods implementing this interface are:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "domain": null,
+                                  "role": null,
+                                  "type": "Directive",
+                                  "value": "BFGS"
+                                },
+                                {
+                                  "type": "text",
+                                  "value": ";"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "domain": null,
+                                  "role": null,
+                                  "type": "Directive",
+                                  "value": "SR1"
+                                },
+                                {
+                                  "type": "text",
+                                  "value": "."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        }
+                      ],
+                      "ordered": false,
+                      "spread": false,
+                      "start": 1,
+                      "type": "list"
+                    }
+                  ],
+                  "type": "blockquote"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Not all of the options are available for each of the methods; for availability refer to the notes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "hess",
+              "type": "Param",
+              "type_": "{callable, '2-point', '3-point', 'cs', HessianUpdateStrategy}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Hessian of objective function times an arbitrary vector p. Only for Newton-CG, trust-ncg, trust-krylov, trust-constr. Only one of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "hessp",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "hessp"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "hess",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "hess"
+                    },
+                    {
+                      "type": "text",
+                      "value": " needs to be given. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "hess",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "hess"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is provided, then "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "hessp",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "hessp"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will be ignored. "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "hessp",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "hessp"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must compute the Hessian times an arbitrary vector:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "inlineCode",
+                          "value": "hessp(x, p, *args) ->  ndarray shape (n,)"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "type": "blockquote"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a (n,) ndarray, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "p"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is an arbitrary vector with dimension (n,) and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "args"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a tuple with the fixed parameters."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "hessp",
+              "type": "Param",
+              "type_": "callable, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Bounds on variables for Nelder-Mead, L-BFGS-B, TNC, SLSQP, Powell, and trust-constr methods. There are two ways to specify the bounds:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "Instance of "
+                                },
+                                {
+                                  "domain": null,
+                                  "role": null,
+                                  "type": "Directive",
+                                  "value": "Bounds"
+                                },
+                                {
+                                  "type": "text",
+                                  "value": " class."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "Sequence of "
+                                },
+                                {
+                                  "type": "inlineCode",
+                                  "value": "(min, max)"
+                                },
+                                {
+                                  "type": "text",
+                                  "value": " pairs for each element in "
+                                },
+                                {
+                                  "domain": null,
+                                  "role": null,
+                                  "type": "Directive",
+                                  "value": "x"
+                                },
+                                {
+                                  "type": "text",
+                                  "value": ". None        is used to specify no bound."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        }
+                      ],
+                      "ordered": true,
+                      "spread": false,
+                      "start": 1,
+                      "type": "list"
+                    }
+                  ],
+                  "type": "blockquote"
+                }
+              ],
+              "param": "bounds",
+              "type": "Param",
+              "type_": "sequence or `Bounds`, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Constraints definition. Only for COBYLA, SLSQP and trust-constr."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Constraints for 'trust-constr' are defined as a single object or a list of objects specifying constraints to the optimization problem. Available constraints are:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "domain": null,
+                                  "role": null,
+                                  "type": "Directive",
+                                  "value": "LinearConstraint"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "domain": null,
+                                  "role": null,
+                                  "type": "Directive",
+                                  "value": "NonlinearConstraint"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        }
+                      ],
+                      "ordered": false,
+                      "spread": false,
+                      "start": 1,
+                      "type": "list"
+                    }
+                  ],
+                  "type": "blockquote"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Constraints for COBYLA, SLSQP are defined as a list of dictionaries. Each dictionary with fields:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "dd": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "type"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "type"
+                              }
+                            ],
+                            "type": "paragraph"
+                          },
+                          "type": "DefListItem"
+                        },
+                        {
+                          "dd": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "fun"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "fun"
+                              }
+                            ],
+                            "type": "paragraph"
+                          },
+                          "type": "DefListItem"
+                        },
+                        {
+                          "dd": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "jac"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "jac"
+                              }
+                            ],
+                            "type": "paragraph"
+                          },
+                          "type": "DefListItem"
+                        },
+                        {
+                          "dd": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "args"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "args"
+                              }
+                            ],
+                            "type": "paragraph"
+                          },
+                          "type": "DefListItem"
+                        }
+                      ],
+                      "type": "DefList"
+                    }
+                  ],
+                  "type": "blockquote"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Equality constraint means that the constraint function result is to be zero whereas inequality means that it is to be non-negative. Note that COBYLA only supports inequality constraints."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "constraints",
+              "type": "Param",
+              "type_": "{Constraint, dict} or List of {Constraint, dict}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Tolerance for termination. When "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "tol",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "tol"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is specified, the selected minimization algorithm sets some relevant solver-specific tolerance(s) equal to "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "tol",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "tol"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". For detailed control, use solver-specific options."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "tol",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A dictionary of solver options. All methods except "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "TNC"
+                    },
+                    {
+                      "type": "text",
+                      "value": " accept the following generic options:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "dd": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "maxiter"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "maxiter"
+                              }
+                            ],
+                            "type": "paragraph"
+                          },
+                          "type": "DefListItem"
+                        },
+                        {
+                          "dd": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "disp"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "disp"
+                              }
+                            ],
+                            "type": "paragraph"
+                          },
+                          "type": "DefListItem"
+                        }
+                      ],
+                      "type": "DefList"
+                    }
+                  ],
+                  "type": "blockquote"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "For method-specific options, see "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "show_options()"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "options",
+              "type": "Param",
+              "type_": "dict, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Called after each iteration. For 'trust-constr' it is a callable with the signature:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "inlineCode",
+                          "value": "callback(xk, OptimizeResult state) -> bool"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "type": "blockquote"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "xk"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the current parameter vector. and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "state"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is an "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "OptimizeResult"
+                    },
+                    {
+                      "type": "text",
+                      "value": " object, with the same fields as the ones from the return. If callback returns True the algorithm execution is terminated. For all the other methods, the signature is:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "inlineCode",
+                          "value": "callback(xk)"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "type": "blockquote"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "xk"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the current parameter vector."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "callback",
+              "type": "Param",
+              "type_": "callable, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The optimization result represented as a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "OptimizeResult"
+                    },
+                    {
+                      "type": "text",
+                      "value": " object. Important attributes are: "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " the solution array, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "success"
+                    },
+                    {
+                      "type": "text",
+                      "value": " a Boolean flag indicating if the optimizer exited successfully and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "message"
+                    },
+                    {
+                      "type": "text",
+                      "value": " which describes the cause of the termination. See "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "OptimizeResult"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for a description of other attributes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "res",
+              "type": "Param",
+              "type_": "OptimizeResult"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Minimization of scalar function of one or more variables."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Let us consider the problem of minimizing the Rosenbrock function. This\nfunction (and its respective derivatives) is implemented in `rosen`\n(resp. `rosen_der`, `rosen_hess`) in the `scipy.optimize`."
+      },
+      {
+        "type": "code",
+        "value": "from scipy.optimize import minimize, rosen, rosen_der"
+      },
+      {
+        "type": "text",
+        "value": "A simple application of the *Nelder-Mead* method is:"
+      },
+      {
+        "type": "code",
+        "value": "x0 = [1.3, 0.7, 0.8, 1.9, 1.2]\nres = minimize(rosen, x0, method='Nelder-Mead', tol=1e-6)\nres.x"
+      },
+      {
+        "type": "text",
+        "value": "Now using the *BFGS* algorithm, using the first derivative and a few\noptions:"
+      },
+      {
+        "type": "code",
+        "value": "res = minimize(rosen, x0, method='BFGS', jac=rosen_der,\n               options={'gtol': 1e-6, 'disp': True})"
+      },
+      {
+        "type": "code",
+        "value": "res.x"
+      },
+      {
+        "type": "code",
+        "value": "print(res.message)"
+      },
+      {
+        "type": "code",
+        "value": "res.hess_inv"
+      },
+      {
+        "type": "text",
+        "value": "Next, consider a minimization problem with several constraints (namely\nExample 16.4 from [5]_). The objective function is:"
+      },
+      {
+        "type": "code",
+        "value": "fun = lambda x: (x[0] - 1)**2 + (x[1] - 2.5)**2"
+      },
+      {
+        "type": "text",
+        "value": "There are three constraints defined as:"
+      },
+      {
+        "type": "code",
+        "value": "cons = ({'type': 'ineq', 'fun': lambda x:  x[0] - 2 * x[1] + 2},\n        {'type': 'ineq', 'fun': lambda x: -x[0] - 2 * x[1] + 6},\n        {'type': 'ineq', 'fun': lambda x: -x[0] + 2 * x[1] + 2})"
+      },
+      {
+        "type": "text",
+        "value": "And variables must be positive, hence the following bounds:"
+      },
+      {
+        "type": "code",
+        "value": "bnds = ((0, None), (0, None))"
+      },
+      {
+        "type": "text",
+        "value": "The optimization problem is solved using the SLSQP method as:"
+      },
+      {
+        "type": "code",
+        "value": "res = minimize(fun, (2, 0), method='SLSQP', bounds=bnds,\n               constraints=cons)"
+      },
+      {
+        "type": "text",
+        "value": "It should converge to the theoretical solution (1.4 ,1.7)."
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/optimize/_minimize.py",
+  "item_line": 45,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Interface to minimization algorithms for scalar univariate functions"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "minimize_scalar",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "minimize_scalar"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Additional options accepted by the solvers"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.optimize._optimize:show_options",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "show_options"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(fun, x0, args=(), method=None, jac=None, hess=None, hessp=None, bounds=None, constraints=(), tol=None, callback=None, options=None)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,280 @@
+{
+  "aliases": [
+    "dask.array.slicing._slice_1d"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function figures out where each slice should start in each block for a single dimension. If the slice won't return any elements in the block, that block will not be in the output."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This should be a positive, non-zero integer"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dim_shape - the number of elements in this dimension.",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This should be a positive, non-zero integer"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "blocksize - the number of elements per block in this dimension",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This might be an integer, a slice(), or an Ellipsis"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "index - a description of the elements in this dimension that we want",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "should be sliced and the values are the slices"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "dictionary where the keys are the integer index of the blocks that"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Returns a dict of {blocknum: slice}"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Trivial slicing"
+      },
+      {
+        "type": "code",
+        "value": "_slice_1d(100, [60, 40], slice(None, None, None))"
+      },
+      {
+        "type": "text",
+        "value": "100 length array cut into length 20 pieces, slice 0:35"
+      },
+      {
+        "type": "code",
+        "value": "_slice_1d(100, [20, 20, 20, 20, 20], slice(0, 35))"
+      },
+      {
+        "type": "text",
+        "value": "Support irregular blocks and various slices"
+      },
+      {
+        "type": "code",
+        "value": "_slice_1d(100, [20, 10, 10, 10, 25, 25], slice(10, 35))"
+      },
+      {
+        "type": "text",
+        "value": "Support step sizes"
+      },
+      {
+        "type": "code",
+        "value": "_slice_1d(100, [15, 14, 13], slice(10, 41, 3))"
+      },
+      {
+        "type": "code",
+        "value": "_slice_1d(100, [20, 20, 20, 20, 20], slice(0, 100, 40))  # step > blocksize"
+      },
+      {
+        "type": "text",
+        "value": "Also support indexing single elements"
+      },
+      {
+        "type": "code",
+        "value": "_slice_1d(100, [20, 20, 20, 20, 20], 25)"
+      },
+      {
+        "type": "text",
+        "value": "And negative slicing"
+      },
+      {
+        "type": "code",
+        "value": "_slice_1d(100, [20, 20, 20, 20, 20], slice(100, 0, -3)) # doctest: +NORMALIZE_WHITESPACE"
+      },
+      {
+        "type": "code",
+        "value": "_slice_1d(100, [20, 20, 20, 20, 20], slice(100, 12, -3)) # doctest: +NORMALIZE_WHITESPACE"
+      },
+      {
+        "type": "code",
+        "value": "_slice_1d(100, [20, 20, 20, 20, 20], slice(100, -12, -3))"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dask/array/slicing.py",
+  "item_line": 343,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(dim_shape, lengths, index)"
+  },
+  "type": "DocBlob"
+}

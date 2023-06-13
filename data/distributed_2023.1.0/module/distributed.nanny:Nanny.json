@@ -1,0 +1,381 @@
+{
+  "aliases": [
+    "distributed.Nanny"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The nanny spins up Worker processes, watches them, and kills or restarts them as necessary. It is necessary if you want to use the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Client.restart"
+            },
+            {
+              "type": "text",
+              "value": " method, or to restart the worker automatically if it gets to the terminate fraction of its memory limit."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The parameters for the Nanny are mostly the same as those for the Worker with exceptions listed below."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Environment variables set at time of Nanny initialization will be ensured to be set in the Worker process as well. This argument allows to overwrite or otherwise set environment variables for the Worker. It is also possible to set environment variables using the option "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "distributed.nanny.environ"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Precedence as follows"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "Nanny arguments"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "Existing environment variables"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "Dask configuration"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        }
+                      ],
+                      "ordered": true,
+                      "spread": false,
+                      "start": 1,
+                      "type": "list"
+                    }
+                  ],
+                  "type": "blockquote"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "note "
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Some environment variables, like "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "OMP_NUM_THREADS"
+                        },
+                        {
+                          "type": "text",
+                          "value": ", must be set before importing numpy to have effect. Others, like "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "MALLOC_TRIM_THRESHOLD_"
+                        },
+                        {
+                          "type": "text",
+                          "value": " (see "
+                        },
+                        {
+                          "domain": null,
+                          "role": "ref",
+                          "type": "Directive",
+                          "value": "memtrim"
+                        },
+                        {
+                          "type": "text",
+                          "value": "), must be set before starting the Linux process. Such variables would be ineffective if set here or in "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "distributed.nanny.environ"
+                        },
+                        {
+                          "type": "text",
+                          "value": "; they must be set in "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "distributed.nanny.pre-spawn-environ"
+                        },
+                        {
+                          "type": "text",
+                          "value": " so that they are set before spawning the subprocess, even if this means poisoning the process running the Nanny."
+                        }
+                      ],
+                      "type": "paragraph"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "For the same reason, be warned that changing "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "distributed.worker.multiprocessing-method"
+                        },
+                        {
+                          "type": "text",
+                          "value": " from "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "spawn"
+                        },
+                        {
+                          "type": "text",
+                          "value": " to "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "fork"
+                        },
+                        {
+                          "type": "text",
+                          "value": " or "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "forkserver"
+                        },
+                        {
+                          "type": "text",
+                          "value": " may inhibit some environment variables; if you do, you should set the variables yourself in the shell before you start "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "dask-worker"
+                        },
+                        {
+                          "type": "text",
+                          "value": "."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "env: dict, optional",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A process to manage worker processes"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/distributed/nanny.py",
+  "item_line": 69,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "Worker",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "Worker"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

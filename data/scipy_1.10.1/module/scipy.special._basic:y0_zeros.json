@@ -1,0 +1,255 @@
+{
+  "aliases": [
+    "scipy.special.y0_zeros"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The derivatives are given by Y0'(z0) = -Y1(z0) at each zero z0."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of zeros to return"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "nt",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Set to False to return only the real zeros; set to True to return only the complex zeros with negative real part and positive imaginary part. Note that the complex conjugates of the latter are also zeros of the function, but are not returned by this routine."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "complex",
+              "type": "Param",
+              "type_": "bool, default False"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Location of nth zero of Y0(z)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "z0n",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Value of derivative Y0'(z0) for nth zero"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "y0pz0n",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute nt zeros of Bessel function Y0(z), and derivative at each zero."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Compute the first 4 real roots and the derivatives at the roots of\n:math:`Y_0`:"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.special import y0_zeros\nzeros, grads = y0_zeros(4)\nwith np.printoptions(precision=5):\n    print(f\"Roots: {zeros}\")\n    print(f\"Gradients: {grads}\")"
+      },
+      {
+        "type": "text",
+        "value": "Plot the real part of :math:`Y_0` and the first four computed roots."
+      },
+      {
+        "type": "code",
+        "value": "import matplotlib.pyplot as plt\nfrom scipy.special import y0\nxmin = 0\nxmax = 11\nx = np.linspace(xmin, xmax, 500)\nfig, ax = plt.subplots()\nax.hlines(0, xmin, xmax, color='k')\nax.plot(x, y0(x), label=r'$Y_0$')\nzeros, grads = y0_zeros(4)\nax.scatter(zeros.real, np.zeros((4, )), s=30, c='r',\n           label=r'$Y_0$_zeros', zorder=5)\nax.set_ylim(-0.5, 0.6)\nax.set_xlim(xmin, xmax)\nplt.legend(ncol=2)\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.special._basic:y0_zeros-0-179afa05.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      },
+      {
+        "type": "text",
+        "value": "Compute the first 4 complex roots and the derivatives at the roots of\n:math:`Y_0` by setting ``complex=True``:"
+      },
+      {
+        "type": "code",
+        "value": "y0_zeros(4, True)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/special/_basic.py",
+  "item_line": 575,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(nt, complex=False)"
+  },
+  "type": "DocBlob"
+}

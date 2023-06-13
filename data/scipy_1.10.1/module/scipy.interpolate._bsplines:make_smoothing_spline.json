@@ -1,0 +1,451 @@
+{
+  "aliases": [
+    "scipy.interpolate.make_smoothing_spline"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A smoothing spline is found as a solution to the regularized weighted linear regression problem:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "\\sum\\limits_{i=1}^n w_i\\lvert y_i - f(x_i) \\rvert^2 +\n\\lambda\\int\\limits_{x_1}^{x_n} (f^{(2)}(u))^2 d u"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where "
+            },
+            {
+              "type": "inlineMath",
+              "value": "f"
+            },
+            {
+              "type": "text",
+              "value": " is a spline function, "
+            },
+            {
+              "type": "inlineMath",
+              "value": "w"
+            },
+            {
+              "type": "text",
+              "value": " is a vector of weights and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\lambda"
+            },
+            {
+              "type": "text",
+              "value": " is a regularization parameter."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If "
+            },
+            {
+              "type": "inlineCode",
+              "value": "lam"
+            },
+            {
+              "type": "text",
+              "value": " is None, we use the GCV criteria to find an optimal regularization parameter, otherwise we solve the regularized weighted linear regression problem with given parameter. The parameter controls the tradeoff in the following way: the larger the parameter becomes, the smoother the function gets."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This algorithm is a clean room reimplementation of the algorithm introduced by Woltring in FORTRAN [2]. The original version cannot be used in SciPy source code because of the license issues. The details of the reimplementation are discussed here (available only in Russian) [4]."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If the vector of weights "
+            },
+            {
+              "type": "inlineCode",
+              "value": "w"
+            },
+            {
+              "type": "text",
+              "value": " is None, we assume that all the points are equal in terms of weights, and vector of weights is vector of ones."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Note that in weighted residual sum of squares, weights are not squared: "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\sum\\limits_{i=1}^n w_i\\lvert y_i - f(x_i) \\rvert^2"
+            },
+            {
+              "type": "text",
+              "value": " while in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "splrep"
+            },
+            {
+              "type": "text",
+              "value": " the sum is built from the squared weights."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In cases when the initial problem is ill-posed (for example, the product "
+            },
+            {
+              "type": "inlineMath",
+              "value": "X^T W X"
+            },
+            {
+              "type": "text",
+              "value": " where "
+            },
+            {
+              "type": "inlineMath",
+              "value": "X"
+            },
+            {
+              "type": "text",
+              "value": " is a design matrix is not a positive defined matrix) a ValueError is raised."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Abscissas."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "array_like, shape (n,)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Ordinates."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "y",
+              "type": "Param",
+              "type_": "array_like, shape (n,)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Vector of weights. Default is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.ones_like(x)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "w",
+              "type": "Param",
+              "type_": "array_like, shape (n,), optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Regularization parameter. If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "lam"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is None, then it is found from the GCV criteria. Default is None."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "lam",
+              "type": "Param",
+              "type_": "float, (:math:`\\lambda \\geq 0`), optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A callable representing a spline in the B-spline basis as a solution of the problem of smoothing splines using the GCV criteria [1] in case "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "lam"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is None, otherwise using the given parameter "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "lam"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "func",
+              "type": "Param",
+              "type_": "a BSpline object."
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute the (coefficients of) smoothing cubic spline function using "
+            },
+            {
+              "type": "inlineCode",
+              "value": "lam"
+            },
+            {
+              "type": "text",
+              "value": " to control the tradeoff between the amount of smoothness of the curve and its proximity to the data. In case "
+            },
+            {
+              "type": "inlineCode",
+              "value": "lam"
+            },
+            {
+              "type": "text",
+              "value": " is None, using the GCV criteria [1] to find it."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Generate some noisy data"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nnp.random.seed(1234)\nn = 200\ndef func(x):\n   return x**3 + x**2 * np.sin(4 * x)\nx = np.sort(np.random.random_sample(n) * 4 - 2)\ny = func(x) + np.random.normal(scale=1.5, size=n)"
+      },
+      {
+        "type": "text",
+        "value": "Make a smoothing spline function"
+      },
+      {
+        "type": "code",
+        "value": "from scipy.interpolate import make_smoothing_spline\nspl = make_smoothing_spline(x, y)"
+      },
+      {
+        "type": "text",
+        "value": "Plot both"
+      },
+      {
+        "type": "code",
+        "value": "import matplotlib.pyplot as plt\ngrid = np.linspace(x[0], x[-1], 400)\nplt.plot(grid, spl(grid), label='Spline')\nplt.plot(grid, func(grid), label='Original function')\nplt.scatter(x, y, marker='.')\nplt.legend(loc='best')\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.interpolate._bsplines:make_smoothing_spline-0-47a3b0ec.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/interpolate/_bsplines.py",
+  "item_line": 1848,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(x, y, w=None, lam=None)"
+  },
+  "type": "DocBlob"
+}

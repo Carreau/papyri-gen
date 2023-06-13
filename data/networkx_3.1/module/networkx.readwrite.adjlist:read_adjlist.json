@@ -1,0 +1,320 @@
+{
+  "aliases": [
+    "networkx.read_adjlist"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This format does not store graph or node data."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Filename or file handle to read. Filenames ending in .gz or .bz2 will be uncompressed."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "path",
+              "type": "Param",
+              "type_": "string or file"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Graph type to create. If graph instance, then cleared before populated."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "create_using",
+              "type": "Param",
+              "type_": "NetworkX graph constructor, optional (default=nx.Graph)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Convert nodes to this type."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "nodetype",
+              "type": "Param",
+              "type_": "Python type, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Marker for comment lines"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "comments",
+              "type": "Param",
+              "type_": "string, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Separator for node labels.  The default is whitespace."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "delimiter",
+              "type": "Param",
+              "type_": "string, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The graph corresponding to the lines in adjacency list format."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "G: NetworkX graph"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Read graph in adjacency list format from path."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "G = nx.path_graph(4)\nnx.write_adjlist(G, \"test.adjlist\")\nG = nx.read_adjlist(\"test.adjlist\")"
+      },
+      {
+        "type": "text",
+        "value": "The path can be a filehandle or a string with the name of the file. If a\nfilehandle is provided, it has to be opened in 'rb' mode."
+      },
+      {
+        "type": "code",
+        "value": "fh = open(\"test.adjlist\", \"rb\")\nG = nx.read_adjlist(fh)"
+      },
+      {
+        "type": "text",
+        "value": "Filenames ending in .gz or .bz2 will be compressed."
+      },
+      {
+        "type": "code",
+        "value": "nx.write_adjlist(G, \"test.adjlist.gz\")\nG = nx.read_adjlist(\"test.adjlist.gz\")"
+      },
+      {
+        "type": "text",
+        "value": "The optional nodetype is a function to convert node strings to nodetype."
+      },
+      {
+        "type": "text",
+        "value": "For example"
+      },
+      {
+        "type": "code",
+        "value": "G = nx.read_adjlist(\"test.adjlist\", nodetype=int)"
+      },
+      {
+        "type": "text",
+        "value": "will attempt to convert all nodes to integer type."
+      },
+      {
+        "type": "text",
+        "value": "Since nodes must be hashable, the function nodetype must return hashable\ntypes (e.g. int, float, str, frozenset - or tuples of those, etc.)"
+      },
+      {
+        "type": "text",
+        "value": "The optional create_using parameter indicates the type of NetworkX graph\ncreated.  The default is `nx.Graph`, an undirected graph.\nTo read the data as a directed graph use"
+      },
+      {
+        "type": "code",
+        "value": "G = nx.read_adjlist(\"test.adjlist\", create_using=nx.DiGraph)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/readwrite/adjlist.py",
+  "item_line": 225,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Examples",
+    "Notes",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "networkx",
+          "path": "networkx.readwrite.adjlist:write_adjlist",
+          "type": "RefInfo",
+          "version": "3.1"
+        },
+        "type": "Link",
+        "value": "write_adjlist"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(path, comments='#', delimiter=None, create_using=None, nodetype=None, encoding='utf-8')"
+  },
+  "type": "DocBlob"
+}

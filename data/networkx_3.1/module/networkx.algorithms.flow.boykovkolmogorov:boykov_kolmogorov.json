@@ -1,0 +1,764 @@
+{
+  "aliases": [
+    "networkx.flow.boykov_kolmogorov"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function returns the residual network resulting after computing the maximum flow. See below for details about the conventions NetworkX uses for defining residual networks."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This algorithm has worse case complexity $O(n^2 m "
+            },
+            {
+              "type": "SubstitutionRef",
+              "value": "|C|"
+            },
+            {
+              "type": "text",
+              "value": ")$ for $n$ nodes, $m$ edges, and $|C|$ the cost of the minimum cut . This implementation uses the marking heuristic defined in  which improves its running time in many practical problems."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The residual network "
+            },
+            {
+              "type": "inlineCode",
+              "value": "R"
+            },
+            {
+              "type": "text",
+              "value": " from an input graph "
+            },
+            {
+              "type": "inlineCode",
+              "value": "G"
+            },
+            {
+              "type": "text",
+              "value": " has the same nodes as "
+            },
+            {
+              "type": "inlineCode",
+              "value": "G"
+            },
+            {
+              "type": "text",
+              "value": ". "
+            },
+            {
+              "type": "inlineCode",
+              "value": "R"
+            },
+            {
+              "type": "text",
+              "value": " is a DiGraph that contains a pair of edges "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(u, v)"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(v, u)"
+            },
+            {
+              "type": "text",
+              "value": " iff "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(u, v)"
+            },
+            {
+              "type": "text",
+              "value": " is not a self-loop, and at least one of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(u, v)"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(v, u)"
+            },
+            {
+              "type": "text",
+              "value": " exists in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "G"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For each edge "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(u, v)"
+            },
+            {
+              "type": "text",
+              "value": " in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "R"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "R[u][v]['capacity']"
+            },
+            {
+              "type": "text",
+              "value": " is equal to the capacity of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(u, v)"
+            },
+            {
+              "type": "text",
+              "value": " in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "G"
+            },
+            {
+              "type": "text",
+              "value": " if it exists in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "G"
+            },
+            {
+              "type": "text",
+              "value": " or zero otherwise. If the capacity is infinite, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "R[u][v]['capacity']"
+            },
+            {
+              "type": "text",
+              "value": " will have a high arbitrary finite value that does not affect the solution of the problem. This value is stored in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "R.graph['inf']"
+            },
+            {
+              "type": "text",
+              "value": ". For each edge "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(u, v)"
+            },
+            {
+              "type": "text",
+              "value": " in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "R"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "R[u][v]['flow']"
+            },
+            {
+              "type": "text",
+              "value": " represents the flow function of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(u, v)"
+            },
+            {
+              "type": "text",
+              "value": " and satisfies "
+            },
+            {
+              "type": "inlineCode",
+              "value": "R[u][v]['flow'] == -R[v][u]['flow']"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The flow value, defined as the total flow into "
+            },
+            {
+              "type": "inlineCode",
+              "value": "t"
+            },
+            {
+              "type": "text",
+              "value": ", the sink, is stored in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "R.graph['flow_value']"
+            },
+            {
+              "type": "text",
+              "value": ". If "
+            },
+            {
+              "type": "inlineCode",
+              "value": "cutoff"
+            },
+            {
+              "type": "text",
+              "value": " is not specified, reachability to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "t"
+            },
+            {
+              "type": "text",
+              "value": " using only edges "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(u, v)"
+            },
+            {
+              "type": "text",
+              "value": " such that "
+            },
+            {
+              "type": "inlineCode",
+              "value": "R[u][v]['flow'] < R[u][v]['capacity']"
+            },
+            {
+              "type": "text",
+              "value": " induces a minimum "
+            },
+            {
+              "type": "inlineCode",
+              "value": "s"
+            },
+            {
+              "type": "text",
+              "value": "-"
+            },
+            {
+              "type": "inlineCode",
+              "value": "t"
+            },
+            {
+              "type": "text",
+              "value": " cut."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Edges of the graph are expected to have an attribute called 'capacity'. If this attribute is not present, the edge is considered to have infinite capacity."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "G",
+              "type": "Param",
+              "type_": "NetworkX graph"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Source node for the flow."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "s",
+              "type": "Param",
+              "type_": "node"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Sink node for the flow."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "t",
+              "type": "Param",
+              "type_": "node"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Edges of the graph G are expected to have an attribute capacity that indicates how much flow the edge can support. If this attribute is not present, the edge is considered to have infinite capacity. Default value: 'capacity'."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "capacity",
+              "type": "Param",
+              "type_": "string"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Residual network on which the algorithm is to be executed. If None, a new residual network is created. Default value: None."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "residual",
+              "type": "Param",
+              "type_": "NetworkX graph"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True compute only the value of the maximum flow. This parameter will be ignored by this algorithm because it is not applicable."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "value_only",
+              "type": "Param",
+              "type_": "bool"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If specified, the algorithm will terminate when the flow value reaches or exceeds the cutoff. In this case, it may be unable to immediately determine a minimum cut. Default value: None."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "cutoff",
+              "type": "Param",
+              "type_": "integer, float"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The algorithm does not support MultiGraph and MultiDiGraph. If the input graph is an instance of one of these two classes, a NetworkXError is raised."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "NetworkXError"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If the graph has a path of infinite capacity, the value of a feasible flow on the graph is unbounded above and the function raises a NetworkXUnbounded."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "NetworkXUnbounded"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Residual network after computing the maximum flow."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "R",
+              "type": "Param",
+              "type_": "NetworkX DiGraph"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Find a maximum single-commodity flow using Boykov-Kolmogorov algorithm."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from networkx.algorithms.flow import boykov_kolmogorov"
+      },
+      {
+        "type": "text",
+        "value": "The functions that implement flow algorithms and output a residual\nnetwork, such as this one, are not imported to the base NetworkX\nnamespace, so you have to explicitly import them from the flow package."
+      },
+      {
+        "type": "code",
+        "value": "G = nx.DiGraph()\nG.add_edge(\"x\", \"a\", capacity=3.0)\nG.add_edge(\"x\", \"b\", capacity=1.0)\nG.add_edge(\"a\", \"c\", capacity=3.0)\nG.add_edge(\"b\", \"c\", capacity=5.0)\nG.add_edge(\"b\", \"d\", capacity=4.0)\nG.add_edge(\"d\", \"e\", capacity=2.0)\nG.add_edge(\"c\", \"y\", capacity=2.0)\nG.add_edge(\"e\", \"y\", capacity=3.0)\nR = boykov_kolmogorov(G, \"x\", \"y\")\nflow_value = nx.maximum_flow_value(G, \"x\", \"y\")\nflow_value"
+      },
+      {
+        "type": "code",
+        "value": "flow_value == R.graph[\"flow_value\"]"
+      },
+      {
+        "type": "text",
+        "value": "A nice feature of the Boykov-Kolmogorov algorithm is that a partition\nof the nodes that defines a minimum cut can be easily computed based\non the search trees used during the algorithm. These trees are stored\nin the graph attribute `trees` of the residual network."
+      },
+      {
+        "type": "code",
+        "value": "source_tree, target_tree = R.graph[\"trees\"]\npartition = (set(source_tree), set(G) - set(source_tree))"
+      },
+      {
+        "type": "text",
+        "value": "Or equivalently:"
+      },
+      {
+        "type": "code",
+        "value": "partition = (set(G) - set(target_tree), set(target_tree))"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/algorithms/flow/boykovkolmogorov.py",
+  "item_line": 13,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "See Also",
+    "Notes",
+    "Examples",
+    "References"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "meth"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "maximum_flow",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "maximum_flow"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "meth"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "minimum_cut",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "minimum_cut"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "meth"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "preflow_push",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "preflow_push"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "meth"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "shortest_augmenting_path",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "shortest_augmenting_path"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(G, s, t, capacity='capacity', residual=None, value_only=False, cutoff=None)"
+  },
+  "type": "DocBlob"
+}

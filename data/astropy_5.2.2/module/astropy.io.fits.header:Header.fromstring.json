@@ -1,0 +1,233 @@
+{
+  "aliases": [
+    "astropy.io.fits.Header.fromstring"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "String or bytes containing the entire header.  In the case of bytes they will be decoded using latin-1 (only plain ASCII characters are allowed in FITS headers but latin-1 allows us to retain any invalid bytes that might appear in malformatted FITS files)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "data",
+              "type": "Param",
+              "type_": "str or bytes"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The string separating cards from each other, such as a newline.  By default there is no card separator (as is the case in a raw FITS file).  In general this is only used in cases where a header was printed as text (e.g. with newlines after each card) and you want to create a new "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "Header"
+                    },
+                    {
+                      "type": "text",
+                      "value": " from it by copy/pasting."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sep",
+              "type": "Param",
+              "type_": "str, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A new "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "Header"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instance."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "`Header`"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Creates an HDU header from a byte string containing the entire header data."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from astropy.io.fits import Header\nhdr = Header({'SIMPLE': True})\nHeader.fromstring(hdr.tostring()) == hdr"
+      },
+      {
+        "type": "text",
+        "value": "If you want to create a `Header` from printed text it's not necessary\nto have the exact binary structure as it would appear in a FITS file,\nwith the full 80 byte card length.  Rather, each \"card\" can end in a\nnewline and does not have to be padded out to a full card length as\nlong as it \"looks like\" a FITS header:"
+      },
+      {
+        "type": "code",
+        "value": "hdr = Header.fromstring(\"\"\"\\\nSIMPLE  =                    T / conforms to FITS standard\nBITPIX  =                    8 / array data type\nNAXIS   =                    0 / number of array dimensions\nEXTEND  =                    T\n\"\"\", sep='\\n')\nhdr['SIMPLE']"
+      },
+      {
+        "type": "code",
+        "value": "hdr['BITPIX']"
+      },
+      {
+        "type": "code",
+        "value": "len(hdr)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/astropy/io/fits/header.py",
+  "item_line": 354,
+  "item_type": "<class 'classmethod'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Examples",
+    "Returns"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

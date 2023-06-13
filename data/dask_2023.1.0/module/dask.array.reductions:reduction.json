@@ -1,0 +1,786 @@
+{
+  "aliases": [
+    "dask.array.reduction"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Data being reduced along one or more axes"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x: Array",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "First function to be executed when resolving the dask graph. This function is applied in parallel to all original chunks of x. See below for function parameters."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "chunk: callable(x_chunk, [weights_chunk=None], axis, keepdims)",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Function used for intermediate recursive aggregation (see split_every below). If omitted, it defaults to aggregate. If the reduction can be performed in less than 3 steps, it will not be invoked at all."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "combine: callable(x_chunk, axis, keepdims), optional",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Last function to be executed when resolving the dask graph, producing the final output. It is always invoked, even when the reduced Array counts a single chunk along the reduced axes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "aggregate: callable(x_chunk, axis, keepdims)",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Axis or axes to aggregate upon. If omitted, aggregate along all axes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "axis: int or sequence of ints, optional",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether the reduction function should preserve the reduced axes, leaving them at size "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "output_size"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", or remove them."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "keepdims: boolean, optional",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "data type of output. This argument was previously optional, but leaving as "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will now raise an exception."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dtype: np.dtype",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Determines the depth of the recursive aggregation. If set to or more than the number of input chunks, the aggregation will be performed in two steps, one "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "chunk"
+                    },
+                    {
+                      "type": "text",
+                      "value": " function per input chunk and a single "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "aggregate"
+                    },
+                    {
+                      "type": "text",
+                      "value": " function at the end. If set to less than that, an intermediate "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "combine"
+                    },
+                    {
+                      "type": "text",
+                      "value": " function will be used, so that any one "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "combine"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "aggregate"
+                    },
+                    {
+                      "type": "text",
+                      "value": " function has no more than "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "split_every"
+                    },
+                    {
+                      "type": "text",
+                      "value": " inputs. The depth of the aggregation graph will be "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "log_{split_every}(input chunks along reduced axes)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Setting to a low value can reduce cache size and network transfers, at the cost of more CPU and a larger dask graph."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Omit to let dask heuristically decide a good default. A default can also be set globally with the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "split_every"
+                    },
+                    {
+                      "type": "text",
+                      "value": " key in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "dask.config"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "split_every: int >= 2 or dict(axis: int), optional",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Prefix of the keys of the intermediate and output nodes. If omitted it defaults to the function names."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "name: str, optional",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Another dask array whose contents will be replaced. Omit to create a new one. Note that, unlike in numpy, this setting gives no performance benefits whatsoever, but can still be useful  if one needs to preserve the references to a previously existing Array."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "out: Array, optional",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True (the default), the outputs of the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "chunk"
+                    },
+                    {
+                      "type": "text",
+                      "value": "/"
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "combine"
+                    },
+                    {
+                      "type": "text",
+                      "value": " functions are concatenated into a single np.array before being passed to the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "combine"
+                    },
+                    {
+                      "type": "text",
+                      "value": "/"
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "aggregate"
+                    },
+                    {
+                      "type": "text",
+                      "value": " functions. If False, the input of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "combine"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "aggregate"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will be either a list of the raw outputs of the previous step or a single output, and the function will have to concatenate it itself. It can be useful to set this to False if the chunk and/or combine steps do not produce np.arrays."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "concatenate: bool, optional",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Size of the output of the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "aggregate"
+                    },
+                    {
+                      "type": "text",
+                      "value": " function along the reduced axes. Ignored if keepdims is False."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "output_size: int >= 1, optional",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Weights to be used in the reduction of "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Will be automatically broadcast to the shape of "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", and so must have a compatible shape. For instance, if "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " has shape "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(3, 4)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " then acceptable shapes for "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "weights",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "weights"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(3, 4)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(4,)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(3, 1)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(1, 1)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(1)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "()"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "weights",
+              "type": "Param",
+              "type_": "array_like, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "dask array"
+            },
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "**Function Parameters**"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Individual input chunk. For "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "chunk"
+                    },
+                    {
+                      "type": "text",
+                      "value": " functions, it is one of the original chunks of x. For "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "combine"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "aggregate"
+                    },
+                    {
+                      "type": "text",
+                      "value": " functions, it's the concatenation of the outputs produced by the previous "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "chunk"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "combine"
+                    },
+                    {
+                      "type": "text",
+                      "value": " functions. If concatenate=False, it's a list of the raw outputs from the previous functions."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "x_chunk: numpy.ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Only applicable to the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "chunk"
+                    },
+                    {
+                      "type": "text",
+                      "value": " function. Weights, with the same shape as "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "x_chunk"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", to be applied during the reduction of the individual input chunk. If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "weights"
+                    },
+                    {
+                      "type": "text",
+                      "value": " have not been provided then the function may omit this parameter. When "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "weights_chunk"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is included then it must occur immediately after the "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "x_chunk"
+                    },
+                    {
+                      "type": "text",
+                      "value": " parameter, and must also have a default value for cases when "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "weights"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are not provided."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "weights_chunk: numpy.ndarray, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Normalized list of axes to reduce upon, e.g. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(0, )"
+                    },
+                    {
+                      "type": "text",
+                      "value": " Scalar, negative, and None axes have been normalized away. Note that some numpy reduction functions cannot reduce along multiple axes at once and strictly require an int in input. Such functions have to be wrapped to cope."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "axis: tuple"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether the reduction function should preserve the reduced axes or remove them."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "keepdims: bool"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "General version of reductions"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dask/array/reductions.py",
+  "item_line": 63,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(x, chunk, aggregate, axis=None, keepdims=False, dtype=None, split_every=None, combine=None, name=None, out=None, concatenate=True, output_size=1, meta=None, weights=None)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,296 @@
+{
+  "aliases": [
+    "distributed.Client.replicate"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Copy data onto many workers.  This helps to broadcast frequently accessed data and can improve resilience."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This performs a tree copy of the data throughout the network individually on each piece of data.  This operation blocks until complete.  It does not guarantee replication of data to future workers."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "note "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "This method is incompatible with the Active Memory Manager's "
+                },
+                {
+                  "domain": null,
+                  "role": "ref",
+                  "type": "Directive",
+                  "value": "ReduceReplicas"
+                },
+                {
+                  "type": "text",
+                  "value": " policy. If you wish to use it, you must first disable the policy or disable the AMM entirely."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Futures we wish to replicate"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "futures",
+              "type": "Param",
+              "type_": "list of futures"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of processes on the cluster on which to replicate the data. Defaults to all."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "n",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Workers on which we want to restrict the replication. Defaults to all."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "workers",
+              "type": "Param",
+              "type_": "list of worker addresses"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The number of workers that can copy data in each generation"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "branching_factor",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Optional keyword arguments for the remote function"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "**kwargs",
+              "type": "Param",
+              "type_": "dict"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Set replication of futures within network"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "x = c.submit(func, *args)  # doctest: +SKIP\nc.replicate([x])  # send to all workers  # doctest: +SKIP\nc.replicate([x], n=3)  # send to three workers  # doctest: +SKIP\nc.replicate([x], workers=['alice', 'bob'])  # send to specific  # doctest: +SKIP\nc.replicate([x], n=1, workers=['alice', 'bob'])  # send to one of specific workers  # doctest: +SKIP\nc.replicate([x], n=1)  # reduce replications # doctest: +SKIP"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/distributed/client.py",
+  "item_line": 3673,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Examples",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "distributed",
+          "path": "distributed.client:Client.rebalance",
+          "type": "RefInfo",
+          "version": "2023.1.0"
+        },
+        "type": "Link",
+        "value": "Client.rebalance"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, futures, n=None, workers=None, branching_factor=2, **kwargs)"
+  },
+  "type": "DocBlob"
+}

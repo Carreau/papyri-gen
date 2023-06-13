@@ -1,0 +1,492 @@
+{
+  "aliases": [
+    "scipy.linalg.matmul_toeplitz"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function returns the matrix multiplication between a Toeplitz matrix and a dense matrix."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The Toeplitz matrix has constant diagonals, with c as its first column and r as its first row. If r is not given, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "r == conjugate(c)"
+            },
+            {
+              "type": "text",
+              "value": " is assumed."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The Toeplitz matrix is embedded in a circulant matrix and the FFT is used to efficiently calculate the matrix-matrix product."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Because the computation is based on the FFT, integer inputs will result in floating point outputs.  This is unlike NumPy's "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "matmul"
+            },
+            {
+              "type": "text",
+              "value": ", which preserves the data type of the input."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This is partly based on the implementation that can be found in , licensed under the MIT license. More information about the method can be found in reference . References  and  have more reference implementations in Python."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 1.6.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The vector "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "c"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", or a tuple of arrays ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "c"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "r"
+                    },
+                    {
+                      "type": "text",
+                      "value": "). Whatever the actual shape of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "c"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", it will be converted to a 1-D array. If not supplied, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "r = conjugate(c)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is assumed; in this case, if c[0] is real, the Toeplitz matrix is Hermitian. r[0] is ignored; the first row of the Toeplitz matrix is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "[c[0], r[1:]]"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Whatever the actual shape of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "r"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", it will be converted to a 1-D array."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "c_or_cr",
+              "type": "Param",
+              "type_": "array_like or tuple of (array_like, array_like)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Matrix with which to multiply."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "(M,) or (M, K) array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to check that the input matrices contain only finite numbers. Disabling may give a performance gain, but may result in problems (result entirely NaNs) if the inputs do contain infinities or NaNs."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "check_finite",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "To pass to scipy.fft.fft and ifft. Maximum number of workers to use for parallel computation. If negative, the value wraps around from "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "os.cpu_count()"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". See scipy.fft.fft for more details."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "workers",
+              "type": "Param",
+              "type_": "int, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The result of the matrix multiplication "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "T @ x"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Shape of return matches shape of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "T @ x",
+              "type": "Param",
+              "type_": "(M,) or (M, K) ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Efficient Toeplitz Matrix-Matrix Multiplication using FFT"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Multiply the Toeplitz matrix T with matrix x::"
+      },
+      {
+        "type": "text",
+        "value": "        [ 1 -1 -2 -3]       [1 10]\n    T = [ 3  1 -1 -2]   x = [2 11]\n        [ 6  3  1 -1]       [2 11]\n        [10  6  3  1]       [5 19]"
+      },
+      {
+        "type": "text",
+        "value": "To specify the Toeplitz matrix, only the first column and the first\nrow are needed."
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nc = np.array([1, 3, 6, 10])    # First column of T\nr = np.array([1, -1, -2, -3])  # First row of T\nx = np.array([[1, 10], [2, 11], [2, 11], [5, 19]])"
+      },
+      {
+        "type": "code",
+        "value": "from scipy.linalg import toeplitz, matmul_toeplitz\nmatmul_toeplitz((c, r), x)"
+      },
+      {
+        "type": "text",
+        "value": "Check the result by creating the full Toeplitz matrix and\nmultiplying it by ``x``."
+      },
+      {
+        "type": "code",
+        "value": "toeplitz(c, r) @ x"
+      },
+      {
+        "type": "text",
+        "value": "The full matrix is never formed explicitly, so this routine\nis suitable for very large Toeplitz matrices."
+      },
+      {
+        "type": "code",
+        "value": "n = 1000000\nmatmul_toeplitz([1] + [0]*(n-1), np.ones(n))"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/linalg/_basic.py",
+  "item_line": 1664,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Toeplitz matrix"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "toeplitz",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "toeplitz"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Solve a Toeplitz system using Levinson Recursion"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "solve_toeplitz",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "solve_toeplitz"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(c_or_cr, x, check_finite=False, workers=None)"
+  },
+  "type": "DocBlob"
+}

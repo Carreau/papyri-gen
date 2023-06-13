@@ -1,0 +1,287 @@
+{
+  "aliases": [
+    "scipy.io.FortranFile"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "These files are broken up into records of unspecified types. The size of each record is given at the start (although the size of this header is not standard) and the data is written onto disk without any formatting. Fortran compilers supporting the BACKSPACE statement will write a second copy of the size to facilitate backwards seeking."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This class only supports files written with both sizes for the record. It also does not support the subrecords used in Intel and gfortran compilers for records which are greater than 2GB with a 4-byte header."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "An example of an unformatted sequential file in Fortran would be written as      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "OPEN(1, FILE=myfilename, FORM='unformatted')\n\nWRITE(1) myvariable"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Since this is a non-standard file format, whose contents depend on the compiler and the endianness of the machine, caution is advised. Files from gfortran 4.8.0 and gfortran 4.1.2 on x86_64 are known to work."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Consider using Fortran direct-access files or files from the newer Stream I/O, which can be easily read by "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy",
+                "path": "numpy:fromfile",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "numpy.fromfile"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Open file object or filename."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "filename",
+              "type": "Param",
+              "type_": "file or str"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Read-write mode, default is 'r'."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mode",
+              "type": "Param",
+              "type_": "{'r', 'w'}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Data type of the header. Size and endiness must match the input/output file."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "header_dtype",
+              "type": "Param",
+              "type_": "dtype, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A file object for unformatted sequential files from Fortran code."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "To create an unformatted sequential Fortran file:"
+      },
+      {
+        "type": "code",
+        "value": "from scipy.io import FortranFile\nimport numpy as np\nf = FortranFile('test.unf', 'w')\nf.write_record(np.array([1,2,3,4,5], dtype=np.int32))\nf.write_record(np.linspace(0,1,20).reshape((5,4)).T)\nf.close()"
+      },
+      {
+        "type": "text",
+        "value": "To read this file:"
+      },
+      {
+        "type": "code",
+        "value": "f = FortranFile('test.unf', 'r')\nprint(f.read_ints(np.int32))"
+      },
+      {
+        "type": "code",
+        "value": "print(f.read_reals(float).reshape((5,4), order=\"F\"))"
+      },
+      {
+        "type": "code",
+        "value": "f.close()"
+      },
+      {
+        "type": "text",
+        "value": "Or, in Fortran::"
+      },
+      {
+        "type": "text",
+        "value": "    integer :: a(5), i\n    double precision :: b(5,4)\n    open(1, file='test.unf', form='unformatted')\n    read(1) a\n    read(1) b\n    close(1)\n    write(*,*) a\n    do i = 1, 5\n        write(*,*) b(i,:)\n    end do"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/io/_fortran.py",
+  "item_line": 33,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

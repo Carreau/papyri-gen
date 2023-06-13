@@ -1,0 +1,3333 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "args": "numpy",
+          "children": [],
+          "name": "currentmodule",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This NumPy release contains a number of new features that should substantially improve its performance and usefulness, see Highlights below for a summary. The Python versions supported are 3.5-3.7, note that Python 2.7 has been dropped. Python 3.8b2 should work with the released source packages, but there are no future guarantees."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Downstream developers should use Cython >= 0.29.11 for Python 3.8 support and OpenBLAS >= 3.7 (not currently out) to avoid problems on the Skylake architecture. The NumPy wheels on PyPI are built from the OpenBLAS development branch in order to avoid those problems."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": "NumPy 1.17.0 Release Notes",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A new extensible "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "random",
+                        "path": "random",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "random"
+                    },
+                    {
+                      "type": "text",
+                      "value": " module along with four selectable "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "random number\n  generators <random.BitGenerators>"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and improved seeding designed for use in parallel   processes has been added. The currently available bit generators are "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "MT19937\n  <random.mt19937.MT19937>"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "PCG64 <random.pcg64.PCG64>"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "Philox\n  <random.philox.Philox>"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", and "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "SFC64 <random.sfc64.SFC64>"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". See below under   New Features."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "NumPy's "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "FFT <fft>"
+                    },
+                    {
+                      "type": "text",
+                      "value": " implementation was changed from fftpack to pocketfft,   resulting in faster, more accurate transforms and better handling of datasets   of prime length. See below under Improvements."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "New radix sort and timsort sorting methods. It is currently not possible to   choose which will be used. They are hardwired to the datatype and used   when either "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "stable"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "mergesort"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is passed as the method. See below   under Improvements."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Overriding numpy functions is now possible by default,   see "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "__array_function__"
+                    },
+                    {
+                      "type": "text",
+                      "value": " below."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Highlights",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "numpy:errstate",
+                        "path": "numpy:errstate",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "numpy.errstate"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is now also a function decorator"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "New functions",
+      "type": "Section"
+    },
+    {
+      "children": [],
+      "level": 1,
+      "target": null,
+      "title": "Deprecations",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Previously functions in this module would accept "
+            },
+            {
+              "type": "inlineCode",
+              "value": "float"
+            },
+            {
+              "type": "text",
+              "value": " values provided they were integral ("
+            },
+            {
+              "type": "inlineCode",
+              "value": "1.0"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "2.0"
+            },
+            {
+              "type": "text",
+              "value": ", etc). For consistency with the rest of numpy, doing so is now deprecated, and in future will raise a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "TypeError"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Similarly, passing a float like "
+            },
+            {
+              "type": "inlineCode",
+              "value": "0.5"
+            },
+            {
+              "type": "text",
+              "value": " in place of an integer will now raise a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "TypeError"
+            },
+            {
+              "type": "text",
+              "value": " instead of the previous "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ValueError"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "`numpy.polynomial` functions warn when passed ``float`` in place of ``int``",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The internal use of these functions has been refactored and there are better alternatives. Replace "
+            },
+            {
+              "type": "inlineCode",
+              "value": "exec_command"
+            },
+            {
+              "type": "text",
+              "value": " with "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "subprocess:Popen",
+                "path": "subprocess:Popen",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "subprocess.Popen"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "temp_file_name <numpy.distutils.exec_command>"
+            },
+            {
+              "type": "text",
+              "value": " with "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "tempfile:mkstemp",
+                "path": "tempfile:mkstemp",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "tempfile.mkstemp"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Deprecate `numpy.distutils.exec_command` and ``temp_file_name``",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When an array is created from the C-API to wrap a pointer to data, the only indication we have of the read-write nature of the data is the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "writeable"
+            },
+            {
+              "type": "text",
+              "value": " flag set during creation. It is dangerous to force the flag to writeable. In the future it will not be possible to switch the writeable flag to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "True"
+            },
+            {
+              "type": "text",
+              "value": " from python. This deprecation should not affect many users since arrays created in such a manner are very rare in practice and only available through the NumPy C-API."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Writeable flag of C-API wrapped arrays",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The behavior of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy:nonzero",
+                "path": "numpy:nonzero",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "numpy.nonzero"
+            },
+            {
+              "type": "text",
+              "value": " on 0d arrays was surprising, making uses of it almost always incorrect. If the old behavior was intended, it can be preserved without a warning by using "
+            },
+            {
+              "type": "inlineCode",
+              "value": "nonzero(atleast_1d(arr))"
+            },
+            {
+              "type": "text",
+              "value": " instead of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "nonzero(arr)"
+            },
+            {
+              "type": "text",
+              "value": ".  In a future release, it is most likely this will raise a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ValueError"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "`numpy.nonzero` should no longer be called on 0d arrays",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Commonly "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy:broadcast_arrays",
+                "path": "numpy:broadcast_arrays",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "numpy.broadcast_arrays"
+            },
+            {
+              "type": "text",
+              "value": " returns a writeable array with internal overlap, making it unsafe to write to. A future version will set the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "writeable"
+            },
+            {
+              "type": "text",
+              "value": " flag to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "False"
+            },
+            {
+              "type": "text",
+              "value": ", and require users to manually set it to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "True"
+            },
+            {
+              "type": "text",
+              "value": " if they are sure that is what they want to do. Now writing to it will emit a deprecation warning with instructions to set the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "writeable"
+            },
+            {
+              "type": "text",
+              "value": " flag "
+            },
+            {
+              "type": "inlineCode",
+              "value": "True"
+            },
+            {
+              "type": "text",
+              "value": ".  Note that if one were to inspect the flag before setting it, one would find it would already be "
+            },
+            {
+              "type": "inlineCode",
+              "value": "True"
+            },
+            {
+              "type": "text",
+              "value": ".  Explicitly setting it, though, as one will need to do in future versions, clears an internal flag that is used to produce the deprecation warning. To help alleviate confusion, an additional "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "FutureWarning"
+            },
+            {
+              "type": "text",
+              "value": " will be emitted when accessing the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "writeable"
+            },
+            {
+              "type": "text",
+              "value": " flag state to clarify the contradiction."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Note that for the C-side buffer protocol such an array will return a readonly buffer immediately unless a writable buffer is requested. If a writeable buffer is requested a warning will be given. When using cython, the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "const"
+            },
+            {
+              "type": "text",
+              "value": " qualifier should be used with such arrays to avoid the warning (e.g. "
+            },
+            {
+              "type": "inlineCode",
+              "value": "cdef const double[::1] view"
+            },
+            {
+              "type": "text",
+              "value": ")."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Writing to the result of `numpy.broadcast_arrays` will warn",
+      "type": "Section"
+    },
+    {
+      "children": [],
+      "level": 1,
+      "target": null,
+      "title": "Future Changes",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Currently, a field specified as "
+            },
+            {
+              "type": "inlineCode",
+              "value": "[(name, dtype, 1)]"
+            },
+            {
+              "type": "text",
+              "value": " or "
+            },
+            {
+              "type": "inlineCode",
+              "value": "\"1type\""
+            },
+            {
+              "type": "text",
+              "value": " is interpreted as a scalar field (i.e., the same as "
+            },
+            {
+              "type": "inlineCode",
+              "value": "[(name, dtype)]"
+            },
+            {
+              "type": "text",
+              "value": " or "
+            },
+            {
+              "type": "inlineCode",
+              "value": "[(name, dtype, ()]"
+            },
+            {
+              "type": "text",
+              "value": "). This now raises a FutureWarning; in a future version, it will be interpreted as a shape-(1,) field, i.e. the same as "
+            },
+            {
+              "type": "inlineCode",
+              "value": "[(name,\ndtype, (1,))]"
+            },
+            {
+              "type": "text",
+              "value": " or "
+            },
+            {
+              "type": "inlineCode",
+              "value": "\"(1,)type\""
+            },
+            {
+              "type": "text",
+              "value": " (consistently with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "[(name, dtype, n)]"
+            },
+            {
+              "type": "text",
+              "value": " / "
+            },
+            {
+              "type": "inlineCode",
+              "value": "\"ntype\""
+            },
+            {
+              "type": "text",
+              "value": " with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "n>1"
+            },
+            {
+              "type": "text",
+              "value": ", which is already equivalent to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "[(name, dtype,\n(n,)]"
+            },
+            {
+              "type": "text",
+              "value": " / "
+            },
+            {
+              "type": "inlineCode",
+              "value": "\"(n,)type\""
+            },
+            {
+              "type": "text",
+              "value": ")."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Shape-1 fields in dtypes won't be collapsed to scalars in a future version",
+      "type": "Section"
+    },
+    {
+      "children": [],
+      "level": 1,
+      "target": null,
+      "title": "Compatibility notes",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Casting from a different floating point precision to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "float16"
+            },
+            {
+              "type": "text",
+              "value": " used incorrect rounding in some edge cases. This means in rare cases, subnormal results will now be rounded up instead of down, changing the last bit (ULP) of the result."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "``float16`` subnormal rounding",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Starting in version "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "1.12.0"
+            },
+            {
+              "type": "text",
+              "value": ", numpy incorrectly returned a negatively signed zero when using the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "divmod"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "floor_divide"
+            },
+            {
+              "type": "text",
+              "value": " functions when the result was zero. For example     "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> np.zeros(10)//1\narray([-0., -0., -0., -0., -0., -0., -0., -0., -0., -0.])"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "With this release, the result is correctly returned as a positively signed zero     "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> np.zeros(10)//1\narray([0., 0., 0., 0., 0., 0., 0., 0., 0., 0.])"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Signed zero when using divmod",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Returning the mask itself was unsafe, as it could be reshaped in place which would violate expectations of the masked array code. The behavior of "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "mask\n<ma.MaskedArray.mask>"
+            },
+            {
+              "type": "text",
+              "value": " is now consistent with "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "data <ma.MaskedArray.data>"
+            },
+            {
+              "type": "text",
+              "value": ", which also returns a view."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The underlying mask can still be accessed with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "._mask"
+            },
+            {
+              "type": "text",
+              "value": " if it is needed. Tests that contain "
+            },
+            {
+              "type": "inlineCode",
+              "value": "assert x.mask is not y.mask"
+            },
+            {
+              "type": "text",
+              "value": " or similar will need to be updated."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "``MaskedArray.mask`` now returns a view of the mask, not the mask itself",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Looking up "
+            },
+            {
+              "type": "inlineCode",
+              "value": "__buffer__"
+            },
+            {
+              "type": "text",
+              "value": " attribute in "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy:frombuffer",
+                "path": "numpy:frombuffer",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "numpy.frombuffer"
+            },
+            {
+              "type": "text",
+              "value": " was undocumented and non-functional. This code was removed. If needed, use "
+            },
+            {
+              "type": "inlineCode",
+              "value": "frombuffer(memoryview(obj), ...)"
+            },
+            {
+              "type": "text",
+              "value": " instead."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Do not lookup ``__buffer__`` attribute in `numpy.frombuffer`",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If the out argument to these functions is provided and has memory overlap with the other arguments, it is now buffered to avoid order-dependent behavior."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "``out`` is buffered for memory overlaps in `take`, `choose`, `put`",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The functions "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "load"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "lib.format.read_array"
+            },
+            {
+              "type": "text",
+              "value": " take an "
+            },
+            {
+              "type": "inlineCode",
+              "value": "allow_pickle"
+            },
+            {
+              "type": "text",
+              "value": " keyword which now defaults to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "False"
+            },
+            {
+              "type": "text",
+              "value": " in response to "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "CVE-2019-6446"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-6446"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "numpy.random",
+          "children": [],
+          "name": "currentmodule",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Unpickling while loading requires explicit opt-in",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Due to bugs in the application of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "log"
+            },
+            {
+              "type": "text",
+              "value": " to random floating point numbers, the stream may change when sampling from "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "~RandomState.beta"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "~RandomState.binomial"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "~RandomState.laplace"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "~RandomState.logistic"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "~RandomState.logseries"
+            },
+            {
+              "type": "text",
+              "value": " or "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "~RandomState.multinomial"
+            },
+            {
+              "type": "text",
+              "value": " if a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "0"
+            },
+            {
+              "type": "text",
+              "value": " is generated in the underlying "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "MT19937"
+            },
+            {
+              "type": "text",
+              "value": " random stream.  There is a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "1"
+            },
+            {
+              "type": "text",
+              "value": " in "
+            },
+            {
+              "type": "inlineMath",
+              "value": "10^{53}"
+            },
+            {
+              "type": "text",
+              "value": " chance of this occurring, so the probability that the stream changes for any given seed is extremely small. If a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "0"
+            },
+            {
+              "type": "text",
+              "value": " is encountered in the underlying generator, then the incorrect value produced (either "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "numpy.inf"
+            },
+            {
+              "type": "text",
+              "value": " or "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "numpy.nan"
+            },
+            {
+              "type": "text",
+              "value": ") is now dropped."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "numpy",
+          "children": [],
+          "name": "currentmodule",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Potential changes to the random stream in old random module",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Previously, the output was squeezed, such that, e.g., input with just a single element would lead to an array scalar being returned, and inputs with shapes such as "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(10, 1)"
+            },
+            {
+              "type": "text",
+              "value": " would yield results that would not broadcast against the input."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Note that we generally recommend the SciPy implementation over the numpy one: it is a proper ufunc written in C, and more than an order of magnitude faster."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "`i0` now always returns a result with the same shape as the input",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Previously, "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "can_cast"
+            },
+            {
+              "type": "text",
+              "value": " returned "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "True"
+            },
+            {
+              "type": "text",
+              "value": " for almost all inputs for "
+            },
+            {
+              "type": "inlineCode",
+              "value": "casting='unsafe'"
+            },
+            {
+              "type": "text",
+              "value": ", even for cases where casting was not possible, such as from a structured dtype to a regular one.  This has been fixed, making it more consistent with actual casting using, e.g., the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": ".astype <ndarray.astype>"
+            },
+            {
+              "type": "text",
+              "value": " method."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "`can_cast` no longer assumes all unsafe casting is allowed",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In rare cases, it was not possible to switch an array from not writeable to writeable, although a base array is writeable. This can happen if an intermediate "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "ndarray.base"
+            },
+            {
+              "type": "text",
+              "value": " object is writeable. Previously, only the deepest base object was considered for this decision. However, in rare cases this object does not have the necessary information. In that case switching to writeable was never allowed. This has now been fixed."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "``ndarray.flags.writeable`` can be switched to true slightly more often",
+      "type": "Section"
+    },
+    {
+      "children": [],
+      "level": 1,
+      "target": null,
+      "title": "C API changes",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Previously these function arguments were declared as the more strict "
+            },
+            {
+              "type": "inlineCode",
+              "value": "npy_intp*"
+            },
+            {
+              "type": "text",
+              "value": ", which prevented the caller passing constant data. This change is backwards compatible, but now allows code like      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "npy_intp const fixed_dims[] = {1, 2, 3};\n// no longer complains that the const-qualifier is discarded\nnpy_intp size = PyArray_MultiplyList(fixed_dims, 3);"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "dimension or stride input arguments are now passed by ``npy_intp const*``",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "args": "numpy.random",
+          "children": [],
+          "name": "currentmodule",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "New Features",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A new extensible "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy",
+                "path": "numpy.random",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "numpy.random"
+            },
+            {
+              "type": "text",
+              "value": " module along with four selectable random number generators and improved seeding designed for use in parallel processes has been added. The currently available "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "Bit Generators"
+            },
+            {
+              "type": "text",
+              "value": " are "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "~mt19937.MT19937"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "~pcg64.PCG64"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "~philox.Philox"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "~sfc64.SFC64"
+            },
+            {
+              "type": "text",
+              "value": ". "
+            },
+            {
+              "type": "inlineCode",
+              "value": "PCG64"
+            },
+            {
+              "type": "text",
+              "value": " is the new default while "
+            },
+            {
+              "type": "inlineCode",
+              "value": "MT19937"
+            },
+            {
+              "type": "text",
+              "value": " is retained for backwards compatibility. Note that the legacy random module is unchanged and is now frozen, your current results will not change. More information is available in the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "API change description <new-or-different>"
+            },
+            {
+              "type": "text",
+              "value": " and in the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "top-level view\n<numpy.random>"
+            },
+            {
+              "type": "text",
+              "value": " documentation."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "numpy",
+          "children": [],
+          "name": "currentmodule",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "New extensible `numpy.random` module with selectable random number generators",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Support for building NumPy with the libFLAME linear algebra package as the LAPACK, implementation, see "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "libFLAME"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://www.cs.utexas.edu/~flame/web/libFLAME.html"
+            },
+            {
+              "type": "text",
+              "value": " for details."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "libFLAME",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "distutils",
+                "path": "distutils",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "distutils"
+            },
+            {
+              "type": "text",
+              "value": " now uses an environment variable, comma-separated and case insensitive, to determine the detection order for BLAS libraries. By default "
+            },
+            {
+              "type": "inlineCode",
+              "value": "NPY_BLAS_ORDER=mkl,blis,openblas,atlas,accelerate,blas"
+            },
+            {
+              "type": "text",
+              "value": ". However, to force the use of OpenBLAS simply do     "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "NPY_BLAS_ORDER=openblas python setup.py build"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "which forces the use of OpenBLAS. This may be helpful for users which have a MKL installation but wishes to try out different implementations."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "User-defined BLAS detection order",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "inlineCode",
+              "value": "numpy.distutils"
+            },
+            {
+              "type": "text",
+              "value": " now uses an environment variable, comma-separated and case insensitive, to determine the detection order for LAPACK libraries. By default "
+            },
+            {
+              "type": "inlineCode",
+              "value": "NPY_LAPACK_ORDER=mkl,openblas,flame,atlas,accelerate,lapack"
+            },
+            {
+              "type": "text",
+              "value": ". However, to force the use of OpenBLAS simply do     "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "NPY_LAPACK_ORDER=openblas python setup.py build"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "which forces the use of OpenBLAS. This may be helpful for users which have a MKL installation but wishes to try out different implementations."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "User-defined LAPACK detection order",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "ufunc.reduce"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "sum"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "prod"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "min"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "max"
+            },
+            {
+              "type": "text",
+              "value": " all now accept a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "where"
+            },
+            {
+              "type": "text",
+              "value": " keyword argument, which can be used to tell which elements to include in the reduction.  For reductions that do not have an identity, it is necessary to also pass in an initial value (e.g., "
+            },
+            {
+              "type": "inlineCode",
+              "value": "initial=np.inf"
+            },
+            {
+              "type": "text",
+              "value": " for "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "min"
+            },
+            {
+              "type": "text",
+              "value": ").  For instance, the equivalent of "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "nansum"
+            },
+            {
+              "type": "text",
+              "value": " would be "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.sum(a, where=~np.isnan(a))"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "`ufunc.reduce` and related functions now accept a ``where`` mask",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Both radix sort and timsort have been implemented and are now used in place of mergesort. Due to the need to maintain backward compatibility, the sorting "
+            },
+            {
+              "type": "inlineCode",
+              "value": "kind"
+            },
+            {
+              "type": "text",
+              "value": " options "
+            },
+            {
+              "type": "inlineCode",
+              "value": "\"stable\""
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "\"mergesort\""
+            },
+            {
+              "type": "text",
+              "value": " have been made aliases of each other with the actual sort implementation depending on the array type. Radix sort is used for small integer types of 16 bits or less and timsort for the remaining types.  Timsort features improved performance on data containing already or nearly sorted data and performs like mergesort on random data and requires "
+            },
+            {
+              "type": "inlineMath",
+              "value": "O(n/2)"
+            },
+            {
+              "type": "text",
+              "value": " working space.  Details of the timsort algorithm can be found at "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "CPython listsort.txt"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/python/cpython/blob/3.7/Objects/listsort.txt"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Timsort and radix sort have replaced mergesort for stable sorting",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "type": "inlineCode",
+              "value": "order"
+            },
+            {
+              "type": "text",
+              "value": " keyword defaults to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "big"
+            },
+            {
+              "type": "text",
+              "value": ", and will order the "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "bits"
+                }
+              ],
+              "type": "strong"
+            },
+            {
+              "type": "text",
+              "value": " accordingly. For "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'order=big'"
+            },
+            {
+              "type": "text",
+              "value": " 3 will become "
+            },
+            {
+              "type": "inlineCode",
+              "value": "[0, 0, 0, 0, 0, 0, 1, 1]"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "[1, 1, 0, 0, 0, 0, 0, 0]"
+            },
+            {
+              "type": "text",
+              "value": " for "
+            },
+            {
+              "type": "inlineCode",
+              "value": "order=little"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "`packbits` and `unpackbits` accept an ``order`` keyword",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "inlineCode",
+              "value": "count"
+            },
+            {
+              "type": "text",
+              "value": " allows subsetting the number of bits that will be unpacked up-front, rather than reshaping and subsetting later, making the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "packbits"
+            },
+            {
+              "type": "text",
+              "value": " operation invertible, and the unpacking less wasteful. Counts larger than the number of available bits add zero padding. Negative counts trim bits off the end instead of counting from the beginning. None counts implement the existing behavior of unpacking everything."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "`unpackbits` now accepts a ``count`` parameter",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "These functions now accept a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "hermitian"
+            },
+            {
+              "type": "text",
+              "value": " argument, matching the one added to "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "linalg.matrix_rank"
+            },
+            {
+              "type": "text",
+              "value": " in 1.14.0."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "`linalg.svd` and `linalg.pinv` can be faster on hermitian inputs",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The divmod operator now handles two "
+            },
+            {
+              "type": "inlineCode",
+              "value": "timedelta64"
+            },
+            {
+              "type": "text",
+              "value": " operands, with type signature "
+            },
+            {
+              "type": "inlineCode",
+              "value": "mm->qm"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "divmod operation is now supported for two ``timedelta64`` operands",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function now takes an "
+            },
+            {
+              "type": "inlineCode",
+              "value": "offset"
+            },
+            {
+              "type": "text",
+              "value": " keyword argument for binary files, which specifics the offset (in bytes) from the file's current position. Defaults to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "0"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "`fromfile` now takes an ``offset`` argument",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This mode pads an array to a desired shape without initializing the new entries."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "New mode \"empty\" for `pad`",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "empty_like"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "full_like"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "ones_like"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "zeros_like"
+            },
+            {
+              "type": "text",
+              "value": " now accept a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "shape"
+            },
+            {
+              "type": "text",
+              "value": " keyword argument, which can be used to create a new array as the prototype, overriding its shape as well. This is particularly useful when combined with the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "__array_function__"
+            },
+            {
+              "type": "text",
+              "value": " protocol, allowing the creation of new arbitrary-shape arrays from NumPy-like libraries when such an array is used as the prototype."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "`empty_like` and related functions now accept a ``shape`` argument",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This returns a (numerator, denominator) pair, which can be used to construct a "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "fractions:Fraction",
+                "path": "fractions:Fraction",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "fractions.Fraction"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Floating point scalars implement ``as_integer_ratio`` to match the builtin float",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "inlineCode",
+              "value": "arr.dtype[['a', 'b']]"
+            },
+            {
+              "type": "text",
+              "value": " now returns a dtype that is equivalent to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "arr[['a', 'b']].dtype"
+            },
+            {
+              "type": "text",
+              "value": ", for consistency with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "arr.dtype['a'] == arr['a'].dtype"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Like the dtype of structured arrays indexed with a list of fields, this dtype has the same "
+            },
+            {
+              "type": "inlineCode",
+              "value": "itemsize"
+            },
+            {
+              "type": "text",
+              "value": " as the original, but only keeps a subset of the fields."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This means that "
+            },
+            {
+              "type": "inlineCode",
+              "value": "arr[['a', 'b']]"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "arr.view(arr.dtype[['a', 'b']])"
+            },
+            {
+              "type": "text",
+              "value": " are equivalent."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Structured ``dtype`` objects can be indexed with multiple fields names",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A new format version of 3.0 has been introduced, which enables structured types with non-latin1 field names. This is used automatically when needed."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "``.npy`` files support unicode field names",
+      "type": "Section"
+    },
+    {
+      "children": [],
+      "level": 1,
+      "target": null,
+      "title": "Improvements",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Error messages from array comparison tests such as "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "testing.assert_allclose"
+            },
+            {
+              "type": "text",
+              "value": " now include \"max absolute difference\" and \"max relative difference,\" in addition to the previous \"mismatch\" percentage. This information makes it easier to update absolute and relative error tolerances."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Array comparison assertions include maximum differences",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Both implementations have the same ancestor (Fortran77 FFTPACK by Paul N. Swarztrauber), but pocketfft contains additional modifications which improve both accuracy and performance in some circumstances. For FFT lengths containing large prime factors, pocketfft uses Bluestein's algorithm, which maintains "
+            },
+            {
+              "type": "inlineMath",
+              "value": "O(N log N)"
+            },
+            {
+              "type": "text",
+              "value": " run time complexity instead of deteriorating towards "
+            },
+            {
+              "type": "inlineMath",
+              "value": "O(N*N)"
+            },
+            {
+              "type": "text",
+              "value": " for prime lengths. Also, accuracy for real valued FFTs with near prime lengths has improved and is on par with complex valued FFTs."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Replacement of the fftpack based `fft` module by the pocketfft library",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A new "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy",
+                "path": "numpy.ctypeslib:as_ctypes_type",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "numpy.ctypeslib.as_ctypes_type"
+            },
+            {
+              "type": "text",
+              "value": " function has been added, which can be used to converts a "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "dtype"
+            },
+            {
+              "type": "text",
+              "value": " into a best-guess "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "ctypes",
+                "path": "ctypes",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "ctypes"
+            },
+            {
+              "type": "text",
+              "value": " type. Thanks to this new function, "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy",
+                "path": "numpy.ctypeslib:as_ctypes",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "numpy.ctypeslib.as_ctypes"
+            },
+            {
+              "type": "text",
+              "value": " now supports a much wider range of array types, including structures, booleans, and integers of non-native endianness."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Further improvements to ``ctypes`` support in `numpy.ctypeslib`",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Currently, if you have a function like      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "def foo():\n    pass"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "and you want to wrap the whole thing in "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "errstate"
+            },
+            {
+              "type": "text",
+              "value": ", you have to rewrite it like so      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "def foo():\n    with np.errstate(...):\n        pass"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "but with this change, you can do      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "@np.errstate(...)\ndef foo():\n    pass"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "thereby saving a level of indentation"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "`numpy.errstate` is now also a function decorator",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "float32 implementation of "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "exp"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "log"
+            },
+            {
+              "type": "text",
+              "value": " now benefit from AVX2/AVX512 instruction set which are detected during runtime. "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "exp"
+            },
+            {
+              "type": "text",
+              "value": " has a max ulp error of 2.52 and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "log"
+            },
+            {
+              "type": "text",
+              "value": " has a max ulp error or 3.83."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "`numpy.exp` and `numpy.log` speed up for float32 implementation",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The performance of the function has been improved for most cases by filling in a preallocated array with the desired padded shape instead of using concatenation."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Improve performance of `numpy.pad`",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In some cases where "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "interp"
+            },
+            {
+              "type": "text",
+              "value": " would previously return "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "nan"
+            },
+            {
+              "type": "text",
+              "value": ", it now returns an appropriate infinity."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "`numpy.interp` handles infinities more robustly",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "fromfile"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "ndarray.ndarray.tofile"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "ndarray.dump"
+            },
+            {
+              "type": "text",
+              "value": " now support the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "pathlib:Path",
+                "path": "pathlib:Path",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "pathlib.Path"
+            },
+            {
+              "type": "text",
+              "value": " type for the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "file"
+            },
+            {
+              "type": "text",
+              "value": "/"
+            },
+            {
+              "type": "inlineCode",
+              "value": "fid"
+            },
+            {
+              "type": "text",
+              "value": " parameter."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Pathlib support for `fromfile`, `tofile` and `ndarray.dump`",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The boolean and integer types are incapable of storing "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "nan"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "inf"
+            },
+            {
+              "type": "text",
+              "value": " values, which allows us to provide specialized ufuncs that are up to 250x faster than the previous approach."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Specialized `isnan`, `isinf`, and `isfinite` ufuncs for bool and int types",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Previously, "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "isfinite"
+            },
+            {
+              "type": "text",
+              "value": " used to raise a "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "TypeError"
+            },
+            {
+              "type": "text",
+              "value": " on being used on these two types."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "`isfinite` supports ``datetime64`` and ``timedelta64`` types",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "nan_to_num"
+            },
+            {
+              "type": "text",
+              "value": " now accepts keywords "
+            },
+            {
+              "type": "inlineCode",
+              "value": "nan"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "posinf"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "neginf"
+            },
+            {
+              "type": "text",
+              "value": " allowing the user to define the value to replace the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "nan"
+            },
+            {
+              "type": "text",
+              "value": ", positive and negative "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.inf"
+            },
+            {
+              "type": "text",
+              "value": " values respectively."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "New keywords added to `nan_to_num`",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Often the cause of a MemoryError is incorrect broadcasting, which results in a very large and incorrect shape. The message of the error now includes this shape to help diagnose the cause of failure."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "MemoryErrors caused by allocated overly large arrays are more descriptive",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "These ufuncs now call the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "__floor__"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "__ceil__"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "__trunc__"
+            },
+            {
+              "type": "text",
+              "value": " methods when called on object arrays, making them compatible with "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "decimal:Decimal",
+                "path": "decimal:Decimal",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "decimal.Decimal"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "fractions:Fraction",
+                "path": "fractions:Fraction",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "fractions.Fraction"
+            },
+            {
+              "type": "text",
+              "value": " objects."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "`floor`, `ceil`, and `trunc` now respect builtin magic methods",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In general, this handles object arrays more gracefully, and avoids floating- point operations if exact arithmetic types are used."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "`quantile` now works on `fraction.Fraction` and `decimal.Decimal` objects",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "It is now possible to use "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "matmul"
+            },
+            {
+              "type": "text",
+              "value": " (or the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "@"
+            },
+            {
+              "type": "text",
+              "value": " operator) with object arrays. For instance, it is now possible to do      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "from fractions import Fraction\na = np.array([[Fraction(1, 2), Fraction(1, 3)], [Fraction(1, 3), Fraction(1, 2)]])\nb = a @ a"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Support of object arrays in `matmul`",
+      "type": "Section"
+    },
+    {
+      "children": [],
+      "level": 1,
+      "target": null,
+      "title": "Changes",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy:median",
+                "path": "numpy:median",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "numpy.median"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy:percentile",
+                "path": "numpy:percentile",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "numpy.percentile"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy:quantile",
+                "path": "numpy:quantile",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "numpy.quantile"
+            },
+            {
+              "type": "text",
+              "value": " used to emit a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "RuntimeWarning"
+            },
+            {
+              "type": "text",
+              "value": " when encountering an "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "nan"
+            },
+            {
+              "type": "text",
+              "value": ". Since they return the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "nan"
+            },
+            {
+              "type": "text",
+              "value": " value, the warning is redundant and has been removed."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "`median` and `percentile` family of functions no longer warn about ``nan``",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The modulus operation with two "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.timedelta64"
+            },
+            {
+              "type": "text",
+              "value": " operands now returns "
+            },
+            {
+              "type": "inlineCode",
+              "value": "NaT"
+            },
+            {
+              "type": "text",
+              "value": " in the case of division by zero, rather than returning zero"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "``timedelta64 % 0`` behavior adjusted to return ``NaT``",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "NumPy now always checks the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "__array_function__"
+            },
+            {
+              "type": "text",
+              "value": " method to implement overrides of NumPy functions on non-NumPy arrays, as described in "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "NEP 18"
+            },
+            {
+              "type": "text",
+              "value": ". The feature was available for testing with NumPy 1.16 if appropriate environment variables are set, but is now always enabled."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "placeholder": "inline_target",
+                      "type": "Unimplemented",
+                      "value": "_`NEP 18`"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "placeholder": "inline_target",
+                    "type": "Unimplemented",
+                    "value": "_`NEP 18`"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "casting=\"unsafe\""
+                    },
+                    {
+                      "type": "text",
+                      "value": " explicitly will silence this warning."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "* Using \"unsafe\" casting by default when an "
+                  },
+                  {
+                    "type": "inlineCode",
+                    "value": "out"
+                  },
+                  {
+                    "type": "text",
+                    "value": " argument is passed. Using"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            }
+          ],
+          "type": "DefList"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Additionally, there are some corner cases with behavior changes:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Padding "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "max < min"
+                    },
+                    {
+                      "type": "text",
+                      "value": " has changed to be more consistent across dtypes, but"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "should not be relied upon. * Scalar "
+            },
+            {
+              "type": "inlineCode",
+              "value": "min"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "max"
+            },
+            {
+              "type": "text",
+              "value": " take part in promotion rules like they do in all   other ufuncs."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "NumPy functions now always support overrides with ``__array_function__``",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The interface may use an "
+            },
+            {
+              "type": "inlineCode",
+              "value": "offset"
+            },
+            {
+              "type": "text",
+              "value": " value that was mistakenly ignored."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "``__array_interface__`` offset now works as documented",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "savez"
+            },
+            {
+              "type": "text",
+              "value": " was not using the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "force_zip64"
+            },
+            {
+              "type": "text",
+              "value": " flag, which limited the size of the archive to 2GB. But using the flag requires us to use pickle protocol 3 to write "
+            },
+            {
+              "type": "inlineCode",
+              "value": "object"
+            },
+            {
+              "type": "text",
+              "value": " arrays. The protocol used was bumped to 3, meaning the archive will be unreadable by Python2."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Pickle protocol in `savez` set to 3 for ``force zip64`` flag",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "inlineCode",
+              "value": "arr['bad_field']"
+            },
+            {
+              "type": "text",
+              "value": " on a structured type raises "
+            },
+            {
+              "type": "inlineCode",
+              "value": "KeyError"
+            },
+            {
+              "type": "text",
+              "value": ", for consistency with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "dict['bad_field']"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Structured arrays indexed with non-existent fields raise ``KeyError`` not ``ValueError``",
+      "type": "Section"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

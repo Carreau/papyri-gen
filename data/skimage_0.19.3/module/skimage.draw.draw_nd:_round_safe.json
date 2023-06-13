@@ -1,0 +1,268 @@
+{
+  "aliases": [
+    "skimage.draw.draw_nd._round_safe"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When rounding coordinates for "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "skimage",
+                "path": "skimage.draw.draw_nd:line_nd",
+                "type": "RefInfo",
+                "version": "0.19.3"
+              },
+              "type": "Link",
+              "value": "line_nd"
+            },
+            {
+              "type": "text",
+              "value": ", we want coordinates that are less than 1 apart (always the case, by design) to remain less than one apart. However, NumPy rounds values to the nearest "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "even"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " integer, so:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> np.round([0.5, 1.5, 2.5, 3.5, 4.5])\narray([0., 2., 2., 4., 4.])"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "So, for our application, we detect whether the above case occurs, and use "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.floor"
+            },
+            {
+              "type": "text",
+              "value": " if so. It is sufficient to detect that the first coordinate falls on 0.5 and that the second coordinate is 1.0 apart, since we assume by construction that the inter-point distance is less than or equal to 1 and that all successive points are equidistant."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The coordinates array. We assume that all successive values are equidistant ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.all(np.diff(coords) = coords[1] - coords[0])"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") and that this distance is no more than 1 ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.abs(coords[1] - coords[0]) <= 1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "coords",
+              "type": "Param",
+              "type_": "1D array of float"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The array correctly rounded for an indexing operation, such that no successive indices will be more than 1 apart."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "rounded",
+              "type": "Param",
+              "type_": "1D array of int"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Round coords while ensuring successive values are less than 1 apart."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "coords0 = np.array([0.5, 1.25, 2., 2.75, 3.5])\n_round_safe(coords0)"
+      },
+      {
+        "type": "code",
+        "value": "coords1 = np.arange(0.5, 8, 1)\ncoords1"
+      },
+      {
+        "type": "code",
+        "value": "_round_safe(coords1)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/skimage/draw/draw_nd.py",
+  "item_line": 4,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(coords)"
+  },
+  "type": "DocBlob"
+}

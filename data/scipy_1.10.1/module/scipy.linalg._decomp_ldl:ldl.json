@@ -1,0 +1,607 @@
+{
+  "aliases": [
+    "scipy.linalg.ldl"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function returns a block diagonal matrix D consisting blocks of size at most 2x2 and also a possibly permuted unit lower triangular matrix "
+            },
+            {
+              "type": "inlineCode",
+              "value": "L"
+            },
+            {
+              "type": "text",
+              "value": " such that the factorization "
+            },
+            {
+              "type": "inlineCode",
+              "value": "A = L D L^H"
+            },
+            {
+              "type": "text",
+              "value": " or "
+            },
+            {
+              "type": "inlineCode",
+              "value": "A = L D L^T"
+            },
+            {
+              "type": "text",
+              "value": " holds. If "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "lower",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "lower"
+            },
+            {
+              "type": "text",
+              "value": " is False then (again possibly permuted) upper triangular matrices are returned as outer factors."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The permutation array can be used to triangularize the outer factors simply by a row shuffle, i.e., "
+            },
+            {
+              "type": "inlineCode",
+              "value": "lu[perm, :]"
+            },
+            {
+              "type": "text",
+              "value": " is an upper/lower triangular matrix. This is also equivalent to multiplication with a permutation matrix "
+            },
+            {
+              "type": "inlineCode",
+              "value": "P.dot(lu)"
+            },
+            {
+              "type": "text",
+              "value": ", where "
+            },
+            {
+              "type": "inlineCode",
+              "value": "P"
+            },
+            {
+              "type": "text",
+              "value": " is a column-permuted identity matrix "
+            },
+            {
+              "type": "inlineCode",
+              "value": "I[:, perm]"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Depending on the value of the boolean "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "lower",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "lower"
+            },
+            {
+              "type": "text",
+              "value": ", only upper or lower triangular part of the input array is referenced. Hence, a triangular matrix on entry would give the same result as if the full matrix is supplied."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function uses "
+            },
+            {
+              "type": "inlineCode",
+              "value": "?SYTRF"
+            },
+            {
+              "type": "text",
+              "value": " routines for symmetric matrices and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "?HETRF"
+            },
+            {
+              "type": "text",
+              "value": " routines for Hermitian matrices from LAPACK. See  for the algorithm details."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Depending on the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "lower",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "lower"
+            },
+            {
+              "type": "text",
+              "value": " keyword value, only lower or upper triangular part of the input array is referenced. Moreover, this keyword also defines the structure of the outer factors of the factorization."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 1.1.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Square input array"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "A",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This switches between the lower and upper triangular outer factors of the factorization. Lower triangular ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "lower=True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") is the default."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "lower",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "For complex-valued arrays, this defines whether "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "A = A.conj().T"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "A = A.T"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is assumed. For real-valued arrays, this switch has no effect."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "hermitian",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Allow overwriting data in "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "A",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "A"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (may enhance performance). The default is False."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "overwrite_a",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to check that the input matrices contain only finite numbers. Disabling may give a performance gain, but may result in problems (crashes, non-termination) if the inputs do contain infinities or NaNs."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "check_finite",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If input array is not square."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "ValueError"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If a complex-valued array with nonzero imaginary parts on the diagonal is given and hermitian is set to True."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "ComplexWarning"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The (possibly) permuted upper/lower triangular outer factor of the factorization."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "lu",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The block diagonal multiplier of the factorization."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "d",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The row-permutation index array that brings lu into triangular form."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "perm",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Computes the LDLt or Bunch-Kaufman factorization of a symmetric/ hermitian matrix."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Given an upper triangular array ``a`` that represents the full symmetric\narray with its entries, obtain ``l``, 'd' and the permutation vector `perm`:"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.linalg import ldl\na = np.array([[2, -1, 3], [0, 2, 0], [0, 0, 1]])\nlu, d, perm = ldl(a, lower=0) # Use the upper part\nlu"
+      },
+      {
+        "type": "code",
+        "value": "d"
+      },
+      {
+        "type": "code",
+        "value": "perm"
+      },
+      {
+        "type": "code",
+        "value": "lu[perm, :]"
+      },
+      {
+        "type": "code",
+        "value": "lu.dot(d).dot(lu.T)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/linalg/_decomp_ldl.py",
+  "item_line": 12,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "cholesky",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "cholesky"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "lu",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "lu"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(A, lower=True, hermitian=True, overwrite_a=False, check_finite=True)"
+  },
+  "type": "DocBlob"
+}

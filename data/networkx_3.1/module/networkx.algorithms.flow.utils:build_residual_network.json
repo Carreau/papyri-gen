@@ -1,0 +1,406 @@
+{
+  "aliases": [
+    "networkx.flow.build_residual_network"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The residual network "
+            },
+            {
+              "type": "inlineCode",
+              "value": "R"
+            },
+            {
+              "type": "text",
+              "value": " from an input graph "
+            },
+            {
+              "type": "inlineCode",
+              "value": "G"
+            },
+            {
+              "type": "text",
+              "value": " has the same nodes as "
+            },
+            {
+              "type": "inlineCode",
+              "value": "G"
+            },
+            {
+              "type": "text",
+              "value": ". "
+            },
+            {
+              "type": "inlineCode",
+              "value": "R"
+            },
+            {
+              "type": "text",
+              "value": " is a DiGraph that contains a pair of edges "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(u, v)"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(v, u)"
+            },
+            {
+              "type": "text",
+              "value": " iff "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(u, v)"
+            },
+            {
+              "type": "text",
+              "value": " is not a self-loop, and at least one of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(u, v)"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(v, u)"
+            },
+            {
+              "type": "text",
+              "value": " exists in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "G"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For each edge "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(u, v)"
+            },
+            {
+              "type": "text",
+              "value": " in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "R"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "R[u][v]['capacity']"
+            },
+            {
+              "type": "text",
+              "value": " is equal to the capacity of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(u, v)"
+            },
+            {
+              "type": "text",
+              "value": " in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "G"
+            },
+            {
+              "type": "text",
+              "value": " if it exists in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "G"
+            },
+            {
+              "type": "text",
+              "value": " or zero otherwise. If the capacity is infinite, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "R[u][v]['capacity']"
+            },
+            {
+              "type": "text",
+              "value": " will have a high arbitrary finite value that does not affect the solution of the problem. This value is stored in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "R.graph['inf']"
+            },
+            {
+              "type": "text",
+              "value": ". For each edge "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(u, v)"
+            },
+            {
+              "type": "text",
+              "value": " in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "R"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "R[u][v]['flow']"
+            },
+            {
+              "type": "text",
+              "value": " represents the flow function of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(u, v)"
+            },
+            {
+              "type": "text",
+              "value": " and satisfies "
+            },
+            {
+              "type": "inlineCode",
+              "value": "R[u][v]['flow'] == -R[v][u]['flow']"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The flow value, defined as the total flow into "
+            },
+            {
+              "type": "inlineCode",
+              "value": "t"
+            },
+            {
+              "type": "text",
+              "value": ", the sink, is stored in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "R.graph['flow_value']"
+            },
+            {
+              "type": "text",
+              "value": ". If "
+            },
+            {
+              "type": "inlineCode",
+              "value": "cutoff"
+            },
+            {
+              "type": "text",
+              "value": " is not specified, reachability to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "t"
+            },
+            {
+              "type": "text",
+              "value": " using only edges "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(u, v)"
+            },
+            {
+              "type": "text",
+              "value": " such that "
+            },
+            {
+              "type": "inlineCode",
+              "value": "R[u][v]['flow'] < R[u][v]['capacity']"
+            },
+            {
+              "type": "text",
+              "value": " induces a minimum "
+            },
+            {
+              "type": "inlineCode",
+              "value": "s"
+            },
+            {
+              "type": "text",
+              "value": "-"
+            },
+            {
+              "type": "inlineCode",
+              "value": "t"
+            },
+            {
+              "type": "text",
+              "value": " cut."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Build a residual network and initialize a zero flow."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/algorithms/flow/utils.py",
+  "item_line": 75,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(G, capacity)"
+  },
+  "type": "DocBlob"
+}

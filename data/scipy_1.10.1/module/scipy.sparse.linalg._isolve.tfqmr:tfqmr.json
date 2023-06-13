@@ -1,0 +1,561 @@
+{
+  "aliases": [
+    "scipy.sparse.linalg.tfqmr"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The Transpose-Free QMR algorithm is derived from the CGS algorithm. However, unlike CGS, the convergence curves for the TFQMR method is smoothed by computing a quasi minimization of the residual norm. The implementation supports left preconditioner, and the \"residual norm\" to compute in convergence criterion is actually an upper bound on the actual residual norm "
+            },
+            {
+              "type": "inlineCode",
+              "value": "||b - Axk||"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The real or complex N-by-N matrix of the linear system. Alternatively, "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "A",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "A"
+                    },
+                    {
+                      "type": "text",
+                      "value": " can be a linear operator which can produce "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Ax"
+                    },
+                    {
+                      "type": "text",
+                      "value": " using, e.g., "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "scipy.sparse.linalg._interface",
+                        "path": "scipy.sparse.linalg._interface:LinearOperator",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "scipy.sparse.linalg.LinearOperator"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "A",
+              "type": "Param",
+              "type_": "{sparse matrix, ndarray, LinearOperator}"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Right hand side of the linear system. Has shape (N,) or (N,1)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "b",
+              "type": "Param",
+              "type_": "{ndarray}"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Starting guess for the solution."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x0",
+              "type": "Param",
+              "type_": "{ndarray}"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Tolerances for convergence, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "norm(residual) <= max(tol*norm(b-Ax0), atol)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". The default for "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "tol",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "tol"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is 1.0e-5. The default for "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "atol",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "atol"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "tol * norm(b-Ax0)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "warning "
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "The default value for "
+                        },
+                        {
+                          "domain": null,
+                          "role": null,
+                          "type": "Directive",
+                          "value": "atol"
+                        },
+                        {
+                          "type": "text",
+                          "value": " will be changed in a future release. For future compatibility, specify "
+                        },
+                        {
+                          "domain": null,
+                          "role": null,
+                          "type": "Directive",
+                          "value": "atol"
+                        },
+                        {
+                          "type": "text",
+                          "value": " explicitly."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "tol, atol",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum number of iterations.  Iteration will stop after maxiter steps even if the specified tolerance has not been achieved. Default is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "min(10000, ndofs * 10)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ndofs = A.shape[0]"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "maxiter",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Inverse of the preconditioner of A.  M should approximate the inverse of A and be easy to solve for (see Notes).  Effective preconditioning dramatically improves the rate of convergence, which implies that fewer iterations are needed to reach a given error tolerance.  By default, no preconditioner is used."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "M",
+              "type": "Param",
+              "type_": "{sparse matrix, ndarray, LinearOperator}"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "User-supplied function to call after each iteration.  It is called as "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "callback(xk)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", where "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "xk"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the current solution vector."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "callback",
+              "type": "Param",
+              "type_": "function, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Specify "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "show = True"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to show the convergence, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "show = False"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is to close the output of the convergence. Default is "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "show",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The converged solution."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Provides convergence information:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "spread": false,
+                          "type": "listItem"
+                        }
+                      ],
+                      "ordered": false,
+                      "spread": false,
+                      "start": 1,
+                      "type": "list"
+                    }
+                  ],
+                  "type": "blockquote"
+                }
+              ],
+              "param": "info",
+              "type": "Param",
+              "type_": "int"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Use Transpose-Free Quasi-Minimal Residual iteration to solve "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Ax = b"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.sparse import csc_matrix\nfrom scipy.sparse.linalg import tfqmr\nA = csc_matrix([[3, 2, 0], [1, -1, 0], [0, 5, 1]], dtype=float)\nb = np.array([2, 4, -1], dtype=float)\nx, exitCode = tfqmr(A, b)\nprint(exitCode)            # 0 indicates successful convergence"
+      },
+      {
+        "type": "code",
+        "value": "np.allclose(A.dot(x), b)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/sparse/linalg/_isolve/tfqmr.py",
+  "item_line": 8,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(A, b, x0=None, tol=1e-05, maxiter=None, M=None, callback=None, atol=None, show=False)"
+  },
+  "type": "DocBlob"
+}

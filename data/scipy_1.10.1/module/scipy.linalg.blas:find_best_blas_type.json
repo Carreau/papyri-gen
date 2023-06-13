@@ -1,0 +1,266 @@
+{
+  "aliases": [
+    "scipy.linalg.find_best_blas_type"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Arrays are used to determine the optimal prefix of BLAS routines."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Arrays can be given to determine optimal prefix of BLAS routines. If not given, double-precision routines will be used, otherwise the most generic type in arrays will be used."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "arrays",
+              "type": "Param",
+              "type_": "sequence of ndarrays, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Data-type specifier. Not used if "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "arrays",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "arrays"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is non-empty."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dtype",
+              "type": "Param",
+              "type_": "str or dtype, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "BLAS/LAPACK prefix character."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "prefix",
+              "type": "Param",
+              "type_": "str"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Inferred Numpy data type."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dtype",
+              "type": "Param",
+              "type_": "dtype"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to prefer Fortran order routines over C order."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "prefer_fortran",
+              "type": "Param",
+              "type_": "bool"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Find best-matching BLAS/LAPACK type."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nimport scipy.linalg.blas as bla\nrng = np.random.default_rng()\na = rng.random((10,15))\nb = np.asfortranarray(a)  # Change the memory layout order\nbla.find_best_blas_type((a,))"
+      },
+      {
+        "type": "code",
+        "value": "bla.find_best_blas_type((a*1j,))"
+      },
+      {
+        "type": "code",
+        "value": "bla.find_best_blas_type((b,))"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/linalg/blas.py",
+  "item_line": 259,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(arrays=(), dtype=None)"
+  },
+  "type": "DocBlob"
+}

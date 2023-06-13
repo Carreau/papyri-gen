@@ -1,0 +1,352 @@
+{
+  "aliases": [
+    "skimage.restoration._rolling_ball_cy.apply_kernel_nan"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function is the critical piece of code for "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "morphology.rolling_ellipsoid"
+            },
+            {
+              "type": "text",
+              "value": ". It was moved to cython for speed."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A flat view into a padded image, e.g., from "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "numpy.reshape(-1)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "img",
+              "type": "Param",
+              "type_": "(I) ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A flat view into an array containing the intensity difference between ellipsoid[center] and ellipsoid[pos], e.g., from "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "numpy.reshape(-1)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Indicates the difference between the height/intensity of the ellipsoid at position "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(x,y)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and the height/intensity at the center of the kernel."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "intensity_difference",
+              "type": "Param",
+              "type_": "(K) ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A flat view into the output image. Note: does NOT support inplace modification of img."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "out",
+              "type": "Param",
+              "type_": "(I) ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The shape of the unflattened, unpadded image."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "img_shape",
+              "type": "Param",
+              "type_": "(N) ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The shape of the unflattened, padded image."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "padded_img_shape",
+              "type": "Param",
+              "type_": "(N) ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The shape of the unflattened kernel."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "kernel_shape",
+              "type": "Param",
+              "type_": "(N) ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The number of threads used to compute the result. If no value is provided (0, default) fall back to the number of threads that openMP is currently configured to use."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "num_threads",
+              "type": "Param",
+              "type_": "int, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The array passed into "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "out"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", reshaped to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "out_data.shape = img_shape"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (possibly a view) and filled with the estimated background intensity."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "out_data",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Apply a ND kernel to an ND image."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": "<class 'fused_cython_function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "rolling_ball",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "rolling_ball"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

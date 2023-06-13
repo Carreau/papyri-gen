@@ -1,0 +1,428 @@
+{
+  "aliases": [
+    "dask.blockwise._get_coord_mapping"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function handles the high-level logic behind Blockwise graph construction. The output is a tuple containing: The mapping between input and output block coordinates ("
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "coord_maps"
+            },
+            {
+              "type": "text",
+              "value": "), the axes along which to concatenate for each input ("
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "concat_axes"
+            },
+            {
+              "type": "text",
+              "value": "), and the dummy indices needed for broadcasting ("
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "dummies"
+            },
+            {
+              "type": "text",
+              "value": ")."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Used by "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "dask",
+                "path": "dask.blockwise:make_blockwise_graph",
+                "type": "RefInfo",
+                "version": "2023.1.0"
+              },
+              "type": "Link",
+              "value": "make_blockwise_graph"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "dask",
+                "path": "dask.blockwise:Blockwise._cull_dependencies",
+                "type": "RefInfo",
+                "version": "2023.1.0"
+              },
+              "type": "Link",
+              "value": "Blockwise._cull_dependencies"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Mapping between each index specified in "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "argpairs",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "argpairs"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and the number of output blocks for that index. Corresponds to the Blockwise "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "dims",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "dims"
+                    },
+                    {
+                      "type": "text",
+                      "value": " attribute."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dims",
+              "type": "Param",
+              "type_": "dict"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Corresponds to the Blockwise "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "output",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "output"
+                    },
+                    {
+                      "type": "text",
+                      "value": " attribute."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "output",
+              "type": "Param",
+              "type_": "str"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Corresponds to the Blockwise "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "output_indices"
+                    },
+                    {
+                      "type": "text",
+                      "value": " attribute."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "out_indices",
+              "type": "Param",
+              "type_": "tuple"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Corresponds to the Blockwise "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "numblocks",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "numblocks"
+                    },
+                    {
+                      "type": "text",
+                      "value": " attribute."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "numblocks",
+              "type": "Param",
+              "type_": "dict"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Corresponds to the Blockwise "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "indices"
+                    },
+                    {
+                      "type": "text",
+                      "value": " attribute."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "argpairs",
+              "type": "Param",
+              "type_": "tuple"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Corresponds to the Blockwise "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "concatenate",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "concatenate"
+                    },
+                    {
+                      "type": "text",
+                      "value": " attribute."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "concatenate",
+              "type": "Param",
+              "type_": "bool"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Calculate coordinate mapping for graph construction."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dask/blockwise.py",
+  "item_line": 868,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(dims, output, out_indices, numblocks, argpairs, concatenate)"
+  },
+  "type": "DocBlob"
+}

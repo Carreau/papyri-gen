@@ -1,0 +1,734 @@
+{
+  "aliases": [
+    "scipy.spatial.KDTree.count_neighbors"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Count the number of pairs "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(x1,x2)"
+            },
+            {
+              "type": "text",
+              "value": " can be formed, with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "x1"
+            },
+            {
+              "type": "text",
+              "value": " drawn from "
+            },
+            {
+              "type": "inlineCode",
+              "value": "self"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "x2"
+            },
+            {
+              "type": "text",
+              "value": " drawn from "
+            },
+            {
+              "type": "inlineCode",
+              "value": "other"
+            },
+            {
+              "type": "text",
+              "value": ", and where "
+            },
+            {
+              "type": "inlineCode",
+              "value": "distance(x1, x2, p) <= r"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Data points on "
+            },
+            {
+              "type": "inlineCode",
+              "value": "self"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "other"
+            },
+            {
+              "type": "text",
+              "value": " are optionally weighted by the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "weights"
+            },
+            {
+              "type": "text",
+              "value": " argument. (See below)"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This is adapted from the \"two-point correlation\" algorithm described by Gray and Moore .  See notes for further discussion."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Pair-counting is the basic operation used to calculate the two point correlation functions from a data set composed of position of objects."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Two point correlation function measures the clustering of objects and is widely used in cosmology to quantify the large scale structure in our Universe, but it may be useful for data analysis in other fields where self-similar assembly of objects also occur."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The Landy-Szalay estimator for the two point correlation function of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "D"
+            },
+            {
+              "type": "text",
+              "value": " measures the clustering signal in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "D"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For example, given the position of two sets of objects,"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "objects "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "D"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (data) contains the clustering signal, and"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "objects "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "R"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (random) that contains no signal,"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "type": "math",
+          "value": "\\xi(r) = \\frac{<D, D> - 2 f <D, R> + f^2<R, R>}{f^2<R, R>},"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where the brackets represents counting pairs between two data sets in a finite bin around "
+            },
+            {
+              "type": "inlineCode",
+              "value": "r"
+            },
+            {
+              "type": "text",
+              "value": " (distance), corresponding to setting "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "cumulative=False"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "f = float(len(D)) / float(len(R))"
+            },
+            {
+              "type": "text",
+              "value": " is the ratio between number of objects from data and random."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The algorithm implemented here is loosely based on the dual-tree algorithm described in . We switch between two different pair-cumulation scheme depending on the setting of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "cumulative"
+            },
+            {
+              "type": "text",
+              "value": ". The computing time of the method we use when for "
+            },
+            {
+              "type": "inlineCode",
+              "value": "cumulative == False"
+            },
+            {
+              "type": "text",
+              "value": " does not scale with the total number of bins. The algorithm for "
+            },
+            {
+              "type": "inlineCode",
+              "value": "cumulative == True"
+            },
+            {
+              "type": "text",
+              "value": " scales linearly with the number of bins, though it is slightly faster when only 1 or 2 bins are used. ."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "As an extension to the naive pair-counting, weighted pair-counting counts the product of weights instead of number of pairs. Weighted pair-counting is used to estimate marked correlation functions (, section 2.2), or to properly calculate the average of data per distance bin (e.g. , section 2.1 on redshift)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "placeholder": "footnote",
+          "type": "Unimplemented",
+          "value": ".. [1] Gray and Moore,\n       \"N-body problems in statistical learning\",\n       Mining the sky, 2000,\n       https://arxiv.org/abs/astro-ph/0012333"
+        },
+        {
+          "placeholder": "footnote",
+          "type": "Unimplemented",
+          "value": ".. [2] Landy and Szalay,\n       \"Bias and variance of angular correlation functions\",\n       The Astrophysical Journal, 1993,\n       http://adsabs.harvard.edu/abs/1993ApJ...412...64L"
+        },
+        {
+          "placeholder": "footnote",
+          "type": "Unimplemented",
+          "value": ".. [3] Sheth, Connolly and Skibba,\n       \"Marked correlations in galaxy formation models\",\n       Arxiv e-print, 2005,\n       https://arxiv.org/abs/astro-ph/0511773"
+        },
+        {
+          "placeholder": "footnote",
+          "type": "Unimplemented",
+          "value": ".. [4] Hawkins, et al.,\n       \"The 2dF Galaxy Redshift Survey: correlation functions,\n       peculiar velocities and the matter density of the Universe\",\n       Monthly Notices of the Royal Astronomical Society, 2002,\n       http://adsabs.harvard.edu/abs/2003MNRAS.346...78H"
+        },
+        {
+          "placeholder": "footnote",
+          "type": "Unimplemented",
+          "value": ".. [5] https://github.com/scipy/scipy/pull/5647#issuecomment-168474926"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The other tree to draw points from, can be the same tree as self."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "other",
+              "type": "Param",
+              "type_": "KDTree"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The radius to produce a count for. Multiple radii are searched with a single tree traversal. If the count is non-cumulative("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "cumulative=False"
+                    },
+                    {
+                      "type": "text",
+                      "value": "), "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "r"
+                    },
+                    {
+                      "type": "text",
+                      "value": " defines the edges of the bins, and must be non-decreasing."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "r",
+              "type": "Param",
+              "type_": "float or one-dimensional array of floats"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "1<=p<=infinity. Which Minkowski p-norm to use. Default 2.0. A finite large p may cause a ValueError if overflow can occur."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "p",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If None, the pair-counting is unweighted. If given as a tuple, weights[0] is the weights of points in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "self"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", and weights[1] is the weights of points in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "other"
+                    },
+                    {
+                      "type": "text",
+                      "value": "; either can be None to indicate the points are unweighted. If given as an array_like, weights is the weights of points in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "self"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "other"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". For this to make sense, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "self"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "other"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must be the same tree. If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "self"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "other"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are two different trees, a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ValueError"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is raised. Default: None"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.6.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "weights",
+              "type": "Param",
+              "type_": "tuple, array_like, or None, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether the returned counts are cumulative. When cumulative is set to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": " the algorithm is optimized to work with a large number of bins (>10) specified by "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "r"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". When "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "cumulative"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is set to True, the algorithm is optimized to work with a small number of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "r"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Default: True"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.6.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "cumulative",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The number of pairs. For unweighted counts, the result is integer. For weighted counts, the result is float. If cumulative is False, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "result[i]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " contains the counts with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(-inf if i == 0 else r[i-1]) < R <= r[i]"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "result",
+              "type": "Param",
+              "type_": "scalar or 1-D array"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Count how many nearby pairs can be formed."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "You can count neighbors number between two kd-trees within a distance:"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.spatial import KDTree\nrng = np.random.default_rng()\npoints1 = rng.random((5, 2))\npoints2 = rng.random((5, 2))\nkd_tree1 = KDTree(points1)\nkd_tree2 = KDTree(points2)\nkd_tree1.count_neighbors(kd_tree2, 0.2)"
+      },
+      {
+        "type": "text",
+        "value": "This number is same as the total pair number calculated by\n`query_ball_tree`:"
+      },
+      {
+        "type": "code",
+        "value": "indexes = kd_tree1.query_ball_tree(kd_tree2, r=0.2)\nsum([len(i) for i in indexes])"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/spatial/_kdtree.py",
+  "item_line": 656,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, other, r, p=2.0, weights=None, cumulative=True)"
+  },
+  "type": "DocBlob"
+}

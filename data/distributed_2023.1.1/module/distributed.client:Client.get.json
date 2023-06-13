@@ -1,0 +1,433 @@
+{
+  "aliases": [
+    "distributed.Client.get"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "dsk",
+              "type": "Param",
+              "type_": "dict"
+            },
+            {
+              "desc": [],
+              "param": "keys",
+              "type": "Param",
+              "type_": "object, or nested lists of objects"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A set of worker addresses or hostnames on which computations may be performed. Leave empty to default to all workers (common case)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "workers",
+              "type": "Param",
+              "type_": "string or iterable of strings"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Used with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "workers"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Indicates whether or not the computations may be performed on workers that are not in the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "workers",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "workers"
+                    },
+                    {
+                      "type": "text",
+                      "value": " set(s)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "allow_other_workers",
+              "type": "Param",
+              "type_": "bool (defaults to False)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Defines the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "resources"
+                    },
+                    {
+                      "type": "text",
+                      "value": " each instance of this mapped task requires on the worker; e.g. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "{'GPU': 2}"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". See "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "worker resources <resources>"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for details on defining resources."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "resources",
+              "type": "Param",
+              "type_": "dict (defaults to {})"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Returns Futures if False or concrete values if True (default)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sync",
+              "type": "Param",
+              "type_": "bool (optional)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True the client is in asynchronous mode"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "asynchronous: bool",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether or not to connect directly to the workers, or to ask the scheduler to serve as intermediary.  This can also be set when creating the Client."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "direct",
+              "type": "Param",
+              "type_": "bool"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of allowed automatic retries if computing a result fails"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "retries",
+              "type": "Param",
+              "type_": "int (default to 0)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Optional prioritization of task.  Zero is default. Higher priorities take precedence"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "priority",
+              "type": "Param",
+              "type_": "Number"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Allowed amount of time between calls to consider the same priority"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fifo_timeout",
+              "type": "Param",
+              "type_": "timedelta str (defaults to '60s')"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether these tasks should exist on the worker as stateful actors. Specified on a global (True/False) or per-task ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "{'x': True,\n'y': False}"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") basis. See "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "actors"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for additional details."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "actors",
+              "type": "Param",
+              "type_": "bool or dict (default None)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If 'sync' is True, returns the results. Otherwise, returns the known data packed If 'sync' is False, returns the known data. Otherwise, returns the results"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "results"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute dask graph"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from operator import add  # doctest: +SKIP\nc = Client('127.0.0.1:8787')  # doctest: +SKIP\nc.get({'x': (add, 1, 2)}, 'x')  # doctest: +SKIP"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/distributed/client.py",
+  "item_line": 3044,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Examples",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute asynchronous collections"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "distributed",
+          "path": "distributed.client:Client.compute",
+          "type": "RefInfo",
+          "version": "2023.1.1"
+        },
+        "type": "Link",
+        "value": "Client.compute"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, dsk, keys, workers=None, allow_other_workers=None, resources=None, sync=True, asynchronous=None, direct=None, retries=None, priority=0, fifo_timeout='60s', actors=None, **kwargs)"
+  },
+  "type": "DocBlob"
+}

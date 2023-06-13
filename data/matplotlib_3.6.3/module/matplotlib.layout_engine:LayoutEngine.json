@@ -1,0 +1,458 @@
+{
+  "aliases": [
+    "matplotlib.figure.LayoutEngine"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A layout engine can be passed to a figure at instantiation or at any time with "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "~.figure.Figure.set_layout_engine"
+            },
+            {
+              "type": "text",
+              "value": ".  Once attached to a figure, the layout engine "
+            },
+            {
+              "type": "inlineCode",
+              "value": "execute"
+            },
+            {
+              "type": "text",
+              "value": " function is called at draw time by "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "~.figure.Figure.draw"
+            },
+            {
+              "type": "text",
+              "value": ", providing a special draw-time hook."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "note "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "However, note that layout engines affect the creation of colorbars, so "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "~.figure.Figure.set_layout_engine"
+                },
+                {
+                  "type": "text",
+                  "value": " should be called before any colorbars are created."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Currently, there are two properties of "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "LayoutEngine"
+            },
+            {
+              "type": "text",
+              "value": " classes that are consulted while manipulating the figure:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "axes using the gridspec method (see "
+                            },
+                            {
+                              "domain": null,
+                              "role": null,
+                              "type": "Directive",
+                              "value": ".colorbar.make_axes_gridspec"
+                            },
+                            {
+                              "type": "text",
+                              "value": ") or    not (see "
+                            },
+                            {
+                              "domain": null,
+                              "role": null,
+                              "type": "Directive",
+                              "value": ".colorbar.make_axes"
+                            },
+                            {
+                              "type": "text",
+                              "value": ");"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "inlineCode",
+                            "value": "engine.colorbar_gridspec"
+                          },
+                          {
+                            "type": "text",
+                            "value": " tells "
+                          },
+                          {
+                            "domain": null,
+                            "role": null,
+                            "type": "Directive",
+                            "value": ".Figure.colorbar"
+                          },
+                          {
+                            "type": "text",
+                            "value": " whether to make the"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "run if it is not compatible with the layout engine."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "inlineCode",
+                            "value": "engine.adjust_compatible"
+                          },
+                          {
+                            "type": "text",
+                            "value": " stops "
+                          },
+                          {
+                            "domain": null,
+                            "role": null,
+                            "type": "Directive",
+                            "value": ".Figure.subplots_adjust"
+                          },
+                          {
+                            "type": "text",
+                            "value": " from being"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To implement a custom "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "LayoutEngine"
+            },
+            {
+              "type": "text",
+              "value": ":"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "override "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "_adjust_compatible"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "_colorbar_gridspec"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "override "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "LayoutEngine.set"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to update "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "self._params"
+                        }
+                      ],
+                      "type": "emphasis"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "override "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "LayoutEngine.execute"
+                    },
+                    {
+                      "type": "text",
+                      "value": " with your implementation"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": true,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Base class for Matplotlib layout engines."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/matplotlib/layout_engine.py",
+  "item_line": 27,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

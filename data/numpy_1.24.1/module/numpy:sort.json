@@ -1,0 +1,752 @@
+{
+  "aliases": [
+    "numpy.sort"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The various sorting algorithms are characterized by their average speed, worst case performance, work space size, and whether they are stable. A stable sort keeps items with the same key in the same relative order. The four algorithms implemented in NumPy have the following properties:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "kind      speed   worst case    work space   stable"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "=========== ======= ============= ============ ========"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "is actually used, even if 'mergesort' is specified. User selection    at a finer scale is not currently available."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "=========== ======= ============= ============ ======== 'quicksort'    1     O(n^2)            0          no 'heapsort'     3     O(n*log(n))       0          no 'mergesort'    2     O(n*log(n))      ~n/2        yes 'timsort'      2     O(n*log(n))      ~n/2        yes =========== ======= ============= ============ ========  .. note:: The datatype determines which of 'mergesort' or 'timsort'"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            }
+          ],
+          "type": "DefList"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "All the sort algorithms make temporary copies of the data when sorting along any but the last axis.  Consequently, sorting along the last axis is faster and uses less space than sorting along any other axis."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The sort order for complex numbers is lexicographic. If both the real and imaginary parts are non-nan then the order is determined by the real parts except when they are equal, in which case the order is determined by the imaginary parts."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Previous to numpy 1.4.0 sorting real and complex arrays containing nan values led to undefined behaviour. In numpy versions >= 1.4.0 nan values are sorted to the end. The extended sort order is:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Real: [R, nan]"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Complex: [R + Rj, R + nanj, nan + Rj, nan + nanj]"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                }
+              ],
+              "ordered": false,
+              "spread": false,
+              "start": 1,
+              "type": "list"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where R is a non-nan real value. Complex values with the same nan placements are sorted according to the non-nan part if it exists. Non-nan values are sorted as before."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 1.12.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "quicksort has been changed to "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "introsort"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://en.wikipedia.org/wiki/Introsort"
+            },
+            {
+              "type": "text",
+              "value": ". When sorting does not make enough progress it switches to "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "heapsort"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://en.wikipedia.org/wiki/Heapsort"
+            },
+            {
+              "type": "text",
+              "value": ". This implementation makes quicksort O(n*log(n)) in the worst case."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "'stable' automatically chooses the best stable sorting algorithm for the data type being sorted. It, along with 'mergesort' is currently mapped to "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "timsort"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://en.wikipedia.org/wiki/Timsort"
+            },
+            {
+              "type": "text",
+              "value": " or "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "radix sort"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://en.wikipedia.org/wiki/Radix_sort"
+            },
+            {
+              "type": "text",
+              "value": " depending on the data type. API forward compatibility currently limits the ability to select the implementation and it is hardwired for the different data types."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 1.17.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Timsort is added for better performance on already or nearly sorted data. On random data timsort is almost identical to mergesort. It is now used for stable sort while quicksort is still the default sort if none is chosen. For timsort details, refer to "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "CPython listsort.txt"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/python/cpython/blob/3.7/Objects/listsort.txt"
+            },
+            {
+              "type": "text",
+              "value": ". 'mergesort' and 'stable' are mapped to radix sort for integer data types. Radix sort is an O(n) sort instead of O(n log n)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionchanged 1.18.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "NaT now sorts to the end of arrays for consistency with NaN."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Array to be sorted."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "a",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Axis along which to sort. If None, the array is flattened before sorting. The default is -1, which sorts along the last axis."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "axis",
+              "type": "Param",
+              "type_": "int or None, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Sorting algorithm. The default is 'quicksort'. Note that both 'stable' and 'mergesort' use timsort or radix sort under the covers and, in general, the actual implementation will vary with data type. The 'mergesort' option is retained for backwards compatibility."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionchanged 1.15.0."
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "The 'stable' option was added."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "kind",
+              "type": "Param",
+              "type_": "{'quicksort', 'mergesort', 'heapsort', 'stable'}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "When "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is an array with fields defined, this argument specifies which fields to compare first, second, etc.  A single field can be specified as a string, and not all fields need be specified, but unspecified fields will still be used, in the order in which they come up in the dtype, to break ties."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "order",
+              "type": "Param",
+              "type_": "str or list of str, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Array of the same type and shape as "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sorted_array",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Return a sorted copy of an array."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "a = np.array([[1,4],[3,1]])\nnp.sort(a)                # sort along the last axis"
+      },
+      {
+        "type": "code",
+        "value": "np.sort(a, axis=None)     # sort the flattened array"
+      },
+      {
+        "type": "code",
+        "value": "np.sort(a, axis=0)        # sort along the first axis"
+      },
+      {
+        "type": "text",
+        "value": "Use the `order` keyword to specify a field to use when sorting a\nstructured array:"
+      },
+      {
+        "type": "code",
+        "value": "dtype = [('name', 'S10'), ('height', float), ('age', int)]\nvalues = [('Arthur', 1.8, 41), ('Lancelot', 1.9, 38),\n          ('Galahad', 1.7, 38)]\na = np.array(values, dtype=dtype)       # create a structured array\nnp.sort(a, order='height')                        # doctest: +SKIP"
+      },
+      {
+        "type": "text",
+        "value": "Sort by age, then height if ages are equal:"
+      },
+      {
+        "type": "code",
+        "value": "np.sort(a, order=['age', 'height'])               # doctest: +SKIP"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/numpy/core/fromnumeric.py",
+  "item_line": 878,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Method to sort an array in-place."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "ndarray.sort",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "ndarray.sort"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Indirect sort."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "argsort",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "argsort"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Indirect stable sort on multiple keys."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "lexsort",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "lexsort"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Find elements in a sorted array."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "searchsorted",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "searchsorted"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Partial sort."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "partition",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "partition"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(a, axis=-1, kind=None, order=None)"
+  },
+  "type": "DocBlob"
+}

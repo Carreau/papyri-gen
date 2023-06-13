@@ -1,0 +1,593 @@
+{
+  "aliases": [
+    "scipy.stats.ks_1samp"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This test compares the underlying distribution F(x) of a sample against a given continuous distribution G(x). See Notes for a description of the available null and alternative hypotheses."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "There are three options for the null and corresponding alternative hypothesis that can be selected using the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "alternative",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "alternative"
+            },
+            {
+              "type": "text",
+              "value": " parameter."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "two-sided"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": The null hypothesis is that the two distributions are   identical, F(x)=G(x) for all x; the alternative is that they are not   identical."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "less"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": The null hypothesis is that F(x) >= G(x) for all x; the   alternative is that F(x) < G(x) for at least one x."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "scipy",
+                        "path": "scipy.optimize._trustregion_constr.canonical_constraint:CanonicalConstraint._greater_to_canonical",
+                        "type": "RefInfo",
+                        "version": "1.10.1"
+                      },
+                      "type": "Link",
+                      "value": "greater"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": The null hypothesis is that F(x) <= G(x) for all x; the   alternative is that F(x) > G(x) for at least one x."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Note that the alternative hypotheses describe the "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "CDFs"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " of the underlying distributions, not the observed values. For example, suppose x1 ~ F and x2 ~ G. If F(x) > G(x) for all x, the values in x1 tend to be less than those in x2."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "a 1-D array of observations of iid random variables."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "callable used to calculate the cdf."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "cdf",
+              "type": "Param",
+              "type_": "callable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Distribution parameters, used with "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "cdf",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "cdf"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "args",
+              "type": "Param",
+              "type_": "tuple, sequence, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Defines the null and alternative hypotheses. Default is 'two-sided'. Please see explanations in the Notes below."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "alternative",
+              "type": "Param",
+              "type_": "{'two-sided', 'less', 'greater'}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Defines the distribution used for calculating the p-value. The following options are available (default is 'auto'):"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "spread": false,
+                          "type": "listItem"
+                        }
+                      ],
+                      "ordered": false,
+                      "spread": false,
+                      "start": 1,
+                      "type": "list"
+                    }
+                  ],
+                  "type": "blockquote"
+                }
+              ],
+              "param": "method",
+              "type": "Param",
+              "type_": "{'auto', 'exact', 'approx', 'asymp'}, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An object containing attributes:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "statistic"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "statistic"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "pvalue"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "pvalue"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "statistic_location"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "statistic_location"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "statistic_sign"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "statistic_sign"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "res: KstestResult"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Performs the one-sample Kolmogorov-Smirnov test for goodness of fit."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Suppose we wish to test the null hypothesis that a sample is distributed\naccording to the standard normal.\nWe choose a confidence level of 95%; that is, we will reject the null\nhypothesis in favor of the alternative if the p-value is less than 0.05."
+      },
+      {
+        "type": "text",
+        "value": "When testing uniformly distributed data, we would expect the\nnull hypothesis to be rejected."
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy import stats\nrng = np.random.default_rng()\nstats.ks_1samp(stats.uniform.rvs(size=100, random_state=rng),\n               stats.norm.cdf)"
+      },
+      {
+        "type": "text",
+        "value": "Indeed, the p-value is lower than our threshold of 0.05, so we reject the\nnull hypothesis in favor of the default \"two-sided\" alternative: the data\nare *not* distributed according to the standard normal."
+      },
+      {
+        "type": "text",
+        "value": "When testing random variates from the standard normal distribution, we\nexpect the data to be consistent with the null hypothesis most of the time."
+      },
+      {
+        "type": "code",
+        "value": "x = stats.norm.rvs(size=100, random_state=rng)\nstats.ks_1samp(x, stats.norm.cdf)"
+      },
+      {
+        "type": "text",
+        "value": "As expected, the p-value of 0.92 is not below our threshold of 0.05, so\nwe cannot reject the null hypothesis."
+      },
+      {
+        "type": "text",
+        "value": "Suppose, however, that the random variates are distributed according to\na normal distribution that is shifted toward greater values. In this case,\nthe cumulative density function (CDF) of the underlying distribution tends\nto be *less* than the CDF of the standard normal. Therefore, we would\nexpect the null hypothesis to be rejected with ``alternative='less'``:"
+      },
+      {
+        "type": "code",
+        "value": "x = stats.norm.rvs(size=100, loc=0.5, random_state=rng)\nstats.ks_1samp(x, stats.norm.cdf, alternative='less')"
+      },
+      {
+        "type": "text",
+        "value": "and indeed, with p-value smaller than our threshold, we reject the null\nhypothesis in favor of the alternative."
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_stats_py.py",
+  "item_line": 7608,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "ks_2samp",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "ks_2samp"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "kstest",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "kstest"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(x, cdf, args=(), alternative='two-sided', method='auto')"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,525 @@
+{
+  "aliases": [
+    "astropy.io.fits.getdata"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "File to get data from.  If opened, mode must be one of the following rb, rb+, or ab+."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "filename",
+              "type": "Param",
+              "type_": "path-like or file-like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The rest of the arguments are for HDU specification. They are flexible and are best illustrated by examples."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "No extra arguments implies the primary HDU      "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "getdata('in.fits')"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "note "
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Exclusive to "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "getdata"
+                        },
+                        {
+                          "type": "text",
+                          "value": ": if "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "ext"
+                        },
+                        {
+                          "type": "text",
+                          "value": " is not specified and primary header contains no data, "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "getdata"
+                        },
+                        {
+                          "type": "text",
+                          "value": " attempts to retrieve data from first extension HDU."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "By HDU number      "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "getdata('in.fits', 0)      # the primary HDU\ngetdata('in.fits', 2)      # the second extension HDU\ngetdata('in.fits', ext=2)  # the second extension HDU"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "By name, i.e., "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "EXTNAME"
+                    },
+                    {
+                      "type": "text",
+                      "value": " value (if unique)      "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "getdata('in.fits', 'sci')\ngetdata('in.fits', extname='sci')  # equivalent"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Note "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "EXTNAME"
+                    },
+                    {
+                      "type": "text",
+                      "value": " values are not case sensitive"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "By combination of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "EXTNAME"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and EXTVER`` as separate arguments or as a tuple      "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "getdata('in.fits', 'sci', 2)  # EXTNAME='SCI' & EXTVER=2\ngetdata('in.fits', extname='sci', extver=2)  # equivalent\ngetdata('in.fits', ('sci', 2))  # equivalent"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Ambiguous or conflicting specifications will raise an exception      "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "getdata('in.fits', ext=('sci',1), extname='err', extver=2)"
+                }
+              ],
+              "param": "ext",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", return the data and the header of the specified HDU as a tuple."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "header",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "lower"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "upper"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the field names in the returned data object will be converted to lower or upper case, respectively."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "lower, upper",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "When given, the data will be returned wrapped in the given ndarray subclass by calling     "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "data.view(view)"
+                }
+              ],
+              "param": "view",
+              "type": "Param",
+              "type_": "ndarray, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Any additional keyword arguments to be passed to "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "astropy",
+                        "path": "astropy.io.fits.hdu.hdulist:fitsopen",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "astropy.io.fits.open"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "**kwargs",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If no data is found in searched HDUs."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "IndexError"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Type depends on the type of the extension being referenced."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If the optional keyword "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "header"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is set to "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", this function will return a ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "data"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "header"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") tuple."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "array",
+              "type": "Param",
+              "type_": "ndarray or `~numpy.recarray` or `~astropy.io.fits.Group`"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Get the data from an HDU of a FITS file (and optionally the header)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/astropy/io/fits/convenience.py",
+  "item_line": 131,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Raises"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(filename, *args, header=None, lower=None, upper=None, view=None, **kwargs)"
+  },
+  "type": "DocBlob"
+}

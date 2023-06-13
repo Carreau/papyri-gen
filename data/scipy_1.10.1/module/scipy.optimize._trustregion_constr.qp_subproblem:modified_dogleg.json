@@ -1,0 +1,406 @@
+{
+  "aliases": [
+    "scipy.optimize._trustregion_constr.equality_constrained_sqp.modified_dogleg"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Approximately solve the problem of minimizing "
+            },
+            {
+              "type": "inlineCode",
+              "value": "1/2*|| A x + b ||^2"
+            },
+            {
+              "type": "text",
+              "value": " subject to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "||x|| < Delta"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "lb <= x <= ub"
+            },
+            {
+              "type": "text",
+              "value": " using a modification of the classical dogleg approach."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Based on implementations described in pp. 885-886 from ."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Matrix "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "A"
+                    },
+                    {
+                      "type": "text",
+                      "value": " in the minimization problem. It should have dimension "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(m, n)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " such that "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "m < n"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "A",
+              "type": "Param",
+              "type_": "LinearOperator (or sparse matrix or ndarray), shape (m, n)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "LinearOperator that apply the projection matrix "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Q = A.T inv(A A.T)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to the vector. The obtained vector "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "y = Q x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " being the minimum norm solution of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "A y = x"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "Y",
+              "type": "Param",
+              "type_": "LinearOperator (or sparse matrix or ndarray), shape (n, m)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Vector ``b``in the minimization problem."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "b",
+              "type": "Param",
+              "type_": "array_like, shape (m,)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Trust radius to be considered. Delimits a sphere boundary to the problem."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "trust_radius: float",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Lower bounds to each one of the components of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". It is expected that "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "lb <= 0"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", otherwise the algorithm may fail. If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "lb[i] = -Inf"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the lower bound for the ith component is just ignored."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "lb",
+              "type": "Param",
+              "type_": "array_like, shape (n,)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Upper bounds to each one of the components of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". It is expected that "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ub >= 0"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", otherwise the algorithm may fail. If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ub[i] = Inf"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the upper bound for the ith component is just ignored."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ub",
+              "type": "Param",
+              "type_": "array_like, shape (n, )"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Solution to the problem."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "array_like, shape (n,)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Approximately  minimize "
+            },
+            {
+              "type": "inlineCode",
+              "value": "1/2*|| A x + b ||^2"
+            },
+            {
+              "type": "text",
+              "value": " inside trust-region."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/optimize/_trustregion_constr/qp_subproblem.py",
+  "item_line": 315,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(A, Y, b, trust_radius, lb, ub)"
+  },
+  "type": "DocBlob"
+}

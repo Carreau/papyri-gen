@@ -1,0 +1,371 @@
+{
+  "aliases": [
+    "distributed.threadpoolexecutor"
+  ],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Modified ThreadPoolExecutor to support threads leaving the thread pool"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This includes a global "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "secede"
+            },
+            {
+              "type": "text",
+              "value": " method that a submitted function can call to have its thread leave the ThreadPoolExecutor's thread pool.  This allows the thread pool to allocate another thread if necessary and so is useful when a function realises that it is going to be a long-running job that doesn't want to take up space.  When the function finishes its thread will terminate gracefully."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This code copies and modifies two functions from the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "concurrent.futures.thread",
+                "path": "concurrent.futures.thread",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "concurrent.futures.thread"
+            },
+            {
+              "type": "text",
+              "value": " module, notably "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "_worker"
+            },
+            {
+              "type": "text",
+              "value": " and ThreadPoolExecutor._adjust_thread_count` to allow for checking against a global "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "_thread",
+                "path": "_thread:_local",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "threading.local"
+            },
+            {
+              "type": "text",
+              "value": " state.  These functions are subject to the following license, which is included as a comment at the end of this file:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "https://docs.python.org/3/license.html"
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "... and are under copyright by the Python Software Foundation"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Copyright 2001-2016 Python Software Foundation; All Rights Reserved"
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "type": "blockquote"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  ],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This includes a global "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "secede"
+            },
+            {
+              "type": "text",
+              "value": " method that a submitted function can call to have its thread leave the ThreadPoolExecutor's thread pool.  This allows the thread pool to allocate another thread if necessary and so is useful when a function realises that it is going to be a long-running job that doesn't want to take up space.  When the function finishes its thread will terminate gracefully."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This code copies and modifies two functions from the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "concurrent.futures.thread",
+                "path": "concurrent.futures.thread",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "concurrent.futures.thread"
+            },
+            {
+              "type": "text",
+              "value": " module, notably "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "_worker"
+            },
+            {
+              "type": "text",
+              "value": " and ThreadPoolExecutor._adjust_thread_count` to allow for checking against a global "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "_thread",
+                "path": "_thread:_local",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "threading.local"
+            },
+            {
+              "type": "text",
+              "value": " state.  These functions are subject to the following license, which is included as a comment at the end of this file:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "https://docs.python.org/3/license.html"
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "... and are under copyright by the Python Software Foundation"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Copyright 2001-2016 Python Software Foundation; All Rights Reserved"
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "type": "blockquote"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Modified ThreadPoolExecutor to support threads leaving the thread pool"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/distributed/threadpoolexecutor.py",
+  "item_line": 0,
+  "item_type": "<class 'module'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

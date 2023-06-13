@@ -1,0 +1,504 @@
+{
+  "aliases": [
+    "scipy.signal.decimate"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "By default, an order 8 Chebyshev type I filter is used. A 30 point FIR filter with Hamming window is used if "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "ftype",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "ftype"
+            },
+            {
+              "type": "text",
+              "value": " is 'fir'."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "type": "inlineCode",
+              "value": "zero_phase"
+            },
+            {
+              "type": "text",
+              "value": " keyword was added in 0.18.0. The possibility to use instances of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "dlti"
+            },
+            {
+              "type": "text",
+              "value": " as "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ftype"
+            },
+            {
+              "type": "text",
+              "value": " was added in 0.18.0."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The signal to be downsampled, as an N-dimensional array."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The downsampling factor. When using IIR downsampling, it is recommended to call "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "scipy",
+                        "path": "scipy.signal._signaltools:decimate",
+                        "type": "RefInfo",
+                        "version": "1.10.1"
+                      },
+                      "type": "Link",
+                      "value": "decimate"
+                    },
+                    {
+                      "type": "text",
+                      "value": " multiple times for downsampling factors higher than 13."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "q",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The order of the filter (1 less than the length for 'fir'). Defaults to 8 for 'iir' and 20 times the downsampling factor for 'fir'."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "n",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If 'iir' or 'fir', specifies the type of lowpass filter. If an instance of an "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "dlti"
+                    },
+                    {
+                      "type": "text",
+                      "value": " object, uses that object to filter before downsampling."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ftype",
+              "type": "Param",
+              "type_": "str {'iir', 'fir'} or ``dlti`` instance, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The axis along which to decimate."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "axis",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Prevent phase shift by filtering with "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "filtfilt"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instead of "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "lfilter"
+                    },
+                    {
+                      "type": "text",
+                      "value": " when using an IIR filter, and shifting the outputs back by the filter's group delay when using an FIR filter. The default value of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is recommended, since a phase shift is generally not desired."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 0.18.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "zero_phase",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The down-sampled signal."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "y",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Downsample the signal after applying an anti-aliasing filter."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy import signal\nimport matplotlib.pyplot as plt"
+      },
+      {
+        "type": "text",
+        "value": "Define wave parameters."
+      },
+      {
+        "type": "code",
+        "value": "wave_duration = 3\nsample_rate = 100\nfreq = 2\nq = 5"
+      },
+      {
+        "type": "text",
+        "value": "Calculate number of samples."
+      },
+      {
+        "type": "code",
+        "value": "samples = wave_duration*sample_rate\nsamples_decimated = int(samples/q)"
+      },
+      {
+        "type": "text",
+        "value": "Create cosine wave."
+      },
+      {
+        "type": "code",
+        "value": "x = np.linspace(0, wave_duration, samples, endpoint=False)\ny = np.cos(x*np.pi*freq*2)"
+      },
+      {
+        "type": "text",
+        "value": "Decimate cosine wave."
+      },
+      {
+        "type": "code",
+        "value": "ydem = signal.decimate(y, q)\nxnew = np.linspace(0, wave_duration, samples_decimated, endpoint=False)"
+      },
+      {
+        "type": "text",
+        "value": "Plot original and decimated waves."
+      },
+      {
+        "type": "code",
+        "value": "plt.plot(x, y, '.-', xnew, ydem, 'o-')\nplt.xlabel('Time, Seconds')\nplt.legend(['data', 'decimated'], loc='best')\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.signal._signaltools:decimate-0-76026d76.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/signal/_signaltools.py",
+  "item_line": 4429,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Resample up or down using the FFT method."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.stats._kde:gaussian_kde.resample",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "resample"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Resample using polyphase filtering and an FIR filter."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._signaltools:resample_poly",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "resample_poly"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(x, q, n=None, ftype='iir', axis=-1, zero_phase=True)"
+  },
+  "type": "DocBlob"
+}

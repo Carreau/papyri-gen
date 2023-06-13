@@ -1,0 +1,1083 @@
+{
+  "aliases": [
+    "scipy.signal.istft"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In order to enable inversion of an STFT via the inverse STFT with "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.signal._spectral_py:istft",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "istft"
+            },
+            {
+              "type": "text",
+              "value": ", the signal windowing must obey the constraint of \"nonzero overlap add\" (NOLA):"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "\\sum_{t}w^{2}[n-tH] \\ne 0"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This ensures that the normalization factors that appear in the denominator of the overlap-add reconstruction equation"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "x[n]=\\frac{\\sum_{t}x_{t}[n]w[n-tH]}{\\sum_{t}w^{2}[n-tH]}"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "are not zero. The NOLA constraint can be checked with the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.signal._spectral_py:check_NOLA",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "check_NOLA"
+            },
+            {
+              "type": "text",
+              "value": " function."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "An STFT which has been modified (via masking or otherwise) is not guaranteed to correspond to a exactly realizible signal. This function implements the iSTFT via the least-squares estimation algorithm detailed in , which produces a signal that minimizes the mean squared error between the STFT of the returned signal and the modified STFT."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 0.19.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "STFT of the signal to be reconstructed. If a purely real array is passed, it will be cast to a complex data type."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "Zxx",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Sampling frequency of the time series. Defaults to 1.0."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fs",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Desired window to use. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "window",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "window"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a string or tuple, it is passed to "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "scipy",
+                        "path": "scipy.signal.windows._windows:get_window",
+                        "type": "RefInfo",
+                        "version": "1.10.1"
+                      },
+                      "type": "Link",
+                      "value": "get_window"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to generate the window values, which are DFT-even by default. See "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "scipy",
+                        "path": "scipy.signal.windows._windows:get_window",
+                        "type": "RefInfo",
+                        "version": "1.10.1"
+                      },
+                      "type": "Link",
+                      "value": "get_window"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for a list of windows and required parameters. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "window",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "window"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is array_like it will be used directly as the window and its length must be nperseg. Defaults to a Hann window. Must match the window used to generate the STFT for faithful inversion."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "window",
+              "type": "Param",
+              "type_": "str or tuple or array_like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of data points corresponding to each STFT segment. This parameter must be specified if the number of data points per segment is odd, or if the STFT was padded via "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "nfft >\nnperseg"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the value depends on the shape of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "Zxx",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "Zxx"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "input_onesided",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "input_onesided"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "input_onesided",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "input_onesided"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "nperseg=2*(Zxx.shape[freq_axis] - 1)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Otherwise, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "nperseg=Zxx.shape[freq_axis]"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Defaults to "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "nperseg",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of points to overlap between segments. If "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", half of the segment length. Defaults to "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". When specified, the COLA constraint must be met (see Notes below), and should match the parameter used to generate the STFT. Defaults to "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "noverlap",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of FFT points corresponding to each STFT segment. This parameter must be specified if the STFT was padded via "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "nfft >\nnperseg"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the default values are the same as for "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "nperseg",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "nperseg"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", detailed above, with one exception: if "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "input_onesided",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "input_onesided"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is True and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "nperseg==2*Zxx.shape[freq_axis] - 1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "nfft",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "nfft"
+                    },
+                    {
+                      "type": "text",
+                      "value": " also takes on that value. This case allows the proper inversion of an odd-length unpadded STFT using "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "nfft=None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Defaults to "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "nfft",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", interpret the input array as one-sided FFTs, such as is returned by "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "stft"
+                    },
+                    {
+                      "type": "text",
+                      "value": " with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "return_onesided=True"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "numpy.fft",
+                        "path": "numpy.fft:rfft",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "numpy.fft.rfft"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", interpret the input as a a two-sided FFT. Defaults to "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "input_onesided",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Specifies whether the input signal was extended at its boundaries by supplying a non-"
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": " "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "boundary"
+                    },
+                    {
+                      "type": "text",
+                      "value": " argument to "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "stft"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Defaults to "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "boundary",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Where the time segments of the STFT is located; the default is the last axis (i.e. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "axis=-1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "time_axis",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Where the frequency axis of the STFT is located; the default is the penultimate axis (i.e. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "axis=-2"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "freq_axis",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The default 'spectrum' scaling allows each frequency line of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "Zxx",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "Zxx"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to be interpreted as a magnitude spectrum. The 'psd' option scales each line to a power spectral density - it allows to calculate the signal's energy by numerically integrating over "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "abs(Zxx)**2"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "scaling: {'spectrum', 'psd'}",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Array of output data times."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "t",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "iSTFT of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "Zxx",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "Zxx"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Perform the inverse Short Time Fourier transform (iSTFT)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy import signal\nimport matplotlib.pyplot as plt\nrng = np.random.default_rng()"
+      },
+      {
+        "type": "text",
+        "value": "Generate a test signal, a 2 Vrms sine wave at 50Hz corrupted by\n0.001 V**2/Hz of white noise sampled at 1024 Hz."
+      },
+      {
+        "type": "code",
+        "value": "fs = 1024\nN = 10*fs\nnperseg = 512\namp = 2 * np.sqrt(2)\nnoise_power = 0.001 * fs / 2\ntime = np.arange(N) / float(fs)\ncarrier = amp * np.sin(2*np.pi*50*time)\nnoise = rng.normal(scale=np.sqrt(noise_power),\n                   size=time.shape)\nx = carrier + noise"
+      },
+      {
+        "type": "text",
+        "value": "Compute the STFT, and plot its magnitude"
+      },
+      {
+        "type": "code",
+        "value": "f, t, Zxx = signal.stft(x, fs=fs, nperseg=nperseg)\nplt.figure()\nplt.pcolormesh(t, f, np.abs(Zxx), vmin=0, vmax=amp, shading='gouraud')\nplt.ylim([f[1], f[-1]])\nplt.title('STFT Magnitude')\nplt.ylabel('Frequency [Hz]')\nplt.xlabel('Time [sec]')\nplt.yscale('log')\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.signal._spectral_py:istft-0-15ce57f8.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      },
+      {
+        "type": "text",
+        "value": "Zero the components that are 10% or less of the carrier magnitude,\nthen convert back to a time series via inverse STFT"
+      },
+      {
+        "type": "code",
+        "value": "Zxx = np.where(np.abs(Zxx) >= amp/10, Zxx, 0)\n_, xrec = signal.istft(Zxx, fs)"
+      },
+      {
+        "type": "text",
+        "value": "Compare the cleaned signal with the original and true carrier signals."
+      },
+      {
+        "type": "code",
+        "value": "plt.figure()\nplt.plot(time, x, time, xrec, time, carrier)\nplt.xlim([2, 2.1])\nplt.xlabel('Time [sec]')\nplt.ylabel('Signal')\nplt.legend(['Carrier + Noise', 'Filtered via STFT', 'True Carrier'])\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.signal._spectral_py:istft-1-9bf6a532.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      },
+      {
+        "type": "text",
+        "value": "Note that the cleaned signal does not start as abruptly as the original,\nsince some of the coefficients of the transient were also removed:"
+      },
+      {
+        "type": "code",
+        "value": "plt.figure()\nplt.plot(time, x, time, xrec, time, carrier)\nplt.xlim([0, 0.1])\nplt.xlabel('Time [sec]')\nplt.ylabel('Signal')\nplt.legend(['Carrier + Noise', 'Filtered via STFT', 'True Carrier'])\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.signal._spectral_py:istft-2-4c75097d.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/signal/_spectral_py.py",
+  "item_line": 1220,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Short Time Fourier Transform"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "stft",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "stft"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Check whether the Constant OverLap Add (COLA) constraint is met"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._spectral_py:check_COLA",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "check_COLA"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Check whether the Nonzero Overlap Add (NOLA) constraint is met"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._spectral_py:check_NOLA",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "check_NOLA"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(Zxx, fs=1.0, window='hann', nperseg=None, noverlap=None, nfft=None, input_onesided=True, boundary=True, time_axis=-1, freq_axis=-2, scaling='spectrum')"
+  },
+  "type": "DocBlob"
+}

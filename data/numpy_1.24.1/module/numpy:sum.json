@@ -1,0 +1,847 @@
+{
+  "aliases": [
+    "numpy.sum"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Arithmetic is modular when using integer types, and no error is raised on overflow."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The sum of an empty array is the neutral element 0:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> np.sum([])\n0.0"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For floating point numbers the numerical precision of sum (and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.add.reduce"
+            },
+            {
+              "type": "text",
+              "value": ") is in general limited by directly adding each number individually to the result causing rounding errors in every step. However, often numpy will use a  numerically better approach (partial pairwise summation) leading to improved precision in many use-cases. This improved precision is always provided when no "
+            },
+            {
+              "type": "inlineCode",
+              "value": "axis"
+            },
+            {
+              "type": "text",
+              "value": " is given. When "
+            },
+            {
+              "type": "inlineCode",
+              "value": "axis"
+            },
+            {
+              "type": "text",
+              "value": " is given, it will depend on which axis is summed. Technically, to provide the best speed possible, the improved precision is only used when the summation is along the fast axis in memory. Note that the exact precision may vary depending on other parameters. In contrast to NumPy, Python's "
+            },
+            {
+              "type": "inlineCode",
+              "value": "math.fsum"
+            },
+            {
+              "type": "text",
+              "value": " function uses a slower but more precise approach to summation. Especially when summing a large number of lower precision floating point numbers, such as "
+            },
+            {
+              "type": "inlineCode",
+              "value": "float32"
+            },
+            {
+              "type": "text",
+              "value": ", numerical errors can become significant. In such cases it can be advisable to use "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "dtype=\"float64\""
+            },
+            {
+              "type": "text",
+              "value": " to use a higher precision for the output."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Elements to sum."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "a",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Axis or axes along which a sum is performed.  The default, axis=None, will sum all of the elements of the input array.  If axis is negative it counts from the last to the first axis."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.7.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If axis is a tuple of ints, a sum is performed on all of the axes specified in the tuple instead of a single axis or all the axes as before."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "axis",
+              "type": "Param",
+              "type_": "None or int or tuple of ints, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The type of the returned array and of the accumulator in which the elements are summed.  The dtype of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is used by default unless "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": " has an integer dtype of less precision than the default platform integer.  In that case, if "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is signed then the platform integer is used while if "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is unsigned then an unsigned integer of the same precision as the platform integer is used."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dtype",
+              "type": "Param",
+              "type_": "dtype, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Alternative output array in which to place the result. It must have the same shape as the expected output, but the type of the output values will be cast if necessary."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "out",
+              "type": "Param",
+              "type_": "ndarray, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If this is set to True, the axes which are reduced are left in the result as dimensions with size one. With this option, the result will broadcast correctly against the input array."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If the default value is passed, then "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "keepdims",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "keepdims"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will not be passed through to the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "numpy",
+                        "path": "numpy:sum",
+                        "type": "RefInfo",
+                        "version": "1.24.1"
+                      },
+                      "type": "Link",
+                      "value": "sum"
+                    },
+                    {
+                      "type": "text",
+                      "value": " method of sub-classes of "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "ndarray"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", however any non-default value will be.  If the sub-class' method does not implement "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "keepdims",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "keepdims"
+                    },
+                    {
+                      "type": "text",
+                      "value": " any exceptions will be raised."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "keepdims",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Starting value for the sum. See "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "~numpy.ufunc.reduce"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for details."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.15.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "initial",
+              "type": "Param",
+              "type_": "scalar, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Elements to include in the sum. See "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "~numpy.ufunc.reduce"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for details."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.17.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "where",
+              "type": "Param",
+              "type_": "array_like of bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An array with the same shape as "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", with the specified axis removed.   If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a 0-d array, or if "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "axis",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "axis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is None, a scalar is returned.  If an output array is specified, a reference to "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "out",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "out"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is returned."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sum_along_axis",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Sum of array elements over a given axis."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "np.sum([0.5, 1.5])"
+      },
+      {
+        "type": "code",
+        "value": "np.sum([0.5, 0.7, 0.2, 1.5], dtype=np.int32)"
+      },
+      {
+        "type": "code",
+        "value": "np.sum([[0, 1], [0, 5]])"
+      },
+      {
+        "type": "code",
+        "value": "np.sum([[0, 1], [0, 5]], axis=0)"
+      },
+      {
+        "type": "code",
+        "value": "np.sum([[0, 1], [0, 5]], axis=1)"
+      },
+      {
+        "type": "code",
+        "value": "np.sum([[0, 1], [np.nan, 5]], where=[False, True], axis=1)"
+      },
+      {
+        "type": "text",
+        "value": "If the accumulator is too small, overflow occurs:"
+      },
+      {
+        "type": "code",
+        "value": "np.ones(128, dtype=np.int8).sum(dtype=np.int8)"
+      },
+      {
+        "type": "text",
+        "value": "You can also start the sum with a value other than zero:"
+      },
+      {
+        "type": "code",
+        "value": "np.sum([10], initial=5)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/numpy/core/fromnumeric.py",
+  "item_line": 2188,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Equivalent method."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "ndarray.sum",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "ndarray.sum"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Equivalent functionality of "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "add"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "add.reduce",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "add.reduce"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Cumulative sum of array elements."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "cumsum",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "cumsum"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Integration of array values using the composite trapezoidal rule."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "trapz",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "trapz"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "mean",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "mean"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "average",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "average"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(a, axis=None, dtype=None, out=None, keepdims=<no value>, initial=<no value>, where=<no value>)"
+  },
+  "type": "DocBlob"
+}

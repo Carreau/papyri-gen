@@ -1,0 +1,381 @@
+{
+  "aliases": [
+    "skimage.morphology.reconstruction"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Morphological reconstruction by dilation is similar to basic morphological dilation: high-intensity values will replace nearby low-intensity values. The basic dilation operator, however, uses a footprint to determine how far a value in the input image can spread. In contrast, reconstruction uses two images: a \"seed\" image, which specifies the values that spread, and a \"mask\" image, which gives the maximum allowed value at each pixel. The mask image, like the footprint, limits the spread of high-intensity values. Reconstruction by erosion is simply the inverse: low-intensity values spread from the seed image and are limited by the mask image, which represents the minimum allowed value."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Alternatively, you can think of reconstruction as a way to isolate the connected regions of an image. For dilation, reconstruction connects regions marked by local maxima in the seed image: neighboring pixels less-than-or-equal-to those seeds are connected to the seeded region. Local maxima with values larger than the seed image will get truncated to the seed value."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The algorithm is taken from . Applications for grayscale reconstruction are discussed in  and ."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Deprecated in favor of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "footprint",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "footprint"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "deprecated 0.19"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "selem",
+              "type": "Param",
+              "type_": "DEPRECATED"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The seed image (a.k.a. marker image), which specifies the values that are dilated or eroded."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "seed",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The maximum (dilation) / minimum (erosion) allowed value at each pixel."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mask",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Perform reconstruction by dilation or erosion. In dilation (or erosion), the seed image is dilated (or eroded) until limited by the mask image. For dilation, each seed value must be less than or equal to the corresponding mask value; for erosion, the reverse is true. Default is 'dilation'."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "method",
+              "type": "Param",
+              "type_": "{'dilation'|'erosion'}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The neighborhood expressed as an n-D array of 1's and 0's. Default is the n-D square of radius equal to 1 (i.e. a 3x3 square for 2D images, a 3x3x3 cube for 3D images, etc.)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "footprint",
+              "type": "Param",
+              "type_": "ndarray, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The coordinates of the center of the footprint. Default is located on the geometrical center of the footprint, in that case footprint dimensions must be odd."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "offset",
+              "type": "Param",
+              "type_": "ndarray, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The result of morphological reconstruction."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "reconstructed",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Perform a morphological reconstruction of an image."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom skimage.morphology import reconstruction"
+      },
+      {
+        "type": "text",
+        "value": "First, we create a sinusoidal mask image with peaks at middle and ends."
+      },
+      {
+        "type": "code",
+        "value": "x = np.linspace(0, 4 * np.pi)\ny_mask = np.cos(x)"
+      },
+      {
+        "type": "text",
+        "value": "Then, we create a seed image initialized to the minimum mask value (for\nreconstruction by dilation, min-intensity values don't spread) and add\n\"seeds\" to the left and right peak, but at a fraction of peak value (1)."
+      },
+      {
+        "type": "code",
+        "value": "y_seed = y_mask.min() * np.ones_like(x)\ny_seed[0] = 0.5\ny_seed[-1] = 0\ny_rec = reconstruction(y_seed, y_mask)"
+      },
+      {
+        "type": "text",
+        "value": "The reconstructed image (or curve, in this case) is exactly the same as the\nmask image, except that the peaks are truncated to 0.5 and 0. The middle\npeak disappears completely: Since there were no seed values in this peak\nregion, its reconstructed value is truncated to the surrounding value (-1)."
+      },
+      {
+        "type": "text",
+        "value": "As a more practical example, we try to extract the bright features of an\nimage by subtracting a background image created by reconstruction."
+      },
+      {
+        "type": "code",
+        "value": "y, x = np.mgrid[:20:0.5, :20:0.5]\nbumps = np.sin(x) + np.sin(y)"
+      },
+      {
+        "type": "text",
+        "value": "To create the background image, set the mask image to the original image,\nand the seed image to the original image with an intensity offset, `h`."
+      },
+      {
+        "type": "code",
+        "value": "h = 0.3\nseed = bumps - h\nbackground = reconstruction(seed, bumps)"
+      },
+      {
+        "type": "text",
+        "value": "The resulting reconstructed image looks exactly like the original image,\nbut with the peaks of the bumps cut off. Subtracting this reconstructed\nimage from the original image leaves just the peaks of the bumps"
+      },
+      {
+        "type": "code",
+        "value": "hdome = bumps - background"
+      },
+      {
+        "type": "text",
+        "value": "This operation is known as the h-dome of the image and leaves features\nof height `h` in the subtracted image."
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/skimage/morphology/grayreconstruct.py",
+  "item_line": 18,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Other Parameters",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(seed, mask, method='dilation', footprint=None, offset=None)"
+  },
+  "type": "DocBlob"
+}

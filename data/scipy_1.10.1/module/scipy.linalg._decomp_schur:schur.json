@@ -1,0 +1,456 @@
+{
+  "aliases": [
+    "scipy.linalg.schur"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The Schur decomposition is      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "A = Z T Z^H"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where Z is unitary and T is either upper-triangular, or for real Schur decomposition (output='real'), quasi-upper triangular. In the quasi-triangular form, 2x2 blocks describing complex-valued eigenvalue pairs may extrude from the diagonal."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Matrix to decompose"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "a",
+              "type": "Param",
+              "type_": "(M, M) array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Construct the real or complex Schur decomposition (for real matrices)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "output",
+              "type": "Param",
+              "type_": "{'real', 'complex'}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Work array size. If None or -1, it is automatically computed."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "lwork",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to overwrite data in a (may improve performance)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "overwrite_a",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Specifies whether the upper eigenvalues should be sorted. A callable may be passed that, given a eigenvalue, returns a boolean denoting whether the eigenvalue should be sorted to the top-left (True). Alternatively, string parameters may be used      "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "'lhp'   Left-hand plane (x.real < 0.0)\n'rhp'   Right-hand plane (x.real > 0.0)\n'iuc'   Inside the unit circle (x*x.conjugate() <= 1.0)\n'ouc'   Outside the unit circle (x*x.conjugate() > 1.0)"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Defaults to None (no sorting)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sort",
+              "type": "Param",
+              "type_": "{None, callable, 'lhp', 'rhp', 'iuc', 'ouc'}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to check that the input matrix contains only finite numbers. Disabling may give a performance gain, but may result in problems (crashes, non-termination) if the inputs do contain infinities or NaNs."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "check_finite",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Error raised under three conditions:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "The algorithm failed due to a failure of the QR algorithm to    compute all eigenvalues."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "If eigenvalue sorting was requested, the eigenvalues could not be    reordered due to a failure to separate eigenvalues, usually because    of poor conditioning."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "If eigenvalue sorting was requested, roundoff errors caused the    leading eigenvalues to no longer satisfy the sorting condition."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": true,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "LinAlgError"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Schur form of A. It is real-valued for the real Schur decomposition."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "T",
+              "type": "Param",
+              "type_": "(M, M) ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An unitary Schur transformation matrix for A. It is real-valued for the real Schur decomposition."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "Z",
+              "type": "Param",
+              "type_": "(M, M) ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If and only if sorting was requested, a third return value will contain the number of eigenvalues satisfying the sort condition."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sdim",
+              "type": "Param",
+              "type_": "int"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute Schur decomposition of a matrix."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.linalg import schur, eigvals\nA = np.array([[0, 2, 2], [0, 1, 2], [1, 0, 1]])\nT, Z = schur(A)\nT"
+      },
+      {
+        "type": "code",
+        "value": "Z"
+      },
+      {
+        "type": "code",
+        "value": "T2, Z2 = schur(A, output='complex')\nT2"
+      },
+      {
+        "type": "code",
+        "value": "eigvals(T2)"
+      },
+      {
+        "type": "text",
+        "value": "An arbitrary custom eig-sorting condition, having positive imaginary part,\nwhich is satisfied by only one eigenvalue"
+      },
+      {
+        "type": "code",
+        "value": "T3, Z3, sdim = schur(A, output='complex', sort=lambda x: x.imag > 0)\nsdim"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/linalg/_decomp_schur.py",
+  "item_line": 17,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "See Also",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Convert real Schur form to complex Schur form"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.linalg._decomp_schur:rsf2csf",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "rsf2csf"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(a, output='real', lwork=None, overwrite_a=False, sort=None, check_finite=True)"
+  },
+  "type": "DocBlob"
+}

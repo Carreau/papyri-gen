@@ -1,0 +1,442 @@
+{
+  "aliases": [
+    "networkx.bipartite.closeness_centrality"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The closeness of a node is the distance to all other nodes in the graph or in the case that the graph is not connected to all other nodes in the connected component containing that node."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The nodes input parameter must contain all nodes in one bipartite node set, but the dictionary returned contains all nodes from both node sets. See "
+            },
+            {
+              "type": "inlineCode",
+              "value": "bipartite documentation <networkx.algorithms.bipartite>"
+            },
+            {
+              "type": "text",
+              "value": " for further details on how bipartite graphs are handled in NetworkX."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Closeness centrality is normalized by the minimum distance possible. In the bipartite case the minimum distance for a node in one bipartite node set is 1 from all nodes in the other node set and 2 from all other nodes in its own set . Thus the closeness centrality for node "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "v"
+            },
+            {
+              "type": "text",
+              "value": "  in the two bipartite sets "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "U"
+            },
+            {
+              "type": "text",
+              "value": " with "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "n"
+            },
+            {
+              "type": "text",
+              "value": " nodes and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "V"
+            },
+            {
+              "type": "text",
+              "value": " with "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "m"
+            },
+            {
+              "type": "text",
+              "value": " nodes is"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "c_{v} = \\frac{m + 2(n - 1)}{d}, \\mbox{for} v \\in U,\n\nc_{v} = \\frac{n + 2(m - 1)}{d}, \\mbox{for} v \\in V,"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "d"
+            },
+            {
+              "type": "text",
+              "value": " is the sum of the distances from "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "v"
+            },
+            {
+              "type": "text",
+              "value": " to all other nodes."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Higher values of closeness  indicate higher centrality."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "As in the unipartite case, setting normalized=True causes the values to normalized further to n-1 / size(G)-1 where n is the number of nodes in the connected part of graph containing the node.  If the graph is not completely connected, this algorithm computes the closeness centrality for each connected part separately."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A bipartite network"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "G",
+              "type": "Param",
+              "type_": "graph"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Container with all nodes in one bipartite node set."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "nodes",
+              "type": "Param",
+              "type_": "list or container"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True (default) normalize by connected component size."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "normalized",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Dictionary keyed by node with bipartite closeness centrality as the value."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "closeness",
+              "type": "Param",
+              "type_": "dictionary"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute the closeness centrality for nodes in a bipartite network."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/algorithms/bipartite/centrality.py",
+  "item_line": 169,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "betweenness_centrality",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "betweenness_centrality"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "degree_centrality",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "degree_centrality"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "func"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "~networkx.algorithms.bipartite.basic.sets",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "~networkx.algorithms.bipartite.basic.sets"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "func"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "~networkx.algorithms.bipartite.basic.is_bipartite",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "~networkx.algorithms.bipartite.basic.is_bipartite"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(G, nodes, normalized=True)"
+  },
+  "type": "DocBlob"
+}

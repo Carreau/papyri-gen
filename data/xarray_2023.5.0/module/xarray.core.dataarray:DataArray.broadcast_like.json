@@ -1,0 +1,251 @@
+{
+  "aliases": [
+    "xarray.DataArray.broadcast_like"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This is equivalent to xr.broadcast(other, self)[1]"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "xarray objects are broadcast against each other in arithmetic operations, so this method is not be necessary for most uses."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If no change is needed, the input data is returned to the output without being copied."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If new coords are added by the broadcast, their values are NaN filled."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Object against which to broadcast this array."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "other",
+              "type": "Param",
+              "type_": "Dataset or DataArray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Dimensions that must not be broadcasted"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "exclude",
+              "type": "Param",
+              "type_": "iterable of Hashable, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The caller broadcasted against "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "other"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "new_da",
+              "type": "Param",
+              "type_": "DataArray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Broadcast this DataArray against another Dataset or DataArray."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "arr1 = xr.DataArray(\n    np.random.randn(2, 3),\n    dims=(\"x\", \"y\"),\n    coords={\"x\": [\"a\", \"b\"], \"y\": [\"a\", \"b\", \"c\"]},\n)\narr2 = xr.DataArray(\n    np.random.randn(3, 2),\n    dims=(\"x\", \"y\"),\n    coords={\"x\": [\"a\", \"b\", \"c\"], \"y\": [\"a\", \"b\"]},\n)\narr1"
+      },
+      {
+        "type": "code",
+        "value": "arr2"
+      },
+      {
+        "type": "code",
+        "value": "arr1.broadcast_like(arr2)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/xarray/core/dataarray.py",
+  "item_line": 1698,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(self: 'T_DataArray', other: 'DataArray | Dataset', exclude: 'Iterable[Hashable] | None' = None) -> 'T_DataArray'"
+  },
+  "type": "DocBlob"
+}

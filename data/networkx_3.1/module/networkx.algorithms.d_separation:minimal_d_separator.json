@@ -1,0 +1,453 @@
+{
+  "aliases": [
+    "networkx.minimal_d_separator"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A d-separating set in a DAG is a set of nodes that blocks all paths between the two nodes, 'u' and 'v'. This function constructs a d-separating set that is \"minimal\", meaning it is the smallest d-separating set for 'u' and 'v'. This is not necessarily unique. For more details, see Notes."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function only finds "
+            },
+            {
+              "type": "inlineCode",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " minimal d-separator. It does not guarantee uniqueness, since in a DAG there may be more than one minimal d-separator between two nodes. Moreover, this only checks for minimal separators between two nodes, not two sets. Finding minimal d-separators between two sets of nodes is not supported."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Uses the algorithm presented in . The complexity of the algorithm is "
+            },
+            {
+              "type": "inlineMath",
+              "value": "O(|E_{An}^m|)"
+            },
+            {
+              "type": "text",
+              "value": ", where "
+            },
+            {
+              "type": "inlineMath",
+              "value": "|E_{An}^m|"
+            },
+            {
+              "type": "text",
+              "value": " stands for the number of edges in the moralized graph of the sub-graph consisting of only the ancestors of 'u' and 'v'. For full details, see ."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The algorithm works by constructing the moral graph consisting of just the ancestors of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "u",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "u"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "v",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "v"
+            },
+            {
+              "type": "text",
+              "value": ". Then it constructs a candidate for a separating set  "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Z'"
+            },
+            {
+              "type": "text",
+              "value": " from the predecessors of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "u",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "u"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "v",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "v"
+            },
+            {
+              "type": "text",
+              "value": ". Then BFS is run starting from "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "u",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "u"
+            },
+            {
+              "type": "text",
+              "value": " and marking nodes found from "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Z'"
+            },
+            {
+              "type": "text",
+              "value": " and calling those nodes "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Z''"
+            },
+            {
+              "type": "text",
+              "value": ". Then BFS is run again starting from "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "v",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "v"
+            },
+            {
+              "type": "text",
+              "value": " and marking nodes if they are present in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Z''"
+            },
+            {
+              "type": "text",
+              "value": ". Those marked nodes are the returned minimal d-separating set."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "https://en.wikipedia.org/wiki/Bayesian_network#d-separation"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A networkx DAG."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "G",
+              "type": "Param",
+              "type_": "graph"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A node in the graph, G."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "u",
+              "type": "Param",
+              "type_": "node"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A node in the graph, G."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "v",
+              "type": "Param",
+              "type_": "node"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Raises a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "NetworkXError"
+                    },
+                    {
+                      "type": "text",
+                      "value": " if the input graph is not a DAG."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "NetworkXError"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If any of the input nodes are not found in the graph, a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "NodeNotFound"
+                    },
+                    {
+                      "type": "text",
+                      "value": " exception is raised."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "NodeNotFound"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute a minimal d-separating set between 'u' and 'v'."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/algorithms/d_separation.py",
+  "item_line": 215,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Raises",
+    "References",
+    "Notes"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(G, u, v)"
+  },
+  "type": "DocBlob"
+}

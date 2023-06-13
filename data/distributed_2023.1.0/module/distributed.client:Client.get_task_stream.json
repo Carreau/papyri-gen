@@ -1,0 +1,321 @@
+{
+  "aliases": [
+    "distributed.Client.get_task_stream"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This collects the data present in the diagnostic \"Task Stream\" plot on the dashboard.  It includes the start, stop, transfer, and deserialization time of every task for a particular duration."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Note that the task stream diagnostic does not run by default.  You may wish to call this function once before you start work to ensure that things start recording, and then again after you have completed."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "When you want to start recording If a number it should be the result of calling time() If a string then it should be a time difference before now, like '60s' or '500 ms'"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "start",
+              "type": "Param",
+              "type_": "Number or string"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "When you want to stop recording"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "stop",
+              "type": "Param",
+              "type_": "Number or string"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The number of desired records, ignored if both start and stop are specified"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "count",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If true then also return a Bokeh figure If plot == 'save' then save the figure to a file"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "plot",
+              "type": "Param",
+              "type_": "boolean, str"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The filename to save to if you set "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "plot='save'"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "filename",
+              "type": "Param",
+              "type_": "str (optional)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Specifies if the resource component is INLINE or CDN"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "bokeh_resources",
+              "type": "Param",
+              "type_": "bokeh.resources.Resources (optional)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "L: List[Dict]"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Get task stream data from scheduler"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "client.get_task_stream()  # prime plugin if not already connected\nx.compute()  # do some work\nclient.get_task_stream()"
+      },
+      {
+        "type": "text",
+        "value": "Pass the ``plot=True`` or ``plot='save'`` keywords to get back a Bokeh\nfigure"
+      },
+      {
+        "type": "code",
+        "value": "data, figure = client.get_task_stream(plot='save', filename='myfile.html')"
+      },
+      {
+        "type": "text",
+        "value": "Alternatively consider the context manager"
+      },
+      {
+        "type": "code",
+        "value": "from dask.distributed import get_task_stream\nwith get_task_stream() as ts:\n    x.compute()\nts.data"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/distributed/client.py",
+  "item_line": 4543,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Examples",
+    "Returns",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "a context manager version of this method"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "distributed",
+          "path": "distributed.client:Client.get_task_stream",
+          "type": "RefInfo",
+          "version": "2023.1.0"
+        },
+        "type": "Link",
+        "value": "get_task_stream"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, start=None, stop=None, count=None, plot=False, filename='task-stream.html', bokeh_resources=None)"
+  },
+  "type": "DocBlob"
+}

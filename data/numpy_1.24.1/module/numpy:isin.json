@@ -1,0 +1,916 @@
+{
+  "aliases": [
+    "numpy.isin"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "isin",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "isin"
+            },
+            {
+              "type": "text",
+              "value": " is an element-wise function version of the python keyword "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "numpy",
+                "path": "numpy:isin",
+                "type": "RefInfo",
+                "version": "1.24.1"
+              },
+              "type": "Link",
+              "value": "in"
+            },
+            {
+              "type": "text",
+              "value": ". "
+            },
+            {
+              "type": "inlineCode",
+              "value": "isin(a, b)"
+            },
+            {
+              "type": "text",
+              "value": " is roughly equivalent to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.array([item in b for item in a])"
+            },
+            {
+              "type": "text",
+              "value": " if "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "b"
+            },
+            {
+              "type": "text",
+              "value": " are 1-D sequences."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "element",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "element"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "test_elements",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "test_elements"
+            },
+            {
+              "type": "text",
+              "value": " are converted to arrays if they are not already. If "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "test_elements",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "test_elements"
+            },
+            {
+              "type": "text",
+              "value": " is a set (or other non-sequence collection) it will be converted to an object array with one element, rather than an array of the values contained in "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "test_elements",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "test_elements"
+            },
+            {
+              "type": "text",
+              "value": ". This is a consequence of the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "array",
+                "path": "array",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "array"
+            },
+            {
+              "type": "text",
+              "value": " constructor's way of handling non-sequence collections. Converting the set to a list usually gives the desired behavior."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Using "
+            },
+            {
+              "type": "inlineCode",
+              "value": "kind='table'"
+            },
+            {
+              "type": "text",
+              "value": " tends to be faster than "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "kind='sort'"
+            },
+            {
+              "type": "text",
+              "value": " if the following relationship is true: "
+            },
+            {
+              "type": "inlineCode",
+              "value": "log10(len(ar2)) > (log10(max(ar2)-min(ar2)) - 2.27) / 0.927"
+            },
+            {
+              "type": "text",
+              "value": ", but may use greater memory. The default value for "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "kind",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "kind"
+            },
+            {
+              "type": "text",
+              "value": " will be automatically selected based only on memory usage, so one may manually set "
+            },
+            {
+              "type": "inlineCode",
+              "value": "kind='table'"
+            },
+            {
+              "type": "text",
+              "value": " if memory constraints can be relaxed."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 1.13.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Input array."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "element",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The values against which to test each value of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "element",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "element"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". This argument is flattened if it is an array or array_like. See notes for behavior with non-array-like parameters."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "test_elements",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, the input arrays are both assumed to be unique, which can speed up the calculation.  Default is False."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "assume_unique",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, the values in the returned array are inverted, as if calculating "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "element not in test_elements"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Default is False. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.isin(a, b, invert=True)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is equivalent to (but faster than) "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.invert(np.isin(a, b))"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "invert",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The algorithm to use. This will not affect the final result, but will affect the speed and memory use. The default, None, will select automatically based on memory considerations."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "If 'sort', will use a mergesort-based approach. This will have   a memory usage of roughly 6 times the sum of the sizes of   "
+                            },
+                            {
+                              "domain": null,
+                              "role": null,
+                              "type": "Directive",
+                              "value": "ar1"
+                            },
+                            {
+                              "type": "text",
+                              "value": " and "
+                            },
+                            {
+                              "domain": null,
+                              "role": null,
+                              "type": "Directive",
+                              "value": "ar2"
+                            },
+                            {
+                              "type": "text",
+                              "value": ", not accounting for size of dtypes."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "If 'table', will use a lookup table approach similar   to a counting sort. This is only available for boolean and   integer arrays. This will have a memory usage of the   size of "
+                            },
+                            {
+                              "domain": null,
+                              "role": null,
+                              "type": "Directive",
+                              "value": "ar1"
+                            },
+                            {
+                              "type": "text",
+                              "value": " plus the max-min value of "
+                            },
+                            {
+                              "domain": null,
+                              "role": null,
+                              "type": "Directive",
+                              "value": "ar2"
+                            },
+                            {
+                              "type": "text",
+                              "value": ". "
+                            },
+                            {
+                              "anchor": null,
+                              "exists": true,
+                              "kind": "local",
+                              "reference": {
+                                "kind": "local",
+                                "module": null,
+                                "path": "assume_unique",
+                                "type": "RefInfo",
+                                "version": null
+                              },
+                              "type": "Link",
+                              "value": "assume_unique"
+                            },
+                            {
+                              "type": "text",
+                              "value": "   has no effect when the 'table' option is used."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "If None, will automatically choose 'table' if   the required memory allocation is less than or equal to   6 times the sum of the sizes of "
+                            },
+                            {
+                              "domain": null,
+                              "role": null,
+                              "type": "Directive",
+                              "value": "ar1"
+                            },
+                            {
+                              "type": "text",
+                              "value": " and "
+                            },
+                            {
+                              "domain": null,
+                              "role": null,
+                              "type": "Directive",
+                              "value": "ar2"
+                            },
+                            {
+                              "type": "text",
+                              "value": ",   otherwise will use 'sort'. This is done to not use   a large amount of memory by default, even though   'table' may be faster in most cases. If 'table' is chosen,   "
+                            },
+                            {
+                              "anchor": null,
+                              "exists": true,
+                              "kind": "local",
+                              "reference": {
+                                "kind": "local",
+                                "module": null,
+                                "path": "assume_unique",
+                                "type": "RefInfo",
+                                "version": null
+                              },
+                              "type": "Link",
+                              "value": "assume_unique"
+                            },
+                            {
+                              "type": "text",
+                              "value": " will have no effect."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "param": "kind",
+              "type": "Param",
+              "type_": "{None, 'sort', 'table'}, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Has the same shape as "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "element",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "element"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". The values "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "element[isin]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are in "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "test_elements",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "test_elements"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "isin",
+              "type": "Param",
+              "type_": "ndarray, bool"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Calculates "
+            },
+            {
+              "type": "inlineCode",
+              "value": "element in test_elements"
+            },
+            {
+              "type": "text",
+              "value": ", broadcasting over "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "element",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "element"
+            },
+            {
+              "type": "text",
+              "value": " only. Returns a boolean array of the same shape as "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "element",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "element"
+            },
+            {
+              "type": "text",
+              "value": " that is True where an element of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "element",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "element"
+            },
+            {
+              "type": "text",
+              "value": " is in "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "test_elements",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "test_elements"
+            },
+            {
+              "type": "text",
+              "value": " and False otherwise."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "element = 2*np.arange(4).reshape((2, 2))\nelement"
+      },
+      {
+        "type": "code",
+        "value": "test_elements = [1, 2, 4, 8]\nmask = np.isin(element, test_elements)\nmask"
+      },
+      {
+        "type": "code",
+        "value": "element[mask]"
+      },
+      {
+        "type": "text",
+        "value": "The indices of the matched values can be obtained with `nonzero`:"
+      },
+      {
+        "type": "code",
+        "value": "np.nonzero(mask)"
+      },
+      {
+        "type": "text",
+        "value": "The test can also be inverted:"
+      },
+      {
+        "type": "code",
+        "value": "mask = np.isin(element, test_elements, invert=True)\nmask"
+      },
+      {
+        "type": "code",
+        "value": "element[mask]"
+      },
+      {
+        "type": "text",
+        "value": "Because of how `array` handles sets, the following does not\nwork as expected:"
+      },
+      {
+        "type": "code",
+        "value": "test_set = {1, 2, 4, 8}\nnp.isin(element, test_set)"
+      },
+      {
+        "type": "text",
+        "value": "Casting the set to a list gives the expected result:"
+      },
+      {
+        "type": "code",
+        "value": "np.isin(element, list(test_set))"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/numpy/lib/arraysetops.py",
+  "item_line": 766,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Flattened version of this function."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "in1d",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "in1d"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Module with a number of other functions for performing set operations on arrays."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "numpy",
+          "path": "numpy.lib.arraysetops",
+          "type": "RefInfo",
+          "version": "1.24.1"
+        },
+        "type": "Link",
+        "value": "numpy.lib.arraysetops"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(element, test_elements, assume_unique=False, invert=False, *, kind=None)"
+  },
+  "type": "DocBlob"
+}

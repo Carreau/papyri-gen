@@ -1,0 +1,787 @@
+{
+  "aliases": [
+    "dask.array.histogramdd"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Chunking of the input data ("
+            },
+            {
+              "type": "inlineCode",
+              "value": "sample"
+            },
+            {
+              "type": "text",
+              "value": ") is only allowed along the 0th (row) axis (the axis corresponding to the total number of samples). Data chunked along the 1st axis (column) axis is not compatible with this function. If weights are used, they must be chunked along the 0th axis identically to the input sample."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "An example setup for a three dimensional histogram, where the sample shape is "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(8, 3)"
+            },
+            {
+              "type": "text",
+              "value": " and weights are shape "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(8,)"
+            },
+            {
+              "type": "text",
+              "value": ", sample chunks would be "
+            },
+            {
+              "type": "inlineCode",
+              "value": "((4, 4), (3,))"
+            },
+            {
+              "type": "text",
+              "value": " and the weights chunks would be "
+            },
+            {
+              "type": "inlineCode",
+              "value": "((4, 4),)"
+            },
+            {
+              "type": "text",
+              "value": " a table of the structure:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "+-------+-----------------------+-----------+ |       |      sample (8 x 3)   |  weights  | +=======+=====+=====+=====+=====+=====+=====+ | chunk | row | "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "x"
+            },
+            {
+              "type": "text",
+              "value": " | "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "y"
+            },
+            {
+              "type": "text",
+              "value": " | "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "z"
+            },
+            {
+              "type": "text",
+              "value": " | row | "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "w"
+            },
+            {
+              "type": "text",
+              "value": " | +-------+-----+-----+-----+-----+-----+-----+ |       |   0 |   5 |   6 |   6 |   0 | 0.5 | |       +-----+-----+-----+-----+-----+-----+ |       |   1 |   8 |   9 |   2 |   1 | 0.8 | |   0   +-----+-----+-----+-----+-----+-----+ |       |   2 |   3 |   3 |   1 |   2 | 0.3 | |       +-----+-----+-----+-----+-----+-----+ |       |   3 |   2 |   5 |   6 |   3 | 0.7 | +-------+-----+-----+-----+-----+-----+-----+ |       |   4 |   3 |   1 |   1 |   4 | 0.3 | |       +-----+-----+-----+-----+-----+-----+ |       |   5 |   3 |   2 |   9 |   5 | 1.3 | |   1   +-----+-----+-----+-----+-----+-----+ |       |   6 |   8 |   1 |   5 |   6 | 0.8 | |       +-----+-----+-----+-----+-----+-----+ |       |   7 |   3 |   5 |   3 |   7 | 0.7 | +-------+-----+-----+-----+-----+-----+-----+"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If the sample 0th dimension and weight 0th (row) dimension are chunked differently, a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ValueError"
+            },
+            {
+              "type": "text",
+              "value": " will be raised. If coordinate groupings ((x, y, z) trios) are separated by a chunk boundry, then a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ValueError"
+            },
+            {
+              "type": "text",
+              "value": " will be raised. We suggest that you rechunk your data if it is of that form."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The chunks property of the data (and optional weights) are used to check for compatibility with the blocked algorithm (as described above); therefore, you must call "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "to_dask_array"
+            },
+            {
+              "type": "text",
+              "value": " on a collection from "
+            },
+            {
+              "type": "inlineCode",
+              "value": "dask.dataframe"
+            },
+            {
+              "type": "text",
+              "value": ", i.e. "
+            },
+            {
+              "type": "inlineCode",
+              "value": "dask.dataframe.Series"
+            },
+            {
+              "type": "text",
+              "value": " or "
+            },
+            {
+              "type": "inlineCode",
+              "value": "dask.dataframe.DataFrame"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The function is also compatible with "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "x"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "y"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "z"
+            },
+            {
+              "type": "text",
+              "value": " being individual 1D arrays with equal chunking. In that case, the data should be passed as a tuple: "
+            },
+            {
+              "type": "inlineCode",
+              "value": "histogramdd((x, y, z), ...)"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Multidimensional data to be histogrammed."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Note the unusual interpretation of a sample when it is a sequence of dask Arrays:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "When a (N, D) dask Array, each row is an entry in the sample   (coordinate in D dimensional space)."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "When a sequence of dask Arrays, each element in the sequence   is the array of values for a single coordinate."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "param": "sample",
+              "type": "Param",
+              "type_": "dask.array.Array (N, D) or sequence of dask.array.Array"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The bin specification."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The possible binning configurations are:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "A sequence of arrays describing the monotonically increasing   bin edges along each dimension."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "A single int describing the total number of bins that will   be used in each dimension (this requires the "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "range"
+                            },
+                            {
+                              "type": "text",
+                              "value": "   argument to be defined)."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "A sequence of ints describing the total number of bins to be   used in each dimension (this requires the "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "range"
+                            },
+                            {
+                              "type": "text",
+                              "value": " argument   to be defined)."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "When bins are described by arrays, the rightmost edge is included. Bins described by arrays also allows for non-uniform bin widths."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "bins",
+              "type": "Param",
+              "type_": "sequence of arrays describing bin edges, int, or sequence of ints"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A sequence of length D, each a (min, max) tuple giving the outer bin edges to be used if the edges are not given explicitly in "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "bins",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "bins"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If defined, this argument is required to have an entry for each dimension. Unlike "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "numpy.histogramdd"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", if "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "bins",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "bins"
+                    },
+                    {
+                      "type": "text",
+                      "value": " does not define bin edges, this argument is required (this function will not automatically use the min and max of of the value in a given dimension because the input data may be lazy in dask)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "range",
+              "type": "Param",
+              "type_": "sequence of pairs, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An alias for the density argument that behaves identically. To avoid confusion with the broken argument to "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "histogram"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "density",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "density"
+                    },
+                    {
+                      "type": "text",
+                      "value": " should be preferred."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "normed",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An array of values weighing each sample in the input data. The chunks of the weights must be identical to the chunking along the 0th (row) axis of the data sample."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "weights",
+              "type": "Param",
+              "type_": "dask.array.Array, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (default), the returned array represents the number of samples in each bin. If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the returned array represents the probability density function at each bin."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "density",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The values of the histogram."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "dask.array.Array"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Sequence of arrays representing the bin edges along each dimension."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "list(dask.array.Array)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Blocked variant of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.histogramdd"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Computing the histogram in 5 blocks using different bin edges\nalong each dimension:"
+      },
+      {
+        "type": "code",
+        "value": "import dask.array as da\nx = da.random.uniform(0, 1, size=(1000, 3), chunks=(200, 3))\nedges = [\n    np.linspace(0, 1, 5), # 4 bins in 1st dim\n    np.linspace(0, 1, 6), # 5 in the 2nd\n    np.linspace(0, 1, 4), # 3 in the 3rd\n]\nh, edges = da.histogramdd(x, bins=edges)\nresult = h.compute()\nresult.shape"
+      },
+      {
+        "type": "text",
+        "value": "Defining the bins by total number and their ranges, along with\nusing weights:"
+      },
+      {
+        "type": "code",
+        "value": "bins = (4, 5, 3)\nranges = ((0, 1),) * 3  # expands to ((0, 1), (0, 1), (0, 1))\nw = da.random.uniform(0, 1, size=(1000,), chunks=x.chunksize[0])\nh, edges = da.histogramdd(x, bins=bins, range=ranges, weights=w)\nnp.isclose(h.sum().compute(), w.sum().compute())"
+      },
+      {
+        "type": "text",
+        "value": "Using a sequence of 1D arrays as the input:"
+      },
+      {
+        "type": "code",
+        "value": "x = da.array([2, 4, 2, 4, 2, 4])\ny = da.array([2, 2, 4, 4, 2, 4])\nz = da.array([4, 2, 4, 2, 4, 2])\nbins = ([0, 3, 6],) * 3\nh, edges = da.histogramdd((x, y, z), bins)\nh"
+      },
+      {
+        "type": "code",
+        "value": "edges[0]"
+      },
+      {
+        "type": "code",
+        "value": "h.compute()"
+      },
+      {
+        "type": "code",
+        "value": "edges[0].compute()"
+      },
+      {
+        "type": "code",
+        "value": "edges[1].compute()"
+      },
+      {
+        "type": "code",
+        "value": "edges[2].compute()"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dask/array/routines.py",
+  "item_line": 1171,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "See Also",
+    "Returns",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "histogram",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "histogram"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(sample, bins, range=None, normed=None, weights=None, density=None)"
+  },
+  "type": "DocBlob"
+}

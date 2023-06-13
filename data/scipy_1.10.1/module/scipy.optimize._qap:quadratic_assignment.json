@@ -1,0 +1,717 @@
+{
+  "aliases": [
+    "scipy.optimize.quadratic_assignment"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Quadratic assignment solves problems of the following form:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "\\min_P & \\ {\\ \\text{trace}(A^T P B P^T)}\\\\\n\\mbox{s.t. } & {P \\ \\epsilon \\ \\mathcal{P}}\\\\"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\mathcal{P}"
+            },
+            {
+              "type": "text",
+              "value": " is the set of all permutation matrices, and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "B"
+            },
+            {
+              "type": "text",
+              "value": " are square matrices."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Graph matching tries to "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "maximize"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " the same objective function. This algorithm can be thought of as finding the alignment of the nodes of two graphs that minimizes the number of induced edge disagreements, or, in the case of weighted graphs, the sum of squared edge weight differences."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Note that the quadratic assignment problem is NP-hard. The results given here are approximations and are not guaranteed to be optimal."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The default method "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'faq' <optimize.qap-faq>"
+            },
+            {
+              "type": "text",
+              "value": " uses the Fast Approximate QAP algorithm ; it typically offers the best combination of speed and accuracy. Method "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'2opt' <optimize.qap-2opt>"
+            },
+            {
+              "type": "text",
+              "value": " can be computationally expensive, but may be a useful alternative, or it can be used to refine the solution returned by another method."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The square matrix "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "A"
+                    },
+                    {
+                      "type": "text",
+                      "value": " in the objective function above."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "A",
+              "type": "Param",
+              "type_": "2-D array, square"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The square matrix "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "B"
+                    },
+                    {
+                      "type": "text",
+                      "value": " in the objective function above."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "B",
+              "type": "Param",
+              "type_": "2-D array, square"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The algorithm used to solve the problem. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "'faq' <optimize.qap-faq>"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (default) and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "'2opt' <optimize.qap-2opt>"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are available."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "method",
+              "type": "Param",
+              "type_": "str in {'faq', '2opt'} (default: 'faq')"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A dictionary of solver options. All solvers support the following:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "maximize"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "maximize"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "partial_match"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "partial_match"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "rng"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "rng"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "If "
+                        },
+                        {
+                          "anchor": null,
+                          "exists": true,
+                          "kind": "module",
+                          "reference": {
+                            "kind": "module",
+                            "module": "scipy",
+                            "path": "scipy.linalg.interpolative:seed",
+                            "type": "RefInfo",
+                            "version": "1.10.1"
+                          },
+                          "type": "Link",
+                          "value": "seed"
+                        },
+                        {
+                          "type": "text",
+                          "value": " is None (or "
+                        },
+                        {
+                          "domain": null,
+                          "role": null,
+                          "type": "Directive",
+                          "value": "np.random"
+                        },
+                        {
+                          "type": "text",
+                          "value": "), the "
+                        },
+                        {
+                          "anchor": null,
+                          "exists": true,
+                          "kind": "module",
+                          "reference": {
+                            "kind": "api",
+                            "module": "numpy.random.mtrand",
+                            "path": "numpy.random.mtrand:RandomState",
+                            "type": "RefInfo",
+                            "version": "*"
+                          },
+                          "type": "Link",
+                          "value": "numpy.random.RandomState"
+                        },
+                        {
+                          "type": "text",
+                          "value": "     singleton is used.     If "
+                        },
+                        {
+                          "anchor": null,
+                          "exists": true,
+                          "kind": "module",
+                          "reference": {
+                            "kind": "module",
+                            "module": "scipy",
+                            "path": "scipy.linalg.interpolative:seed",
+                            "type": "RefInfo",
+                            "version": "1.10.1"
+                          },
+                          "type": "Link",
+                          "value": "seed"
+                        },
+                        {
+                          "type": "text",
+                          "value": " is an int, a new "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "RandomState"
+                        },
+                        {
+                          "type": "text",
+                          "value": " instance is used,     seeded with "
+                        },
+                        {
+                          "anchor": null,
+                          "exists": true,
+                          "kind": "module",
+                          "reference": {
+                            "kind": "module",
+                            "module": "scipy",
+                            "path": "scipy.linalg.interpolative:seed",
+                            "type": "RefInfo",
+                            "version": "1.10.1"
+                          },
+                          "type": "Link",
+                          "value": "seed"
+                        },
+                        {
+                          "type": "text",
+                          "value": ".     If "
+                        },
+                        {
+                          "anchor": null,
+                          "exists": true,
+                          "kind": "module",
+                          "reference": {
+                            "kind": "module",
+                            "module": "scipy",
+                            "path": "scipy.linalg.interpolative:seed",
+                            "type": "RefInfo",
+                            "version": "1.10.1"
+                          },
+                          "type": "Link",
+                          "value": "seed"
+                        },
+                        {
+                          "type": "text",
+                          "value": " is already a "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "Generator"
+                        },
+                        {
+                          "type": "text",
+                          "value": " or "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "RandomState"
+                        },
+                        {
+                          "type": "text",
+                          "value": " instance then     that instance is used."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "type": "blockquote"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "For method-specific options, see "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "show_options('quadratic_assignment') <show_options>"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "options",
+              "type": "Param",
+              "type_": "dict, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "OptimizeResult"
+                    },
+                    {
+                      "type": "text",
+                      "value": " containing the following fields."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "col_ind"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "col_ind"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "fun"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "fun"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "nit"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "nit"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "param": "res",
+              "type": "Param",
+              "type_": "OptimizeResult"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Approximates solution to the quadratic assignment problem and the graph matching problem."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.optimize import quadratic_assignment\nA = np.array([[0, 80, 150, 170], [80, 0, 130, 100],\n              [150, 130, 0, 120], [170, 100, 120, 0]])\nB = np.array([[0, 5, 2, 7], [0, 0, 3, 8],\n              [0, 0, 0, 3], [0, 0, 0, 0]])\nres = quadratic_assignment(A, B)\nprint(res)"
+      },
+      {
+        "type": "text",
+        "value": "The see the relationship between the returned ``col_ind`` and ``fun``,\nuse ``col_ind`` to form the best permutation matrix found, then evaluate\nthe objective function :math:`f(P) = trace(A^T P B P^T )`."
+      },
+      {
+        "type": "code",
+        "value": "perm = res['col_ind']\nP = np.eye(len(A), dtype=int)[perm]\nfun = np.trace(A.T @ P @ B @ P.T)\nprint(fun)"
+      },
+      {
+        "type": "text",
+        "value": "Alternatively, to avoid constructing the permutation matrix explicitly,\ndirectly permute the rows and columns of the distance matrix."
+      },
+      {
+        "type": "code",
+        "value": "fun = np.trace(A.T @ B[perm][:, perm])\nprint(fun)"
+      },
+      {
+        "type": "text",
+        "value": "Although not guaranteed in general, ``quadratic_assignment`` happens to\nhave found the globally optimal solution."
+      },
+      {
+        "type": "code",
+        "value": "from itertools import permutations\nperm_opt, fun_opt = None, np.inf\nfor perm in permutations([0, 1, 2, 3]):\n    perm = np.array(perm)\n    fun = np.trace(A.T @ B[perm][:, perm])\n    if fun < fun_opt:\n        fun_opt, perm_opt = fun, perm\nprint(np.array_equal(perm_opt, res['col_ind']))"
+      },
+      {
+        "type": "text",
+        "value": "Here is an example for which the default method,\n:ref:`'faq' <optimize.qap-faq>`, does not find the global optimum."
+      },
+      {
+        "type": "code",
+        "value": "A = np.array([[0, 5, 8, 6], [5, 0, 5, 1],\n              [8, 5, 0, 2], [6, 1, 2, 0]])\nB = np.array([[0, 1, 8, 4], [1, 0, 5, 2],\n              [8, 5, 0, 5], [4, 2, 5, 0]])\nres = quadratic_assignment(A, B)\nprint(res)"
+      },
+      {
+        "type": "text",
+        "value": "If accuracy is important, consider using  :ref:`'2opt' <optimize.qap-2opt>`\nto refine the solution."
+      },
+      {
+        "type": "code",
+        "value": "guess = np.array([np.arange(len(A)), res.col_ind]).T\nres = quadratic_assignment(A, B, method=\"2opt\",\n                           options = {'partial_guess': guess})\nprint(res)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/optimize/_qap.py",
+  "item_line": 11,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(A, B, method='faq', options=None)"
+  },
+  "type": "DocBlob"
+}

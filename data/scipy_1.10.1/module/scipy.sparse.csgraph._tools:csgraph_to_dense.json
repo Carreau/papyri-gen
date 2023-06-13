@@ -1,0 +1,269 @@
+{
+  "aliases": [
+    "scipy.sparse.csgraph.csgraph_to_dense"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 0.11.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For normal sparse graph representations, calling csgraph_to_dense with null_value=0 produces an equivalent result to using dense format conversions in the main sparse package.  When the sparse representations have repeated values, however, the results will differ.  The tools in scipy.sparse will add repeating values to obtain a final value.  This function will select the minimum among repeating values to obtain a final value.  For example, here we'll create a two-node directed sparse graph with multiple edges from node 0 to node 1, of weights 2 and 3. This illustrates the difference in behavior:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> from scipy.sparse import csr_matrix, csgraph\n>>> import numpy as np\n>>> data = np.array([2, 3])\n>>> indices = np.array([1, 1])\n>>> indptr = np.array([0, 2, 2])\n>>> M = csr_matrix((data, indices, indptr), shape=(2, 2))\n>>> M.toarray()\narray([[0, 5],\n       [0, 0]])\n>>> csgraph.csgraph_to_dense(M)\narray([[0., 2.],\n       [0., 0.]])"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The reason for this difference is to allow a compressed sparse graph to represent multiple edges between any two nodes.  As most sparse graph algorithms are concerned with the single lowest-cost edge between any two nodes, the default scipy.sparse behavior of summming multiple weights does not make sense in this context."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The other reason for using this routine is to allow for graphs with zero-weight edges.  Let's look at the example of a two-node directed graph, connected by an edge of weight zero:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> from scipy.sparse import csr_matrix, csgraph\n>>> data = np.array([0.0])\n>>> indices = np.array([1])\n>>> indptr = np.array([0, 1, 1])\n>>> M = csr_matrix((data, indices, indptr), shape=(2, 2))\n>>> M.toarray()\narray([[0, 0],\n       [0, 0]])\n>>> csgraph.csgraph_to_dense(M, np.inf)\narray([[inf,  0.],\n       [inf, inf]])"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In the first case, the zero-weight edge gets lost in the dense representation.  In the second case, we can choose a different null value and see the true form of the graph."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Sparse representation of a graph."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "csgraph",
+              "type": "Param",
+              "type_": "csr_matrix, csc_matrix, or lil_matrix"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The value used to indicate null edges in the dense representation. Default is 0."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "null_value",
+              "type": "Param",
+              "type_": "float, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The dense representation of the sparse graph."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "graph",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Convert a sparse graph representation to a dense representation"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from scipy.sparse import csr_matrix\nfrom scipy.sparse.csgraph import csgraph_to_dense"
+      },
+      {
+        "type": "code",
+        "value": "graph = csr_matrix( [\n[0, 1, 2, 0],\n[0, 0, 0, 1],\n[0, 0, 0, 3],\n[0, 0, 0, 0]\n])\ngraph"
+      },
+      {
+        "type": "code",
+        "value": "csgraph_to_dense(graph)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": "<class 'builtin_function_or_method'>",
+  "ordered_sections": [
+    "Signature",
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "csgraph_to_dense(csgraph, null_value=0)"
+  },
+  "type": "DocBlob"
+}

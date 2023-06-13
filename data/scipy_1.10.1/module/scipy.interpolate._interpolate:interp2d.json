@@ -1,0 +1,1301 @@
+{
+  "aliases": [
+    "scipy.interpolate.interp2d"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "interp2d"
+                },
+                {
+                  "type": "text",
+                  "value": " is deprecated in SciPy 1.10 and will be removed in SciPy     1.12.0."
+                }
+              ],
+              "type": "paragraph"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "For legacy code, nearly bug-for-bug compatible replacements are     "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "RectBivariateSpline"
+                },
+                {
+                  "type": "text",
+                  "value": " on regular grids, and "
+                },
+                {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.interpolate._fitpack_impl:bisplrep",
+                    "type": "RefInfo",
+                    "version": "1.10.1"
+                  },
+                  "type": "Link",
+                  "value": "bisplrep"
+                },
+                {
+                  "type": "text",
+                  "value": "/"
+                },
+                {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "scipy",
+                    "path": "scipy.interpolate._fitpack_impl:bisplev",
+                    "type": "RefInfo",
+                    "version": "1.10.1"
+                  },
+                  "type": "Link",
+                  "value": "bisplev"
+                },
+                {
+                  "type": "text",
+                  "value": " for     scattered 2D data."
+                }
+              ],
+              "type": "paragraph"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "In new code, for regular grids use "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "RegularGridInterpolator"
+                },
+                {
+                  "type": "text",
+                  "value": " instead.     For scattered data, prefer "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "LinearNDInterpolator"
+                },
+                {
+                  "type": "text",
+                  "value": " or     "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "CloughTocher2DInterpolator"
+                },
+                {
+                  "type": "text",
+                  "value": "."
+                }
+              ],
+              "type": "paragraph"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "For more details see     "
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "https://gist.github.com/ev-br/8544371b40f414b7eaf3fe6217209bff"
+                    }
+                  ],
+                  "title": "",
+                  "type": "link",
+                  "url": "https://gist.github.com/ev-br/8544371b40f414b7eaf3fe6217209bff"
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Interpolate over a 2-D grid."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "x",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "x"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "y",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "y"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "z",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "z"
+            },
+            {
+              "type": "text",
+              "value": " are arrays of values used to approximate some function f: "
+            },
+            {
+              "type": "inlineCode",
+              "value": "z = f(x, y)"
+            },
+            {
+              "type": "text",
+              "value": " which returns a scalar value "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "z",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "z"
+            },
+            {
+              "type": "text",
+              "value": ". This class returns a function whose call method uses spline interpolation to find the value of new points."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "x",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "x"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "y",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "y"
+            },
+            {
+              "type": "text",
+              "value": " represent a regular grid, consider using "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "RectBivariateSpline"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "z",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "z"
+            },
+            {
+              "type": "text",
+              "value": " is a vector value, consider using "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "interpn"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Note that calling "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "interp2d"
+            },
+            {
+              "type": "text",
+              "value": " with NaNs present in input values, or with decreasing values in "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "x",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "x"
+            },
+            {
+              "type": "text",
+              "value": " an "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "y",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "y"
+            },
+            {
+              "type": "text",
+              "value": " results in undefined behaviour."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "__call__",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The minimum number of data points required along the interpolation axis is "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(k+1)**2"
+            },
+            {
+              "type": "text",
+              "value": ", with k=1 for linear, k=3 for cubic and k=5 for quintic interpolation."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The interpolator is constructed by "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.interpolate._fitpack_impl:bisplrep",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "bisplrep"
+            },
+            {
+              "type": "text",
+              "value": ", with a smoothing factor of 0. If more control over smoothing is needed, "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.interpolate._fitpack_impl:bisplrep",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "bisplrep"
+            },
+            {
+              "type": "text",
+              "value": " should be used directly."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The coordinates of the data points to interpolate "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "xnew"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "ynew"
+            },
+            {
+              "type": "text",
+              "value": " have to be sorted by ascending order. "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "interp2d"
+            },
+            {
+              "type": "text",
+              "value": " is legacy and is not recommended for use in new code. New code should use "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "RegularGridInterpolator"
+            },
+            {
+              "type": "text",
+              "value": " instead."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Arrays defining the data point coordinates. The data point coordinates need to be sorted by increasing order."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If the points lie on a regular grid, "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " can specify the column coordinates and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "y",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "y"
+                    },
+                    {
+                      "type": "text",
+                      "value": " the row coordinates, for example    "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": ">>> x = [0,1,2];  y = [0,3]; z = [[1,2,3], [4,5,6]]"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Otherwise, "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "y",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "y"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must specify the full coordinates for each point, for example    "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": ">>> x = [0,1,2,0,1,2];  y = [0,0,0,3,3,3]; z = [1,4,2,5,3,6]"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "y",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "y"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are multidimensional, they are flattened before use."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x, y",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The values of the function to interpolate at the data points. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "z",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "z"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a multidimensional array, it is flattened before use assuming Fortran-ordering (order='F').  The length of a flattened "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "z",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "z"
+                    },
+                    {
+                      "type": "text",
+                      "value": " array is either len("
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")*len("
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "y",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "y"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") if "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "y",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "y"
+                    },
+                    {
+                      "type": "text",
+                      "value": " specify the column and row coordinates or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "len(z) == len(x) == len(y)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " if "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "y",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "y"
+                    },
+                    {
+                      "type": "text",
+                      "value": " specify coordinates for each point."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "z",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The kind of spline interpolation to use. Default is 'linear'."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "kind",
+              "type": "Param",
+              "type_": "{'linear', 'cubic', 'quintic'}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, the class makes internal copies of x, y and z. If False, references may be used. The default is to copy."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "copy",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, when interpolated values are requested outside of the domain of the input data (x,y), a ValueError is raised. If False, then "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "fill_value",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "fill_value"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is used."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "bounds_error",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If provided, the value to use for points outside of the interpolation domain. If omitted (None), values outside the domain are extrapolated via nearest-neighbor extrapolation."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fill_value",
+              "type": "Param",
+              "type_": "number, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "deprecated 1.10.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Construct a 2-D grid and interpolate on it:"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy import interpolate\nx = np.arange(-5.01, 5.01, 0.25)\ny = np.arange(-5.01, 5.01, 0.25)\nxx, yy = np.meshgrid(x, y)\nz = np.sin(xx**2+yy**2)\nf = interpolate.interp2d(x, y, z, kind='cubic')"
+      },
+      {
+        "type": "text",
+        "value": "Now use the obtained interpolation function and plot the result:"
+      },
+      {
+        "type": "code",
+        "value": "import matplotlib.pyplot as plt\nxnew = np.arange(-5.01, 5.01, 1e-2)\nynew = np.arange(-5.01, 5.01, 1e-2)\nznew = f(xnew, ynew)\nplt.plot(x, z[0, :], 'ro-', xnew, znew[0, :], 'b-')\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.interpolate._interpolate:interp2d-0-4f09429e.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/interpolate/_interpolate.py",
+  "item_line": 111,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Signature",
+    "Summary",
+    "Extended Summary",
+    "Methods",
+    "Parameters",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Much faster 2-D interpolation if your input data is on a grid"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "RectBivariateSpline",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "RectBivariateSpline"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Spline interpolation based on FITPACK"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.interpolate._fitpack_impl:bisplrep",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "bisplrep"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Spline interpolation based on FITPACK"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.interpolate._fitpack_impl:bisplev",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "bisplev"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "a more recent wrapper of the FITPACK routines"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "BivariateSpline",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "BivariateSpline"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "1-D version of this function"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "interp1d",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "interp1d"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "interpolation on a regular or rectilinear grid in arbitrary dimensions."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "RegularGridInterpolator",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "RegularGridInterpolator"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Multidimensional interpolation on regular grids (wraps "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "RegularGridInterpolator"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "RectBivariateSpline"
+            },
+            {
+              "type": "text",
+              "value": ")."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "interpn",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "interpn"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "interp2d(x, y, z, kind='linear', copy=True, bounds_error=False, fill_value=None)"
+  },
+  "type": "DocBlob"
+}

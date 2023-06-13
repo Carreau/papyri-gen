@@ -1,0 +1,207 @@
+{
+  "aliases": [
+    "networkx.connectivity.EdgeComponentAuxGraph"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Constructing the auxiliary graph (which may take some time) allows for the k-edge-ccs to be found in linear time for arbitrary k."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This implementation is based on . The idea is to construct an auxiliary graph from which the k-edge-ccs can be extracted in linear time. The auxiliary graph is constructed in $O("
+            },
+            {
+              "type": "SubstitutionRef",
+              "value": "|V|"
+            },
+            {
+              "type": "text",
+              "value": "\\cdot F)$ operations, where F is the complexity of max flow. Querying the components takes an additional $O("
+            },
+            {
+              "type": "SubstitutionRef",
+              "value": "|V|"
+            },
+            {
+              "type": "text",
+              "value": ")$ operations. This algorithm can be slow for large graphs, but it handles an arbitrary k and works for both directed and undirected inputs."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The undirected case for k=1 is exactly connected components. The undirected case for k=2 is exactly bridge connected components. The directed case for k=1 is exactly strongly connected components."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A simple algorithm to find all k-edge-connected components in a graph."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import itertools as it\nfrom networkx.utils import pairwise\nfrom networkx.algorithms.connectivity import EdgeComponentAuxGraph\n# Build an interesting graph with multiple levels of k-edge-ccs\npaths = [\n    (1, 2, 3, 4, 1, 3, 4, 2),  # a 3-edge-cc (a 4 clique)\n    (5, 6, 7, 5),  # a 2-edge-cc (a 3 clique)\n    (1, 5),  # combine first two ccs into a 1-edge-cc\n    (0,),  # add an additional disconnected 1-edge-cc\n]\nG = nx.Graph()\nG.add_nodes_from(it.chain(*paths))\nG.add_edges_from(it.chain(*[pairwise(path) for path in paths]))\n# Constructing the AuxGraph takes about O(n ** 4)\naux_graph = EdgeComponentAuxGraph.construct(G)\n# Once constructed, querying takes O(n)\nsorted(map(sorted, aux_graph.k_edge_components(k=1)))"
+      },
+      {
+        "type": "code",
+        "value": "sorted(map(sorted, aux_graph.k_edge_components(k=2)))"
+      },
+      {
+        "type": "code",
+        "value": "sorted(map(sorted, aux_graph.k_edge_components(k=3)))"
+      },
+      {
+        "type": "code",
+        "value": "sorted(map(sorted, aux_graph.k_edge_components(k=4)))"
+      },
+      {
+        "type": "text",
+        "value": "The auxiliary graph is primarily used for k-edge-ccs but it\ncan also speed up the queries of k-edge-subgraphs by refining the\nsearch space."
+      },
+      {
+        "type": "code",
+        "value": "import itertools as it\nfrom networkx.utils import pairwise\nfrom networkx.algorithms.connectivity import EdgeComponentAuxGraph\npaths = [\n    (1, 2, 4, 3, 1, 4),\n]\nG = nx.Graph()\nG.add_nodes_from(it.chain(*paths))\nG.add_edges_from(it.chain(*[pairwise(path) for path in paths]))\naux_graph = EdgeComponentAuxGraph.construct(G)\nsorted(map(sorted, aux_graph.k_edge_subgraphs(k=3)))"
+      },
+      {
+        "type": "code",
+        "value": "sorted(map(sorted, aux_graph.k_edge_components(k=3)))"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/algorithms/connectivity/edge_kcomponents.py",
+  "item_line": 239,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

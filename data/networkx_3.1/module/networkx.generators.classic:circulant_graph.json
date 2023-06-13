@@ -1,0 +1,234 @@
+{
+  "aliases": [
+    "networkx.circulant_graph"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The circulant graph $Ci_n(x_1, ..., x_m)$ consists of $n$ nodes $0, ..., n-1$ such that node $i$ is connected to nodes $(i + x) \\mod n$ and $(i - x) \\mod n$ for all $x$ in $x_1, ..., x_m$. Thus $Ci_n(1)$ is a cycle graph."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The number of nodes in the graph."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "n",
+              "type": "Param",
+              "type_": "integer"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A list of node offsets, $x_1$ up to $x_m$, as described above."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "offsets",
+              "type": "Param",
+              "type_": "list of integers"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Graph type to create. If graph instance, then cleared before populated."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "create_using",
+              "type": "Param",
+              "type_": "NetworkX graph constructor, optional (default=nx.Graph)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "NetworkX Graph of type create_using"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Returns the circulant graph $Ci_n(x_1, x_2, ..., x_m)$ with $n$ nodes."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Many well-known graph families are subfamilies of the circulant graphs;\nfor example, to create the cycle graph on n points, we connect every\nnode to nodes on either side (with offset plus or minus one). For n = 10,"
+      },
+      {
+        "type": "code",
+        "value": "G = nx.circulant_graph(10, [1])\nedges = [\n    (0, 9),\n    (0, 1),\n    (1, 2),\n    (2, 3),\n    (3, 4),\n    (4, 5),\n    (5, 6),\n    (6, 7),\n    (7, 8),\n    (8, 9),\n]"
+      },
+      {
+        "type": "code",
+        "value": "sorted(edges) == sorted(G.edges())"
+      },
+      {
+        "type": "text",
+        "value": "Similarly, we can create the complete graph\non 5 points with the set of offsets [1, 2]:"
+      },
+      {
+        "type": "code",
+        "value": "G = nx.circulant_graph(5, [1, 2])\nedges = [\n    (0, 1),\n    (0, 2),\n    (0, 3),\n    (0, 4),\n    (1, 2),\n    (1, 3),\n    (1, 4),\n    (2, 3),\n    (2, 4),\n    (3, 4),\n]"
+      },
+      {
+        "type": "code",
+        "value": "sorted(edges) == sorted(G.edges())"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/generators/classic.py",
+  "item_line": 304,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(n, offsets, create_using=None)"
+  },
+  "type": "DocBlob"
+}

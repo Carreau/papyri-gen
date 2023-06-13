@@ -1,0 +1,678 @@
+{
+  "aliases": [
+    "scipy.stats.expectile"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Expectiles are a generalization of the expectation in the same way as quantiles are a generalization of the median. The expectile at level "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "alpha = 0.5"
+            },
+            {
+              "type": "text",
+              "value": " is the mean (average). See Notes for more details."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In general, the expectile at level "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\alpha"
+            },
+            {
+              "type": "text",
+              "value": " of a random variable "
+            },
+            {
+              "type": "inlineMath",
+              "value": "X"
+            },
+            {
+              "type": "text",
+              "value": " with cumulative distribution function (CDF) "
+            },
+            {
+              "type": "inlineMath",
+              "value": "F"
+            },
+            {
+              "type": "text",
+              "value": " is given by the unique solution "
+            },
+            {
+              "type": "inlineMath",
+              "value": "t"
+            },
+            {
+              "type": "text",
+              "value": " of:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "\\alpha E((X - t)_+) = (1 - \\alpha) E((t - X)_+) \\,."
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Here, "
+            },
+            {
+              "type": "inlineMath",
+              "value": "(x)_+ = \\max(0, x)"
+            },
+            {
+              "type": "text",
+              "value": " is the positive part of "
+            },
+            {
+              "type": "inlineMath",
+              "value": "x"
+            },
+            {
+              "type": "text",
+              "value": ". This equation can be equivalently written as:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "\\alpha \\int_t^\\infty (x - t)\\mathrm{d}F(x)\n= (1 - \\alpha) \\int_{-\\infty}^t (t - x)\\mathrm{d}F(x) \\,."
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The empirical expectile at level "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\alpha"
+            },
+            {
+              "type": "text",
+              "value": " ("
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "alpha",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "alpha"
+            },
+            {
+              "type": "text",
+              "value": ") of a sample "
+            },
+            {
+              "type": "inlineMath",
+              "value": "a_i"
+            },
+            {
+              "type": "text",
+              "value": " (the array "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "a",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": ") is defined by plugging in the empirical CDF of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "a",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": ". Given sample or case weights "
+            },
+            {
+              "type": "inlineMath",
+              "value": "w"
+            },
+            {
+              "type": "text",
+              "value": " (the array "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "weights",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "weights"
+            },
+            {
+              "type": "text",
+              "value": "), it reads "
+            },
+            {
+              "type": "inlineMath",
+              "value": "F_a(x) = \\frac{1}{\\sum_i a_i} \\sum_i w_i 1_{a_i \\leq x}"
+            },
+            {
+              "type": "text",
+              "value": " with indicator function "
+            },
+            {
+              "type": "inlineMath",
+              "value": "1_{A}"
+            },
+            {
+              "type": "text",
+              "value": ". This leads to the definition of the empirical expectile at level "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "alpha",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "alpha"
+            },
+            {
+              "type": "text",
+              "value": " as the unique solution "
+            },
+            {
+              "type": "inlineMath",
+              "value": "t"
+            },
+            {
+              "type": "text",
+              "value": " of:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "\\alpha \\sum_{i=1}^n w_i (a_i - t)_+ =\n    (1 - \\alpha) \\sum_{i=1}^n w_i (t - a_i)_+ \\,."
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\alpha=0.5"
+            },
+            {
+              "type": "text",
+              "value": ", this simplifies to the weighted average. Furthermore, the larger "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\alpha"
+            },
+            {
+              "type": "text",
+              "value": ", the larger the value of the expectile."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "As a final remark, the expectile at level "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\alpha"
+            },
+            {
+              "type": "text",
+              "value": " can also be written as a minimization problem. One often used choice is"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "\\operatorname{argmin}_t\nE(\\lvert 1_{t\\geq X} - \\alpha\\rvert(t - X)^2) \\,."
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Array containing numbers whose expectile is desired."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "a",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The level of the expectile; e.g., "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "alpha=0.5"
+                    },
+                    {
+                      "type": "text",
+                      "value": " gives the mean."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "alpha",
+              "type": "Param",
+              "type_": "float, default: 0.5"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An array of weights associated with the values in "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". The "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "weights",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "weights"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must be broadcastable to the same shape as "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Default is None, which gives each value a weight of 1.0. An integer valued weight element acts like repeating the corresponding observation in "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": " that many times. See Notes for more details."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "weights",
+              "type": "Param",
+              "type_": "array_like, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The empirical expectile at level "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "alpha",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "alpha"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "expectile",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute the expectile at the specified level."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.stats import expectile\na = [1, 4, 2, -1]\nexpectile(a, alpha=0.5) == np.mean(a)"
+      },
+      {
+        "type": "code",
+        "value": "expectile(a, alpha=0.2)"
+      },
+      {
+        "type": "code",
+        "value": "expectile(a, alpha=0.8)"
+      },
+      {
+        "type": "code",
+        "value": "weights = [1, 3, 1, 1]"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_stats_py.py",
+  "item_line": 9539,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Arithmetic average"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "numpy.mean",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "numpy.mean"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Quantile"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "numpy.quantile",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "numpy.quantile"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(a, alpha=0.5, *, weights=None)"
+  },
+  "type": "DocBlob"
+}

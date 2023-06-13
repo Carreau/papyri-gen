@@ -1,0 +1,1825 @@
+{
+  "aliases": [
+    "numpy.quantile"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 1.15.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Given a vector "
+            },
+            {
+              "type": "inlineCode",
+              "value": "V"
+            },
+            {
+              "type": "text",
+              "value": " of length "
+            },
+            {
+              "type": "inlineCode",
+              "value": "n"
+            },
+            {
+              "type": "text",
+              "value": ", the q-th quantile of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "V"
+            },
+            {
+              "type": "text",
+              "value": " is the value "
+            },
+            {
+              "type": "inlineCode",
+              "value": "q"
+            },
+            {
+              "type": "text",
+              "value": " of the way from the minimum to the maximum in a sorted copy of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "V"
+            },
+            {
+              "type": "text",
+              "value": ". The values and distances of the two nearest neighbors as well as the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "method",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "method"
+            },
+            {
+              "type": "text",
+              "value": " parameter will determine the quantile if the normalized ranking does not match the location of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "q"
+            },
+            {
+              "type": "text",
+              "value": " exactly. This function is the same as the median if "
+            },
+            {
+              "type": "inlineCode",
+              "value": "q=0.5"
+            },
+            {
+              "type": "text",
+              "value": ", the same as the minimum if "
+            },
+            {
+              "type": "inlineCode",
+              "value": "q=0.0"
+            },
+            {
+              "type": "text",
+              "value": " and the same as the maximum if "
+            },
+            {
+              "type": "inlineCode",
+              "value": "q=1.0"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The optional "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "method",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "method"
+            },
+            {
+              "type": "text",
+              "value": " parameter specifies the method to use when the desired quantile lies between two indexes "
+            },
+            {
+              "type": "inlineCode",
+              "value": "i"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "j = i + 1"
+            },
+            {
+              "type": "text",
+              "value": ". In that case, we first determine "
+            },
+            {
+              "type": "inlineCode",
+              "value": "i + g"
+            },
+            {
+              "type": "text",
+              "value": ", a virtual index that lies between "
+            },
+            {
+              "type": "inlineCode",
+              "value": "i"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "j"
+            },
+            {
+              "type": "text",
+              "value": ", where  "
+            },
+            {
+              "type": "inlineCode",
+              "value": "i"
+            },
+            {
+              "type": "text",
+              "value": " is the floor and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "g"
+            },
+            {
+              "type": "text",
+              "value": " is the fractional part of the index. The final result is, then, an interpolation of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "a[i]"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "a[j]"
+            },
+            {
+              "type": "text",
+              "value": " based on "
+            },
+            {
+              "type": "inlineCode",
+              "value": "g"
+            },
+            {
+              "type": "text",
+              "value": ". During the computation of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "g"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "i"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "j"
+            },
+            {
+              "type": "text",
+              "value": " are modified using correction constants "
+            },
+            {
+              "type": "inlineCode",
+              "value": "alpha"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "beta"
+            },
+            {
+              "type": "text",
+              "value": " whose choices depend on the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "method"
+            },
+            {
+              "type": "text",
+              "value": " used. Finally, note that since Python uses 0-based indexing, the code subtracts another 1 from the index internally."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The following formula determines the virtual index "
+            },
+            {
+              "type": "inlineCode",
+              "value": "i + g"
+            },
+            {
+              "type": "text",
+              "value": ", the location  of the quantile in the sorted sample:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "i + g = q * ( n - alpha - beta + 1 ) + alpha"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The different methods then work as follows"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "method 1 of H&F .     This method gives discontinuous results:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "if g > 0 ; then take j"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "if g = 0 ; then take i"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "inverted_cdf:"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "method 2 of H&F .     This method gives discontinuous results:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "if g > 0 ; then take j"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "if g = 0 ; then average between bounds"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "averaged_inverted_cdf:"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "method 3 of H&F .     This method gives discontinuous results:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "if g > 0 ; then take j"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "if g = 0 and index is odd ; then take j"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "if g = 0 and index is even ; then take i"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "closest_observation:"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "method 4 of H&F .     This method gives continuous results using:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "alpha = 0"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "beta = 1"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "interpolated_inverted_cdf:"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "method 5 of H&F .     This method gives continuous results using:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "alpha = 1/2"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "beta = 1/2"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "hazen:"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "method 6 of H&F .     This method gives continuous results using:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "alpha = 0"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "beta = 0"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "weibull:"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "method 7 of H&F .     This method gives continuous results using:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "alpha = 1"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "beta = 1"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "linear:"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "method 8 of H&F .     This method is probably the best method if the sample     distribution function is unknown (see reference).     This method gives continuous results using:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "alpha = 1/3"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "beta = 1/3"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "median_unbiased:"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "method 9 of H&F .     This method is probably the best method if the sample     distribution function is known to be normal.     This method gives continuous results using:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "alpha = 3/8"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "beta = 3/8"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "normal_unbiased:"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "NumPy method kept for backwards compatibility.     Takes "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "i"
+                    },
+                    {
+                      "type": "text",
+                      "value": " as the interpolation point."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "lower:"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "NumPy method kept for backwards compatibility.     Takes "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "j"
+                    },
+                    {
+                      "type": "text",
+                      "value": " as the interpolation point."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "higher:"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "NumPy method kept for backwards compatibility.     Takes "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "i"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "j"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", whichever is nearest."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "nearest:"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "NumPy method kept for backwards compatibility.     Uses "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(i + j) / 2"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "midpoint:"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            }
+          ],
+          "type": "DefList"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Input array or object that can be converted to an array."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "a",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Quantile or sequence of quantiles to compute, which must be between 0 and 1 inclusive."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "q",
+              "type": "Param",
+              "type_": "array_like of float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Axis or axes along which the quantiles are computed. The default is to compute the quantile(s) along a flattened version of the array."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "axis",
+              "type": "Param",
+              "type_": "{int, tuple of int, None}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Alternative output array in which to place the result. It must have the same shape and buffer length as the expected output, but the type (of the output) will be cast if necessary."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "out",
+              "type": "Param",
+              "type_": "ndarray, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, then allow the input array "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to be modified by intermediate calculations, to save memory. In this case, the contents of the input "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": " after this function completes is undefined."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "overwrite_input",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This parameter specifies the method to use for estimating the quantile.  There are many different methods, some unique to NumPy. See the notes for explanation.  The options sorted by their R type as summarized in the H&F paper  are:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'inverted_cdf'"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'averaged_inverted_cdf'"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'closest_observation'"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'interpolated_inverted_cdf'"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'hazen'"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'weibull'"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'linear'  (default)"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'median_unbiased'"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'normal_unbiased'"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": true,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The first three methods are discontinuous.  NumPy further defines the following discontinuous variations of the default 'linear' (7.) option:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'lower'"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'higher',"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'midpoint'"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'nearest'"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionchanged 1.22.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "This argument was previously called \"interpolation\" and only offered the \"linear\" default and last four options."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "method",
+              "type": "Param",
+              "type_": "str, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If this is set to True, the axes which are reduced are left in the result as dimensions with size one. With this option, the result will broadcast correctly against the original array "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "keepdims",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Deprecated name for the method keyword argument."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "deprecated 1.22.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "interpolation",
+              "type": "Param",
+              "type_": "str, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "q",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "q"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a single quantile and "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "axis=None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", then the result is a scalar. If multiple quantiles are given, first axis of the result corresponds to the quantiles. The other axes are the axes that remain after the reduction of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If the input contains integers or floats smaller than "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "float64"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the output data-type is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "float64"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Otherwise, the output data-type is the same as that of the input. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "out",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "out"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is specified, that array is returned instead."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "quantile",
+              "type": "Param",
+              "type_": "scalar or ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute the q-th quantile of the data along the specified axis."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "a = np.array([[10, 7, 4], [3, 2, 1]])\na"
+      },
+      {
+        "type": "code",
+        "value": "np.quantile(a, 0.5)"
+      },
+      {
+        "type": "code",
+        "value": "np.quantile(a, 0.5, axis=0)"
+      },
+      {
+        "type": "code",
+        "value": "np.quantile(a, 0.5, axis=1)"
+      },
+      {
+        "type": "code",
+        "value": "np.quantile(a, 0.5, axis=1, keepdims=True)"
+      },
+      {
+        "type": "code",
+        "value": "m = np.quantile(a, 0.5, axis=0)\nout = np.zeros_like(m)\nnp.quantile(a, 0.5, axis=0, out=out)"
+      },
+      {
+        "type": "code",
+        "value": "m"
+      },
+      {
+        "type": "code",
+        "value": "b = a.copy()\nnp.quantile(b, 0.5, axis=1, overwrite_input=True)"
+      },
+      {
+        "type": "code",
+        "value": "assert not np.all(a == b)"
+      },
+      {
+        "type": "text",
+        "value": "See also `numpy.percentile` for a visualization of most methods."
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/numpy/lib/function_base.py",
+  "item_line": 4214,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples",
+    "References"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "mean",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "mean"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "equivalent to quantile, but with q in the range [0, 100]."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "percentile",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "percentile"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "equivalent to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "quantile(..., 0.5)"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "median",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "median"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "nanquantile",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "nanquantile"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(a, q, axis=None, out=None, overwrite_input=False, method='linear', keepdims=False, *, interpolation=None)"
+  },
+  "type": "DocBlob"
+}

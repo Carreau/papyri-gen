@@ -1,0 +1,725 @@
+{
+  "aliases": [
+    "scipy.stats.chi2_contingency"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function computes the chi-square statistic and p-value for the hypothesis test of independence of the observed frequencies in the contingency table  "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "observed",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "observed"
+            },
+            {
+              "type": "text",
+              "value": ".  The expected frequencies are computed based on the marginal sums under the assumption of independence; see "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "scipy.stats.contingency",
+                "path": "scipy.stats.contingency:expected_freq",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "scipy.stats.contingency.expected_freq"
+            },
+            {
+              "type": "text",
+              "value": ".  The number of degrees of freedom is (expressed using numpy functions and attributes)      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "dof = observed.size - sum(observed.shape) + observed.ndim - 1"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "An often quoted guideline for the validity of this calculation is that the test should be used only if the observed and expected frequencies in each cell are at least 5."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This is a test for the independence of different categories of a population. The test is only meaningful when the dimension of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "observed",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "observed"
+            },
+            {
+              "type": "text",
+              "value": " is two or more.  Applying the test to a one-dimensional table will always result in "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "expected"
+            },
+            {
+              "type": "text",
+              "value": " equal to "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "observed",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "observed"
+            },
+            {
+              "type": "text",
+              "value": " and a chi-square statistic equal to 0."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function does not handle masked arrays, because the calculation does not make sense with missing values."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Like "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "scipy.stats._stats_py",
+                "path": "scipy.stats._stats_py:chisquare",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "scipy.stats.chisquare"
+            },
+            {
+              "type": "text",
+              "value": ", this function computes a chi-square statistic; the convenience this function provides is to figure out the expected frequencies and degrees of freedom from the given contingency table. If these were already known, and if the Yates' correction was not required, one could use "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "scipy.stats._stats_py",
+                "path": "scipy.stats._stats_py:chisquare",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "scipy.stats.chisquare"
+            },
+            {
+              "type": "text",
+              "value": ".  That is, if one calls      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "res = chi2_contingency(obs, correction=False)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "then the following is true      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "(res.statistic, res.pvalue) == stats.chisquare(obs.ravel(),\n                                               f_exp=ex.ravel(),\n                                               ddof=obs.size - 1 - dof)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "lambda_",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "lambda_"
+            },
+            {
+              "type": "text",
+              "value": " argument was added in version 0.13.0 of scipy."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The contingency table. The table contains the observed frequencies (i.e. number of occurrences) in each category.  In the two-dimensional case, the table is often described as an \"R x C table\"."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "observed",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "and"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " the degrees of freedom is 1, apply Yates' correction for continuity.  The effect of the correction is to adjust each observed value by 0.5 towards the corresponding expected value."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "correction",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "By default, the statistic computed in this test is Pearson's chi-squared statistic .  "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "lambda_",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "lambda_"
+                    },
+                    {
+                      "type": "text",
+                      "value": " allows a statistic from the Cressie-Read power divergence family  to be used instead.  See "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "scipy.stats._stats_py",
+                        "path": "scipy.stats._stats_py:power_divergence",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "scipy.stats.power_divergence"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for details."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "lambda_",
+              "type": "Param",
+              "type_": "float or str, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An object containing attributes:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "statistic"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "statistic"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "pvalue"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "pvalue"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "dof"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "dof"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "expected_freq"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "expected_freq"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "param": "res",
+              "type": "Param",
+              "type_": "Chi2ContingencyResult"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Chi-square test of independence of variables in a contingency table."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "A two-way example (2 x 3):"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.stats import chi2_contingency\nobs = np.array([[10, 10, 20], [20, 20, 20]])\nres = chi2_contingency(obs)\nres.statistic"
+      },
+      {
+        "type": "code",
+        "value": "res.pvalue"
+      },
+      {
+        "type": "code",
+        "value": "res.dof"
+      },
+      {
+        "type": "code",
+        "value": "res.expected_freq"
+      },
+      {
+        "type": "text",
+        "value": "Perform the test using the log-likelihood ratio (i.e. the \"G-test\")\ninstead of Pearson's chi-squared statistic."
+      },
+      {
+        "type": "code",
+        "value": "res = chi2_contingency(obs, lambda_=\"log-likelihood\")\nres.statistic"
+      },
+      {
+        "type": "code",
+        "value": "res.pvalue"
+      },
+      {
+        "type": "text",
+        "value": "A four-way example (2 x 2 x 2 x 2):"
+      },
+      {
+        "type": "code",
+        "value": "obs = np.array(\n    [[[[12, 17],\n       [11, 16]],\n      [[11, 12],\n       [15, 16]]],\n     [[[23, 15],\n       [30, 22]],\n      [[14, 17],\n       [15, 16]]]])\nres = chi2_contingency(obs)\nres.statistic"
+      },
+      {
+        "type": "code",
+        "value": "res.pvalue"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/contingency.py",
+  "item_line": 144,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.stats.contingency:expected_freq",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "scipy.stats.contingency.expected_freq"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.stats._stats_py:fisher_exact",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "scipy.stats.fisher_exact"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.stats._stats_py:chisquare",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "scipy.stats.chisquare"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.stats._stats_py:power_divergence",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "scipy.stats.power_divergence"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.stats._hypotests:barnard_exact",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "scipy.stats.barnard_exact"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.stats._hypotests:boschloo_exact",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "scipy.stats.boschloo_exact"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(observed, correction=True, lambda_=None)"
+  },
+  "type": "DocBlob"
+}

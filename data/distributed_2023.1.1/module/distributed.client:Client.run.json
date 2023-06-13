@@ -1,0 +1,400 @@
+{
+  "aliases": [
+    "distributed.Client.run"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This calls a function on all currently known workers immediately, blocks until those results come back, and returns the results asynchronously as a dictionary keyed by worker address.  This method is generally used for side effects such as collecting diagnostic information or installing libraries."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If your function takes an input argument named "
+            },
+            {
+              "type": "inlineCode",
+              "value": "dask_worker"
+            },
+            {
+              "type": "text",
+              "value": " then that variable will be populated with the worker itself."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The function to run"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "function",
+              "type": "Param",
+              "type_": "callable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Optional arguments for the remote function"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "*args",
+              "type": "Param",
+              "type_": "tuple"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Optional keyword arguments for the remote function"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "**kwargs",
+              "type": "Param",
+              "type_": "dict"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Workers on which to run the function. Defaults to all known workers."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "workers",
+              "type": "Param",
+              "type_": "list"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If the function is asynchronous whether or not to wait until that function finishes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "wait",
+              "type": "Param",
+              "type_": "boolean (optional)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to run "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "function"
+                    },
+                    {
+                      "type": "text",
+                      "value": " on the nanny. By default, the function is run on the worker process.  If specified, the addresses in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "workers"
+                    },
+                    {
+                      "type": "text",
+                      "value": " should still be the worker addresses, not the nanny addresses."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "nanny",
+              "type": "Param",
+              "type_": "bool, default False"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If the function raises an error on a worker:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "(default) Re-raise the exception on the client.     The output from other workers will be lost."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "raise"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Return the Exception object instead of the function output for     the worker"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "return"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Ignore the exception and remove the worker from the result dict"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "ignore"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "param": "on_error: \"raise\" | \"return\" | \"ignore\"",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Run a function on all workers outside of task scheduling system"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "c.run(os.getpid)  # doctest: +SKIP"
+      },
+      {
+        "type": "text",
+        "value": "Restrict computation to particular workers with the ``workers=``\nkeyword argument."
+      },
+      {
+        "type": "code",
+        "value": "c.run(os.getpid, workers=['192.168.0.100:9000',\n                          '192.168.0.101:9000'])  # doctest: +SKIP"
+      },
+      {
+        "type": "code",
+        "value": "def get_status(dask_worker):\n    return dask_worker.status"
+      },
+      {
+        "type": "code",
+        "value": "c.run(get_status)  # doctest: +SKIP"
+      },
+      {
+        "type": "text",
+        "value": "Run asynchronous functions in the background:"
+      },
+      {
+        "type": "code",
+        "value": "async def print_state(dask_worker):  # doctest: +SKIP\n   while True:\n       print(dask_worker.status)\n       await asyncio.sleep(1)"
+      },
+      {
+        "type": "code",
+        "value": "c.run(print_state, wait=False)  # doctest: +SKIP"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/distributed/client.py",
+  "item_line": 2833,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, function, *args, workers: 'list[str] | None' = None, wait: 'bool' = True, nanny: 'bool' = False, on_error: \"Literal['raise', 'return', 'ignore']\" = 'raise', **kwargs)"
+  },
+  "type": "DocBlob"
+}

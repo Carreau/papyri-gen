@@ -1,0 +1,635 @@
+{
+  "aliases": [
+    "numpy.dual.cholesky"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Return the Cholesky decomposition, "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "L * L.H"
+            },
+            {
+              "type": "text",
+              "value": ", of the square matrix "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "a",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": ", where "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "L",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "L"
+            },
+            {
+              "type": "text",
+              "value": " is lower-triangular and .H is the conjugate transpose operator (which is the ordinary transpose if "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "a",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " is real-valued).  "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "a",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " must be Hermitian (symmetric if real-valued) and positive-definite. No checking is performed to verify whether "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "a",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " is Hermitian or not. In addition, only the lower-triangular and diagonal elements of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "a",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " are used. Only "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "L",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "L"
+            },
+            {
+              "type": "text",
+              "value": " is actually returned."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 1.8.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Broadcasting rules apply, see the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "numpy",
+                "path": "numpy.linalg",
+                "type": "RefInfo",
+                "version": "1.23.5"
+              },
+              "type": "Link",
+              "value": "numpy.linalg"
+            },
+            {
+              "type": "text",
+              "value": " documentation for details."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The Cholesky decomposition is often used as a fast way of solving"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "A \\mathbf{x} = \\mathbf{b}"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "(when "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": " is both Hermitian/symmetric and positive-definite)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "First, we solve for "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\mathbf{y}"
+            },
+            {
+              "type": "text",
+              "value": " in"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "L \\mathbf{y} = \\mathbf{b},"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "and then for "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\mathbf{x}"
+            },
+            {
+              "type": "text",
+              "value": " in"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "L.H \\mathbf{x} = \\mathbf{y}."
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Hermitian (symmetric if all elements are real), positive-definite input matrix."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "a",
+              "type": "Param",
+              "type_": "(..., M, M) array_like"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If the decomposition fails, for example, if "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is not positive-definite."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "LinAlgError"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Lower-triangular Cholesky factor of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  Returns a matrix object if "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a matrix object."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "L",
+              "type": "Param",
+              "type_": "(..., M, M) array_like"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Cholesky decomposition."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "A = np.array([[1,-2j],[2j,5]])\nA"
+      },
+      {
+        "type": "code",
+        "value": "L = np.linalg.cholesky(A)\nL"
+      },
+      {
+        "type": "code",
+        "value": "np.dot(L, L.T.conj()) # verify that L * L.H = A"
+      },
+      {
+        "type": "code",
+        "value": "A = [[1,-2j],[2j,5]] # what happens if A is only array_like?\nnp.linalg.cholesky(A) # an ndarray object is returned"
+      },
+      {
+        "type": "code",
+        "value": "# But a matrix object is returned if A is a matrix object\nnp.linalg.cholesky(np.matrix(A))"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/numpy/linalg/linalg.py",
+  "item_line": 679,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Similar function in SciPy."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "scipy.linalg.cholesky",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "scipy.linalg.cholesky"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Cholesky decompose a banded Hermitian positive-definite matrix."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "scipy.linalg.cholesky_banded",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "scipy.linalg.cholesky_banded"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Cholesky decomposition of a matrix, to use in "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "scipy.linalg.cho_solve"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "scipy.linalg.cho_factor",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "scipy.linalg.cho_factor"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(a)"
+  },
+  "type": "DocBlob"
+}

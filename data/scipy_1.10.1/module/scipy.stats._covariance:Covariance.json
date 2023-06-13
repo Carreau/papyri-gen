@@ -1,0 +1,206 @@
+{
+  "aliases": [
+    "scipy.stats.Covariance"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Calculations involving covariance matrices (e.g. data whitening, multivariate normal function evaluation) are often performed more efficiently using a decomposition of the covariance matrix instead of the covariance metrix itself. This class allows the user to construct an object representing a covariance matrix using any of several decompositions and perform calculations using a common interface."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "note "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "The "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "Covariance"
+                },
+                {
+                  "type": "text",
+                  "value": " class cannot be instantiated directly. Instead, use one of the factory methods (e.g. "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "Covariance.from_diagonal"
+                },
+                {
+                  "type": "text",
+                  "value": ")."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Representation of a covariance matrix"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "The `Covariance` class is is used by calling one of its\nfactory methods to create a `Covariance` object, then pass that\nrepresentation of the `Covariance` matrix as a shape parameter of a\nmultivariate distribution."
+      },
+      {
+        "type": "text",
+        "value": "For instance, the multivariate normal distribution can accept an array\nrepresenting a covariance matrix:"
+      },
+      {
+        "type": "code",
+        "value": "from scipy import stats\nimport numpy as np\nd = [1, 2, 3]\nA = np.diag(d)  # a diagonal covariance matrix\nx = [4, -2, 5]  # a point of interest\ndist = stats.multivariate_normal(mean=[0, 0, 0], cov=A)\ndist.pdf(x)"
+      },
+      {
+        "type": "text",
+        "value": "but the calculations are performed in a very generic way that does not\ntake advantage of any special properties of the covariance matrix. Because\nour covariance matrix is diagonal, we can use ``Covariance.from_diagonal``\nto create an object representing the covariance matrix, and\n`multivariate_normal` can use this to compute the probability density\nfunction more efficiently."
+      },
+      {
+        "type": "code",
+        "value": "cov = stats.Covariance.from_diagonal(d)\ndist = stats.multivariate_normal(mean=[0, 0, 0], cov=cov)\ndist.pdf(x)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_covariance.py",
+  "item_line": 11,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

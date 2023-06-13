@@ -1,0 +1,477 @@
+{
+  "aliases": [
+    "scipy.signal.cwt"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Performs a continuous wavelet transform on "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "data",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "data"
+            },
+            {
+              "type": "text",
+              "value": ", using the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "wavelet",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "wavelet"
+            },
+            {
+              "type": "text",
+              "value": " function. A CWT performs a convolution with "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "data",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "data"
+            },
+            {
+              "type": "text",
+              "value": " using the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "wavelet",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "wavelet"
+            },
+            {
+              "type": "text",
+              "value": " function, which is characterized by a width parameter and length parameter. The "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "wavelet",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "wavelet"
+            },
+            {
+              "type": "text",
+              "value": " function is allowed to be complex."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 1.4.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For non-symmetric, complex-valued wavelets, the input signal is convolved with the time-reversed complex-conjugate of the wavelet data [1]."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "length = min(10 * width[ii], len(data))\ncwt[ii,:] = signal.convolve(data, np.conj(wavelet(length, width[ii],\n                                **kwargs))[::-1], mode='same')"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "data on which to perform the transform."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "data",
+              "type": "Param",
+              "type_": "(N,) ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Wavelet function, which should take 2 arguments. The first argument is the number of points that the returned vector will have (len(wavelet(length,width)) == length). The second is a width parameter, defining the size of the wavelet (e.g. standard deviation of a gaussian). See "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "scipy",
+                        "path": "scipy.signal._wavelets:ricker",
+                        "type": "RefInfo",
+                        "version": "1.10.1"
+                      },
+                      "type": "Link",
+                      "value": "ricker"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", which satisfies these requirements."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "wavelet",
+              "type": "Param",
+              "type_": "function"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Widths to use for transform."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "widths",
+              "type": "Param",
+              "type_": "(M,) sequence"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The desired data type of output. Defaults to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "float64"
+                    },
+                    {
+                      "type": "text",
+                      "value": " if the output of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "wavelet",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "wavelet"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is real and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "complex128"
+                    },
+                    {
+                      "type": "text",
+                      "value": " if it is complex."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.4.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "dtype",
+              "type": "Param",
+              "type_": "data-type, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Keyword arguments passed to wavelet function."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.4.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "kwargs",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Will have shape of (len(widths), len(data))."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "cwt: (M, N) ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Continuous wavelet transform."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy import signal\nimport matplotlib.pyplot as plt\nt = np.linspace(-1, 1, 200, endpoint=False)\nsig  = np.cos(2 * np.pi * 7 * t) + signal.gausspulse(t - 0.4, fc=2)\nwidths = np.arange(1, 31)\ncwtmatr = signal.cwt(sig, signal.ricker, widths)"
+      },
+      {
+        "type": "text",
+        "value": ".. note:: For cwt matrix plotting it is advisable to flip the y-axis"
+      },
+      {
+        "type": "code",
+        "value": "cwtmatr_yflip = np.flipud(cwtmatr)\nplt.imshow(cwtmatr_yflip, extent=[-1, 1, 1, 31], cmap='PRGn', aspect='auto',\n           vmax=abs(cwtmatr).max(), vmin=-abs(cwtmatr).max())\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.signal._wavelets:cwt-0-86d5180f.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/signal/_wavelets.py",
+  "item_line": 405,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(data, wavelet, widths, dtype=None, **kwargs)"
+  },
+  "type": "DocBlob"
+}

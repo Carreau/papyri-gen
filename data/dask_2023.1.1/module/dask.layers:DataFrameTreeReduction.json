@@ -1,0 +1,352 @@
+{
+  "aliases": [
+    "dask.layers.DataFrameTreeReduction"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Name to use for the constructed layer."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "name",
+              "type": "Param",
+              "type_": "str"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Name of the input layer that is being reduced."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "name_input",
+              "type": "Param",
+              "type_": "str"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of partitions in the input layer."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "npartitions_input",
+              "type": "Param",
+              "type_": "str"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Function used by each tree node to reduce a list of inputs into a single output value. This function must accept only a list as its first positional argument."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "concat_func",
+              "type": "Param",
+              "type_": "callable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Function used on the output of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "concat_func"
+                    },
+                    {
+                      "type": "text",
+                      "value": " in each tree node. This function must accept the output of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "concat_func"
+                    },
+                    {
+                      "type": "text",
+                      "value": " as its first positional argument."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "tree_node_func",
+              "type": "Param",
+              "type_": "callable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Function used in place of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "tree_node_func"
+                    },
+                    {
+                      "type": "text",
+                      "value": " on the final tree node(s) to produce the final output for each split. By default, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "tree_node_func"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will be used."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "finalize_func",
+              "type": "Param",
+              "type_": "callable, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This argument specifies the maximum number of input nodes to be handled by any one task in the tree. Defaults to 32."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "split_every",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This argument specifies the number of output nodes in the reduction tree. If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "split_out"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is set to an integer >=1, the input tasks must contain data that can be indexed by a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "getitem"
+                    },
+                    {
+                      "type": "text",
+                      "value": " operation with a key in the range "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "[0, split_out)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "split_out",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "List of required output partitions. This parameter is used internally by Dask for high-level culling."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "output_partitions",
+              "type": "Param",
+              "type_": "list, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Name to use for intermediate tree-node tasks."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "tree_node_name",
+              "type": "Param",
+              "type_": "str, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "DataFrame Tree-Reduction Layer"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dask/layers.py",
+  "item_line": 1253,
+  "item_type": "<class 'abc.ABCMeta'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

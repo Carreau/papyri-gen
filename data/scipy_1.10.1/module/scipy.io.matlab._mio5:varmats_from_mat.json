@@ -1,0 +1,239 @@
+{
+  "aliases": [
+    "scipy.io.matlab._mio5.varmats_from_mat"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This can be useful with a difficult mat file, containing unreadable variables. This routine pulls the variables out in raw form and puts them, unread, back into a file stream for saving or reading. Another use is the pathological case where there is more than one variable of the same name in the file; this routine returns the duplicates, whereas the standard reader will overwrite duplicates in the returned dictionary."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The file pointer in "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "file_obj",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "file_obj"
+            },
+            {
+              "type": "text",
+              "value": " will be undefined. File pointers for the returned file-like objects are set at 0."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "file object containing mat file"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "file_obj",
+              "type": "Param",
+              "type_": "file-like"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "list contains tuples of (name, BytesIO) where BytesIO is a file-like object containing mat file contents as for a single variable. The BytesIO contains a string with the original header and a single var. If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "var_file_obj"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is an individual BytesIO instance, then save as a mat file with something like "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "open('test.mat',\n'wb').write(var_file_obj.read())"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "named_mats",
+              "type": "Param",
+              "type_": "list"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Pull variables out of mat 5 file as a sequence of mat file objects"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import scipy.io"
+      },
+      {
+        "type": "text",
+        "value": "BytesIO is from the ``io`` module in Python 3, and is ``cStringIO`` for\nPython < 3."
+      },
+      {
+        "type": "code",
+        "value": ">>> mat_fileobj = BytesIO()\n>>> scipy.io.savemat(mat_fileobj, {'b': np.arange(10), 'a': 'a string'})\n>>> varmats = varmats_from_mat(mat_fileobj)\n>>> sorted([name for name, str_obj in varmats])"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/io/matlab/_mio5.py",
+  "item_line": 377,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(file_obj)"
+  },
+  "type": "DocBlob"
+}

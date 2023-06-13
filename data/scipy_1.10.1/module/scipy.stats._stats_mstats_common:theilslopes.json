@@ -1,0 +1,614 @@
+{
+  "aliases": [
+    "scipy.stats.theilslopes"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "theilslopes"
+            },
+            {
+              "type": "text",
+              "value": " implements a method for robust linear regression.  It computes the slope as the median of all slopes between paired values."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The implementation of "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "theilslopes"
+            },
+            {
+              "type": "text",
+              "value": " follows . The intercept is not defined in , and here it is defined as "
+            },
+            {
+              "type": "inlineCode",
+              "value": "median(y) -\nslope*median(x)"
+            },
+            {
+              "type": "text",
+              "value": ", which is given in . Other definitions of the intercept exist in the literature such as  "
+            },
+            {
+              "type": "inlineCode",
+              "value": "median(y - slope*x)"
+            },
+            {
+              "type": "text",
+              "value": " in . The approach to compute the intercept can be determined by the parameter "
+            },
+            {
+              "type": "inlineCode",
+              "value": "method"
+            },
+            {
+              "type": "text",
+              "value": ". A confidence interval for the intercept is not given as this question is not addressed in ."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For compatibility with older versions of SciPy, the return value acts like a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "namedtuple"
+            },
+            {
+              "type": "text",
+              "value": " of length 4, with fields "
+            },
+            {
+              "type": "inlineCode",
+              "value": "slope"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "intercept"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "low_slope"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "high_slope"
+            },
+            {
+              "type": "text",
+              "value": ", so one can continue to write      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "slope, intercept, low_slope, high_slope = theilslopes(y, x)"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Dependent variable."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "y",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Independent variable. If None, use "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "arange(len(y))"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instead."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "array_like or None, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Confidence degree between 0 and 1. Default is 95% confidence. Note that "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "alpha",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "alpha"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is symmetric around 0.5, i.e. both 0.1 and 0.9 are interpreted as \"find the 90% confidence interval\"."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "alpha",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Method to be used for computing estimate for intercept. Following methods are supported,"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "'joint': Uses np.median(y - slope * x) as intercept."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "dd": [
+                                    {
+                                      "children": [
+                                        {
+                                          "type": "text",
+                                          "value": "as intercept."
+                                        }
+                                      ],
+                                      "type": "paragraph"
+                                    }
+                                  ],
+                                  "dt": {
+                                    "children": [
+                                      {
+                                        "type": "text",
+                                        "value": "'separate': Uses np.median(y) - slope * np.median(x)"
+                                      }
+                                    ],
+                                    "type": "paragraph"
+                                  },
+                                  "type": "DefListItem"
+                                }
+                              ],
+                              "type": "DefList"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        }
+                      ],
+                      "ordered": false,
+                      "spread": false,
+                      "start": 1,
+                      "type": "list"
+                    }
+                  ],
+                  "type": "blockquote"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The default is 'separate'."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.8.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "method",
+              "type": "Param",
+              "type_": "{'joint', 'separate'}, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The return value is an object with the following attributes:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "slope"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "slope"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "intercept"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "intercept"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "low_slope"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "low_slope"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "high_slope"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "high_slope"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "param": "result",
+              "type": "Param",
+              "type_": "``TheilslopesResult`` instance"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Computes the Theil-Sen estimator for a set of points (x, y)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy import stats\nimport matplotlib.pyplot as plt"
+      },
+      {
+        "type": "code",
+        "value": "x = np.linspace(-5, 5, num=150)\ny = x + np.random.normal(size=x.size)\ny[11:15] += 10  # add outliers\ny[-5:] -= 7"
+      },
+      {
+        "type": "text",
+        "value": "Compute the slope, intercept and 90% confidence interval.  For comparison,\nalso compute the least-squares fit with `linregress`:"
+      },
+      {
+        "type": "code",
+        "value": "res = stats.theilslopes(y, x, 0.90, method='separate')\nlsq_res = stats.linregress(x, y)"
+      },
+      {
+        "type": "text",
+        "value": "Plot the results. The Theil-Sen regression line is shown in red, with the\ndashed red lines illustrating the confidence interval of the slope (note\nthat the dashed red lines are not the confidence interval of the regression\nas the confidence interval of the intercept is not included). The green\nline shows the least-squares fit for comparison."
+      },
+      {
+        "type": "code",
+        "value": "fig = plt.figure()\nax = fig.add_subplot(111)\nax.plot(x, y, 'b.')\nax.plot(x, res[1] + res[0] * x, 'r-')\nax.plot(x, res[1] + res[2] * x, 'r--')\nax.plot(x, res[1] + res[3] * x, 'r--')\nax.plot(x, lsq_res[1] + lsq_res[0] * x, 'g-')\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.stats._stats_mstats_common:theilslopes-0-096f441b.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_stats_mstats_common.py",
+  "item_line": 213,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "a similar technique using repeated medians"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "siegelslopes",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "siegelslopes"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(y, x=None, alpha=0.95, method='separate')"
+  },
+  "type": "DocBlob"
+}

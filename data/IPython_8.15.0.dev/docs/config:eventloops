@@ -1,0 +1,332 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When the user types "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%gui qt"
+            },
+            {
+              "type": "text",
+              "value": ", IPython integrates itself with the Qt event loop, so you can use both a GUI and an interactive prompt together. IPython supports a number of common GUI toolkits, but from IPython 3.0, it is possible to integrate other event loops without modifying IPython itself."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Supported event loops include "
+            },
+            {
+              "type": "inlineCode",
+              "value": "qt5"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "qt6"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "gtk2"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "gtk3"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "gtk4"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "wx"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "osx"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "tk"
+            },
+            {
+              "type": "text",
+              "value": ". Make sure the event loop you specify matches the GUI toolkit used by your own code."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To make IPython GUI event loop integration occur automatically at every startup, set the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "c.InteractiveShellApp.gui"
+            },
+            {
+              "type": "text",
+              "value": " configuration key in your IPython profile (see "
+            },
+            {
+              "type": "inlineCode",
+              "value": "setting_config"
+            },
+            {
+              "type": "text",
+              "value": ")."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If the event loop you use is supported by IPython, turning on event loop integration follows the steps just described whether you use Terminal IPython or an IPython kernel."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "However, the way Terminal IPython handles event loops is very different from the way IPython kernel does, so if you need to integrate with a new kind of event loop, different steps are needed to integrate with each."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": "Integrating with GUI event loops",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionchanged 5.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "There is a new API for event loop integration using prompt_toolkit."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In the terminal, IPython uses prompt_toolkit to prompt the user for input. prompt_toolkit provides hooks to integrate with an external event loop."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To integrate an event loop, define a function which runs the GUI event loop until there is input waiting for prompt_toolkit to process. There are two ways to detect this condition      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "# Polling for input.\ndef inputhook(context):\n    while not context.input_is_ready():\n        # Replace this with the appropriate call for the event loop:\n        iterate_loop_once()\n\n# Using a file descriptor to notify the event loop to stop.\ndef inputhook2(context):\n    fd = context.fileno()\n    # Replace the functions below with those for the event loop.\n    add_file_reader(fd, callback=stop_the_loop)\n    run_the_loop()"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Once you have defined this function, register it with IPython:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "IPython.terminal.pt_inputhooks",
+          "children": [],
+          "name": "currentmodule",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "args": "register(name, inputhook)",
+          "children": [],
+          "name": "function",
+          "options": {},
+          "type": "mystDirective",
+          "value": "Register the function *inputhook* as the event loop integration for the\nGUI *name*. If ``name='foo'``, then the user can enable this integration\nby running ``%gui foo``."
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Integrating with a new event loop in the terminal",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The kernel runs its own event loop, so it's simpler to integrate with others. IPython allows the other event loop to take control, but it must call "
+            },
+            {
+              "type": "inlineCode",
+              "value": "IPython.kernel.zmq.kernelbase.Kernel.do_one_iteration"
+            },
+            {
+              "type": "text",
+              "value": " periodically."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To integrate with this, write a function that takes a single argument, the IPython kernel instance, arranges for your event loop to call "
+            },
+            {
+              "type": "inlineCode",
+              "value": "kernel.do_one_iteration()"
+            },
+            {
+              "type": "text",
+              "value": " at least every "
+            },
+            {
+              "type": "inlineCode",
+              "value": "kernel._poll_interval"
+            },
+            {
+              "type": "text",
+              "value": " seconds, and starts the event loop."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Decorate this function with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "IPython.kernel.zmq.eventloops.register_integration"
+            },
+            {
+              "type": "text",
+              "value": ", passing in the names you wish to register it for. Here is a slightly simplified version of the Tkinter integration already included in IPython      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "@register_integration('tk')\ndef loop_tk(kernel):\n    \"\"\"Start a kernel with the Tk event loop.\"\"\"\n    from tkinter import Tk\n\n    # Tk uses milliseconds\n    poll_interval = int(1000*kernel._poll_interval)\n    # For Tkinter, we create a Tk object and call its withdraw method.\n    class Timer(object):\n        def __init__(self, func):\n            self.app = Tk()\n            self.app.withdraw()\n            self.func = func\n\n        def on_timer(self):\n            self.func()\n            self.app.after(poll_interval, self.on_timer)\n\n        def start(self):\n            self.on_timer()  # Call it once to get things going.\n            self.app.mainloop()\n\n    kernel.timer = Timer(kernel.do_one_iteration)\n    kernel.timer.start()"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Some event loops can go one better, and integrate checking for messages on the kernel's ZMQ sockets, making the kernel more responsive than plain polling. How to do this is outside the scope of this document; if you are interested, look at the integration with Qt in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "IPython.kernel.zmq.eventloops"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Integrating with a new event loop in the kernel",
+      "type": "Section"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

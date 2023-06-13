@@ -1,0 +1,368 @@
+{
+  "aliases": [
+    "dask.array.slicing.parse_assignment_indices"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The aim of this is to convert the indices to a standardised form so that it is easier to ascertain which chunks are touched by the indices."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function is intended to be called by "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "dask",
+                "path": "dask.array.slicing:setitem_array",
+                "type": "RefInfo",
+                "version": "2023.1.0"
+              },
+              "type": "Link",
+              "value": "setitem_array"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A slice object that is decreasing (i.e. with a negative step), is recast as an increasing slice (i.e. with a postive step. For example "
+            },
+            {
+              "type": "inlineCode",
+              "value": "slice(7,3,-1)"
+            },
+            {
+              "type": "text",
+              "value": " would be cast as "
+            },
+            {
+              "type": "inlineCode",
+              "value": "slice(4,8,1)"
+            },
+            {
+              "type": "text",
+              "value": ". This is to facilitate finding which blocks are touched by the index. The dimensions for which this has occured are returned by the function."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Indices to array defining the elements to be assigned."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "indices",
+              "type": "Param",
+              "type_": "numpy-style indices"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The shape of the array."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "shape",
+              "type": "Param",
+              "type_": "sequence of `int`"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The reformated indices that are equivalent to the input indices."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "parsed_indices",
+              "type": "Param",
+              "type_": "`list`"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The shape implied by the parsed indices. For instance, indices of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(slice(0,2), 5, [4,1,-1])"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will have implied shape "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "[2,3]"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "implied_shape",
+              "type": "Param",
+              "type_": "`list`"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The positions of the dimensions whose indices in the parsed_indices output are reversed slices."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "reverse",
+              "type": "Param",
+              "type_": "`list`"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The positions of the dimensions whose indices contribute to the implied_shape. For instance, indices of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(slice(0,2), 5,\n[4,1,-1])"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will have implied_shape "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "[2,3]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and implied_shape_positions "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "[0,2]"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "implied_shape_positions: `list`"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Reformat the indices for assignment."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "parse_assignment_indices((slice(1, -1),), (8,))"
+      },
+      {
+        "type": "code",
+        "value": "parse_assignment_indices(([1, 2, 6, 5],), (8,))"
+      },
+      {
+        "type": "code",
+        "value": "parse_assignment_indices((3, slice(-1, 2, -1)), (7, 8))"
+      },
+      {
+        "type": "code",
+        "value": "parse_assignment_indices((slice(-1, 2, -1), 3, [1, 2]), (7, 8, 9))"
+      },
+      {
+        "type": "code",
+        "value": "parse_assignment_indices((slice(0, 5), slice(3, None, 2)), (5, 4))"
+      },
+      {
+        "type": "code",
+        "value": "parse_assignment_indices((slice(0, 5), slice(3, 3, 2)), (5, 4))"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dask/array/slicing.py",
+  "item_line": 1291,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(indices, shape)"
+  },
+  "type": "DocBlob"
+}

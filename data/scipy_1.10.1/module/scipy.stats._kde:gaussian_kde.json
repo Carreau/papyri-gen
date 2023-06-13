@@ -1,0 +1,764 @@
+{
+  "aliases": [
+    "scipy.stats.gaussian_kde"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The dataset with which "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "gaussian_kde"
+                    },
+                    {
+                      "type": "text",
+                      "value": " was initialized."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dataset",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of dimensions."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "d",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of datapoints."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "n",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Effective number of datapoints."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.2.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "neff",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The bandwidth factor, obtained from "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "kde.covariance_factor"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". The square of "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "kde.factor"
+                    },
+                    {
+                      "type": "text",
+                      "value": " multiplies the covariance matrix of the data in the kde estimation."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "factor",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The covariance matrix of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "dataset",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "dataset"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", scaled by the calculated bandwidth ("
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "kde.factor"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "covariance",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The inverse of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "covariance",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "covariance"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "inv_cov",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Kernel density estimation is a way to estimate the probability density function (PDF) of a random variable in a non-parametric way. "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "gaussian_kde"
+            },
+            {
+              "type": "text",
+              "value": " works for both uni-variate and multi-variate data.   It includes automatic bandwidth determination.  The estimation works best for a unimodal distribution; bimodal or multi-modal distributions tend to be oversmoothed."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "evaluate",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [],
+              "param": "__call__",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [],
+              "param": "integrate_gaussian",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [],
+              "param": "integrate_box_1d",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [],
+              "param": "integrate_box",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [],
+              "param": "integrate_kde",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [],
+              "param": "pdf",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [],
+              "param": "logpdf",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [],
+              "param": "resample",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [],
+              "param": "set_bandwidth",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [],
+              "param": "covariance_factor",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Bandwidth selection strongly influences the estimate obtained from the KDE (much more so than the actual shape of the kernel).  Bandwidth selection can be done by a \"rule of thumb\", by cross-validation, by \"plug-in methods\" or by other means; see ,  for reviews.  "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "gaussian_kde"
+            },
+            {
+              "type": "text",
+              "value": " uses a rule of thumb, the default is Scott's Rule."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Scott's Rule , implemented as "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.stats._kde:gaussian_kde.scotts_factor",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "scotts_factor"
+            },
+            {
+              "type": "text",
+              "value": ", is      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "n**(-1./(d+4)),"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "n"
+            },
+            {
+              "type": "text",
+              "value": " the number of data points and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "d"
+            },
+            {
+              "type": "text",
+              "value": " the number of dimensions. In the case of unequally weighted points, "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.stats._kde:gaussian_kde.scotts_factor",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "scotts_factor"
+            },
+            {
+              "type": "text",
+              "value": " becomes      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "neff**(-1./(d+4)),"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "neff"
+            },
+            {
+              "type": "text",
+              "value": " the effective number of datapoints. Silverman's Rule , implemented as "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.stats._kde:gaussian_kde.silverman_factor",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "silverman_factor"
+            },
+            {
+              "type": "text",
+              "value": ", is      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "(n * (d + 2) / 4.)**(-1. / (d + 4))."
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "or in the case of unequally weighted points      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "(neff * (d + 2) / 4.)**(-1. / (d + 4))."
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Good general descriptions of kernel density estimation can be found in  and , the mathematics for this multi-dimensional implementation can be found in ."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "With a set of weighted samples, the effective number of datapoints "
+            },
+            {
+              "type": "inlineCode",
+              "value": "neff"
+            },
+            {
+              "type": "text",
+              "value": " is defined by      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "neff = sum(weights)^2 / sum(weights^2)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "as detailed in ."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "gaussian_kde"
+            },
+            {
+              "type": "text",
+              "value": " does not currently support data that lies in a lower-dimensional subspace of the space in which it is expressed. For such data, consider performing principle component analysis / dimensionality reduction and using "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "gaussian_kde"
+            },
+            {
+              "type": "text",
+              "value": " with the transformed data."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Datapoints to estimate from. In case of univariate data this is a 1-D array, otherwise a 2-D array with shape (# of dims, # of data)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dataset",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The method used to calculate the estimator bandwidth.  This can be 'scott', 'silverman', a scalar constant or a callable.  If a scalar, this will be used directly as "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "kde.factor"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  If a callable, it should take a "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "gaussian_kde"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instance as only parameter and return a scalar. If None (default), 'scott' is used.  See Notes for more details."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "bw_method",
+              "type": "Param",
+              "type_": "str, scalar or callable, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "weights of datapoints. This must be the same shape as dataset. If None (default), the samples are assumed to be equally weighted"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "weights",
+              "type": "Param",
+              "type_": "array_like, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Representation of a kernel-density estimate using Gaussian kernels."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Generate some random two-dimensional data:"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy import stats\ndef measure(n):\n    \"Measurement model, return two coupled measurements.\"\n    m1 = np.random.normal(size=n)\n    m2 = np.random.normal(scale=0.5, size=n)\n    return m1+m2, m1-m2"
+      },
+      {
+        "type": "code",
+        "value": "m1, m2 = measure(2000)\nxmin = m1.min()\nxmax = m1.max()\nymin = m2.min()\nymax = m2.max()"
+      },
+      {
+        "type": "text",
+        "value": "Perform a kernel density estimate on the data:"
+      },
+      {
+        "type": "code",
+        "value": "X, Y = np.mgrid[xmin:xmax:100j, ymin:ymax:100j]\npositions = np.vstack([X.ravel(), Y.ravel()])\nvalues = np.vstack([m1, m2])\nkernel = stats.gaussian_kde(values)\nZ = np.reshape(kernel(positions).T, X.shape)"
+      },
+      {
+        "type": "text",
+        "value": "Plot the results:"
+      },
+      {
+        "type": "code",
+        "value": "import matplotlib.pyplot as plt\nfig, ax = plt.subplots()\nax.imshow(np.rot90(Z), cmap=plt.cm.gist_earth_r,\n          extent=[xmin, xmax, ymin, ymax])\nax.plot(m1, m2, 'k.', markersize=2)\nax.set_xlim([xmin, xmax])\nax.set_ylim([ymin, ymax])\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.stats._kde:gaussian_kde-0-f30fd54a.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_kde.py",
+  "item_line": 40,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Attributes",
+    "Methods",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

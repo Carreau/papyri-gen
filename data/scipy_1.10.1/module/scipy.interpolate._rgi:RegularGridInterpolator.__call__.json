@@ -1,0 +1,270 @@
+{
+  "aliases": [
+    "scipy.interpolate.RegularGridInterpolator.__call__"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In the case that "
+            },
+            {
+              "type": "inlineCode",
+              "value": "xi.ndim == 1"
+            },
+            {
+              "type": "text",
+              "value": " a new axis is inserted into the 0 position of the returned array, values_x, so its shape is instead "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(1,) + values.shape[ndim:]"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The coordinates to evaluate the interpolator at."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "xi",
+              "type": "Param",
+              "type_": "ndarray of shape (..., ndim)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The method of interpolation to perform. Supported are \"linear\", \"nearest\", \"slinear\", \"cubic\", \"quintic\" and \"pchip\". Default is the method chosen when the interpolator was created."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "method",
+              "type": "Param",
+              "type_": "str, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Interpolated values at "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "xi",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "xi"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". See notes for behaviour when "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "xi.ndim == 1"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "values_x",
+              "type": "Param",
+              "type_": "ndarray, shape xi.shape[:-1] + values.shape[ndim:]"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Interpolation at coordinates."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Here we define a nearest-neighbor interpolator of a simple function"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nx, y = np.array([0, 1, 2]), np.array([1, 3, 7])\ndef f(x, y):\n    return x**2 + y**2\ndata = f(*np.meshgrid(x, y, indexing='ij', sparse=True))\nfrom scipy.interpolate import RegularGridInterpolator\ninterp = RegularGridInterpolator((x, y), data, method='nearest')"
+      },
+      {
+        "type": "text",
+        "value": "By construction, the interpolator uses the nearest-neighbor\ninterpolation"
+      },
+      {
+        "type": "code",
+        "value": "interp([[1.5, 1.3], [0.3, 4.5]])"
+      },
+      {
+        "type": "text",
+        "value": "We can however evaluate the linear interpolant by overriding the\n`method` parameter"
+      },
+      {
+        "type": "code",
+        "value": "interp([[1.5, 1.3], [0.3, 4.5]], method='linear')"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/interpolate/_rgi.py",
+  "item_line": 274,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, xi, method=None)"
+  },
+  "type": "DocBlob"
+}

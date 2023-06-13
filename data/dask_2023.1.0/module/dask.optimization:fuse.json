@@ -1,0 +1,427 @@
+{
+  "aliases": [
+    "dask.blockwise.fuse"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This trades parallelism opportunities for faster scheduling by making tasks less granular.  It can replace "
+            },
+            {
+              "type": "inlineCode",
+              "value": "fuse_linear"
+            },
+            {
+              "type": "text",
+              "value": " in optimization passes."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This optimization applies to all reductions--tasks that have at most one dependent--so it may be viewed as fusing \"multiple input, single output\" groups of tasks into a single task.  There are many parameters to fine tune the behavior, which are described below.  "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ave_width"
+            },
+            {
+              "type": "text",
+              "value": " is the natural parameter with which to compare parallelism to granularity, so it should always be specified.  Reasonable values for other parameters will be determined using "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ave_width"
+            },
+            {
+              "type": "text",
+              "value": " if necessary."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "dask graph"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dsk: dict",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Keys that must remain in the returned dask graph"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "keys: list or set, optional",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "{key: [list-of-keys]}.  Must be a list to provide count of each key This optional input often comes from "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "cull"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dependencies: dict, optional",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Upper limit for "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "width = num_nodes / height"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", a good measure of parallelizability. dask.config key: "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "optimization.fuse.ave-width"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ave_width: float (default 1)",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Don't fuse if total width is greater than this. dask.config key: "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "optimization.fuse.max-width"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "max_width: int (default infinite)",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Don't fuse more than this many levels. Set to None to dynamically adjust to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "1.5 + ave_width * log(ave_width + 1)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". dask.config key: "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "optimization.fuse.max-height"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "max_height: int or None (default None)",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Don't fuse if new dependencies are added after this many levels. Set to None to dynamically adjust to ave_width * 1.5. dask.config key: "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "optimization.fuse.max-depth-new-edges"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "max_depth_new_edges: int or None (default None)",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to rename the fused keys with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "default_fused_keys_renamer"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or not.  Renaming fused keys can keep the graph more understandable and comprehensive, but it comes at the cost of additional processing. If False, then the top-most key will be used.  For advanced usage, a function to create the new name is also accepted. dask.config key: "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "optimization.fuse.rename-keys"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "rename_keys: bool or func, optional (default True)",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to fuse multiple tasks into "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "SubgraphCallable"
+                    },
+                    {
+                      "type": "text",
+                      "value": " objects. Set to None to let the default optimizer of individual dask collections decide. If no collection-specific default exists, None defaults to False. dask.config key: "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "optimization.fuse.subgraphs"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fuse_subgraphs",
+              "type": "Param",
+              "type_": "bool or None, optional (default None)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "output graph with keys fused"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "dsk"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "dict mapping dependencies after fusion.  Useful side effect to accelerate other downstream optimizations."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "dependencies"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Fuse tasks that form reductions; more advanced than "
+            },
+            {
+              "type": "inlineCode",
+              "value": "fuse_linear"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dask/optimization.py",
+  "item_line": 450,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(dsk, keys=None, dependencies=None, ave_width=<default>, max_width=<default>, max_height=<default>, max_depth_new_edges=<default>, rename_keys=<default>, fuse_subgraphs=<default>)"
+  },
+  "type": "DocBlob"
+}

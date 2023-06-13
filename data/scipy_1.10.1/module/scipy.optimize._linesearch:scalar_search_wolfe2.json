@@ -1,0 +1,421 @@
+{
+  "aliases": [
+    "scipy.optimize._linesearch.scalar_search_wolfe2"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "alpha > 0 is assumed to be a descent direction."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Uses the line search algorithm to enforce strong Wolfe conditions. See Wright and Nocedal, 'Numerical Optimization', 1999, pp. 59-61."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Objective scalar function."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "phi",
+              "type": "Param",
+              "type_": "callable phi(alpha)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Objective function derivative. Returns a scalar."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "derphi",
+              "type": "Param",
+              "type_": "callable phi'(alpha)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Value of phi at 0."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "phi0",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Value of phi at previous point."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "old_phi0",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Value of derphi at 0"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "derphi0",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Parameter for Armijo condition rule."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "c1",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Parameter for curvature condition rule."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "c2",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum step size."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "amax",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A callable of the form "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "extra_condition(alpha, phi_value)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " returning a boolean. The line search accepts the value of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "alpha"
+                    },
+                    {
+                      "type": "text",
+                      "value": " only if this callable returns "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If the callable returns "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for the step length, the algorithm will continue with new iterates. The callable is only called for iterates satisfying the strong Wolfe conditions."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "extra_condition",
+              "type": "Param",
+              "type_": "callable, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum number of iterations to perform."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "maxiter",
+              "type": "Param",
+              "type_": "int, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Best alpha, or None if the line search algorithm did not converge."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "alpha_star",
+              "type": "Param",
+              "type_": "float or None"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "phi at alpha_star."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "phi_star",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "phi at 0."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "phi0",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "derphi at alpha_star, or None if the line search algorithm did not converge."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "derphi_star",
+              "type": "Param",
+              "type_": "float or None"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Find alpha that satisfies strong Wolfe conditions."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/optimize/_linesearch.py",
+  "item_line": 317,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(phi, derphi, phi0=None, old_phi0=None, derphi0=None, c1=0.0001, c2=0.9, amax=None, extra_condition=None, maxiter=10)"
+  },
+  "type": "DocBlob"
+}

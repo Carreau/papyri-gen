@@ -1,0 +1,727 @@
+{
+  "aliases": [
+    "scipy.stats._continuous_distns.erlang_gen.fit"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Starting estimates for the fit are given by input arguments; for any arguments not provided with starting estimates, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "self._fitstart(data)"
+            },
+            {
+              "type": "text",
+              "value": " is called to generate such."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "One can hold some parameters fixed to specific values by passing in keyword arguments "
+            },
+            {
+              "type": "inlineCode",
+              "value": "f0"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "f1"
+            },
+            {
+              "type": "text",
+              "value": ", ..., "
+            },
+            {
+              "type": "inlineCode",
+              "value": "fn"
+            },
+            {
+              "type": "text",
+              "value": " (for shape parameters) and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "floc"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "fscale"
+            },
+            {
+              "type": "text",
+              "value": " (for location and scale parameters, respectively)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "With "
+            },
+            {
+              "type": "inlineCode",
+              "value": "method=\"MLE\""
+            },
+            {
+              "type": "text",
+              "value": " (default), the fit is computed by minimizing the negative log-likelihood function. A large, finite penalty (rather than infinite negative log-likelihood) is applied for observations beyond the support of the distribution."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "With "
+            },
+            {
+              "type": "inlineCode",
+              "value": "method=\"MM\""
+            },
+            {
+              "type": "text",
+              "value": ", the fit is computed by minimizing the L2 norm of the relative errors between the first "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "k"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " raw (about zero) data moments and the corresponding distribution moments, where "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "k"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " is the number of non-fixed parameters. More precisely, the objective function is      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "(((data_moments - dist_moments)\n  / np.maximum(np.abs(data_moments), 1e-8))**2).sum()"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where the constant "
+            },
+            {
+              "type": "inlineCode",
+              "value": "1e-8"
+            },
+            {
+              "type": "text",
+              "value": " avoids division by zero in case of vanishing data moments. Typically, this error norm can be reduced to zero. Note that the standard method of moments can produce parameters for which some data are outside the support of the fitted distribution; this implementation does nothing to prevent this."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For either method, the returned answer is not guaranteed to be globally optimal; it may only be locally optimal, or the optimization may fail altogether. If the data contain any of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.nan"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.inf"
+            },
+            {
+              "type": "text",
+              "value": ", or "
+            },
+            {
+              "type": "inlineCode",
+              "value": "-np.inf"
+            },
+            {
+              "type": "text",
+              "value": ", the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.stats._continuous_distns:erlang_gen.fit",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "fit"
+            },
+            {
+              "type": "text",
+              "value": " method will raise a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "RuntimeError"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The Erlang distribution is generally defined to have integer values for the shape parameter.  This is not enforced by the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "erlang"
+            },
+            {
+              "type": "text",
+              "value": " class. When fitting the distribution, it will generally return a non-integer value for the shape parameter.  By using the keyword argument "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "f0=<integer>"
+            },
+            {
+              "type": "text",
+              "value": ", the fit method can be constrained to fit the data to a specific integer shape parameter.        Examples --------"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Generate some data to fit: draw random variates from the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "beta"
+            },
+            {
+              "type": "text",
+              "value": " distribution"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> from scipy.stats import beta\n>>> a, b = 1., 2.\n>>> x = beta.rvs(a, b, size=1000)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Now we can fit all four parameters ("
+            },
+            {
+              "type": "inlineCode",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "b"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "loc"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "scale"
+            },
+            {
+              "type": "text",
+              "value": "):"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> a1, b1, loc1, scale1 = beta.fit(x)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "We can also use some prior knowledge about the dataset: let's keep "
+            },
+            {
+              "type": "inlineCode",
+              "value": "loc"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "scale"
+            },
+            {
+              "type": "text",
+              "value": " fixed:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> a1, b1, loc1, scale1 = beta.fit(x, floc=0, fscale=1)\n>>> loc1, scale1\n(0, 1)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "We can also keep shape parameters fixed by using "
+            },
+            {
+              "type": "inlineCode",
+              "value": "f"
+            },
+            {
+              "type": "text",
+              "value": "-keywords. To keep the zero-th shape parameter "
+            },
+            {
+              "type": "inlineCode",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " equal 1, use "
+            },
+            {
+              "type": "inlineCode",
+              "value": "f0=1"
+            },
+            {
+              "type": "text",
+              "value": " or, equivalently, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "fa=1"
+            },
+            {
+              "type": "text",
+              "value": ":"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> a1, b1, loc1, scale1 = beta.fit(x, fa=1, floc=0, fscale=1)\n>>> a1\n1"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Not all distributions return estimates for the shape parameters. "
+            },
+            {
+              "type": "inlineCode",
+              "value": "norm"
+            },
+            {
+              "type": "text",
+              "value": " for example just returns estimates for location and scale:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> from scipy.stats import norm\n>>> x = norm.rvs(a, b, size=1000, random_state=123)\n>>> loc1, scale1 = norm.fit(x)\n>>> loc1, scale1\n(0.92087172783841631, 2.0015750750324668)"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Data to use in estimating the distribution parameters."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "data",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Starting value(s) for any shape-characterizing arguments (those not provided will be determined by a call to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "_fitstart(data)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "). No default value."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "arg1, arg2, arg3,...",
+              "type": "Param",
+              "type_": "floats, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "domain": null,
+                              "role": null,
+                              "type": "Directive",
+                              "value": "loc"
+                            },
+                            {
+                              "type": "text",
+                              "value": ": initial guess of the distribution's location parameter."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "domain": null,
+                              "role": null,
+                              "type": "Directive",
+                              "value": "scale"
+                            },
+                            {
+                              "type": "text",
+                              "value": ": initial guess of the distribution's scale parameter."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Special keyword arguments are recognized as holding certain parameters fixed:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "param": "**kwds",
+              "type": "Param",
+              "type_": "floats, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If an input is invalid"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "TypeError, ValueError"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If fitting fails or the fit produced would be invalid"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "`~scipy.stats.FitError`"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Estimates for any shape parameters (if applicable), followed by those for location and scale. For most random variables, shape statistics will be returned, but there are exceptions (e.g. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "norm"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "parameter_tuple",
+              "type": "Param",
+              "type_": "tuple of floats"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Return estimates of shape (if applicable), location, and scale parameters from data. The default estimation method is Maximum Likelihood Estimation (MLE), but Method of Moments (MM) is also available."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_continuous_distns.py",
+  "item_line": 3198,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Raises",
+    "Returns",
+    "Notes"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, data, *args, **kwds)"
+  },
+  "type": "DocBlob"
+}

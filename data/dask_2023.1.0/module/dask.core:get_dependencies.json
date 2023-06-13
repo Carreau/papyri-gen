@@ -1,0 +1,159 @@
+{
+  "aliases": [
+    "dask.core.get_dependencies"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Get the immediate tasks on which this task depends"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "inc = lambda x: x + 1\nadd = lambda x, y: x + y\ndsk = {'x': 1,\n       'y': (inc, 'x'),\n       'z': (add, 'x', 'y'),\n       'w': (inc, 'z'),\n       'a': (add, (inc, 'x'), 1)}"
+      },
+      {
+        "type": "code",
+        "value": "get_dependencies(dsk, 'x')"
+      },
+      {
+        "type": "code",
+        "value": "get_dependencies(dsk, 'y')"
+      },
+      {
+        "type": "code",
+        "value": "get_dependencies(dsk, 'z')  # doctest: +SKIP"
+      },
+      {
+        "type": "code",
+        "value": "get_dependencies(dsk, 'w')  # Only direct dependencies"
+      },
+      {
+        "type": "code",
+        "value": "get_dependencies(dsk, 'a')  # Ignore non-keys"
+      },
+      {
+        "type": "code",
+        "value": "get_dependencies(dsk, task=(inc, 'x'))  # provide tasks directly"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dask/core.py",
+  "item_line": 222,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(dsk, key=None, task='__no_default__', as_list=False)"
+  },
+  "type": "DocBlob"
+}

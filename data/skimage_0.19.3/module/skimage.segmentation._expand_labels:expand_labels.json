@@ -1,0 +1,424 @@
+{
+  "aliases": [
+    "skimage.segmentation.expand_labels"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Given a label image, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "expand_labels"
+            },
+            {
+              "type": "text",
+              "value": " grows label regions (connected components) outwards by up to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "distance"
+            },
+            {
+              "type": "text",
+              "value": " pixels without overflowing into neighboring regions. More specifically, each background pixel that is within Euclidean distance of <= "
+            },
+            {
+              "type": "inlineCode",
+              "value": "distance"
+            },
+            {
+              "type": "text",
+              "value": " pixels of a connected component is assigned the label of that connected component. Where multiple connected components are within "
+            },
+            {
+              "type": "inlineCode",
+              "value": "distance"
+            },
+            {
+              "type": "text",
+              "value": " pixels of a background pixel, the label value of the closest connected component will be assigned (see Notes for the case of multiple labels at equal distance)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Where labels are spaced more than "
+            },
+            {
+              "type": "inlineCode",
+              "value": "distance"
+            },
+            {
+              "type": "text",
+              "value": " pixels are apart, this is equivalent to a morphological dilation with a disc or hyperball of radius "
+            },
+            {
+              "type": "inlineCode",
+              "value": "distance"
+            },
+            {
+              "type": "text",
+              "value": ". However, in contrast to a morphological dilation, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "expand_labels"
+            },
+            {
+              "type": "text",
+              "value": " will not expand a label region into a neighboring region."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This implementation of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "expand_labels"
+            },
+            {
+              "type": "text",
+              "value": " is derived from CellProfiler , where it is known as module \"IdentifySecondaryObjects (Distance-N)\" ."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "There is an important edge case when a pixel has the same distance to multiple regions, as it is not defined which region expands into that space. Here, the exact behavior depends on the upstream implementation of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "scipy.ndimage.distance_transform_edt"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "label image"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "label_image",
+              "type": "Param",
+              "type_": "ndarray of dtype int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Euclidean distance in pixels by which to grow the labels. Default is one."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "distance",
+              "type": "Param",
+              "type_": "float"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Labeled array, where all connected regions have been enlarged"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "enlarged_labels",
+              "type": "Param",
+              "type_": "ndarray of dtype int"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Expand labels in label image by "
+            },
+            {
+              "type": "inlineCode",
+              "value": "distance"
+            },
+            {
+              "type": "text",
+              "value": " pixels without overlapping."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "labels = np.array([0, 1, 0, 0, 0, 0, 2])\nexpand_labels(labels, distance=1)"
+      },
+      {
+        "type": "text",
+        "value": "Labels will not overwrite each other:"
+      },
+      {
+        "type": "code",
+        "value": "expand_labels(labels, distance=3)"
+      },
+      {
+        "type": "text",
+        "value": "In case of ties, behavior is undefined, but currently resolves to the\nlabel closest to ``(0,) * ndim`` in lexicographical order."
+      },
+      {
+        "type": "code",
+        "value": "labels_tied = np.array([0, 1, 0, 2, 0])\nexpand_labels(labels_tied, 1)"
+      },
+      {
+        "type": "code",
+        "value": "labels2d = np.array(\n    [[0, 1, 0, 0],\n     [2, 0, 0, 0],\n     [0, 3, 0, 0]]\n)\nexpand_labels(labels2d, 1)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/skimage/segmentation/_expand_labels.py",
+  "item_line": 16,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "See Also",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "func"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "skimage.measure.label",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "skimage.measure.label"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "func"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "skimage",
+          "path": "skimage.segmentation._watershed:watershed",
+          "type": "RefInfo",
+          "version": "0.19.3"
+        },
+        "type": "Link",
+        "value": "skimage.segmentation.watershed"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "func"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "skimage",
+          "path": "skimage.morphology.gray:dilation",
+          "type": "RefInfo",
+          "version": "0.19.3"
+        },
+        "type": "Link",
+        "value": "skimage.morphology.dilation"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(label_image, distance=1)"
+  },
+  "type": "DocBlob"
+}

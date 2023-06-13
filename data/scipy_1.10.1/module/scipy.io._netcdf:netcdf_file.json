@@ -1,0 +1,594 @@
+{
+  "aliases": [
+    "scipy.io.netcdf_file"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "netcdf_file"
+            },
+            {
+              "type": "text",
+              "value": " object has two standard attributes: "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.interpolate._rgi:RegularGridInterpolator._validate_grid_dimensions",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "dimensions"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "variables"
+            },
+            {
+              "type": "text",
+              "value": ". The values of both are dictionaries, mapping dimension names to their associated lengths and variable names to variables, respectively. Application programs should never modify these dictionaries."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "All other attributes correspond to global attributes defined in the NetCDF file. Global file attributes are created by assigning to an attribute of the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "netcdf_file"
+            },
+            {
+              "type": "text",
+              "value": " object."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The major advantage of this module over other modules is that it doesn't require the code to be linked to the NetCDF libraries. This module is derived from "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "pupynere"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://bitbucket.org/robertodealmeida/pupynere/"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "NetCDF files are a self-describing binary data format. The file contains metadata that describes the dimensions and variables in the file. More details about NetCDF files can be found "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "here"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://www.unidata.ucar.edu/software/netcdf/guide_toc.html"
+            },
+            {
+              "type": "text",
+              "value": ". There are three main sections to a NetCDF data structure:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Dimensions"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Variables"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Attributes"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": true,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The dimensions section records the name and length of each dimension used by the variables. The variables would then indicate which dimensions it uses and any attributes such as data units, along with containing the data values for the variable. It is good practice to include a variable that is the same name as a dimension to provide the values for that axes. Lastly, the attributes section would contain additional information such as the name of the file creator or the instrument used to collect the data."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When writing data to a NetCDF file, there is often the need to indicate the 'record dimension'. A record dimension is the unbounded dimension for a variable. For example, a temperature variable may have dimensions of latitude, longitude and time. If one wants to add more temperature data to the NetCDF file as time progresses, then the temperature variable should have the time dimension flagged as the record dimension."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In addition, the NetCDF file header contains the position of the data in the file, so access can be done in an efficient manner without loading unnecessary data into memory. It uses the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "mmap"
+            },
+            {
+              "type": "text",
+              "value": " module to create Numpy arrays mapped to the data on disk, for the same purpose."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Note that when "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "netcdf_file"
+            },
+            {
+              "type": "text",
+              "value": " is used to open a file with mmap=True (default for read-only), arrays returned by it refer to data directly on the disk. The file should not be closed, and cannot be cleanly closed when asked, if such arrays are alive. You may want to copy data arrays obtained from mmapped Netcdf file if they are to be processed after the file is closed, see the example below."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "string -> filename"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "filename",
+              "type": "Param",
+              "type_": "string or file-like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "read-write-append mode, default is 'r'"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mode",
+              "type": "Param",
+              "type_": "{'r', 'w', 'a'}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to mmap "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "filename",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "filename"
+                    },
+                    {
+                      "type": "text",
+                      "value": " when reading.  Default is True when "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "filename",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "filename"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a file name, False when "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "filename",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "filename"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a file-like object. Note that when mmap is in use, data arrays returned refer directly to the mmapped data on disk, and the file cannot be closed as long as references to it exist."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mmap",
+              "type": "Param",
+              "type_": "None or bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "version of netcdf to read / write, where 1 means "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Classic\nformat"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and 2 means "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "64-bit offset format"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  Default is 1.  See "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "here"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://www.unidata.ucar.edu/software/netcdf/docs/netcdf_introduction.html#select_format"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for more info."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "version",
+              "type": "Param",
+              "type_": "{1, 2}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to automatically scale and/or mask data based on attributes. Default is False."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "maskandscale",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A file object for NetCDF data."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "To create a NetCDF file:"
+      },
+      {
+        "type": "code",
+        "value": "from scipy.io import netcdf_file\nimport numpy as np\nf = netcdf_file('simple.nc', 'w')\nf.history = 'Created for a test'\nf.createDimension('time', 10)\ntime = f.createVariable('time', 'i', ('time',))\ntime[:] = np.arange(10)\ntime.units = 'days since 2008-01-01'\nf.close()"
+      },
+      {
+        "type": "text",
+        "value": "Note the assignment of ``arange(10)`` to ``time[:]``.  Exposing the slice\nof the time variable allows for the data to be set in the object, rather\nthan letting ``arange(10)`` overwrite the ``time`` variable."
+      },
+      {
+        "type": "text",
+        "value": "To read the NetCDF file we just created:"
+      },
+      {
+        "type": "code",
+        "value": "from scipy.io import netcdf_file\nf = netcdf_file('simple.nc', 'r')\nprint(f.history)"
+      },
+      {
+        "type": "code",
+        "value": "time = f.variables['time']\nprint(time.units)"
+      },
+      {
+        "type": "code",
+        "value": "print(time.shape)"
+      },
+      {
+        "type": "code",
+        "value": "print(time[-1])"
+      },
+      {
+        "type": "text",
+        "value": "NetCDF files, when opened read-only, return arrays that refer\ndirectly to memory-mapped data on disk:"
+      },
+      {
+        "type": "code",
+        "value": "data = time[:]"
+      },
+      {
+        "type": "text",
+        "value": "If the data is to be processed after the file is closed, it needs\nto be copied to main memory:"
+      },
+      {
+        "type": "code",
+        "value": "data = time[:].copy()\nf.close()\ndata.mean()"
+      },
+      {
+        "type": "text",
+        "value": "A NetCDF file can also be used as context manager:"
+      },
+      {
+        "type": "code",
+        "value": "from scipy.io import netcdf_file\nwith netcdf_file('simple.nc', 'r') as f:\n    print(f.history)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/io/_netcdf.py",
+  "item_line": 98,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

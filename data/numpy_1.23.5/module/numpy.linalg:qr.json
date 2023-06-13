@@ -1,0 +1,601 @@
+{
+  "aliases": [
+    "numpy.linalg.qr"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Factor the matrix "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "a",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " as "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "qr"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": ", where "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "q",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "q"
+            },
+            {
+              "type": "text",
+              "value": " is orthonormal and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "r",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "r"
+            },
+            {
+              "type": "text",
+              "value": " is upper-triangular."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This is an interface to the LAPACK routines "
+            },
+            {
+              "type": "inlineCode",
+              "value": "dgeqrf"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "zgeqrf"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "dorgqr"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "zungqr"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For more information on the qr factorization, see for example: https://en.wikipedia.org/wiki/QR_factorization"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Subclasses of "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "ndarray"
+            },
+            {
+              "type": "text",
+              "value": " are preserved except for the 'raw' mode. So if "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "a",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " is of type "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "matrix"
+            },
+            {
+              "type": "text",
+              "value": ", all the return values will be matrices too."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "New 'reduced', 'complete', and 'raw' options for mode were added in NumPy 1.8.0 and the old option 'full' was made an alias of 'reduced'.  In addition the options 'full' and 'economic' were deprecated.  Because 'full' was the previous default and 'reduced' is the new default, backward compatibility can be maintained by letting "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "mode",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "mode"
+            },
+            {
+              "type": "text",
+              "value": " default. The 'raw' option was added so that LAPACK routines that can multiply arrays by q using the Householder reflectors can be used. Note that in this case the returned arrays are of type np.double or np.cdouble and the h array is transposed to be FORTRAN compatible.  No routines using the 'raw' return are currently exposed by numpy, but some are available in lapack_lite and just await the necessary work."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An array-like object with the dimensionality of at least 2."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "a",
+              "type": "Param",
+              "type_": "array_like, shape (..., M, N)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If K = min(M, N), then"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "dd": [
+                                {
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "value": "'reduced'"
+                                    }
+                                  ],
+                                  "type": "paragraph"
+                                }
+                              ],
+                              "dt": {
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "value": "'reduced'"
+                                  }
+                                ],
+                                "type": "paragraph"
+                              },
+                              "type": "DefListItem"
+                            }
+                          ],
+                          "type": "DefList"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "param": "mode",
+              "type": "Param",
+              "type_": "{'reduced', 'complete', 'r', 'raw'}, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If factoring fails."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "LinAlgError"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A matrix with orthonormal columns. When mode = 'complete' the result is an orthogonal/unitary matrix depending on whether or not a is real/complex. The determinant may be either +/- 1 in that case. In case the number of dimensions in the input array is greater than 2 then a stack of the matrices with above properties is returned."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "q",
+              "type": "Param",
+              "type_": "ndarray of float or complex, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The upper-triangular matrix or a stack of upper-triangular matrices if the number of dimensions in the input array is greater than 2."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "r",
+              "type": "Param",
+              "type_": "ndarray of float or complex, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The array h contains the Householder reflectors that generate q along with r. The tau array contains scaling factors for the reflectors. In the deprecated  'economic' mode only h is returned."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "(h, tau)",
+              "type": "Param",
+              "type_": "ndarrays of np.double or np.cdouble, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute the qr factorization of a matrix."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "a = np.random.randn(9, 6)\nq, r = np.linalg.qr(a)\nnp.allclose(a, np.dot(q, r))  # a does equal qr"
+      },
+      {
+        "type": "code",
+        "value": "r2 = np.linalg.qr(a, mode='r')\nnp.allclose(r, r2)  # mode='r' returns the same r as mode='full'"
+      },
+      {
+        "type": "code",
+        "value": "a = np.random.normal(size=(3, 2, 2)) # Stack of 2 x 2 matrices as input\nq, r = np.linalg.qr(a)\nq.shape"
+      },
+      {
+        "type": "code",
+        "value": "r.shape"
+      },
+      {
+        "type": "code",
+        "value": "np.allclose(a, np.matmul(q, r))"
+      },
+      {
+        "type": "text",
+        "value": "Example illustrating a common use of `qr`: solving of least squares\nproblems"
+      },
+      {
+        "type": "text",
+        "value": "What are the least-squares-best `m` and `y0` in ``y = y0 + mx`` for\nthe following data: {(0,1), (1,0), (1,2), (2,1)}. (Graph the points\nand you'll see that it should be y0 = 0, m = 1.)  The answer is provided\nby solving the over-determined matrix equation ``Ax = b``, where::"
+      },
+      {
+        "type": "text",
+        "value": "  A = array([[0, 1], [1, 1], [1, 1], [2, 1]])\n  x = array([[y0], [m]])\n  b = array([[1], [0], [2], [1]])"
+      },
+      {
+        "type": "text",
+        "value": "If A = qr such that q is orthonormal (which is always possible via\nGram-Schmidt), then ``x = inv(r) * (q.T) * b``.  (In numpy practice,\nhowever, we simply use `lstsq`.)"
+      },
+      {
+        "type": "code",
+        "value": "A = np.array([[0, 1], [1, 1], [1, 1], [2, 1]])\nA"
+      },
+      {
+        "type": "code",
+        "value": "b = np.array([1, 2, 2, 3])\nq, r = np.linalg.qr(A)\np = np.dot(q.T, b)\nnp.dot(np.linalg.inv(r), p)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/numpy/linalg/linalg.py",
+  "item_line": 780,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Similar function in SciPy."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "scipy.linalg.qr",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "scipy.linalg.qr"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute RQ decomposition of a matrix."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "scipy.linalg.rq",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "scipy.linalg.rq"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(a, mode='reduced')"
+  },
+  "type": "DocBlob"
+}

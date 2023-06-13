@@ -1,0 +1,279 @@
+{
+  "aliases": [
+    "scipy.signal.square"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The square wave has a period "
+            },
+            {
+              "type": "inlineCode",
+              "value": "2*pi"
+            },
+            {
+              "type": "text",
+              "value": ", has value +1 from 0 to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "2*pi*duty"
+            },
+            {
+              "type": "text",
+              "value": " and -1 from "
+            },
+            {
+              "type": "inlineCode",
+              "value": "2*pi*duty"
+            },
+            {
+              "type": "text",
+              "value": " to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "2*pi"
+            },
+            {
+              "type": "text",
+              "value": ". "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "duty",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "duty"
+            },
+            {
+              "type": "text",
+              "value": " must be in the interval [0,1]."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Note that this is not band-limited.  It produces an infinite number of harmonics, which are aliased back and forth across the frequency spectrum."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The input time array."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "t",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Duty cycle.  Default is 0.5 (50% duty cycle). If an array, causes wave shape to change over time, and must be the same length as t."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "duty",
+              "type": "Param",
+              "type_": "array_like, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Output array containing the square waveform."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "y",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Return a periodic square-wave waveform."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "A 5 Hz waveform sampled at 500 Hz for 1 second:"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy import signal\nimport matplotlib.pyplot as plt\nt = np.linspace(0, 1, 500, endpoint=False)\nplt.plot(t, signal.square(2 * np.pi * 5 * t))\nplt.ylim(-2, 2)"
+      },
+      {
+        "type": "text",
+        "value": "A pulse-width modulated sine wave:"
+      },
+      {
+        "type": "code",
+        "value": "plt.figure()\nsig = np.sin(2 * np.pi * t)\npwm = signal.square(2 * np.pi * 30 * t, duty=(sig + 1)/2)\nplt.subplot(2, 1, 1)\nplt.plot(t, sig)\nplt.subplot(2, 1, 2)\nplt.plot(t, pwm)\nplt.ylim(-1.5, 1.5)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/signal/_waveforms.py",
+  "item_line": 88,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(t, duty=0.5)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,295 @@
+{
+  "aliases": [
+    "xarray.core.accessor_str.StringAccessor.get_dummies"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Each string in the DataArray is split at "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "sep",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "sep"
+            },
+            {
+              "type": "text",
+              "value": ". A new dimension is created with coordinates for each unique result, and the corresponding element of that dimension is "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "True"
+            },
+            {
+              "type": "text",
+              "value": " if that result is present and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "False"
+            },
+            {
+              "type": "text",
+              "value": " if not."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "sep",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "sep"
+            },
+            {
+              "type": "text",
+              "value": " is array-like, it is broadcast against the array and applied elementwise."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Name for the dimension to place the results in."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dim",
+              "type": "Param",
+              "type_": "hashable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "String to split on. If array-like, it is broadcast."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sep",
+              "type": "Param",
+              "type_": "str, default: \"|\"."
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "dummies",
+              "type": "Param",
+              "type_": "array of bool"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Return DataArray of dummy/indicator variables."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Create a string array"
+      },
+      {
+        "type": "code",
+        "value": "values = xr.DataArray(\n    [\n        [\"a|ab~abc|abc\", \"ab\", \"a||abc|abcd\"],\n        [\"abcd|ab|a\", \"abc|ab~abc\", \"|a\"],\n    ],\n    dims=[\"X\", \"Y\"],\n)"
+      },
+      {
+        "type": "text",
+        "value": "Extract dummy values"
+      },
+      {
+        "type": "code",
+        "value": "values.str.get_dummies(dim=\"dummies\")"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/xarray/core/accessor_str.py",
+  "item_line": 2755,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Examples",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "pandas.Series.str.get_dummies",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "pandas.Series.str.get_dummies"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, dim: 'Hashable', sep: 'str | bytes | Any' = '|') -> 'DataArray'"
+  },
+  "type": "DocBlob"
+}

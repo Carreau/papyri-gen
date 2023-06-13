@@ -1,0 +1,356 @@
+{
+  "aliases": [
+    "skimage.morphology.diameter_opening"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Diameter opening removes all bright structures of an image with maximal extension smaller than diameter_threshold. The maximal extension is defined as the maximal extension of the bounding box. The operator is also called Bounding Box Opening. In practice, the result is similar to a morphological opening, but long and thin structures are not removed."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Technically, this operator is based on the max-tree representation of the image."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The input image for which the area_opening is to be calculated. This image can be of any type."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "image",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The maximal extension parameter (number of pixels). The default value is 8."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "diameter_threshold",
+              "type": "Param",
+              "type_": "unsigned int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The neighborhood connectivity. The integer represents the maximum number of orthogonal steps to reach a neighbor. In 2D, it is 1 for a 4-neighborhood and 2 for a 8-neighborhood. Default value is 1."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "connectivity",
+              "type": "Param",
+              "type_": "unsigned int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Parent image representing the max tree of the image. The value of each pixel is the index of its parent in the ravelled array."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "parent",
+              "type": "Param",
+              "type_": "ndarray, int64, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The ordered pixel indices (referring to the ravelled array). The pixels are ordered such that every pixel is preceded by its parent (except for the root which has no parent)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "tree_traverser",
+              "type": "Param",
+              "type_": "1D array, int64, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Output image of the same shape and type as the input image."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "output",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Perform a diameter opening of the image."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "We create an image (quadratic function with a maximum in the center and\n4 additional local maxima."
+      },
+      {
+        "type": "code",
+        "value": "w = 12\nx, y = np.mgrid[0:w,0:w]\nf = 20 - 0.2*((x - w/2)**2 + (y-w/2)**2)\nf[2:3,1:5] = 40; f[2:4,9:11] = 60; f[9:11,2:4] = 80\nf[9:10,9:11] = 100; f[10,10] = 100\nf = f.astype(int)"
+      },
+      {
+        "type": "text",
+        "value": "We can calculate the diameter opening:"
+      },
+      {
+        "type": "code",
+        "value": "open = diameter_opening(f, 3, connectivity=1)"
+      },
+      {
+        "type": "text",
+        "value": "The peaks with a maximal extension of 2 or less are removed.\nThe remaining peaks have all a maximal extension of at least 3."
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/skimage/morphology/max_tree.py",
+  "item_line": 254,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "skimage",
+          "path": "skimage.morphology.max_tree:area_opening",
+          "type": "RefInfo",
+          "version": "0.19.3"
+        },
+        "type": "Link",
+        "value": "skimage.morphology.area_opening"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "skimage",
+          "path": "skimage.morphology.max_tree:area_closing",
+          "type": "RefInfo",
+          "version": "0.19.3"
+        },
+        "type": "Link",
+        "value": "skimage.morphology.area_closing"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "skimage",
+          "path": "skimage.morphology.max_tree:diameter_closing",
+          "type": "RefInfo",
+          "version": "0.19.3"
+        },
+        "type": "Link",
+        "value": "skimage.morphology.diameter_closing"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "skimage",
+          "path": "skimage.morphology.max_tree:max_tree",
+          "type": "RefInfo",
+          "version": "0.19.3"
+        },
+        "type": "Link",
+        "value": "skimage.morphology.max_tree"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(image, diameter_threshold=8, connectivity=1, parent=None, tree_traverser=None)"
+  },
+  "type": "DocBlob"
+}

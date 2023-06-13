@@ -1,0 +1,265 @@
+{
+  "aliases": [
+    "numpy.core.einsumfunc._find_contraction"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Integer positions of terms used in the contraction."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "positions",
+              "type": "Param",
+              "type_": "iterable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "List of sets that represent the lhs side of the einsum subscript"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "input_sets",
+              "type": "Param",
+              "type_": "list"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Set that represents the rhs side of the overall einsum subscript"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "output_set",
+              "type": "Param",
+              "type_": "set"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The indices of the resulting contraction"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "new_result",
+              "type": "Param",
+              "type_": "set"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "List of sets that have not been contracted, the new set is appended to the end of this list"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "remaining",
+              "type": "Param",
+              "type_": "list"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Indices removed from the entire contraction"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "idx_removed",
+              "type": "Param",
+              "type_": "set"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The indices used in the current contraction"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "idx_contraction",
+              "type": "Param",
+              "type_": "set"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Finds the contraction for a given set of input and output sets."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "# A simple dot product test case\n>>> pos = (0, 1)\n>>> isets = [set('ab'), set('bc')]\n>>> oset = set('ac')\n>>> _find_contraction(pos, isets, oset)\n({'a', 'c'}, [{'a', 'c'}], {'b'}, {'a', 'b', 'c'})"
+      },
+      {
+        "type": "text",
+        "value": "# A more complex case with additional terms in the contraction\n>>> pos = (0, 2)\n>>> isets = [set('abd'), set('ac'), set('bdc')]\n>>> oset = set('ac')\n>>> _find_contraction(pos, isets, oset)\n({'a', 'c'}, [{'a', 'c'}, {'a', 'c'}], {'b', 'd'}, {'a', 'b', 'c', 'd'})"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/numpy/core/einsumfunc.py",
+  "item_line": 85,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(positions, input_sets, output_set)"
+  },
+  "type": "DocBlob"
+}

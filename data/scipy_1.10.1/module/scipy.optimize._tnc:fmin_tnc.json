@@ -1,0 +1,805 @@
+{
+  "aliases": [
+    "scipy.optimize.fmin_tnc"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The underlying algorithm is truncated Newton, also called Newton Conjugate-Gradient. This method differs from scipy.optimize.fmin_ncg in that"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "it wraps a C implementation of the algorithm"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "it allows each variable to be given an upper and lower bound."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": true,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The algorithm incorporates the bound constraints by determining the descent direction as in an unconstrained truncated Newton, but never taking a step-size large enough to leave the space of feasible x's. The algorithm keeps track of a set of currently active constraints, and ignores them when computing the minimum allowable step size. (The x's associated with the active constraint are kept fixed.) If the maximum allowable step size is zero then a new constraint is added. At the end of each iteration one of the constraints may be deemed no longer active and removed. A constraint is considered no longer active is if it is currently active but the gradient for that variable points inward from the constraint. The specific constraint removed is the one associated with the variable of largest index whose constraint is no longer active."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Return codes are defined as follows      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "-1 : Infeasible (lower bound > upper bound)\n 0 : Local minimum reached (|pg| ~= 0)\n 1 : Converged (|f_n-f_(n-1)| ~= 0)\n 2 : Converged (|x_n-x_(n-1)| ~= 0)\n 3 : Max. number of function evaluations reached\n 4 : Linear search failed\n 5 : All lower bounds are equal to the upper bounds\n 6 : Unable to progress\n 7 : User requested end of minimization"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Function to minimize.  Must do one of:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Return f and g, where f is the value of the function and g its    gradient (a list of floats)."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Return the function value but supply gradient function    separately as "
+                            },
+                            {
+                              "anchor": null,
+                              "exists": true,
+                              "kind": "local",
+                              "reference": {
+                                "kind": "local",
+                                "module": null,
+                                "path": "fprime",
+                                "type": "RefInfo",
+                                "version": null
+                              },
+                              "type": "Link",
+                              "value": "fprime"
+                            },
+                            {
+                              "type": "text",
+                              "value": "."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Return the function value and set "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "approx_grad=True"
+                            },
+                            {
+                              "type": "text",
+                              "value": "."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": true,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If the function returns None, the minimization is aborted."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "func",
+              "type": "Param",
+              "type_": "callable ``func(x, *args)``"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Initial estimate of minimum."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x0",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Gradient of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "func",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "func"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If None, then either "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "func",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "func"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must return the function value and the gradient ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "f,g = func(x, *args)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") or "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "approx_grad",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "approx_grad"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must be True."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fprime",
+              "type": "Param",
+              "type_": "callable ``fprime(x, *args)``, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Arguments to pass to function."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "args",
+              "type": "Param",
+              "type_": "tuple, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If true, approximate the gradient numerically."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "approx_grad",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "(min, max) pairs for each element in x0, defining the bounds on that parameter. Use None or +/-inf for one of min or max when there is no bound in that direction."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "bounds",
+              "type": "Param",
+              "type_": "list, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Used if approx_grad is True. The stepsize in a finite difference approximation for fprime."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "epsilon",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Scaling factors to apply to each variable. If None, the factors are up-low for interval bounded variables and 1+|x| for the others. Defaults to None."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "scale",
+              "type": "Param",
+              "type_": "array_like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Value to subtract from each variable. If None, the offsets are (up+low)/2 for interval bounded variables and x for the others."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "offset",
+              "type": "Param",
+              "type_": "array_like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Bit mask used to select messages display during minimization values defined in the MSGS dict. Defaults to MGS_ALL."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "messages",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Integer interface to messages. 0 = no message, 5 = all messages"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "disp",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum number of hessian*vector evaluations per main iteration. If maxCGit == 0, the direction chosen is -gradient if maxCGit < 0, maxCGit is set to max(1,min(50,n/2)). Defaults to -1."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "maxCGit",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum number of function evaluation. If None, maxfun is set to max(100, 10*len(x0)). Defaults to None. Note that this function may violate the limit because of evaluating gradients by numerical differentiation."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "maxfun",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Severity of the line search. If < 0 or > 1, set to 0.25. Defaults to -1."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "eta",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum step for the line search. May be increased during call. If too small, it will be set to 10.0. Defaults to 0."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "stepmx",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Relative precision for finite difference calculations. If <= machine_precision, set to sqrt(machine_precision). Defaults to 0."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "accuracy",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Minimum function value estimate. Defaults to 0."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fmin",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Precision goal for the value of f in the stopping criterion. If ftol < 0.0, ftol is set to 0.0 defaults to -1."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ftol",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Precision goal for the value of x in the stopping criterion (after applying x scaling factors). If xtol < 0.0, xtol is set to sqrt(machine_precision). Defaults to -1."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "xtol",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Precision goal for the value of the projected gradient in the stopping criterion (after applying x scaling factors). If pgtol < 0.0, pgtol is set to 1e-2 * sqrt(accuracy). Setting it to 0.0 is not recommended. Defaults to -1."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "pgtol",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Scaling factor (in log10) used to trigger f value rescaling. If 0, rescale at each iteration. If a large value, never rescale. If < 0, rescale is set to 1.3."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "rescale",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Called after each iteration, as callback(xk), where xk is the current parameter vector."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "callback",
+              "type": "Param",
+              "type_": "callable, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The solution."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The number of function evaluations."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "nfeval",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Return code, see below"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "rc",
+              "type": "Param",
+              "type_": "int"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Minimize a function with variables subject to bounds, using gradient information in a truncated Newton algorithm. This method wraps a C implementation of the algorithm."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/optimize/_tnc.py",
+  "item_line": 89,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Interface to minimization algorithms for multivariate functions. See the 'TNC' "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "method"
+            },
+            {
+              "type": "text",
+              "value": " in particular."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.optimize._shgo:SHGO.minimize",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "minimize"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(func, x0, fprime=None, args=(), approx_grad=0, bounds=None, epsilon=1e-08, scale=None, offset=None, messages=15, maxCGit=-1, maxfun=None, eta=-1, stepmx=0, accuracy=0, fmin=0, ftol=-1, xtol=-1, pgtol=-1, rescale=-1, disp=None, callback=None)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,581 @@
+{
+  "aliases": [
+    "numpy.isscalar"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If you need a stricter way to identify a "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "numerical"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " scalar, use "
+            },
+            {
+              "type": "inlineCode",
+              "value": "isinstance(x, numbers.Number)"
+            },
+            {
+              "type": "text",
+              "value": ", as that returns "
+            },
+            {
+              "type": "inlineCode",
+              "value": "False"
+            },
+            {
+              "type": "text",
+              "value": " for most non-numerical elements such as strings."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In most cases "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.ndim(x) == 0"
+            },
+            {
+              "type": "text",
+              "value": " should be used instead of this function, as that will also return true for 0d arrays. This is how numpy overloads functions in the style of the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "dx"
+            },
+            {
+              "type": "text",
+              "value": " arguments to "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "gradient"
+            },
+            {
+              "type": "text",
+              "value": " and the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "bins"
+            },
+            {
+              "type": "text",
+              "value": " argument to "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "histogram"
+            },
+            {
+              "type": "text",
+              "value": ". Some key differences:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "+--------------------------------------+---------------+-------------------+ | x                                    "
+            },
+            {
+              "type": "SubstitutionRef",
+              "value": "|``isscalar(x)``|``np.ndim(x) == 0``|"
+            },
+            {
+              "type": "text",
+              "value": " +======================================+===============+===================+ | PEP 3141 numeric objects (including  | "
+            },
+            {
+              "type": "inlineCode",
+              "value": "True"
+            },
+            {
+              "type": "text",
+              "value": "      | "
+            },
+            {
+              "type": "inlineCode",
+              "value": "True"
+            },
+            {
+              "type": "text",
+              "value": "          | | builtins)                            |               |                   | +--------------------------------------+---------------+-------------------+ | builtin string and buffer objects    | "
+            },
+            {
+              "type": "inlineCode",
+              "value": "True"
+            },
+            {
+              "type": "text",
+              "value": "      | "
+            },
+            {
+              "type": "inlineCode",
+              "value": "True"
+            },
+            {
+              "type": "text",
+              "value": "          | +--------------------------------------+---------------+-------------------+ | other builtin objects, like          | "
+            },
+            {
+              "type": "inlineCode",
+              "value": "False"
+            },
+            {
+              "type": "text",
+              "value": "     | "
+            },
+            {
+              "type": "inlineCode",
+              "value": "True"
+            },
+            {
+              "type": "text",
+              "value": "          | | "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "pathlib",
+                "path": "pathlib:Path",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "pathlib.Path"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "Exception"
+            },
+            {
+              "type": "text",
+              "value": ",         |               |                   | | the result of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "re",
+                "path": "re:compile",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "re.compile"
+            },
+            {
+              "type": "text",
+              "value": "           |               |                   | +--------------------------------------+---------------+-------------------+ | third-party objects like             | "
+            },
+            {
+              "type": "inlineCode",
+              "value": "False"
+            },
+            {
+              "type": "text",
+              "value": "     | "
+            },
+            {
+              "type": "inlineCode",
+              "value": "True"
+            },
+            {
+              "type": "text",
+              "value": "          | | "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "matplotlib.figure",
+                "path": "matplotlib.figure:Figure",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "matplotlib.figure.Figure"
+            },
+            {
+              "type": "text",
+              "value": "           |               |                   | +--------------------------------------+---------------+-------------------+ | zero-dimensional numpy arrays        | "
+            },
+            {
+              "type": "inlineCode",
+              "value": "False"
+            },
+            {
+              "type": "text",
+              "value": "     | "
+            },
+            {
+              "type": "inlineCode",
+              "value": "True"
+            },
+            {
+              "type": "text",
+              "value": "          | +--------------------------------------+---------------+-------------------+ | other numpy arrays                   | "
+            },
+            {
+              "type": "inlineCode",
+              "value": "False"
+            },
+            {
+              "type": "text",
+              "value": "     | "
+            },
+            {
+              "type": "inlineCode",
+              "value": "False"
+            },
+            {
+              "type": "text",
+              "value": "         | +--------------------------------------+---------------+-------------------+ | "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "list"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "tuple"
+            },
+            {
+              "type": "text",
+              "value": ", and other sequence  | "
+            },
+            {
+              "type": "inlineCode",
+              "value": "False"
+            },
+            {
+              "type": "text",
+              "value": "     | "
+            },
+            {
+              "type": "inlineCode",
+              "value": "False"
+            },
+            {
+              "type": "text",
+              "value": "         | | objects                              |               |                   | +--------------------------------------+---------------+-------------------+"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Input argument, can be of any type and shape."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "element",
+              "type": "Param",
+              "type_": "any"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "True if "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "element",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "element"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a scalar type, False if it is not."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "val",
+              "type": "Param",
+              "type_": "bool"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Returns True if the type of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "element",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "element"
+            },
+            {
+              "type": "text",
+              "value": " is a scalar type."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "np.isscalar(3.1)"
+      },
+      {
+        "type": "code",
+        "value": "np.isscalar(np.array(3.1))"
+      },
+      {
+        "type": "code",
+        "value": "np.isscalar([3.1])"
+      },
+      {
+        "type": "code",
+        "value": "np.isscalar(False)"
+      },
+      {
+        "type": "code",
+        "value": "np.isscalar('numpy')"
+      },
+      {
+        "type": "text",
+        "value": "NumPy supports PEP 3141 numbers:"
+      },
+      {
+        "type": "code",
+        "value": "from fractions import Fraction\nnp.isscalar(Fraction(5, 17))"
+      },
+      {
+        "type": "code",
+        "value": "from numbers import Number\nnp.isscalar(Number())"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/numpy/core/numeric.py",
+  "item_line": 1878,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Get the number of dimensions of an array"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "ndim",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "ndim"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(element)"
+  },
+  "type": "DocBlob"
+}

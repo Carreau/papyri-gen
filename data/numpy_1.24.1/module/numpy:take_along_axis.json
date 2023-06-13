@@ -1,0 +1,494 @@
+{
+  "aliases": [
+    "numpy.take_along_axis"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This iterates over matching 1d slices oriented along the specified axis in the index and data arrays, and uses the former to look up values in the latter. These slices can be different lengths."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Functions returning an index along an axis, like "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "argsort"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "argpartition"
+            },
+            {
+              "type": "text",
+              "value": ", produce suitable indices for this function."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 1.15.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This is equivalent to (but faster than) the following use of "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "ndindex"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "s_"
+            },
+            {
+              "type": "text",
+              "value": ", which sets each of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ii"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "kk"
+            },
+            {
+              "type": "text",
+              "value": " to a tuple of indices      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "Ni, M, Nk = a.shape[:axis], a.shape[axis], a.shape[axis+1:]\nJ = indices.shape[axis]  # Need not equal M\nout = np.empty(Ni + (J,) + Nk)\n\nfor ii in ndindex(Ni):\n    for kk in ndindex(Nk):\n        a_1d       = a      [ii + s_[:,] + kk]\n        indices_1d = indices[ii + s_[:,] + kk]\n        out_1d     = out    [ii + s_[:,] + kk]\n        for j in range(J):\n            out_1d[j] = a_1d[indices_1d[j]]"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Equivalently, eliminating the inner loop, the last two lines would be              "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "out_1d[:] = a_1d[indices_1d]"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Source array"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "arr",
+              "type": "Param",
+              "type_": "ndarray (Ni..., M, Nk...)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Indices to take along each 1d slice of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "arr",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "arr"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". This must match the dimension of arr, but dimensions Ni and Nj only need to broadcast against "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "arr",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "arr"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "indices",
+              "type": "Param",
+              "type_": "ndarray (Ni..., J, Nk...)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The axis to take 1d slices along. If axis is None, the input array is treated as if it had first been flattened to 1d, for consistency with "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "sort"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "argsort"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "axis",
+              "type": "Param",
+              "type_": "int"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The indexed result."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "out: ndarray (Ni..., J, Nk...)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Take values from the input array by matching 1d index and data slices."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "For this sample array"
+      },
+      {
+        "type": "code",
+        "value": "a = np.array([[10, 30, 20], [60, 40, 50]])"
+      },
+      {
+        "type": "text",
+        "value": "We can sort either by using sort directly, or argsort and this function"
+      },
+      {
+        "type": "code",
+        "value": "np.sort(a, axis=1)"
+      },
+      {
+        "type": "code",
+        "value": "ai = np.argsort(a, axis=1); ai"
+      },
+      {
+        "type": "code",
+        "value": "np.take_along_axis(a, ai, axis=1)"
+      },
+      {
+        "type": "text",
+        "value": "The same works for max and min, if you expand the dimensions:"
+      },
+      {
+        "type": "code",
+        "value": "np.expand_dims(np.max(a, axis=1), axis=1)"
+      },
+      {
+        "type": "code",
+        "value": "ai = np.expand_dims(np.argmax(a, axis=1), axis=1)\nai"
+      },
+      {
+        "type": "code",
+        "value": "np.take_along_axis(a, ai, axis=1)"
+      },
+      {
+        "type": "text",
+        "value": "If we want to get the max and min at the same time, we can stack the\nindices first"
+      },
+      {
+        "type": "code",
+        "value": "ai_min = np.expand_dims(np.argmin(a, axis=1), axis=1)\nai_max = np.expand_dims(np.argmax(a, axis=1), axis=1)\nai = np.concatenate([ai_min, ai_max], axis=1)\nai"
+      },
+      {
+        "type": "code",
+        "value": "np.take_along_axis(a, ai, axis=1)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/numpy/lib/shape_base.py",
+  "item_line": 56,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "See Also",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Take along an axis, using the same indices for every 1d slice"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "numpy",
+          "path": "numpy:take_along_axis",
+          "type": "RefInfo",
+          "version": "1.24.1"
+        },
+        "type": "Link",
+        "value": "take"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Put values into the destination array by matching 1d index and data slices"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "put_along_axis",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "put_along_axis"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(arr, indices, axis)"
+  },
+  "type": "DocBlob"
+}

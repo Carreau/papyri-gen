@@ -1,0 +1,481 @@
+{
+  "aliases": [
+    "scipy.signal.minimum_phase"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Both the Hilbert  or homomorphic   methods require selection of an FFT length to estimate the complex cepstrum of the filter."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In the case of the Hilbert method, the deviation from the ideal spectrum "
+            },
+            {
+              "type": "inlineCode",
+              "value": "epsilon"
+            },
+            {
+              "type": "text",
+              "value": " is related to the number of stopband zeros "
+            },
+            {
+              "type": "inlineCode",
+              "value": "n_stop"
+            },
+            {
+              "type": "text",
+              "value": " and FFT length "
+            },
+            {
+              "type": "inlineCode",
+              "value": "n_fft"
+            },
+            {
+              "type": "text",
+              "value": " as      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "epsilon = 2. * n_stop / n_fft"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For example, with 100 stopband zeros and a FFT length of 2048, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "epsilon = 0.0976"
+            },
+            {
+              "type": "text",
+              "value": ". If we conservatively assume that the number of stopband zeros is one less than the filter length, we can take the FFT length to be the next power of 2 that satisfies "
+            },
+            {
+              "type": "inlineCode",
+              "value": "epsilon=0.01"
+            },
+            {
+              "type": "text",
+              "value": " as      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "n_fft = 2 ** int(np.ceil(np.log2(2 * (len(h) - 1) / 0.01)))"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This gives reasonable results for both the Hilbert and homomorphic methods, and gives the value used when "
+            },
+            {
+              "type": "inlineCode",
+              "value": "n_fft=None"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Alternative implementations exist for creating minimum-phase filters, including zero inversion  and spectral factorization  . For more information, see:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "http://dspguru.com/dsp/howtos/how-to-design-minimum-phase-fir-filters"
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "type": "blockquote"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Linear-phase FIR filter coefficients."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "h",
+              "type": "Param",
+              "type_": "array"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The method to use:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "dd": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "This method   works best with filters with an         odd number of taps, and the resulting minimum phase filter         will have a magnitude response that approximates the square         root of the original filter's magnitude response."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "'homomorphic' (default)"
+                              }
+                            ],
+                            "type": "paragraph"
+                          },
+                          "type": "DefListItem"
+                        },
+                        {
+                          "dd": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "This method  is designed to be used with equiripple         filters (e.g., from "
+                                },
+                                {
+                                  "domain": null,
+                                  "role": null,
+                                  "type": "Directive",
+                                  "value": "remez"
+                                },
+                                {
+                                  "type": "text",
+                                  "value": ") with unity or zero gain         regions."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "'hilbert'"
+                              }
+                            ],
+                            "type": "paragraph"
+                          },
+                          "type": "DefListItem"
+                        }
+                      ],
+                      "type": "DefList"
+                    }
+                  ],
+                  "type": "blockquote"
+                }
+              ],
+              "param": "method",
+              "type": "Param",
+              "type_": "{'hilbert', 'homomorphic'}"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The number of points to use for the FFT. Should be at least a few times larger than the signal length (see Notes)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "n_fft",
+              "type": "Param",
+              "type_": "int"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The minimum-phase version of the filter, with length "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(length(h) + 1) // 2"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "h_minimum",
+              "type": "Param",
+              "type_": "array"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Convert a linear-phase FIR filter to minimum phase"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Create an optimal linear-phase filter, then convert it to minimum phase:"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.signal import remez, minimum_phase, freqz, group_delay\nimport matplotlib.pyplot as plt\nfreq = [0, 0.2, 0.3, 1.0]\ndesired = [1, 0]\nh_linear = remez(151, freq, desired, fs=2.)"
+      },
+      {
+        "type": "text",
+        "value": "Convert it to minimum phase:"
+      },
+      {
+        "type": "code",
+        "value": "h_min_hom = minimum_phase(h_linear, method='homomorphic')\nh_min_hil = minimum_phase(h_linear, method='hilbert')"
+      },
+      {
+        "type": "text",
+        "value": "Compare the three filters:"
+      },
+      {
+        "type": "code",
+        "value": "fig, axs = plt.subplots(4, figsize=(4, 8))\nfor h, style, color in zip((h_linear, h_min_hom, h_min_hil),\n                           ('-', '-', '--'), ('k', 'r', 'c')):\n    w, H = freqz(h)\n    w, gd = group_delay((h, 1))\n    w /= np.pi\n    axs[0].plot(h, color=color, linestyle=style)\n    axs[1].plot(w, np.abs(H), color=color, linestyle=style)\n    axs[2].plot(w, 20 * np.log10(np.abs(H)), color=color, linestyle=style)\n    axs[3].plot(w, gd, color=color, linestyle=style)\nfor ax in axs:\n    ax.grid(True, color='0.5')\n    ax.fill_between(freq[1:3], *ax.get_ylim(), color='#ffeeaa', zorder=1)\naxs[0].set(xlim=[0, len(h_linear) - 1], ylabel='Amplitude', xlabel='Samples')\naxs[1].legend(['Linear', 'Min-Hom', 'Min-Hil'], title='Phase')\nfor ax, ylim in zip(axs[1:], ([0, 1.1], [-150, 10], [-60, 60])):\n    ax.set(xlim=[0, 1], ylim=ylim, xlabel='Frequency')\naxs[1].set(ylabel='Magnitude')\naxs[2].set(ylabel='Magnitude (dB)')\naxs[3].set(ylabel='Group delay')\nplt.tight_layout()"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/signal/_fir_filter_design.py",
+  "item_line": 1122,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "firwin",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "firwin"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._fir_filter_design:firwin2",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "firwin2"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "remez",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "remez"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(h, method='homomorphic', n_fft=None)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,424 @@
+{
+  "aliases": [
+    "networkx.johnson"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Johnson's Algorithm finds a shortest path between each pair of nodes in a weighted graph even if negative weights are present."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Johnson's algorithm is suitable even for graphs with negative weights. It works by using the Bellman\u2013Ford algorithm to compute a transformation of the input graph that removes all negative weights, allowing Dijkstra's algorithm to be used on the transformed graph."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The time complexity of this algorithm is $O(n^2 \\log n + n m)$, where $n$ is the number of nodes and $m$ the number of edges in the graph. For dense graphs, this may be faster than the Floyd\u2013Warshall algorithm."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "G",
+              "type": "Param",
+              "type_": "NetworkX graph"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If this is a string, then edge weights will be accessed via the edge attribute with this key (that is, the weight of the edge joining "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "u"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "v"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will be "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "G.edges[u, v][weight]"
+                    },
+                    {
+                      "type": "text",
+                      "value": "). If no such edge attribute exists, the weight of the edge is assumed to be one."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If this is a function, the weight of an edge is the value returned by the function. The function must accept exactly three positional arguments: the two endpoints of an edge and the dictionary of edge attributes for that edge. The function must return a number."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "weight",
+              "type": "Param",
+              "type_": "string or function"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If given graph is not weighted."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "NetworkXError"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Dictionary, keyed by source and target, of shortest paths."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "distance",
+              "type": "Param",
+              "type_": "dictionary"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Uses Johnson's Algorithm to compute shortest paths."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "graph = nx.DiGraph()\ngraph.add_weighted_edges_from(\n    [(\"0\", \"3\", 3), (\"0\", \"1\", -5), (\"0\", \"2\", 2), (\"1\", \"2\", 4), (\"2\", \"3\", 1)]\n)\npaths = nx.johnson(graph, weight=\"weight\")\npaths[\"0\"][\"2\"]"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/algorithms/shortest_paths/weighted.py",
+  "item_line": 2401,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "Examples",
+    "Notes",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "networkx",
+          "path": "networkx.algorithms.shortest_paths.dense:floyd_warshall_predecessor_and_distance",
+          "type": "RefInfo",
+          "version": "3.1"
+        },
+        "type": "Link",
+        "value": "floyd_warshall_predecessor_and_distance"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "networkx",
+          "path": "networkx.algorithms.shortest_paths.dense:floyd_warshall_numpy",
+          "type": "RefInfo",
+          "version": "3.1"
+        },
+        "type": "Link",
+        "value": "floyd_warshall_numpy"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "all_pairs_shortest_path",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "all_pairs_shortest_path"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "networkx",
+          "path": "networkx.algorithms.shortest_paths.unweighted:all_pairs_shortest_path_length",
+          "type": "RefInfo",
+          "version": "3.1"
+        },
+        "type": "Link",
+        "value": "all_pairs_shortest_path_length"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "all_pairs_dijkstra_path",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "all_pairs_dijkstra_path"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "networkx",
+          "path": "networkx.algorithms.shortest_paths.weighted:bellman_ford_predecessor_and_distance",
+          "type": "RefInfo",
+          "version": "3.1"
+        },
+        "type": "Link",
+        "value": "bellman_ford_predecessor_and_distance"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "all_pairs_bellman_ford_path",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "all_pairs_bellman_ford_path"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "networkx",
+          "path": "networkx.algorithms.shortest_paths.weighted:all_pairs_bellman_ford_path_length",
+          "type": "RefInfo",
+          "version": "3.1"
+        },
+        "type": "Link",
+        "value": "all_pairs_bellman_ford_path_length"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(G, weight='weight')"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,483 @@
+{
+  "aliases": [
+    "networkx.approximation.steiner_tree"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The minimum Steiner tree of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "G",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "G"
+            },
+            {
+              "type": "text",
+              "value": " w.r.t a set of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "terminal_nodes",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "terminal_nodes"
+            },
+            {
+              "type": "text",
+              "value": " (also "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "S"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": ") is a tree within "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "G",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "G"
+            },
+            {
+              "type": "text",
+              "value": " that spans those nodes and has minimum size (sum of edge weights) among all such trees."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The approximation algorithm is specified with the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "method",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "method"
+            },
+            {
+              "type": "text",
+              "value": " keyword argument. All three available algorithms produce a tree whose weight is within a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(2 - (2 / l))"
+            },
+            {
+              "type": "text",
+              "value": " factor of the weight of the optimal Steiner tree, where "
+            },
+            {
+              "type": "inlineCode",
+              "value": "l"
+            },
+            {
+              "type": "text",
+              "value": " is the minimum number of leaf nodes across all possible Steiner trees."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "\"kou\""
+                    },
+                    {
+                      "type": "text",
+                      "value": "  (runtime $O("
+                    },
+                    {
+                      "type": "SubstitutionRef",
+                      "value": "|S|"
+                    },
+                    {
+                      "type": "text",
+                      "value": " |V|^2)$) computes the minimum spanning tree of   the subgraph of the metric closure of "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "G"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " induced by the terminal nodes,   where the metric closure of "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "G"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the complete graph in which each edge is   weighted by the shortest path distance between the nodes in "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "G"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "\"mehlhorn\""
+                    },
+                    {
+                      "type": "text",
+                      "value": "  (runtime $O("
+                    },
+                    {
+                      "type": "SubstitutionRef",
+                      "value": "|E|+|V|"
+                    },
+                    {
+                      "type": "text",
+                      "value": "\\log|V|)$) modifies Kou et al.'s   algorithm, beginning by finding the closest terminal node for each   non-terminal. This data is used to create a complete graph containing only   the terminal nodes, in which edge is weighted with the shortest path   distance between them. The algorithm then proceeds in the same way as Kou   et al.."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For multigraphs, the edge between two nodes with minimum weight is the edge put into the Steiner tree."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "G",
+              "type": "Param",
+              "type_": "NetworkX graph"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A list of terminal nodes for which minimum steiner tree is to be found."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "terminal_nodes",
+              "type": "Param",
+              "type_": "list"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Use the edge attribute specified by this string as the edge weight. Any edge attribute not present defaults to 1."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "weight",
+              "type": "Param",
+              "type_": "string (default = 'weight')"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The algorithm to use to approximate the Steiner tree. Supported options: 'kou', 'mehlhorn'. Other inputs produce a ValueError."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "method",
+              "type": "Param",
+              "type_": "string, optional (default = 'kou')"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Approximation to the minimum steiner tree of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "G",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "G"
+                    },
+                    {
+                      "type": "text",
+                      "value": " induced by "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "terminal_nodes",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "terminal_nodes"
+                    },
+                    {
+                      "type": "text",
+                      "value": " ."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "NetworkX graph"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Return an approximation to the minimum Steiner tree of a graph."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/algorithms/approximation/steinertree.py",
+  "item_line": 127,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(G, terminal_nodes, weight='weight', method=None)"
+  },
+  "type": "DocBlob"
+}

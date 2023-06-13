@@ -1,0 +1,206 @@
+{
+  "aliases": [
+    "scipy.stats._morestats._calc_uniform_order_statistic_medians"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Sample size."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "n",
+              "type": "Param",
+              "type_": "int"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Approximations of the order statistic medians."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "v",
+              "type": "Param",
+              "type_": "1d float array"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Approximations of uniform order statistic medians."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Order statistics of the uniform distribution on the unit interval\nare marginally distributed according to beta distributions.\nThe expectations of these order statistic are evenly spaced across\nthe interval, but the distributions are skewed in a way that\npushes the medians slightly towards the endpoints of the unit interval:"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nn = 4\nk = np.arange(1, n+1)\nfrom scipy.stats import beta\na = k\nb = n-k+1\nbeta.mean(a, b)"
+      },
+      {
+        "type": "code",
+        "value": "beta.median(a, b)"
+      },
+      {
+        "type": "text",
+        "value": "The Filliben approximation uses the exact medians of the smallest\nand greatest order statistics, and the remaining medians are approximated\nby points spread evenly across a sub-interval of the unit interval:"
+      },
+      {
+        "type": "code",
+        "value": "from scipy.stats._morestats import _calc_uniform_order_statistic_medians\n_calc_uniform_order_statistic_medians(n)"
+      },
+      {
+        "type": "text",
+        "value": "This plot shows the skewed distributions of the order statistics\nof a sample of size four from a uniform distribution on the unit interval:"
+      },
+      {
+        "type": "code",
+        "value": "import matplotlib.pyplot as plt\nx = np.linspace(0.0, 1.0, num=50, endpoint=True)\npdfs = [beta.pdf(x, a[i], b[i]) for i in range(n)]\nplt.figure()\nplt.plot(x, pdfs[0], x, pdfs[1], x, pdfs[2], x, pdfs[3])"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_morestats.py",
+  "item_line": 372,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(n)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,813 @@
+{
+  "aliases": [
+    "matplotlib.projections"
+  ],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Non-separable transforms that map from data space to screen space."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Projections are defined as "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "~.axes.Axes"
+            },
+            {
+              "type": "text",
+              "value": " subclasses.  They include the following elements:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A transformation from data coordinates into display coordinates."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An inverse of that transformation.  This is used, for example, to convert   mouse positions from screen space back into data space."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Transformations for the gridlines, ticks and ticklabels.  Custom projections   will often need to place these elements in special locations, and Matplotlib   has a facility to help with doing so."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Setting up default values (overriding "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "~.axes.Axes.cla"
+                    },
+                    {
+                      "type": "text",
+                      "value": "), since the defaults   for a rectilinear axes may not be appropriate."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Defining the shape of the axes, for example, an elliptical axes, that will be   used to draw the background of the plot and for clipping any data elements."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Defining custom locators and formatters for the projection.  For example, in   a geographic projection, it may be more convenient to display the grid in   degrees, even if the data is in radians."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Set up interactive panning and zooming.  This is left as an \"advanced\"   feature left to the reader, but there is an example of this for polar plots   in "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "matplotlib",
+                        "path": "matplotlib.projections.polar",
+                        "type": "RefInfo",
+                        "version": "3.6.3"
+                      },
+                      "type": "Link",
+                      "value": "matplotlib.projections.polar"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Any additional methods for additional convenience or features."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Once the projection axes is defined, it can be used in one of two ways:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "By defining the class attribute "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "name"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the projection axes can be   registered with "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "matplotlib",
+                        "path": "matplotlib.projections:register_projection",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "matplotlib.projections.register_projection"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and subsequently   simply invoked by name        "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "fig.add_subplot(projection=\"my_proj_name\")"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "For more complex, parameterisable projections, a generic \"projection\" object   may be defined which includes the method "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "_as_mpl_axes"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "_as_mpl_axes"
+                    },
+                    {
+                      "type": "text",
+                      "value": "   should take no arguments and return the projection's axes subclass and a   dictionary of additional arguments to pass to the subclass' "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "__init__"
+                    },
+                    {
+                      "type": "text",
+                      "value": "   method.  Subsequently a parameterised projection can be initialised with        "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "fig.add_subplot(projection=MyProjection(param1=param1_value))"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "where MyProjection is an object which implements a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "_as_mpl_axes"
+                    },
+                    {
+                      "type": "text",
+                      "value": " method."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A full-fledged and heavily annotated example is in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "/gallery/misc/custom_projection"
+            },
+            {
+              "type": "text",
+              "value": ".  The polar plot functionality in "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "matplotlib",
+                "path": "matplotlib.projections.polar",
+                "type": "RefInfo",
+                "version": "3.6.3"
+              },
+              "type": "Link",
+              "value": "matplotlib.projections.polar"
+            },
+            {
+              "type": "text",
+              "value": " may also be of interest."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  ],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Projections are defined as "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "~.axes.Axes"
+            },
+            {
+              "type": "text",
+              "value": " subclasses.  They include the following elements:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A transformation from data coordinates into display coordinates."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An inverse of that transformation.  This is used, for example, to convert   mouse positions from screen space back into data space."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Transformations for the gridlines, ticks and ticklabels.  Custom projections   will often need to place these elements in special locations, and Matplotlib   has a facility to help with doing so."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Setting up default values (overriding "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "~.axes.Axes.cla"
+                    },
+                    {
+                      "type": "text",
+                      "value": "), since the defaults   for a rectilinear axes may not be appropriate."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Defining the shape of the axes, for example, an elliptical axes, that will be   used to draw the background of the plot and for clipping any data elements."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Defining custom locators and formatters for the projection.  For example, in   a geographic projection, it may be more convenient to display the grid in   degrees, even if the data is in radians."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Set up interactive panning and zooming.  This is left as an \"advanced\"   feature left to the reader, but there is an example of this for polar plots   in "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "matplotlib",
+                        "path": "matplotlib.projections.polar",
+                        "type": "RefInfo",
+                        "version": "3.6.3"
+                      },
+                      "type": "Link",
+                      "value": "matplotlib.projections.polar"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Any additional methods for additional convenience or features."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Once the projection axes is defined, it can be used in one of two ways:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "By defining the class attribute "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "name"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the projection axes can be   registered with "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "matplotlib",
+                        "path": "matplotlib.projections:register_projection",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "matplotlib.projections.register_projection"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and subsequently   simply invoked by name        "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "fig.add_subplot(projection=\"my_proj_name\")"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "For more complex, parameterisable projections, a generic \"projection\" object   may be defined which includes the method "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "_as_mpl_axes"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "_as_mpl_axes"
+                    },
+                    {
+                      "type": "text",
+                      "value": "   should take no arguments and return the projection's axes subclass and a   dictionary of additional arguments to pass to the subclass' "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "__init__"
+                    },
+                    {
+                      "type": "text",
+                      "value": "   method.  Subsequently a parameterised projection can be initialised with        "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "fig.add_subplot(projection=MyProjection(param1=param1_value))"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "where MyProjection is an object which implements a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "_as_mpl_axes"
+                    },
+                    {
+                      "type": "text",
+                      "value": " method."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A full-fledged and heavily annotated example is in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "/gallery/misc/custom_projection"
+            },
+            {
+              "type": "text",
+              "value": ".  The polar plot functionality in "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "matplotlib",
+                "path": "matplotlib.projections.polar",
+                "type": "RefInfo",
+                "version": "3.6.3"
+              },
+              "type": "Link",
+              "value": "matplotlib.projections.polar"
+            },
+            {
+              "type": "text",
+              "value": " may also be of interest."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Non-separable transforms that map from data space to screen space."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/matplotlib/projections/__init__.py",
+  "item_line": 0,
+  "item_type": "<class 'module'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

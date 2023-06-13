@@ -1,0 +1,1008 @@
+{
+  "aliases": [
+    "matplotlib.dates"
+  ],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Matplotlib provides sophisticated date plotting capabilities, standing on the shoulders of python "
+            },
+            {
+              "type": "inlineCode",
+              "value": "datetime"
+            },
+            {
+              "type": "text",
+              "value": " and the add-on module "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "dateutil_"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "By default, Matplotlib uses the units machinery described in "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "matplotlib",
+                "path": "matplotlib.units",
+                "type": "RefInfo",
+                "version": "3.6.3"
+              },
+              "type": "Link",
+              "value": "~matplotlib.units"
+            },
+            {
+              "type": "text",
+              "value": " to convert "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "datetime:datetime",
+                "path": "datetime:datetime",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "datetime.datetime"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy:datetime64",
+                "path": "numpy:datetime64",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "numpy.datetime64"
+            },
+            {
+              "type": "text",
+              "value": " objects when plotted on an x- or y-axis. The user does not need to do anything for dates to be formatted, but dates often have strict formatting needs, so this module provides many axis locators and formatters. A basic example using "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy:datetime64",
+                "path": "numpy:datetime64",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "numpy.datetime64"
+            },
+            {
+              "type": "text",
+              "value": " is      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "import numpy as np\n\ntimes = np.arange(np.datetime64('2001-01-02'),\n                  np.datetime64('2002-02-03'), np.timedelta64(75, 'm'))\ny = np.random.randn(len(times))\n\nfig, ax = plt.subplots()\nax.plot(times, y)"
+        },
+        {
+          "args": "",
+          "children": [],
+          "name": "seealso",
+          "options": {},
+          "type": "mystDirective",
+          "value": "- :doc:`/gallery/text_labels_and_annotations/date`\n- :doc:`/gallery/ticks/date_concise_formatter`\n- :doc:`/gallery/ticks/date_demo_convert`"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Matplotlib represents dates using floating point numbers specifying the number of days since a default epoch of 1970-01-01 UTC; for example, 1970-01-01, 06:00 is the floating point number 0.25. The formatters and locators require the use of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "datetime:datetime",
+                "path": "datetime:datetime",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "datetime.datetime"
+            },
+            {
+              "type": "text",
+              "value": " objects, so only dates between year 0001 and 9999 can be represented.  Microsecond precision is achievable for (approximately) 70 years on either side of the epoch, and 20 microseconds for the rest of the allowable range of dates (year 0001 to 9999). The epoch can be changed at import time via "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": ".dates.set_epoch"
+            },
+            {
+              "type": "text",
+              "value": " or "
+            },
+            {
+              "type": "inlineCode",
+              "value": "dates.epoch"
+            },
+            {
+              "type": "text",
+              "value": " to other dates if necessary; see "
+            },
+            {
+              "type": "inlineCode",
+              "value": "/gallery/ticks/date_precision_and_epochs"
+            },
+            {
+              "type": "text",
+              "value": " for a discussion."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "note "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Before Matplotlib 3.3, the epoch was 0000-12-31 which lost modern microsecond precision and also made the default axis limit of 0 an invalid datetime.  In 3.3 the epoch was changed as above.  To convert old ordinal floats to the new epoch, users can do    "
+                }
+              ],
+              "type": "paragraph"
+            },
+            {
+              "type": "code",
+              "value": "new_ordinal = old_ordinal + mdates.date2num(np.datetime64('0000-12-31'))"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "There are a number of helper functions to convert between "
+            },
+            {
+              "type": "inlineCode",
+              "value": "datetime"
+            },
+            {
+              "type": "text",
+              "value": " objects and Matplotlib dates:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "matplotlib.dates",
+          "children": [],
+          "name": "currentmodule",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "type": "code",
+          "value": ".. autosummary:: \n    :nosignatures:\n    datestr2num\n    date2num\n    num2date\n    num2timedelta\n    drange\n    set_epoch\n    get_epoch"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "note "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Like Python's "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "datetime.datetime"
+                },
+                {
+                  "type": "text",
+                  "value": ", Matplotlib uses the Gregorian calendar for all conversions between dates and floating point numbers. This practice is not universal, and calendar differences can cause confusing differences between what Python and Matplotlib give as the number of days since 0001-01-01 and what other software and databases yield.  For example, the US Naval Observatory uses a calendar that switches from Julian to Gregorian in October, 1582.  Hence, using their calculator, the number of days between 0001-01-01 and 2006-04-01 is 732403, whereas using the Gregorian calendar via the datetime module we find    "
+                }
+              ],
+              "type": "paragraph"
+            },
+            {
+              "type": "code",
+              "value": "In [1]: date(2006, 4, 1).toordinal() - date(1, 1, 1).toordinal()\nOut[1]: 732401"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "All the Matplotlib date converters, tickers and formatters are timezone aware. If no explicit timezone is provided, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "timezone"
+            },
+            {
+              "type": "text",
+              "value": " is assumed, provided as a string.  If you want to use a different timezone, pass the "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "tz"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " keyword argument of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "matplotlib",
+                "path": "matplotlib.dates:num2date",
+                "type": "RefInfo",
+                "version": "3.6.3"
+              },
+              "type": "Link",
+              "value": "num2date"
+            },
+            {
+              "type": "text",
+              "value": " to any date tickers or locators you create.  This can be either a "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "datetime:tzinfo",
+                "path": "datetime:tzinfo",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "datetime.tzinfo"
+            },
+            {
+              "type": "text",
+              "value": " instance or a string with the timezone name that can be parsed by "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "~dateutil.tz.gettz"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A wide range of specific and general purpose date tick locators and formatters are provided in this module.  See "
+            },
+            {
+              "type": "inlineCode",
+              "value": "matplotlib.ticker"
+            },
+            {
+              "type": "text",
+              "value": " for general information on tick locators and formatters.  These are described below."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "dateutil_"
+            },
+            {
+              "type": "text",
+              "value": " module provides additional code to handle date ticking, making it easy to place ticks on any kinds of dates.  See examples below."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. _dateutil: https://dateutil.readthedocs.io"
+        }
+      ],
+      "level": 0,
+      "target": "date-format",
+      "title": "Matplotlib date format",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Most of the date tickers can locate single or multiple values.  For example      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "# import constants for the days of the week\nfrom matplotlib.dates import MO, TU, WE, TH, FR, SA, SU\n\n# tick on Mondays every week\nloc = WeekdayLocator(byweekday=MO, tz=tz)\n\n# tick on Mondays and Saturdays\nloc = WeekdayLocator(byweekday=(MO, SA))"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In addition, most of the constructors take an interval argument      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "# tick on Mondays every second week\nloc = WeekdayLocator(byweekday=MO, interval=2)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The rrule locator allows completely general date ticking      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "# tick every 5th easter\nrule = rrulewrapper(YEARLY, byeaster=1, interval=5)\nloc = RRuleLocator(rule)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The available date tickers are:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "MicrosecondLocator"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": Locate microseconds."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "SecondLocator"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": Locate seconds."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "MinuteLocator"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": Locate minutes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "HourLocator"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": Locate hours."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "DayLocator"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": Locate specified days of the month."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "WeekdayLocator"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": Locate days of the week, e.g., MO, TU."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "MonthLocator"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": Locate months, e.g., 7 for July."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "YearLocator"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": Locate years that are multiples of base."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "RRuleLocator"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": Locate using a "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "rrulewrapper"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".   "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "rrulewrapper"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a simple wrapper around "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "dateutil_"
+                    },
+                    {
+                      "type": "text",
+                      "value": "'s "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "dateutil",
+                        "path": "dateutil.rrule",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "dateutil.rrule"
+                    },
+                    {
+                      "type": "text",
+                      "value": "   which allow almost arbitrary date tick specifications.   See "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "rrule example </gallery/ticks/date_demo_rrule>"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "AutoDateLocator"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": On autoscale, this class picks the best "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "DateLocator"
+                    },
+                    {
+                      "type": "text",
+                      "value": "   (e.g., "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "RRuleLocator"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") to set the view limits and the tick locations.  If   called with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "interval_multiples=True"
+                    },
+                    {
+                      "type": "text",
+                      "value": " it will make ticks line up with   sensible multiples of the tick intervals.  For example, if the interval is   4 hours, it will pick hours 0, 4, 8, etc. as ticks.  This behaviour is not   guaranteed by default."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": "Date tickers",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The available date formatters are:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "AutoDateFormatter"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": attempts to figure out the best format to use.  This is   most useful when used with the "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "AutoDateLocator"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "ConciseDateFormatter"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": also attempts to figure out the best format to use,   and to make the format as compact as possible while still having complete   date information.  This is most useful when used with the "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "AutoDateLocator"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "DateFormatter"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": use "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "~datetime.datetime.strftime"
+                    },
+                    {
+                      "type": "text",
+                      "value": " format strings."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": "Date formatters",
+      "type": "Section"
+    }
+  ],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To remove in the future \u2013\u2013 matplotlib.dates"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/matplotlib/dates.py",
+  "item_line": 0,
+  "item_type": "<class 'module'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

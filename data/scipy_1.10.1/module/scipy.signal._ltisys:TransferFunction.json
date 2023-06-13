@@ -1,0 +1,662 @@
+{
+  "aliases": [
+    "scipy.signal.TransferFunction"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Represents the system as the continuous-time transfer function "
+            },
+            {
+              "type": "inlineMath",
+              "value": "H(s)=\\sum_{i=0}^N b[N-i] s^i / \\sum_{j=0}^M a[M-j] s^j"
+            },
+            {
+              "type": "text",
+              "value": " or the discrete-time transfer function "
+            },
+            {
+              "type": "inlineMath",
+              "value": "H(z)=\\sum_{i=0}^N b[N-i] z^i / \\sum_{j=0}^M a[M-j] z^j"
+            },
+            {
+              "type": "text",
+              "value": ", where "
+            },
+            {
+              "type": "inlineMath",
+              "value": "b"
+            },
+            {
+              "type": "text",
+              "value": " are elements of the numerator "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "num"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineMath",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " are elements of the denominator "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "den"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "N == len(b) - 1"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "M == len(a) - 1"
+            },
+            {
+              "type": "text",
+              "value": ". "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "TransferFunction"
+            },
+            {
+              "type": "text",
+              "value": " systems inherit additional functionality from the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "lti"
+            },
+            {
+              "type": "text",
+              "value": ", respectively the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "dlti"
+            },
+            {
+              "type": "text",
+              "value": " classes, depending on which system representation is used."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Changing the value of properties that are not part of the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "TransferFunction"
+            },
+            {
+              "type": "text",
+              "value": " system representation (such as the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "B"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "C"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "D"
+            },
+            {
+              "type": "text",
+              "value": " state-space matrices) is very inefficient and may lead to numerical inaccuracies.  It is better to convert to the specific system representation first. For example, call "
+            },
+            {
+              "type": "inlineCode",
+              "value": "sys = sys.to_ss()"
+            },
+            {
+              "type": "text",
+              "value": " before accessing/changing the A, B, C, D system matrices."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If (numerator, denominator) is passed in for "
+            },
+            {
+              "type": "inlineCode",
+              "value": "*system"
+            },
+            {
+              "type": "text",
+              "value": ", coefficients for both the numerator and denominator should be specified in descending exponent order (e.g. "
+            },
+            {
+              "type": "inlineCode",
+              "value": "s^2 + 3s + 5"
+            },
+            {
+              "type": "text",
+              "value": " or "
+            },
+            {
+              "type": "inlineCode",
+              "value": "z^2 + 3z + 5"
+            },
+            {
+              "type": "text",
+              "value": " would be represented as "
+            },
+            {
+              "type": "inlineCode",
+              "value": "[1, 3, 5]"
+            },
+            {
+              "type": "text",
+              "value": ")"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "TransferFunction"
+                    },
+                    {
+                      "type": "text",
+                      "value": " class can be instantiated with 1 or 2 arguments. The following gives the number of input arguments and their interpretation:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "1: "
+                                },
+                                {
+                                  "domain": null,
+                                  "role": null,
+                                  "type": "Directive",
+                                  "value": "lti"
+                                },
+                                {
+                                  "type": "text",
+                                  "value": " or "
+                                },
+                                {
+                                  "domain": null,
+                                  "role": null,
+                                  "type": "Directive",
+                                  "value": "dlti"
+                                },
+                                {
+                                  "type": "text",
+                                  "value": " system: ("
+                                },
+                                {
+                                  "domain": null,
+                                  "role": null,
+                                  "type": "Directive",
+                                  "value": "StateSpace"
+                                },
+                                {
+                                  "type": "text",
+                                  "value": ", "
+                                },
+                                {
+                                  "domain": null,
+                                  "role": null,
+                                  "type": "Directive",
+                                  "value": "TransferFunction"
+                                },
+                                {
+                                  "type": "text",
+                                  "value": " or       "
+                                },
+                                {
+                                  "domain": null,
+                                  "role": null,
+                                  "type": "Directive",
+                                  "value": "ZerosPolesGain"
+                                },
+                                {
+                                  "type": "text",
+                                  "value": ")"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "2: array_like: (numerator, denominator)"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        }
+                      ],
+                      "ordered": false,
+                      "spread": false,
+                      "start": 1,
+                      "type": "list"
+                    }
+                  ],
+                  "type": "blockquote"
+                }
+              ],
+              "param": "*system: arguments",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Sampling time [s] of the discrete-time systems. Defaults to "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (continuous-time). Must be specified as a keyword argument, for example, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "dt=0.1"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dt: float, optional",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Linear Time Invariant system class in transfer function form."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Construct the transfer function\n:math:`H(s) = \\frac{s^2 + 3s + 3}{s^2 + 2s + 1}`:"
+      },
+      {
+        "type": "code",
+        "value": "from scipy import signal"
+      },
+      {
+        "type": "code",
+        "value": "num = [1, 3, 3]\nden = [1, 2, 1]"
+      },
+      {
+        "type": "code",
+        "value": "signal.TransferFunction(num, den)"
+      },
+      {
+        "type": "text",
+        "value": "Construct the transfer function\n:math:`H(z) = \\frac{z^2 + 3z + 3}{z^2 + 2z + 1}` with a sampling time of\n0.1 seconds:"
+      },
+      {
+        "type": "code",
+        "value": "signal.TransferFunction(num, den, dt=0.1)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/signal/_ltisys.py",
+  "item_line": 491,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "ZerosPolesGain",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "ZerosPolesGain"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "StateSpace",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "StateSpace"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "lti",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "lti"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "dlti",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "dlti"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._lti_conversion:tf2ss",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "tf2ss"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._filter_design:tf2zpk",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "tf2zpk"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._filter_design:tf2sos",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "tf2sos"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

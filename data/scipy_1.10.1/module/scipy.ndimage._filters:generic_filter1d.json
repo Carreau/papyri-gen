@@ -1,0 +1,756 @@
+{
+  "aliases": [
+    "scipy.ndimage.generic_filter1d"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "generic_filter1d"
+            },
+            {
+              "type": "text",
+              "value": " iterates over the lines of the array, calling the given function at each line. The arguments of the line are the input line, and the output line. The input and output lines are 1-D double arrays. The input line is extended appropriately according to the filter size and origin. The output line must be modified in-place with the result."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function also accepts low-level callback functions with one of the following signatures and wrapped in "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "scipy._lib._ccallback",
+                "path": "scipy._lib._ccallback:LowLevelCallable",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "scipy.LowLevelCallable"
+            },
+            {
+              "type": "text",
+              "value": ":"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "int function(double *input_line, npy_intp input_length,\n             double *output_line, npy_intp output_length,\n             void *user_data)\nint function(double *input_line, intptr_t input_length,\n             double *output_line, intptr_t output_length,\n             void *user_data)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The calling function iterates over the lines of the input and output arrays, calling the callback function at each line. The current line is extended according to the border conditions set by the calling function, and the result is copied into the array that is passed through "
+            },
+            {
+              "type": "inlineCode",
+              "value": "input_line"
+            },
+            {
+              "type": "text",
+              "value": ". The length of the input line (after extension) is passed through "
+            },
+            {
+              "type": "inlineCode",
+              "value": "input_length"
+            },
+            {
+              "type": "text",
+              "value": ". The callback function should apply the filter and store the result in the array passed through "
+            },
+            {
+              "type": "inlineCode",
+              "value": "output_line"
+            },
+            {
+              "type": "text",
+              "value": ". The length of the output line is passed through "
+            },
+            {
+              "type": "inlineCode",
+              "value": "output_length"
+            },
+            {
+              "type": "text",
+              "value": ". "
+            },
+            {
+              "type": "inlineCode",
+              "value": "user_data"
+            },
+            {
+              "type": "text",
+              "value": " is the data pointer provided to "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "scipy._lib._ccallback",
+                "path": "scipy._lib._ccallback:LowLevelCallable",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "scipy.LowLevelCallable"
+            },
+            {
+              "type": "text",
+              "value": " as-is."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The callback function must return an integer error status that is zero if something went wrong and one otherwise. If an error occurs, you should normally set the python error status with an informative message before returning, otherwise a default error message is set by the calling function."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In addition, some other low-level function pointer specifications are accepted, but these are for backward compatibility only and should not be used in new code."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The input array."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "input",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Function to apply along given axis."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "function",
+              "type": "Param",
+              "type_": "{callable, scipy.LowLevelCallable}"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Length of the filter."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "filter_size",
+              "type": "Param",
+              "type_": "scalar"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The axis of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "input",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "input"
+                    },
+                    {
+                      "type": "text",
+                      "value": " along which to calculate. Default is -1."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "axis",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The array in which to place the output, or the dtype of the returned array. By default an array of the same dtype as input will be created."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "output",
+              "type": "Param",
+              "type_": "array or dtype, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "mode",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "mode"
+                    },
+                    {
+                      "type": "text",
+                      "value": " parameter determines how the input array is extended beyond its boundaries. Default is 'reflect'. Behavior for each valid value is as follows:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "The input is extended by reflecting about the edge of the last     pixel. This mode is also sometimes referred to as half-sample     symmetric."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "'reflect' ("
+                          },
+                          {
+                            "domain": null,
+                            "role": null,
+                            "type": "Directive",
+                            "value": "d c b a | a b c d | d c b a"
+                          },
+                          {
+                            "type": "text",
+                            "value": ")"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "The input is extended by filling all values beyond the edge with     the same constant value, defined by the "
+                            },
+                            {
+                              "anchor": null,
+                              "exists": true,
+                              "kind": "local",
+                              "reference": {
+                                "kind": "local",
+                                "module": null,
+                                "path": "cval",
+                                "type": "RefInfo",
+                                "version": null
+                              },
+                              "type": "Link",
+                              "value": "cval"
+                            },
+                            {
+                              "type": "text",
+                              "value": " parameter."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "'constant' ("
+                          },
+                          {
+                            "domain": null,
+                            "role": null,
+                            "type": "Directive",
+                            "value": "k k k k | a b c d | k k k k"
+                          },
+                          {
+                            "type": "text",
+                            "value": ")"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "The input is extended by replicating the last pixel."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "'nearest' ("
+                          },
+                          {
+                            "domain": null,
+                            "role": null,
+                            "type": "Directive",
+                            "value": "a a a a | a b c d | d d d d"
+                          },
+                          {
+                            "type": "text",
+                            "value": ")"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "The input is extended by reflecting about the center of the last     pixel. This mode is also sometimes referred to as whole-sample     symmetric."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "'mirror' ("
+                          },
+                          {
+                            "domain": null,
+                            "role": null,
+                            "type": "Directive",
+                            "value": "d c b | a b c d | c b a"
+                          },
+                          {
+                            "type": "text",
+                            "value": ")"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "The input is extended by wrapping around to the opposite edge."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "'wrap' ("
+                          },
+                          {
+                            "domain": null,
+                            "role": null,
+                            "type": "Directive",
+                            "value": "a b c d | a b c d | a b c d"
+                          },
+                          {
+                            "type": "text",
+                            "value": ")"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "For consistency with the interpolation functions, the following mode names can also be used:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "This is a synonym for 'reflect'."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "'grid-mirror'"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "This is a synonym for 'constant'."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "'grid-constant'"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "This is a synonym for 'wrap'."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "'grid-wrap'"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "param": "mode",
+              "type": "Param",
+              "type_": "{'reflect', 'constant', 'nearest', 'mirror', 'wrap'}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Value to fill past edges of input if "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "mode",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "mode"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is 'constant'. Default is 0.0."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "cval",
+              "type": "Param",
+              "type_": "scalar, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Controls the placement of the filter on the input array's pixels. A value of 0 (the default) centers the filter over the pixel, with positive values shifting the filter to the left, and negative ones to the right."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "origin",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Sequence of extra positional arguments to pass to passed function."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "extra_arguments",
+              "type": "Param",
+              "type_": "sequence, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "dict of extra keyword arguments to pass to passed function."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "extra_keywords",
+              "type": "Param",
+              "type_": "dict, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Calculate a 1-D filter along the given axis."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/ndimage/_filters.py",
+  "item_line": 1471,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Notes"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(input, function, filter_size, axis=-1, output=None, mode='reflect', cval=0.0, origin=0, extra_arguments=(), extra_keywords=None)"
+  },
+  "type": "DocBlob"
+}

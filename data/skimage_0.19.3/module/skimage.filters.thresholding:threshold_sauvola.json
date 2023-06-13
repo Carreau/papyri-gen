@@ -1,0 +1,281 @@
+{
+  "aliases": [
+    "skimage.filters.threshold_sauvola"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In the original method a threshold T is calculated for every pixel in the image using the following formula      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "T = m(x,y) * (1 + k * ((s(x,y) / R) - 1))"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where m(x,y) and s(x,y) are the mean and standard deviation of pixel (x,y) neighborhood defined by a rectangular window with size w times w centered around the pixel. k is a configurable parameter that weights the effect of standard deviation. R is the maximum standard deviation of a grayscale image."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This algorithm is originally designed for text recognition."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Grayscale input image."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "image",
+              "type": "Param",
+              "type_": "(N, M[, ..., P]) ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Window size specified as a single odd integer (3, 5, 7, \u2026), or an iterable of length "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "image.ndim"
+                    },
+                    {
+                      "type": "text",
+                      "value": " containing only odd integers (e.g. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(1, 5, 5)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "window_size",
+              "type": "Param",
+              "type_": "int, or iterable of int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Value of the positive parameter k."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "k",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Value of R, the dynamic range of standard deviation. If None, set to the half of the image dtype range."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "r",
+              "type": "Param",
+              "type_": "float, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Threshold mask. All pixels with an intensity higher than this value are assumed to be foreground."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "threshold",
+              "type": "Param",
+              "type_": "(N, M) ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Applies Sauvola local threshold to an array. Sauvola is a modification of Niblack technique."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from skimage import data\nimage = data.page()\nt_sauvola = threshold_sauvola(image, window_size=15, k=0.2)\nbinary_image = image > t_sauvola"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/skimage/filters/thresholding.py",
+  "item_line": 1099,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(image, window_size=15, k=0.2, r=None)"
+  },
+  "type": "DocBlob"
+}

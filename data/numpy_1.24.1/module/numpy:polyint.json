@@ -1,0 +1,497 @@
+{
+  "aliases": [
+    "numpy.polyint"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "note "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "This forms part of the old polynomial API. Since version 1.4, the new polynomial API defined in "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "numpy.polynomial"
+                },
+                {
+                  "type": "text",
+                  "value": " is preferred. A summary of the differences can be found in the "
+                },
+                {
+                  "domain": null,
+                  "role": "doc",
+                  "type": "Directive",
+                  "value": "transition guide </reference/routines.polynomials>"
+                },
+                {
+                  "type": "text",
+                  "value": "."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The returned order "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "m",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "m"
+            },
+            {
+              "type": "text",
+              "value": " antiderivative "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "P"
+            },
+            {
+              "type": "text",
+              "value": " of polynomial "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "p",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "p"
+            },
+            {
+              "type": "text",
+              "value": " satisfies "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\frac{d^m}{dx^m}P(x) = p(x)"
+            },
+            {
+              "type": "text",
+              "value": " and is defined up to "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "m - 1"
+            },
+            {
+              "type": "text",
+              "value": " integration constants "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "k",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "k"
+            },
+            {
+              "type": "text",
+              "value": ". The constants determine the low-order polynomial part"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "\\frac{k_{m-1}}{0!} x^0 + \\ldots + \\frac{k_0}{(m-1)!}x^{m-1}"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "of "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "P"
+            },
+            {
+              "type": "text",
+              "value": " so that "
+            },
+            {
+              "type": "inlineMath",
+              "value": "P^{(j)}(0) = k_{m-j-1}"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Polynomial to integrate. A sequence is interpreted as polynomial coefficients, see "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "poly1d"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "p",
+              "type": "Param",
+              "type_": "array_like or poly1d"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Order of the antiderivative. (Default: 1)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "m",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Integration constants. They are given in the order of integration: those corresponding to highest-order terms come first."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (default), all constants are assumed to be zero. If "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "m = 1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", a single scalar can be given instead of a list."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "k",
+              "type": "Param",
+              "type_": "list of `m` scalars or scalar, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Return an antiderivative (indefinite integral) of a polynomial."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "The defining property of the antiderivative:"
+      },
+      {
+        "type": "code",
+        "value": "p = np.poly1d([1,1,1])\nP = np.polyint(p)\nP"
+      },
+      {
+        "type": "code",
+        "value": "np.polyder(P) == p"
+      },
+      {
+        "type": "text",
+        "value": "The integration constants default to zero, but can be specified:"
+      },
+      {
+        "type": "code",
+        "value": "P = np.polyint(p, 3)\nP(0)"
+      },
+      {
+        "type": "code",
+        "value": "np.polyder(P)(0)"
+      },
+      {
+        "type": "code",
+        "value": "np.polyder(P, 2)(0)"
+      },
+      {
+        "type": "code",
+        "value": "P = np.polyint(p, 3, k=[6,5,3])\nP"
+      },
+      {
+        "type": "text",
+        "value": "Note that 3 = 6 / 2!, and that the constants are given in the order of\nintegrations. Constant of the highest-order polynomial term comes first:"
+      },
+      {
+        "type": "code",
+        "value": "np.polyder(P, 2)(0)"
+      },
+      {
+        "type": "code",
+        "value": "np.polyder(P, 1)(0)"
+      },
+      {
+        "type": "code",
+        "value": "P(0)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/numpy/lib/polynomial.py",
+  "item_line": 267,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "See Also",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "derivative of a polynomial"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "polyder",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "polyder"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "equivalent method"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "poly1d.integ",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "poly1d.integ"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(p, m=1, k=None)"
+  },
+  "type": "DocBlob"
+}

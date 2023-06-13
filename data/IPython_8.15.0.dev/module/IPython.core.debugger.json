@@ -1,0 +1,505 @@
+{
+  "aliases": [
+    "IPython.core.debugger"
+  ],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Pdb debugger class."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This is an extension to PDB which adds a number of new features. Note that there is also the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "IPython",
+                "path": "IPython.terminal.debugger",
+                "type": "RefInfo",
+                "version": "8.15.0.dev"
+              },
+              "type": "Link",
+              "value": "IPython.terminal.debugger"
+            },
+            {
+              "type": "text",
+              "value": " class which provides UI improvements."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "We also strongly recommend to use this via the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "ipdb",
+                "path": "ipdb",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "ipdb"
+            },
+            {
+              "type": "text",
+              "value": " package, which provides extra configuration options."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "supports many IPython magics like pdef/psource"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "hide frames in tracebacks based on "
+                            },
+                            {
+                              "domain": null,
+                              "role": null,
+                              "type": "Directive",
+                              "value": "__tracebackhide__"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "allows to skip frames based on "
+                            },
+                            {
+                              "domain": null,
+                              "role": null,
+                              "type": "Directive",
+                              "value": "__debuggerskip__"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Among other things, this subclass of PDB:"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            }
+          ],
+          "type": "DefList"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The skipping and hiding frames are configurable via the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "IPython",
+                "path": "IPython.core.debugger:Pdb.do_skip_predicates",
+                "type": "RefInfo",
+                "version": "8.15.0.dev"
+              },
+              "type": "Link",
+              "value": "skip_predicates"
+            },
+            {
+              "type": "text",
+              "value": " command."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "By default, frames from readonly files will be hidden, frames containing "
+            },
+            {
+              "type": "inlineCode",
+              "value": "__tracebackhide__=True"
+            },
+            {
+              "type": "text",
+              "value": " will be hidden."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Frames containing "
+            },
+            {
+              "type": "inlineCode",
+              "value": "__debuggerskip__"
+            },
+            {
+              "type": "text",
+              "value": " will be stepped over, frames who's parent frames value of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "__debuggerskip__"
+            },
+            {
+              "type": "text",
+              "value": " is "
+            },
+            {
+              "type": "inlineCode",
+              "value": "True"
+            },
+            {
+              "type": "text",
+              "value": " will be skipped."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "code",
+              "value": ">>> def helpers_helper():\n...     pass\n...\n... def helper_1():\n...     print(\"don't step in me\")\n...     helpers_helpers() # will be stepped over unless breakpoint set.\n...\n...\n... def helper_2():\n...     print(\"in me neither\")\n..."
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "One can define a decorator that wraps a function between the two helpers:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "code",
+              "value": ">>> def pdb_skipped_decorator(function):\n...\n...\n...     def wrapped_fn(*args, **kwargs):\n...         __debuggerskip__ = True\n...         helper_1()\n...         __debuggerskip__ = False\n...         result = function(*args, **kwargs)\n...         __debuggerskip__ = True\n...         helper_2()\n...         # setting __debuggerskip__ to False again is not necessary\n...         return result\n...\n...     return wrapped_fn"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When decorating a function, ipdb will directly step into "
+            },
+            {
+              "type": "inlineCode",
+              "value": "bar()"
+            },
+            {
+              "type": "text",
+              "value": " by default:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "code",
+              "value": ">>> @foo_decorator\n... def bar(x, y):\n...     return x * y"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You can toggle the behavior with"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "ipdb> skip_predicates debuggerskip false"
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "or configure it in your "
+            },
+            {
+              "type": "inlineCode",
+              "value": ".pdbrc"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Modified from the standard pdb.Pdb class to avoid including readline, so that the command line completion of other programs which include this isn't damaged."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In the future, this class will be expanded with improvements over the standard pdb."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The original code in this file is mainly lifted out of cmd.py in Python 2.2, with minor changes. Licensing should therefore be under the standard Python terms.  For details on the PSF (Python Software Foundation) standard license, see:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "https://docs.python.org/2/license.html"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "All the changes since then are under the same license as IPython."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": "License",
+      "type": "Section"
+    }
+  ],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To remove in the future \u2013\u2013 IPython.core.debugger"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dev/ipython/IPython/core/debugger.py",
+  "item_line": 0,
+  "item_type": "<class 'module'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

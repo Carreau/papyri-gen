@@ -1,0 +1,235 @@
+{
+  "aliases": [
+    "scipy.stats.obrientransform"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Used to test for homogeneity of variance prior to running one-way stats. Each array in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "*samples"
+            },
+            {
+              "type": "text",
+              "value": " is one level of a factor. If "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "f_oneway"
+            },
+            {
+              "type": "text",
+              "value": " is run on the transformed data and found significant, the variances are unequal.  From Maxwell and Delaney , p.112."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Any number of arrays."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sample1, sample2, ...",
+              "type": "Param",
+              "type_": "array_like"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Transformed data for use in an ANOVA.  The first dimension of the result corresponds to the sequence of transformed arrays.  If the arrays given are all 1-D of the same length, the return value is a 2-D array; otherwise it is a 1-D array of type object, with each element being an ndarray."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "obrientransform",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute the O'Brien transform on input data (any number of arrays)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "We'll test the following data sets for differences in their variance."
+      },
+      {
+        "type": "code",
+        "value": "x = [10, 11, 13, 9, 7, 12, 12, 9, 10]\ny = [13, 21, 5, 10, 8, 14, 10, 12, 7, 15]"
+      },
+      {
+        "type": "text",
+        "value": "Apply the O'Brien transform to the data."
+      },
+      {
+        "type": "code",
+        "value": "from scipy.stats import obrientransform\ntx, ty = obrientransform(x, y)"
+      },
+      {
+        "type": "text",
+        "value": "Use `scipy.stats.f_oneway` to apply a one-way ANOVA test to the\ntransformed data."
+      },
+      {
+        "type": "code",
+        "value": "from scipy.stats import f_oneway\nF, p = f_oneway(tx, ty)\np"
+      },
+      {
+        "type": "text",
+        "value": "If we require that ``p < 0.05`` for significance, we cannot conclude\nthat the variances are different."
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_stats_py.py",
+  "item_line": 2452,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(*samples)"
+  },
+  "type": "DocBlob"
+}

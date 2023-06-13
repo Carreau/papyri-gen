@@ -1,0 +1,1051 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "placeholder": "untarget",
+          "type": "Unimplemented",
+          "value": "_numpyrandom:"
+        },
+        {
+          "args": "numpy.random",
+          "children": [],
+          "name": "py:module",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "args": "numpy.random",
+          "children": [],
+          "name": "currentmodule",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": "Random sampling (:mod:`numpy.random`)",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.random"
+            },
+            {
+              "type": "text",
+              "value": " module implements pseudo-random number generators (PRNGs or RNGs, for short) with the ability to draw samples from a variety of probability distributions. In general, users will create a "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "Generator"
+            },
+            {
+              "type": "text",
+              "value": " instance with "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "default_rng"
+            },
+            {
+              "type": "text",
+              "value": " and call the various methods on it to obtain samples from different distributions."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> import numpy as np\n>>> rng = np.random.default_rng()\n# Generate one random float uniformly distributed over the range [0, 1)\n>>> rng.random()  #doctest: +SKIP\n0.06369197489564249  # may vary\n# Generate an array of 10 numbers according to a unit Gaussian distribution.\n>>> rng.standard_normal(10)  #doctest: +SKIP\narray([-0.31018314, -1.8922078 , -0.3628523 , -0.63526532,  0.43181166,  # may vary\n        0.51640373,  1.25693945,  0.07779185,  0.84090247, -2.13406828])\n# Generate an array of 5 integers uniformly over the range [0, 10).\n>>> rng.integers(low=0, high=10, size=5)  #doctest: +SKIP\narray([8, 7, 6, 2, 0])  # may vary"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Our RNGs are deterministic sequences and can be reproduced by specifying a seed integer to derive its initial state. By default, with no seed provided, "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "default_rng"
+            },
+            {
+              "type": "text",
+              "value": " will create seed the RNG from nondeterministic data from the operating system and therefore generate different numbers each time. The pseudo-random sequences will be independent for all practical purposes, at least those purposes for which our pseudo-randomness was good for in the first place."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> rng1 = np.random.default_rng()\n>>> rng1.random()  #doctest: +SKIP\n0.6596288841243357  # may vary\n>>> rng2 = np.random.default_rng()\n>>> rng2.random()  #doctest: +SKIP\n0.11885628817151628  # may vary"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "warning "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "The pseudo-random number generators implemented in this module are designed for statistical modeling and simulation. They are not suitable for security or cryptographic purposes. See the "
+                },
+                {
+                  "domain": "py",
+                  "role": "mod",
+                  "type": "Directive",
+                  "value": "secrets"
+                },
+                {
+                  "type": "text",
+                  "value": " module from the standard library for such use cases."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Seeds should be large positive integers. "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "default_rng"
+            },
+            {
+              "type": "text",
+              "value": " can take positive integers of any size. We recommend using very large, unique numbers to ensure that your seed is different from anyone else's. This is good practice to ensure that your results are statistically independent from theirs unless you are intentionally "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "trying"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " to reproduce their result. A convenient way to get such a seed number is to use "
+            },
+            {
+              "type": "inlineCode",
+              "value": "secrets.randbits"
+            },
+            {
+              "type": "text",
+              "value": " to get an arbitrary 128-bit integer."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> import secrets\n>>> import numpy as np\n>>> secrets.randbits(128)  #doctest: +SKIP\n122807528840384100672342137672332424406  # may vary\n>>> rng1 = np.random.default_rng(122807528840384100672342137672332424406)\n>>> rng1.random()\n0.5363922081269535\n>>> rng2 = np.random.default_rng(122807528840384100672342137672332424406)\n>>> rng2.random()\n0.5363922081269535"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "See the documentation on "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "default_rng"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "SeedSequence"
+            },
+            {
+              "type": "text",
+              "value": " for more advanced options for controlling the seed in specialized scenarios."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "Generator"
+            },
+            {
+              "type": "text",
+              "value": " and its associated infrastructure was introduced in NumPy version 1.17.0. There is still a lot of code that uses the older "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "RandomState"
+            },
+            {
+              "type": "text",
+              "value": " and the functions in "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy",
+                "path": "numpy.random",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "numpy.random"
+            },
+            {
+              "type": "text",
+              "value": ". While there are no plans to remove them at this time, we do recommend transitioning to "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "Generator"
+            },
+            {
+              "type": "text",
+              "value": " as you can. The algorithms are faster, more flexible, and will receive more improvements in the future. For the most part, "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "Generator"
+            },
+            {
+              "type": "text",
+              "value": " can be used as a replacement for "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "RandomState"
+            },
+            {
+              "type": "text",
+              "value": ". See "
+            },
+            {
+              "type": "inlineCode",
+              "value": "legacy"
+            },
+            {
+              "type": "text",
+              "value": " for information on the legacy infrastructure, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "new-or-different"
+            },
+            {
+              "type": "text",
+              "value": " for information on transitioning, and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "NEP 19\n<NEP19>"
+            },
+            {
+              "type": "text",
+              "value": " for some of the reasoning for the transition."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": "random-quick-start",
+      "title": "Quick Start",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Users primarily interact with "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "Generator"
+            },
+            {
+              "type": "text",
+              "value": " instances. Each "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "Generator"
+            },
+            {
+              "type": "text",
+              "value": " instance owns a "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "BitGenerator"
+            },
+            {
+              "type": "text",
+              "value": " instance that implements the core RNG algorithm. The "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "BitGenerator"
+            },
+            {
+              "type": "text",
+              "value": " has a limited set of responsibilities. It manages state and provides functions to produce random doubles and random unsigned 32- and 64-bit values."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "Generator"
+            },
+            {
+              "type": "text",
+              "value": " takes the bit generator-provided stream and transforms them into more useful distributions, e.g., simulated normal random values. This structure allows alternative bit generators to be used with little code duplication."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "NumPy implements several different "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "BitGenerator"
+            },
+            {
+              "type": "text",
+              "value": " classes implementing different RNG algorithms. "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "default_rng"
+            },
+            {
+              "type": "text",
+              "value": " currently uses "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "~PCG64"
+            },
+            {
+              "type": "text",
+              "value": " as the default "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "BitGenerator"
+            },
+            {
+              "type": "text",
+              "value": ". It has better statistical properties and performance than the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "~MT19937"
+            },
+            {
+              "type": "text",
+              "value": " algorithm used in the legacy "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "RandomState"
+            },
+            {
+              "type": "text",
+              "value": ". See "
+            },
+            {
+              "type": "inlineCode",
+              "value": "random-bit-generators"
+            },
+            {
+              "type": "text",
+              "value": " for more details on the supported BitGenerators."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "default_rng"
+            },
+            {
+              "type": "text",
+              "value": " and BitGenerators delegate the conversion of seeds into RNG states to "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "SeedSequence"
+            },
+            {
+              "type": "text",
+              "value": " internally. "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "SeedSequence"
+            },
+            {
+              "type": "text",
+              "value": " implements a sophisticated algorithm that intermediates between the user's input and the internal implementation details of each "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "BitGenerator"
+            },
+            {
+              "type": "text",
+              "value": " algorithm, each of which can require different amounts of bits for its state. Importantly, it lets you use arbitrary-sized integers and arbitrary sequences of such integers to mix together into the RNG state. This is a useful primitive for constructing a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "flexible pattern for parallel RNG streams <seedsequence-spawn>"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For backward compatibility, we still maintain the legacy "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "RandomState"
+            },
+            {
+              "type": "text",
+              "value": " class. It continues to use the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "~MT19937"
+            },
+            {
+              "type": "text",
+              "value": " algorithm by default, and old seeds continue to reproduce the same results. The convenience "
+            },
+            {
+              "type": "inlineCode",
+              "value": "functions-in-numpy-random"
+            },
+            {
+              "type": "text",
+              "value": " are still aliases to the methods on a single global "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "RandomState"
+            },
+            {
+              "type": "text",
+              "value": " instance. See "
+            },
+            {
+              "type": "inlineCode",
+              "value": "legacy"
+            },
+            {
+              "type": "text",
+              "value": " for the complete details. See "
+            },
+            {
+              "type": "inlineCode",
+              "value": "new-or-different"
+            },
+            {
+              "type": "text",
+              "value": " for a detailed comparison between "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "Generator"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "RandomState"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Design",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The included generators can be used in parallel, distributed applications in a number of ways:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "seedsequence-spawn"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "sequence-of-seeds"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "independent-streams"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "parallel-jumped"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Users with a very large amount of parallelism will want to consult "
+            },
+            {
+              "type": "inlineCode",
+              "value": "upgrading-pcg64"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Parallel Generation",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "exists",
+                      "reference": {
+                        "kind": "?",
+                        "module": "",
+                        "path": "generator",
+                        "type": "RefInfo",
+                        "version": ""
+                      },
+                      "type": "Link",
+                      "value": "generator"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "exists",
+                      "reference": {
+                        "kind": "docs",
+                        "module": "papyri",
+                        "path": "legacy",
+                        "type": "RefInfo",
+                        "version": "0.0.8"
+                      },
+                      "type": "Link",
+                      "value": "Legacy Generator (RandomState)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "exists",
+                      "reference": {
+                        "kind": "?",
+                        "module": "",
+                        "path": "bit_generators/index",
+                        "type": "RefInfo",
+                        "version": ""
+                      },
+                      "type": "Link",
+                      "value": "BitGenerators, SeedSequences"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "exists",
+                      "reference": {
+                        "kind": "?",
+                        "module": "",
+                        "path": "upgrading-pcg64",
+                        "type": "RefInfo",
+                        "version": ""
+                      },
+                      "type": "Link",
+                      "value": "Upgrading PCG64 with PCG64DXSM"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "exists",
+                      "reference": {
+                        "kind": "?",
+                        "module": "",
+                        "path": "compatibility",
+                        "type": "RefInfo",
+                        "version": ""
+                      },
+                      "type": "Link",
+                      "value": "compatibility"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Concepts",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "exists",
+                      "reference": {
+                        "kind": "?",
+                        "module": "",
+                        "path": "parallel",
+                        "type": "RefInfo",
+                        "version": ""
+                      },
+                      "type": "Link",
+                      "value": "Parallel Applications"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "exists",
+                      "reference": {
+                        "kind": "?",
+                        "module": "",
+                        "path": "multithreading",
+                        "type": "RefInfo",
+                        "version": ""
+                      },
+                      "type": "Link",
+                      "value": "Multithreaded Generation"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "exists",
+                      "reference": {
+                        "kind": "?",
+                        "module": "",
+                        "path": "new-or-different",
+                        "type": "RefInfo",
+                        "version": ""
+                      },
+                      "type": "Link",
+                      "value": "new-or-different"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "exists",
+                      "reference": {
+                        "kind": "?",
+                        "module": "",
+                        "path": "performance",
+                        "type": "RefInfo",
+                        "version": ""
+                      },
+                      "type": "Link",
+                      "value": "Comparing Performance"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "exists",
+                      "reference": {
+                        "kind": "docs",
+                        "module": "papyri",
+                        "path": "c-api",
+                        "type": "RefInfo",
+                        "version": "0.0.8"
+                      },
+                      "type": "Link",
+                      "value": "c-api"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "exists",
+                      "reference": {
+                        "kind": "docs",
+                        "module": "papyri",
+                        "path": "extending",
+                        "type": "RefInfo",
+                        "version": "0.0.8"
+                      },
+                      "type": "Link",
+                      "value": "Examples of using Numba, Cython, CFFI"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Features",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This package was developed independently of NumPy and was integrated in version 1.17.0. The original repo is at https://github.com/bashtage/randomgen."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Original Source of the Generator and BitGenerators",
+      "type": "Section"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

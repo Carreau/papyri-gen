@@ -1,0 +1,528 @@
+{
+  "aliases": [
+    "scipy.stats.directional_stats"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Computes the directional mean (also called the mean direction vector) and mean resultant length of a sample of vectors."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The directional mean is a measure of \"preferred direction\" of vector data. It is analogous to the sample mean, but it is for use when the length of the data is irrelevant (e.g. unit vectors)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The mean resultant length is a value between 0 and 1 used to quantify the dispersion of directional data: the smaller the mean resultant length, the greater the dispersion. Several definitions of directional variance involving the mean resultant length are given in  and ."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This uses a definition of directional mean from . Assuming the observations are unit vectors, the calculation is as follows."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "python",
+          "children": [],
+          "name": "code-block",
+          "options": {},
+          "type": "mystDirective",
+          "value": "mean = samples.mean(axis=0)\nmean_resultant_length = np.linalg.norm(mean)\nmean_direction = mean / mean_resultant_length"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This definition is appropriate for "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "directional"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " data (i.e. vector data for which the magnitude of each observation is irrelevant) but not for "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "axial"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " data (i.e. vector data for which the magnitude and "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "sign"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " of each observation is irrelevant)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Several definitions of directional variance involving the mean resultant length "
+            },
+            {
+              "type": "inlineCode",
+              "value": "R"
+            },
+            {
+              "type": "text",
+              "value": " have been proposed, including "
+            },
+            {
+              "type": "inlineCode",
+              "value": "1 - R"
+            },
+            {
+              "type": "text",
+              "value": " , "
+            },
+            {
+              "type": "inlineCode",
+              "value": "1 - R**2"
+            },
+            {
+              "type": "text",
+              "value": " , and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "2 * (1 - R)"
+            },
+            {
+              "type": "text",
+              "value": " . Rather than choosing one, this function returns "
+            },
+            {
+              "type": "inlineCode",
+              "value": "R"
+            },
+            {
+              "type": "text",
+              "value": " as attribute "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "mean_resultant_length"
+            },
+            {
+              "type": "text",
+              "value": " so the user can compute their preferred measure of dispersion."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Input array. Must be at least two-dimensional, and the last axis of the input must correspond with the dimensionality of the vector space. When the input is exactly two dimensional, this means that each row of the data is a vector observation."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "samples",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Axis along which the directional mean is computed."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "axis",
+              "type": "Param",
+              "type_": "int, default: 0"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, normalize the input to ensure that each observation is a unit vector. It the observations are already unit vectors, consider setting this to False to avoid unnecessary computation."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "normalize: boolean, default: True",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An object containing attributes:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "mean_direction"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "mean_direction"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "mean_resultant_length"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "mean_resultant_length"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "param": "res",
+              "type": "Param",
+              "type_": "DirectionalStats"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Computes sample statistics for directional data."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.stats import directional_stats\ndata = np.array([[3, 4],    # first observation, 2D vector space\n                 [6, -8]])  # second observation\ndirstats = directional_stats(data)\ndirstats.mean_direction"
+      },
+      {
+        "type": "text",
+        "value": "In contrast, the regular sample mean of the vectors would be influenced\nby the magnitude of each observation. Furthermore, the result would not be\na unit vector."
+      },
+      {
+        "type": "code",
+        "value": "data.mean(axis=0)"
+      },
+      {
+        "type": "text",
+        "value": "An exemplary use case for `directional_stats` is to find a *meaningful*\ncenter for a set of observations on a sphere, e.g. geographical locations."
+      },
+      {
+        "type": "code",
+        "value": "data = np.array([[0.8660254, 0.5, 0.],\n                 [0.8660254, -0.5, 0.]])\ndirstats = directional_stats(data)\ndirstats.mean_direction"
+      },
+      {
+        "type": "text",
+        "value": "The regular sample mean on the other hand yields a result which does not\nlie on the surface of the sphere."
+      },
+      {
+        "type": "code",
+        "value": "data.mean(axis=0)"
+      },
+      {
+        "type": "text",
+        "value": "The function also returns the mean resultant length, which\ncan be used to calculate a directional variance. For example, using the\ndefinition ``Var(z) = 1 - R`` from [2]_ where ``R`` is the\nmean resultant length, we can calculate the directional variance of the\nvectors in the above example as:"
+      },
+      {
+        "type": "code",
+        "value": "1 - dirstats.mean_resultant_length"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_morestats.py",
+  "item_line": 4059,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "circular mean; i.e. directional mean for 2D "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "angles"
+                }
+              ],
+              "type": "emphasis"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.stats._morestats:circmean",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "circmean"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "circular variance; i.e. directional variance for 2D "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "angles"
+                }
+              ],
+              "type": "emphasis"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.stats._morestats:circvar",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "circvar"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(samples, *, axis=0, normalize=True)"
+  },
+  "type": "DocBlob"
+}

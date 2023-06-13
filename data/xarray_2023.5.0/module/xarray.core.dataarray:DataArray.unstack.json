@@ -1,0 +1,252 @@
+{
+  "aliases": [
+    "xarray.DataArray.unstack"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "New dimensions will be added at the end."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Dimension(s) over which to unstack. By default unstacks all MultiIndexes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dim",
+              "type": "Param",
+              "type_": "str, Iterable of Hashable or None, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Value to be filled. If a dict-like, maps variable names to fill values. Use the data array's name to refer to its name. If not provided or if the dict-like does not contain all variables, the dtype's NA value will be used."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fill_value",
+              "type": "Param",
+              "type_": "scalar or dict-like, default: nan"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Use sparse-array if True"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sparse",
+              "type": "Param",
+              "type_": "bool, default: False"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Array with unstacked data."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "unstacked",
+              "type": "Param",
+              "type_": "DataArray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Unstack existing dimensions corresponding to MultiIndexes into multiple new dimensions."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "arr = xr.DataArray(\n    np.arange(6).reshape(2, 3),\n    coords=[(\"x\", [\"a\", \"b\"]), (\"y\", [0, 1, 2])],\n)\narr"
+      },
+      {
+        "type": "code",
+        "value": "stacked = arr.stack(z=(\"x\", \"y\"))\nstacked.indexes[\"z\"]"
+      },
+      {
+        "type": "code",
+        "value": "roundtripped = stacked.unstack()\narr.identical(roundtripped)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/xarray/core/dataarray.py",
+  "item_line": 2771,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Examples",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "xarray",
+          "path": "xarray.core.dataarray:DataArray.stack",
+          "type": "RefInfo",
+          "version": "2023.5.0"
+        },
+        "type": "Link",
+        "value": "DataArray.stack"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, dim: 'Dims' = None, fill_value: 'Any' = <NA>, sparse: 'bool' = False) -> 'DataArray'"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,253 @@
+{
+  "aliases": [
+    "numpy.core.einsumfunc._greedy_path"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "List of sets that represent the lhs side of the einsum subscript"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "input_sets",
+              "type": "Param",
+              "type_": "list"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Set that represents the rhs side of the overall einsum subscript"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "output_set",
+              "type": "Param",
+              "type_": "set"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Dictionary of index sizes"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "idx_dict",
+              "type": "Param",
+              "type_": "dictionary"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The maximum number of elements in a temporary array"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "memory_limit",
+              "type": "Param",
+              "type_": "int"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The greedy contraction order within the memory limit constraint."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "path",
+              "type": "Param",
+              "type_": "list"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Finds the path by contracting the best pair until the input list is exhausted. The best pair is found by minimizing the tuple "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(-prod(indices_removed), cost)"
+            },
+            {
+              "type": "text",
+              "value": ".  What this amounts to is prioritizing matrix multiplication or inner product operations, then Hadamard like operations, and finally outer operations. Outer products are limited by "
+            },
+            {
+              "type": "inlineCode",
+              "value": "memory_limit"
+            },
+            {
+              "type": "text",
+              "value": ". This algorithm scales cubically with respect to the number of elements in the list "
+            },
+            {
+              "type": "inlineCode",
+              "value": "input_sets"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "isets = [set('abd'), set('ac'), set('bdc')]\noset = set()\nidx_sizes = {'a': 1, 'b':2, 'c':3, 'd':4}\n_greedy_path(isets, oset, idx_sizes, 5000)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/numpy/core/einsumfunc.py",
+  "item_line": 312,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(input_sets, output_set, idx_dict, memory_limit)"
+  },
+  "type": "DocBlob"
+}

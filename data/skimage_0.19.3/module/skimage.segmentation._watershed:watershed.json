@@ -1,0 +1,463 @@
+{
+  "aliases": [
+    "skimage.segmentation.watershed"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function implements a watershed algorithm   that apportions pixels into marked basins. The algorithm uses a priority queue to hold the pixels with the metric for the priority queue being pixel value, then the time of entry into the queue - this settles ties in favor of the closest marker."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Some ideas taken from Soille, \"Automated Basin Delineation from Digital Elevation Models Using Mathematical Morphology\", Signal Processing 20 (1990) 171-182"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The most important insight in the paper is that entry time onto the queue solves two problems: a pixel should be assigned to the neighbor with the largest gradient or, if there is no gradient, pixels on a plateau should be split between markers on opposite sides."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This implementation converts all arguments to specific, lowest common denominator types, then passes these to a C algorithm."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Markers can be determined manually, or automatically using for example the local minima of the gradient of the image, or the local maxima of the distance function to the background for separating overlapping objects (see example)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Data array where the lowest value points are labeled first."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "image",
+              "type": "Param",
+              "type_": "ndarray (2-D, 3-D, ...)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The desired number of markers, or an array marking the basins with the values to be assigned in the label matrix. Zero means not a marker. If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (no markers given), the local minima of the image are used as markers."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "markers",
+              "type": "Param",
+              "type_": "int, or ndarray of int, same shape as `image`, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An array with the same number of dimensions as "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "image",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "image"
+                    },
+                    {
+                      "type": "text",
+                      "value": " whose non-zero elements indicate neighbors for connection. Following the scipy convention, default is a one-connected array of the dimension of the image."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "connectivity",
+              "type": "Param",
+              "type_": "ndarray, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "offset of the connectivity (one offset per dimension)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "offset",
+              "type": "Param",
+              "type_": "array_like of shape image.ndim, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Array of same shape as "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "image",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "image"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Only points at which mask == True will be labeled."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mask",
+              "type": "Param",
+              "type_": "ndarray of bools or 0s and 1s, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Use compact watershed  with given compactness parameter. Higher values result in more regularly-shaped watershed basins."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "compactness",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If watershed_line is True, a one-pixel wide line separates the regions obtained by the watershed algorithm. The line has the label 0."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "watershed_line",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A labeled matrix of the same type and shape as markers"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "out",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Find watershed basins in "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "image",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "image"
+            },
+            {
+              "type": "text",
+              "value": " flooded from given "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "markers",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "markers"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "The watershed algorithm is useful to separate overlapping objects."
+      },
+      {
+        "type": "text",
+        "value": "We first generate an initial image with two overlapping circles:"
+      },
+      {
+        "type": "code",
+        "value": "x, y = np.indices((80, 80))\nx1, y1, x2, y2 = 28, 28, 44, 52\nr1, r2 = 16, 20\nmask_circle1 = (x - x1)**2 + (y - y1)**2 < r1**2\nmask_circle2 = (x - x2)**2 + (y - y2)**2 < r2**2\nimage = np.logical_or(mask_circle1, mask_circle2)"
+      },
+      {
+        "type": "text",
+        "value": "Next, we want to separate the two circles. We generate markers at the\nmaxima of the distance to the background:"
+      },
+      {
+        "type": "code",
+        "value": "from scipy import ndimage as ndi\ndistance = ndi.distance_transform_edt(image)\nfrom skimage.feature import peak_local_max\nmax_coords = peak_local_max(distance, labels=image,\n                            footprint=np.ones((3, 3)))\nlocal_maxima = np.zeros_like(image, dtype=bool)\nlocal_maxima[tuple(max_coords.T)] = True\nmarkers = ndi.label(local_maxima)[0]"
+      },
+      {
+        "type": "text",
+        "value": "Finally, we run the watershed on the image and markers:"
+      },
+      {
+        "type": "code",
+        "value": "labels = watershed(-distance, markers, mask=image)"
+      },
+      {
+        "type": "text",
+        "value": "The algorithm works also for 3-D images, and can be used for example to\nseparate overlapping spheres."
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/skimage/segmentation/_watershed.py",
+  "item_line": 95,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "random walker segmentation A segmentation algorithm based on anisotropic diffusion, usually slower than the watershed but with good results on noisy data and boundaries with holes."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "skimage",
+          "path": "skimage.segmentation.random_walker_segmentation:random_walker",
+          "type": "RefInfo",
+          "version": "0.19.3"
+        },
+        "type": "Link",
+        "value": "skimage.segmentation.random_walker"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(image, markers=None, connectivity=1, offset=None, mask=None, compactness=0, watershed_line=False)"
+  },
+  "type": "DocBlob"
+}

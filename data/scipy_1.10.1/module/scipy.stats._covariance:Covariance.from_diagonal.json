@@ -1,0 +1,309 @@
+{
+  "aliases": [
+    "scipy.stats.Covariance.from_diagonal"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Let the diagonal elements of a diagonal covariance matrix "
+            },
+            {
+              "type": "inlineMath",
+              "value": "D"
+            },
+            {
+              "type": "text",
+              "value": " be stored in the vector "
+            },
+            {
+              "type": "inlineMath",
+              "value": "d"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When all elements of "
+            },
+            {
+              "type": "inlineMath",
+              "value": "d"
+            },
+            {
+              "type": "text",
+              "value": " are strictly positive, whitening of a data point "
+            },
+            {
+              "type": "inlineMath",
+              "value": "x"
+            },
+            {
+              "type": "text",
+              "value": " is performed by computing "
+            },
+            {
+              "type": "inlineMath",
+              "value": "x \\cdot d^{-1/2}"
+            },
+            {
+              "type": "text",
+              "value": ", where the inverse square root can be taken element-wise. "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\log\\det{D}"
+            },
+            {
+              "type": "text",
+              "value": " is calculated as "
+            },
+            {
+              "type": "inlineMath",
+              "value": "-2 \\sum(\\log{d})"
+            },
+            {
+              "type": "text",
+              "value": ", where the "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\log"
+            },
+            {
+              "type": "text",
+              "value": " operation is performed element-wise."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "Covariance"
+            },
+            {
+              "type": "text",
+              "value": " class supports singular covariance matrices. When computing "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_log_pdet"
+            },
+            {
+              "type": "text",
+              "value": ", non-positive elements of "
+            },
+            {
+              "type": "inlineMath",
+              "value": "d"
+            },
+            {
+              "type": "text",
+              "value": " are ignored. Whitening is not well defined when the point to be whitened does not lie in the span of the columns of the covariance matrix. The convention taken here is to treat the inverse square root of non-positive elements of "
+            },
+            {
+              "type": "inlineMath",
+              "value": "d"
+            },
+            {
+              "type": "text",
+              "value": " as zeros."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The diagonal elements of a diagonal matrix."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "diagonal",
+              "type": "Param",
+              "type_": "array_like"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Return a representation of a covariance matrix from its diagonal."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Prepare a symmetric positive definite covariance matrix ``A`` and a\ndata point ``x``."
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy import stats\nrng = np.random.default_rng()\nn = 5\nA = np.diag(rng.random(n))\nx = rng.random(size=n)"
+      },
+      {
+        "type": "text",
+        "value": "Extract the diagonal from ``A`` and create the `Covariance` object."
+      },
+      {
+        "type": "code",
+        "value": "d = np.diag(A)\ncov = stats.Covariance.from_diagonal(d)"
+      },
+      {
+        "type": "text",
+        "value": "Compare the functionality of the `Covariance` object against a\nreference implementations."
+      },
+      {
+        "type": "code",
+        "value": "res = cov.whiten(x)\nref = np.diag(d**-0.5) @ x\nnp.allclose(res, ref)"
+      },
+      {
+        "type": "code",
+        "value": "res = cov.log_pdet\nref = np.linalg.slogdet(A)[-1]\nnp.allclose(res, ref)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_covariance.py",
+  "item_line": 65,
+  "item_type": "<class 'staticmethod'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

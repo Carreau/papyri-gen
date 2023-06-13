@@ -1,0 +1,899 @@
+{
+  "aliases": [
+    "skimage.measure.ransac"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "RANSAC is an iterative algorithm for the robust estimation of parameters from a subset of inliers from the complete data set. Each iteration performs the following tasks:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Select "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "min_samples",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "min_samples"
+                    },
+                    {
+                      "type": "text",
+                      "value": " random samples from the original data and check    whether the set of data is valid (see "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "is_data_valid",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "is_data_valid"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Estimate a model to the random subset    ("
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "model_cls.estimate(*data[random_subset]"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") and check whether the    estimated model is valid (see "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "is_model_valid",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "is_model_valid"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Classify all data as inliers or outliers by calculating the residuals    to the estimated model ("
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "model_cls.residuals(*data)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") - all data samples    with residuals smaller than the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "residual_threshold",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "residual_threshold"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are considered as    inliers."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Save estimated model as best model if number of inlier samples is    maximal. In case the current estimated model has the same number of    inliers, it is only considered as the best model if it has less sum of    residuals."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": true,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "These steps are performed either a maximum number of times or until one of the special stop criteria are met. The final model is estimated using all inlier samples of the previously determined best model."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Data set to which the model is fitted, where N is the number of data points and the remaining dimension are depending on model requirements. If the model class requires multiple input data arrays (e.g. source and destination coordinates of  "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "skimage.transform.AffineTransform"
+                    },
+                    {
+                      "type": "text",
+                      "value": "), they can be optionally passed as tuple or list. Note, that in this case the functions "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "estimate(*data)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "residuals(*data)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "is_model_valid(model, *random_data)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "is_data_valid(*random_data)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must all take each data array as separate arguments."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "data",
+              "type": "Param",
+              "type_": "[list, tuple of] (N, ...) array"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Object with the following object methods:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "inlineCode",
+                                  "value": "success = estimate(*data)"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "inlineCode",
+                                  "value": "residuals(*data)"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        }
+                      ],
+                      "ordered": false,
+                      "spread": false,
+                      "start": 1,
+                      "type": "list"
+                    }
+                  ],
+                  "type": "blockquote"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "where "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "success"
+                    },
+                    {
+                      "type": "text",
+                      "value": " indicates whether the model estimation succeeded ("
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for success, "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for failure)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "model_class",
+              "type": "Param",
+              "type_": "object"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The minimum number of data points to fit a model to."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "min_samples",
+              "type": "Param",
+              "type_": "int in range (0, N)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum distance for a data point to be classified as an inlier."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "residual_threshold",
+              "type": "Param",
+              "type_": "float larger than 0"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This function is called with the randomly selected data before the model is fitted to it: "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "is_data_valid(*random_data)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "is_data_valid",
+              "type": "Param",
+              "type_": "function, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This function is called with the estimated model and the randomly selected data: "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "is_model_valid(model, *random_data)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", ."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "is_model_valid",
+              "type": "Param",
+              "type_": "function, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum number of iterations for random sample selection."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "max_trials",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Stop iteration if at least this number of inliers are found."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "stop_sample_num",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Stop iteration if sum of residuals is less than or equal to this threshold."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "stop_residuals_sum",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "RANSAC iteration stops if at least one outlier-free set of the training data is sampled with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "probability >= stop_probability"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", depending on the current best model's inlier ratio and the number of trials. This requires to generate at least N samples (trials):"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "N >= log(1 - probability) / log(1 - e**m)"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "type": "blockquote"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "where the probability (confidence) is typically set to a high value such as 0.99, e is the current fraction of inliers w.r.t. the total number of samples, and m is the min_samples value."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "stop_probability",
+              "type": "Param",
+              "type_": "float in range [0, 1], optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "random_state",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "random_state"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is None the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "numpy",
+                        "path": "numpy.random._generator:Generator",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "numpy.random.Generator"
+                    },
+                    {
+                      "type": "text",
+                      "value": " singleton is used. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "random_state",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "random_state"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is an int, a new "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Generator"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instance is used, seeded with "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "random_state",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "random_state"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "random_state",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "random_state"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is already a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Generator"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instance then that instance is used."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "random_state",
+              "type": "Param",
+              "type_": "{None, int, `numpy.random.Generator`}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Initial samples selection for model estimation"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "initial_inliers",
+              "type": "Param",
+              "type_": "array-like of bool, shape (N,), optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Best model with largest consensus set."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "model",
+              "type": "Param",
+              "type_": "object"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Boolean mask of inliers classified as "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "inliers",
+              "type": "Param",
+              "type_": "(N, ) array"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Fit a model to data with the RANSAC (random sample consensus) algorithm."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Generate ellipse data without tilt and add noise:"
+      },
+      {
+        "type": "code",
+        "value": "t = np.linspace(0, 2 * np.pi, 50)\nxc, yc = 20, 30\na, b = 5, 10\nx = xc + a * np.cos(t)\ny = yc + b * np.sin(t)\ndata = np.column_stack([x, y])\nrng = np.random.default_rng(203560)  # do not copy this value\ndata += rng.normal(size=data.shape)"
+      },
+      {
+        "type": "text",
+        "value": "Add some faulty data:"
+      },
+      {
+        "type": "code",
+        "value": "data[0] = (100, 100)\ndata[1] = (110, 120)\ndata[2] = (120, 130)\ndata[3] = (140, 130)"
+      },
+      {
+        "type": "text",
+        "value": "Estimate ellipse model using all available data:"
+      },
+      {
+        "type": "code",
+        "value": "model = EllipseModel()\nmodel.estimate(data)"
+      },
+      {
+        "type": "code",
+        "value": "np.round(model.params)  # doctest: +SKIP"
+      },
+      {
+        "type": "text",
+        "value": "Estimate ellipse model using RANSAC:"
+      },
+      {
+        "type": "code",
+        "value": "ransac_model, inliers = ransac(data, EllipseModel, 20, 3, max_trials=50)\nabs(np.round(ransac_model.params))"
+      },
+      {
+        "type": "code",
+        "value": "inliers  # doctest: +SKIP"
+      },
+      {
+        "type": "code",
+        "value": "sum(inliers) > 40"
+      },
+      {
+        "type": "text",
+        "value": "RANSAC can be used to robustly estimate a geometric\ntransformation. In this section, we also show how to use a\nproportion of the total samples, rather than an absolute number."
+      },
+      {
+        "type": "code",
+        "value": "from skimage.transform import SimilarityTransform\nrng = np.random.default_rng()\nsrc = 100 * rng.random((50, 2))\nmodel0 = SimilarityTransform(scale=0.5, rotation=1,\n                             translation=(10, 20))\ndst = model0(src)\ndst[0] = (10000, 10000)\ndst[1] = (-100, 100)\ndst[2] = (50, 50)\nratio = 0.5  # use half of the samples\nmin_samples = int(ratio * len(src))\nmodel, inliers = ransac((src, dst), SimilarityTransform, min_samples,\n                        10,\n                        initial_inliers=np.ones(len(src), dtype=bool))\ninliers  # doctest: +SKIP"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/skimage/measure/fit.py",
+  "item_line": 628,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(data, model_class, min_samples, residual_threshold, is_data_valid=None, is_model_valid=None, max_trials=100, stop_sample_num=inf, stop_residuals_sum=0, stop_probability=1, random_state=None, initial_inliers=None)"
+  },
+  "type": "DocBlob"
+}

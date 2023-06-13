@@ -1,0 +1,281 @@
+{
+  "aliases": [
+    "scipy.io.matlab._mio4.matdims"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "We had to decide what shape a 1 dimensional array would be by default. "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.atleast_2d"
+            },
+            {
+              "type": "text",
+              "value": " thinks it is a row vector. The default for a vector in MATLAB (e.g., "
+            },
+            {
+              "type": "inlineCode",
+              "value": ">> 1:12"
+            },
+            {
+              "type": "text",
+              "value": ") is a row vector."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Versions of scipy up to and including 0.11 resulted (accidentally) in 1-D arrays being read as column vectors. For the moment, we maintain the same tradition here."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Input array"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "arr",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether 1-D arrays are returned as MATLAB row or column matrices. Default is 'column'."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "oned_as",
+              "type": "Param",
+              "type_": "{'column', 'row'}, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Shape tuple, in the form MATLAB expects it."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dims",
+              "type": "Param",
+              "type_": "tuple"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Determine equivalent MATLAB dimensions for given array"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "matdims(np.array(1)) # NumPy scalar"
+      },
+      {
+        "type": "code",
+        "value": "matdims(np.array([1])) # 1-D array, 1 element"
+      },
+      {
+        "type": "code",
+        "value": "matdims(np.array([1,2])) # 1-D array, 2 elements"
+      },
+      {
+        "type": "code",
+        "value": "matdims(np.array([[2],[3]])) # 2-D array, column vector"
+      },
+      {
+        "type": "code",
+        "value": "matdims(np.array([[2,3]])) # 2-D array, row vector"
+      },
+      {
+        "type": "code",
+        "value": "matdims(np.array([[[2,3]]])) # 3-D array, rowish vector"
+      },
+      {
+        "type": "code",
+        "value": "matdims(np.array([])) # empty 1-D array"
+      },
+      {
+        "type": "code",
+        "value": "matdims(np.array([[]])) # empty 2-D array"
+      },
+      {
+        "type": "code",
+        "value": "matdims(np.array([[[]]])) # empty 3-D array"
+      },
+      {
+        "type": "text",
+        "value": "Optional argument flips 1-D shape behavior."
+      },
+      {
+        "type": "code",
+        "value": "matdims(np.array([1,2]), 'row') # 1-D array, 2 elements"
+      },
+      {
+        "type": "text",
+        "value": "The argument has to make sense though"
+      },
+      {
+        "type": "code",
+        "value": "matdims(np.array([1,2]), 'bizarre')"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/io/matlab/_miobase.py",
+  "item_line": 254,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(arr, oned_as='column')"
+  },
+  "type": "DocBlob"
+}

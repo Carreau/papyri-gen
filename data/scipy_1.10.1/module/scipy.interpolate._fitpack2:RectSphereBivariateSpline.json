@@ -1,0 +1,854 @@
+{
+  "aliases": [
+    "scipy.interpolate.RectSphereBivariateSpline"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Can be used for smoothing data."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 0.11.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Currently, only the smoothing spline approximation ("
+            },
+            {
+              "type": "inlineCode",
+              "value": "iopt[0] = 0"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "iopt[0] = 1"
+            },
+            {
+              "type": "text",
+              "value": " in the FITPACK routine) is supported.  The exact least-squares spline approximation is not implemented yet."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When actually performing the interpolation, the requested "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "v",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "v"
+            },
+            {
+              "type": "text",
+              "value": " values must lie within the same length 2pi interval that the original "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "v",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "v"
+            },
+            {
+              "type": "text",
+              "value": " values were chosen from."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For more information, see the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "FITPACK_"
+            },
+            {
+              "type": "text",
+              "value": " site about this function."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. _FITPACK: http://www.netlib.org/dierckx/spgrid.f"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "1-D array of colatitude coordinates in strictly ascending order. Coordinates must be given in radians and lie within the open interval "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(0, pi)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "u",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "1-D array of longitude coordinates in strictly ascending order. Coordinates must be given in radians. First element ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "v[0]"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") must lie within the interval "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "[-pi, pi)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Last element ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "v[-1]"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") must satisfy "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "v[-1] <= v[0] + 2*pi"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "v",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "2-D array of data with shape "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(u.size, v.size)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "r",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Positive smoothing factor defined for estimation condition ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "s=0"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is for interpolation)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "s",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Order of continuity at the poles "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "u=0"
+                    },
+                    {
+                      "type": "text",
+                      "value": " ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "pole_continuity[0]"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "u=pi"
+                    },
+                    {
+                      "type": "text",
+                      "value": " ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "pole_continuity[1]"
+                    },
+                    {
+                      "type": "text",
+                      "value": ").  The order of continuity at the pole will be 1 or 0 when this is True or False, respectively. Defaults to False."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "pole_continuity",
+              "type": "Param",
+              "type_": "bool or (bool, bool), optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Data values at the poles "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "u=0"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "u=pi"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  Either the whole parameter or each individual element can be None.  Defaults to None."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "pole_values",
+              "type": "Param",
+              "type_": "float or (float, float), optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Data value exactness at the poles "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "u=0"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "u=pi"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  If True, the value is considered to be the right function value, and it will be fitted exactly. If False, the value will be considered to be a data value just like the other data values.  Defaults to False."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "pole_exact",
+              "type": "Param",
+              "type_": "bool or (bool, bool), optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "For the poles at "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "u=0"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "u=pi"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", specify whether or not the approximation has vanishing derivatives.  Defaults to False."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "pole_flat",
+              "type": "Param",
+              "type_": "bool or (bool, bool), optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Bivariate spline approximation over a rectangular mesh on a sphere."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Suppose we have global data on a coarse grid"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nlats = np.linspace(10, 170, 9) * np.pi / 180.\nlons = np.linspace(0, 350, 18) * np.pi / 180.\ndata = np.dot(np.atleast_2d(90. - np.linspace(-80., 80., 18)).T,\n              np.atleast_2d(180. - np.abs(np.linspace(0., 350., 9)))).T"
+      },
+      {
+        "type": "text",
+        "value": "We want to interpolate it to a global one-degree grid"
+      },
+      {
+        "type": "code",
+        "value": "new_lats = np.linspace(1, 180, 180) * np.pi / 180\nnew_lons = np.linspace(1, 360, 360) * np.pi / 180\nnew_lats, new_lons = np.meshgrid(new_lats, new_lons)"
+      },
+      {
+        "type": "text",
+        "value": "We need to set up the interpolator object"
+      },
+      {
+        "type": "code",
+        "value": "from scipy.interpolate import RectSphereBivariateSpline\nlut = RectSphereBivariateSpline(lats, lons, data)"
+      },
+      {
+        "type": "text",
+        "value": "Finally we interpolate the data.  The `RectSphereBivariateSpline` object\nonly takes 1-D arrays as input, therefore we need to do some reshaping."
+      },
+      {
+        "type": "code",
+        "value": "data_interp = lut.ev(new_lats.ravel(),\n                     new_lons.ravel()).reshape((360, 180)).T"
+      },
+      {
+        "type": "text",
+        "value": "Looking at the original and the interpolated data, one can see that the\ninterpolant reproduces the original data very well:"
+      },
+      {
+        "type": "code",
+        "value": "import matplotlib.pyplot as plt\nfig = plt.figure()\nax1 = fig.add_subplot(211)\nax1.imshow(data, interpolation='nearest')\nax2 = fig.add_subplot(212)\nax2.imshow(data_interp, interpolation='nearest')\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.interpolate._fitpack2:RectSphereBivariateSpline-0-016db8c6.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      },
+      {
+        "type": "text",
+        "value": "Choosing the optimal value of ``s`` can be a delicate task. Recommended\nvalues for ``s`` depend on the accuracy of the data values.  If the user\nhas an idea of the statistical errors on the data, she can also find a\nproper estimate for ``s``. By assuming that, if she specifies the\nright ``s``, the interpolator will use a spline ``f(u,v)`` which exactly\nreproduces the function underlying the data, she can evaluate\n``sum((r(i,j)-s(u(i),v(j)))**2)`` to find a good estimate for this ``s``.\nFor example, if she knows that the statistical errors on her\n``r(i,j)``-values are not greater than 0.1, she may expect that a good\n``s`` should have a value not larger than ``u.size * v.size * (0.1)**2``."
+      },
+      {
+        "type": "text",
+        "value": "If nothing is known about the statistical error in ``r(i,j)``, ``s`` must\nbe determined by trial and error.  The best is then to start with a very\nlarge value of ``s`` (to determine the least-squares polynomial and the\ncorresponding upper bound ``fp0`` for ``s``) and then to progressively\ndecrease the value of ``s`` (say by a factor 10 in the beginning, i.e.\n``s = fp0 / 10, fp0 / 100, ...``  and more carefully as the approximation\nshows more detail) to obtain closer fits."
+      },
+      {
+        "type": "text",
+        "value": "The interpolation results for different values of ``s`` give some insight\ninto this process:"
+      },
+      {
+        "type": "code",
+        "value": "fig2 = plt.figure()\ns = [3e9, 2e9, 1e9, 1e8]\nfor idx, sval in enumerate(s, 1):\n    lut = RectSphereBivariateSpline(lats, lons, data, s=sval)\n    data_interp = lut.ev(new_lats.ravel(),\n                         new_lons.ravel()).reshape((360, 180)).T\n    ax = fig2.add_subplot(2, 2, idx)\n    ax.imshow(data_interp, interpolation='nearest')\n    ax.set_title(f\"s = {sval:g}\")\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.interpolate._fitpack2:RectSphereBivariateSpline-1-05c1d4e9.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/interpolate/_fitpack2.py",
+  "item_line": 1954,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "a base class for bivariate splines."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "BivariateSpline",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "BivariateSpline"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "a smooth univariate spline to fit a given set of data points."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "UnivariateSpline",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "UnivariateSpline"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "a smoothing bivariate spline through the given points"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "SmoothBivariateSpline",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "SmoothBivariateSpline"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "a bivariate spline using weighted least-squares fitting"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "LSQBivariateSpline",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "LSQBivariateSpline"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "a smoothing bivariate spline in spherical coordinates"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "SmoothSphereBivariateSpline",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "SmoothSphereBivariateSpline"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "a bivariate spline in spherical coordinates using weighted least-squares fitting"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "LSQSphereBivariateSpline",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "LSQSphereBivariateSpline"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "a bivariate spline over a rectangular mesh."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "RectBivariateSpline",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "RectBivariateSpline"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "a function to find a bivariate B-spline representation of a surface"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.interpolate._fitpack_impl:bisplrep",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "bisplrep"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "a function to evaluate a bivariate B-spline and its derivatives"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.interpolate._fitpack_impl:bisplev",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "bisplev"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

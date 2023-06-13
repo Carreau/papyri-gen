@@ -1,0 +1,862 @@
+{
+  "aliases": [
+    "scipy.odr.Model"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "It stores the function itself, at the least, and optionally stores functions which compute the Jacobians used during fitting. Also, one can provide a function that will provide reasonable starting values for the fit parameters possibly given the set of data."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Note that the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "fcn",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "fcn"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "fjacb",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "fjacb"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "fjacd",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "fjacd"
+            },
+            {
+              "type": "text",
+              "value": " operate on NumPy arrays and return a NumPy array. The "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "estimate",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "estimate"
+            },
+            {
+              "type": "text",
+              "value": " object takes an instance of the Data class."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Here are the rules for the shapes of the argument and return arrays of the callback functions:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "if the input data is single-dimensional, then "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is rank-1     array; i.e., "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x = array([1, 2, 3, ...]); x.shape = (n,)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "     If the input data is multi-dimensional, then "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a rank-2 array;     i.e., "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x = array([[1, 2, ...], [2, 4, ...]]); x.shape = (m, n)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".     In all cases, it has the same shape as the input data array passed to     "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "scipy",
+                        "path": "scipy.odr.odrpack",
+                        "type": "RefInfo",
+                        "version": "1.10.1"
+                      },
+                      "type": "Link",
+                      "value": "~scipy.odr.odr"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "m"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the dimensionality of the input data,     "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "n"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the number of observations."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "domain": null,
+                    "role": null,
+                    "type": "Directive",
+                    "value": "x"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "if the response variable is single-dimensional, then "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "y"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a     rank-1 array, i.e., "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "y = array([2, 4, ...]); y.shape = (n,)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".     If the response variable is multi-dimensional, then "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "y"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a rank-2     array, i.e., "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "y = array([[2, 4, ...], [3, 6, ...]]); y.shape =\n    (q, n)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " where "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "q"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the dimensionality of the response variable."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "domain": null,
+                    "role": null,
+                    "type": "Directive",
+                    "value": "y"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "rank-1 array of length "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "p"
+                    },
+                    {
+                      "type": "text",
+                      "value": " where "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "p"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the number of parameters;     i.e. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "beta = array([B_1, B_2, ..., B_p])"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "domain": null,
+                    "role": null,
+                    "type": "Directive",
+                    "value": "beta"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "if the response variable is multi-dimensional, then the     return array's shape is "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "(q, p, n)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " such that "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "fjacb(x,beta)[l,k,i] =\n    d f_l(X,B)/d B_k"
+                    },
+                    {
+                      "type": "text",
+                      "value": " evaluated at the ith data point.  If "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "q == 1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", then     the return array is only rank-2 and with shape "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "(p, n)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "anchor": null,
+                    "exists": true,
+                    "kind": "local",
+                    "reference": {
+                      "kind": "local",
+                      "module": null,
+                      "path": "fjacb",
+                      "type": "RefInfo",
+                      "version": null
+                    },
+                    "type": "Link",
+                    "value": "fjacb"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "as with fjacb, only the return array's shape is "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "(q, m, n)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "     such that "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "fjacd(x,beta)[l,j,i] = d f_l(X,B)/d X_j"
+                    },
+                    {
+                      "type": "text",
+                      "value": " at the ith data     point.  If "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "q == 1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", then the return array's shape is "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "(m, n)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If     "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "m == 1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the shape is (q, n). If "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "m == q == 1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the shape is "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "(n,)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "anchor": null,
+                    "exists": true,
+                    "kind": "local",
+                    "reference": {
+                      "kind": "local",
+                      "module": null,
+                      "path": "fjacd",
+                      "type": "RefInfo",
+                      "version": null
+                    },
+                    "type": "Link",
+                    "value": "fjacd"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            }
+          ],
+          "type": "DefList"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "fcn(beta, x) --> y"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fcn",
+              "type": "Param",
+              "type_": "function"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Jacobian of fcn wrt the fit parameters beta."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "fjacb(beta, x) --> @f_i(x,B)/@B_j"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fjacb",
+              "type": "Param",
+              "type_": "function"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Jacobian of fcn wrt the (possibly multidimensional) input variable."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "fjacd(beta, x) --> @f_i(x,B)/@x_j"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fjacd",
+              "type": "Param",
+              "type_": "function"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If specified, "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "extra_args",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "extra_args"
+                    },
+                    {
+                      "type": "text",
+                      "value": " should be a tuple of extra arguments to pass to "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "fcn",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "fcn"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "fjacb",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "fjacb"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "fjacd",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "fjacd"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Each will be called by "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "apply(fcn, (beta, x) + extra_args)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "extra_args",
+              "type": "Param",
+              "type_": "tuple, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Provides estimates of the fit parameters from the data"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "estimate(data) --> estbeta"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "estimate",
+              "type": "Param",
+              "type_": "array_like of rank-1"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If TRUE, specifies that the model is implicit; i.e "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "fcn(beta, x)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " ~= 0 and there is no y data to fit against"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "implicit",
+              "type": "Param",
+              "type_": "boolean"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "freeform dictionary of metadata for the model"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "meta",
+              "type": "Param",
+              "type_": "dict, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The Model class stores information about the function you wish to fit."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/odr/_odrpack.py",
+  "item_line": 432,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Notes"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

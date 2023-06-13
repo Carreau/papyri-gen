@@ -1,0 +1,268 @@
+{
+  "aliases": [
+    "dask.array.reductions.prefixscan_blelloch"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The Blelloch prefix scan is work-efficient and exposes parallelism. A parallel cumsum works by first taking the sum of each block, then do a binary tree merge followed by a fan-out (i.e., the Brent-Kung pattern).  We then take the cumsum of each block and add the sum of the previous blocks."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When performing a cumsum across N chunks, this method has 2 * lg(N) levels of dependencies. In contrast, the sequential method has N levels of dependencies."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Floating point operations should be more accurate with this method compared to sequential."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Cumulative function (e.g. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.cumsum"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "func",
+              "type": "Param",
+              "type_": "callable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Function to get the final value of a cumulative function (e.g., "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.sum"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "preop",
+              "type": "Param",
+              "type_": "callable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Associative function (e.g. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "add"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "binop",
+              "type": "Param",
+              "type_": "callable"
+            },
+            {
+              "desc": [],
+              "param": "x",
+              "type": "Param",
+              "type_": "dask array"
+            },
+            {
+              "desc": [],
+              "param": "axis",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [],
+              "param": "dtype",
+              "type": "Param",
+              "type_": "dtype"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "dask array"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Generic function to perform parallel cumulative scan (a.k.a prefix scan)"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dask/array/reductions.py",
+  "item_line": 1313,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(func, preop, binop, x, axis=None, dtype=None, out=None)"
+  },
+  "type": "DocBlob"
+}

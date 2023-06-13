@@ -1,0 +1,1279 @@
+{
+  "aliases": [
+    "xarray.apply_ufunc"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The function will be mapped over the data variable(s) of the input arguments using xarray's standard rules for labeled computation, including alignment, broadcasting, looping over GroupBy/Dataset variables, and merging of coordinates."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function is designed for the more common case where "
+            },
+            {
+              "type": "inlineCode",
+              "value": "func"
+            },
+            {
+              "type": "text",
+              "value": " can work on numpy arrays. If "
+            },
+            {
+              "type": "inlineCode",
+              "value": "func"
+            },
+            {
+              "type": "text",
+              "value": " needs to manipulate a whole xarray object subset to each block it is possible to use "
+            },
+            {
+              "type": "inlineCode",
+              "value": "xarray.map_blocks"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Note that due to the overhead "
+            },
+            {
+              "type": "inlineCode",
+              "value": "xarray.map_blocks"
+            },
+            {
+              "type": "text",
+              "value": " is considerably slower than "
+            },
+            {
+              "type": "inlineCode",
+              "value": "apply_ufunc"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Function to call like "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "func(*args, **kwargs)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " on unlabeled arrays ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": ".data"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") that returns an array or tuple of arrays. If multiple arguments with non-matching dimensions are supplied, this function is expected to vectorize (broadcast) over axes of positional arguments in the style of NumPy universal functions  (if this is not the case, set "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "vectorize=True"
+                    },
+                    {
+                      "type": "text",
+                      "value": "). If this function returns multiple outputs, you must set "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "output_core_dims"
+                    },
+                    {
+                      "type": "text",
+                      "value": " as well."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "func",
+              "type": "Param",
+              "type_": "callable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Mix of labeled and/or unlabeled arrays to which to apply the function."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "*args",
+              "type": "Param",
+              "type_": "Dataset, DataArray, DataArrayGroupBy, DatasetGroupBy, Variable,         numpy.ndarray, dask.array.Array or scalar"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "List of the same length as "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "args"
+                    },
+                    {
+                      "type": "text",
+                      "value": " giving the list of core dimensions on each input argument that should not be broadcast. By default, we assume there are no core dimensions on any input arguments."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "For example, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "input_core_dims=[[], ['time']]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " indicates that all dimensions on the first argument and all dimensions other than 'time' on the second argument should be broadcast."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Core dimensions are automatically moved to the last axes of input variables before applying "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "func"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", which facilitates using NumPy style generalized ufuncs ."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "input_core_dims",
+              "type": "Param",
+              "type_": "sequence of sequence, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "List of the same length as the number of output arguments from "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "func"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", giving the list of core dimensions on each output that were not broadcast on the inputs. By default, we assume that "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "func"
+                    },
+                    {
+                      "type": "text",
+                      "value": " outputs exactly one array, with axes corresponding to each broadcast dimension."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Core dimensions are assumed to appear as the last dimensions of each output in the provided order."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "output_core_dims",
+              "type": "Param",
+              "type_": "list of tuple, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Core dimensions on the inputs to exclude from alignment and broadcasting entirely. Any input coordinates along these dimensions will be dropped. Each excluded dimension must also appear in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "input_core_dims"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for at least one argument. Only dimensions listed here are allowed to change size between input and output objects."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "exclude_dims",
+              "type": "Param",
+              "type_": "set, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, then assume "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "func"
+                    },
+                    {
+                      "type": "text",
+                      "value": " only takes arrays defined over core dimensions as input and vectorize it automatically with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "numpy.vectorize"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". This option exists for convenience, but is almost always slower than supplying a pre-vectorized function."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "vectorize",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Method for joining the indexes of the passed objects along each dimension, and the variables of Dataset objects with mismatched data variables:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'outer': use the union of object indexes"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'inner': use the intersection of object indexes"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'left': use indexes from the first object with each dimension"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'right': use indexes from the last object with each dimension"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'exact': raise "
+                            },
+                            {
+                              "domain": null,
+                              "role": null,
+                              "type": "Directive",
+                              "value": "ValueError"
+                            },
+                            {
+                              "type": "text",
+                              "value": " instead of aligning when indexes to be   aligned are not equal"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "param": "join",
+              "type": "Param",
+              "type_": "{\"outer\", \"inner\", \"left\", \"right\", \"exact\"}, default: \"exact\""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Method for joining variables of Dataset objects with mismatched data variables."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'outer': take variables from both Dataset objects"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'inner': take only overlapped variables"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'left': take only variables from the first object"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'right': take only variables from the last object"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'exact': data variables on all Dataset objects must match exactly"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "param": "dataset_join",
+              "type": "Param",
+              "type_": "{\"outer\", \"inner\", \"left\", \"right\", \"exact\"}, default: \"exact\""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Value used in place of missing variables on Dataset inputs when the datasets do not share the exact same "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "data_vars"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Required if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "dataset_join not in {'inner', 'exact'}"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", otherwise ignored."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dataset_fill_value",
+              "type": "Param",
+              "type_": "optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'drop' or False: empty attrs on returned xarray object."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'identical': all attrs must be the same on every object."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'no_conflicts': attrs from all objects are combined, any that have the same name must also have the same value."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'drop_conflicts': attrs from all objects are combined, any that have the same name but different values are dropped."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'override' or True: skip comparing and copy attrs from the first object to the result."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "param": "keep_attrs",
+              "type": "Param",
+              "type_": "{\"drop\", \"identical\", \"no_conflicts\", \"drop_conflicts\", \"override\"} or bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Optional keyword arguments passed directly on to call "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "func"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "kwargs",
+              "type": "Param",
+              "type_": "dict, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "How to handle applying to objects containing lazy data in the form of dask arrays:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'forbidden' (default): raise an error if a dask array is encountered."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'allowed': pass dask arrays directly on to "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "func"
+                            },
+                            {
+                              "type": "text",
+                              "value": ". Prefer this option if   "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "func"
+                            },
+                            {
+                              "type": "text",
+                              "value": " natively supports dask arrays."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'parallelized': automatically parallelize "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "func"
+                            },
+                            {
+                              "type": "text",
+                              "value": " if any of the   inputs are a dask array by using "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "dask.array.apply_gufunc"
+                            },
+                            {
+                              "type": "text",
+                              "value": ". Multiple output   arguments are supported. Only use this option if "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "func"
+                            },
+                            {
+                              "type": "text",
+                              "value": " does not natively   support dask arrays (e.g. converts them to numpy arrays)."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "param": "dask",
+              "type": "Param",
+              "type_": "{\"forbidden\", \"allowed\", \"parallelized\"}, default: \"forbidden\""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Optional keyword arguments passed to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "dask.array.apply_gufunc"
+                    },
+                    {
+                      "type": "text",
+                      "value": " if dask='parallelized'. Possible keywords are "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "output_sizes"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "allow_rechunk"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "meta"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dask_gufunc_kwargs",
+              "type": "Param",
+              "type_": "dict, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Optional list of output dtypes. Only used if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "dask='parallelized'"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "vectorize=True"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "output_dtypes",
+              "type": "Param",
+              "type_": "list of dtype, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Optional mapping from dimension names to sizes for outputs. Only used if dask='parallelized' and new dimensions (not found on inputs) appear on outputs. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "output_sizes"
+                    },
+                    {
+                      "type": "text",
+                      "value": " should be given in the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "dask_gufunc_kwargs"
+                    },
+                    {
+                      "type": "text",
+                      "value": " parameter. It will be removed as direct parameter in a future version."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "output_sizes",
+              "type": "Param",
+              "type_": "dict, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Size-0 object representing the type of array wrapped by dask array. Passed on to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "dask.array.apply_gufunc"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "meta"
+                    },
+                    {
+                      "type": "text",
+                      "value": " should be given in the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "dask_gufunc_kwargs"
+                    },
+                    {
+                      "type": "text",
+                      "value": " parameter . It will be removed as direct parameter a future version."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "meta",
+              "type": "Param",
+              "type_": "optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "Single value or tuple of Dataset, DataArray, Variable, dask.array.Array or"
+            },
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "numpy.ndarray, the first type on that list to appear on an input."
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Apply a vectorized function for unlabeled arrays on xarray objects."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Calculate the vector magnitude of two arguments:"
+      },
+      {
+        "type": "code",
+        "value": "def magnitude(a, b):\n    func = lambda x, y: np.sqrt(x**2 + y**2)\n    return xr.apply_ufunc(func, a, b)"
+      },
+      {
+        "type": "text",
+        "value": "You can now apply ``magnitude()`` to :py:class:`DataArray` and :py:class:`Dataset`\nobjects, with automatically preserved dimensions and coordinates, e.g.,"
+      },
+      {
+        "type": "code",
+        "value": "array = xr.DataArray([1, 2, 3], coords=[(\"x\", [0.1, 0.2, 0.3])])\nmagnitude(array, -array)"
+      },
+      {
+        "type": "text",
+        "value": "Plain scalars, numpy arrays and a mix of these with xarray objects is also\nsupported:"
+      },
+      {
+        "type": "code",
+        "value": "magnitude(3, 4)"
+      },
+      {
+        "type": "code",
+        "value": "magnitude(3, np.array([0, 4]))"
+      },
+      {
+        "type": "code",
+        "value": "magnitude(array, 0)"
+      },
+      {
+        "type": "text",
+        "value": "Other examples of how you could use ``apply_ufunc`` to write functions to\n(very nearly) replicate existing xarray functionality:"
+      },
+      {
+        "type": "text",
+        "value": "Compute the mean (``.mean``) over one dimension:"
+      },
+      {
+        "type": "code",
+        "value": "def mean(obj, dim):\n    # note: apply always moves core dimensions to the end\n    return apply_ufunc(\n        np.mean, obj, input_core_dims=[[dim]], kwargs={\"axis\": -1}\n    )"
+      },
+      {
+        "type": "text",
+        "value": "Inner product over a specific dimension (like :py:func:`dot`):"
+      },
+      {
+        "type": "code",
+        "value": "def _inner(x, y):\n    result = np.matmul(x[..., np.newaxis, :], y[..., :, np.newaxis])\n    return result[..., 0, 0]"
+      },
+      {
+        "type": "code",
+        "value": "def inner_product(a, b, dim):\n    return apply_ufunc(_inner, a, b, input_core_dims=[[dim], [dim]])"
+      },
+      {
+        "type": "text",
+        "value": "Stack objects along a new dimension (like :py:func:`concat`):"
+      },
+      {
+        "type": "code",
+        "value": "def stack(objects, dim, new_coord):\n    # note: this version does not stack coordinates\n    func = lambda *x: np.stack(x, axis=-1)\n    result = apply_ufunc(\n        func,\n        *objects,\n        output_core_dims=[[dim]],\n        join=\"outer\",\n        dataset_fill_value=np.nan\n    )\n    result[dim] = new_coord\n    return result"
+      },
+      {
+        "type": "text",
+        "value": "If your function is not vectorized but can be applied only to core\ndimensions, you can use ``vectorize=True`` to turn into a vectorized\nfunction. This wraps :py:func:`numpy.vectorize`, so the operation isn't\nterribly fast. Here we'll use it to calculate the distance between\nempirical samples from two probability distributions, using a scipy\nfunction that needs to be applied to vectors:"
+      },
+      {
+        "type": "code",
+        "value": "import scipy.stats\ndef earth_mover_distance(first_samples, second_samples, dim=\"ensemble\"):\n    return apply_ufunc(\n        scipy.stats.wasserstein_distance,\n        first_samples,\n        second_samples,\n        input_core_dims=[[dim], [dim]],\n        vectorize=True,\n    )"
+      },
+      {
+        "type": "text",
+        "value": "Most of NumPy's builtin functions already broadcast their inputs\nappropriately for use in ``apply_ufunc``. You may find helper functions such as\n:py:func:`numpy.broadcast_arrays` helpful in writing your function. ``apply_ufunc`` also\nworks well with :py:func:`numba.vectorize` and :py:func:`numba.guvectorize`."
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/xarray/core/computation.py",
+  "item_line": 836,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "Examples",
+    "See Also",
+    "References"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "numpy.broadcast_arrays",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "numpy.broadcast_arrays"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "numba.vectorize",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "numba.vectorize"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "numba.guvectorize",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "numba.guvectorize"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "dask.array.apply_gufunc",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "dask.array.apply_gufunc"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "xarray",
+          "path": "xarray.core.parallel:map_blocks",
+          "type": "RefInfo",
+          "version": "2023.5.0"
+        },
+        "type": "Link",
+        "value": "xarray.map_blocks"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "User guide describing "
+            },
+            {
+              "domain": "py",
+              "role": "func",
+              "type": "Directive",
+              "value": "apply_ufunc"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "domain": "py",
+              "role": "func",
+              "type": "Directive",
+              "value": "map_blocks"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "dask.automatic-parallelization",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "dask.automatic-parallelization"
+      },
+      "type": "ref"
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(func: 'Callable', *args: 'Any', input_core_dims: 'Sequence[Sequence] | None' = None, output_core_dims: 'Sequence[Sequence] | None' = ((),), exclude_dims: 'Set' = frozenset(), vectorize: 'bool' = False, join: 'JoinOptions' = 'exact', dataset_join: 'str' = 'exact', dataset_fill_value: 'object' = <no-fill-value>, keep_attrs: 'bool | str | None' = None, kwargs: 'Mapping | None' = None, dask: 'str' = 'forbidden', output_dtypes: 'Sequence | None' = None, output_sizes: 'Mapping[Any, int] | None' = None, meta: 'Any' = None, dask_gufunc_kwargs: 'dict[str, Any] | None' = None) -> 'Any'"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,241 @@
+{
+  "aliases": [
+    "xarray.broadcast"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "xarray objects automatically broadcast against each other in arithmetic operations, so this function should not be necessary for normal use."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If no change is needed, the input data is returned to the output without being copied."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Arrays to broadcast against each other."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "*args",
+              "type": "Param",
+              "type_": "DataArray or Dataset"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Dimensions that must not be broadcasted"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "exclude",
+              "type": "Param",
+              "type_": "sequence of str, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The same data as the input arrays, but with additional dimensions inserted so that all data arrays have the same dimensions and shape."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "broadcast",
+              "type": "Param",
+              "type_": "tuple of DataArray or tuple of Dataset"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Explicitly broadcast any number of DataArray or Dataset objects against one another."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Broadcast two data arrays against one another to fill out their dimensions:"
+      },
+      {
+        "type": "code",
+        "value": "a = xr.DataArray([1, 2, 3], dims=\"x\")\nb = xr.DataArray([5, 6], dims=\"y\")\na"
+      },
+      {
+        "type": "code",
+        "value": "b"
+      },
+      {
+        "type": "code",
+        "value": "a2, b2 = xr.broadcast(a, b)\na2"
+      },
+      {
+        "type": "code",
+        "value": "b2"
+      },
+      {
+        "type": "text",
+        "value": "Fill out the dimensions of all data variables in a dataset:"
+      },
+      {
+        "type": "code",
+        "value": "ds = xr.Dataset({\"a\": a, \"b\": b})\n(ds2,) = xr.broadcast(ds)  # use tuple unpacking to extract one dataset\nds2"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/xarray/core/alignment.py",
+  "item_line": 996,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(*args: 'T_DataWithCoords', exclude=None) -> 'tuple[T_DataWithCoords, ...]'"
+  },
+  "type": "DocBlob"
+}

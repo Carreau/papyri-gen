@@ -1,0 +1,372 @@
+{
+  "aliases": [
+    "scipy.interpolate._bspl._norm_eq_lsq"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The observation equations are "
+            },
+            {
+              "type": "inlineCode",
+              "value": "A @ c = y"
+            },
+            {
+              "type": "text",
+              "value": ", and the normal equations are "
+            },
+            {
+              "type": "inlineCode",
+              "value": "A.T @ A @ c = A.T @ y"
+            },
+            {
+              "type": "text",
+              "value": ". This routine fills in the rhs and lhs for the latter."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The B-spline collocation matrix is defined as "
+            },
+            {
+              "type": "inlineMath",
+              "value": "A_{j,l} = B_l(x_j)"
+            },
+            {
+              "type": "text",
+              "value": ", so that row "
+            },
+            {
+              "type": "inlineCode",
+              "value": "j"
+            },
+            {
+              "type": "text",
+              "value": " contains all the B-splines which are non-zero at "
+            },
+            {
+              "type": "inlineCode",
+              "value": "x_j"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The normal eq matrix has at most "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "2k+1"
+            },
+            {
+              "type": "text",
+              "value": " bands and is constructed in the LAPACK symmetrix banded storage: "
+            },
+            {
+              "type": "inlineCode",
+              "value": "A[i, j] == ab[i-j, j]"
+            },
+            {
+              "type": "text",
+              "value": " with "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "i >= j"
+            },
+            {
+              "type": "text",
+              "value": ". See the doctsring for "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "scipy.linalg._decomp_cholesky",
+                "path": "scipy.linalg._decomp_cholesky:cholesky_banded",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "scipy.linalg.cholesky_banded"
+            },
+            {
+              "type": "text",
+              "value": " for more info."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This routine is not supposed to be called directly, and does no error checking."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "sorted 1D array of x values"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "ndarray, shape (n,)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "sorted 1D array of knots"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "t",
+              "type": "Param",
+              "type_": "ndarray, shape (nt + k + 1,)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "spline order"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "k",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "a 2D array of y values. The second dimension contains all trailing dimensions of the original array of ordinates."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "y",
+              "type": "Param",
+              "type_": "ndarray, shape (n, s)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Weights."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "w",
+              "type": "Param",
+              "type_": "ndarray, shape(n,)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This parameter is modified in-place. On entry: should be zeroed out. On exit: LHS of the normal equations."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ab",
+              "type": "Param",
+              "type_": "ndarray, shape (k+1, n), in Fortran order."
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This parameter is modified in-place. On entry: should be zeroed out. On exit: RHS of the normal equations."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "rhs",
+              "type": "Param",
+              "type_": "ndarray, shape (n, s), in Fortran order."
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Construct the normal equations for the B-spline LSQ problem."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": "<class 'fused_cython_function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

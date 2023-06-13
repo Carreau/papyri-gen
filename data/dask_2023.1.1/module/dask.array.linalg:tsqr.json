@@ -1,0 +1,468 @@
+{
+  "aliases": [
+    "dask.array.linalg.tsqr"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "As presented in:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Benson, D. Gleich, and J. Demmel."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                }
+              ],
+              "ordered": true,
+              "spread": false,
+              "start": 1,
+              "type": "list"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Direct QR factorizations for tall-and-skinny matrices in     MapReduce architectures.     IEEE International Conference on Big Data, 2013.     https://arxiv.org/abs/1301.1071"
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This algorithm is used to compute both the QR decomposition and the Singular Value Decomposition.  It requires that the input array have a single column of blocks, each of which fit in memory."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "With "
+            },
+            {
+              "type": "inlineCode",
+              "value": "k"
+            },
+            {
+              "type": "text",
+              "value": " blocks of size "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(m, n)"
+            },
+            {
+              "type": "text",
+              "value": ", this algorithm has memory use that scales as "
+            },
+            {
+              "type": "inlineCode",
+              "value": "k * n * n"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The implementation here is the recursive variant due to the ultimate need for one \"single core\" QR decomposition. In the non-recursive version of the algorithm, given "
+            },
+            {
+              "type": "inlineCode",
+              "value": "k"
+            },
+            {
+              "type": "text",
+              "value": " blocks, after "
+            },
+            {
+              "type": "inlineCode",
+              "value": "k"
+            },
+            {
+              "type": "text",
+              "value": " "
+            },
+            {
+              "type": "inlineCode",
+              "value": "m * n"
+            },
+            {
+              "type": "text",
+              "value": " QR decompositions, there will be a \"single core\" QR decomposition that will have to work with a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(k * n, n)"
+            },
+            {
+              "type": "text",
+              "value": " matrix."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Here, recursion is applied as necessary to ensure that "
+            },
+            {
+              "type": "inlineCode",
+              "value": "k * n"
+            },
+            {
+              "type": "text",
+              "value": " is not larger than "
+            },
+            {
+              "type": "inlineCode",
+              "value": "m"
+            },
+            {
+              "type": "text",
+              "value": " (if "
+            },
+            {
+              "type": "inlineCode",
+              "value": "m / n >= 2"
+            },
+            {
+              "type": "text",
+              "value": "). In particular, this is done to ensure that single core computations do not have to work on blocks larger than "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(m, n)"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Where blocks are irregular, the above logic is applied with the \"height\" of the \"tallest\" block used in place of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "m"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Consider use of the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "rechunk"
+            },
+            {
+              "type": "text",
+              "value": " method to control this behavior. Taller blocks will reduce overall memory use (assuming that many of them still fit in memory at once)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "data: Array",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to compute the SVD rather than the QR decomposition"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "compute_svd: bool",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Used internally in recursion to set the maximum row dimension of chunks in subsequent recursive calls."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "_max_vchunk_size: Integer",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Direct Tall-and-Skinny QR algorithm"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dask/array/linalg.py",
+  "item_line": 58,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Notes",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Powered by this algorithm"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "dask",
+          "path": "dask.array.linalg:qr",
+          "type": "RefInfo",
+          "version": "2023.1.1"
+        },
+        "type": "Link",
+        "value": "dask.array.linalg.qr"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Powered by this algorithm"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "dask",
+          "path": "dask.array.linalg:svd",
+          "type": "RefInfo",
+          "version": "2023.1.1"
+        },
+        "type": "Link",
+        "value": "dask.array.linalg.svd"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Variant for short-and-fat arrays"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "dask",
+          "path": "dask.array.linalg:sfqr",
+          "type": "RefInfo",
+          "version": "2023.1.1"
+        },
+        "type": "Link",
+        "value": "dask.array.linalg.sfqr"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(data, compute_svd=False, _max_vchunk_size=None)"
+  },
+  "type": "DocBlob"
+}

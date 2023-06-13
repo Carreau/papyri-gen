@@ -1,0 +1,324 @@
+{
+  "aliases": [
+    "skimage.feature.match_descriptors"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For each descriptor in the first set this matcher finds the closest descriptor in the second set (and vice-versa in the case of enabled cross-checking)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Descriptors of size P about M keypoints in the first image."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "descriptors1",
+              "type": "Param",
+              "type_": "(M, P) array"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Descriptors of size P about N keypoints in the second image."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "descriptors2",
+              "type": "Param",
+              "type_": "(N, P) array"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The metric to compute the distance between two descriptors. See "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "scipy",
+                        "path": "scipy.spatial.distance:cdist",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "scipy.spatial.distance.cdist"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for all possible types. The hamming distance should be used for binary descriptors. By default the L2-norm is used for all descriptors of dtype float or double and the Hamming distance is used for binary descriptors automatically."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "metric",
+              "type": "Param",
+              "type_": "{'euclidean', 'cityblock', 'minkowski', 'hamming', ...} , optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The p-norm to apply for "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "metric='minkowski'"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "p",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum allowed distance between descriptors of two keypoints in separate images to be regarded as a match."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "max_distance",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, the matched keypoints are returned after cross checking i.e. a matched pair (keypoint1, keypoint2) is returned if keypoint2 is the best match for keypoint1 in second image and keypoint1 is the best match for keypoint2 in first image."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "cross_check",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum ratio of distances between first and second closest descriptor in the second set of descriptors. This threshold is useful to filter ambiguous matches between the two descriptor sets. The choice of this value depends on the statistics of the chosen descriptor, e.g., for SIFT descriptors a value of 0.8 is usually chosen, see D.G. Lowe, \"Distinctive Image Features from Scale-Invariant Keypoints\", International Journal of Computer Vision, 2004."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "max_ratio",
+              "type": "Param",
+              "type_": "float, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Indices of corresponding matches in first and second set of descriptors, where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "matches[:, 0]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " denote the indices in the first and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "matches[:, 1]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " the indices in the second set of descriptors."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "matches",
+              "type": "Param",
+              "type_": "(Q, 2) array"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Brute-force matching of descriptors."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/skimage/feature/match.py",
+  "item_line": 5,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(descriptors1, descriptors2, metric=None, p=2, max_distance=inf, cross_check=True, max_ratio=1.0)"
+  },
+  "type": "DocBlob"
+}

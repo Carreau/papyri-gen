@@ -1,0 +1,602 @@
+{
+  "aliases": [
+    "distributed.Client"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The Client connects users to a Dask cluster.  It provides an asynchronous user interface around functions and futures.  This class resembles executors in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "concurrent.futures"
+            },
+            {
+              "type": "text",
+              "value": " but also allows "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Future"
+            },
+            {
+              "type": "text",
+              "value": " objects within "
+            },
+            {
+              "type": "inlineCode",
+              "value": "submit/map"
+            },
+            {
+              "type": "text",
+              "value": " calls.  When a Client is instantiated it takes over all "
+            },
+            {
+              "type": "inlineCode",
+              "value": "dask.compute"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "dask.persist"
+            },
+            {
+              "type": "text",
+              "value": " calls by default."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "It is also common to create a Client without specifying the scheduler address , like "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Client()"
+            },
+            {
+              "type": "text",
+              "value": ".  In this case the Client creates a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "LocalCluster"
+            },
+            {
+              "type": "text",
+              "value": " in the background and connects to that.  Any extra keywords are passed from Client to LocalCluster in this case.  See the LocalCluster documentation for more information."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This can be the address of a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Scheduler"
+                    },
+                    {
+                      "type": "text",
+                      "value": " server like a string "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "'127.0.0.1:8786'"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or a cluster object like "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "LocalCluster()"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "address: string, or Cluster",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The event loop"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "loop",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Timeout duration for initial connection to the scheduler"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "timeout: int (defaults to configuration ``distributed.comm.timeouts.connect``)",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Use this Client as the global dask scheduler"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "set_as_default: bool (True)",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Path to a file with scheduler information if available"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "scheduler_file: string (optional)",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Optional security information. If creating a local cluster can also pass in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", in which case temporary self-signed credentials will be created automatically."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "security: Security or bool, optional",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Set to True if using this client within async/await functions or within Tornado gen.coroutines.  Otherwise this should remain False for normal use."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "asynchronous: bool (False by default)",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Gives the client a name that will be included in logs generated on the scheduler for matters relating to this client"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "name: string (optional)",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Time in milliseconds between heartbeats to scheduler"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "heartbeat_interval: int (optional)",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Iterable of approaches to use when serializing the object. See "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "serialization"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for more."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "serializers",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Iterable of approaches to use when deserializing the object. See "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "serialization"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for more."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "deserializers",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The extensions"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "extensions",
+              "type": "Param",
+              "type_": "list"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether or not to connect directly to the workers, or to ask the scheduler to serve as intermediary."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "direct_to_workers: bool (optional)",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The number of open comms to maintain at once in the connection pool"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "connection_limit",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If you do not pass a scheduler address, Client will create a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "LocalCluster"
+                    },
+                    {
+                      "type": "text",
+                      "value": " object, passing any extra keyword arguments."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "**kwargs:",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Connect to and submit computation to a Dask cluster"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Provide cluster's scheduler node address on initialization:"
+      },
+      {
+        "type": "code",
+        "value": "client = Client('127.0.0.1:8786')  # doctest: +SKIP"
+      },
+      {
+        "type": "text",
+        "value": "Use ``submit`` method to send individual computations to the cluster"
+      },
+      {
+        "type": "code",
+        "value": "a = client.submit(add, 1, 2)  # doctest: +SKIP\nb = client.submit(add, 10, 20)  # doctest: +SKIP"
+      },
+      {
+        "type": "text",
+        "value": "Continue using submit or map on results to build up larger computations"
+      },
+      {
+        "type": "code",
+        "value": "c = client.submit(add, a, b)  # doctest: +SKIP"
+      },
+      {
+        "type": "text",
+        "value": "Gather results with the ``gather`` method."
+      },
+      {
+        "type": "code",
+        "value": "client.gather(c)  # doctest: +SKIP"
+      },
+      {
+        "type": "text",
+        "value": "You can also call Client with no arguments in order to create your own\nlocal cluster."
+      },
+      {
+        "type": "code",
+        "value": "client = Client()  # makes your own local \"cluster\" # doctest: +SKIP"
+      },
+      {
+        "type": "text",
+        "value": "Extra keywords will be passed directly to LocalCluster"
+      },
+      {
+        "type": "code",
+        "value": "client = Client(n_workers=2, threads_per_worker=4)  # doctest: +SKIP"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/distributed/client.py",
+  "item_line": 715,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Examples",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Internal scheduler"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "distributed.scheduler.Scheduler",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "distributed.scheduler.Scheduler"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "distributed",
+          "path": "distributed.deploy.local:LocalCluster",
+          "type": "RefInfo",
+          "version": "2023.1.0"
+        },
+        "type": "Link",
+        "value": "distributed.LocalCluster"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

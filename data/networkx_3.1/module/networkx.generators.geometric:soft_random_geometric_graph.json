@@ -1,0 +1,689 @@
+{
+  "aliases": [
+    "networkx.soft_random_geometric_graph"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The soft random geometric graph [1] model places "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "n",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "n"
+            },
+            {
+              "type": "text",
+              "value": " nodes uniformly at random in the unit cube in dimension "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "dim",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "dim"
+            },
+            {
+              "type": "text",
+              "value": ". Two nodes of distance, "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "dist",
+                "path": "dist",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "dist"
+            },
+            {
+              "type": "text",
+              "value": ", computed by the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "p",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "p"
+            },
+            {
+              "type": "text",
+              "value": "-Minkowski distance metric are joined by an edge with probability "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "p_dist",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "p_dist"
+            },
+            {
+              "type": "text",
+              "value": " if the computed distance metric value of the nodes is at most "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "networkx",
+                "path": "networkx.algorithms.distance_measures:radius",
+                "type": "RefInfo",
+                "version": "3.1"
+              },
+              "type": "Link",
+              "value": "radius"
+            },
+            {
+              "type": "text",
+              "value": ", otherwise they are not joined."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Edges within "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "networkx",
+                "path": "networkx.algorithms.distance_measures:radius",
+                "type": "RefInfo",
+                "version": "3.1"
+              },
+              "type": "Link",
+              "value": "radius"
+            },
+            {
+              "type": "text",
+              "value": " of each other are determined using a KDTree when SciPy is available. This reduces the time complexity from "
+            },
+            {
+              "type": "inlineMath",
+              "value": "O(n^2)"
+            },
+            {
+              "type": "text",
+              "value": " to "
+            },
+            {
+              "type": "inlineMath",
+              "value": "O(n)"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This uses a "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "k"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": "-d tree to build the graph."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "pos",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "pos"
+            },
+            {
+              "type": "text",
+              "value": " keyword argument can be used to specify node positions so you can create an arbitrary distribution and domain for positions."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For example, to use a 2D Gaussian distribution of node positions with mean (0, 0) and standard deviation 2"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The scipy.stats package can be used to define the probability distribution with the .pdf method used as "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "p_dist",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "p_dist"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> import random\n>>> import math\n>>> n = 100\n>>> pos = {i: (random.gauss(0, 2), random.gauss(0, 2)) for i in range(n)}\n>>> p_dist = lambda dist: math.exp(-dist)\n>>> G = nx.soft_random_geometric_graph(n, 0.2, pos=pos, p_dist=p_dist)"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of nodes or iterable of nodes"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "n",
+              "type": "Param",
+              "type_": "int or iterable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Distance threshold value"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "radius: float",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Dimension of graph"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dim",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A dictionary keyed by node with node positions as values."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "pos",
+              "type": "Param",
+              "type_": "dict, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Which Minkowski distance metric to use. "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "p",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "p"
+                    },
+                    {
+                      "type": "text",
+                      "value": " has to meet the condition "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "1 <= p <= infinity"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If this argument is not specified, the "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "L^2"
+                    },
+                    {
+                      "type": "text",
+                      "value": " metric (the Euclidean distance metric), p = 2 is used."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This should not be confused with the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "p",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "p"
+                    },
+                    {
+                      "type": "text",
+                      "value": " of an Erd\u0151s-R\u00e9nyi random graph, which represents probability."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "p",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A probability density function computing the probability of connecting two nodes that are of distance, dist, computed by the Minkowski distance metric. The probability density function, "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "p_dist",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "p_dist"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", must be any function that takes the metric value as input and outputs a single probability value between 0-1. The scipy.stats package has many probability distribution functions implemented and tools for custom probability distribution definitions [2], and passing the .pdf method of scipy.stats distributions can be used here.  If the probability function, "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "p_dist",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "p_dist"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", is not supplied, the default function is an exponential distribution with rate parameter "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "\\lambda=1"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "p_dist",
+              "type": "Param",
+              "type_": "function, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Indicator of random number generation state. See "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Randomness<randomness>"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "seed",
+              "type": "Param",
+              "type_": "integer, random_state, or None (default)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A soft random geometric graph, undirected and without self-loops. Each node has a node attribute "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "'pos'"
+                    },
+                    {
+                      "type": "text",
+                      "value": " that stores the position of that node in Euclidean space as provided by the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "pos"
+                    },
+                    {
+                      "type": "text",
+                      "value": " keyword argument or, if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "pos"
+                    },
+                    {
+                      "type": "text",
+                      "value": " was not provided, as generated by this function."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "Graph"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Returns a soft random geometric graph in the unit cube."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Default Graph:"
+      },
+      {
+        "type": "text",
+        "value": "G = nx.soft_random_geometric_graph(50, 0.2)"
+      },
+      {
+        "type": "text",
+        "value": "Custom Graph:"
+      },
+      {
+        "type": "text",
+        "value": "Create a soft random geometric graph on 100 uniformly distributed nodes\nwhere nodes are joined by an edge with probability computed from an\nexponential distribution with rate parameter :math:`\\lambda=1` if their\nEuclidean distance is at most 0.2."
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/generators/geometric.py",
+  "item_line": 197,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Examples",
+    "Notes",
+    "References"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(n, radius, dim=2, pos=None, p=2, p_dist=None, seed=None)"
+  },
+  "type": "DocBlob"
+}

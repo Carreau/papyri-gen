@@ -1,0 +1,1094 @@
+{
+  "aliases": [
+    "networkx.tutte_polynomial"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function computes the Tutte polynomial via an iterative version of the deletion-contraction algorithm."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The Tutte polynomial "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "T_G(x, y)"
+            },
+            {
+              "type": "text",
+              "value": " is a fundamental graph polynomial invariant in two variables. It encodes a wide array of information related to the edge-connectivity of a graph; \"Many problems about graphs can be reduced to problems of finding and evaluating the Tutte polynomial at certain values\" . In fact, every deletion-contraction-expressible feature of a graph is a specialization of the Tutte polynomial  (see Notes for examples)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "There are several equivalent definitions; here are three:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Def 1 (rank-nullity expansion): For "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "G",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "G"
+            },
+            {
+              "type": "text",
+              "value": " an undirected graph, "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "n(G)"
+            },
+            {
+              "type": "text",
+              "value": " the number of vertices of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "G",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "G"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "E"
+            },
+            {
+              "type": "text",
+              "value": " the edge set of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "G",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "G"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "V"
+            },
+            {
+              "type": "text",
+              "value": " the vertex set of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "G",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "G"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "c(A)"
+            },
+            {
+              "type": "text",
+              "value": " the number of connected components of the graph with vertex set "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "V"
+            },
+            {
+              "type": "text",
+              "value": " and edge set "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": " :"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "T_G(x, y) = \\sum_{A \\in E} (x-1)^{c(A) - c(E)} (y-1)^{c(A) + |A| - n(G)}"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Def 2 (spanning tree expansion): Let "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "G",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "G"
+            },
+            {
+              "type": "text",
+              "value": " be an undirected graph, "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "T"
+            },
+            {
+              "type": "text",
+              "value": " a spanning tree of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "G",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "G"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "E"
+            },
+            {
+              "type": "text",
+              "value": " the edge set of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "G",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "G"
+            },
+            {
+              "type": "text",
+              "value": ". Let "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "E"
+            },
+            {
+              "type": "text",
+              "value": " have an arbitrary strict linear order "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "L"
+            },
+            {
+              "type": "text",
+              "value": ". Let "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "B_e"
+            },
+            {
+              "type": "text",
+              "value": " be the unique minimal nonempty edge cut of $E \\setminus T \\cup {e}$. An edge "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "e"
+            },
+            {
+              "type": "text",
+              "value": " is internally active with respect to "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "T"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "L"
+            },
+            {
+              "type": "text",
+              "value": " if "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "e"
+            },
+            {
+              "type": "text",
+              "value": " is the least edge in "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "B_e"
+            },
+            {
+              "type": "text",
+              "value": " according to the linear order "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "L"
+            },
+            {
+              "type": "text",
+              "value": ". The internal activity of "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "T"
+            },
+            {
+              "type": "text",
+              "value": " (denoted "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "i(T)"
+            },
+            {
+              "type": "text",
+              "value": ") is the number of edges in $E \\setminus T$ that are internally active with respect to "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "T"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "L"
+            },
+            {
+              "type": "text",
+              "value": ". Let "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "P_e"
+            },
+            {
+              "type": "text",
+              "value": " be the unique path in $T \\cup {e}$ whose source and target vertex are the same. An edge "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "e"
+            },
+            {
+              "type": "text",
+              "value": " is externally active with respect to "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "T"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "L"
+            },
+            {
+              "type": "text",
+              "value": " if "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "e"
+            },
+            {
+              "type": "text",
+              "value": " is the least edge in "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "P_e"
+            },
+            {
+              "type": "text",
+              "value": " according to the linear order "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "L"
+            },
+            {
+              "type": "text",
+              "value": ". The external activity of "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "T"
+            },
+            {
+              "type": "text",
+              "value": " (denoted "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "e(T)"
+            },
+            {
+              "type": "text",
+              "value": ") is the number of edges in $E \\setminus T$ that are externally active with respect to "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "T"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "L"
+            },
+            {
+              "type": "text",
+              "value": ". Then  :"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "T_G(x, y) = \\sum_{T \\text{ a spanning tree of } G} x^{i(T)} y^{e(T)}"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Def 3 (deletion-contraction recurrence): For "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "G",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "G"
+            },
+            {
+              "type": "text",
+              "value": " an undirected graph, "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "G-e"
+            },
+            {
+              "type": "text",
+              "value": " the graph obtained from "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "G",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "G"
+            },
+            {
+              "type": "text",
+              "value": " by deleting edge "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "e"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "G/e"
+            },
+            {
+              "type": "text",
+              "value": " the graph obtained from "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "G",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "G"
+            },
+            {
+              "type": "text",
+              "value": " by contracting edge "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "e"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "k(G)"
+            },
+            {
+              "type": "text",
+              "value": " the number of cut-edges of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "G",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "G"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "l(G)"
+            },
+            {
+              "type": "text",
+              "value": " the number of self-loops of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "G",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "G"
+            },
+            {
+              "type": "text",
+              "value": ":"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "    T_G(x, y) = \\begin{cases}\n\t   x^{k(G)} y^{l(G)}, & \\text{if all edges are cut-edges or self-loops} \\\\\n       T_{G-e}(x, y) + T_{G/e}(x, y), & \\text{otherwise, for an arbitrary edge $e$ not a cut-edge or loop}\n    \\end{cases}"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Some specializations of the Tutte polynomial:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "T_G(1, 1)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " counts the number of spanning trees of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "G",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "G"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "T_G(1, 2)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " counts the number of connected spanning subgraphs of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "G",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "G"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "T_G(2, 1)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " counts the number of spanning forests in "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "G",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "G"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "T_G(0, 2)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " counts the number of strong orientations of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "G",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "G"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "T_G(2, 0)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " counts the number of acyclic orientations of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "G",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "G"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Edge contraction is defined and deletion-contraction is introduced in . Combinatorial meaning of the coefficients is introduced in . Universality, properties, and applications are discussed in ."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Practically, up-front computation of the Tutte polynomial may be useful when users wish to repeatedly calculate edge-connectivity-related information about one or more graphs."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "G",
+              "type": "Param",
+              "type_": "NetworkX graph"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A Sympy expression representing the Tutte polynomial for "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "G",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "G"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "instance of `sympy.core.add.Add`"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Returns the Tutte polynomial of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "G",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "G"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "C = nx.cycle_graph(5)\nnx.tutte_polynomial(C)"
+      },
+      {
+        "type": "code",
+        "value": "D = nx.diamond_graph()\nnx.tutte_polynomial(D)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/algorithms/polynomials.py",
+  "item_line": 32,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Examples",
+    "Notes",
+    "References"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(G)"
+  },
+  "type": "DocBlob"
+}

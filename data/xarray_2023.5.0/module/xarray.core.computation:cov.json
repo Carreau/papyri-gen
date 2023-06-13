@@ -1,0 +1,289 @@
+{
+  "aliases": [
+    "xarray.cov"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Array to compute."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "da_a",
+              "type": "Param",
+              "type_": "DataArray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Array to compute."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "da_b",
+              "type": "Param",
+              "type_": "DataArray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The dimension along which the covariance will be computed"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dim",
+              "type": "Param",
+              "type_": "str, iterable of hashable, \"...\" or None, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If ddof=1, covariance is normalized by N-1, giving an unbiased estimate, else normalization is by N."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ddof",
+              "type": "Param",
+              "type_": "int, default: 1"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "covariance",
+              "type": "Param",
+              "type_": "DataArray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute covariance between two DataArray objects along a shared dimension."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from xarray import DataArray\nda_a = DataArray(\n    np.array([[1, 2, 3], [0.1, 0.2, 0.3], [3.2, 0.6, 1.8]]),\n    dims=(\"space\", \"time\"),\n    coords=[\n        (\"space\", [\"IA\", \"IL\", \"IN\"]),\n        (\"time\", pd.date_range(\"2000-01-01\", freq=\"1D\", periods=3)),\n    ],\n)\nda_a"
+      },
+      {
+        "type": "code",
+        "value": "da_b = DataArray(\n    np.array([[0.2, 0.4, 0.6], [15, 10, 5], [3.2, 0.6, 1.8]]),\n    dims=(\"space\", \"time\"),\n    coords=[\n        (\"space\", [\"IA\", \"IL\", \"IN\"]),\n        (\"time\", pd.date_range(\"2000-01-01\", freq=\"1D\", periods=3)),\n    ],\n)\nda_b"
+      },
+      {
+        "type": "code",
+        "value": "xr.cov(da_a, da_b)"
+      },
+      {
+        "type": "code",
+        "value": "xr.cov(da_a, da_b, dim=\"time\")"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/xarray/core/computation.py",
+  "item_line": 1213,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "corresponding pandas function"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "pandas.Series.cov",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "pandas.Series.cov"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "respective function to calculate correlation"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "xarray",
+          "path": "xarray.core.computation:corr",
+          "type": "RefInfo",
+          "version": "2023.5.0"
+        },
+        "type": "Link",
+        "value": "xarray.corr"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(da_a: 'T_DataArray', da_b: 'T_DataArray', dim: 'Dims' = None, ddof: 'int' = 1) -> 'T_DataArray'"
+  },
+  "type": "DocBlob"
+}

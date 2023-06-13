@@ -1,0 +1,339 @@
+{
+  "aliases": [
+    "xarray.backends.CachingFileManager.__init__"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The cache, manager_id and ref_counts arguments exist solely to facilitate dependency injection, and should only be set for tests."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Function that when called like "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "opener(*args, **kwargs)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " returns an open file object. The file object must implement a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "close()"
+                    },
+                    {
+                      "type": "text",
+                      "value": " method."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "opener",
+              "type": "Param",
+              "type_": "callable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Positional arguments for opener. A "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "mode"
+                    },
+                    {
+                      "type": "text",
+                      "value": " argument should be provided as a keyword argument (see below). All arguments must be hashable."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "*args",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If provided, passed as a keyword argument to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "opener"
+                    },
+                    {
+                      "type": "text",
+                      "value": " along with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "**kwargs"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "mode='w' `` has special treatment: after the first\ncall it is replaced by ``mode='a'"
+                    },
+                    {
+                      "type": "text",
+                      "value": " in all subsequent function to avoid overriding the newly created file."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mode",
+              "type": "Param",
+              "type_": "optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Keyword arguments for opener, excluding "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "mode"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". All values must be hashable."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "kwargs",
+              "type": "Param",
+              "type_": "dict, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Lock to use when modifying the cache inside acquire() and close(). By default, uses a new threading.Lock() object. If set, this object should be pickleable."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "lock",
+              "type": "Param",
+              "type_": "duck-compatible threading.Lock, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Mapping to use as a cache for open files. By default, uses xarray's global LRU file cache. Because "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "cache"
+                    },
+                    {
+                      "type": "text",
+                      "value": " typically points to a global variable and contains non-picklable file objects, an unpickled FileManager objects will be restored with the default cache."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "cache",
+              "type": "Param",
+              "type_": "MutableMapping, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Identifier for this CachingFileManager."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "manager_id",
+              "type": "Param",
+              "type_": "hashable, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Optional dict to use for keeping track the number of references to the same file."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ref_counts",
+              "type": "Param",
+              "type_": "dict, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Initialize a CachingFileManager."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/xarray/backends/file_manager.py",
+  "item_line": 81,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, opener, *args, mode=<unused>, kwargs=None, lock=None, cache=None, manager_id: 'Hashable | None' = None, ref_counts=None)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,330 @@
+{
+  "aliases": [
+    "networkx.connectivity.edge_augmentation.weighted_bridge_augmentation"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This is an implementation of the approximation algorithm detailed in . It chooses a set of edges from avail to add to G that renders it 2-edge-connected if such a subset exists.  This is done by finding a minimum spanning arborescence of a specially constructed metagraph."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Finding a weighted 2-edge-augmentation is NP-hard. Any edge not in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "avail"
+            },
+            {
+              "type": "text",
+              "value": " is considered to have a weight of infinity. The approximation factor is 2 if "
+            },
+            {
+              "type": "inlineCode",
+              "value": "G"
+            },
+            {
+              "type": "text",
+              "value": " is connected and 3 if it is not. Runs in "
+            },
+            {
+              "type": "inlineMath",
+              "value": "O(m + n log(n))"
+            },
+            {
+              "type": "text",
+              "value": " time"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An undirected graph."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "G",
+              "type": "Param",
+              "type_": "NetworkX graph"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "candidate edges (with optional weights) to choose from"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "avail",
+              "type": "Param",
+              "type_": "set of 2 or 3 tuples."
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "key to use to find weights if avail is a set of 3-tuples where the third item in each tuple is a dictionary."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "weight",
+              "type": "Param",
+              "type_": "string"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Finds an approximate min-weight 2-edge-augmentation of G."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Edges in the subset of avail chosen to bridge augment G."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "edge",
+              "type": "Param",
+              "type_": "tuple"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "G = nx.path_graph((1, 2, 3, 4))\n# When the weights are equal, (1, 4) is the best\navail = [(1, 4, 1), (1, 3, 1), (2, 4, 1)]\nsorted(weighted_bridge_augmentation(G, avail))"
+      },
+      {
+        "type": "code",
+        "value": "# Giving (1, 4) a high weight makes the two edge solution the best.\navail = [(1, 4, 1000), (1, 3, 1), (2, 4, 1)]\nsorted(weighted_bridge_augmentation(G, avail))"
+      },
+      {
+        "type": "code",
+        "value": "# ------\nG = nx.path_graph((1, 2, 3, 4))\nG.add_node(5)\navail = [(1, 5, 11), (2, 5, 10), (4, 3, 1), (4, 5, 1)]\nsorted(weighted_bridge_augmentation(G, avail=avail))"
+      },
+      {
+        "type": "code",
+        "value": "avail = [(1, 5, 11), (2, 5, 10), (4, 3, 1), (4, 5, 51)]\nsorted(weighted_bridge_augmentation(G, avail=avail))"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/algorithms/connectivity/edge_augmentation.py",
+  "item_line": 839,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Yields",
+    "Notes",
+    "References",
+    "See Also",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "func"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "bridge_augmentation",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "bridge_augmentation"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "func"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "k_edge_augmentation",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "k_edge_augmentation"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(G, avail, weight=None)"
+  },
+  "type": "DocBlob"
+}

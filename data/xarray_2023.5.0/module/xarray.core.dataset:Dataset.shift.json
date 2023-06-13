@@ -1,0 +1,305 @@
+{
+  "aliases": [
+    "xarray.Dataset.shift"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Only data variables are moved; coordinates stay in place. This is consistent with the behavior of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "shift"
+            },
+            {
+              "type": "text",
+              "value": " in pandas."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Values shifted from beyond array bounds will appear at one end of each dimension, which are filled according to "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "fill_value",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "fill_value"
+            },
+            {
+              "type": "text",
+              "value": ". For periodic offsets instead see "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "xarray",
+                "path": "xarray.core.dataset:Dataset.roll",
+                "type": "RefInfo",
+                "version": "2023.5.0"
+              },
+              "type": "Link",
+              "value": "roll"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Integer offset to shift along each of the given dimensions. Positive offsets shift to the right; negative offsets shift to the left."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "shifts",
+              "type": "Param",
+              "type_": "mapping of hashable to int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Value to use for newly missing values. If a dict-like, maps variable names (including coordinates) to fill values."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fill_value",
+              "type": "Param",
+              "type_": "scalar or dict-like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The keyword arguments form of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "shifts"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". One of shifts or shifts_kwargs must be provided."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "**shifts_kwargs",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Dataset with the same coordinates and attributes but shifted data variables."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "shifted",
+              "type": "Param",
+              "type_": "Dataset"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Shift this dataset by an offset along one or more dimensions."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "ds = xr.Dataset({\"foo\": (\"x\", list(\"abcde\"))})\nds.shift(x=2)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/xarray/core/dataset.py",
+  "item_line": 6843,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "xarray",
+          "path": "xarray.core.dataset:Dataset.roll",
+          "type": "RefInfo",
+          "version": "2023.5.0"
+        },
+        "type": "Link",
+        "value": "roll"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(self: 'T_Dataset', shifts: 'Mapping[Any, int] | None' = None, fill_value: 'Any' = <NA>, **shifts_kwargs: 'int') -> 'T_Dataset'"
+  },
+  "type": "DocBlob"
+}

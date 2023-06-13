@@ -1,0 +1,285 @@
+{
+  "aliases": [
+    "networkx.write_network_text"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This works via a depth-first traversal of the graph and writing a line for each unique node encountered. Non-tree edges are written to the right of each node, and connection to a non-tree edge is indicated with an ellipsis. This representation works best when the input graph is a forest, but any graph can be represented."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Graph to represent"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "graph",
+              "type": "Param",
+              "type_": "nx.DiGraph | nx.Graph"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Filename or file handle for data output. if a function, then it will be called for each generated line. if None, this will default to \"sys.stdout.write\""
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "path",
+              "type": "Param",
+              "type_": "string or file or callable or None"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True will use the \"label\" attribute of a node to display if it exists otherwise it will use the node value itself. If given as a string, then that attribute name will be used instead of \"label\". Defaults to True."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "with_labels",
+              "type": "Param",
+              "type_": "bool | str"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Specifies which nodes to start traversal from. Note: nodes that are not reachable from one of these sources may not be shown. If unspecified, the minimal set of nodes needed to reach all others will be used."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sources",
+              "type": "Param",
+              "type_": "List"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The maximum depth to traverse before stopping. Defaults to None."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "max_depth",
+              "type": "Param",
+              "type_": "int | None"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True only ASCII characters are used to construct the visualization"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ascii_only",
+              "type": "Param",
+              "type_": "Boolean"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The line ending character"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "end",
+              "type": "Param",
+              "type_": "string"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Creates a nice text representation of a graph"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "graph = nx.balanced_tree(r=2, h=2, create_using=nx.DiGraph)\nnx.write_network_text(graph)"
+      },
+      {
+        "type": "code",
+        "value": "# A near tree with one non-tree edge\ngraph.add_edge(5, 1)\nnx.write_network_text(graph)"
+      },
+      {
+        "type": "code",
+        "value": "graph = nx.cycle_graph(5)\nnx.write_network_text(graph)"
+      },
+      {
+        "type": "code",
+        "value": "graph = nx.generators.barbell_graph(4, 2)\nnx.write_network_text(graph)"
+      },
+      {
+        "type": "code",
+        "value": "graph = nx.complete_graph(5, create_using=nx.Graph)\nnx.write_network_text(graph)"
+      },
+      {
+        "type": "code",
+        "value": "graph = nx.complete_graph(3, create_using=nx.DiGraph)\nnx.write_network_text(graph)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/readwrite/text.py",
+  "item_line": 289,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(graph, path=None, with_labels=True, sources=None, max_depth=None, ascii_only=False, end='\\n')"
+  },
+  "type": "DocBlob"
+}

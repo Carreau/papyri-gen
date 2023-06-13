@@ -1,0 +1,528 @@
+{
+  "aliases": [
+    "numpy.distutils.misc_util.Configuration.add_data_files"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The form of each element of the files sequence is very flexible allowing many combinations of where to get the files from the package and where they should ultimately be installed on the system. The most basic usage is for an element of the files argument sequence to be a simple filename. This will cause that file from the local path to be installed to the installation path of the self.name package (package path). The file argument can also be a relative path in which case the entire relative path will be installed into the package directory. Finally, the file can be an absolute path name in which case the file will be found at the absolute path name but installed to the package path."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This basic behavior can be augmented by passing a 2-tuple in as the file argument. The first element of the tuple should specify the relative path (under the package install directory) where the remaining sequence of files should be installed to (it has nothing to do with the file-names in the source distribution). The second element of the tuple is the sequence of files that should be installed. The files in this sequence can be filenames, relative paths, or absolute paths. For absolute paths the file will be installed in the top-level package installation directory (regardless of the first argument). Filenames and relative path names will be installed in the package install directory under the path name given as the first element of the tuple."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Rules for installation paths:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "file.txt -> (., file.txt)-> parent/file.txt"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "foo/file.txt -> (foo, foo/file.txt) -> parent/foo/file.txt"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "/foo/bar/file.txt -> (., /foo/bar/file.txt) -> parent/file.txt"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "inlineCode",
+                          "value": "*"
+                        },
+                        {
+                          "type": "text",
+                          "value": ".txt -> parent/a.txt, parent/b.txt"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "foo/"
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "*"
+                        },
+                        {
+                          "type": "text",
+                          "value": ".txt`` -> parent/foo/a.txt, parent/foo/b.txt"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "inlineCode",
+                          "value": "*/*.txt"
+                        },
+                        {
+                          "type": "text",
+                          "value": " -> ("
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "*"
+                        },
+                        {
+                          "type": "text",
+                          "value": ", "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "*"
+                        },
+                        {
+                          "type": "text",
+                          "value": "/"
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "*"
+                        },
+                        {
+                          "type": "text",
+                          "value": ".txt) -> parent/c/a.txt, parent/d/b.txt"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "(sun, file.txt) -> parent/sun/file.txt"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "(sun, bar/file.txt) -> parent/sun/file.txt"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "(sun, /foo/bar/file.txt) -> parent/sun/file.txt"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "(sun, "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "*"
+                        },
+                        {
+                          "type": "text",
+                          "value": ".txt) -> parent/sun/a.txt, parent/sun/b.txt"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "(sun, bar/"
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "*"
+                        },
+                        {
+                          "type": "text",
+                          "value": ".txt) -> parent/sun/a.txt, parent/sun/b.txt"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "(sun/"
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "*"
+                        },
+                        {
+                          "type": "text",
+                          "value": ", "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "*"
+                        },
+                        {
+                          "type": "text",
+                          "value": "/"
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "*"
+                        },
+                        {
+                          "type": "text",
+                          "value": ".txt) -> parent/sun/c/a.txt, parent/d/b.txt"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                }
+              ],
+              "ordered": true,
+              "spread": false,
+              "start": 1,
+              "type": "list"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "An additional feature is that the path to a data-file can actually be a function that takes no arguments and returns the actual path(s) to the data-files. This is useful when the data files are generated while building the package."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Argument(s) can be either"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "2-sequence (<datadir prefix>,<path to data file(s)>)"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "paths to data files where python datadir prefix defaults       to package dir."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        }
+                      ],
+                      "ordered": false,
+                      "spread": false,
+                      "start": 1,
+                      "type": "list"
+                    }
+                  ],
+                  "type": "blockquote"
+                }
+              ],
+              "param": "files",
+              "type": "Param",
+              "type_": "sequence"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Add data files to configuration data_files."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Add files to the list of data_files to be included with the package."
+      },
+      {
+        "type": "text",
+        "value": "    >>> self.add_data_files('foo.dat',\n    ...     ('fun', ['gun.dat', 'nun/pun.dat', '/tmp/sun.dat']),\n    ...     'bar/cat.dat',\n    ...     '/full/path/to/can.dat')                   #doctest: +SKIP"
+      },
+      {
+        "type": "text",
+        "value": "will install these data files to::"
+      },
+      {
+        "type": "text",
+        "value": "    <package install directory>/\n     foo.dat\n     fun/\n       gun.dat\n       nun/\n         pun.dat\n     sun.dat\n     bar/\n       car.dat\n     can.dat"
+      },
+      {
+        "type": "text",
+        "value": "where <package install directory> is the package (or sub-package)\ndirectory such as '/usr/lib/python2.4/site-packages/mypackage' ('C:\n\\Python2.4 \\Lib \\site-packages \\mypackage') or\n'/usr/lib/python2.4/site- packages/mypackage/mysubpackage' ('C:\n\\Python2.4 \\Lib \\site-packages \\mypackage \\mysubpackage')."
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/numpy/distutils/misc_util.py",
+  "item_line": 1200,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, *files)"
+  },
+  "type": "DocBlob"
+}

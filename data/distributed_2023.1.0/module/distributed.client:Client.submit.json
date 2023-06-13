@@ -1,0 +1,560 @@
+{
+  "aliases": [
+    "distributed.Client.submit"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Callable to be scheduled as "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "func(*args **kwargs)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "func"
+                    },
+                    {
+                      "type": "text",
+                      "value": " returns a coroutine, it will be run on the main event loop of a worker. Otherwise "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "func"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will be run in a worker's task executor pool (see "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Worker.executors"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for more information.)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "func",
+              "type": "Param",
+              "type_": "callable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Optional positional arguments"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "*args",
+              "type": "Param",
+              "type_": "tuple"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Unique identifier for the task.  Defaults to function-name and hash"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "key",
+              "type": "Param",
+              "type_": "str"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A set of worker addresses or hostnames on which computations may be performed. Leave empty to default to all workers (common case)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "workers",
+              "type": "Param",
+              "type_": "string or iterable of strings"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Defines the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "resources"
+                    },
+                    {
+                      "type": "text",
+                      "value": " each instance of this mapped task requires on the worker; e.g. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "{'GPU': 2}"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". See "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "worker resources <resources>"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for details on defining resources."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "resources",
+              "type": "Param",
+              "type_": "dict (defaults to {})"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of allowed automatic retries if the task fails"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "retries",
+              "type": "Param",
+              "type_": "int (default to 0)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Optional prioritization of task.  Zero is default. Higher priorities take precedence"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "priority",
+              "type": "Param",
+              "type_": "Number"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Allowed amount of time between calls to consider the same priority"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fifo_timeout",
+              "type": "Param",
+              "type_": "str timedelta (default '100ms')"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Used with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "workers"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Indicates whether or not the computations may be performed on workers that are not in the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "workers",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "workers"
+                    },
+                    {
+                      "type": "text",
+                      "value": " set(s)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "allow_other_workers",
+              "type": "Param",
+              "type_": "bool (defaults to False)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether this task should exist on the worker as a stateful actor. See "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "actors"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for additional details."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "actor",
+              "type": "Param",
+              "type_": "bool (default False)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Alias for "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "actor",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "actor"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "actors",
+              "type": "Param",
+              "type_": "bool (default False)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether or not the function is pure.  Set "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "pure=False"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for impure functions like "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.random.random"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". See "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "pure functions"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for more details."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "pure",
+              "type": "Param",
+              "type_": "bool (defaults to True)"
+            },
+            {
+              "desc": [],
+              "param": "**kwargs",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If 'func' is not callable, a TypeError is raised"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "TypeError"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If 'allow_other_workers'is True and 'workers' is None, a ValueError is raised"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "ValueError"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If running in asynchronous mode, returns the future. Otherwise returns the concrete value"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "Future"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Submit a function application to the scheduler"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "c = client.submit(add, a, b)  # doctest: +SKIP"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/distributed/client.py",
+  "item_line": 1791,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Examples",
+    "Returns",
+    "Raises",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Submit on many arguments at once"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "distributed",
+          "path": "distributed.client:Client.map",
+          "type": "RefInfo",
+          "version": "2023.1.0"
+        },
+        "type": "Link",
+        "value": "Client.map"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, func, *args, key=None, workers=None, resources=None, retries=None, priority=0, fifo_timeout='100 ms', allow_other_workers=False, actor=False, actors=False, pure=None, **kwargs)"
+  },
+  "type": "DocBlob"
+}

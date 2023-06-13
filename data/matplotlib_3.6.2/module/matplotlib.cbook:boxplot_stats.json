@@ -1,0 +1,407 @@
+{
+  "aliases": [
+    "matplotlib.cbook.boxplot_stats"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Non-bootstrapping approach to confidence interval uses Gaussian-based asymptotic approximation:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "\\mathrm{med} \\pm 1.57 \\times \\frac{\\mathrm{iqr}}{\\sqrt{N}}"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "General approach from: McGill, R., Tukey, J.W., and Larsen, W.A. (1978) \"Variations of Boxplots\", The American Statistician, 32:12-16."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Data that will be represented in the boxplots. Should have 2 or fewer dimensions."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "X",
+              "type": "Param",
+              "type_": "array-like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The position of the whiskers."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If a float, the lower whisker is at the lowest datum above "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Q1 - whis*(Q3-Q1)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", and the upper whisker at the highest datum below "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Q3 + whis*(Q3-Q1)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", where Q1 and Q3 are the first and third quartiles.  The default value of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "whis = 1.5"
+                    },
+                    {
+                      "type": "text",
+                      "value": " corresponds to Tukey's original definition of boxplots."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If a pair of floats, they indicate the percentiles at which to draw the whiskers (e.g., (5, 95)).  In particular, setting this to (0, 100) results in whiskers covering the whole range of the data."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "In the edge case where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Q1 == Q3"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "whis"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is automatically set to (0, 100) (cover the whole range of the data) if "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "autorange"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is True."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Beyond the whiskers, data are considered outliers and are plotted as individual points."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "whis",
+              "type": "Param",
+              "type_": "float or (float, float), default: 1.5"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of times the confidence intervals around the median should be bootstrapped (percentile method)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "bootstrap",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Labels for each dataset. Length must be compatible with dimensions of "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "X"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "labels",
+              "type": "Param",
+              "type_": "array-like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "When "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and the data are distributed such that the 25th and 75th percentiles are equal, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "whis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is set to (0, 100) such that the whisker ends are at the minimum and maximum of the data."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "autorange",
+              "type": "Param",
+              "type_": "bool, optional (False)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A list of dictionaries containing the results for each column of data. Keys of each dictionary are the following:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "========   =================================== Key        Value Description ========   =================================== label      tick label for the boxplot mean       arithmetic mean value med        50th percentile q1         first quartile (25th percentile) q3         third quartile (75th percentile) iqr        interquartile range cilo       lower notch around the median cihi       upper notch around the median whislo     end of the lower whisker whishi     end of the upper whisker fliers     outliers ========   ==================================="
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "list of dict"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Return a list of dictionaries of statistics used to draw a series of box and whisker plots using "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "~.Axes.bxp"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/matplotlib/cbook/__init__.py",
+  "item_line": 1115,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Notes"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(X, whis=1.5, bootstrap=None, labels=None, autorange=False)"
+  },
+  "type": "DocBlob"
+}

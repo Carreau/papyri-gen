@@ -1,0 +1,910 @@
+{
+  "aliases": [
+    "IPython.display.display"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "By default all representations will be computed and sent to the frontends. Frontends can decide which representation is used and how."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In terminal IPython this will be similar to using "
+            },
+            {
+              "type": "inlineCode",
+              "value": "print"
+            },
+            {
+              "type": "text",
+              "value": ", for use in richer frontends see Jupyter notebook examples with rich display logic."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In Python, objects can declare their textual representation using the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "__repr__"
+            },
+            {
+              "type": "text",
+              "value": " method. IPython expands on this idea and allows objects to declare other, rich representations including:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "HTML"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "JSON"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "PNG"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "JPEG"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "SVG"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "LaTeX"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                }
+              ],
+              "ordered": false,
+              "spread": false,
+              "start": 1,
+              "type": "list"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A single object can declare some or all of these representations; all are handled by IPython's display system."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The main idea of the first approach is that you have to implement special display methods when you define your class, one for each representation you want to use. Here is a list of the names of the special methods and the values they must return:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "domain": null,
+                          "role": null,
+                          "type": "Directive",
+                          "value": "_repr_html_"
+                        },
+                        {
+                          "type": "text",
+                          "value": ": return raw HTML as a string, or a tuple (see below)."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "domain": null,
+                          "role": null,
+                          "type": "Directive",
+                          "value": "_repr_json_"
+                        },
+                        {
+                          "type": "text",
+                          "value": ": return a JSONable dict, or a tuple (see below)."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "domain": null,
+                          "role": null,
+                          "type": "Directive",
+                          "value": "_repr_jpeg_"
+                        },
+                        {
+                          "type": "text",
+                          "value": ": return raw JPEG data, or a tuple (see below)."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "domain": null,
+                          "role": null,
+                          "type": "Directive",
+                          "value": "_repr_png_"
+                        },
+                        {
+                          "type": "text",
+                          "value": ": return raw PNG data, or a tuple (see below)."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "domain": null,
+                          "role": null,
+                          "type": "Directive",
+                          "value": "_repr_svg_"
+                        },
+                        {
+                          "type": "text",
+                          "value": ": return raw SVG data as a string, or a tuple (see below)."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "dd": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "or a tuple (see below)."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "domain": null,
+                                "role": null,
+                                "type": "Directive",
+                                "value": "_repr_latex_"
+                              },
+                              {
+                                "type": "text",
+                                "value": ": return LaTeX commands in a string surrounded by \"$\","
+                              }
+                            ],
+                            "type": "paragraph"
+                          },
+                          "type": "DefListItem"
+                        }
+                      ],
+                      "type": "DefList"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "dd": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "from all mimetypes to data.                          Use this for any mime-type not listed above."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "domain": null,
+                                "role": null,
+                                "type": "Directive",
+                                "value": "_repr_mimebundle_"
+                              },
+                              {
+                                "type": "text",
+                                "value": ": return a full mimebundle containing the mapping"
+                              }
+                            ],
+                            "type": "paragraph"
+                          },
+                          "type": "DefListItem"
+                        }
+                      ],
+                      "type": "DefList"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                }
+              ],
+              "ordered": false,
+              "spread": false,
+              "start": 1,
+              "type": "list"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The above functions may also return the object's metadata alonside the data.  If the metadata is available, the functions will return a tuple containing the data and metadata, in that order.  If there is no metadata available, then the functions will return the data only."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When you are directly writing your own classes, you can adapt them for display in IPython by following the above approach. But in practice, you often need to work with existing classes that you can't easily modify."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You can refer to the documentation on integrating with the display system in order to register custom formatters for already existing types ("
+            },
+            {
+              "type": "inlineCode",
+              "value": "integrating_rich_display"
+            },
+            {
+              "type": "text",
+              "value": ")."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 5.4 display available without import"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 6.1 display available without import"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Since IPython 5.4 and 6.1 "
+            },
+            {
+              "type": "inlineCode",
+              "value": "display"
+            },
+            {
+              "type": "text",
+              "value": " is automatically made available to the user without import. If you are using display in a document that might be used in a pure python context or with older version of IPython, use the following import at the top of your file      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "from IPython.display import display"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The Python objects to display."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "*objs",
+              "type": "Param",
+              "type_": "object"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Are the objects to be displayed already mimetype-keyed dicts of raw display data, or Python objects that need to be formatted before display? [default: False]"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "raw",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A list of format type strings (MIME types) to include in the format data dict. If this is set "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "only"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " the format types included in this list will be computed."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "include",
+              "type": "Param",
+              "type_": "list, tuple or set, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A list of format type strings (MIME types) to exclude in the format data dict. If this is set all format types will be computed, except for those included in this argument."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "exclude",
+              "type": "Param",
+              "type_": "list, tuple or set, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A dictionary of metadata to associate with the output. mime-type keys in this dictionary will be associated with the individual representation formats, if they exist."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "metadata",
+              "type": "Param",
+              "type_": "dict, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A dictionary of transient data to associate with the output. Data in this dict should not be persisted to files (e.g. notebooks)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "transient",
+              "type": "Param",
+              "type_": "dict, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Set an id for the display. This id can be used for updating this display area later via update_display. If given as "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", generate a new "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "display_id",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "display_id"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "display_id",
+              "type": "Param",
+              "type_": "str, bool optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Should the output area be cleared before displaying anything? If True, this will wait for additional output before clearing. [default: False]"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "clear",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Additional keyword-arguments are passed through to the display publisher."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "**kwargs",
+              "type": "Param",
+              "type_": "additional keyword-args, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Returns a handle on updatable displays for use with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "update_display"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", if "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "display_id",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "display_id"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is given. Returns "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": " if no "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "display_id",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "display_id"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is given (default)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "handle: DisplayHandle"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Display a Python object in all frontends."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "class Json(object):\n    def __init__(self, json):\n        self.json = json\n    def _repr_pretty_(self, pp, cycle):\n        import json\n        pp.text(json.dumps(self.json, indent=2))\n    def __repr__(self):\n        return str(self.json)"
+      },
+      {
+        "type": "code",
+        "value": "d = Json({1:2, 3: {4:5}})"
+      },
+      {
+        "type": "code",
+        "value": "print(d)"
+      },
+      {
+        "type": "code",
+        "value": "display(d)"
+      },
+      {
+        "type": "code",
+        "value": "def int_formatter(integer, pp, cycle):\n    pp.text('I'*integer)"
+      },
+      {
+        "type": "code",
+        "value": ">>> plain = get_ipython().display_formatter.formatters['text/plain']\n>>> plain.for_type(int, int_formatter)"
+      },
+      {
+        "type": "code",
+        "value": "display(7-5)"
+      },
+      {
+        "type": "code",
+        "value": ">>> del plain.type_printers[int]\n>>> display(7-5)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dev/ipython/IPython/core/display_functions.py",
+  "item_line": 105,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Examples",
+    "See Also",
+    "Notes"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "func"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "IPython",
+          "path": "IPython.core.display_functions:update_display",
+          "type": "RefInfo",
+          "version": "8.15.0.dev"
+        },
+        "type": "Link",
+        "value": "update_display"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(*objs, include=None, exclude=None, metadata=None, transient=None, display_id=None, raw=False, clear=False, **kwargs)"
+  },
+  "type": "DocBlob"
+}

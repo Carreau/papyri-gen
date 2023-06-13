@@ -1,0 +1,352 @@
+{
+  "aliases": [
+    "scipy.spatial"
+  ],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "args": "scipy.spatial",
+          "children": [],
+          "name": "currentmodule",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": "Spatial algorithms and data structures (:mod:`scipy.spatial`)",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "These are contained in the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.spatial.transform",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "scipy.spatial.transform"
+            },
+            {
+              "type": "text",
+              "value": " submodule."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Spatial transformations",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "type": "code",
+          "value": ".. autosummary:: \n    :toctree:generated/\n    KDTree      -- class for efficient nearest-neighbor queries\n    cKDTree     -- class for efficient nearest-neighbor queries (faster implementation)\n    Rectangle"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Nearest-neighbor queries",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Distance metrics are contained in the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "scipy.spatial.distance"
+            },
+            {
+              "type": "text",
+              "value": " submodule."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Distance metrics",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "type": "code",
+          "value": ".. autosummary:: \n    :toctree:generated/\n    Delaunay    -- compute Delaunay triangulation of input points\n    ConvexHull  -- compute a convex hull for input points\n    Voronoi     -- compute a Voronoi diagram hull from input points\n    SphericalVoronoi -- compute a Voronoi diagram from input points on the surface of a sphere\n    HalfspaceIntersection -- compute the intersection points of input halfspaces"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Delaunay triangulation, convex hulls, and Voronoi diagrams",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "type": "code",
+          "value": ".. autosummary:: \n    :toctree:generated/\n    delaunay_plot_2d     -- plot 2-D triangulation\n    convex_hull_plot_2d  -- plot 2-D convex hull\n    voronoi_plot_2d      -- plot 2-D Voronoi diagram"
+        },
+        {
+          "args": ":ref:`Tutorial <qhulltutorial>`",
+          "children": [],
+          "name": "seealso",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Plotting helpers",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The simplices (triangles, tetrahedra, etc.) appearing in the Delaunay tessellation (N-D simplices), convex hull facets, and Voronoi ridges (N-1-D simplices) are represented in the following scheme      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "tess = Delaunay(points)\nhull = ConvexHull(points)\nvoro = Voronoi(points)\n\n# coordinates of the jth vertex of the ith simplex\ntess.points[tess.simplices[i, j], :]        # tessellation element\nhull.points[hull.simplices[i, j], :]        # convex hull facet\nvoro.vertices[voro.ridge_vertices[i, j], :] # ridge between Voronoi cells"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For Delaunay triangulations and convex hulls, the neighborhood structure of the simplices satisfies the condition: "
+            },
+            {
+              "type": "inlineCode",
+              "value": "tess.neighbors[i,j]"
+            },
+            {
+              "type": "text",
+              "value": " is the neighboring simplex of the ith simplex, opposite to the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "j"
+            },
+            {
+              "type": "text",
+              "value": "-vertex. It is -1 in case of no neighbor."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Convex hull facets also define a hyperplane equation      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "(hull.equations[i,:-1] * coord).sum() + hull.equations[i,-1] == 0"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Similar hyperplane equations for the Delaunay triangulation correspond to the convex hull facets on the corresponding N+1-D paraboloid."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The Delaunay triangulation objects offer a method for locating the simplex containing a given point, and barycentric coordinate computations."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Simplex representation",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "type": "code",
+          "value": ".. autosummary:: \n    :toctree:generated/\n    tsearch\n    distance_matrix\n    minkowski_distance\n    minkowski_distance_p\n    procrustes\n    geometric_slerp"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Functions",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "type": "code",
+          "value": ".. autosummary:: \n    :toctree:generated/\n    QhullError"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Warnings / Errors used in :mod:`scipy.spatial`",
+      "type": "Section"
+    }
+  ],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To remove in the future \u2013\u2013 scipy.spatial"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/spatial/__init__.py",
+  "item_line": 0,
+  "item_type": "<class 'module'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

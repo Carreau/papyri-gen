@@ -1,0 +1,511 @@
+{
+  "aliases": [
+    "scipy.stats.f_oneway"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The one-way ANOVA tests the null hypothesis that two or more groups have the same population mean.  The test is applied to samples from two or more groups, possibly with differing sizes."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The ANOVA test has important assumptions that must be satisfied in order for the associated p-value to be valid."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The samples are independent."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Each sample is from a normally distributed population."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The population standard deviations of the groups are all equal.  This    property is known as homoscedasticity."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": true,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If these assumptions are not true for a given set of data, it may still be possible to use the Kruskal-Wallis H-test ("
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "scipy.stats._stats_py",
+                "path": "scipy.stats._stats_py:kruskal",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "scipy.stats.kruskal"
+            },
+            {
+              "type": "text",
+              "value": ") or the Alexander-Govern test ("
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "scipy.stats._stats_py",
+                "path": "scipy.stats._stats_py:alexandergovern",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "scipy.stats.alexandergovern"
+            },
+            {
+              "type": "text",
+              "value": ") although with some loss of power."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The length of each group must be at least one, and there must be at least one group with length greater than one.  If these conditions are not satisfied, a warning is generated and ("
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.nan"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.nan"
+            },
+            {
+              "type": "text",
+              "value": ") is returned."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If all values in each group are identical, and there exist at least two groups with different values, the function generates a warning and returns ("
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.inf"
+            },
+            {
+              "type": "text",
+              "value": ", 0)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If all values in all groups are the same, function generates a warning and returns ("
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.nan"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.nan"
+            },
+            {
+              "type": "text",
+              "value": ")."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The algorithm is from Heiman , pp.394-7."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The sample measurements for each group.  There must be at least two arguments.  If the arrays are multidimensional, then all the dimensions of the array must be the same except for "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "axis",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "axis"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sample1, sample2, ...",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Axis of the input arrays along which the test is applied. Default is 0."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "axis",
+              "type": "Param",
+              "type_": "int, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The computed F statistic of the test."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "statistic",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The associated p-value from the F distribution."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "pvalue",
+              "type": "Param",
+              "type_": "float"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Perform one-way ANOVA."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Raised if all values within each of the input arrays are identical. In this case the F statistic is either infinite or isn't defined, so "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.inf"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.nan"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is returned."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "`~scipy.stats.ConstantInputWarning`"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Raised if the length of any input array is 0, or if all the input arrays have length 1.  "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.nan"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is returned for the F statistic and the p-value in these cases."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "`~scipy.stats.DegenerateDataWarning`"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.stats import f_oneway"
+      },
+      {
+        "type": "text",
+        "value": "Here are some data [3]_ on a shell measurement (the length of the anterior\nadductor muscle scar, standardized by dividing by length) in the mussel\nMytilus trossulus from five locations: Tillamook, Oregon; Newport, Oregon;\nPetersburg, Alaska; Magadan, Russia; and Tvarminne, Finland, taken from a\nmuch larger data set used in McDonald et al. (1991)."
+      },
+      {
+        "type": "code",
+        "value": "tillamook = [0.0571, 0.0813, 0.0831, 0.0976, 0.0817, 0.0859, 0.0735,\n             0.0659, 0.0923, 0.0836]\nnewport = [0.0873, 0.0662, 0.0672, 0.0819, 0.0749, 0.0649, 0.0835,\n           0.0725]\npetersburg = [0.0974, 0.1352, 0.0817, 0.1016, 0.0968, 0.1064, 0.105]\nmagadan = [0.1033, 0.0915, 0.0781, 0.0685, 0.0677, 0.0697, 0.0764,\n           0.0689]\ntvarminne = [0.0703, 0.1026, 0.0956, 0.0973, 0.1039, 0.1045]\nf_oneway(tillamook, newport, petersburg, magadan, tvarminne)"
+      },
+      {
+        "type": "text",
+        "value": "`f_oneway` accepts multidimensional input arrays.  When the inputs\nare multidimensional and `axis` is not given, the test is performed\nalong the first axis of the input arrays.  For the following data, the\ntest is performed three times, once for each column."
+      },
+      {
+        "type": "code",
+        "value": "a = np.array([[9.87, 9.03, 6.81],\n              [7.18, 8.35, 7.00],\n              [8.39, 7.58, 7.68],\n              [7.45, 6.33, 9.35],\n              [6.41, 7.10, 9.33],\n              [8.00, 8.24, 8.44]])\nb = np.array([[6.35, 7.30, 7.16],\n              [6.65, 6.68, 7.63],\n              [5.72, 7.73, 6.72],\n              [7.01, 9.19, 7.41],\n              [7.75, 7.87, 8.30],\n              [6.90, 7.97, 6.97]])\nc = np.array([[3.31, 8.77, 1.01],\n              [8.25, 3.24, 3.62],\n              [6.32, 8.81, 5.19],\n              [7.48, 8.83, 8.91],\n              [8.59, 6.01, 6.07],\n              [3.07, 9.72, 7.48]])\nF, p = f_oneway(a, b, c)\nF"
+      },
+      {
+        "type": "code",
+        "value": "p"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_stats_py.py",
+  "item_line": 3713,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Warns",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(*samples, axis=0)"
+  },
+  "type": "DocBlob"
+}

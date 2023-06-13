@@ -1,0 +1,408 @@
+{
+  "aliases": [
+    "skimage.segmentation.relabel_sequential"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function also returns the forward map (mapping the original labels to the reduced labels) and the inverse map (mapping the reduced labels back to the original ones)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The label 0 is assumed to denote the background and is never remapped."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The forward map can be extremely big for some inputs, since its length is given by the maximum of the label field. However, in most situations, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "label_field.max()"
+            },
+            {
+              "type": "text",
+              "value": " is much smaller than "
+            },
+            {
+              "type": "inlineCode",
+              "value": "label_field.size"
+            },
+            {
+              "type": "text",
+              "value": ", and in these cases the forward map is guaranteed to be smaller than either the input or output images."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An array of labels, which must be non-negative integers."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "label_field",
+              "type": "Param",
+              "type_": "numpy array of int, arbitrary shape"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The return labels will start at "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "offset",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "offset"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", which should be strictly positive."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "offset",
+              "type": "Param",
+              "type_": "int, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The input label field with labels mapped to {offset, ..., number_of_labels + offset - 1}. The data type will be the same as "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "label_field",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "label_field"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", except when offset + number_of_labels causes overflow of the current data type."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "relabeled",
+              "type": "Param",
+              "type_": "numpy array of int, same shape as `label_field`"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The map from the original label space to the returned label space. Can be used to re-apply the same mapping. See examples for usage. The output data type will be the same as "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "relabeled",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "relabeled"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "forward_map",
+              "type": "Param",
+              "type_": "ArrayMap"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The map from the new label space to the original space. This can be used to reconstruct the original label field from the relabeled one. The output data type will be the same as "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "label_field",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "label_field"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "inverse_map",
+              "type": "Param",
+              "type_": "ArrayMap"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Relabel arbitrary labels to {"
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "offset",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "offset"
+            },
+            {
+              "type": "text",
+              "value": ", ... "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "offset",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "offset"
+            },
+            {
+              "type": "text",
+              "value": " + number_of_labels}."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from skimage.segmentation import relabel_sequential\nlabel_field = np.array([1, 1, 5, 5, 8, 99, 42])\nrelab, fw, inv = relabel_sequential(label_field)\nrelab"
+      },
+      {
+        "type": "code",
+        "value": "print(fw)"
+      },
+      {
+        "type": "code",
+        "value": "np.array(fw)"
+      },
+      {
+        "type": "code",
+        "value": "np.array(inv)"
+      },
+      {
+        "type": "code",
+        "value": "(fw[label_field] == relab).all()"
+      },
+      {
+        "type": "code",
+        "value": "(inv[relab] == label_field).all()"
+      },
+      {
+        "type": "code",
+        "value": "relab, fw, inv = relabel_sequential(label_field, offset=5)\nrelab"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/skimage/segmentation/_join.py",
+  "item_line": 46,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(label_field, offset=1)"
+  },
+  "type": "DocBlob"
+}

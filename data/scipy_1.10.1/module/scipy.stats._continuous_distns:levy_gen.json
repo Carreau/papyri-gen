@@ -1,0 +1,322 @@
+{
+  "aliases": [
+    "scipy.stats._continuous_distns.levy_gen"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "%(before_notes)s"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The probability density function for "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "levy"
+            },
+            {
+              "type": "text",
+              "value": " is:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "f(x) = \\frac{1}{\\sqrt{2\\pi x^3}} \\exp\\left(-\\frac{1}{2x}\\right)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "for "
+            },
+            {
+              "type": "inlineMath",
+              "value": "x >= 0"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This is the same as the Levy-stable distribution with "
+            },
+            {
+              "type": "inlineMath",
+              "value": "a=1/2"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "b=1"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "%(after_notes)s"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A Levy continuous random variable."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.stats import levy\nimport matplotlib.pyplot as plt\nfig, ax = plt.subplots(1, 1)"
+      },
+      {
+        "type": "text",
+        "value": "Calculate the first four moments:"
+      },
+      {
+        "type": "code",
+        "value": "mean, var, skew, kurt = levy.stats(moments='mvsk')"
+      },
+      {
+        "type": "text",
+        "value": "Display the probability density function (``pdf``):"
+      },
+      {
+        "type": "code",
+        "value": "# `levy` is very heavy-tailed.\n# To show a nice plot, let's cut off the upper 40 percent.\na, b = levy.ppf(0), levy.ppf(0.6)\nx = np.linspace(a, b, 100)\nax.plot(x, levy.pdf(x),\n       'r-', lw=5, alpha=0.6, label='levy pdf')"
+      },
+      {
+        "type": "text",
+        "value": "Alternatively, the distribution object can be called (as a function)\nto fix the shape, location and scale parameters. This returns a \"frozen\"\nRV object holding the given parameters fixed."
+      },
+      {
+        "type": "text",
+        "value": "Freeze the distribution and display the frozen ``pdf``:"
+      },
+      {
+        "type": "code",
+        "value": "rv = levy()\nax.plot(x, rv.pdf(x), 'k-', lw=2, label='frozen pdf')"
+      },
+      {
+        "type": "text",
+        "value": "Check accuracy of ``cdf`` and ``ppf``:"
+      },
+      {
+        "type": "code",
+        "value": "vals = levy.ppf([0.001, 0.5, 0.999])\nnp.allclose([0.001, 0.5, 0.999], levy.cdf(vals))"
+      },
+      {
+        "type": "text",
+        "value": "Generate random numbers:"
+      },
+      {
+        "type": "code",
+        "value": "r = levy.rvs(size=1000)"
+      },
+      {
+        "type": "text",
+        "value": "And compare the histogram:"
+      },
+      {
+        "type": "code",
+        "value": "# manual binning to ignore the tail\nbins = np.concatenate((np.linspace(a, b, 20), [np.max(r)]))\nax.hist(r, bins=bins, density=True, histtype='stepfilled', alpha=0.2)\nax.set_xlim([x[0], x[-1]])\nax.legend(loc='best', frameon=False)\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.stats._continuous_distns:levy_gen-0-d21551cb.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_continuous_distns.py",
+  "item_line": 5133,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "levy_stable",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "levy_stable"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "levy_l",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "levy_l"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

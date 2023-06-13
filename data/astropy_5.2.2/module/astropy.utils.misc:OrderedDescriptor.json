@@ -1,0 +1,379 @@
+{
+  "aliases": [
+    "astropy.utils.OrderedDescriptor"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "You can replace its functionality with a combination of the     __init_subclass__ and __set_name__ magic methods introduced in Python 3.6.     See https://github.com/astropy/astropy/issues/11094 for recipes on how to     replicate their functionality."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Base class for descriptors whose order in the class body should be preserved.  Intended for use in concert with the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "astropy",
+                "path": "astropy.utils.misc:OrderedDescriptorContainer.__init__",
+                "type": "RefInfo",
+                "version": "5.2.2"
+              },
+              "type": "Link",
+              "value": "OrderedDescriptorContainer"
+            },
+            {
+              "type": "text",
+              "value": " metaclass."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Subclasses of "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "OrderedDescriptor"
+            },
+            {
+              "type": "text",
+              "value": " must define a value for a class attribute called "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_class_attribute_"
+            },
+            {
+              "type": "text",
+              "value": ".  This is the name of a class attribute on the "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "container"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " class for these descriptors, which will be set to an "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "collections",
+                "path": "collections:OrderedDict",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "OrderedDict"
+            },
+            {
+              "type": "text",
+              "value": " at class creation time.  This "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "collections",
+                "path": "collections:OrderedDict",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "OrderedDict"
+            },
+            {
+              "type": "text",
+              "value": " will contain a mapping of all class attributes that were assigned instances of the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "OrderedDescriptor"
+            },
+            {
+              "type": "text",
+              "value": " subclass, to the instances themselves.  See the documentation for "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "astropy",
+                "path": "astropy.utils.misc:OrderedDescriptorContainer.__init__",
+                "type": "RefInfo",
+                "version": "5.2.2"
+              },
+              "type": "Link",
+              "value": "OrderedDescriptorContainer"
+            },
+            {
+              "type": "text",
+              "value": " for a concrete example."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Optionally, subclasses of "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "OrderedDescriptor"
+            },
+            {
+              "type": "text",
+              "value": " may define a value for a class attribute called "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_name_attribute_"
+            },
+            {
+              "type": "text",
+              "value": ".  This should be the name of an attribute on instances of the subclass.  When specified, during creation of a class containing these descriptors, the name attribute on each instance will be set to the name of the class attribute it was assigned to on the class."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "note "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Although this class is intended for use with "
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "descriptors"
+                    }
+                  ],
+                  "type": "emphasis"
+                },
+                {
+                  "type": "text",
+                  "value": " (i.e. classes that define any of the "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "__get__"
+                },
+                {
+                  "type": "text",
+                  "value": ", "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "__set__"
+                },
+                {
+                  "type": "text",
+                  "value": ", or "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "__delete__"
+                },
+                {
+                  "type": "text",
+                  "value": " magic methods), this base class is not itself a descriptor, and technically this could be used for classes that are not descriptors too.  However, use with descriptors is the original intended purpose."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "deprecated 4.3"
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "The OrderedDescriptor class is deprecated and may be removed in a future version."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/astropy/utils/misc.py",
+  "item_line": 534,
+  "item_type": "<class 'abc.ABCMeta'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

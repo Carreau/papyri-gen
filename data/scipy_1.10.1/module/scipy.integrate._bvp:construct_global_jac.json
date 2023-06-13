@@ -1,0 +1,456 @@
+{
+  "aliases": [
+    "scipy.integrate._bvp.construct_global_jac"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "There are n * m + k functions: m - 1 collocations residuals, each containing n components, followed by n + k boundary condition residuals."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "There are n * m + k variables: m vectors of y, each containing n components, followed by k values of vector p."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For example, let m = 4, n = 2 and k = 1, then the Jacobian will have the following sparsity structure:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "1 1 2 2 0 0 0 0  5     1 1 2 2 0 0 0 0  5     0 0 1 1 2 2 0 0  5     0 0 1 1 2 2 0 0  5     0 0 0 0 1 1 2 2  5     0 0 0 0 1 1 2 2  5"
+                }
+              ],
+              "type": "paragraph"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "3 3 0 0 0 0 4 4  6     3 3 0 0 0 0 4 4  6     3 3 0 0 0 0 4 4  6"
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Zeros denote identically zero values, other values denote different kinds of blocks in the matrix (see below). The blank row indicates the separation of collocation residuals from boundary conditions. And the blank column indicates the separation of y values from p values."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Refer to   (p. 306) for the formula of n x n blocks for derivatives of collocation residuals with respect to y."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of equations in the ODE system."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "n",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of nodes in the mesh."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "m",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of the unknown parameters."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "k",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Row and column indices returned by "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "scipy",
+                        "path": "scipy.integrate._bvp:compute_jac_indices",
+                        "type": "RefInfo",
+                        "version": "1.10.1"
+                      },
+                      "type": "Link",
+                      "value": "compute_jac_indices"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". They represent different blocks in the Jacobian matrix in the following order (see the scheme above):"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "1: m - 1 diagonal n x n blocks for the collocation residuals."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "2: m - 1 off-diagonal n x n blocks for the collocation residuals."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [],
+                          "spread": false,
+                          "type": "listItem"
+                        }
+                      ],
+                      "ordered": false,
+                      "spread": false,
+                      "start": 1,
+                      "type": "list"
+                    }
+                  ],
+                  "type": "blockquote"
+                }
+              ],
+              "param": "i_jac, j_jac",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Jacobian of f with respect to y computed at the mesh nodes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "df_dy",
+              "type": "Param",
+              "type_": "ndarray, shape (n, n, m)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Jacobian of f with respect to y computed at the middle between the mesh nodes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "df_dy_middle",
+              "type": "Param",
+              "type_": "ndarray, shape (n, n, m - 1)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Jacobian of f with respect to p computed at the mesh nodes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "df_dp",
+              "type": "Param",
+              "type_": "ndarray with shape (n, k, m) or None"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Jacobian of f with respect to p computed at the middle between the mesh nodes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "df_dp_middle",
+              "type": "Param",
+              "type_": "ndarray with shape (n, k, m - 1) or None"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Jacobian of bc with respect to ya and yb."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dbc_dya, dbc_dyb",
+              "type": "Param",
+              "type_": "ndarray, shape (n, n)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Jacobian of bc with respect to p."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dbc_dp",
+              "type": "Param",
+              "type_": "ndarray with shape (n, k) or None"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Jacobian of the collocation system in a sparse form."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "J",
+              "type": "Param",
+              "type_": "csc_matrix, shape (n * m + k, n * m + k)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Construct the Jacobian of the collocation system."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/integrate/_bvp.py",
+  "item_line": 158,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "References"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(n, m, k, i_jac, j_jac, h, df_dy, df_dy_middle, df_dp, df_dp_middle, dbc_dya, dbc_dyb, dbc_dp)"
+  },
+  "type": "DocBlob"
+}

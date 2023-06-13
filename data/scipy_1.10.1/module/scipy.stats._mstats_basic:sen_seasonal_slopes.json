@@ -1,0 +1,509 @@
+{
+  "aliases": [
+    "scipy.stats._mstats_basic.sen_seasonal_slopes"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The seasonal generalization of Sen's slope computes the slopes between all pairs of values within a \"season\" (column) of a 2D array. It returns an array containing the median of these \"within-season\" slopes for each season (the Theil-Sen slope estimator of each season), and it returns the median of the within-season slopes across all seasons (the seasonal Kendall slope estimator)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The slopes "
+            },
+            {
+              "type": "inlineMath",
+              "value": "d_{ijk}"
+            },
+            {
+              "type": "text",
+              "value": " within season "
+            },
+            {
+              "type": "inlineMath",
+              "value": "i"
+            },
+            {
+              "type": "text",
+              "value": " are:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "d_{ijk} = \\frac{x_{ij} - x_{ik}}\n                    {j - k}"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "for pairs of distinct integer indices "
+            },
+            {
+              "type": "inlineMath",
+              "value": "j, k"
+            },
+            {
+              "type": "text",
+              "value": " of "
+            },
+            {
+              "type": "inlineMath",
+              "value": "x"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Element "
+            },
+            {
+              "type": "inlineMath",
+              "value": "i"
+            },
+            {
+              "type": "text",
+              "value": " of the returned "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "intra_slope"
+            },
+            {
+              "type": "text",
+              "value": " array is the median of the "
+            },
+            {
+              "type": "inlineMath",
+              "value": "d_{ijk}"
+            },
+            {
+              "type": "text",
+              "value": " over all "
+            },
+            {
+              "type": "inlineMath",
+              "value": "j < k"
+            },
+            {
+              "type": "text",
+              "value": "; this is the Theil-Sen slope estimator of season "
+            },
+            {
+              "type": "inlineMath",
+              "value": "i"
+            },
+            {
+              "type": "text",
+              "value": ". The returned "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "inter_slope"
+            },
+            {
+              "type": "text",
+              "value": " value, better known as the seasonal Kendall slope estimator, is the median of the "
+            },
+            {
+              "type": "inlineMath",
+              "value": "d_{ijk}"
+            },
+            {
+              "type": "text",
+              "value": " over all "
+            },
+            {
+              "type": "inlineMath",
+              "value": "i, j, k"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Each column of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " contains measurements of the dependent variable within a season. The independent variable (usually time) of each season is assumed to be "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.arange(x.shape[0])"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "2D array_like"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The return value is an object with the following attributes:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "intra_slope"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "intra_slope"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "inter_slope"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "inter_slope"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "param": "result",
+              "type": "Param",
+              "type_": "``SenSeasonalSlopesResult`` instance"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Computes seasonal Theil-Sen and Kendall slope estimators."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Suppose we have 100 observations of a dependent variable for each of four\nseasons:"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nrng = np.random.default_rng()\nx = rng.random(size=(100, 4))"
+      },
+      {
+        "type": "text",
+        "value": "We compute the seasonal slopes as:"
+      },
+      {
+        "type": "code",
+        "value": "from scipy import stats\nintra_slope, inter_slope = stats.mstats.sen_seasonal_slopes(x)"
+      },
+      {
+        "type": "text",
+        "value": "If we define a function to compute all slopes between observations within\na season:"
+      },
+      {
+        "type": "code",
+        "value": "def dijk(yi):\n    n = len(yi)\n    x = np.arange(n)\n    dy = yi - yi[:, np.newaxis]\n    dx = x - x[:, np.newaxis]\n    # we only want unique pairs of distinct indices\n    mask = np.triu(np.ones((n, n), dtype=bool), k=1)\n    return dy[mask]/dx[mask]"
+      },
+      {
+        "type": "text",
+        "value": "then element ``i`` of ``intra_slope`` is the median of ``dijk[x[:, i]]``:"
+      },
+      {
+        "type": "code",
+        "value": "i = 2\nnp.allclose(np.median(dijk(x[:, i])), intra_slope[i])"
+      },
+      {
+        "type": "text",
+        "value": "and ``inter_slope`` is the median of the values returned by ``dijk`` for\nall seasons:"
+      },
+      {
+        "type": "code",
+        "value": "all_slopes = np.concatenate([dijk(x[:, i]) for i in range(x.shape[1])])\nnp.allclose(np.median(all_slopes), inter_slope)"
+      },
+      {
+        "type": "text",
+        "value": "Because the data are randomly generated, we would expect the median slopes\nto be nearly zero both within and across all seasons, and indeed they are:"
+      },
+      {
+        "type": "code",
+        "value": "intra_slope.data"
+      },
+      {
+        "type": "code",
+        "value": "inter_slope"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_mstats_basic.py",
+  "item_line": 1198,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "the analogous function for non-seasonal data"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "theilslopes",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "theilslopes"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "non-seasonal slopes for non-masked arrays"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.stats._stats_mstats_common:theilslopes",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "scipy.stats.theilslopes"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(x)"
+  },
+  "type": "DocBlob"
+}

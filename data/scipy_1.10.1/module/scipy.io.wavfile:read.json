@@ -1,0 +1,297 @@
+{
+  "aliases": [
+    "scipy.io.wavfile.read"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Return the sample rate (in samples/sec) and data from an LPCM WAV file."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Common data types:"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Input WAV file."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "filename",
+              "type": "Param",
+              "type_": "string or open file handle"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to read data as memory-mapped (default: False).  Not compatible with some bit depths; see Notes.  Only to be used on real files."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 0.12.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "mmap",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Sample rate of WAV file."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "rate",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Data read from WAV file. Data-type is determined from the file; see Notes.  Data is 1-D for 1-channel WAV, or 2-D of shape (Nsamples, Nchannels) otherwise. If a file-like input without a C-like file descriptor (e.g., "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "python:io.BytesIO"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") is passed, this will not be writeable."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "data",
+              "type": "Param",
+              "type_": "numpy array"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Open a WAV file."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from os.path import dirname, join as pjoin\nfrom scipy.io import wavfile\nimport scipy.io"
+      },
+      {
+        "type": "text",
+        "value": "Get the filename for an example .wav file from the tests/data directory."
+      },
+      {
+        "type": "code",
+        "value": "data_dir = pjoin(dirname(scipy.io.__file__), 'tests', 'data')\nwav_fname = pjoin(data_dir, 'test-44100Hz-2ch-32bit-float-be.wav')"
+      },
+      {
+        "type": "text",
+        "value": "Load the .wav file contents."
+      },
+      {
+        "type": "code",
+        "value": "samplerate, data = wavfile.read(wav_fname)\nprint(f\"number of channels = {data.shape[1]}\")"
+      },
+      {
+        "type": "code",
+        "value": "length = data.shape[0] / samplerate\nprint(f\"length = {length}s\")"
+      },
+      {
+        "type": "text",
+        "value": "Plot the waveform."
+      },
+      {
+        "type": "code",
+        "value": "import matplotlib.pyplot as plt\nimport numpy as np\ntime = np.linspace(0., length, data.shape[0])\nplt.plot(time, data[:, 0], label=\"Left channel\")\nplt.plot(time, data[:, 1], label=\"Right channel\")\nplt.legend()\nplt.xlabel(\"Time [s]\")\nplt.ylabel(\"Amplitude\")\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.io.wavfile:read-0-3a224ccc.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/io/wavfile.py",
+  "item_line": 541,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(filename, mmap=False)"
+  },
+  "type": "DocBlob"
+}

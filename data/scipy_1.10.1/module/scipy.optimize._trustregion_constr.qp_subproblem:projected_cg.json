@@ -1,0 +1,558 @@
+{
+  "aliases": [
+    "scipy.optimize._trustregion_constr.equality_constrained_sqp.projected_cg"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Solve equality-constrained quadratic programming problem "
+            },
+            {
+              "type": "inlineCode",
+              "value": "min 1/2 x.T H x + x.t c"
+            },
+            {
+              "type": "text",
+              "value": "  subject to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "A x + b = 0"
+            },
+            {
+              "type": "text",
+              "value": " and, possibly, to trust region constraints "
+            },
+            {
+              "type": "inlineCode",
+              "value": "||x|| < trust_radius"
+            },
+            {
+              "type": "text",
+              "value": " and box constraints "
+            },
+            {
+              "type": "inlineCode",
+              "value": "lb <= x <= ub"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Implementation of Algorithm 6.2 on ."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In the absence of spherical and box constraints, for sufficient iterations, the method returns a truly optimal result. In the presence of those constraints, the value returned is only a inexpensive approximation of the optimal value."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Operator for computing "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "H v"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "H",
+              "type": "Param",
+              "type_": "LinearOperator (or sparse matrix or ndarray), shape (n, n)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Gradient of the quadratic objective function."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "c",
+              "type": "Param",
+              "type_": "array_like, shape (n,)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Operator for projecting "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " into the null space of A."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "Z",
+              "type": "Param",
+              "type_": "LinearOperator (or sparse matrix or ndarray), shape (n, n)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Operator that, for a given a vector "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "b"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", compute smallest norm solution of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "A x + b = 0"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "Y",
+              "type": "Param",
+              "type_": "LinearOperator,  sparse matrix, ndarray, shape (n, m)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Right-hand side of the constraint equation."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "b",
+              "type": "Param",
+              "type_": "array_like, shape (m,)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Trust radius to be considered. By default, uses "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "trust_radius=inf"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", which means no trust radius at all."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "trust_radius",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Lower bounds to each one of the components of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "lb[i] = -Inf"
+                    },
+                    {
+                      "type": "text",
+                      "value": " the lower bound for the i-th component is just ignored (default)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "lb",
+              "type": "Param",
+              "type_": "array_like, shape (n,), optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Upper bounds to each one of the components of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ub[i] = Inf"
+                    },
+                    {
+                      "type": "text",
+                      "value": " the upper bound for the i-th component is just ignored (default)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ub",
+              "type": "Param",
+              "type_": "array_like, shape (n, ), optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Tolerance used to interrupt the algorithm."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "tol",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum algorithm iterations. Where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "max_inter <= n-m"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". By default, uses "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "max_iter = n-m"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "max_iter",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum infeasible (regarding box constraints) iterations the algorithm is allowed to take. By default, uses "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "max_infeasible_iter = n-m"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "max_infeasible_iter",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "When "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "true"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", return the list of all vectors through the iterations."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "return_all",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Solution of the EQP problem."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "array_like, shape (n,)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Dictionary containing the following:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [],
+                          "spread": false,
+                          "type": "listItem"
+                        }
+                      ],
+                      "ordered": false,
+                      "spread": false,
+                      "start": 1,
+                      "type": "list"
+                    }
+                  ],
+                  "type": "blockquote"
+                }
+              ],
+              "param": "info",
+              "type": "Param",
+              "type_": "Dict"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Solve EQP problem with projected CG method."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/optimize/_trustregion_constr/qp_subproblem.py",
+  "item_line": 411,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(H, c, Z, Y, b, trust_radius=inf, lb=None, ub=None, tol=None, max_iter=None, max_infeasible_iter=None, return_all=False)"
+  },
+  "type": "DocBlob"
+}

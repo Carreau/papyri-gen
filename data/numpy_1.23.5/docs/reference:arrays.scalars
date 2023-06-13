@@ -1,0 +1,2193 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "args": "numpy",
+          "children": [],
+          "name": "currentmodule",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Python defines only one type of a particular data class (there is only one integer type, one floating-point type, etc.). This can be convenient in applications that don't need to be concerned with all the ways data can be represented in a computer.  For scientific computing, however, more control is often needed."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In NumPy, there are 24 new fundamental Python types to describe different types of scalars. These type descriptors are mostly based on the types available in the C language that CPython is written in, with several additional types compatible with Python's types."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Array scalars have the same attributes and methods as "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ndarrays\n<ndarray>"
+            },
+            {
+              "type": "text",
+              "value": ".  This allows one to treat items of an array partly on the same footing as arrays, smoothing out rough edges that result when mixing scalar and array operations."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Array scalars live in a hierarchy (see the Figure below) of data types. They can be detected using the hierarchy: For example, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "isinstance(val, np.generic)"
+            },
+            {
+              "type": "text",
+              "value": " will return "
+            },
+            {
+              "type": "inlineCode",
+              "value": "True"
+            },
+            {
+              "type": "text",
+              "value": " if "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "val"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " is an array scalar object. Alternatively, what kind of array scalar is present can be determined using other members of the data type hierarchy. Thus, for example "
+            },
+            {
+              "type": "inlineCode",
+              "value": "isinstance(val, np.complexfloating)"
+            },
+            {
+              "type": "text",
+              "value": " will return "
+            },
+            {
+              "type": "inlineCode",
+              "value": "True"
+            },
+            {
+              "type": "text",
+              "value": " if "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "val"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " is a complex valued type, while "
+            },
+            {
+              "type": "inlineCode",
+              "value": "isinstance(val, np.flexible)"
+            },
+            {
+              "type": "text",
+              "value": " will return true if "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "val"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " is one of the flexible itemsize array types ("
+            },
+            {
+              "type": "inlineCode",
+              "value": "str_"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "bytes_"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "void"
+            },
+            {
+              "type": "text",
+              "value": ")."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "figures/dtype-hierarchy.png",
+          "children": [],
+          "name": "figure",
+          "options": {},
+          "type": "mystDirective",
+          "value": "**Figure:** Hierarchy of type objects representing the array data\ntypes. Not shown are the two integer types :class:`intp` and\n:class:`uintp` which just point to the integer type that holds a\npointer for the platform. All the number types can be obtained\nusing bit-width names as well."
+        },
+        {
+          "type": "mystComment",
+          "value": ".. TODO - use something like this instead of the diagram above, as it generates\n   links to the classes and is a vector graphic. Unfortunately it looks worse\n   and the html <map> element providing the linked regions is misaligned.\n\n   .. inheritance-diagram:: byte short intc int_ longlong ubyte ushort uintc uint ulonglong half single double longdouble csingle cdouble clongdouble bool_ datetime64 timedelta64 object_ bytes_ str_ void"
+        },
+        {
+          "placeholder": "footnote",
+          "type": "Unimplemented",
+          "value": ".. [#] However, array scalars are immutable, so none of the array\n       scalar attributes are settable."
+        },
+        {
+          "placeholder": "untarget",
+          "type": "Unimplemented",
+          "value": "_arrays.scalars.character-codes:"
+        }
+      ],
+      "level": 0,
+      "target": "arrays.scalars",
+      "title": "Scalars",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The built-in scalar types are shown below. The C-like names are associated with character codes, which are shown in their descriptions. Use of the character codes, however, is discouraged."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Some of the scalar types are essentially equivalent to fundamental Python types and therefore inherit from them as well as from the generic array scalar type:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "====================  ===========================  ============= Array scalar type     Related Python type          Inherits? ====================  ===========================  ============= "
+            },
+            {
+              "type": "inlineCode",
+              "value": "int_"
+            },
+            {
+              "type": "text",
+              "value": "         "
+            },
+            {
+              "type": "inlineCode",
+              "value": "int"
+            },
+            {
+              "type": "text",
+              "value": "                 Python 2 only "
+            },
+            {
+              "type": "inlineCode",
+              "value": "float_"
+            },
+            {
+              "type": "text",
+              "value": "       "
+            },
+            {
+              "type": "inlineCode",
+              "value": "float"
+            },
+            {
+              "type": "text",
+              "value": "               yes "
+            },
+            {
+              "type": "inlineCode",
+              "value": "complex_"
+            },
+            {
+              "type": "text",
+              "value": "     "
+            },
+            {
+              "type": "inlineCode",
+              "value": "complex"
+            },
+            {
+              "type": "text",
+              "value": "             yes "
+            },
+            {
+              "type": "inlineCode",
+              "value": "bytes_"
+            },
+            {
+              "type": "text",
+              "value": "       "
+            },
+            {
+              "type": "inlineCode",
+              "value": "bytes"
+            },
+            {
+              "type": "text",
+              "value": "               yes "
+            },
+            {
+              "type": "inlineCode",
+              "value": "str_"
+            },
+            {
+              "type": "text",
+              "value": "         "
+            },
+            {
+              "type": "inlineCode",
+              "value": "str"
+            },
+            {
+              "type": "text",
+              "value": "                 yes "
+            },
+            {
+              "type": "inlineCode",
+              "value": "bool_"
+            },
+            {
+              "type": "text",
+              "value": "        "
+            },
+            {
+              "type": "inlineCode",
+              "value": "bool"
+            },
+            {
+              "type": "text",
+              "value": "                no "
+            },
+            {
+              "type": "inlineCode",
+              "value": "datetime64"
+            },
+            {
+              "type": "text",
+              "value": "   "
+            },
+            {
+              "type": "inlineCode",
+              "value": "datetime.datetime"
+            },
+            {
+              "type": "text",
+              "value": "   no "
+            },
+            {
+              "type": "inlineCode",
+              "value": "timedelta64"
+            },
+            {
+              "type": "text",
+              "value": "  "
+            },
+            {
+              "type": "inlineCode",
+              "value": "datetime.timedelta"
+            },
+            {
+              "type": "text",
+              "value": "  no ====================  ===========================  ============="
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "type": "inlineCode",
+              "value": "bool_"
+            },
+            {
+              "type": "text",
+              "value": " data type is very similar to the Python "
+            },
+            {
+              "type": "inlineCode",
+              "value": "bool"
+            },
+            {
+              "type": "text",
+              "value": " but does not inherit from it because Python's "
+            },
+            {
+              "type": "inlineCode",
+              "value": "bool"
+            },
+            {
+              "type": "text",
+              "value": " does not allow itself to be inherited from, and on the C-level the size of the actual bool data is not the same as a Python Boolean scalar."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "warning "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "The "
+                },
+                {
+                  "domain": null,
+                  "role": "class",
+                  "type": "Directive",
+                  "value": "int_"
+                },
+                {
+                  "type": "text",
+                  "value": " type does "
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "not"
+                    }
+                  ],
+                  "type": "strong"
+                },
+                {
+                  "type": "text",
+                  "value": " inherit from the "
+                },
+                {
+                  "domain": null,
+                  "role": "class",
+                  "type": "Directive",
+                  "value": "int"
+                },
+                {
+                  "type": "text",
+                  "value": " built-in under Python 3, because type "
+                },
+                {
+                  "domain": null,
+                  "role": "class",
+                  "type": "Directive",
+                  "value": "int"
+                },
+                {
+                  "type": "text",
+                  "value": " is no longer a fixed-width integer type."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "args": "The default data type in NumPy is :class:`float_`.",
+          "children": [],
+          "name": "tip",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "args": "numpy.generic",
+          "children": [],
+          "name": "autoclass",
+          "options": {
+            "exclude-members": "__init__",
+            "members": "__init__"
+          },
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "args": "numpy.number",
+          "children": [],
+          "name": "autoclass",
+          "options": {
+            "exclude-members": "__init__",
+            "members": "__init__"
+          },
+          "type": "mystDirective",
+          "value": ""
+        }
+      ],
+      "level": 1,
+      "target": "arrays.scalars.built-in",
+      "title": "Built-in scalar types",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "args": "numpy.integer",
+          "children": [],
+          "name": "autoclass",
+          "options": {
+            "exclude-members": "__init__",
+            "members": "__init__"
+          },
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "note "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "The numpy integer types mirror the behavior of C integers, and can therefore be subject to "
+                },
+                {
+                  "domain": null,
+                  "role": "ref",
+                  "type": "Directive",
+                  "value": "overflow-errors"
+                },
+                {
+                  "type": "text",
+                  "value": "."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Integer types",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "args": "numpy.signedinteger",
+          "children": [],
+          "name": "autoclass",
+          "options": {
+            "exclude-members": "__init__",
+            "members": "__init__"
+          },
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "args": "numpy.byte",
+          "children": [],
+          "name": "autoclass",
+          "options": {
+            "exclude-members": "__init__",
+            "members": "__init__"
+          },
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "args": "numpy.short",
+          "children": [],
+          "name": "autoclass",
+          "options": {
+            "exclude-members": "__init__",
+            "members": "__init__"
+          },
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "args": "numpy.intc",
+          "children": [],
+          "name": "autoclass",
+          "options": {
+            "exclude-members": "__init__",
+            "members": "__init__"
+          },
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "args": "numpy.int_",
+          "children": [],
+          "name": "autoclass",
+          "options": {
+            "exclude-members": "__init__",
+            "members": "__init__"
+          },
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "args": "numpy.longlong",
+          "children": [],
+          "name": "autoclass",
+          "options": {
+            "exclude-members": "__init__",
+            "members": "__init__"
+          },
+          "type": "mystDirective",
+          "value": ""
+        }
+      ],
+      "level": 3,
+      "target": null,
+      "title": "Signed integer types",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "args": "numpy.unsignedinteger",
+          "children": [],
+          "name": "autoclass",
+          "options": {
+            "exclude-members": "__init__",
+            "members": "__init__"
+          },
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "args": "numpy.ubyte",
+          "children": [],
+          "name": "autoclass",
+          "options": {
+            "exclude-members": "__init__",
+            "members": "__init__"
+          },
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "args": "numpy.ushort",
+          "children": [],
+          "name": "autoclass",
+          "options": {
+            "exclude-members": "__init__",
+            "members": "__init__"
+          },
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "args": "numpy.uintc",
+          "children": [],
+          "name": "autoclass",
+          "options": {
+            "exclude-members": "__init__",
+            "members": "__init__"
+          },
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "args": "numpy.uint",
+          "children": [],
+          "name": "autoclass",
+          "options": {
+            "exclude-members": "__init__",
+            "members": "__init__"
+          },
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "args": "numpy.ulonglong",
+          "children": [],
+          "name": "autoclass",
+          "options": {
+            "exclude-members": "__init__",
+            "members": "__init__"
+          },
+          "type": "mystDirective",
+          "value": ""
+        }
+      ],
+      "level": 3,
+      "target": null,
+      "title": "Unsigned integer types",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "args": "numpy.inexact",
+          "children": [],
+          "name": "autoclass",
+          "options": {
+            "exclude-members": "__init__",
+            "members": "__init__"
+          },
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "note "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Inexact scalars are printed using the fewest decimal digits needed to distinguish their value from other values of the same datatype, by judicious rounding. See the "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "unique"
+                },
+                {
+                  "type": "text",
+                  "value": " parameter of "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "format_float_positional"
+                },
+                {
+                  "type": "text",
+                  "value": " and "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "format_float_scientific"
+                },
+                {
+                  "type": "text",
+                  "value": "."
+                }
+              ],
+              "type": "paragraph"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "This means that variables with equal binary values but whose datatypes are of different precisions may display differently      "
+                }
+              ],
+              "type": "paragraph"
+            },
+            {
+              "type": "code",
+              "value": ">>> f16 = np.float16(\"0.1\")\n>>> f32 = np.float32(f16)\n>>> f64 = np.float64(f32)\n>>> f16 == f32 == f64\nTrue\n>>> f16, f32, f64\n(0.1, 0.099975586, 0.0999755859375)"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Note that none of these floats hold the exact value "
+                },
+                {
+                  "domain": null,
+                  "role": "math",
+                  "type": "Directive",
+                  "value": "\\frac{1}{10}"
+                },
+                {
+                  "type": "text",
+                  "value": "; "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "f16"
+                },
+                {
+                  "type": "text",
+                  "value": " prints as "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "0.1"
+                },
+                {
+                  "type": "text",
+                  "value": " because it is as close to that value as possible, whereas the other types do not as they have more precision and therefore have closer values."
+                }
+              ],
+              "type": "paragraph"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Conversely, floating-point scalars of different precisions which approximate the same decimal value may compare unequal despite printing identically:"
+                }
+              ],
+              "type": "paragraph"
+            },
+            {
+              "children": [
+                {
+                  "type": "code",
+                  "value": ">>> f16 = np.float16(\"0.1\")\n>>> f32 = np.float32(\"0.1\")\n>>> f64 = np.float64(\"0.1\")\n>>> f16 == f32 == f64\nFalse\n>>> f16, f32, f64\n(0.1, 0.1, 0.1)"
+                }
+              ],
+              "type": "blockquote"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Inexact types",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "args": "numpy.floating",
+          "children": [],
+          "name": "autoclass",
+          "options": {
+            "exclude-members": "__init__",
+            "members": "__init__"
+          },
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "args": "numpy.half",
+          "children": [],
+          "name": "autoclass",
+          "options": {
+            "exclude-members": "__init__",
+            "members": "__init__"
+          },
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "args": "numpy.single",
+          "children": [],
+          "name": "autoclass",
+          "options": {
+            "exclude-members": "__init__",
+            "members": "__init__"
+          },
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "args": "numpy.double",
+          "children": [],
+          "name": "autoclass",
+          "options": {
+            "exclude-members": "__init__",
+            "members": "__init__"
+          },
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "args": "numpy.longdouble",
+          "children": [],
+          "name": "autoclass",
+          "options": {
+            "exclude-members": "__init__",
+            "members": "__init__"
+          },
+          "type": "mystDirective",
+          "value": ""
+        }
+      ],
+      "level": 3,
+      "target": null,
+      "title": "Floating-point types",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "args": "numpy.complexfloating",
+          "children": [],
+          "name": "autoclass",
+          "options": {
+            "exclude-members": "__init__",
+            "members": "__init__"
+          },
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "args": "numpy.csingle",
+          "children": [],
+          "name": "autoclass",
+          "options": {
+            "exclude-members": "__init__",
+            "members": "__init__"
+          },
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "args": "numpy.cdouble",
+          "children": [],
+          "name": "autoclass",
+          "options": {
+            "exclude-members": "__init__",
+            "members": "__init__"
+          },
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "args": "numpy.clongdouble",
+          "children": [],
+          "name": "autoclass",
+          "options": {
+            "exclude-members": "__init__",
+            "members": "__init__"
+          },
+          "type": "mystDirective",
+          "value": ""
+        }
+      ],
+      "level": 3,
+      "target": null,
+      "title": "Complex floating-point types",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "args": "numpy.bool_",
+          "children": [],
+          "name": "autoclass",
+          "options": {
+            "exclude-members": "__init__",
+            "members": "__init__"
+          },
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "args": "numpy.datetime64",
+          "children": [],
+          "name": "autoclass",
+          "options": {
+            "exclude-members": "__init__",
+            "members": "__init__"
+          },
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "args": "numpy.timedelta64",
+          "children": [],
+          "name": "autoclass",
+          "options": {
+            "exclude-members": "__init__",
+            "members": "__init__"
+          },
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "args": "numpy.object_",
+          "children": [],
+          "name": "autoclass",
+          "options": {
+            "exclude-members": "__init__",
+            "members": "__init__"
+          },
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "note "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "The data actually stored in object arrays ("
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "i.e."
+                    }
+                  ],
+                  "type": "emphasis"
+                },
+                {
+                  "type": "text",
+                  "value": ", arrays having dtype "
+                },
+                {
+                  "domain": null,
+                  "role": "class",
+                  "type": "Directive",
+                  "value": "object_"
+                },
+                {
+                  "type": "text",
+                  "value": ") are references to Python objects, not the objects themselves. Hence, object arrays behave more like usual Python "
+                },
+                {
+                  "domain": null,
+                  "role": "class",
+                  "type": "Directive",
+                  "value": "lists <list>"
+                },
+                {
+                  "type": "text",
+                  "value": ", in the sense that their contents need not be of the same Python type."
+                }
+              ],
+              "type": "paragraph"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "The object type is also special because an array containing "
+                },
+                {
+                  "domain": null,
+                  "role": "class",
+                  "type": "Directive",
+                  "value": "object_"
+                },
+                {
+                  "type": "text",
+                  "value": " items does not return an "
+                },
+                {
+                  "domain": null,
+                  "role": "class",
+                  "type": "Directive",
+                  "value": "object_"
+                },
+                {
+                  "type": "text",
+                  "value": " object on item access, but instead returns the actual object that the array item refers to."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "args": "flexible",
+          "children": [],
+          "name": "index",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The following data types are "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "flexible"
+                }
+              ],
+              "type": "strong"
+            },
+            {
+              "type": "text",
+              "value": ": they have no predefined size and the data they describe can be of different length in different arrays. (In the character codes "
+            },
+            {
+              "type": "inlineCode",
+              "value": "#"
+            },
+            {
+              "type": "text",
+              "value": " is an integer denoting how many elements the data type consists of.)"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "numpy.flexible",
+          "children": [],
+          "name": "autoclass",
+          "options": {
+            "exclude-members": "__init__",
+            "members": "__init__"
+          },
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "args": "numpy.character",
+          "children": [],
+          "name": "autoclass",
+          "options": {
+            "exclude-members": "__init__",
+            "members": "__init__"
+          },
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "args": "numpy.bytes_",
+          "children": [],
+          "name": "autoclass",
+          "options": {
+            "exclude-members": "__init__",
+            "members": "__init__"
+          },
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "args": "numpy.str_",
+          "children": [],
+          "name": "autoclass",
+          "options": {
+            "exclude-members": "__init__",
+            "members": "__init__"
+          },
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "args": "numpy.void",
+          "children": [],
+          "name": "autoclass",
+          "options": {
+            "exclude-members": "__init__",
+            "members": "__init__"
+          },
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "warning "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "See "
+                },
+                {
+                  "domain": null,
+                  "role": "ref",
+                  "type": "Directive",
+                  "value": "Note on string types<string-dtype-note>"
+                },
+                {
+                  "type": "text",
+                  "value": "."
+                }
+              ],
+              "type": "paragraph"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Numeric Compatibility: If you used old typecode characters in your Numeric code (which was never recommended), you will need to change some of them to the new characters. In particular, the needed changes are "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "c -> S1"
+                },
+                {
+                  "type": "text",
+                  "value": ", "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "b -> B"
+                },
+                {
+                  "type": "text",
+                  "value": ", "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "1 -> b"
+                },
+                {
+                  "type": "text",
+                  "value": ", "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "s -> h"
+                },
+                {
+                  "type": "text",
+                  "value": ", "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "w ->\nH"
+                },
+                {
+                  "type": "text",
+                  "value": ", and "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "u -> I"
+                },
+                {
+                  "type": "text",
+                  "value": ". These changes make the type character convention more consistent with other Python modules such as the "
+                },
+                {
+                  "domain": null,
+                  "role": "mod",
+                  "type": "Directive",
+                  "value": "struct"
+                },
+                {
+                  "type": "text",
+                  "value": " module."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Other types",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Along with their (mostly) C-derived names, the integer, float, and complex data-types are also available using a bit-width convention so that an array of the right size can always be ensured. Two aliases ("
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.intp"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.uintp"
+            },
+            {
+              "type": "text",
+              "value": ") pointing to the integer type that is sufficiently large to hold a C pointer are also provided."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "mystComment",
+          "value": ".. note that these are documented with ..attribute because that is what\n   autoclass does for aliases under the hood."
+        },
+        {
+          "args": "int8",
+          "children": [],
+          "name": "attribute",
+          "options": {},
+          "type": "mystDirective",
+          "value": "int16\nint32\nint64"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Aliases for the signed integer types (one of "
+                },
+                {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "numpy:int8",
+                    "path": "numpy:int8",
+                    "type": "RefInfo",
+                    "version": "*"
+                  },
+                  "type": "Link",
+                  "value": "numpy.byte"
+                },
+                {
+                  "type": "text",
+                  "value": ", "
+                },
+                {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "numpy:int16",
+                    "path": "numpy:int16",
+                    "type": "RefInfo",
+                    "version": "*"
+                  },
+                  "type": "Link",
+                  "value": "numpy.short"
+                },
+                {
+                  "type": "text",
+                  "value": ",    "
+                },
+                {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "numpy:int32",
+                    "path": "numpy:int32",
+                    "type": "RefInfo",
+                    "version": "*"
+                  },
+                  "type": "Link",
+                  "value": "numpy.intc"
+                },
+                {
+                  "type": "text",
+                  "value": ", "
+                },
+                {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "numpy:int64",
+                    "path": "numpy:int64",
+                    "type": "RefInfo",
+                    "version": "*"
+                  },
+                  "type": "Link",
+                  "value": "numpy.int_"
+                },
+                {
+                  "type": "text",
+                  "value": " and "
+                },
+                {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "numpy:longlong",
+                    "path": "numpy:longlong",
+                    "type": "RefInfo",
+                    "version": "*"
+                  },
+                  "type": "Link",
+                  "value": "numpy.longlong"
+                },
+                {
+                  "type": "text",
+                  "value": ") with the specified number    of bits."
+                }
+              ],
+              "type": "paragraph"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Compatible with the C99 "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "int8_t"
+                },
+                {
+                  "type": "text",
+                  "value": ", "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "int16_t"
+                },
+                {
+                  "type": "text",
+                  "value": ", "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "int32_t"
+                },
+                {
+                  "type": "text",
+                  "value": ", and    "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "int64_t"
+                },
+                {
+                  "type": "text",
+                  "value": ", respectively."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "args": "uint8",
+          "children": [],
+          "name": "attribute",
+          "options": {},
+          "type": "mystDirective",
+          "value": "uint16\nuint32\nuint64"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Alias for the unsigned integer types (one of "
+                },
+                {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "numpy:uint8",
+                    "path": "numpy:uint8",
+                    "type": "RefInfo",
+                    "version": "*"
+                  },
+                  "type": "Link",
+                  "value": "numpy.ubyte"
+                },
+                {
+                  "type": "text",
+                  "value": ", "
+                },
+                {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "numpy:uint16",
+                    "path": "numpy:uint16",
+                    "type": "RefInfo",
+                    "version": "*"
+                  },
+                  "type": "Link",
+                  "value": "numpy.ushort"
+                },
+                {
+                  "type": "text",
+                  "value": ",    "
+                },
+                {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "numpy:uint32",
+                    "path": "numpy:uint32",
+                    "type": "RefInfo",
+                    "version": "*"
+                  },
+                  "type": "Link",
+                  "value": "numpy.uintc"
+                },
+                {
+                  "type": "text",
+                  "value": ", "
+                },
+                {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "numpy:uint64",
+                    "path": "numpy:uint64",
+                    "type": "RefInfo",
+                    "version": "*"
+                  },
+                  "type": "Link",
+                  "value": "numpy.uint"
+                },
+                {
+                  "type": "text",
+                  "value": " and "
+                },
+                {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "numpy:ulonglong",
+                    "path": "numpy:ulonglong",
+                    "type": "RefInfo",
+                    "version": "*"
+                  },
+                  "type": "Link",
+                  "value": "numpy.ulonglong"
+                },
+                {
+                  "type": "text",
+                  "value": ") with the specified number    of bits."
+                }
+              ],
+              "type": "paragraph"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Compatible with the C99 "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "uint8_t"
+                },
+                {
+                  "type": "text",
+                  "value": ", "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "uint16_t"
+                },
+                {
+                  "type": "text",
+                  "value": ", "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "uint32_t"
+                },
+                {
+                  "type": "text",
+                  "value": ", and    "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "uint64_t"
+                },
+                {
+                  "type": "text",
+                  "value": ", respectively."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "args": "intp",
+          "children": [],
+          "name": "attribute",
+          "options": {},
+          "type": "mystDirective",
+          "value": "Alias for the signed integer type (one of `numpy.byte`, `numpy.short`,\n`numpy.intc`, `numpy.int_` and `np.longlong`) that is the same size as a\npointer.\n\nCompatible with the C ``intptr_t``.\n\n:Character code: ``'p'``"
+        },
+        {
+          "args": "uintp",
+          "children": [],
+          "name": "attribute",
+          "options": {},
+          "type": "mystDirective",
+          "value": "Alias for the unsigned integer type (one of `numpy.ubyte`, `numpy.ushort`,\n`numpy.uintc`, `numpy.uint` and `np.ulonglong`) that is the same size as a\npointer.\n\nCompatible with the C ``uintptr_t``.\n\n:Character code: ``'P'``"
+        },
+        {
+          "args": "numpy.float16",
+          "children": [],
+          "name": "autoclass",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "args": "numpy.float32",
+          "children": [],
+          "name": "autoclass",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "args": "numpy.float64",
+          "children": [],
+          "name": "autoclass",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "args": "float96",
+          "children": [],
+          "name": "attribute",
+          "options": {},
+          "type": "mystDirective",
+          "value": "float128"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Alias for "
+                },
+                {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "numpy:longdouble",
+                    "path": "numpy:longdouble",
+                    "type": "RefInfo",
+                    "version": "*"
+                  },
+                  "type": "Link",
+                  "value": "numpy.longdouble"
+                },
+                {
+                  "type": "text",
+                  "value": ", named after its size in bits.    The existence of these aliases depends on the platform."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "args": "numpy.complex64",
+          "children": [],
+          "name": "autoclass",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "args": "numpy.complex128",
+          "children": [],
+          "name": "autoclass",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "args": "complex192",
+          "children": [],
+          "name": "attribute",
+          "options": {},
+          "type": "mystDirective",
+          "value": "complex256"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Alias for "
+                },
+                {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "api",
+                    "module": "numpy:clongdouble",
+                    "path": "numpy:clongdouble",
+                    "type": "RefInfo",
+                    "version": "*"
+                  },
+                  "type": "Link",
+                  "value": "numpy.clongdouble"
+                },
+                {
+                  "type": "text",
+                  "value": ", named after its size in bits.    The existence of these aliases depends on the platform."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "type": "blockquote"
+        }
+      ],
+      "level": 2,
+      "target": "sized-aliases",
+      "title": "Sized aliases",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The first two of these are conveniences which resemble the names of the builtin types, in the same style as "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "bool_"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "int_"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "str_"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "bytes_"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "object_"
+            },
+            {
+              "type": "text",
+              "value": ":"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "numpy.float_",
+          "children": [],
+          "name": "autoclass",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "args": "numpy.complex_",
+          "children": [],
+          "name": "autoclass",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Some more use alternate naming conventions for extended-precision floats and complex numbers:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "numpy.longfloat",
+          "children": [],
+          "name": "autoclass",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "args": "numpy.singlecomplex",
+          "children": [],
+          "name": "autoclass",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "args": "numpy.cfloat",
+          "children": [],
+          "name": "autoclass",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "args": "numpy.longcomplex",
+          "children": [],
+          "name": "autoclass",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "args": "numpy.clongfloat",
+          "children": [],
+          "name": "autoclass",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The following aliases originate from Python 2, and it is recommended that they not be used in new code."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "numpy.string_",
+          "children": [],
+          "name": "autoclass",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "args": "numpy.unicode_",
+          "children": [],
+          "name": "autoclass",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Other aliases",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The array scalar objects have an "
+            },
+            {
+              "type": "inlineCode",
+              "value": "array priority\n<class.__array_priority__>"
+            },
+            {
+              "type": "text",
+              "value": " of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "NPY_SCALAR_PRIORITY"
+            },
+            {
+              "type": "text",
+              "value": " (-1,000,000.0). They also do not (yet) have a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ctypes <ndarray.ctypes>"
+            },
+            {
+              "type": "text",
+              "value": " attribute. Otherwise, they share the same attributes as arrays:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ".. autosummary:: \n    :toctree:generated/\n    generic.flags\n    generic.shape\n    generic.strides\n    generic.ndim\n    generic.data\n    generic.size\n    generic.itemsize\n    generic.base\n    generic.dtype\n    generic.real\n    generic.imag\n    generic.flat\n    generic.T\n    generic.__array_interface__\n    generic.__array_struct__\n    generic.__array_priority__\n    generic.__array_wrap__"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Attributes",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "args": ":ref:`arrays.indexing`, :ref:`arrays.dtypes`",
+          "children": [],
+          "name": "seealso",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Array scalars can be indexed like 0-dimensional arrays: if "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "x"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " is an array scalar,"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "x[()]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " returns a copy of array scalar"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "x[...]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " returns a 0-dimensional "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ndarray"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "x['field-name']"
+                    },
+                    {
+                      "type": "text",
+                      "value": " returns the array scalar in the field "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "field-name"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".   ("
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "x"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " can have fields, for example, when it corresponds to a structured data type.)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Indexing",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Array scalars have exactly the same methods as arrays. The default behavior of these methods is to internally convert the scalar to an equivalent 0-dimensional array and to call the corresponding array method. In addition, math operations on array scalars are defined so that the same hardware flags are set and used to interpret the results as for "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ufunc <ufuncs>"
+            },
+            {
+              "type": "text",
+              "value": ", so that the error state used for ufuncs also carries over to the math on array scalars."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The exceptions to the above rules are given below:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ".. autosummary:: \n    :toctree:generated/\n    generic.__array__\n    generic.__array_wrap__\n    generic.squeeze\n    generic.byteswap\n    generic.__reduce__\n    generic.__setstate__\n    generic.setflags"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Utility method for typing:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ".. autosummary:: \n    :toctree:generated/\n    number.__class_getitem__"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Methods",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "There are two ways to effectively define a new array scalar type (apart from composing structured types "
+            },
+            {
+              "type": "inlineCode",
+              "value": "dtypes <arrays.dtypes>"
+            },
+            {
+              "type": "text",
+              "value": " from the built-in scalar types): One way is to simply subclass the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ndarray"
+            },
+            {
+              "type": "text",
+              "value": " and overwrite the methods of interest. This will work to a degree, but internally certain behaviors are fixed by the data type of the array.  To fully customize the data type of an array you need to define a new data-type, and register it with NumPy. Such new types can only be defined in C, using the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "NumPy C-API <c-api>"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Defining new types",
+      "type": "Section"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

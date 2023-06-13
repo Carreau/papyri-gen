@@ -1,0 +1,408 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "args": "",
+          "children": [],
+          "name": "seealso",
+          "options": {},
+          "type": "mystDirective",
+          "value": ":ref:`Installing Jupyter <jupyter:install>`\n  The IPython kernel is the Python execution backend for Jupyter."
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The Jupyter Notebook and other frontends automatically ensure that the IPython kernel is available. However, if you want to use a kernel with a different version of Python, or in a virtualenv or conda environment, you'll need to install that manually."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": "kernel_install",
+      "title": "Installing the IPython kernel",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If you're running Jupyter on Python 3, you can set up a Python 2 kernel after checking your version of pip is greater than 9.0      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "python2 -m pip --version"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Then install with       "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "python2 -m pip install ipykernel\npython2 -m ipykernel install --user"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Or using conda, create a Python 2 environment      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "conda create -n ipykernel_py2 python=2 ipykernel\nsource activate ipykernel_py2    # On Windows, remove the word 'source'\npython -m ipykernel install --user"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "note "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "IPython 6.0 stopped support for Python 2, so installing IPython on Python 2 will give you an older version (5.x series)."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If you're running Jupyter on Python 2 and want to set up a Python 3 kernel, follow the same steps, replacing "
+            },
+            {
+              "type": "inlineCode",
+              "value": "2"
+            },
+            {
+              "type": "text",
+              "value": " with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "3"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The last command installs a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "kernel spec <jupyterclient:kernelspecs>"
+            },
+            {
+              "type": "text",
+              "value": " file for the current python installation. Kernel spec files are JSON files, which can be viewed and changed with a normal text editor."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Kernels for Python 2 and 3",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If you want to have multiple IPython kernels for different virtualenvs or conda environments, you will need to specify unique names for the kernelspecs."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Make sure you have ipykernel installed in your environment. If you are using "
+            },
+            {
+              "type": "inlineCode",
+              "value": "pip"
+            },
+            {
+              "type": "text",
+              "value": " to install "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ipykernel"
+            },
+            {
+              "type": "text",
+              "value": " in a conda env, make sure "
+            },
+            {
+              "type": "inlineCode",
+              "value": "pip"
+            },
+            {
+              "type": "text",
+              "value": " is installed:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "bash",
+          "children": [],
+          "name": "sourcecode",
+          "options": {},
+          "type": "mystDirective",
+          "value": "source activate myenv\nconda install pip\nconda install ipykernel # or pip install ipykernel"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For example, using conda environments, install a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Python (myenv)"
+            },
+            {
+              "type": "text",
+              "value": " Kernel in a first environment:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "bash",
+          "children": [],
+          "name": "sourcecode",
+          "options": {},
+          "type": "mystDirective",
+          "value": "source activate myenv\npython -m ipykernel install --user --name myenv --display-name \"Python (myenv)\""
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "And in a second environment, after making sure ipykernel is installed in it:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "bash",
+          "children": [],
+          "name": "sourcecode",
+          "options": {},
+          "type": "mystDirective",
+          "value": "source activate other-env\npython -m ipykernel install --user --name other-env --display-name \"Python (other-env)\""
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "type": "inlineCode",
+              "value": "--name"
+            },
+            {
+              "type": "text",
+              "value": " value is used by Jupyter internally. These commands will overwrite any existing kernel with the same name. "
+            },
+            {
+              "type": "inlineCode",
+              "value": "--display-name"
+            },
+            {
+              "type": "text",
+              "value": " is what you see in the notebook menus."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Using virtualenv or conda envs, you can make your IPython kernel in one env available to Jupyter in a different env. To do so, run ipykernel install from the kernel's env, with --prefix pointing to the Jupyter env:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "bash",
+          "children": [],
+          "name": "sourcecode",
+          "options": {},
+          "type": "mystDirective",
+          "value": "/path/to/kernel/env/bin/python -m ipykernel install --prefix=/path/to/jupyter/env --name 'python-my-env'"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Note that this command will create a new configuration for the kernel in one of the preferred location (see "
+            },
+            {
+              "type": "inlineCode",
+              "value": "jupyter --paths"
+            },
+            {
+              "type": "text",
+              "value": " command for more details):"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "system-wide (e.g. /usr/local/share),"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "in Jupyter's env (sys.prefix/share),"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "per-user (~/.local/share or ~/Library/share)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If you want to edit the kernelspec before installing it, you can do so in two steps. First, ask IPython to write its spec to a temporary location:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "bash",
+          "children": [],
+          "name": "sourcecode",
+          "options": {},
+          "type": "mystDirective",
+          "value": "ipython kernel install --prefix /tmp"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "edit the files in /tmp/share/jupyter/kernels/python3 to your liking, then when you are ready, tell Jupyter to install it (this will copy the files into a place Jupyter will look):"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "bash",
+          "children": [],
+          "name": "sourcecode",
+          "options": {},
+          "type": "mystDirective",
+          "value": "jupyter kernelspec install /tmp/share/jupyter/kernels/python3"
+        }
+      ],
+      "level": 1,
+      "target": "multiple_kernel_install",
+      "title": "Kernels for different environments",
+      "type": "Section"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

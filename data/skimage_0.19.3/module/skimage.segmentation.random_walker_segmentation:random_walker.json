@@ -1,0 +1,964 @@
+{
+  "aliases": [
+    "skimage.segmentation.random_walker"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Random walker algorithm is implemented for gray-level or multichannel images."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Multichannel inputs are scaled with all channel data combined. Ensure all channels are separately normalized prior to running this algorithm."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "spacing",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "spacing"
+            },
+            {
+              "type": "text",
+              "value": " argument is specifically for anisotropic datasets, where data points are spaced differently in one or more spatial dimensions. Anisotropic data is commonly encountered in medical imaging."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The algorithm was first proposed in ."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The algorithm solves the diffusion equation at infinite times for sources placed on markers of each phase in turn. A pixel is labeled with the phase that has the greatest probability to diffuse first to the pixel."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The diffusion equation is solved by minimizing x.T L x for each phase, where L is the Laplacian of the weighted graph of the image, and x is the probability that a marker of the given phase arrives first at a pixel by diffusion (x=1 on markers of the phase, x=0 on the other markers, and the other coefficients are looked for). Each pixel is attributed the label for which it has a maximal value of x. The Laplacian L of the image is defined as:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "L_ii = d_i, the number of neighbors of pixel i (the degree of i)"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "L_ij = -w_ij if i and j are adjacent pixels"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                }
+              ],
+              "ordered": false,
+              "spread": false,
+              "start": 1,
+              "type": "list"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The weight w_ij is a decreasing function of the norm of the local gradient. This ensures that diffusion is easier between pixels of similar values."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When the Laplacian is decomposed into blocks of marked and unmarked pixels      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "L = M B.T\n    B A"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "with first indices corresponding to marked pixels, and then to unmarked pixels, minimizing x.T L x for one phase amount to solving      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "A x = - B x_m"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where x_m = 1 on markers of the given phase, and 0 on other markers. This linear system is solved in the algorithm using a direct method for small images, and an iterative method for larger images."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Deprecated in favor of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "channel_axis",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "channel_axis"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "deprecated 0.19"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "multichannel",
+              "type": "Param",
+              "type_": "DEPRECATED"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Image to be segmented in phases. Gray-level "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "data",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "data"
+                    },
+                    {
+                      "type": "text",
+                      "value": " can be two- or three-dimensional; multichannel data can be three- or four- dimensional with "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "channel_axis",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "channel_axis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " specifying the dimension containing channels. Data spacing is assumed isotropic unless the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "spacing",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "spacing"
+                    },
+                    {
+                      "type": "text",
+                      "value": " keyword argument is used."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "data",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Array of seed markers labeled with different positive integers for different phases. Zero-labeled pixels are unlabeled pixels. Negative labels correspond to inactive pixels that are not taken into account (they are removed from the graph). If labels are not consecutive integers, the labels array will be transformed so that labels are consecutive. In the multichannel case, "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "labels",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "labels"
+                    },
+                    {
+                      "type": "text",
+                      "value": " should have the same shape as a single channel of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "data",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "data"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", i.e. without the final dimension denoting channels."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "labels",
+              "type": "Param",
+              "type_": "array of ints, of same shape as `data` without channels dimension"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Penalization coefficient for the random walker motion (the greater "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "beta",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "beta"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the more difficult the diffusion)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "beta",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Mode for solving the linear system in the random walker algorithm."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'bf' (brute force): an LU factorization of the Laplacian is   computed. This is fast for small images (<1024x1024), but very slow   and memory-intensive for large images (e.g., 3-D volumes)."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'cg' (conjugate gradient): the linear system is solved iteratively   using the Conjugate Gradient method from scipy.sparse.linalg. This is   less memory-consuming than the brute force method for large images,   but it is quite slow."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'cg_j' (conjugate gradient with Jacobi preconditionner): the   Jacobi preconditionner is applyed during the Conjugate   gradient method iterations. This may accelerate the   convergence of the 'cg' method."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'cg_mg' (conjugate gradient with multigrid preconditioner): a   preconditioner is computed using a multigrid solver, then the   solution is computed with the Conjugate Gradient method. This mode   requires that the pyamg module is installed."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "param": "mode",
+              "type": "Param",
+              "type_": "string, available options {'cg', 'cg_j', 'cg_mg', 'bf'}"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Tolerance to achieve when solving the linear system using the conjugate gradient based modes ('cg', 'cg_j' and 'cg_mg')."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "tol",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If copy is False, the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "labels",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "labels"
+                    },
+                    {
+                      "type": "text",
+                      "value": " array will be overwritten with the result of the segmentation. Use copy=False if you want to save on memory."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "copy",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, input data is parsed as multichannel data (see 'data' above for proper input format in this case). This argument is deprecated: specify "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "channel_axis",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "channel_axis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instead."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "multichannel",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, the probability that a pixel belongs to each of the labels will be returned, instead of only the most likely label."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "return_full_prob",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Spacing between voxels in each spatial dimension. If "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", then the spacing between pixels/voxels in each dimension is assumed 1."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "spacing",
+              "type": "Param",
+              "type_": "iterable of floats, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Tolerance on the resulting probability to be in the interval [0, 1]. If the tolerance is not satisfied, a warning is displayed."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "prob_tol",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If None, the image is assumed to be a grayscale (single channel) image. Otherwise, this parameter indicates which axis of the array corresponds to channels."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 0.19"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "inlineCode",
+                          "value": "channel_axis"
+                        },
+                        {
+                          "type": "text",
+                          "value": " was added in 0.19."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "channel_axis",
+              "type": "Param",
+              "type_": "int or None, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "If "
+                            },
+                            {
+                              "anchor": null,
+                              "exists": true,
+                              "kind": "local",
+                              "reference": {
+                                "kind": "local",
+                                "module": null,
+                                "path": "return_full_prob",
+                                "type": "RefInfo",
+                                "version": null
+                              },
+                              "type": "Link",
+                              "value": "return_full_prob"
+                            },
+                            {
+                              "type": "text",
+                              "value": " is False, array of ints of same shape   and data type as "
+                            },
+                            {
+                              "anchor": null,
+                              "exists": true,
+                              "kind": "local",
+                              "reference": {
+                                "kind": "local",
+                                "module": null,
+                                "path": "labels",
+                                "type": "RefInfo",
+                                "version": null
+                              },
+                              "type": "Link",
+                              "value": "labels"
+                            },
+                            {
+                              "type": "text",
+                              "value": ", in which each pixel has been   labeled according to the marker that reached the pixel first   by anisotropic diffusion."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "If "
+                            },
+                            {
+                              "anchor": null,
+                              "exists": true,
+                              "kind": "local",
+                              "reference": {
+                                "kind": "local",
+                                "module": null,
+                                "path": "return_full_prob",
+                                "type": "RefInfo",
+                                "version": null
+                              },
+                              "type": "Link",
+                              "value": "return_full_prob"
+                            },
+                            {
+                              "type": "text",
+                              "value": " is True, array of floats of shape   "
+                            },
+                            {
+                              "domain": null,
+                              "role": null,
+                              "type": "Directive",
+                              "value": "(nlabels, labels.shape)"
+                            },
+                            {
+                              "type": "text",
+                              "value": ". "
+                            },
+                            {
+                              "domain": null,
+                              "role": null,
+                              "type": "Directive",
+                              "value": "output[label_nb, i, j]"
+                            },
+                            {
+                              "type": "text",
+                              "value": " is the   probability that label "
+                            },
+                            {
+                              "domain": null,
+                              "role": null,
+                              "type": "Directive",
+                              "value": "label_nb"
+                            },
+                            {
+                              "type": "text",
+                              "value": " reaches the pixel "
+                            },
+                            {
+                              "domain": null,
+                              "role": null,
+                              "type": "Directive",
+                              "value": "(i, j)"
+                            },
+                            {
+                              "type": "text",
+                              "value": "   first."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "param": "output",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Random walker algorithm for segmentation from markers."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "rng = np.random.default_rng()\na = np.zeros((10, 10)) + 0.2 * rng.random((10, 10))\na[5:8, 5:8] += 1\nb = np.zeros_like(a, dtype=np.int32)\nb[3, 3] = 1  # Marker for first phase\nb[6, 6] = 2  # Marker for second phase\nrandom_walker(a, b)  # doctest: +SKIP"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/skimage/segmentation/random_walker_segmentation.py",
+  "item_line": 262,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Other Parameters",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "watershed segmentation A segmentation algorithm based on mathematical morphology and \"flooding\" of regions from markers."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "skimage.morphology.watershed",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "skimage.morphology.watershed"
+      },
+      "type": "func"
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(data, labels, beta=130, mode='cg_j', tol=0.001, copy=True, multichannel=False, return_full_prob=False, spacing=None, *, prob_tol=0.001, channel_axis=None)"
+  },
+  "type": "DocBlob"
+}

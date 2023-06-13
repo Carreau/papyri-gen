@@ -1,0 +1,566 @@
+{
+  "aliases": [
+    "scipy.linalg.clarkson_woodruff_transform"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Given an input_matrix "
+            },
+            {
+              "type": "inlineCode",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": " of size "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(n, d)"
+            },
+            {
+              "type": "text",
+              "value": ", compute a matrix "
+            },
+            {
+              "type": "inlineCode",
+              "value": "A'"
+            },
+            {
+              "type": "text",
+              "value": " of size (sketch_size, d) so that"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "\\|Ax\\| \\approx \\|A'x\\|"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "with high probability via the Clarkson-Woodruff Transform, otherwise known as the CountSketch matrix."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To make the statement"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "\\|Ax\\| \\approx \\|A'x\\|"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "precise, observe the following result which is adapted from the proof of Theorem 14 of  via Markov's Inequality. If we have a sketch size "
+            },
+            {
+              "type": "inlineCode",
+              "value": "sketch_size=k"
+            },
+            {
+              "type": "text",
+              "value": " which is at least"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "k \\geq \\frac{2}{\\epsilon^2\\delta}"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Then for any fixed vector "
+            },
+            {
+              "type": "inlineCode",
+              "value": "x"
+            },
+            {
+              "type": "text",
+              "value": ","
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "\\|Ax\\| = (1\\pm\\epsilon)\\|A'x\\|"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "with probability at least one minus delta."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This implementation takes advantage of sparsity: computing a sketch takes time proportional to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "A.nnz"
+            },
+            {
+              "type": "text",
+              "value": ". Data "
+            },
+            {
+              "type": "inlineCode",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": " which is in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "scipy.sparse.csc_matrix"
+            },
+            {
+              "type": "text",
+              "value": " format gives the quickest computation time for sparse input."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> import numpy as np\n>>> from scipy import linalg\n>>> from scipy import sparse\n>>> rng = np.random.default_rng()\n>>> n_rows, n_columns, density, sketch_n_rows = 15000, 100, 0.01, 200\n>>> A = sparse.rand(n_rows, n_columns, density=density, format='csc')\n>>> B = sparse.rand(n_rows, n_columns, density=density, format='csr')\n>>> C = sparse.rand(n_rows, n_columns, density=density, format='coo')\n>>> D = rng.standard_normal((n_rows, n_columns))\n>>> SA = linalg.clarkson_woodruff_transform(A, sketch_n_rows) # fastest\n>>> SB = linalg.clarkson_woodruff_transform(B, sketch_n_rows) # fast\n>>> SC = linalg.clarkson_woodruff_transform(C, sketch_n_rows) # slower\n>>> SD = linalg.clarkson_woodruff_transform(D, sketch_n_rows) # slowest"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "That said, this method does perform well on dense inputs, just slower on a relative scale."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Input matrix, of shape "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(n, d)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "input_matrix",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of rows for the sketch."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sketch_size",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "seed",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "seed"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is None (or "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "np.random"
+                    },
+                    {
+                      "type": "text",
+                      "value": "), the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "numpy.random.mtrand",
+                        "path": "numpy.random.mtrand:RandomState",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "numpy.random.RandomState"
+                    },
+                    {
+                      "type": "text",
+                      "value": " singleton is used. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "seed",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "seed"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is an int, a new "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "RandomState"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instance is used, seeded with "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "seed",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "seed"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "seed",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "seed"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is already a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Generator"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "RandomState"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instance then that instance is used."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "seed",
+              "type": "Param",
+              "type_": "{None, int, `numpy.random.Generator`, `numpy.random.RandomState`}, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Sketch of the input matrix "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "A"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", of size "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(sketch_size, d)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "A'",
+              "type": "Param",
+              "type_": "array_like"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Applies a Clarkson-Woodruff Transform/sketch to the input matrix."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Create a big dense matrix ``A`` for the example:"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy import linalg\nn_rows, n_columns  = 15000, 100\nrng = np.random.default_rng()\nA = rng.standard_normal((n_rows, n_columns))"
+      },
+      {
+        "type": "text",
+        "value": "Apply the transform to create a new matrix with 200 rows:"
+      },
+      {
+        "type": "code",
+        "value": "sketch_n_rows = 200\nsketch = linalg.clarkson_woodruff_transform(A, sketch_n_rows, seed=rng)\nsketch.shape"
+      },
+      {
+        "type": "text",
+        "value": "Now with high probability, the true norm is close to the sketched norm\nin absolute value."
+      },
+      {
+        "type": "code",
+        "value": "linalg.norm(A)"
+      },
+      {
+        "type": "code",
+        "value": "linalg.norm(sketch)"
+      },
+      {
+        "type": "text",
+        "value": "Similarly, applying our sketch preserves the solution to a linear\nregression of :math:`\\min \\|Ax - b\\|`."
+      },
+      {
+        "type": "code",
+        "value": "b = rng.standard_normal(n_rows)\nx = linalg.lstsq(A, b)[0]\nAb = np.hstack((A, b.reshape(-1, 1)))\nSAb = linalg.clarkson_woodruff_transform(Ab, sketch_n_rows, seed=rng)\nSA, Sb = SAb[:, :-1], SAb[:, -1]\nx_sketched = linalg.lstsq(SA, Sb)[0]"
+      },
+      {
+        "type": "text",
+        "value": "As with the matrix norm example, ``linalg.norm(A @ x - b)`` is close\nto ``linalg.norm(A @ x_sketched - b)`` with high probability."
+      },
+      {
+        "type": "code",
+        "value": "linalg.norm(A @ x - b)"
+      },
+      {
+        "type": "code",
+        "value": "linalg.norm(A @ x_sketched - b)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/linalg/_sketches.py",
+  "item_line": 56,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(input_matrix, sketch_size, seed=None)"
+  },
+  "type": "DocBlob"
+}

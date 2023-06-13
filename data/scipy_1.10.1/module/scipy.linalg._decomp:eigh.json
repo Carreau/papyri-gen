@@ -1,0 +1,893 @@
+{
+  "aliases": [
+    "scipy.linalg.eigh"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Find eigenvalues array "
+            },
+            {
+              "type": "inlineCode",
+              "value": "w"
+            },
+            {
+              "type": "text",
+              "value": " and optionally eigenvectors array "
+            },
+            {
+              "type": "inlineCode",
+              "value": "v"
+            },
+            {
+              "type": "text",
+              "value": " of array "
+            },
+            {
+              "type": "inlineCode",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": ", where "
+            },
+            {
+              "type": "inlineCode",
+              "value": "b"
+            },
+            {
+              "type": "text",
+              "value": " is positive definite such that for every eigenvalue \u03bb (i-th entry of w) and its eigenvector "
+            },
+            {
+              "type": "inlineCode",
+              "value": "vi"
+            },
+            {
+              "type": "text",
+              "value": " (i-th column of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "v"
+            },
+            {
+              "type": "text",
+              "value": ") satisfies                    "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "              a @ vi = \u03bb * b @ vi\nvi.conj().T @ a @ vi = \u03bb\nvi.conj().T @ b @ vi = 1"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In the standard problem, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "b"
+            },
+            {
+              "type": "text",
+              "value": " is assumed to be the identity matrix."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function does not check the input array for being Hermitian/symmetric in order to allow for representing arrays with only their upper/lower triangular parts. Also, note that even though not taken into account, finiteness check applies to the whole array and unaffected by \"lower\" keyword."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function uses LAPACK drivers for computations in all possible keyword combinations, prefixed with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "sy"
+            },
+            {
+              "type": "text",
+              "value": " if arrays are real and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "he"
+            },
+            {
+              "type": "text",
+              "value": " if complex, e.g., a float array with \"evr\" driver is solved via \"syevr\", complex arrays with \"gvx\" driver problem is solved via \"hegvx\" etc."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "As a brief summary, the slowest and the most robust driver is the classical "
+            },
+            {
+              "type": "inlineCode",
+              "value": "<sy/he>ev"
+            },
+            {
+              "type": "text",
+              "value": " which uses symmetric QR. "
+            },
+            {
+              "type": "inlineCode",
+              "value": "<sy/he>evr"
+            },
+            {
+              "type": "text",
+              "value": " is seen as the optimal choice for the most general cases. However, there are certain occasions that "
+            },
+            {
+              "type": "inlineCode",
+              "value": "<sy/he>evd"
+            },
+            {
+              "type": "text",
+              "value": " computes faster at the expense of more memory usage. "
+            },
+            {
+              "type": "inlineCode",
+              "value": "<sy/he>evx"
+            },
+            {
+              "type": "text",
+              "value": ", while still being faster than "
+            },
+            {
+              "type": "inlineCode",
+              "value": "<sy/he>ev"
+            },
+            {
+              "type": "text",
+              "value": ", often performs worse than the rest except when very few eigenvalues are requested for large arrays though there is still no performance guarantee."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For the generalized problem, normalization with respect to the given type argument          "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "type 1 and 3 :      v.conj().T @ a @ v = w\ntype 2       : inv(v).conj().T @ a @ inv(v) = w\n\ntype 1 or 2  :      v.conj().T @ b @ v  = I\ntype 3       : v.conj().T @ inv(b) @ v  = I"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A complex Hermitian or real symmetric matrix whose eigenvalues and eigenvectors will be computed."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "a",
+              "type": "Param",
+              "type_": "(M, M) array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A complex Hermitian or real symmetric definite positive matrix in. If omitted, identity matrix is assumed."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "b",
+              "type": "Param",
+              "type_": "(M, M) array_like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether the pertinent array data is taken from the lower or upper triangle of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and, if applicable, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "b"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". (Default: lower)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "lower",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to calculate only eigenvalues and no eigenvectors. (Default: both are calculated)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "eigvals_only",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If provided, this two-element iterable defines the start and the end indices of the desired eigenvalues (ascending order and 0-indexed). To return only the second smallest to fifth smallest eigenvalues, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "[1, 4]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is used. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "[n-3, n-1]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " returns the largest three. Only available with \"evr\", \"evx\", and \"gvx\" drivers. The entries are directly converted to integers via "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "int()"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "subset_by_index",
+              "type": "Param",
+              "type_": "iterable, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If provided, this two-element iterable defines the half-open interval "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(a, b]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " that, if any, only the eigenvalues between these values are returned. Only available with \"evr\", \"evx\", and \"gvx\" drivers. Use "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.inf"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for the unconstrained ends."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "subset_by_value",
+              "type": "Param",
+              "type_": "iterable, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Defines which LAPACK driver should be used. Valid options are \"ev\", \"evd\", \"evr\", \"evx\" for standard problems and \"gv\", \"gvd\", \"gvx\" for generalized (where b is not None) problems. See the Notes section. The default for standard problems is \"evr\". For generalized problems, \"gvd\" is used for full set, and \"gvx\" for subset requested cases."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "driver",
+              "type": "Param",
+              "type_": "str, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "For the generalized problems, this keyword specifies the problem type to be solved for "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "w"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "v"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (only takes 1, 2, 3 as possible inputs)      "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "1 =>     a @ v = w @ b @ v\n2 => a @ b @ v = w @ v\n3 => b @ a @ v = w @ v"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This keyword is ignored for standard problems."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "type",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to overwrite data in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (may improve performance). Default is False."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "overwrite_a",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to overwrite data in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "b"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (may improve performance). Default is False."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "overwrite_b",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to check that the input matrices contain only finite numbers. Disabling may give a performance gain, but may result in problems (crashes, non-termination) if the inputs do contain infinities or NaNs."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "check_finite",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "deprecated 1.5.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    },
+                    {
+                      "children": [
+                        {
+                          "domain": null,
+                          "role": null,
+                          "type": "Directive",
+                          "value": "eigh"
+                        },
+                        {
+                          "type": "text",
+                          "value": " keyword argument "
+                        },
+                        {
+                          "domain": null,
+                          "role": null,
+                          "type": "Directive",
+                          "value": "turbo"
+                        },
+                        {
+                          "type": "text",
+                          "value": " is deprecated in favour of "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "driver=gvd"
+                        },
+                        {
+                          "type": "text",
+                          "value": " keyword instead and will be removed in SciPy 1.12.0."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "turbo",
+              "type": "Param",
+              "type_": "bool, optional, deprecated"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "deprecated 1.5.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    },
+                    {
+                      "children": [
+                        {
+                          "domain": null,
+                          "role": null,
+                          "type": "Directive",
+                          "value": "eigh"
+                        },
+                        {
+                          "type": "text",
+                          "value": " keyword argument "
+                        },
+                        {
+                          "domain": null,
+                          "role": null,
+                          "type": "Directive",
+                          "value": "eigvals"
+                        },
+                        {
+                          "type": "text",
+                          "value": " is deprecated in favour of "
+                        },
+                        {
+                          "domain": null,
+                          "role": null,
+                          "type": "Directive",
+                          "value": "subset_by_index"
+                        },
+                        {
+                          "type": "text",
+                          "value": " keyword instead and will be removed in SciPy 1.12.0."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "eigvals",
+              "type": "Param",
+              "type_": "tuple (lo, hi), optional, deprecated"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If eigenvalue computation does not converge, an error occurred, or b matrix is not definite positive. Note that if input matrices are not symmetric or Hermitian, no error will be reported but results will be wrong."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "LinAlgError"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The N (1<=N<=M) selected eigenvalues, in ascending order, each repeated according to its multiplicity."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "w",
+              "type": "Param",
+              "type_": "(N,) ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "(if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "eigvals_only == False"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "v",
+              "type": "Param",
+              "type_": "(M, N) ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Solve a standard or generalized eigenvalue problem for a complex Hermitian or real symmetric matrix."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.linalg import eigh\nA = np.array([[6, 3, 1, 5], [3, 0, 5, 1], [1, 5, 6, 2], [5, 1, 2, 2]])\nw, v = eigh(A)\nnp.allclose(A @ v - v @ np.diag(w), np.zeros((4, 4)))"
+      },
+      {
+        "type": "text",
+        "value": "Request only the eigenvalues"
+      },
+      {
+        "type": "code",
+        "value": "w = eigh(A, eigvals_only=True)"
+      },
+      {
+        "type": "text",
+        "value": "Request eigenvalues that are less than 10."
+      },
+      {
+        "type": "code",
+        "value": "A = np.array([[34, -4, -10, -7, 2],\n              [-4, 7, 2, 12, 0],\n              [-10, 2, 44, 2, -19],\n              [-7, 12, 2, 79, -34],\n              [2, 0, -19, -34, 29]])\neigh(A, eigvals_only=True, subset_by_value=[-np.inf, 10])"
+      },
+      {
+        "type": "text",
+        "value": "Request the second smallest eigenvalue and its eigenvector"
+      },
+      {
+        "type": "code",
+        "value": "w, v = eigh(A, subset_by_index=[1, 1])\nw"
+      },
+      {
+        "type": "code",
+        "value": "v.shape  # only a single column is returned"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/linalg/_decomp.py",
+  "item_line": 270,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "eigenvalues of symmetric or Hermitian arrays"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "eigvalsh",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "eigvalsh"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "eigenvalues and right eigenvectors for non-symmetric arrays"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "eig",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "eig"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "eigenvalues and right eiegenvectors for symmetric/Hermitian tridiagonal matrices"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.linalg._decomp:eigh_tridiagonal",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "eigh_tridiagonal"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(a, b=None, lower=True, eigvals_only=False, overwrite_a=False, overwrite_b=False, turbo=False, eigvals=None, type=1, check_finite=True, subset_by_index=None, subset_by_value=None, driver=None)"
+  },
+  "type": "DocBlob"
+}

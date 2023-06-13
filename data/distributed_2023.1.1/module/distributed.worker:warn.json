@@ -1,0 +1,203 @@
+{
+  "aliases": [
+    "distributed.warn"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If called from outside a dask worker, its arguments are passed directly to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "warnings.warn()"
+            },
+            {
+              "type": "text",
+              "value": ". If called by code running on a worker, then in addition to emitting a warning locally, any clients connected (possibly remotely) to the scheduler managing this worker will receive an event instructing them to emit the same warning (subject to their own local filters, etc.). When implementing computations that may run on a worker, the user can call this "
+            },
+            {
+              "type": "inlineCode",
+              "value": "warn"
+            },
+            {
+              "type": "text",
+              "value": " function to ensure that any remote client sessions will see their warnings, for example in a Jupyter output cell."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "While all of the arguments are respected by the locally emitted warning (with same meanings as in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "warnings.warn()"
+            },
+            {
+              "type": "text",
+              "value": "), "
+            },
+            {
+              "type": "inlineCode",
+              "value": "stacklevel"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "source"
+            },
+            {
+              "type": "text",
+              "value": " are ignored by clients because they would not be meaningful in the client's thread."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A drop-in replacement of the built-in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "warnings.warn()"
+            },
+            {
+              "type": "text",
+              "value": " function for issuing warnings remotely from workers to clients."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from dask.distributed import Client, warn\nclient = Client()\ndef do_warn():\n   warn(\"A warning from a worker.\")\nclient.submit(do_warn).result()"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/distributed/worker.py",
+  "item_line": 3352,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(message: 'str | Warning', category: 'type[Warning] | None' = <class 'UserWarning'>, stacklevel: 'int' = 1, source: 'Any' = None) -> 'None'"
+  },
+  "type": "DocBlob"
+}

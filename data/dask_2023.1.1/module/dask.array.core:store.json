@@ -1,0 +1,389 @@
+{
+  "aliases": [
+    "dask.array.store",
+    "dask.array.Array.store",
+    "dask.array.core.store"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This stores dask arrays into object that supports numpy-style setitem indexing.  It stores values chunk by chunk so that it does not have to fill up memory.  For best performance you can align the block size of the storage target with the block size of your array."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If your data fits in memory then you may prefer calling "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.array(myarray)"
+            },
+            {
+              "type": "text",
+              "value": " instead."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "sources: Array or collection of Arrays",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "These should support setitem syntax "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "target[10:20] = ..."
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If sources is a single item, targets must be a single item; if sources is a collection of arrays, targets must be a matching collection."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "targets: array-like or Delayed or collection of array-likes and/or Delayeds",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether or not to lock the data stores while storing. Pass True (lock each file individually), False (don't lock) or a particular "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "threading.Lock"
+                    },
+                    {
+                      "type": "text",
+                      "value": " object to be shared among all writes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "lock: boolean or threading.Lock, optional",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Each "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "region"
+                    },
+                    {
+                      "type": "text",
+                      "value": " tuple in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "regions"
+                    },
+                    {
+                      "type": "text",
+                      "value": " should be such that "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "target[region].shape = source.shape"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for the corresponding source and target in sources and targets, respectively. If this is a tuple, the contents will be assumed to be slices, so do not provide a tuple of tuples."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "regions: tuple of slices or collection of tuples of slices, optional",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If true compute immediately; return "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "dask.delayed.Delayed"
+                    },
+                    {
+                      "type": "text",
+                      "value": " otherwise."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "compute: boolean, optional",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Optionally return the stored result (default False)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "return_stored: boolean, optional",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Parameters passed to compute/persist (only used if compute=True)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "kwargs:",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "tuple of Arrays"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "If return_stored=True"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "None"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "If return_stored=False and compute=True"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Delayed"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "If return_stored=False and compute=False"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Store dask arrays in array-like objects, overwrite data in target"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import h5py  # doctest: +SKIP\nf = h5py.File('myfile.hdf5', mode='a')  # doctest: +SKIP\ndset = f.create_dataset('/data', shape=x.shape,\n                                 chunks=x.chunks,\n                                 dtype='f8')  # doctest: +SKIP"
+      },
+      {
+        "type": "code",
+        "value": "store(x, dset)  # doctest: +SKIP"
+      },
+      {
+        "type": "text",
+        "value": "Alternatively store many arrays at the same time"
+      },
+      {
+        "type": "code",
+        "value": "store([x, y, z], [dset1, dset2, dset3])  # doctest: +SKIP"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dask/array/core.py",
+  "item_line": 1069,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(sources: 'Array | Collection[Array]', targets: 'ArrayLike | Delayed | Collection[ArrayLike | Delayed]', lock: 'bool | Lock' = True, regions: 'tuple[slice, ...] | Collection[tuple[slice, ...]] | None' = None, compute: 'bool' = True, return_stored: 'bool' = False, **kwargs)"
+  },
+  "type": "DocBlob"
+}

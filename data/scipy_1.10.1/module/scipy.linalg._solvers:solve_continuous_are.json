@@ -1,0 +1,597 @@
+{
+  "aliases": [
+    "scipy.linalg.solve_continuous_are"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The CARE is defined as"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "X A + A^H X - X B R^{-1} B^H X + Q = 0"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The limitations for a solution to exist are :"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "All eigenvalues of "
+                        },
+                        {
+                          "type": "inlineMath",
+                          "value": "A"
+                        },
+                        {
+                          "type": "text",
+                          "value": " on the right half plane, should be       controllable."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "The associated hamiltonian pencil (See Notes), should have       eigenvalues sufficiently away from the imaginary axis."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                }
+              ],
+              "ordered": false,
+              "spread": false,
+              "start": 1,
+              "type": "list"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Moreover, if "
+            },
+            {
+              "type": "inlineCode",
+              "value": "e"
+            },
+            {
+              "type": "text",
+              "value": " or "
+            },
+            {
+              "type": "inlineCode",
+              "value": "s"
+            },
+            {
+              "type": "text",
+              "value": " is not precisely "
+            },
+            {
+              "type": "inlineCode",
+              "value": "None"
+            },
+            {
+              "type": "text",
+              "value": ", then the generalized version of CARE"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "E^HXA + A^HXE - (E^HXB + S) R^{-1} (B^HXE + S^H) + Q = 0"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "is solved. When omitted, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "e"
+            },
+            {
+              "type": "text",
+              "value": " is assumed to be the identity and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "s"
+            },
+            {
+              "type": "text",
+              "value": " is assumed to be the zero matrix with sizes compatible with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "b"
+            },
+            {
+              "type": "text",
+              "value": ", respectively."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The equation is solved by forming the extended hamiltonian matrix pencil, as described in , "
+            },
+            {
+              "type": "inlineMath",
+              "value": "H - \\lambda J"
+            },
+            {
+              "type": "text",
+              "value": " given by the block matrices       "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "[ A    0    B ]             [ E   0    0 ]\n[-Q  -A^H  -S ] - \\lambda * [ 0  E^H   0 ]\n[ S^H B^H   R ]             [ 0   0    0 ]"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "and using a QZ decomposition method."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In this algorithm, the fail conditions are linked to the symmetry of the product "
+            },
+            {
+              "type": "inlineMath",
+              "value": "U_2 U_1^{-1}"
+            },
+            {
+              "type": "text",
+              "value": " and condition number of "
+            },
+            {
+              "type": "inlineMath",
+              "value": "U_1"
+            },
+            {
+              "type": "text",
+              "value": ". Here, "
+            },
+            {
+              "type": "inlineMath",
+              "value": "U"
+            },
+            {
+              "type": "text",
+              "value": " is the 2m-by-m matrix that holds the eigenvectors spanning the stable subspace with 2-m rows and partitioned into two m-row matrices. See  and  for more details."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In order to improve the QZ decomposition accuracy, the pencil goes through a balancing step where the sum of absolute values of "
+            },
+            {
+              "type": "inlineMath",
+              "value": "H"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "J"
+            },
+            {
+              "type": "text",
+              "value": " entries (after removing the diagonal entries of the sum) is balanced following the recipe given in ."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 0.11.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Square matrix"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "a",
+              "type": "Param",
+              "type_": "(M, M) array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Input"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "b",
+              "type": "Param",
+              "type_": "(M, N) array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Input"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "q",
+              "type": "Param",
+              "type_": "(M, M) array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Nonsingular square matrix"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "r",
+              "type": "Param",
+              "type_": "(N, N) array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Nonsingular square matrix"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "e",
+              "type": "Param",
+              "type_": "(M, M) array_like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Input"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "s",
+              "type": "Param",
+              "type_": "(M, N) array_like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The boolean that indicates whether a balancing step is performed on the data. The default is set to True."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "balanced",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "For cases where the stable subspace of the pencil could not be isolated. See Notes section and the references for details."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "LinAlgError"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Solution to the continuous-time algebraic Riccati equation."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "(M, M) ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Solves the continuous-time algebraic Riccati equation (CARE)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Given `a`, `b`, `q`, and `r` solve for `x`:"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy import linalg\na = np.array([[4, 3], [-4.5, -3.5]])\nb = np.array([[1], [-1]])\nq = np.array([[9, 6], [6, 4.]])\nr = 1\nx = linalg.solve_continuous_are(a, b, q, r)\nx"
+      },
+      {
+        "type": "code",
+        "value": "np.allclose(a.T.dot(x) + x.dot(a)-x.dot(b).dot(b.T).dot(x), -q)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/linalg/_solvers.py",
+  "item_line": 328,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Solves the discrete-time algebraic Riccati equation"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.linalg._solvers:solve_discrete_are",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "solve_discrete_are"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(a, b, q, r, e=None, s=None, balanced=True)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,315 @@
+{
+  "aliases": [
+    "distributed.multi_lock.MultiLockExtension"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This adds the following routes to the scheduler"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "multi_lock_acquire"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "multi_lock_release"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The approach is to maintain "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "self.locks"
+            },
+            {
+              "type": "text",
+              "value": " that maps a lock (unique name given to "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "MultiLock(names=, ...)"
+            },
+            {
+              "type": "text",
+              "value": " at creation) to a list of users (instances of "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "MultiLock"
+            },
+            {
+              "type": "text",
+              "value": ") that \"requests\" the lock. Additionally, "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "self.requests"
+            },
+            {
+              "type": "text",
+              "value": " maps a user to its requested locks and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "self.requests_left"
+            },
+            {
+              "type": "text",
+              "value": " maps a user to the number of locks still need."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Every time a user "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "x"
+            },
+            {
+              "type": "text",
+              "value": " gets to the front in "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "self.locks[name] = [x, ...]"
+            },
+            {
+              "type": "text",
+              "value": " it means that "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "x"
+            },
+            {
+              "type": "text",
+              "value": " now holds the lock "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "name"
+            },
+            {
+              "type": "text",
+              "value": " and when it holds all the requested locks "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "acquire()"
+            },
+            {
+              "type": "text",
+              "value": " can return."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Finally, "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "self.events"
+            },
+            {
+              "type": "text",
+              "value": " contains all the events users are waiting on to finish."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "An extension for the scheduler to manage MultiLocks"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/distributed/multi_lock.py",
+  "item_line": 18,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

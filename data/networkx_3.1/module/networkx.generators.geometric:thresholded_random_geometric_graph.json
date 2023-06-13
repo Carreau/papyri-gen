@@ -1,0 +1,718 @@
+{
+  "aliases": [
+    "networkx.thresholded_random_geometric_graph"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The thresholded random geometric graph [1] model places "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "n",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "n"
+            },
+            {
+              "type": "text",
+              "value": " nodes uniformly at random in the unit cube of dimensions "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "dim",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "dim"
+            },
+            {
+              "type": "text",
+              "value": ". Each node "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "u"
+            },
+            {
+              "type": "text",
+              "value": " is assigned a weight "
+            },
+            {
+              "type": "inlineMath",
+              "value": "w_u"
+            },
+            {
+              "type": "text",
+              "value": ". Two nodes "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "u"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "v"
+            },
+            {
+              "type": "text",
+              "value": " are joined by an edge if they are within the maximum connection distance, "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "networkx",
+                "path": "networkx.algorithms.distance_measures:radius",
+                "type": "RefInfo",
+                "version": "3.1"
+              },
+              "type": "Link",
+              "value": "radius"
+            },
+            {
+              "type": "text",
+              "value": " computed by the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "p",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "p"
+            },
+            {
+              "type": "text",
+              "value": "-Minkowski distance and the summation of weights "
+            },
+            {
+              "type": "inlineMath",
+              "value": "w_u"
+            },
+            {
+              "type": "text",
+              "value": " + "
+            },
+            {
+              "type": "inlineMath",
+              "value": "w_v"
+            },
+            {
+              "type": "text",
+              "value": " is greater than or equal to the threshold parameter "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "theta"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Edges within "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "networkx",
+                "path": "networkx.algorithms.distance_measures:radius",
+                "type": "RefInfo",
+                "version": "3.1"
+              },
+              "type": "Link",
+              "value": "radius"
+            },
+            {
+              "type": "text",
+              "value": " of each other are determined using a KDTree when SciPy is available. This reduces the time complexity from "
+            },
+            {
+              "type": "inlineMath",
+              "value": "O(n^2)"
+            },
+            {
+              "type": "text",
+              "value": " to "
+            },
+            {
+              "type": "inlineMath",
+              "value": "O(n)"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This uses a "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "k"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": "-d tree to build the graph."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "pos",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "pos"
+            },
+            {
+              "type": "text",
+              "value": " keyword argument can be used to specify node positions so you can create an arbitrary distribution and domain for positions."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For example, to use a 2D Gaussian distribution of node positions with mean (0, 0) and standard deviation 2"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If weights are not specified they are assigned to nodes by drawing randomly from the exponential distribution with rate parameter "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\lambda=1"
+            },
+            {
+              "type": "text",
+              "value": ". To specify weights from a different distribution, use the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "weight",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "weight"
+            },
+            {
+              "type": "text",
+              "value": " keyword argument  "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "::"
+        },
+        {
+          "type": "code",
+          "value": ">>> import random\n>>> import math\n>>> n = 50\n>>> pos = {i: (random.gauss(0, 2), random.gauss(0, 2)) for i in range(n)}\n>>> w = {i: random.expovariate(5.0) for i in range(n)}\n>>> G = nx.thresholded_random_geometric_graph(n, 0.2, 0.1, 2, pos, w)"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of nodes or iterable of nodes"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "n",
+              "type": "Param",
+              "type_": "int or iterable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Distance threshold value"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "radius: float",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Threshold value"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "theta: float",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Dimension of graph"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dim",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A dictionary keyed by node with node positions as values."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "pos",
+              "type": "Param",
+              "type_": "dict, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Node weights as a dictionary of numbers keyed by node."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "weight",
+              "type": "Param",
+              "type_": "dict, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Which Minkowski distance metric to use.  "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "p",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "p"
+                    },
+                    {
+                      "type": "text",
+                      "value": " has to meet the condition "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "1 <= p <= infinity"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If this argument is not specified, the "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "L^2"
+                    },
+                    {
+                      "type": "text",
+                      "value": " metric (the Euclidean distance metric), p = 2 is used."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This should not be confused with the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "p",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "p"
+                    },
+                    {
+                      "type": "text",
+                      "value": " of an Erd\u0151s-R\u00e9nyi random graph, which represents probability."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "p",
+              "type": "Param",
+              "type_": "float, optional (default 2)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Indicator of random number generation state. See "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Randomness<randomness>"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "seed",
+              "type": "Param",
+              "type_": "integer, random_state, or None (default)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A thresholded random geographic graph, undirected and without self-loops."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Each node has a node attribute "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "'pos'"
+                    },
+                    {
+                      "type": "text",
+                      "value": " that stores the position of that node in Euclidean space as provided by the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "pos"
+                    },
+                    {
+                      "type": "text",
+                      "value": " keyword argument or, if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "pos"
+                    },
+                    {
+                      "type": "text",
+                      "value": " was not provided, as generated by this function. Similarly, each node has a nodethre attribute "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "'weight'"
+                    },
+                    {
+                      "type": "text",
+                      "value": " that stores the weight of that node as provided or as generated."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "Graph"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Returns a thresholded random geometric graph in the unit cube."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Default Graph:"
+      },
+      {
+        "type": "text",
+        "value": "G = nx.thresholded_random_geometric_graph(50, 0.2, 0.1)"
+      },
+      {
+        "type": "text",
+        "value": "Custom Graph:"
+      },
+      {
+        "type": "text",
+        "value": "Create a thresholded random geometric graph on 50 uniformly distributed\nnodes where nodes are joined by an edge if their sum weights drawn from\na exponential distribution with rate = 5 are >= theta = 0.1 and their\nEuclidean distance is at most 0.2."
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/generators/geometric.py",
+  "item_line": 666,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Examples",
+    "Notes",
+    "References"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(n, radius, theta, dim=2, pos=None, weight=None, p=2, seed=None)"
+  },
+  "type": "DocBlob"
+}

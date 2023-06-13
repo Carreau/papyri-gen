@@ -1,0 +1,1013 @@
+{
+  "aliases": [
+    "scipy.stats.rvs_ratio_uniforms"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Given a univariate probability density function "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "pdf",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "pdf"
+            },
+            {
+              "type": "text",
+              "value": " and a constant "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "c",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "c"
+            },
+            {
+              "type": "text",
+              "value": ", define the set "
+            },
+            {
+              "type": "inlineCode",
+              "value": "A = {(u, v) : 0 < u <= sqrt(pdf(v/u + c))}"
+            },
+            {
+              "type": "text",
+              "value": ". If "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "(U, V)"
+            },
+            {
+              "type": "text",
+              "value": " is a random vector uniformly distributed over "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": ", then "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "V/U + c"
+            },
+            {
+              "type": "text",
+              "value": " follows a distribution according to "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "pdf",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "pdf"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The above result (see , ) can be used to sample random variables using only the pdf, i.e. no inversion of the cdf is required. Typical choices of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "c",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "c"
+            },
+            {
+              "type": "text",
+              "value": " are zero or the mode of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "pdf",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "pdf"
+            },
+            {
+              "type": "text",
+              "value": ". The set "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": " is a subset of the rectangle "
+            },
+            {
+              "type": "inlineCode",
+              "value": "R = [0, umax] x [vmin, vmax]"
+            },
+            {
+              "type": "text",
+              "value": " where"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "umax = sup sqrt(pdf(x))"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "vmin = inf (x - c) sqrt(pdf(x))"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "vmax = sup (x - c) sqrt(pdf(x))"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In particular, these values are finite if "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "pdf",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "pdf"
+            },
+            {
+              "type": "text",
+              "value": " is bounded and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "x**2 * pdf(x)"
+            },
+            {
+              "type": "text",
+              "value": " is bounded (i.e. subquadratic tails). One can generate "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "(U, V)"
+            },
+            {
+              "type": "text",
+              "value": " uniformly on "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "R"
+            },
+            {
+              "type": "text",
+              "value": " and return "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "V/U + c"
+            },
+            {
+              "type": "text",
+              "value": " if "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "(U, V)"
+            },
+            {
+              "type": "text",
+              "value": " are also in "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": " which can be directly verified."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The algorithm is not changed if one replaces "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "pdf",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "pdf"
+            },
+            {
+              "type": "text",
+              "value": " by k * "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "pdf",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "pdf"
+            },
+            {
+              "type": "text",
+              "value": " for any constant k > 0. Thus, it is often convenient to work with a function that is proportional to the probability density function by dropping unneccessary normalization factors."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Intuitively, the method works well if "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": " fills up most of the enclosing rectangle such that the probability is high that "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "(U, V)"
+            },
+            {
+              "type": "text",
+              "value": " lies in "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": " whenever it lies in "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "R"
+            },
+            {
+              "type": "text",
+              "value": " as the number of required iterations becomes too large otherwise. To be more precise, note that the expected number of iterations to draw "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "(U, V)"
+            },
+            {
+              "type": "text",
+              "value": " uniformly distributed on "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "R"
+            },
+            {
+              "type": "text",
+              "value": " such that "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "(U, V)"
+            },
+            {
+              "type": "text",
+              "value": " is also in "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": " is given by the ratio "
+            },
+            {
+              "type": "inlineCode",
+              "value": "area(R) / area(A) = 2 * umax * (vmax - vmin) / area(pdf)"
+            },
+            {
+              "type": "text",
+              "value": ", where "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "area(pdf)"
+            },
+            {
+              "type": "text",
+              "value": " is the integral of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "pdf",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "pdf"
+            },
+            {
+              "type": "text",
+              "value": " (which is equal to one if the probability density function is used but can take on other values if a function proportional to the density is used). The equality holds since the area of "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": " is equal to 0.5 * area(pdf) (Theorem 7.1 in ). If the sampling fails to generate a single random variate after 50000 iterations (i.e. not a single draw is in "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": "), an exception is raised."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If the bounding rectangle is not correctly specified (i.e. if it does not contain "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": "), the algorithm samples from a distribution different from the one given by "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "pdf",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "pdf"
+            },
+            {
+              "type": "text",
+              "value": ". It is therefore recommended to perform a test such as "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "scipy.stats._stats_py",
+                "path": "scipy.stats._stats_py:kstest",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "kstest"
+            },
+            {
+              "type": "text",
+              "value": " as a check."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A function with signature "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "pdf(x)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " that is proportional to the probability density function of the distribution."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "pdf",
+              "type": "Param",
+              "type_": "callable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The upper bound of the bounding rectangle in the u-direction."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "umax",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The lower bound of the bounding rectangle in the v-direction."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "vmin",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The upper bound of the bounding rectangle in the v-direction."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "vmax",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Defining number of random variates (default is 1)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "size",
+              "type": "Param",
+              "type_": "int or tuple of ints, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Shift parameter of ratio-of-uniforms method, see Notes. Default is 0."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "c",
+              "type": "Param",
+              "type_": "float, optional."
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "anchor": null,
+                          "exists": true,
+                          "kind": "module",
+                          "reference": {
+                            "kind": "api",
+                            "module": "numpy.random.mtrand",
+                            "path": "numpy.random.mtrand:RandomState",
+                            "type": "RefInfo",
+                            "version": "*"
+                          },
+                          "type": "Link",
+                          "value": "numpy.random.RandomState"
+                        },
+                        {
+                          "type": "text",
+                          "value": "}, optional"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "type": "blockquote"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "scipy",
+                        "path": "scipy.linalg.interpolative:seed",
+                        "type": "RefInfo",
+                        "version": "1.10.1"
+                      },
+                      "type": "Link",
+                      "value": "seed"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is None (or "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "np.random"
+                    },
+                    {
+                      "type": "text",
+                      "value": "), the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "numpy.random.mtrand",
+                        "path": "numpy.random.mtrand:RandomState",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "numpy.random.RandomState"
+                    },
+                    {
+                      "type": "text",
+                      "value": " singleton is used. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "scipy",
+                        "path": "scipy.linalg.interpolative:seed",
+                        "type": "RefInfo",
+                        "version": "1.10.1"
+                      },
+                      "type": "Link",
+                      "value": "seed"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is an int, a new "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "RandomState"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instance is used, seeded with "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "scipy",
+                        "path": "scipy.linalg.interpolative:seed",
+                        "type": "RefInfo",
+                        "version": "1.10.1"
+                      },
+                      "type": "Link",
+                      "value": "seed"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "scipy",
+                        "path": "scipy.linalg.interpolative:seed",
+                        "type": "RefInfo",
+                        "version": "1.10.1"
+                      },
+                      "type": "Link",
+                      "value": "seed"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is already a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Generator"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "RandomState"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instance then that instance is used."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "random_state",
+              "type": "Param",
+              "type_": "{None, int, `numpy.random.Generator`,"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The random variates distributed according to the probability distribution defined by the pdf."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "rvs",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Generate random samples from a probability density function using the ratio-of-uniforms method."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy import stats\nrng = np.random.default_rng()"
+      },
+      {
+        "type": "text",
+        "value": "Simulate normally distributed random variables. It is easy to compute the\nbounding rectangle explicitly in that case. For simplicity, we drop the\nnormalization factor of the density."
+      },
+      {
+        "type": "code",
+        "value": "f = lambda x: np.exp(-x**2 / 2)\nv_bound = np.sqrt(f(np.sqrt(2))) * np.sqrt(2)\numax, vmin, vmax = np.sqrt(f(0)), -v_bound, v_bound\nrvs = stats.rvs_ratio_uniforms(f, umax, vmin, vmax, size=2500,\n                               random_state=rng)"
+      },
+      {
+        "type": "text",
+        "value": "The K-S test confirms that the random variates are indeed normally\ndistributed (normality is not rejected at 5% significance level):"
+      },
+      {
+        "type": "code",
+        "value": "stats.kstest(rvs, 'norm')[1]"
+      },
+      {
+        "type": "text",
+        "value": "The exponential distribution provides another example where the bounding\nrectangle can be determined explicitly."
+      },
+      {
+        "type": "code",
+        "value": "rvs = stats.rvs_ratio_uniforms(lambda x: np.exp(-x), umax=1,\n                               vmin=0, vmax=2*np.exp(-1), size=1000,\n                               random_state=rng)\nstats.kstest(rvs, 'expon')[1]"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_rvs_sampling.py",
+  "item_line": 6,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(pdf, umax, vmin, vmax, size=1, c=0, random_state=None)"
+  },
+  "type": "DocBlob"
+}

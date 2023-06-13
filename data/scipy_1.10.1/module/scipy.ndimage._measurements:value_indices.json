@@ -1,0 +1,601 @@
+{
+  "aliases": [
+    "scipy.ndimage.value_indices"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For a small array with few distinct values, one might use "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy",
+                "path": "numpy:unique",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "numpy.unique()"
+            },
+            {
+              "type": "text",
+              "value": " to find all possible values, and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(arr == val)"
+            },
+            {
+              "type": "text",
+              "value": " to locate each value within that array. However, for large arrays, with many distinct values, this can become extremely inefficient, as locating each value would require a new search through the entire array. Using this function, there is essentially one search, with the indices saved for all distinct values."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This is useful when matching a categorical image (e.g. a segmentation or classification) to an associated image of other data, allowing any per-class statistic(s) to then be calculated. Provides a more flexible alternative to functions like "
+            },
+            {
+              "type": "inlineCode",
+              "value": "scipy.ndimage.mean()"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "scipy.ndimage.variance()"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Some other closely related functionality, with different strengths and weaknesses, can also be found in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "scipy.stats.binned_statistic()"
+            },
+            {
+              "type": "text",
+              "value": " and the "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "scikit-image"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://scikit-image.org/"
+            },
+            {
+              "type": "text",
+              "value": " function "
+            },
+            {
+              "type": "inlineCode",
+              "value": "skimage.measure.regionprops()"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Note for IDL users: this provides functionality equivalent to IDL's REVERSE_INDICES option (as per the IDL documentation for the "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "HISTOGRAM"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://www.l3harrisgeospatial.com/docs/histogram.html"
+            },
+            {
+              "type": "text",
+              "value": " function)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 1.10.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Array containing integer values."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "arr",
+              "type": "Param",
+              "type_": "ndarray of ints"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This value will be ignored in searching the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "arr",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "arr"
+                    },
+                    {
+                      "type": "text",
+                      "value": " array. If not given, all values found will be included in output. Default is None."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ignore_value",
+              "type": "Param",
+              "type_": "int, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A Python dictionary of array indices for each distinct value. The dictionary is keyed by the distinct values, the entries are array index tuples covering all occurrences of the value within the array."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This dictionary can occupy significant memory, usually several times the size of the input array."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "indices",
+              "type": "Param",
+              "type_": "dictionary"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Find indices of each distinct value in given array."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy import ndimage\na = np.zeros((6, 6), dtype=int)\na[2:4, 2:4] = 1\na[4, 4] = 1\na[:2, :3] = 2\na[0, 5] = 3\na"
+      },
+      {
+        "type": "code",
+        "value": "val_indices = ndimage.value_indices(a)"
+      },
+      {
+        "type": "text",
+        "value": "The dictionary `val_indices` will have an entry for each distinct\nvalue in the input array."
+      },
+      {
+        "type": "code",
+        "value": "val_indices.keys()"
+      },
+      {
+        "type": "text",
+        "value": "The entry for each value is an index tuple, locating the elements\nwith that value."
+      },
+      {
+        "type": "code",
+        "value": "ndx1 = val_indices[1]\nndx1"
+      },
+      {
+        "type": "text",
+        "value": "This can be used to index into the original array, or any other\narray with the same shape."
+      },
+      {
+        "type": "code",
+        "value": "a[ndx1]"
+      },
+      {
+        "type": "text",
+        "value": "If the zeros were to be ignored, then the resulting dictionary\nwould no longer have an entry for zero."
+      },
+      {
+        "type": "code",
+        "value": "val_indices = ndimage.value_indices(a, ignore_value=0)\nval_indices.keys()"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/ndimage/_measurements.py",
+  "item_line": 310,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "See Also",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "label",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "label"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "maximum",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "maximum"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "median",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "median"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.ndimage._measurements:minimum_position",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "minimum_position"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "extrema",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "extrema"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "sum",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "sum"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "mean",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "mean"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "variance",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "variance"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.ndimage._measurements:standard_deviation",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "standard_deviation"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "numpy.where",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "numpy.where"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "numpy.unique",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "numpy.unique"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(arr, *, ignore_value=None)"
+  },
+  "type": "DocBlob"
+}

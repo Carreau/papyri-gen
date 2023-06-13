@@ -1,0 +1,1226 @@
+{
+  "aliases": [
+    "networkx.utils.argmap"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This class provides a decorator that maps (transforms) arguments of the function before the function is called. Thus for example, we have similar code in many functions to determine whether an argument is the number of nodes to be created, or a list of nodes to be handled. The decorator provides the code to accept either -- transforming the indicated argument into a list of nodes before the actual function is called."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This decorator class allows us to process single or multiple arguments. The arguments to be processed can be specified by string, naming the argument, or by index, specifying the item in the args list."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "An object of this class is callable and intended to be used when defining a decorator. Generally, a decorator takes a function as input and constructs a function as output. Specifically, an "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "argmap"
+            },
+            {
+              "type": "text",
+              "value": " object returns the input function decorated/wrapped so that specified arguments are mapped (transformed) to new values before the decorated function is called."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "As an overview, the argmap object returns a new function with all the dunder values of the original function (like "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "__doc__"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "__name__"
+            },
+            {
+              "type": "text",
+              "value": ", etc). Code for this decorated function is built based on the original function's signature. It starts by mapping the input arguments to potentially new values. Then it calls the decorated function with these new values in place of the indicated arguments that have been mapped. The return value of the original function is then returned. This new function is the function that is actually called by the user."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "The code is lazily compiled. That is, the new function is returned"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": true,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "as an object without the code compiled, but with all information     needed so it can be compiled upon it's first invocation. This saves     time on import at the cost of additional time on the first call of     the function. Subsequent calls are then just as fast as normal."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "If the \"try_finally\" keyword-only argument is True, a try block"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": true,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "follows each mapped argument, matched on the other side of the wrapped     call, by a finally block closing that mapping.  We expect func to return     a 2-tuple: the mapped value and a function to be called in the finally     clause.  This feature was included so the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "networkx",
+                        "path": "networkx.utils.decorators:open_file",
+                        "type": "RefInfo",
+                        "version": "3.1"
+                      },
+                      "type": "Link",
+                      "value": "open_file"
+                    },
+                    {
+                      "type": "text",
+                      "value": " decorator could     provide a file handle to the decorated function and close the file handle     after the function call. It even keeps track of whether to close the file     handle or not based on whether it had to open the file or the input was     already open. So, the decorated function does not need to include any     code to open or close files."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "The maps applied can process multiple arguments. For example,"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": true,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "you could swap two arguments using a mapping, or transform     them to their sum and their difference. This was included to allow     a decorator in the "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "quality.py"
+                    },
+                    {
+                      "type": "text",
+                      "value": " module that checks that an input     "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "partition"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a valid partition of the nodes of the input graph "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "G"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".     In this example, the map has inputs "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "(G, partition)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". After checking     for a valid partition, the map either raises an exception or leaves     the inputs unchanged. Thus many functions that make this check can     use the decorator rather than copy the checking code into each function.     More complicated nested argument structures are described below."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Three additional features are provided."
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            }
+          ],
+          "type": "DefList"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The remaining notes describe the code structure and methods for this class in broad terms to aid in understanding how to use it."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Instantiating an "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "argmap"
+            },
+            {
+              "type": "text",
+              "value": " object simply stores the mapping function and the input identifiers of which arguments to map. The resulting decorator is ready to use this map to decorate any function. Calling that object ("
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "networkx",
+                "path": "networkx.utils.decorators:argmap.__call__",
+                "type": "RefInfo",
+                "version": "3.1"
+              },
+              "type": "Link",
+              "value": "argmap.__call__"
+            },
+            {
+              "type": "text",
+              "value": ", but usually done via "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "@my_decorator"
+            },
+            {
+              "type": "text",
+              "value": ") a lazily compiled thin wrapper of the decorated function is constructed, wrapped with the necessary function dunder attributes like "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "__doc__"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "__name__"
+            },
+            {
+              "type": "text",
+              "value": ". That thinly wrapped function is returned as the decorated function. When that decorated function is called, the thin wrapper of code calls "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "networkx",
+                "path": "networkx.utils.decorators:argmap._lazy_compile",
+                "type": "RefInfo",
+                "version": "3.1"
+              },
+              "type": "Link",
+              "value": "argmap._lazy_compile"
+            },
+            {
+              "type": "text",
+              "value": " which compiles the decorated function (using "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "networkx",
+                "path": "networkx.utils.decorators:argmap.compile",
+                "type": "RefInfo",
+                "version": "3.1"
+              },
+              "type": "Link",
+              "value": "argmap.compile"
+            },
+            {
+              "type": "text",
+              "value": ") and replaces the code of the thin wrapper with the newly compiled code. This saves the compilation step every import of networkx, at the cost of compiling upon the first call to the decorated function."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When the decorated function is compiled, the code is recursively assembled using the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "networkx",
+                "path": "networkx.utils.decorators:argmap.assemble",
+                "type": "RefInfo",
+                "version": "3.1"
+              },
+              "type": "Link",
+              "value": "argmap.assemble"
+            },
+            {
+              "type": "text",
+              "value": " method. The recursive nature is needed in case of nested decorators. The result of the assembly is a number of useful objects."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "dd": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "sig"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "dt": {
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "sig"
+                      }
+                    ],
+                    "type": "paragraph"
+                  },
+                  "type": "DefListItem"
+                },
+                {
+                  "dd": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "wrapped_name"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "dt": {
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "wrapped_name"
+                      }
+                    ],
+                    "type": "paragraph"
+                  },
+                  "type": "DefListItem"
+                },
+                {
+                  "dd": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "functions"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "dt": {
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "functions"
+                      }
+                    ],
+                    "type": "paragraph"
+                  },
+                  "type": "DefListItem"
+                },
+                {
+                  "dd": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "mapblock"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "dt": {
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "mapblock"
+                      }
+                    ],
+                    "type": "paragraph"
+                  },
+                  "type": "DefListItem"
+                },
+                {
+                  "dd": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "finallys"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "dt": {
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "finallys"
+                      }
+                    ],
+                    "type": "paragraph"
+                  },
+                  "type": "DefListItem"
+                },
+                {
+                  "dd": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "mutable_args"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "dt": {
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "mutable_args"
+                      }
+                    ],
+                    "type": "paragraph"
+                  },
+                  "type": "DefListItem"
+                }
+              ],
+              "type": "DefList"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "After this recursive assembly process, the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "networkx",
+                "path": "networkx.utils.decorators:argmap.compile",
+                "type": "RefInfo",
+                "version": "3.1"
+              },
+              "type": "Link",
+              "value": "argmap.compile"
+            },
+            {
+              "type": "text",
+              "value": " method constructs code (as strings) to convert the tuple "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "sig.args"
+            },
+            {
+              "type": "text",
+              "value": " to a list if needed. It joins the defining code with appropriate indents and compiles the result.  Finally, this code is evaluated and the original wrapper's implementation is replaced with the compiled version (see "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "networkx",
+                "path": "networkx.utils.decorators:argmap._lazy_compile",
+                "type": "RefInfo",
+                "version": "3.1"
+              },
+              "type": "Link",
+              "value": "argmap._lazy_compile"
+            },
+            {
+              "type": "text",
+              "value": " for more details)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Other "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "argmap"
+            },
+            {
+              "type": "text",
+              "value": " methods include "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "networkx",
+                "path": "networkx.utils.decorators:argmap._name",
+                "type": "RefInfo",
+                "version": "3.1"
+              },
+              "type": "Link",
+              "value": "_name"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "networkx",
+                "path": "networkx.utils.decorators:argmap._count",
+                "type": "RefInfo",
+                "version": "3.1"
+              },
+              "type": "Link",
+              "value": "_count"
+            },
+            {
+              "type": "text",
+              "value": " which allow internally generated names to be unique within a python session. The methods "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "networkx",
+                "path": "networkx.utils.decorators:argmap._flatten",
+                "type": "RefInfo",
+                "version": "3.1"
+              },
+              "type": "Link",
+              "value": "_flatten"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "networkx",
+                "path": "networkx.utils.decorators:argmap._indent",
+                "type": "RefInfo",
+                "version": "3.1"
+              },
+              "type": "Link",
+              "value": "_indent"
+            },
+            {
+              "type": "text",
+              "value": " process the nested lists of strings into properly indented python code ready to be compiled."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "More complicated nested tuples of arguments also allowed though usually not used. For the simple 2 argument case, the argmap input (\"a\", \"b\") implies the mapping function will take 2 arguments and return a 2-tuple of mapped values. A more complicated example with argmap input "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "(\"a\", (\"b\", \"c\"))"
+            },
+            {
+              "type": "text",
+              "value": " requires the mapping function take 2 inputs, with the second being a 2-tuple. It then must output the 3 mapped values in the same nested structure "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "(newa, (newb, newc))"
+            },
+            {
+              "type": "text",
+              "value": ". This level of generality is not often needed, but was convenient to implement when handling the multiple arguments."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The function to apply to arguments"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "func",
+              "type": "Param",
+              "type_": "callable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A list of parameters, specified either as strings (their names), ints (numerical indices) or tuples, which may contain ints, strings, and (recursively) tuples. Each indicates which parameters the decorator should map. Tuples indicate that the map function takes (and returns) multiple parameters in the same order and nested structure as indicated here."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "*args",
+              "type": "Param",
+              "type_": "iterable of (int, str or tuple)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "When True, wrap the function call in a try-finally block with code for the finally block created by "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "func",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "func"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". This is used when the map function constructs an object (like a file handle) that requires post-processing (like closing)."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Note: try_finally decorators cannot be used to decorate generator functions."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "try_finally",
+              "type": "Param",
+              "type_": "bool (default: False)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A decorator to apply a map to arguments before calling the function"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Most of these examples use `@argmap(...)` to apply the decorator to\nthe function defined on the next line.\nIn the NetworkX codebase however, `argmap` is used within a function to\nconstruct a decorator. That is, the decorator defines a mapping function\nand then uses `argmap` to build and return a decorated function.\nA simple example is a decorator that specifies which currency to report money.\nThe decorator (named `convert_to`) would be used like::"
+      },
+      {
+        "type": "text",
+        "value": "    @convert_to(\"US_Dollars\", \"income\")\n    def show_me_the_money(name, income):\n        print(f\"{name} : {income}\")"
+      },
+      {
+        "type": "text",
+        "value": "And the code to create the decorator might be::"
+      },
+      {
+        "type": "text",
+        "value": "    def convert_to(currency, which_arg):\n        def _convert(amount):\n            if amount.currency != currency:\n                amount = amount.to_currency(currency)\n            return amount\n        return argmap(_convert, which_arg)"
+      },
+      {
+        "type": "text",
+        "value": "Despite this common idiom for argmap, most of the following examples\nuse the `@argmap(...)` idiom to save space."
+      },
+      {
+        "type": "text",
+        "value": "Here's an example use of argmap to sum the elements of two of the functions\narguments. The decorated function::"
+      },
+      {
+        "type": "text",
+        "value": "    @argmap(sum, \"xlist\", \"zlist\")\n    def foo(xlist, y, zlist):\n        return xlist - y + zlist"
+      },
+      {
+        "type": "text",
+        "value": "is syntactic sugar for::"
+      },
+      {
+        "type": "text",
+        "value": "    def foo(xlist, y, zlist):\n        x = sum(xlist)\n        z = sum(zlist)\n        return x - y + z"
+      },
+      {
+        "type": "text",
+        "value": "and is equivalent to (using argument indexes)::"
+      },
+      {
+        "type": "text",
+        "value": "    @argmap(sum, \"xlist\", 2)\n    def foo(xlist, y, zlist):\n        return xlist - y + zlist"
+      },
+      {
+        "type": "text",
+        "value": "or::"
+      },
+      {
+        "type": "text",
+        "value": "    @argmap(sum, \"zlist\", 0)\n    def foo(xlist, y, zlist):\n        return xlist - y + zlist"
+      },
+      {
+        "type": "text",
+        "value": "Transforming functions can be applied to multiple arguments, such as::"
+      },
+      {
+        "type": "text",
+        "value": "    def swap(x, y):\n        return y, x"
+      },
+      {
+        "type": "text",
+        "value": "    # the 2-tuple tells argmap that the map `swap` has 2 inputs/outputs.\n    @argmap(swap, (\"a\", \"b\")):\n    def foo(a, b, c):\n        return a / b * c"
+      },
+      {
+        "type": "text",
+        "value": "is equivalent to::"
+      },
+      {
+        "type": "text",
+        "value": "    def foo(a, b, c):\n        a, b = swap(a, b)\n        return a / b * c"
+      },
+      {
+        "type": "text",
+        "value": "More generally, the applied arguments can be nested tuples of strings or ints.\nThe syntax `@argmap(some_func, (\"a\", (\"b\", \"c\")))` would expect `some_func` to\naccept 2 inputs with the second expected to be a 2-tuple. It should then return\n2 outputs with the second a 2-tuple. The returns values would replace input \"a\"\n\"b\" and \"c\" respectively. Similarly for `@argmap(some_func, (0, (\"b\", 2)))`."
+      },
+      {
+        "type": "text",
+        "value": "Also, note that an index larger than the number of named parameters is allowed\nfor variadic functions. For example::"
+      },
+      {
+        "type": "text",
+        "value": "    def double(a):\n        return 2 * a"
+      },
+      {
+        "type": "text",
+        "value": "    @argmap(double, 3)\n    def overflow(a, *args):\n        return a, args"
+      },
+      {
+        "type": "text",
+        "value": "    print(overflow(1, 2, 3, 4, 5, 6))  # output is 1, (2, 3, 8, 5, 6)"
+      },
+      {
+        "type": "text",
+        "value": "**Try Finally**"
+      },
+      {
+        "type": "text",
+        "value": "Additionally, this `argmap` class can be used to create a decorator that\ninitiates a try...finally block. The decorator must be written to return\nboth the transformed argument and a closing function.\nThis feature was included to enable the `open_file` decorator which might\nneed to close the file or not depending on whether it had to open that file.\nThis feature uses the keyword-only `try_finally` argument to `@argmap`."
+      },
+      {
+        "type": "text",
+        "value": "For example this map opens a file and then makes sure it is closed::"
+      },
+      {
+        "type": "text",
+        "value": "    def open_file(fn):\n        f = open(fn)\n        return f, lambda: f.close()"
+      },
+      {
+        "type": "text",
+        "value": "The decorator applies that to the function `foo`::"
+      },
+      {
+        "type": "text",
+        "value": "    @argmap(open_file, \"file\", try_finally=True)\n    def foo(file):\n        print(file.read())"
+      },
+      {
+        "type": "text",
+        "value": "is syntactic sugar for::"
+      },
+      {
+        "type": "text",
+        "value": "    def foo(file):\n        file, close_file = open_file(file)\n        try:\n            print(file.read())\n        finally:\n            close_file()"
+      },
+      {
+        "type": "text",
+        "value": "and is equivalent to (using indexes)::"
+      },
+      {
+        "type": "text",
+        "value": "    @argmap(open_file, 0, try_finally=True)\n    def foo(file):\n        print(file.read())"
+      },
+      {
+        "type": "text",
+        "value": "Here's an example of the try_finally feature used to create a decorator::"
+      },
+      {
+        "type": "text",
+        "value": "    def my_closing_decorator(which_arg):\n        def _opener(path):\n            if path is None:\n                path = open(path)\n                fclose = path.close\n            else:\n                # assume `path` handles the closing\n                fclose = lambda: None\n            return path, fclose\n        return argmap(_opener, which_arg, try_finally=True)"
+      },
+      {
+        "type": "text",
+        "value": "which can then be used as::"
+      },
+      {
+        "type": "text",
+        "value": "    @my_closing_decorator(\"file\")\n    def fancy_reader(file=None):\n        # this code doesn't need to worry about closing the file\n        print(file.read())"
+      },
+      {
+        "type": "text",
+        "value": "Decorators with try_finally = True cannot be used with generator functions,\nbecause the `finally` block is evaluated before the generator is exhausted::"
+      },
+      {
+        "type": "text",
+        "value": "    @argmap(open_file, \"file\", try_finally=True)\n    def file_to_lines(file):\n        for line in file.readlines():\n            yield line"
+      },
+      {
+        "type": "text",
+        "value": "is equivalent to::"
+      },
+      {
+        "type": "text",
+        "value": "    def file_to_lines_wrapped(file):\n        for line in file.readlines():\n            yield line"
+      },
+      {
+        "type": "text",
+        "value": "    def file_to_lines_wrapper(file):\n        try:\n            file = open_file(file)\n            return file_to_lines_wrapped(file)\n        finally:\n            file.close()"
+      },
+      {
+        "type": "text",
+        "value": "which behaves similarly to::"
+      },
+      {
+        "type": "text",
+        "value": "    def file_to_lines_whoops(file):\n        file = open_file(file)\n        file.close()\n        for line in file.readlines():\n            yield line"
+      },
+      {
+        "type": "text",
+        "value": "because the `finally` block of `file_to_lines_wrapper` is executed before\nthe caller has a chance to exhaust the iterator."
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/utils/decorators.py",
+  "item_line": 356,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Examples",
+    "Notes",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "networkx",
+          "path": "networkx.utils.decorators:not_implemented_for",
+          "type": "RefInfo",
+          "version": "3.1"
+        },
+        "type": "Link",
+        "value": "not_implemented_for"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "networkx",
+          "path": "networkx.utils.decorators:open_file",
+          "type": "RefInfo",
+          "version": "3.1"
+        },
+        "type": "Link",
+        "value": "open_file"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "networkx",
+          "path": "networkx.utils.decorators:nodes_or_number",
+          "type": "RefInfo",
+          "version": "3.1"
+        },
+        "type": "Link",
+        "value": "nodes_or_number"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "random_state",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "random_state"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "py_random_state",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "py_random_state"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "networkx.community.quality.require_partition",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "networkx.community.quality.require_partition"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "networkx",
+          "path": "networkx.algorithms.community.quality:_require_partition",
+          "type": "RefInfo",
+          "version": "3.1"
+        },
+        "type": "Link",
+        "value": "require_partition"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

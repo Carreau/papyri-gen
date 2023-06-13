@@ -1,0 +1,372 @@
+{
+  "aliases": [
+    "skimage.transform.AffineTransform"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Homogeneous transformation matrix."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "params",
+              "type": "Param",
+              "type_": "(D+1, D+1) array"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Has the following form      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "X = a0*x + a1*y + a2 =\n  = sx*x*cos(rotation) - sy*y*sin(rotation + shear) + a2\n\nY = b0*x + b1*y + b2 =\n  = sx*x*sin(rotation) + sy*y*cos(rotation + shear) + b2"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where "
+            },
+            {
+              "type": "inlineCode",
+              "value": "sx"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "sy"
+            },
+            {
+              "type": "text",
+              "value": " are scale factors in the x and y directions, and the homogeneous transformation matrix is      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "[[a0  a1  a2]\n [b0  b1  b2]\n [0   0    1]]"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In 2D, the transformation parameters can be given as the homogeneous transformation matrix, above, or as the implicit parameters, scale, rotation, shear, and translation in x (a2) and y (b2). For 3D and higher, only the matrix form is allowed."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In narrower transforms, such as the Euclidean (only rotation and translation) or Similarity (rotation, translation, and a global scale factor) transforms, it is possible to specify 3D transforms using implicit parameters also."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Homogeneous transformation matrix. If this matrix is provided, it is an error to provide any of scale, rotation, shear, or translation."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "matrix",
+              "type": "Param",
+              "type_": "(D+1, D+1) array, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Scale factor(s). If a single value, it will be assigned to both sx and sy. Only available for 2D."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 0.17"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Added support for supplying a single scalar value."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "scale",
+              "type": "Param",
+              "type_": "{s as float or (sx, sy) as array, list or tuple}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Rotation angle in counter-clockwise direction as radians. Only available for 2D."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "rotation",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Shear angle in counter-clockwise direction as radians. Only available for 2D."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "shear",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Translation parameters. Only available for 2D."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "translation",
+              "type": "Param",
+              "type_": "(tx, ty) as array, list or tuple, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The dimensionality of the transform. This is not used if any other parameters are provided."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dimensionality",
+              "type": "Param",
+              "type_": "int, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If both "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "matrix"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and any of the other parameters are provided."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "ValueError"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Affine transformation."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/skimage/transform/_geometric.py",
+  "item_line": 800,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Attributes",
+    "Raises"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

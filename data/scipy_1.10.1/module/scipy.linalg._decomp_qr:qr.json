@@ -1,0 +1,495 @@
+{
+  "aliases": [
+    "scipy.linalg.qr"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Calculate the decomposition "
+            },
+            {
+              "type": "inlineCode",
+              "value": "A = Q R"
+            },
+            {
+              "type": "text",
+              "value": " where Q is unitary/orthogonal and R upper triangular."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This is an interface to the LAPACK routines dgeqrf, zgeqrf, dorgqr, zungqr, dgeqp3, and zgeqp3."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If "
+            },
+            {
+              "type": "inlineCode",
+              "value": "mode=economic"
+            },
+            {
+              "type": "text",
+              "value": ", the shapes of Q and R are (M, K) and (K, N) instead of (M,M) and (M,N), with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "K=min(M,N)"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Matrix to be decomposed"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "a",
+              "type": "Param",
+              "type_": "(M, N) array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether data in "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is overwritten (may improve performance if "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "overwrite_a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "overwrite_a"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is set to True by reusing the existing input data structure rather than creating a new one.)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "overwrite_a",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Work array size, lwork >= a.shape[1]. If None or -1, an optimal size is computed."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "lwork",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Determines what information is to be returned: either both Q and R ('full', default), only R ('r') or both Q and R but computed in economy-size ('economic', see Notes). The final option 'raw' (added in SciPy 0.11) makes the function return two matrices (Q, TAU) in the internal format used by LAPACK."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mode",
+              "type": "Param",
+              "type_": "{'full', 'r', 'economic', 'raw'}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether or not factorization should include pivoting for rank-revealing qr decomposition. If pivoting, compute the decomposition "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "A P = Q R"
+                    },
+                    {
+                      "type": "text",
+                      "value": " as above, but where P is chosen such that the diagonal of R is non-increasing."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "pivoting",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to check that the input matrix contains only finite numbers. Disabling may give a performance gain, but may result in problems (crashes, non-termination) if the inputs do contain infinities or NaNs."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "check_finite",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Raised if decomposition fails"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "LinAlgError"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Of shape (M, M), or (M, K) for "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "mode='economic'"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Not returned if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "mode='r'"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "Q",
+              "type": "Param",
+              "type_": "float or complex ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Of shape (M, N), or (K, N) for "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "mode='economic'"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "K = min(M, N)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "R",
+              "type": "Param",
+              "type_": "float or complex ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Of shape (N,) for "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "pivoting=True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Not returned if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "pivoting=False"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "P",
+              "type": "Param",
+              "type_": "int ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute QR decomposition of a matrix."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy import linalg\nrng = np.random.default_rng()\na = rng.standard_normal((9, 6))"
+      },
+      {
+        "type": "code",
+        "value": "q, r = linalg.qr(a)\nnp.allclose(a, np.dot(q, r))"
+      },
+      {
+        "type": "code",
+        "value": "q.shape, r.shape"
+      },
+      {
+        "type": "code",
+        "value": "r2 = linalg.qr(a, mode='r')\nnp.allclose(r, r2)"
+      },
+      {
+        "type": "code",
+        "value": "q3, r3 = linalg.qr(a, mode='economic')\nq3.shape, r3.shape"
+      },
+      {
+        "type": "code",
+        "value": "q4, r4, p4 = linalg.qr(a, pivoting=True)\nd = np.abs(np.diag(r4))\nnp.all(d[1:] <= d[:-1])"
+      },
+      {
+        "type": "code",
+        "value": "np.allclose(a[:, p4], np.dot(q4, r4))"
+      },
+      {
+        "type": "code",
+        "value": "q4.shape, r4.shape, p4.shape"
+      },
+      {
+        "type": "code",
+        "value": "q5, r5, p5 = linalg.qr(a, mode='economic', pivoting=True)\nq5.shape, r5.shape, p5.shape"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/linalg/_decomp_qr.py",
+  "item_line": 26,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(a, overwrite_a=False, lwork=None, mode='full', pivoting=False, check_finite=True)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,403 @@
+{
+  "aliases": [
+    "numpy.einsum_path"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The resulting path indicates which terms of the input contraction should be contracted first, the result of this contraction is then appended to the end of the contraction list. This list can then be iterated over until all intermediate contractions are complete."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Specifies the subscripts for summation."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "subscripts",
+              "type": "Param",
+              "type_": "str"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "These are the arrays for the operation."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "*operands",
+              "type": "Param",
+              "type_": "list of array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Choose the type of path. If a tuple is provided, the second argument is assumed to be the maximum intermediate size created. If only a single argument is provided the largest input or output array size is used as a maximum intermediate size."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "if a list is given that starts with "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "einsum_path"
+                            },
+                            {
+                              "type": "text",
+                              "value": ", uses this as the   contraction path"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "if False no optimization is taken"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "if True defaults to the 'greedy' algorithm"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'optimal' An algorithm that combinatorially explores all possible   ways of contracting the listed tensors and choosest the least costly   path. Scales exponentially with the number of terms in the   contraction."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'greedy' An algorithm that chooses the best pair contraction   at each step. Effectively, this algorithm searches the largest inner,   Hadamard, and then outer products at each step. Scales cubically with   the number of terms in the contraction. Equivalent to the 'optimal'   path for most contractions."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Default is 'greedy'."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "optimize",
+              "type": "Param",
+              "type_": "{bool, list, tuple, 'greedy', 'optimal'}"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A list representation of the einsum path."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "path",
+              "type": "Param",
+              "type_": "list of tuples"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A printable representation of the einsum path."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "string_repr",
+              "type": "Param",
+              "type_": "str"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Evaluates the lowest cost contraction order for an einsum expression by considering the creation of intermediate arrays."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "We can begin with a chain dot example. In this case, it is optimal to\ncontract the ``b`` and ``c`` tensors first as represented by the first\nelement of the path ``(1, 2)``. The resulting tensor is added to the end\nof the contraction and the remaining contraction ``(0, 1)`` is then\ncompleted."
+      },
+      {
+        "type": "code",
+        "value": "np.random.seed(123)\na = np.random.rand(2, 2)\nb = np.random.rand(2, 5)\nc = np.random.rand(5, 2)\npath_info = np.einsum_path('ij,jk,kl->il', a, b, c, optimize='greedy')\nprint(path_info[0])"
+      },
+      {
+        "type": "code",
+        "value": "print(path_info[1])"
+      },
+      {
+        "type": "text",
+        "value": "A more complex index transformation example."
+      },
+      {
+        "type": "code",
+        "value": "I = np.random.rand(10, 10, 10, 10)\nC = np.random.rand(10, 10)\npath_info = np.einsum_path('ea,fb,abcd,gc,hd->efgh', C, C, I, C, C,\n                           optimize='greedy')"
+      },
+      {
+        "type": "code",
+        "value": "print(path_info[0])"
+      },
+      {
+        "type": "code",
+        "value": "print(path_info[1]) "
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/numpy/core/einsumfunc.py",
+  "item_line": 706,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Signature",
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "See Also",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "numpy",
+          "path": "numpy:einsum_path",
+          "type": "RefInfo",
+          "version": "1.24.1"
+        },
+        "type": "Link",
+        "value": "einsum"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "linalg.multi_dot",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "linalg.multi_dot"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "einsum_path(subscripts, *operands, optimize='greedy')"
+  },
+  "type": "DocBlob"
+}

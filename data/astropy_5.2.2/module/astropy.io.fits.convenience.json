@@ -1,0 +1,331 @@
+{
+  "aliases": [
+    "astropy.io.fits.convenience"
+  ],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The functions in this module provide shortcuts for some of the most basic operations on FITS files, such as reading and updating the header.  They are included directly in the 'astropy.io.fits' namespace so that they can be used like      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "astropy.io.fits.getheader(...)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "These functions are primarily for convenience when working with FITS files in the command-line interpreter.  If performing several operations on the same file, such as in a script, it is better to "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "not"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " use these functions, as each one must open and re-parse the file.  In such cases it is better to use "
+            },
+            {
+              "type": "inlineCode",
+              "value": "astropy.io.fits.open"
+            },
+            {
+              "type": "text",
+              "value": " and work directly with the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "astropy.io.fits.HDUList"
+            },
+            {
+              "type": "text",
+              "value": " object and underlying HDU objects."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Several of the convenience functions, such as "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "astropy",
+                "path": "astropy.io.fits.convenience:getheader",
+                "type": "RefInfo",
+                "version": "5.2.2"
+              },
+              "type": "Link",
+              "value": "getheader"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "getdata"
+            },
+            {
+              "type": "text",
+              "value": " support special arguments for selecting which HDU to use when working with a multi-extension FITS file.  There are a few supported argument formats for selecting the HDU.  See the documentation for "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "getdata"
+            },
+            {
+              "type": "text",
+              "value": " for an explanation of all the different formats."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "warning "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "All arguments to convenience functions other than the filename that are "
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "not"
+                    }
+                  ],
+                  "type": "emphasis"
+                },
+                {
+                  "type": "text",
+                  "value": " for selecting the HDU should be passed in as keyword arguments.  This is to avoid ambiguity and conflicts with the HDU arguments.  For example, to set NAXIS=1 on the Primary HDU:"
+                }
+              ],
+              "type": "paragraph"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Wrong      "
+                }
+              ],
+              "type": "paragraph"
+            },
+            {
+              "type": "code",
+              "value": "astropy.io.fits.setval('myimage.fits', 'NAXIS', 1)"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "The above example will try to set the NAXIS value on the first extension HDU to blank.  That is, the argument '1' is assumed to specify an HDU."
+                }
+              ],
+              "type": "paragraph"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Right      "
+                }
+              ],
+              "type": "paragraph"
+            },
+            {
+              "type": "code",
+              "value": "astropy.io.fits.setval('myimage.fits', 'NAXIS', value=1)"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "This will set the NAXIS keyword to 1 on the primary HDU (the default).  To specify the first extension HDU use      "
+                }
+              ],
+              "type": "paragraph"
+            },
+            {
+              "type": "code",
+              "value": "astropy.io.fits.setval('myimage.fits', 'NAXIS', value=1, ext=1)"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "This complexity arises out of the attempt to simultaneously support multiple argument formats that were used in past versions of PyFITS. Unfortunately, it is not possible to support all formats without introducing some ambiguity.  A future Astropy release may standardize around a single format and officially deprecate the other formats."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": "Convenience functions",
+      "type": "Section"
+    }
+  ],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To remove in the future \u2013\u2013 astropy.io.fits.convenience"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/astropy/io/fits/convenience.py",
+  "item_line": 0,
+  "item_type": "<class 'module'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

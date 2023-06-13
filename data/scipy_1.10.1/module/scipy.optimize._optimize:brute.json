@@ -1,0 +1,1409 @@
+{
+  "aliases": [
+    "scipy.optimize.brute"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Uses the \"brute force\" method, i.e., computes the function's value at each point of a multidimensional grid of points, to find the global minimum of the function."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The function is evaluated everywhere in the range with the datatype of the first call to the function, as enforced by the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "vectorize"
+            },
+            {
+              "type": "text",
+              "value": " NumPy function. The value and type of the function evaluation returned when "
+            },
+            {
+              "type": "inlineCode",
+              "value": "full_output=True"
+            },
+            {
+              "type": "text",
+              "value": " are affected in addition by the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "finish"
+            },
+            {
+              "type": "text",
+              "value": " argument (see Notes)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The brute force approach is inefficient because the number of grid points increases exponentially - the number of grid points to evaluate is "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Ns ** len(x)"
+            },
+            {
+              "type": "text",
+              "value": ". Consequently, even with coarse grid spacing, even moderately sized problems can take a long time to run, and/or run into memory limitations."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Note 1"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": ": The program finds the gridpoint at which the lowest value of the objective function occurs. If "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "finish",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "finish"
+            },
+            {
+              "type": "text",
+              "value": " is None, that is the point returned. When the global minimum occurs within (or not very far outside) the grid's boundaries, and the grid is fine enough, that point will be in the neighborhood of the global minimum."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "However, users often employ some other optimization program to \"polish\" the gridpoint values, i.e., to seek a more precise (local) minimum near "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "brute's"
+            },
+            {
+              "type": "text",
+              "value": " best gridpoint. The "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.optimize._optimize:brute",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "brute"
+            },
+            {
+              "type": "text",
+              "value": " function's "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "finish",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "finish"
+            },
+            {
+              "type": "text",
+              "value": " option provides a convenient way to do that. Any polishing program used must take "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "brute's"
+            },
+            {
+              "type": "text",
+              "value": " output as its initial guess as a positional argument, and take "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "brute's"
+            },
+            {
+              "type": "text",
+              "value": " input values for "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "args",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "args"
+            },
+            {
+              "type": "text",
+              "value": " as keyword arguments, otherwise an error will be raised. It may additionally take "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "full_output",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "full_output"
+            },
+            {
+              "type": "text",
+              "value": " and/or "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "disp",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "disp"
+            },
+            {
+              "type": "text",
+              "value": " as keyword arguments."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.optimize._optimize:brute",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "brute"
+            },
+            {
+              "type": "text",
+              "value": " assumes that the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "finish",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "finish"
+            },
+            {
+              "type": "text",
+              "value": " function returns either an "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "OptimizeResult"
+            },
+            {
+              "type": "text",
+              "value": " object or a tuple in the form: "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(xmin, Jmin, ... , statuscode)"
+            },
+            {
+              "type": "text",
+              "value": ", where "
+            },
+            {
+              "type": "inlineCode",
+              "value": "xmin"
+            },
+            {
+              "type": "text",
+              "value": " is the minimizing value of the argument, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Jmin"
+            },
+            {
+              "type": "text",
+              "value": " is the minimum value of the objective function, \"...\" may be some other returned values (which are not used by "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.optimize._optimize:brute",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "brute"
+            },
+            {
+              "type": "text",
+              "value": "), and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "statuscode"
+            },
+            {
+              "type": "text",
+              "value": " is the status code of the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "finish",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "finish"
+            },
+            {
+              "type": "text",
+              "value": " program."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Note that when "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "finish",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "finish"
+            },
+            {
+              "type": "text",
+              "value": " is not None, the values returned are those of the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "finish",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "finish"
+            },
+            {
+              "type": "text",
+              "value": " program, "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "not"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " the gridpoint ones. Consequently, while "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.optimize._optimize:brute",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "brute"
+            },
+            {
+              "type": "text",
+              "value": " confines its search to the input grid points, the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "finish",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "finish"
+            },
+            {
+              "type": "text",
+              "value": " program's results usually will not coincide with any gridpoint, and may fall outside the grid's boundary. Thus, if a minimum only needs to be found over the provided grid points, make sure to pass in "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "finish=None"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Note 2"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": ": The grid of points is a "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "numpy.mgrid"
+            },
+            {
+              "type": "text",
+              "value": " object. For "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.optimize._optimize:brute",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "brute"
+            },
+            {
+              "type": "text",
+              "value": " the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "ranges",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "ranges"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "Ns",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "Ns"
+            },
+            {
+              "type": "text",
+              "value": " inputs have the following effect. Each component of the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "ranges",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "ranges"
+            },
+            {
+              "type": "text",
+              "value": " tuple can be either a slice object or a two-tuple giving a range of values, such as (0, 5). If the component is a slice object, "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.optimize._optimize:brute",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "brute"
+            },
+            {
+              "type": "text",
+              "value": " uses it directly. If the component is a two-tuple range, "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.optimize._optimize:brute",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "brute"
+            },
+            {
+              "type": "text",
+              "value": " internally converts it to a slice object that interpolates "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "Ns",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "Ns"
+            },
+            {
+              "type": "text",
+              "value": " points from its low-value to its high-value, inclusive."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The objective function to be minimized. Must be in the form "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "f(x, *args)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the argument in the form of a 1-D array and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "args"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a tuple of any additional fixed parameters needed to completely specify the function."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "func",
+              "type": "Param",
+              "type_": "callable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Each component of the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "ranges",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "ranges"
+                    },
+                    {
+                      "type": "text",
+                      "value": " tuple must be either a \"slice object\" or a range tuple of the form "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(low, high)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". The program uses these to create the grid of points on which the objective function will be computed. See "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "Note 2"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for more detail."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ranges",
+              "type": "Param",
+              "type_": "tuple"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Any additional fixed parameters needed to completely specify the function."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "args",
+              "type": "Param",
+              "type_": "tuple, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of grid points along the axes, if not otherwise specified. See "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "Note2"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "Ns",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, return the evaluation grid and the objective function's values on it."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "full_output",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An optimization function that is called with the result of brute force minimization as initial guess. "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "finish",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "finish"
+                    },
+                    {
+                      "type": "text",
+                      "value": " should take "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "func",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "func"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and the initial guess as positional arguments, and take "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "args",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "args"
+                    },
+                    {
+                      "type": "text",
+                      "value": " as keyword arguments. It may additionally take "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "full_output",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "full_output"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and/or "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "disp",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "disp"
+                    },
+                    {
+                      "type": "text",
+                      "value": " as keyword arguments. Use None if no \"polishing\" function is to be used. See Notes for more details."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "finish",
+              "type": "Param",
+              "type_": "callable, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Set to True to print convergence messages from the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "finish",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "finish"
+                    },
+                    {
+                      "type": "text",
+                      "value": " callable."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "disp",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "workers",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "workers"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is an int the grid is subdivided into "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "workers",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "workers"
+                    },
+                    {
+                      "type": "text",
+                      "value": " sections and evaluated in parallel (uses "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "multiprocessing.Pool <multiprocessing>"
+                    },
+                    {
+                      "type": "text",
+                      "value": "). Supply "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "-1"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to use all cores available to the Process. Alternatively supply a map-like callable, such as "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "multiprocessing.Pool.map"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for evaluating the grid in parallel. This evaluation is carried out as "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "workers(func, iterable)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Requires that "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "func",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "func"
+                    },
+                    {
+                      "type": "text",
+                      "value": " be pickleable."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.3.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "workers",
+              "type": "Param",
+              "type_": "int or map-like callable, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A 1-D array containing the coordinates of a point at which the objective function had its minimum value. (See "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "Note 1"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for which point is returned.)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x0",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Function value at the point "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x0",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x0"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". (Returned when "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "full_output",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "full_output"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is True.)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fval",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Representation of the evaluation grid. It has the same length as "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x0",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x0"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". (Returned when "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "full_output",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "full_output"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is True.)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "grid",
+              "type": "Param",
+              "type_": "tuple"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Function values at each point of the evaluation grid, i.e., "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Jout = func(*grid)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". (Returned when "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "full_output",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "full_output"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is True.)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "Jout",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Minimize a function over a given range by brute force."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "We illustrate the use of `brute` to seek the global minimum of a function\nof two variables that is given as the sum of a positive-definite\nquadratic and two deep \"Gaussian-shaped\" craters. Specifically, define\nthe objective function `f` as the sum of three other functions,\n``f = f1 + f2 + f3``. We suppose each of these has a signature\n``(z, *params)``, where ``z = (x, y)``,  and ``params`` and the functions\nare as defined below."
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nparams = (2, 3, 7, 8, 9, 10, 44, -1, 2, 26, 1, -2, 0.5)\ndef f1(z, *params):\n    x, y = z\n    a, b, c, d, e, f, g, h, i, j, k, l, scale = params\n    return (a * x**2 + b * x * y + c * y**2 + d*x + e*y + f)"
+      },
+      {
+        "type": "code",
+        "value": "def f2(z, *params):\n    x, y = z\n    a, b, c, d, e, f, g, h, i, j, k, l, scale = params\n    return (-g*np.exp(-((x-h)**2 + (y-i)**2) / scale))"
+      },
+      {
+        "type": "code",
+        "value": "def f3(z, *params):\n    x, y = z\n    a, b, c, d, e, f, g, h, i, j, k, l, scale = params\n    return (-j*np.exp(-((x-k)**2 + (y-l)**2) / scale))"
+      },
+      {
+        "type": "code",
+        "value": "def f(z, *params):\n    return f1(z, *params) + f2(z, *params) + f3(z, *params)"
+      },
+      {
+        "type": "text",
+        "value": "Thus, the objective function may have local minima near the minimum\nof each of the three functions of which it is composed. To\nuse `fmin` to polish its gridpoint result, we may then continue as\nfollows:"
+      },
+      {
+        "type": "code",
+        "value": "rranges = (slice(-4, 4, 0.25), slice(-4, 4, 0.25))\nfrom scipy import optimize\nresbrute = optimize.brute(f, rranges, args=params, full_output=True,\n                          finish=optimize.fmin)\nresbrute[0]  # global minimum"
+      },
+      {
+        "type": "code",
+        "value": "resbrute[1]  # function value at global minimum"
+      },
+      {
+        "type": "text",
+        "value": "Note that if `finish` had been set to None, we would have gotten the\ngridpoint [-1.0 1.75] where the rounded function value is -2.892."
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/optimize/_optimize.py",
+  "item_line": 3456,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "basinhopping",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "basinhopping"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.optimize._differentialevolution:differential_evolution",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "differential_evolution"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(func, ranges, args=(), Ns=20, full_output=0, finish=<function fmin at 0x119445da0>, disp=False, workers=1)"
+  },
+  "type": "DocBlob"
+}

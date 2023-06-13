@@ -1,0 +1,358 @@
+{
+  "aliases": [
+    "networkx.approximation.greedy_tsp"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This approximates a solution to the traveling salesman problem. It finds a cycle of all the nodes that a salesman can visit in order to visit many nodes while minimizing total distance. It uses a simple greedy algorithm. In essence, this function returns a large cycle given a source point for which the total cost of the cycle is minimized."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This implementation of a greedy algorithm is based on the following:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The algorithm adds a node to the solution at every iteration."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The algorithm selects a node not already in the cycle whose connection   to the previous node adds the least cost to the cycle."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A greedy algorithm does not always give the best solution. However, it can construct a first feasible solution which can be passed as a parameter to an iterative improvement algorithm such as Simulated Annealing, or Threshold Accepting."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Time complexity: It has a running time $O(|V|^2)$"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The Graph should be a complete weighted undirected graph. The distance between all pairs of nodes should be included."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "G",
+              "type": "Param",
+              "type_": "Graph"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Edge data key corresponding to the edge weight. If any edge does not have this attribute the weight is set to 1."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "weight",
+              "type": "Param",
+              "type_": "string, optional (default=\"weight\")"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Starting node.  If None, defaults to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "next(iter(G))"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "source",
+              "type": "Param",
+              "type_": "node, optional (default: first node in list(G))"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "G",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "G"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is not complete, the algorithm raises an exception."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "NetworkXError"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Returns the cycle (list of nodes) that a salesman can follow to minimize total weight of the trip."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "cycle",
+              "type": "Param",
+              "type_": "list of nodes"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Return a low cost cycle starting at "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "source",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "source"
+            },
+            {
+              "type": "text",
+              "value": " and its cost."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from networkx.algorithms import approximation as approx\nG = nx.DiGraph()\nG.add_weighted_edges_from({\n    (\"A\", \"B\", 3), (\"A\", \"C\", 17), (\"A\", \"D\", 14), (\"B\", \"A\", 3),\n    (\"B\", \"C\", 12), (\"B\", \"D\", 16), (\"C\", \"A\", 13),(\"C\", \"B\", 12),\n    (\"C\", \"D\", 4), (\"D\", \"A\", 14), (\"D\", \"B\", 15), (\"D\", \"C\", 2)\n})\ncycle = approx.greedy_tsp(G, source=\"D\")\ncost = sum(G[n][nbr][\"weight\"] for n, nbr in nx.utils.pairwise(cycle))\ncycle"
+      },
+      {
+        "type": "code",
+        "value": "cost"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/algorithms/approximation/traveling_salesman.py",
+  "item_line": 907,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "Examples",
+    "Notes"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(G, weight='weight', source=None)"
+  },
+  "type": "DocBlob"
+}

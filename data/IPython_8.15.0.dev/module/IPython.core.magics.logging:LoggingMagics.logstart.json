@@ -1,0 +1,416 @@
+{
+  "aliases": [
+    "IPython.core.magics.LoggingMagics.logstart"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "%logstart [-o|-r|-t|-q] [log_name [log_mode]]"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If no name is given, it defaults to a file named 'ipython_log.py' in your current directory, in 'rotate' mode (see below)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "'%logstart name' saves to file 'name' in 'backup' mode.  It saves your history up to that point and then continues logging."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "%logstart takes a second optional parameter: logging mode. This can be one of (note that the modes are given unquoted):"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Keep logging at the end of any existing file."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "append"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Rename any existing file to name~ and start name."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "backup"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Append to  a single logfile in your home directory."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "global"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Overwrite any existing log."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "over"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Create rotating logs: name.1~, name.2~, etc."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "rotate"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            }
+          ],
+          "type": "DefList"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Options:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "dd": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "log also IPython's output. In this mode, all commands which     generate an Out[NN] prompt are recorded to the logfile, right after     their corresponding input line. The output lines are always     prepended with a '#[Out]# ' marker, so that the log remains valid     Python code."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "dt": {
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "-o"
+                      }
+                    ],
+                    "type": "paragraph"
+                  },
+                  "type": "DefListItem"
+                }
+              ],
+              "type": "DefList"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Since this marker is always the same, filtering only the output from   a log is very easy, using for example a simple awk call      "
+                }
+              ],
+              "type": "paragraph"
+            },
+            {
+              "type": "code",
+              "value": "awk -F'#\\[Out\\]# ' '{if($2) {print $2}}' ipython_log.py"
+            },
+            {
+              "children": [
+                {
+                  "dd": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "log 'raw' input.  Normally, IPython's logs contain the processed     input, so that user lines are logged in their final form, converted     into valid Python.  For example, %Exit is logged as     _ip.magic(\"Exit\").  If the -r flag is given, all input is logged     exactly as typed, with no transformations applied."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "dt": {
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "-r"
+                      }
+                    ],
+                    "type": "paragraph"
+                  },
+                  "type": "DefListItem"
+                },
+                {
+                  "dd": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "put timestamps before each input line logged (these are put in     comments)."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "dt": {
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "-t"
+                      }
+                    ],
+                    "type": "paragraph"
+                  },
+                  "type": "DefListItem"
+                },
+                {
+                  "dd": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "suppress output of logstate message when logging is invoked"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "dt": {
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "-q"
+                      }
+                    ],
+                    "type": "paragraph"
+                  },
+                  "type": "DefListItem"
+                }
+              ],
+              "type": "DefList"
+            }
+          ],
+          "type": "blockquote"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Start logging anywhere in a session."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dev/ipython/IPython/core/magics/logging.py",
+  "item_line": 38,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, parameter_s='')"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,370 @@
+{
+  "aliases": [
+    "scipy.signal.cascade"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The algorithm uses the vector cascade algorithm described by Strang and Nguyen in \"Wavelets and Filter Banks\".  It builds a dictionary of values and slices for quick reuse.  Then inserts vectors into final vector at the end."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Coefficients of low-pass filter."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "hk",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Values will be computed at grid points "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "K/2**J"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Default is 7."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "J",
+              "type": "Param",
+              "type_": "int, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The dyadic points "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "K/2**J"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "K=0...N * (2**J)-1"
+                    },
+                    {
+                      "type": "text",
+                      "value": " where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "len(hk) = len(gk) = N+1"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The scaling function "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "phi(x)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " at "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "phi(x) = sum(hk * phi(2x-k))"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", where k is from 0 to N."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "phi",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The wavelet function "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "psi(x)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " at "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "phi(x) = sum(gk * phi(2x-k))"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", where k is from 0 to N. "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "psi",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "psi"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is only returned if "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "gk"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is not None."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "psi",
+              "type": "Param",
+              "type_": "ndarray, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Return (x, phi, psi) at dyadic points "
+            },
+            {
+              "type": "inlineCode",
+              "value": "K/2**J"
+            },
+            {
+              "type": "text",
+              "value": " from filter coefficients."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/signal/_wavelets.py",
+  "item_line": 98,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Notes"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(hk, J=7)"
+  },
+  "type": "DocBlob"
+}

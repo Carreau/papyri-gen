@@ -1,0 +1,258 @@
+{
+  "aliases": [
+    "skimage.transform.estimate_transform"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You can determine the over-, well- and under-determined parameters with the total least-squares method."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Number of source and destination coordinates must match."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Type of transform."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ttype",
+              "type": "Param",
+              "type_": "{'euclidean', similarity', 'affine', 'piecewise-affine',              'projective', 'polynomial'}"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Function parameters (src, dst, n, angle)      "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "NAME / TTYPE        FUNCTION PARAMETERS\n'euclidean'         `src, `dst`\n'similarity'        `src, `dst`\n'affine'            `src, `dst`\n'piecewise-affine'  `src, `dst`\n'projective'        `src, `dst`\n'polynomial'        `src, `dst`, `order` (polynomial order,\n                                          default order is 2)"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Also see examples below."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "kwargs",
+              "type": "Param",
+              "type_": "array or int"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Transform object containing the transformation parameters and providing access to forward and inverse transformation functions."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "tform",
+              "type": "Param",
+              "type_": ":class:`GeometricTransform`"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Estimate 2D geometric transformation parameters."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom skimage import transform"
+      },
+      {
+        "type": "code",
+        "value": "# estimate transformation parameters\nsrc = np.array([0, 0, 10, 10]).reshape((2, 2))\ndst = np.array([12, 14, 1, -20]).reshape((2, 2))"
+      },
+      {
+        "type": "code",
+        "value": "tform = transform.estimate_transform('similarity', src, dst)"
+      },
+      {
+        "type": "code",
+        "value": "np.allclose(tform.inverse(tform(src)), src)"
+      },
+      {
+        "type": "code",
+        "value": "# warp image using the estimated transformation\nfrom skimage import data\nimage = data.camera()"
+      },
+      {
+        "type": "code",
+        "value": "warp(image, inverse_map=tform.inverse) # doctest: +SKIP"
+      },
+      {
+        "type": "code",
+        "value": "# create transformation with explicit parameters\ntform2 = transform.SimilarityTransform(scale=1.1, rotation=1,\n    translation=(10, 20))"
+      },
+      {
+        "type": "code",
+        "value": "# unite transformations, applied in order from left to right\ntform3 = tform + tform2\nnp.allclose(tform3(src), tform2(tform(src)))"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/skimage/transform/_geometric.py",
+  "item_line": 1552,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(ttype, src, dst, *args, **kwargs)"
+  },
+  "type": "DocBlob"
+}

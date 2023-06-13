@@ -1,0 +1,573 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A level above configuration are IPython extensions, Python modules which modify the behaviour of the shell. They are referred to by an importable module name, and can be placed anywhere you'd normally import from."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": "extensions_overview",
+      "title": "IPython extensions",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A few important extensions are "
+            },
+            {
+              "type": "inlineCode",
+              "value": "bundled with IPython <bundled_extensions>"
+            },
+            {
+              "type": "text",
+              "value": ". Others can be found on the "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "extensions index"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/ipython/ipython/wiki/Extensions-Index"
+            },
+            {
+              "type": "text",
+              "value": " on the wiki, and the "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Framework :: IPython tag"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://pypi.python.org/pypi?:action=browse&c=586"
+            },
+            {
+              "type": "text",
+              "value": " on PyPI."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Extensions on PyPI can be installed using "
+            },
+            {
+              "type": "inlineCode",
+              "value": "pip"
+            },
+            {
+              "type": "text",
+              "value": ", like any other Python package."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Getting extensions",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To load an extension while IPython is running, use the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%load_ext"
+            },
+            {
+              "type": "text",
+              "value": " magic:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "ipython",
+          "children": [],
+          "name": "sourcecode",
+          "options": {},
+          "type": "mystDirective",
+          "value": "In [1]: %load_ext myextension"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To load it each time IPython starts, list it in your configuration file      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "c.InteractiveShellApp.extensions = [\n    'myextension'\n]"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Using extensions",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "An IPython extension is an importable Python module that has a couple of special functions to load and unload it. Here is a template      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "# myextension.py\n\ndef load_ipython_extension(ipython):\n    # The `ipython` argument is the currently active `InteractiveShell`\n    # instance, which can be used in any way. This allows you to register\n    # new magics or aliases, for example.\n\ndef unload_ipython_extension(ipython):\n    # If you want your extension to be unloadable, put that logic here."
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This "
+            },
+            {
+              "type": "inlineCode",
+              "value": "load_ipython_extension"
+            },
+            {
+              "type": "text",
+              "value": " function is called after your extension is imported, and the currently active "
+            },
+            {
+              "type": "inlineCode",
+              "value": "~IPython.core.interactiveshell.InteractiveShell"
+            },
+            {
+              "type": "text",
+              "value": " instance is passed as the only argument. You can do anything you want with IPython at that point."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "inlineCode",
+              "value": "load_ipython_extension"
+            },
+            {
+              "type": "text",
+              "value": " will not be called again if the users use "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "%load_extension"
+            },
+            {
+              "type": "text",
+              "value": ".  The user has to explicitly ask the extension to be reloaded (with "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "%reload_extension"
+            },
+            {
+              "type": "text",
+              "value": "). In cases where the user asks the extension to be reloaded, the extension will be unloaded (with "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "unload_ipython_extension"
+            },
+            {
+              "type": "text",
+              "value": "), and loaded again."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Useful "
+            },
+            {
+              "type": "inlineCode",
+              "value": "InteractiveShell"
+            },
+            {
+              "type": "text",
+              "value": " methods include "
+            },
+            {
+              "type": "inlineCode",
+              "value": "~IPython.core.interactiveshell.InteractiveShell.register_magic_function"
+            },
+            {
+              "type": "text",
+              "value": ",  "
+            },
+            {
+              "type": "inlineCode",
+              "value": "~IPython.core.interactiveshell.InteractiveShell.push"
+            },
+            {
+              "type": "text",
+              "value": " (to add variables to the user namespace) and  "
+            },
+            {
+              "type": "inlineCode",
+              "value": "~IPython.core.interactiveshell.InteractiveShell.drop_by_id"
+            },
+            {
+              "type": "text",
+              "value": " (to remove variables on unloading)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "",
+          "children": [],
+          "name": "seealso",
+          "options": {},
+          "type": "mystDirective",
+          "value": ":ref:`defining_magics`"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You can put your extension modules anywhere you want, as long as they can be imported by Python's standard import mechanism."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When your extension is ready for general use, please add it to the "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "extensions index"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/ipython/ipython/wiki/Extensions-Index"
+            },
+            {
+              "type": "text",
+              "value": ". We also encourage you to upload it to PyPI and use the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Framework :: IPython"
+            },
+            {
+              "type": "text",
+              "value": " classifier, so that users can install it with standard packaging tools."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Writing extensions",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "exists",
+                      "reference": {
+                        "kind": "?",
+                        "module": "",
+                        "path": "autoreload",
+                        "type": "RefInfo",
+                        "version": ""
+                      },
+                      "type": "Link",
+                      "value": "autoreload"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "exists",
+                      "reference": {
+                        "kind": "?",
+                        "module": "",
+                        "path": "storemagic",
+                        "type": "RefInfo",
+                        "version": ""
+                      },
+                      "type": "Link",
+                      "value": "storemagic"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "octavemagic"
+                    },
+                    {
+                      "type": "text",
+                      "value": " used to be bundled, but is now part of "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "oct2py"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://blink1073.github.io/oct2py/"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".   Use "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%load_ext oct2py.ipython"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to load it."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "rmagic"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is now part of "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "rpy2"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "http://rpy.sourceforge.net/"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Use   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%load_ext rpy2.ipython"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to load it, and see "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "rpy2.ipython.rmagic"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for   details of how to use it."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "cythonmagic"
+                    },
+                    {
+                      "type": "text",
+                      "value": " used to be bundled, but is now part of "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "cython"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/cython/cython/"
+                    },
+                    {
+                      "type": "text",
+                      "value": "   Use "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%load_ext Cython"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to load it."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "sympyprinting"
+                    },
+                    {
+                      "type": "text",
+                      "value": " used to be a bundled extension, but you should now use   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "sympy.init_printing"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instead."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 1,
+      "target": "bundled_extensions",
+      "title": "Extensions bundled with IPython",
+      "type": "Section"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,704 @@
+{
+  "aliases": [
+    "scipy.odr.ODR"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The data for this fit"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "data",
+              "type": "Param",
+              "type_": "Data"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The model used in fit"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "model",
+              "type": "Param",
+              "type_": "Model"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An instance if the Output class containing all of the returned data from an invocation of ODR.run() or ODR.restart()"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "output",
+              "type": "Param",
+              "type_": "Output"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Members of instances of the ODR class have the same names as the arguments to the initialization routine."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "a rank-1 sequence of initial parameter values. Optional if model provides an \"estimate\" function to estimate these values."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "beta0",
+              "type": "Param",
+              "type_": "array_like of rank-1"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "a (double-precision) float array to hold the initial values of the errors in the input variables. Must be same shape as data.x"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "delta0",
+              "type": "Param",
+              "type_": "array_like of floats of rank-1, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "sequence of integers with the same length as beta0 that determines which parameters are held fixed. A value of 0 fixes the parameter, a value > 0 makes the parameter free."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ifixb",
+              "type": "Param",
+              "type_": "array_like of ints of rank-1, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "an array of integers with the same shape as data.x that determines which input observations are treated as fixed. One can use a sequence of length m (the dimensionality of the input observations) to fix some dimensions for all observations. A value of 0 fixes the observation, a value > 0 makes it free."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ifixx",
+              "type": "Param",
+              "type_": "array_like of ints with same shape as data.x, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "an integer telling ODRPACK what tasks to perform. See p. 31 of the ODRPACK User's Guide if you absolutely must set the value here. Use the method set_job post-initialization for a more readable interface."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "job",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "an integer telling ODRPACK what to print. See pp. 33-34 of the ODRPACK User's Guide if you absolutely must set the value here. Use the method set_iprint post-initialization for a more readable interface."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "iprint",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "string with the filename to print ODRPACK errors to. If the file already exists, an error will be thrown. The "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "overwrite",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "overwrite"
+                    },
+                    {
+                      "type": "text",
+                      "value": " argument can be used to prevent this. "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Do Not Open This File Yourself!"
+                        }
+                      ],
+                      "type": "emphasis"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "errfile",
+              "type": "Param",
+              "type_": "str, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "string with the filename to print ODRPACK summaries to. If the file already exists, an error will be thrown. The "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "overwrite",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "overwrite"
+                    },
+                    {
+                      "type": "text",
+                      "value": " argument can be used to prevent this. "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Do Not Open This File Yourself!"
+                        }
+                      ],
+                      "type": "emphasis"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "rptfile",
+              "type": "Param",
+              "type_": "str, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "integer specifying the number of reliable digits in the computation of the function."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ndigit",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "float specifying the initial trust region. The default value is 1. The initial trust region is equal to taufac times the length of the first computed Gauss-Newton step. taufac must be less than 1."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "taufac",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "float specifying the tolerance for convergence based on the relative change in the sum-of-squares. The default value is eps**(1/2) where eps is the smallest value such that 1 + eps > 1 for double precision computation on the machine. sstol must be less than 1."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sstol",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "float specifying the tolerance for convergence based on the relative change in the estimated parameters. The default value is eps**(2/3) for explicit models and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "eps**(1/3)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for implicit models. partol must be less than 1."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "partol",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "integer specifying the maximum number of iterations to perform. For first runs, maxit is the total number of iterations performed and defaults to 50. For restarts, maxit is the number of additional iterations to perform and defaults to 10."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "maxit",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "sequence ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "len(stpb) == len(beta0)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") of relative step sizes to compute finite difference derivatives wrt the parameters."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "stpb",
+              "type": "Param",
+              "type_": "array_like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "array ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "stpd.shape == data.x.shape"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "stpd.shape == (m,)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") of relative step sizes to compute finite difference derivatives wrt the input variable errors. If stpd is a rank-1 array with length m (the dimensionality of the input variable), then the values are broadcast to all observations."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "stpd",
+              "type": "Param",
+              "type_": "optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "sequence ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "len(stpb) == len(beta0)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") of scaling factors for the parameters. The purpose of these scaling factors are to scale all of the parameters to around unity. Normally appropriate scaling factors are computed if this argument is not specified. Specify them yourself if the automatic procedure goes awry."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sclb",
+              "type": "Param",
+              "type_": "array_like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "array (scld.shape == data.x.shape or scld.shape == (m,)) of scaling factors for the "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "errors"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " in the input variables. Again, these factors are automatically computed if you do not provide them. If scld.shape == (m,), then the scaling factors are broadcast to all observations."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "scld",
+              "type": "Param",
+              "type_": "array_like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "array to hold the double-valued working data for ODRPACK. When restarting, takes the value of self.output.work."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "work",
+              "type": "Param",
+              "type_": "ndarray, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "array to hold the integer-valued working data for ODRPACK. When restarting, takes the value of self.output.iwork."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "iwork",
+              "type": "Param",
+              "type_": "ndarray, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If it is True, output files defined by "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "errfile",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "errfile"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "rptfile",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "rptfile"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are overwritten. The default is False."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "overwrite",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "instance of the Data class"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "data",
+              "type": "Param",
+              "type_": "Data class instance"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "instance of the Model class"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "model",
+              "type": "Param",
+              "type_": "Model class instance"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The ODR class gathers all information and coordinates the running of the main fitting routine."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/odr/_odrpack.py",
+  "item_line": 618,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Other Parameters",
+    "Attributes"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

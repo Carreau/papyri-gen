@@ -1,0 +1,506 @@
+{
+  "aliases": [
+    "scipy.optimize._trustregion_constr.qp_subproblem.box_sphere_intersections"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Find the intersection between the segment (or line) defined by the parametric  equation "
+            },
+            {
+              "type": "inlineCode",
+              "value": "x(t) = z + t*d"
+            },
+            {
+              "type": "text",
+              "value": ", the rectangular box "
+            },
+            {
+              "type": "inlineCode",
+              "value": "lb <= x <= ub"
+            },
+            {
+              "type": "text",
+              "value": " and the ball "
+            },
+            {
+              "type": "inlineCode",
+              "value": "||x|| <= trust_radius"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Initial point."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "z",
+              "type": "Param",
+              "type_": "array_like, shape (n,)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Direction."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "d",
+              "type": "Param",
+              "type_": "array_like, shape (n,)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Lower bounds to each one of the components of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Used to delimit the rectangular box."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "lb",
+              "type": "Param",
+              "type_": "array_like, shape (n,)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Upper bounds to each one of the components of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Used to delimit the rectangular box."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ub",
+              "type": "Param",
+              "type_": "array_like, shape (n, )"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Ball radius."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "trust_radius",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "When "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the function returns the intersection between the line "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x(t) = z + t*d"
+                    },
+                    {
+                      "type": "text",
+                      "value": " ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "t"
+                    },
+                    {
+                      "type": "text",
+                      "value": " can assume any value) and the constraints. When "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the function returns the intersection between the segment "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x(t) = z + t*d"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "0 <= t <= 1"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and the constraints."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "entire_line",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "When "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the function returns "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "intersect_sphere"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "intersect_box"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "extra_info",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The line/segment "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x(t) = z + t*d"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is inside the rectangular box and inside the ball for "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ta <= t <= tb"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ta, tb",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "When "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", there is a intersection between the line (or segment) and both constraints. On the other hand, when "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", there is no intersection."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "intersect",
+              "type": "Param",
+              "type_": "bool"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Dictionary "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "{ta, tb, intersect}"
+                    },
+                    {
+                      "type": "text",
+                      "value": " containing the interval "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "[ta, tb]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for which the line intercepts the ball. And a boolean value indicating whether the sphere is intersected by the line."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sphere_info",
+              "type": "Param",
+              "type_": "dict, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Dictionary "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "{ta, tb, intersect}"
+                    },
+                    {
+                      "type": "text",
+                      "value": " containing the interval "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "[ta, tb]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for which the line intercepts the box. And a boolean value indicating whether the box is intersected by the line."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "box_info",
+              "type": "Param",
+              "type_": "dict, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Find the intersection between segment (or line) and box/sphere constraints."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/optimize/_trustregion_constr/qp_subproblem.py",
+  "item_line": 236,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(z, d, lb, ub, trust_radius, entire_line=False, extra_info=False)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,462 @@
+{
+  "aliases": [
+    "scipy.signal.lfilter_zi"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute an initial state "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "zi",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "zi"
+            },
+            {
+              "type": "text",
+              "value": " for the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "lfilter"
+            },
+            {
+              "type": "text",
+              "value": " function that corresponds to the steady state of the step response."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A typical use of this function is to set the initial state so that the output of the filter starts at the same value as the first element of the signal to be filtered."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A linear filter with order m has a state space representation (A, B, C, D), for which the output y of the filter can be expressed as      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "z(n+1) = A*z(n) + B*x(n)\ny(n)   = C*z(n) + D*x(n)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where z(n) is a vector of length m, A has shape (m, m), B has shape (m, 1), C has shape (1, m) and D has shape (1, 1) (assuming x(n) is a scalar).  lfilter_zi solves      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "zi = A*zi + B"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In other words, it finds the initial condition for which the response to an input of all ones is a constant."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Given the filter coefficients "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "a",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "b",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "b"
+            },
+            {
+              "type": "text",
+              "value": ", the state space matrices for the transposed direct form II implementation of the linear filter, which is the implementation used by scipy.signal.lfilter, are      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "A = scipy.linalg.companion(a).T\nB = b[1:] - a[1:]*b[0]"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "assuming "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "a[0]"
+            },
+            {
+              "type": "text",
+              "value": " is 1.0; if "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "a[0]"
+            },
+            {
+              "type": "text",
+              "value": " is not 1, "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "a",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "b",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "b"
+            },
+            {
+              "type": "text",
+              "value": " are first divided by a[0]."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The IIR filter coefficients. See "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "lfilter"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for more information."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "b, a",
+              "type": "Param",
+              "type_": "array_like (1-D)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The initial state for the filter."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "zi",
+              "type": "Param",
+              "type_": "1-D ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Construct initial conditions for lfilter for step response steady-state."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "The following code creates a lowpass Butterworth filter. Then it\napplies that filter to an array whose values are all 1.0; the\noutput is also all 1.0, as expected for a lowpass filter.  If the\n`zi` argument of `lfilter` had not been given, the output would have\nshown the transient signal."
+      },
+      {
+        "type": "code",
+        "value": "from numpy import array, ones\nfrom scipy.signal import lfilter, lfilter_zi, butter\nb, a = butter(5, 0.25)\nzi = lfilter_zi(b, a)\ny, zo = lfilter(b, a, ones(10), zi=zi)\ny"
+      },
+      {
+        "type": "text",
+        "value": "Another example:"
+      },
+      {
+        "type": "code",
+        "value": "x = array([0.5, 0.5, 0.5, 0.0, 0.0, 0.0, 0.0])\ny, zf = lfilter(b, a, x, zi=zi*x[0])\ny"
+      },
+      {
+        "type": "text",
+        "value": "Note that the `zi` argument to `lfilter` was computed using\n`lfilter_zi` and scaled by `x[0]`.  Then the output `y` has no\ntransient until the input drops from 0.5 to 0.0."
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/signal/_signaltools.py",
+  "item_line": 3569,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "lfilter",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "lfilter"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._signaltools:lfiltic",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "lfiltic"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "filtfilt",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "filtfilt"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(b, a)"
+  },
+  "type": "DocBlob"
+}

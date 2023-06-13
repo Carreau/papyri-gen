@@ -1,0 +1,841 @@
+{
+  "aliases": [
+    "xarray.combine_by_coords"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function attempts to combine a group of datasets along any number of dimensions into a single entity by inspecting coords and metadata and using a combination of concat and merge."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Will attempt to order the datasets such that the values in their dimension coordinates are monotonic along all dimensions. If it cannot determine the order in which to concatenate the datasets, it will raise a ValueError. Non-coordinate dimensions will be ignored, as will any coordinate dimensions which do not vary between each dataset."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Aligns coordinates, but different variables on datasets can cause it to fail under some scenarios. In complex cases, you may need to clean up your data and use concat/merge explicitly (also see "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "xarray",
+                "path": "xarray.core.combine:combine_nested",
+                "type": "RefInfo",
+                "version": "2023.5.0"
+              },
+              "type": "Link",
+              "value": "combine_nested"
+            },
+            {
+              "type": "text",
+              "value": ")."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Works well if, for example, you have N years of data and M data variables, and each combination of a distinct time period and set of data variables is saved as its own dataset. Also useful for if you have a simulation which is parallelized in multiple dimensions, but has global coordinates saved in each file specifying the positions of points within the global domain."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Data objects to combine."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "data_objects",
+              "type": "Param",
+              "type_": "Iterable of Datasets or DataArrays"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "String indicating how to compare variables of the same name for potential conflicts:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "\"broadcast_equals\": all values must be equal when variables are   broadcast against each other to ensure common dimensions."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "\"equals\": all values and dimensions must be the same."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "\"identical\": all values, dimensions and attributes must be the   same."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "\"no_conflicts\": only values which are not null in both datasets   must be equal. The returned dataset then contains the combination   of all non-null values."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "\"override\": skip comparing and pick variable from first dataset"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "param": "compat",
+              "type": "Param",
+              "type_": "{\"identical\", \"equals\", \"broadcast_equals\", \"no_conflicts\", \"override\"}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "These data variables will be concatenated together:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "\"minimal\": Only data variables in which the dimension already   appears are included."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "\"different\": Data variables which are not equal (ignoring   attributes) across all datasets are also concatenated (as well as   all for which dimension already appears). Beware: this option may   load the data payload of data variables into memory if they are not   already loaded."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "\"all\": All data variables will be concatenated."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "list of str: The listed data variables will be concatenated, in   addition to the \"minimal\" data variables."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If objects are DataArrays, "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "data_vars",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "data_vars"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must be \"all\"."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "data_vars",
+              "type": "Param",
+              "type_": "{\"minimal\", \"different\", \"all\" or list of str}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "As per the \"data_vars\" kwarg, but for coordinate variables."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "coords",
+              "type": "Param",
+              "type_": "{\"minimal\", \"different\", \"all\"} or list of str, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Value to use for newly missing values. If a dict-like, maps variable names to fill values. Use a data array's name to refer to its values. If None, raises a ValueError if the passed Datasets do not create a complete hypercube."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fill_value",
+              "type": "Param",
+              "type_": "scalar or dict-like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "String indicating how to combine differing indexes in objects"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "\"outer\": use the union of object indexes"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "\"inner\": use the intersection of object indexes"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "\"left\": use indexes from the first object with each dimension"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "\"right\": use indexes from the last object with each dimension"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "\"exact\": instead of aligning, raise "
+                            },
+                            {
+                              "domain": null,
+                              "role": null,
+                              "type": "Directive",
+                              "value": "ValueError"
+                            },
+                            {
+                              "type": "text",
+                              "value": " when indexes to be   aligned are not equal"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "\"override\": if indexes are of same size, rewrite indexes to be   those of the first object with that dimension. Indexes for the same   dimension must have the same size in all objects."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "param": "join",
+              "type": "Param",
+              "type_": "{\"outer\", \"inner\", \"left\", \"right\", \"exact\"}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A callable or a string indicating how to combine attrs of the objects being merged:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "\"drop\": empty attrs on returned Dataset."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "\"identical\": all attrs must be the same on every object."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "\"no_conflicts\": attrs from all objects are combined, any that have   the same name must also have the same value."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "\"drop_conflicts\": attrs from all objects are combined, any that have   the same name but different values are dropped."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "\"override\": skip comparing and copy attrs from the first dataset to   the result."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If a callable, it must expect a sequence of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "attrs"
+                    },
+                    {
+                      "type": "text",
+                      "value": " dicts and a context object as its only parameters."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "combine_attrs",
+              "type": "Param",
+              "type_": "{\"drop\", \"identical\", \"no_conflicts\", \"drop_conflicts\",                      \"override\"} or callable, default: \"drop\""
+            },
+            {
+              "desc": [],
+              "param": "datasets",
+              "type": "Param",
+              "type_": "Iterable of Datasets"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Will return a Dataset unless all the inputs are unnamed DataArrays, in which case a DataArray will be returned."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "combined",
+              "type": "Param",
+              "type_": "xarray.Dataset or xarray.DataArray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Attempt to auto-magically combine the given datasets (or data arrays) into one by using dimension coordinates."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Combining two datasets using their common dimension coordinates. Notice\nthey are concatenated based on the values in their dimension coordinates,\nnot on their position in the list passed to `combine_by_coords`."
+      },
+      {
+        "type": "code",
+        "value": "x1 = xr.Dataset(\n    {\n        \"temperature\": ((\"y\", \"x\"), 20 * np.random.rand(6).reshape(2, 3)),\n        \"precipitation\": ((\"y\", \"x\"), np.random.rand(6).reshape(2, 3)),\n    },\n    coords={\"y\": [0, 1], \"x\": [10, 20, 30]},\n)\nx2 = xr.Dataset(\n    {\n        \"temperature\": ((\"y\", \"x\"), 20 * np.random.rand(6).reshape(2, 3)),\n        \"precipitation\": ((\"y\", \"x\"), np.random.rand(6).reshape(2, 3)),\n    },\n    coords={\"y\": [2, 3], \"x\": [10, 20, 30]},\n)\nx3 = xr.Dataset(\n    {\n        \"temperature\": ((\"y\", \"x\"), 20 * np.random.rand(6).reshape(2, 3)),\n        \"precipitation\": ((\"y\", \"x\"), np.random.rand(6).reshape(2, 3)),\n    },\n    coords={\"y\": [2, 3], \"x\": [40, 50, 60]},\n)"
+      },
+      {
+        "type": "code",
+        "value": "x1"
+      },
+      {
+        "type": "code",
+        "value": "x2"
+      },
+      {
+        "type": "code",
+        "value": "x3"
+      },
+      {
+        "type": "code",
+        "value": "xr.combine_by_coords([x2, x1])"
+      },
+      {
+        "type": "code",
+        "value": "xr.combine_by_coords([x3, x1])"
+      },
+      {
+        "type": "code",
+        "value": "xr.combine_by_coords([x3, x1], join=\"override\")"
+      },
+      {
+        "type": "code",
+        "value": "xr.combine_by_coords([x1, x2, x3])"
+      },
+      {
+        "type": "text",
+        "value": "You can also combine DataArray objects, but the behaviour will differ depending on\nwhether or not the DataArrays are named. If all DataArrays are named then they will\nbe promoted to Datasets before combining, and then the resultant Dataset will be\nreturned, e.g."
+      },
+      {
+        "type": "code",
+        "value": "named_da1 = xr.DataArray(\n    name=\"a\", data=[1.0, 2.0], coords={\"x\": [0, 1]}, dims=\"x\"\n)\nnamed_da1"
+      },
+      {
+        "type": "code",
+        "value": "named_da2 = xr.DataArray(\n    name=\"a\", data=[3.0, 4.0], coords={\"x\": [2, 3]}, dims=\"x\"\n)\nnamed_da2"
+      },
+      {
+        "type": "code",
+        "value": "xr.combine_by_coords([named_da1, named_da2])"
+      },
+      {
+        "type": "text",
+        "value": "If all the DataArrays are unnamed, a single DataArray will be returned, e.g."
+      },
+      {
+        "type": "code",
+        "value": "unnamed_da1 = xr.DataArray(data=[1.0, 2.0], coords={\"x\": [0, 1]}, dims=\"x\")\nunnamed_da2 = xr.DataArray(data=[3.0, 4.0], coords={\"x\": [2, 3]}, dims=\"x\")\nxr.combine_by_coords([unnamed_da1, unnamed_da2])"
+      },
+      {
+        "type": "text",
+        "value": "Finally, if you attempt to combine a mix of unnamed DataArrays with either named\nDataArrays or Datasets, a ValueError will be raised (as this is an ambiguous operation)."
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/xarray/core/combine.py",
+  "item_line": 657,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "xarray",
+          "path": "xarray.core.concat",
+          "type": "RefInfo",
+          "version": "2023.5.0"
+        },
+        "type": "Link",
+        "value": "concat"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "xarray",
+          "path": "xarray.core.merge",
+          "type": "RefInfo",
+          "version": "2023.5.0"
+        },
+        "type": "Link",
+        "value": "merge"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "xarray",
+          "path": "xarray.core.combine:combine_nested",
+          "type": "RefInfo",
+          "version": "2023.5.0"
+        },
+        "type": "Link",
+        "value": "combine_nested"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(data_objects: 'Iterable[Dataset | DataArray]' = [], compat: 'CompatOptions' = 'no_conflicts', data_vars: \"Literal['all', 'minimal', 'different'] | list[str]\" = 'all', coords: 'str' = 'different', fill_value: 'object' = <NA>, join: 'JoinOptions' = 'outer', combine_attrs: 'CombineAttrsOptions' = 'no_conflicts', datasets: 'Iterable[Dataset] | None' = None) -> 'Dataset | DataArray'"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,533 @@
+{
+  "aliases": [
+    "xarray.Dataset.reindex"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Dictionary with keys given by dimension names and values given by arrays of coordinates tick labels. Any mis-matched coordinate values will be filled in with NaN, and any mis-matched dimension names will simply be ignored. One of indexers or indexers_kwargs must be provided."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "indexers",
+              "type": "Param",
+              "type_": "dict, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Method to use for filling index values in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "indexers"
+                    },
+                    {
+                      "type": "text",
+                      "value": " not found in this dataset:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "None (default): don't fill gaps"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "\"pad\" / \"ffill\": propagate last valid index value forward"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "\"backfill\" / \"bfill\": propagate next valid index value backward"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "\"nearest\": use nearest valid index value"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "param": "method",
+              "type": "Param",
+              "type_": "{None, \"nearest\", \"pad\", \"ffill\", \"backfill\", \"bfill\", None}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum distance between original and new labels for inexact matches. The values of the index at the matching locations must satisfy the equation "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "abs(index[indexer] - target) <= tolerance"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Tolerance may be a scalar value, which applies the same tolerance to all values, or list-like, which applies variable tolerance per element. List-like must be the same size as the index and its dtype must exactly match the index\u2019s type."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "tolerance",
+              "type": "Param",
+              "type_": "optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "copy=True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", data in the return value is always copied. If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "copy=False"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and reindexing is unnecessary, or can be performed with only slice operations, then the output may share memory with the input. In either case, a new xarray object is always returned."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "copy",
+              "type": "Param",
+              "type_": "bool, default: True"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Value to use for newly missing values. If a dict-like, maps variable names (including coordinates) to fill values."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fill_value",
+              "type": "Param",
+              "type_": "scalar or dict-like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "use sparse-array."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sparse",
+              "type": "Param",
+              "type_": "bool, default: False"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Keyword arguments in the same form as "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "indexers"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". One of indexers or indexers_kwargs must be provided."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "**indexers_kwargs",
+              "type": "Param",
+              "type_": "{dim: indexer, ...}, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Another dataset, with this dataset's data but replaced coordinates."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "reindexed",
+              "type": "Param",
+              "type_": "Dataset"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Conform this object onto a new set of indexes, filling in missing values with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "fill_value"
+            },
+            {
+              "type": "text",
+              "value": ". The default fill value is NaN."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Create a dataset with some fictional data."
+      },
+      {
+        "type": "code",
+        "value": "x = xr.Dataset(\n    {\n        \"temperature\": (\"station\", 20 * np.random.rand(4)),\n        \"pressure\": (\"station\", 500 * np.random.rand(4)),\n    },\n    coords={\"station\": [\"boston\", \"nyc\", \"seattle\", \"denver\"]},\n)\nx"
+      },
+      {
+        "type": "code",
+        "value": "x.indexes"
+      },
+      {
+        "type": "text",
+        "value": "Create a new index and reindex the dataset. By default values in the new index that\ndo not have corresponding records in the dataset are assigned `NaN`."
+      },
+      {
+        "type": "code",
+        "value": "new_index = [\"boston\", \"austin\", \"seattle\", \"lincoln\"]\nx.reindex({\"station\": new_index})"
+      },
+      {
+        "type": "text",
+        "value": "We can fill in the missing values by passing a value to the keyword `fill_value`."
+      },
+      {
+        "type": "code",
+        "value": "x.reindex({\"station\": new_index}, fill_value=0)"
+      },
+      {
+        "type": "text",
+        "value": "We can also use different fill values for each variable."
+      },
+      {
+        "type": "code",
+        "value": "x.reindex(\n    {\"station\": new_index}, fill_value={\"temperature\": 0, \"pressure\": 100}\n)"
+      },
+      {
+        "type": "text",
+        "value": "Because the index is not monotonically increasing or decreasing, we cannot use arguments\nto the keyword method to fill the `NaN` values."
+      },
+      {
+        "type": "code",
+        "value": "x.reindex({\"station\": new_index}, method=\"nearest\")"
+      },
+      {
+        "type": "text",
+        "value": "To further illustrate the filling functionality in reindex, we will create a\ndataset with a monotonically increasing index (for example, a sequence of dates)."
+      },
+      {
+        "type": "code",
+        "value": "x2 = xr.Dataset(\n    {\n        \"temperature\": (\n            \"time\",\n            [15.57, 12.77, np.nan, 0.3081, 16.59, 15.12],\n        ),\n        \"pressure\": (\"time\", 500 * np.random.rand(6)),\n    },\n    coords={\"time\": pd.date_range(\"01/01/2019\", periods=6, freq=\"D\")},\n)\nx2"
+      },
+      {
+        "type": "text",
+        "value": "Suppose we decide to expand the dataset to cover a wider date range."
+      },
+      {
+        "type": "code",
+        "value": "time_index2 = pd.date_range(\"12/29/2018\", periods=10, freq=\"D\")\nx2.reindex({\"time\": time_index2})"
+      },
+      {
+        "type": "text",
+        "value": "The index entries that did not have a value in the original data frame (for example, `2018-12-29`)\nare by default filled with NaN. If desired, we can fill in the missing values using one of several options."
+      },
+      {
+        "type": "text",
+        "value": "For example, to back-propagate the last valid value to fill the `NaN` values,\npass `bfill` as an argument to the `method` keyword."
+      },
+      {
+        "type": "code",
+        "value": "x3 = x2.reindex({\"time\": time_index2}, method=\"bfill\")\nx3"
+      },
+      {
+        "type": "text",
+        "value": "Please note that the `NaN` value present in the original dataset (at index value `2019-01-03`)\nwill not be filled by any of the value propagation schemes."
+      },
+      {
+        "type": "code",
+        "value": "x2.where(x2.temperature.isnull(), drop=True)"
+      },
+      {
+        "type": "code",
+        "value": "x3.where(x3.temperature.isnull(), drop=True)"
+      },
+      {
+        "type": "text",
+        "value": "This is because filling while reindexing does not look at dataset values, but only compares\nthe original and desired indexes. If you do want to fill in the `NaN` values present in the\noriginal dataset, use the :py:meth:`~Dataset.fillna()` method."
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/xarray/core/dataset.py",
+  "item_line": 2992,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "xarray",
+          "path": "xarray.core.dataset:Dataset.reindex_like",
+          "type": "RefInfo",
+          "version": "2023.5.0"
+        },
+        "type": "Link",
+        "value": "Dataset.reindex_like"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "xarray",
+          "path": "xarray.core.alignment:Aligner.align",
+          "type": "RefInfo",
+          "version": "2023.5.0"
+        },
+        "type": "Link",
+        "value": "align"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "pandas.Index.get_indexer",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "pandas.Index.get_indexer"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(self: 'T_Dataset', indexers: 'Mapping[Any, Any] | None' = None, method: 'ReindexMethodOptions' = None, tolerance: 'int | float | Iterable[int | float] | None' = None, copy: 'bool' = True, fill_value: 'Any' = <NA>, **indexers_kwargs: 'Any') -> 'T_Dataset'"
+  },
+  "type": "DocBlob"
+}

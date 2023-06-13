@@ -1,0 +1,367 @@
+{
+  "aliases": [
+    "networkx.backends"
+  ],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Code to support various backends in a plugin dispatch architecture."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To be a valid plugin, a package must register an entry_point of "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "networkx.plugins"
+            },
+            {
+              "type": "text",
+              "value": " with a key pointing to the handler."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For example      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "entry_points={'networkx.plugins': 'sparse = networkx_plugin_sparse'}"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The plugin must create a Graph-like object which contains an attribute "
+            },
+            {
+              "type": "inlineCode",
+              "value": "__networkx_plugin__"
+            },
+            {
+              "type": "text",
+              "value": " with a value of the entry point name."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Continuing the example above      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "class WrappedSparse:\n    __networkx_plugin__ = \"sparse\"\n    ..."
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When a dispatchable NetworkX algorithm encounters a Graph-like object with a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "__networkx_plugin__"
+            },
+            {
+              "type": "text",
+              "value": " attribute, it will look for the associated dispatch object in the entry_points, load it, and dispatch the work to it."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": "Create a Dispatcher",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To assist in validating the backend algorithm implementations, if an environment variable "
+            },
+            {
+              "type": "inlineCode",
+              "value": "NETWORKX_GRAPH_CONVERT"
+            },
+            {
+              "type": "text",
+              "value": " is set to a registered plugin keys, the dispatch machinery will automatically convert regular networkx Graphs and DiGraphs to the backend equivalent by calling "
+            },
+            {
+              "type": "inlineCode",
+              "value": "<backend dispatcher>.convert_from_nx(G, weight=weight, name=name)"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The converted object is then passed to the backend implementation of the algorithm. The result is then passed to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "<backend dispatcher>.convert_to_nx(result, name=name)"
+            },
+            {
+              "type": "text",
+              "value": " to convert back to a form expected by the NetworkX tests."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "By defining "
+            },
+            {
+              "type": "inlineCode",
+              "value": "convert_from_nx"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "convert_to_nx"
+            },
+            {
+              "type": "text",
+              "value": " methods and setting the environment variable, NetworkX will automatically route tests on dispatchable algorithms to the backend, allowing the full networkx test suite to be run against the backend implementation."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Example pytest invocation      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "NETWORKX_GRAPH_CONVERT=sparse pytest --pyargs networkx"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Dispatchable algorithms which are not implemented by the backend will cause a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "pytest.xfail()"
+            },
+            {
+              "type": "text",
+              "value": ", giving some indication that not all tests are working, while avoiding causing an explicit failure."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A special "
+            },
+            {
+              "type": "inlineCode",
+              "value": "on_start_tests(items)"
+            },
+            {
+              "type": "text",
+              "value": " function may be defined by the backend. It will be called with the list of NetworkX tests discovered. Each item is a test object that can be marked as xfail if the backend does not support the test using "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "item.add_marker(pytest.mark.xfail(reason=...))"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": "Testing",
+      "type": "Section"
+    }
+  ],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To remove in the future \u2013\u2013 networkx.classes.backends"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/classes/backends.py",
+  "item_line": 0,
+  "item_type": "<class 'module'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

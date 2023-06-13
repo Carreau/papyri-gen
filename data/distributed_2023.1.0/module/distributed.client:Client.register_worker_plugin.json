@@ -1,0 +1,338 @@
+{
+  "aliases": [
+    "distributed.Client.register_worker_plugin"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This registers a new object to handle setup, task state transitions and teardown for workers in this cluster. The plugin will instantiate itself on all currently connected workers. It will also be run on any worker that connects in the future."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The plugin may include methods "
+            },
+            {
+              "type": "inlineCode",
+              "value": "setup"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "teardown"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "transition"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "release_key"
+            },
+            {
+              "type": "text",
+              "value": ".  See the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "dask.distributed.WorkerPlugin"
+            },
+            {
+              "type": "text",
+              "value": " class or the examples below for the interface and docstrings.  It must be serializable with the pickle or cloudpickle modules."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If the plugin has a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "name"
+            },
+            {
+              "type": "text",
+              "value": " attribute, or if the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "name="
+            },
+            {
+              "type": "text",
+              "value": " keyword is used then that will control idempotency.  If a plugin with that name has already been registered, then it will be removed and replaced by the new one."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For alternatives to plugins, you may also wish to look into preload scripts."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "WorkerPlugin or NannyPlugin instance to register."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "plugin",
+              "type": "Param",
+              "type_": "WorkerPlugin or NannyPlugin"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A name for the plugin. Registering a plugin with the same name will have no effect. If plugin has no name attribute a random name is used."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "name",
+              "type": "Param",
+              "type_": "str, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to register the plugin with workers or nannies."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "nanny",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Registers a lifecycle worker plugin for all current and future workers."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "class MyPlugin(WorkerPlugin):\n    def __init__(self, *args, **kwargs):\n        pass  # the constructor is up to you\n    def setup(self, worker: dask.distributed.Worker):\n        pass\n    def teardown(self, worker: dask.distributed.Worker):\n        pass\n    def transition(self, key: str, start: str, finish: str,\n                   **kwargs):\n        pass\n    def release_key(self, key: str, state: str, cause: str | None, reason: None, report: bool):\n        pass"
+      },
+      {
+        "type": "code",
+        "value": "plugin = MyPlugin(1, 2, 3)\nclient.register_worker_plugin(plugin)"
+      },
+      {
+        "type": "text",
+        "value": "You can get access to the plugin with the ``get_worker`` function"
+      },
+      {
+        "type": "code",
+        "value": "client.register_worker_plugin(other_plugin, name='my-plugin')\ndef f():\n   worker = get_worker()\n   plugin = worker.plugins['my-plugin']\n   return plugin.my_state"
+      },
+      {
+        "type": "code",
+        "value": "future = client.run(f)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/distributed/client.py",
+  "item_line": 4717,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Examples",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "distributed",
+          "path": "distributed.diagnostics.plugin:WorkerPlugin",
+          "type": "RefInfo",
+          "version": "2023.1.0"
+        },
+        "type": "Link",
+        "value": "distributed.WorkerPlugin"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "distributed",
+          "path": "distributed.client:Client.unregister_worker_plugin",
+          "type": "RefInfo",
+          "version": "2023.1.0"
+        },
+        "type": "Link",
+        "value": "unregister_worker_plugin"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, plugin=None, name=None, nanny=None)"
+  },
+  "type": "DocBlob"
+}

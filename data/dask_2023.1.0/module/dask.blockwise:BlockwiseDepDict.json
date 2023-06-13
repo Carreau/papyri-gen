@@ -1,0 +1,212 @@
+{
+  "aliases": [
+    "dask.blockwise.BlockwiseDepDict"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This is a dictionary-backed instance of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "BlockwiseDep"
+            },
+            {
+              "type": "text",
+              "value": ". The purpose of this class is to simplify the construction of IO-based Blockwise Layers with block/partition-dependent function arguments that are difficult to calculate at graph-materialization time."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Dictionary-based Blockwise-IO argument"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Specify an IO-based function for the Blockwise Layer. Note\nthat the function will be passed a single input object when\nthe task is executed (e.g. a single ``tuple`` or ``dict``):"
+      },
+      {
+        "type": "code",
+        "value": "import pandas as pd\nfunc = lambda x: pd.read_csv(**x)"
+      },
+      {
+        "type": "text",
+        "value": "Use ``BlockwiseDepDict`` to define the input argument to\n``func`` for each block/partition:"
+      },
+      {
+        "type": "code",
+        "value": "dep = BlockwiseDepDict(\n    mapping={\n        (0,) : {\n            \"filepath_or_buffer\": \"data.csv\",\n            \"skiprows\": 1,\n            \"nrows\": 2,\n            \"names\": [\"a\", \"b\"],\n        },\n        (1,) : {\n            \"filepath_or_buffer\": \"data.csv\",\n            \"skiprows\": 3,\n            \"nrows\": 2,\n            \"names\": [\"a\", \"b\"],\n        },\n    }\n)"
+      },
+      {
+        "type": "text",
+        "value": "Construct a Blockwise Layer with ``dep`` specified\nin the ``indices`` list:"
+      },
+      {
+        "type": "code",
+        "value": "layer = Blockwise(\n    output=\"collection-name\",\n    output_indices=\"i\",\n    dsk={\"collection-name\": (func, '_0')},\n    indices=[(dep, \"i\")],\n    numblocks={},\n)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dask/blockwise.py",
+  "item_line": 111,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Examples",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "dask",
+          "path": "dask.blockwise:Blockwise",
+          "type": "RefInfo",
+          "version": "2023.1.0"
+        },
+        "type": "Link",
+        "value": "dask.blockwise.Blockwise"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "dask",
+          "path": "dask.blockwise:BlockwiseDep",
+          "type": "RefInfo",
+          "version": "2023.1.0"
+        },
+        "type": "Link",
+        "value": "dask.blockwise.BlockwiseDep"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

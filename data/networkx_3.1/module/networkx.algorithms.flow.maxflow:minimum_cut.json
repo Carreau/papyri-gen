@@ -1,0 +1,821 @@
+{
+  "aliases": [
+    "networkx.minimum_cut"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Use the max-flow min-cut theorem, i.e., the capacity of a minimum capacity cut is equal to the flow value of a maximum flow."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The function used in the flow_func parameter has to return a residual network that follows NetworkX conventions:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The residual network "
+            },
+            {
+              "type": "inlineCode",
+              "value": "R"
+            },
+            {
+              "type": "text",
+              "value": " from an input graph "
+            },
+            {
+              "type": "inlineCode",
+              "value": "G"
+            },
+            {
+              "type": "text",
+              "value": " has the same nodes as "
+            },
+            {
+              "type": "inlineCode",
+              "value": "G"
+            },
+            {
+              "type": "text",
+              "value": ". "
+            },
+            {
+              "type": "inlineCode",
+              "value": "R"
+            },
+            {
+              "type": "text",
+              "value": " is a DiGraph that contains a pair of edges "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(u, v)"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(v, u)"
+            },
+            {
+              "type": "text",
+              "value": " iff "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(u, v)"
+            },
+            {
+              "type": "text",
+              "value": " is not a self-loop, and at least one of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(u, v)"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(v, u)"
+            },
+            {
+              "type": "text",
+              "value": " exists in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "G"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For each edge "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(u, v)"
+            },
+            {
+              "type": "text",
+              "value": " in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "R"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "R[u][v]['capacity']"
+            },
+            {
+              "type": "text",
+              "value": " is equal to the capacity of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(u, v)"
+            },
+            {
+              "type": "text",
+              "value": " in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "G"
+            },
+            {
+              "type": "text",
+              "value": " if it exists in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "G"
+            },
+            {
+              "type": "text",
+              "value": " or zero otherwise. If the capacity is infinite, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "R[u][v]['capacity']"
+            },
+            {
+              "type": "text",
+              "value": " will have a high arbitrary finite value that does not affect the solution of the problem. This value is stored in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "R.graph['inf']"
+            },
+            {
+              "type": "text",
+              "value": ". For each edge "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(u, v)"
+            },
+            {
+              "type": "text",
+              "value": " in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "R"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "R[u][v]['flow']"
+            },
+            {
+              "type": "text",
+              "value": " represents the flow function of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(u, v)"
+            },
+            {
+              "type": "text",
+              "value": " and satisfies "
+            },
+            {
+              "type": "inlineCode",
+              "value": "R[u][v]['flow'] == -R[v][u]['flow']"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The flow value, defined as the total flow into "
+            },
+            {
+              "type": "inlineCode",
+              "value": "t"
+            },
+            {
+              "type": "text",
+              "value": ", the sink, is stored in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "R.graph['flow_value']"
+            },
+            {
+              "type": "text",
+              "value": ". Reachability to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "t"
+            },
+            {
+              "type": "text",
+              "value": " using only edges "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(u, v)"
+            },
+            {
+              "type": "text",
+              "value": " such that "
+            },
+            {
+              "type": "inlineCode",
+              "value": "R[u][v]['flow'] < R[u][v]['capacity']"
+            },
+            {
+              "type": "text",
+              "value": " induces a minimum "
+            },
+            {
+              "type": "inlineCode",
+              "value": "s"
+            },
+            {
+              "type": "text",
+              "value": "-"
+            },
+            {
+              "type": "inlineCode",
+              "value": "t"
+            },
+            {
+              "type": "text",
+              "value": " cut."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Specific algorithms may store extra data in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "R"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The function should supports an optional boolean parameter value_only. When True, it can optionally terminate the algorithm as soon as the maximum flow value and the minimum cut can be determined."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Edges of the graph are expected to have an attribute called 'capacity'. If this attribute is not present, the edge is considered to have infinite capacity."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "flowG",
+              "type": "Param",
+              "type_": "NetworkX graph"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Source node for the flow."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "_s",
+              "type": "Param",
+              "type_": "node"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Sink node for the flow."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "_t",
+              "type": "Param",
+              "type_": "node"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Edges of the graph G are expected to have an attribute capacity that indicates how much flow the edge can support. If this attribute is not present, the edge is considered to have infinite capacity. Default value: 'capacity'."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "capacity",
+              "type": "Param",
+              "type_": "string"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A function for computing the maximum flow among a pair of nodes in a capacitated graph. The function has to accept at least three parameters: a Graph or Digraph, a source node, and a target node. And return a residual network that follows NetworkX conventions (see Notes). If flow_func is None, the default maximum flow function ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "preflow_push"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") is used. See below for alternative algorithms. The choice of the default function may change from version to version and should not be relied on. Default value: None."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "flow_func",
+              "type": "Param",
+              "type_": "function"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "computes the maximum flow."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "kwargs",
+              "type": "Param",
+              "type_": "Any other keyword parameter is passed to the function that"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If the graph has a path of infinite capacity, all cuts have infinite capacity and the function raises a NetworkXError."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "NetworkXUnbounded"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Value of the minimum cut."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "cut_value",
+              "type": "Param",
+              "type_": "integer, float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A partitioning of the nodes that defines a minimum cut."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "partition",
+              "type": "Param",
+              "type_": "pair of node sets"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute the value and the node partition of a minimum (s, t)-cut."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "G = nx.DiGraph()\nG.add_edge(\"x\", \"a\", capacity=3.0)\nG.add_edge(\"x\", \"b\", capacity=1.0)\nG.add_edge(\"a\", \"c\", capacity=3.0)\nG.add_edge(\"b\", \"c\", capacity=5.0)\nG.add_edge(\"b\", \"d\", capacity=4.0)\nG.add_edge(\"d\", \"e\", capacity=2.0)\nG.add_edge(\"c\", \"y\", capacity=2.0)\nG.add_edge(\"e\", \"y\", capacity=3.0)"
+      },
+      {
+        "type": "text",
+        "value": "minimum_cut computes both the value of the\nminimum cut and the node partition:"
+      },
+      {
+        "type": "code",
+        "value": "cut_value, partition = nx.minimum_cut(G, \"x\", \"y\")\nreachable, non_reachable = partition"
+      },
+      {
+        "type": "text",
+        "value": "'partition' here is a tuple with the two sets of nodes that define\nthe minimum cut. You can compute the cut set of edges that induce\nthe minimum cut as follows:"
+      },
+      {
+        "type": "code",
+        "value": "cutset = set()\nfor u, nbrs in ((n, G[n]) for n in reachable):\n    cutset.update((u, v) for v in nbrs if v in non_reachable)\nprint(sorted(cutset))"
+      },
+      {
+        "type": "code",
+        "value": "cut_value == sum(G.edges[u, v][\"capacity\"] for (u, v) in cutset)"
+      },
+      {
+        "type": "text",
+        "value": "You can also use alternative algorithms for computing the\nminimum cut by using the flow_func parameter."
+      },
+      {
+        "type": "code",
+        "value": "from networkx.algorithms.flow import shortest_augmenting_path\ncut_value == nx.minimum_cut(G, \"x\", \"y\", flow_func=shortest_augmenting_path)[0]"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/algorithms/flow/maxflow.py",
+  "item_line": 304,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "meth"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "maximum_flow",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "maximum_flow"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "meth"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "networkx",
+          "path": "networkx.algorithms.flow.maxflow:maximum_flow_value",
+          "type": "RefInfo",
+          "version": "3.1"
+        },
+        "type": "Link",
+        "value": "maximum_flow_value"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "meth"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "networkx",
+          "path": "networkx.algorithms.flow.maxflow:minimum_cut_value",
+          "type": "RefInfo",
+          "version": "3.1"
+        },
+        "type": "Link",
+        "value": "minimum_cut_value"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "meth"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "edmonds_karp",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "edmonds_karp"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "meth"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "preflow_push",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "preflow_push"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "meth"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "shortest_augmenting_path",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "shortest_augmenting_path"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(flowG, _s, _t, capacity='capacity', flow_func=None, **kwargs)"
+  },
+  "type": "DocBlob"
+}

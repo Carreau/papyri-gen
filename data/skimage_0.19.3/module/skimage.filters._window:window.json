@@ -1,0 +1,422 @@
+{
+  "aliases": [
+    "skimage.filters.window"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function is based on "
+            },
+            {
+              "type": "inlineCode",
+              "value": "scipy.signal.get_window"
+            },
+            {
+              "type": "text",
+              "value": " and thus can access all of the window types available to that function (e.g., "
+            },
+            {
+              "type": "inlineCode",
+              "value": "\"hann\""
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "\"boxcar\""
+            },
+            {
+              "type": "text",
+              "value": "). Note that certain window types require parameters that have to be supplied with the window name as a tuple (e.g., "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(\"tukey\", 0.8)"
+            },
+            {
+              "type": "text",
+              "value": "). If only a float is supplied, it is interpreted as the beta parameter of the Kaiser window."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "See https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.windows.get_window.html for more details."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Note that this function generates a double precision array of the specified "
+            },
+            {
+              "type": "inlineCode",
+              "value": "shape"
+            },
+            {
+              "type": "text",
+              "value": " and can thus generate very large arrays that consume a large amount of available memory."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The approach taken here to create nD windows is to first calculate the Euclidean distance from the center of the intended nD window to each position in the array. That distance is used to sample, with interpolation, from a 1D window returned from "
+            },
+            {
+              "type": "inlineCode",
+              "value": "scipy.signal.get_window"
+            },
+            {
+              "type": "text",
+              "value": ". The method of interpolation can be changed with the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "order"
+            },
+            {
+              "type": "text",
+              "value": " keyword argument passed to "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "skimage",
+                "path": "skimage.transform._warps:warp",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "skimage.transform.warp"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Some coordinates in the output window will be outside of the original signal; these will be filled in with zeros."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Window types: - boxcar - triang - blackman - hamming - hann - bartlett - flattop - parzen - bohman - blackmanharris - nuttall - barthann - kaiser (needs beta) - gaussian (needs standard deviation) - general_gaussian (needs power, width) - slepian (needs width) - dpss (needs normalized half-bandwidth) - chebwin (needs attenuation) - exponential (needs decay scale) - tukey (needs taper fraction)"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The type of window to be created. Any window type supported by "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "scipy.signal.get_window"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is allowed here. See notes below for a current list, or the SciPy documentation for the version of SciPy on your machine."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "window_type",
+              "type": "Param",
+              "type_": "string, float, or tuple"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The shape of the window along each axis. If an integer is provided, a 1D window is generated."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "shape",
+              "type": "Param",
+              "type_": "tuple of int or int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Keyword arguments passed to "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "skimage",
+                        "path": "skimage.transform._warps:warp",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "skimage.transform.warp"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (e.g., "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "warp_kwargs={'order':3}"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to change interpolation method)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "warp_kwargs",
+              "type": "Param",
+              "type_": "dict"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A window of the specified "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "shape"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "dtype"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.double"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "nd_window",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Return an n-dimensional window of a given size and dimensionality."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Return a Hann window with shape (512, 512):"
+      },
+      {
+        "type": "code",
+        "value": "from skimage.filters import window\nw = window('hann', (512, 512))"
+      },
+      {
+        "type": "text",
+        "value": "Return a Kaiser window with beta parameter of 16 and shape (256, 256, 35):"
+      },
+      {
+        "type": "code",
+        "value": "w = window(16, (256, 256, 35))"
+      },
+      {
+        "type": "text",
+        "value": "Return a Tukey window with an alpha parameter of 0.8 and shape (100, 300):"
+      },
+      {
+        "type": "code",
+        "value": "w = window(('tukey', 0.8), (100, 300))"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/skimage/filters/_window.py",
+  "item_line": 10,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "Examples",
+    "References"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(window_type, shape, warp_kwargs=None)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,661 @@
+{
+  "aliases": [
+    "numpy.vectorize"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Define a vectorized function which takes a nested sequence of objects or numpy arrays as inputs and returns a single numpy array or a tuple of numpy arrays. The vectorized function evaluates "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "pyfunc",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "pyfunc"
+            },
+            {
+              "type": "text",
+              "value": " over successive tuples of the input arrays like the python map function, except it uses the broadcasting rules of numpy."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The data type of the output of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "vectorized",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "vectorized"
+            },
+            {
+              "type": "text",
+              "value": " is determined by calling the function with the first element of the input.  This can be avoided by specifying the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "otypes",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "otypes"
+            },
+            {
+              "type": "text",
+              "value": " argument."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "numpy",
+                "path": "numpy:vectorize",
+                "type": "RefInfo",
+                "version": "1.24.1"
+              },
+              "type": "Link",
+              "value": "vectorize"
+            },
+            {
+              "type": "text",
+              "value": " function is provided primarily for convenience, not for performance. The implementation is essentially a for loop."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "otypes",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "otypes"
+            },
+            {
+              "type": "text",
+              "value": " is not specified, then a call to the function with the first argument will be used to determine the number of outputs.  The results of this call will be cached if "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "cache",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "cache"
+            },
+            {
+              "type": "text",
+              "value": " is "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "True"
+            },
+            {
+              "type": "text",
+              "value": " to prevent calling the function twice.  However, to implement the cache, the original function must be wrapped which will slow down subsequent calls, so only do this if your function is expensive."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The new keyword argument interface and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "excluded",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "excluded"
+            },
+            {
+              "type": "text",
+              "value": " argument support further degrades performance."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A python function or method."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "pyfunc",
+              "type": "Param",
+              "type_": "callable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The output data type. It must be specified as either a string of typecode characters or a list of data type specifiers. There should be one data type specifier for each output."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "otypes",
+              "type": "Param",
+              "type_": "str or list of dtypes, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The docstring for the function. If None, the docstring will be the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "pyfunc.__doc__"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "doc",
+              "type": "Param",
+              "type_": "str, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Set of strings or integers representing the positional or keyword arguments for which the function will not be vectorized.  These will be passed directly to "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "pyfunc",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "pyfunc"
+                    },
+                    {
+                      "type": "text",
+                      "value": " unmodified."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.7.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "excluded",
+              "type": "Param",
+              "type_": "set, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", then cache the first function call that determines the number of outputs if "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "otypes",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "otypes"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is not provided."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.7.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "cache",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Generalized universal function signature, e.g., "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(m,n),(n)->(m)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for vectorized matrix-vector multiplication. If provided, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "pyfunc"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will be called with (and expected to return) arrays with shapes given by the size of corresponding core dimensions. By default, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "pyfunc"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is assumed to take scalars as input and output."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.12.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "signature",
+              "type": "Param",
+              "type_": "string, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Vectorized function."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "vectorized",
+              "type": "Param",
+              "type_": "callable"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Generalized function class."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "def myfunc(a, b):\n    \"Return a-b if a>b, otherwise return a+b\"\n    if a > b:\n        return a - b\n    else:\n        return a + b"
+      },
+      {
+        "type": "code",
+        "value": "vfunc = np.vectorize(myfunc)\nvfunc([1, 2, 3, 4], 2)"
+      },
+      {
+        "type": "text",
+        "value": "The docstring is taken from the input function to `vectorize` unless it\nis specified:"
+      },
+      {
+        "type": "code",
+        "value": "vfunc.__doc__"
+      },
+      {
+        "type": "code",
+        "value": "vfunc = np.vectorize(myfunc, doc='Vectorized `myfunc`')\nvfunc.__doc__"
+      },
+      {
+        "type": "text",
+        "value": "The output type is determined by evaluating the first element of the input,\nunless it is specified:"
+      },
+      {
+        "type": "code",
+        "value": "out = vfunc([1, 2, 3, 4], 2)\ntype(out[0])"
+      },
+      {
+        "type": "code",
+        "value": "vfunc = np.vectorize(myfunc, otypes=[float])\nout = vfunc([1, 2, 3, 4], 2)\ntype(out[0])"
+      },
+      {
+        "type": "text",
+        "value": "The `excluded` argument can be used to prevent vectorizing over certain\narguments.  This can be useful for array-like arguments of a fixed length\nsuch as the coefficients for a polynomial as in `polyval`:"
+      },
+      {
+        "type": "code",
+        "value": "def mypolyval(p, x):\n    _p = list(p)\n    res = _p.pop(0)\n    while _p:\n        res = res*x + _p.pop(0)\n    return res\nvpolyval = np.vectorize(mypolyval, excluded=['p'])\nvpolyval(p=[1, 2, 3], x=[0, 1])"
+      },
+      {
+        "type": "text",
+        "value": "Positional arguments may also be excluded by specifying their position:"
+      },
+      {
+        "type": "code",
+        "value": "vpolyval.excluded.add(0)\nvpolyval([1, 2, 3], x=[0, 1])"
+      },
+      {
+        "type": "text",
+        "value": "The `signature` argument allows for vectorizing functions that act on\nnon-scalar arrays of fixed length. For example, you can use it for a\nvectorized calculation of Pearson correlation coefficient and its p-value:"
+      },
+      {
+        "type": "code",
+        "value": "import scipy.stats\npearsonr = np.vectorize(scipy.stats.pearsonr,\n                signature='(n),(n)->(),()')\npearsonr([[0, 1, 2, 3]], [[1, 2, 3, 4], [4, 3, 2, 1]])"
+      },
+      {
+        "type": "text",
+        "value": "Or for a vectorized convolution:"
+      },
+      {
+        "type": "code",
+        "value": "convolve = np.vectorize(np.convolve, signature='(n),(m)->(k)')\nconvolve(np.eye(4), [1, 2, 1])"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/numpy/__init__.py",
+  "item_line": null,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Signature",
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Takes an arbitrary Python function and returns a ufunc"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "frompyfunc",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "frompyfunc"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "vectorize(pyfunc, otypes=None, doc=None, excluded=None, cache=False, signature=None)"
+  },
+  "type": "DocBlob"
+}

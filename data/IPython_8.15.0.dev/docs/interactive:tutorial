@@ -1,0 +1,1355 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You don't need to know anything beyond Python to start using IPython \u2013 just type commands as you would at the standard Python prompt. But IPython can do much more than the standard prompt. Some key features are described here. For more information, check the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "tips page <tips>"
+            },
+            {
+              "type": "text",
+              "value": ", or look at examples in the "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "IPython cookbook"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/ipython/ipython/wiki/Cookbook%3A-Index"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If you haven't done that yet see "
+            },
+            {
+              "type": "inlineCode",
+              "value": "how to install ipython <install>"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If you've never used Python before, you might want to look at "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "the official tutorial"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "http://docs.python.org/tutorial/"
+            },
+            {
+              "type": "text",
+              "value": " or an alternative, "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Dive into Python"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://www.diveinto.org/python3/table-of-contents.html"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Start IPython by issuing the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ipython"
+            },
+            {
+              "type": "text",
+              "value": " command from your shell, you should be greeted by the following      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "Python 3.6.0\nType 'copyright', 'credits' or 'license' for more information\nIPython 6.0.0.dev -- An enhanced Interactive Python. Type '?' for help.\n\nIn [1]:"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Unlike the Python REPL, you will see that the input prompt is "
+            },
+            {
+              "type": "inlineCode",
+              "value": "In [N]:"
+            },
+            {
+              "type": "text",
+              "value": " instead of "
+            },
+            {
+              "type": "inlineCode",
+              "value": ">>>"
+            },
+            {
+              "type": "text",
+              "value": ". The number "
+            },
+            {
+              "type": "inlineCode",
+              "value": "N"
+            },
+            {
+              "type": "text",
+              "value": " in the prompt will be used later in this tutorial but should usually not impact the computation."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You should be able to type single line expressions and press enter to evaluate them. If an expression is incomplete, IPython will automatically detect this and add a new line when you press "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Enter"
+            },
+            {
+              "type": "text",
+              "value": " instead of executing right away."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Feel free to explore multi-line text input. Unlike many other REPLs, with IPython you can use the up and down arrow keys when editing multi-line code blocks."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Here is an example of a longer interaction with the IPython REPL, which we often refer to as an IPython "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "session"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": "       "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "In [1]: print('Hello IPython')\nHello IPython\n\nIn [2]: 21 * 2\nOut[2]: 42\n\nIn [3]: def say_hello(name):\n   ...:     print('Hello {name}'.format(name=name))\n   ...:"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "We won't get into details right now, but you may notice a few differences to the standard Python REPL. First, your code should be syntax-highlighted as you type. Second, you will see that some results will have an "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Out[N]:"
+            },
+            {
+              "type": "text",
+              "value": " prompt, while some other do not. We'll come to this later."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Depending on the exact command you are typing you might realize that sometimes "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Enter"
+            },
+            {
+              "type": "text",
+              "value": " will add a new line, and sometimes it will execute the current statement. IPython tries to guess what you are doing, so most of the time you should not have to care. Though if by any chance IPython does not do the right thing you can force execution of the current code block by pressing in sequence "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Esc"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Enter"
+            },
+            {
+              "type": "text",
+              "value": ". You can also force the insertion of a new line at the position of the cursor by using "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Ctrl-o"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": "tutorial",
+      "title": "Introducing IPython",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The four most helpful commands, as well as their brief description, is shown to you in a banner, every time you start IPython:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "==========    ========================================================= command       description ==========    ========================================================= ?             Introduction and overview of IPython's features. %quickref     Quick reference. help          Python's own help system. object?       Details about 'object', use 'object??' for extra details. ==========    ========================================================="
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "The four most helpful commands",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Tab completion, especially for attributes, is a convenient way to explore the structure of any object you're dealing with. Simply type "
+            },
+            {
+              "type": "inlineCode",
+              "value": "object_name.<TAB>"
+            },
+            {
+              "type": "text",
+              "value": " to view the object's attributes. Besides Python objects and keywords, tab completion also works on file and directory names."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Starting with IPython 6.0, if "
+            },
+            {
+              "type": "inlineCode",
+              "value": "jedi"
+            },
+            {
+              "type": "text",
+              "value": " is installed, IPython will try to pull completions from Jedi as well. This allows to not only inspect currently existing objects, but also to infer completion statically without executing code. There is nothing particular needed to get this to work, simply use tab completion on more complex expressions like the following      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> data = ['Number of users', 123456]\n... data[0].<tab>"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "IPython and Jedi will be able to infer that "
+            },
+            {
+              "type": "inlineCode",
+              "value": "data[0]"
+            },
+            {
+              "type": "text",
+              "value": " is actually a string and should show relevant completions like "
+            },
+            {
+              "type": "inlineCode",
+              "value": "upper()"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "lower()"
+            },
+            {
+              "type": "text",
+              "value": " and other string methods. You can use the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Tab"
+            },
+            {
+              "type": "text",
+              "value": " key to cycle through completions, and while a completion is highlighted, its type will be shown as well. When the type of the completion is a function, the completer will also show the signature of the function when highlighted."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Tab completion",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Typing "
+            },
+            {
+              "type": "inlineCode",
+              "value": "object_name?"
+            },
+            {
+              "type": "text",
+              "value": " will print all sorts of details about any object, including docstrings, function definition lines (for call arguments) and constructor details for classes. To get specific information on an object, you can use the magic commands "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%pdoc"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%pdef"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%psource"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%pfile"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Exploring your objects",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "IPython has a set of predefined 'magic functions' that you can call with a command line style syntax.  There are two kinds of magics, line-oriented and cell-oriented.  "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Line magics"
+                }
+              ],
+              "type": "strong"
+            },
+            {
+              "type": "text",
+              "value": " are prefixed with the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%"
+            },
+            {
+              "type": "text",
+              "value": " character and work much like OS command-line calls: they get as an argument the rest of the line, where arguments are passed without parentheses or quotes. "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Lines magics"
+                }
+              ],
+              "type": "strong"
+            },
+            {
+              "type": "text",
+              "value": " can return results and can be used in the right hand side of an assignment.  "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Cell\nmagics"
+                }
+              ],
+              "type": "strong"
+            },
+            {
+              "type": "text",
+              "value": " are prefixed with a double "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%%"
+            },
+            {
+              "type": "text",
+              "value": ", and they are functions that get as an argument not only the rest of the line, but also the lines below it in a separate argument."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Magics are useful as convenient functions where Python syntax is not the most natural one, or when one want to embed invalid python syntax in their work flow."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The following examples show how to call the built-in "
+            },
+            {
+              "domain": null,
+              "role": "magic",
+              "type": "Directive",
+              "value": "timeit"
+            },
+            {
+              "type": "text",
+              "value": " magic, both in line and cell mode        "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "In [1]: %timeit range(1000)\n100000 loops, best of 3: 7.76 us per loop\n\nIn [2]: %%timeit x = range(10000)\n...: max(x)\n...: \n1000 loops, best of 3: 223 us per loop"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The built-in magics include:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Functions that work with code: "
+                    },
+                    {
+                      "domain": null,
+                      "role": "magic",
+                      "type": "Directive",
+                      "value": "run"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "domain": null,
+                      "role": "magic",
+                      "type": "Directive",
+                      "value": "edit"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "domain": null,
+                      "role": "magic",
+                      "type": "Directive",
+                      "value": "save"
+                    },
+                    {
+                      "type": "text",
+                      "value": ",   "
+                    },
+                    {
+                      "domain": null,
+                      "role": "magic",
+                      "type": "Directive",
+                      "value": "macro"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "domain": null,
+                      "role": "magic",
+                      "type": "Directive",
+                      "value": "recall"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", etc."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Functions which affect the shell: "
+                    },
+                    {
+                      "domain": null,
+                      "role": "magic",
+                      "type": "Directive",
+                      "value": "colors"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "domain": null,
+                      "role": "magic",
+                      "type": "Directive",
+                      "value": "xmode"
+                    },
+                    {
+                      "type": "text",
+                      "value": ",   "
+                    },
+                    {
+                      "domain": null,
+                      "role": "magic",
+                      "type": "Directive",
+                      "value": "automagic"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", etc."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Other functions such as "
+                    },
+                    {
+                      "domain": null,
+                      "role": "magic",
+                      "type": "Directive",
+                      "value": "reset"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "domain": null,
+                      "role": "magic",
+                      "type": "Directive",
+                      "value": "timeit"
+                    },
+                    {
+                      "type": "text",
+                      "value": ",   "
+                    },
+                    {
+                      "domain": null,
+                      "role": "cellmagic",
+                      "type": "Directive",
+                      "value": "writefile"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "domain": null,
+                      "role": "magic",
+                      "type": "Directive",
+                      "value": "load"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", or "
+                    },
+                    {
+                      "domain": null,
+                      "role": "magic",
+                      "type": "Directive",
+                      "value": "paste"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You can always call magics using the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%"
+            },
+            {
+              "type": "text",
+              "value": " prefix, and if you're calling a line magic on a line by itself, as long as the identifier is not defined in your namespace, you can omit even that      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "run thescript.py"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You can toggle this behavior by running the "
+            },
+            {
+              "domain": null,
+              "role": "magic",
+              "type": "Directive",
+              "value": "automagic"
+            },
+            {
+              "type": "text",
+              "value": " magic.  Cell magics must always have the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%%"
+            },
+            {
+              "type": "text",
+              "value": " prefix."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A more detailed explanation of the magic system can be obtained by calling "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%magic"
+            },
+            {
+              "type": "text",
+              "value": ", and for more details on any magic function, call "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%somemagic?"
+            },
+            {
+              "type": "text",
+              "value": " to read its docstring. To see all the available magic functions, call "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%lsmagic"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "",
+          "children": [],
+          "name": "seealso",
+          "options": {},
+          "type": "mystDirective",
+          "value": "The :ref:`magic` section of the documentation goes more in depth into how\nthe magics works and how to define your own, and :doc:`magics` for a list of\nbuilt-in magics.\n\n`Cell magics`_ example notebook"
+        }
+      ],
+      "level": 1,
+      "target": "magics_explained",
+      "title": "Magic functions",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "domain": null,
+              "role": "magic",
+              "type": "Directive",
+              "value": "run"
+            },
+            {
+              "type": "text",
+              "value": " magic command allows you to run any python script and load all of its data directly into the interactive namespace. Since the file is re-read from disk each time, changes you make to it are reflected immediately (unlike imported modules, which have to be specifically reloaded). IPython also includes "
+            },
+            {
+              "type": "inlineCode",
+              "value": "dreload <dreload>"
+            },
+            {
+              "type": "text",
+              "value": ", a recursive reload function."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "inlineCode",
+              "value": "%run"
+            },
+            {
+              "type": "text",
+              "value": " has special flags for timing the execution of your scripts (-t), or for running them under the control of either Python's pdb debugger (-d) or profiler (-p)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "domain": null,
+              "role": "magic",
+              "type": "Directive",
+              "value": "edit"
+            },
+            {
+              "type": "text",
+              "value": " command gives a reasonable approximation of multi-line editing, by invoking your favorite editor on the spot. IPython will execute the code you type in there as if it were typed interactively. Note that for "
+            },
+            {
+              "domain": null,
+              "role": "magic",
+              "type": "Directive",
+              "value": "edit"
+            },
+            {
+              "type": "text",
+              "value": " to work, the call to startup your editor has to be a blocking call. In a GUI environment, your editor likely will have such an option."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Running and Editing",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "After an exception occurs, you can call "
+            },
+            {
+              "domain": null,
+              "role": "magic",
+              "type": "Directive",
+              "value": "debug"
+            },
+            {
+              "type": "text",
+              "value": " to jump into the Python debugger (pdb) and examine the problem. Alternatively, if you call "
+            },
+            {
+              "domain": null,
+              "role": "magic",
+              "type": "Directive",
+              "value": "pdb"
+            },
+            {
+              "type": "text",
+              "value": ", IPython will automatically start the debugger on any uncaught exception. You can print variables, see code, execute statements and even walk up and down the call stack to track down the true source of the problem. This can be an efficient way to develop and debug code, in many cases eliminating the need for print statements or external debugging tools."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You can also step through a program from the beginning by calling "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%run -d theprogram.py"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Debugging",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "IPython stores both the commands you enter, and the results it produces. You can easily go through previous commands with the up- and down-arrow keys, or access your history in more sophisticated ways."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Input and output history are kept in variables called "
+            },
+            {
+              "type": "inlineCode",
+              "value": "In"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Out"
+            },
+            {
+              "type": "text",
+              "value": ", keyed by the prompt numbers, e.g. "
+            },
+            {
+              "type": "inlineCode",
+              "value": "In[4]"
+            },
+            {
+              "type": "text",
+              "value": ". The last three objects in output history are also kept in variables named "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "__"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "___"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You can use the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%history"
+            },
+            {
+              "type": "text",
+              "value": " magic function to examine past input and output. Input history from previous sessions is saved in a database, and IPython can be configured to save output history."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Several other magic functions can use your input history, including "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%edit"
+            },
+            {
+              "type": "text",
+              "value": ",  "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%rerun"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%recall"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%macro"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%save"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%pastebin"
+            },
+            {
+              "type": "text",
+              "value": ". You can use a standard format to refer to lines      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "%pastebin 3 18-20 ~1/1-5"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This will take line 3 and lines 18 to 20 from the current session, and lines 1-5 from the previous session."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "History",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To run any command at the system shell, simply prefix it with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "!"
+            },
+            {
+              "type": "text",
+              "value": ", e.g.      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "!ping www.bbc.co.uk"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You can capture the output into a Python list, e.g.: "
+            },
+            {
+              "type": "inlineCode",
+              "value": "files = !ls"
+            },
+            {
+              "type": "text",
+              "value": ". To pass the values of Python variables or expressions to system commands, prefix them with $: "
+            },
+            {
+              "type": "inlineCode",
+              "value": "!grep -rF $pattern ipython/*"
+            },
+            {
+              "type": "text",
+              "value": " or wrap in "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "{braces}"
+            },
+            {
+              "type": "text",
+              "value": ". See "
+            },
+            {
+              "type": "inlineCode",
+              "value": "our\nshell section <system_shell_access>"
+            },
+            {
+              "type": "text",
+              "value": " for more details."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "System shell commands",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "It's convenient to have aliases to the system commands you use most often. This allows you to work seamlessly from inside IPython with the same commands you are used to in your system shell. IPython comes with some pre-defined aliases and a complete system for changing directories, both via a stack (see "
+            },
+            {
+              "domain": null,
+              "role": "magic",
+              "type": "Directive",
+              "value": "pushd"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "domain": null,
+              "role": "magic",
+              "type": "Directive",
+              "value": "popd"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "domain": null,
+              "role": "magic",
+              "type": "Directive",
+              "value": "dhist"
+            },
+            {
+              "type": "text",
+              "value": ") and via direct "
+            },
+            {
+              "domain": null,
+              "role": "magic",
+              "type": "Directive",
+              "value": "cd"
+            },
+            {
+              "type": "text",
+              "value": ". The latter keeps a history of visited directories and allows you to go to any previously visited one."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Define your own system aliases",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Much of IPython can be tweaked through "
+            },
+            {
+              "type": "inlineCode",
+              "value": "configuration </config/intro>"
+            },
+            {
+              "type": "text",
+              "value": ". To get started, use the command "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ipython profile create"
+            },
+            {
+              "type": "text",
+              "value": " to produce the default config files. These will be placed in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "~/.ipython/profile_default"
+            },
+            {
+              "type": "text",
+              "value": ", and contain comments explaining what the various options do."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Profiles allow you to use IPython for different tasks, keeping separate config files and history for each one. More details in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "the profiles section\n<profiles>"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Configuration",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If you want some code to be run at the beginning of every IPython session, the easiest way is to add Python (.py) or IPython (.ipy) scripts to your "
+            },
+            {
+              "type": "inlineCode",
+              "value": "profile_default/startup/"
+            },
+            {
+              "type": "text",
+              "value": " directory. Files here will be executed as soon as the IPython shell is constructed, before any other code or scripts you have specified. The files will be run in order of their names, so you can control the ordering with prefixes, like "
+            },
+            {
+              "type": "inlineCode",
+              "value": "10-myimports.py"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "../links.txt",
+          "children": [],
+          "name": "include",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        }
+      ],
+      "level": 2,
+      "target": "startup_files",
+      "title": "Startup Files",
+      "type": "Section"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

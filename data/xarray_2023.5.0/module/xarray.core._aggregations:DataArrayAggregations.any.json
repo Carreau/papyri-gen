@@ -1,0 +1,365 @@
+{
+  "aliases": [
+    "xarray.core._aggregations.DataArrayAggregations.any"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Name of dimension[s] along which to apply "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "any"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". For e.g. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "dim=\"x\""
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "dim=[\"x\", \"y\"]"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If \"...\" or None, will reduce over all dimensions."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dim",
+              "type": "Param",
+              "type_": "str, Iterable of Hashable, \"...\" or None, default: None"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "attrs"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will be copied from the original object to the new one.  If False, the new object will be returned without attributes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "keep_attrs",
+              "type": "Param",
+              "type_": "bool or None, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Additional keyword arguments passed on to the appropriate array function for calculating "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "any"
+                    },
+                    {
+                      "type": "text",
+                      "value": " on this object's data. These could include dask-specific kwargs like "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "split_every"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "**kwargs",
+              "type": "Param",
+              "type_": "Any"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "New DataArray with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "any"
+                    },
+                    {
+                      "type": "text",
+                      "value": " applied to its data and the indicated dimension(s) removed"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "reduced",
+              "type": "Param",
+              "type_": "DataArray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Reduce this DataArray's data by applying "
+            },
+            {
+              "type": "inlineCode",
+              "value": "any"
+            },
+            {
+              "type": "text",
+              "value": " along some dimension(s)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "da = xr.DataArray(\n    np.array([True, True, True, True, True, False], dtype=bool),\n    dims=\"time\",\n    coords=dict(\n        time=(\"time\", pd.date_range(\"2001-01-01\", freq=\"M\", periods=6)),\n        labels=(\"time\", np.array([\"a\", \"b\", \"c\", \"c\", \"b\", \"a\"])),\n    ),\n)\nda"
+      },
+      {
+        "type": "code",
+        "value": "da.any()"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/xarray/core/_aggregations.py",
+  "item_line": 1364,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "numpy.any",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "numpy.any"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "dask.array.any",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "dask.array.any"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "Dataset.any",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "Dataset.any"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "User guide on reduction or aggregation operations."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "agg",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "agg"
+      },
+      "type": "ref"
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, dim: 'Dims' = None, *, keep_attrs: 'bool | None' = None, **kwargs: 'Any') -> 'DataArray'"
+  },
+  "type": "DocBlob"
+}

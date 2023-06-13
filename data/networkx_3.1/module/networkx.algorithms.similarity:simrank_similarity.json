@@ -1,0 +1,534 @@
+{
+  "aliases": [
+    "networkx.simrank_similarity"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "SimRank is a similarity metric that says \"two objects are considered to be similar if they are referenced by similar objects.\" ."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The pseudo-code definition from the paper is      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "def simrank(G, u, v):\n    in_neighbors_u = G.predecessors(u)\n    in_neighbors_v = G.predecessors(v)\n    scale = C / (len(in_neighbors_u) * len(in_neighbors_v))\n    return scale * sum(simrank(G, w, x)\n                       for w, x in product(in_neighbors_u,\n                                           in_neighbors_v))"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where "
+            },
+            {
+              "type": "inlineCode",
+              "value": "G"
+            },
+            {
+              "type": "text",
+              "value": " is the graph, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "u"
+            },
+            {
+              "type": "text",
+              "value": " is the source, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "v"
+            },
+            {
+              "type": "text",
+              "value": " is the target, and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "C"
+            },
+            {
+              "type": "text",
+              "value": " is a float decay or importance factor between 0 and 1."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The SimRank algorithm for determining node similarity is defined in ."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A NetworkX graph"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "G",
+              "type": "Param",
+              "type_": "NetworkX graph"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If this is specified, the returned dictionary maps each node "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "v"
+                    },
+                    {
+                      "type": "text",
+                      "value": " in the graph to the similarity between "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "source"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "v"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "source",
+              "type": "Param",
+              "type_": "node"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If both "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "source"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "target"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are specified, the similarity value between "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "source"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "target"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is returned. If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "target"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is specified but "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "source"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is not, this argument is ignored."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "target",
+              "type": "Param",
+              "type_": "node"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The relative importance of indirect neighbors with respect to direct neighbors."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "importance_factor",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum number of iterations."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "max_iterations",
+              "type": "Param",
+              "type_": "integer"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Error tolerance used to check convergence. When an iteration of the algorithm finds that no similarity value changes more than this amount, the algorithm halts."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "tolerance",
+              "type": "Param",
+              "type_": "float"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "source"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "target"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are both "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", this returns a dictionary of dictionaries, where keys are node pairs and value are similarity of the pair of nodes."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "source"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is not "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": " but "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "target"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is, this returns a dictionary mapping node to the similarity of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "source"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and that node."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If neither "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "source"
+                    },
+                    {
+                      "type": "text",
+                      "value": " nor "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "target"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", this returns the similarity value for the given pair of nodes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "similarity",
+              "type": "Param",
+              "type_": "dictionary or float"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Returns the SimRank similarity of nodes in the graph "
+            },
+            {
+              "type": "inlineCode",
+              "value": "G"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "G = nx.cycle_graph(2)\nnx.simrank_similarity(G)"
+      },
+      {
+        "type": "code",
+        "value": "nx.simrank_similarity(G, source=0)"
+      },
+      {
+        "type": "code",
+        "value": "nx.simrank_similarity(G, source=0, target=0)"
+      },
+      {
+        "type": "text",
+        "value": "The result of this function can be converted to a numpy array\nrepresenting the SimRank matrix by using the node order of the\ngraph to determine which row and column represent each node.\nOther ordering of nodes is also possible."
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nsim = nx.simrank_similarity(G)\nnp.array([[sim[u][v] for v in G] for u in G])"
+      },
+      {
+        "type": "code",
+        "value": "sim_1d = nx.simrank_similarity(G, source=0)\nnp.array([sim[0][v] for v in G])"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/algorithms/similarity.py",
+  "item_line": 1199,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Examples",
+    "References"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(G, source=None, target=None, importance_factor=0.9, max_iterations=1000, tolerance=0.0001)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,580 @@
+{
+  "aliases": [
+    "scipy.cluster.vq.kmeans"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The k-means algorithm adjusts the classification of the observations into clusters and updates the cluster centroids until the position of the centroids is stable over successive iterations. In this implementation of the algorithm, the stability of the centroids is determined by comparing the absolute value of the change in the average Euclidean distance between the observations and their corresponding centroids against a threshold. This yields a code book mapping centroids to codes and vice versa."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For more functionalities or optimal performance, you can use "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "sklearn.cluster.KMeans"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html"
+            },
+            {
+              "type": "text",
+              "value": ". "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "This"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://hdbscan.readthedocs.io/en/latest/performance_and_scalability.html#comparison-of-high-performance-implementations"
+            },
+            {
+              "type": "text",
+              "value": " is a benchmark result of several implementations."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Each row of the M by N array is an observation vector. The columns are the features seen during each observation. The features must be whitened first with the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "scipy",
+                        "path": "scipy.stats._covariance:Covariance.whiten",
+                        "type": "RefInfo",
+                        "version": "1.10.1"
+                      },
+                      "type": "Link",
+                      "value": "whiten"
+                    },
+                    {
+                      "type": "text",
+                      "value": " function."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "obs",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The number of centroids to generate. A code is assigned to each centroid, which is also the row index of the centroid in the code_book matrix generated."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The initial k centroids are chosen by randomly selecting observations from the observation matrix. Alternatively, passing a k by N array specifies the initial k centroids."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "k_or_guess",
+              "type": "Param",
+              "type_": "int or ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The number of times to run k-means, returning the codebook with the lowest distortion. This argument is ignored if initial centroids are specified with an array for the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "k_or_guess"
+                    },
+                    {
+                      "type": "text",
+                      "value": " parameter. This parameter does not represent the number of iterations of the k-means algorithm."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "iter",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Terminates the k-means algorithm if the change in distortion since the last k-means iteration is less than or equal to threshold."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "thresh",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to check that the input matrices contain only finite numbers. Disabling may give a performance gain, but may result in problems (crashes, non-termination) if the inputs do contain infinities or NaNs. Default: True"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "check_finite",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Seed for initializing the pseudo-random number generator. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "seed",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "seed"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is None (or "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "numpy.random",
+                        "path": "numpy.random",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "numpy.random"
+                    },
+                    {
+                      "type": "text",
+                      "value": "), the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "numpy.random.mtrand",
+                        "path": "numpy.random.mtrand:RandomState",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "numpy.random.RandomState"
+                    },
+                    {
+                      "type": "text",
+                      "value": " singleton is used. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "seed",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "seed"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is an int, a new "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "RandomState"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instance is used, seeded with "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "seed",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "seed"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "seed",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "seed"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is already a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Generator"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "RandomState"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instance then that instance is used. The default is None."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "seed",
+              "type": "Param",
+              "type_": "{None, int, `numpy.random.Generator`, `numpy.random.RandomState`}, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A k by N array of k centroids. The ith centroid codebook[i] is represented with the code i. The centroids and codes generated represent the lowest distortion seen, not necessarily the globally minimal distortion. Note that the number of centroids is not necessarily the same as the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "k_or_guess"
+                    },
+                    {
+                      "type": "text",
+                      "value": " parameter, because centroids assigned to no observations are removed during iterations."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "codebook",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The mean (non-squared) Euclidean distance between the observations passed and the centroids generated. Note the difference to the standard definition of distortion in the context of the k-means algorithm, which is the sum of the squared distances."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "distortion",
+              "type": "Param",
+              "type_": "float"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Performs k-means on a set of observation vectors forming k clusters."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.cluster.vq import vq, kmeans, whiten\nimport matplotlib.pyplot as plt\nfeatures  = np.array([[ 1.9,2.3],\n                      [ 1.5,2.5],\n                      [ 0.8,0.6],\n                      [ 0.4,1.8],\n                      [ 0.1,0.1],\n                      [ 0.2,1.8],\n                      [ 2.0,0.5],\n                      [ 0.3,1.5],\n                      [ 1.0,1.0]])\nwhitened = whiten(features)\nbook = np.array((whitened[0],whitened[2]))\nkmeans(whitened,book)"
+      },
+      {
+        "type": "code",
+        "value": "codes = 3\nkmeans(whitened,codes)"
+      },
+      {
+        "type": "code",
+        "value": "# Create 50 datapoints in two clusters a and b\npts = 50\nrng = np.random.default_rng()\na = rng.multivariate_normal([0, 0], [[4, 1], [1, 4]], size=pts)\nb = rng.multivariate_normal([30, 10],\n                            [[10, 2], [2, 1]],\n                            size=pts)\nfeatures = np.concatenate((a, b))\n# Whiten data\nwhitened = whiten(features)\n# Find 2 clusters in the data\ncodebook, distortion = kmeans(whitened, 2)\n# Plot whitened data and cluster centers in red\nplt.scatter(whitened[:, 0], whitened[:, 1])\nplt.scatter(codebook[:, 0], codebook[:, 1], c='r')\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.cluster.vq:kmeans-0-9f98805e.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/cluster/vq.py",
+  "item_line": 315,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "a different implementation of k-means clustering with more methods for generating initial centroids but without using a distortion change threshold as a stopping criterion."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.cluster.vq:kmeans2",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "kmeans2"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "must be called prior to passing an observation matrix to kmeans."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.stats._covariance:Covariance.whiten",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "whiten"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(obs, k_or_guess, iter=20, thresh=1e-05, check_finite=True, *, seed=None)"
+  },
+  "type": "DocBlob"
+}

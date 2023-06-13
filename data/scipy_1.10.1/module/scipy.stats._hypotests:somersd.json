@@ -1,0 +1,951 @@
+{
+  "aliases": [
+    "scipy.stats.somersd"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Like Kendall's "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\tau"
+            },
+            {
+              "type": "text",
+              "value": ", Somers' "
+            },
+            {
+              "type": "inlineMath",
+              "value": "D"
+            },
+            {
+              "type": "text",
+              "value": " is a measure of the correspondence between two rankings. Both statistics consider the difference between the number of concordant and discordant pairs in two rankings "
+            },
+            {
+              "type": "inlineMath",
+              "value": "X"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "Y"
+            },
+            {
+              "type": "text",
+              "value": ", and both are normalized such that values close  to 1 indicate strong agreement and values close to -1 indicate strong disagreement. They differ in how they are normalized. To show the relationship, Somers' "
+            },
+            {
+              "type": "inlineMath",
+              "value": "D"
+            },
+            {
+              "type": "text",
+              "value": " can be defined in terms of Kendall's "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\tau_a"
+            },
+            {
+              "type": "text",
+              "value": ":"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "D(Y|X) = \\frac{\\tau_a(X, Y)}{\\tau_a(X, X)}"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Suppose the first ranking "
+            },
+            {
+              "type": "inlineMath",
+              "value": "X"
+            },
+            {
+              "type": "text",
+              "value": " has "
+            },
+            {
+              "type": "inlineMath",
+              "value": "r"
+            },
+            {
+              "type": "text",
+              "value": " distinct ranks and the second ranking "
+            },
+            {
+              "type": "inlineMath",
+              "value": "Y"
+            },
+            {
+              "type": "text",
+              "value": " has "
+            },
+            {
+              "type": "inlineMath",
+              "value": "s"
+            },
+            {
+              "type": "text",
+              "value": " distinct ranks. These two lists of "
+            },
+            {
+              "type": "inlineMath",
+              "value": "n"
+            },
+            {
+              "type": "text",
+              "value": " rankings can also be viewed as an "
+            },
+            {
+              "type": "inlineMath",
+              "value": "r \\times s"
+            },
+            {
+              "type": "text",
+              "value": " contingency table in which element "
+            },
+            {
+              "type": "inlineMath",
+              "value": "i, j"
+            },
+            {
+              "type": "text",
+              "value": " is the number of rank pairs with rank "
+            },
+            {
+              "type": "inlineMath",
+              "value": "i"
+            },
+            {
+              "type": "text",
+              "value": " in ranking "
+            },
+            {
+              "type": "inlineMath",
+              "value": "X"
+            },
+            {
+              "type": "text",
+              "value": " and rank "
+            },
+            {
+              "type": "inlineMath",
+              "value": "j"
+            },
+            {
+              "type": "text",
+              "value": " in ranking "
+            },
+            {
+              "type": "inlineMath",
+              "value": "Y"
+            },
+            {
+              "type": "text",
+              "value": ". Accordingly, "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.stats._hypotests:somersd",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "somersd"
+            },
+            {
+              "type": "text",
+              "value": " also allows the input data to be supplied as a single, 2D contingency table instead of as two separate, 1D rankings."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Note that the definition of Somers' "
+            },
+            {
+              "type": "inlineMath",
+              "value": "D"
+            },
+            {
+              "type": "text",
+              "value": " is asymmetric: in general, "
+            },
+            {
+              "type": "inlineMath",
+              "value": "D(Y|X) \\neq D(X|Y)"
+            },
+            {
+              "type": "text",
+              "value": ". "
+            },
+            {
+              "type": "inlineCode",
+              "value": "somersd(x, y)"
+            },
+            {
+              "type": "text",
+              "value": " calculates Somers' "
+            },
+            {
+              "type": "inlineMath",
+              "value": "D(Y|X)"
+            },
+            {
+              "type": "text",
+              "value": ": the \"row\" variable "
+            },
+            {
+              "type": "inlineMath",
+              "value": "X"
+            },
+            {
+              "type": "text",
+              "value": " is treated as an independent variable, and the \"column\" variable "
+            },
+            {
+              "type": "inlineMath",
+              "value": "Y"
+            },
+            {
+              "type": "text",
+              "value": " is dependent. For Somers' "
+            },
+            {
+              "type": "inlineMath",
+              "value": "D(X|Y)"
+            },
+            {
+              "type": "text",
+              "value": ", swap the input lists or transpose the input table."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function follows the contingency table approach of  and . "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "p"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": "-values are computed based on an asymptotic approximation of the test statistic distribution under the null hypothesis "
+            },
+            {
+              "type": "inlineMath",
+              "value": "D=0"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Theoretically, hypothesis tests based on Kendall's "
+            },
+            {
+              "type": "inlineMath",
+              "value": "tau"
+            },
+            {
+              "type": "text",
+              "value": " and Somers' "
+            },
+            {
+              "type": "inlineMath",
+              "value": "D"
+            },
+            {
+              "type": "text",
+              "value": " should be identical. However, the "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "p"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": "-values returned by "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "kendalltau"
+            },
+            {
+              "type": "text",
+              "value": " are based on the null hypothesis of "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "independence"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " between "
+            },
+            {
+              "type": "inlineMath",
+              "value": "X"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "Y"
+            },
+            {
+              "type": "text",
+              "value": " (i.e. the population from which pairs in "
+            },
+            {
+              "type": "inlineMath",
+              "value": "X"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "Y"
+            },
+            {
+              "type": "text",
+              "value": " are sampled contains equal numbers of all possible pairs), which is more specific than the null hypothesis "
+            },
+            {
+              "type": "inlineMath",
+              "value": "D=0"
+            },
+            {
+              "type": "text",
+              "value": " used here. If the null hypothesis of independence is desired, it is acceptable to use the "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "p"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": "-value returned by "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "kendalltau"
+            },
+            {
+              "type": "text",
+              "value": " with the statistic returned by "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.stats._hypotests:somersd",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "somersd"
+            },
+            {
+              "type": "text",
+              "value": " and vice versa. For more information, see ."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Contingency tables are formatted according to the convention used by SAS and R: the first ranking supplied ("
+            },
+            {
+              "type": "inlineCode",
+              "value": "x"
+            },
+            {
+              "type": "text",
+              "value": ") is the \"row\" variable, and the second ranking supplied ("
+            },
+            {
+              "type": "inlineCode",
+              "value": "y"
+            },
+            {
+              "type": "text",
+              "value": ") is the \"column\" variable. This is opposite the convention of Somers' original paper ."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "1D array of rankings, treated as the (row) independent variable. Alternatively, a 2D contingency table."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a 1D array of rankings, "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "y",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "y"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a 1D array of rankings of the same length, treated as the (column) dependent variable. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is 2D, "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "y",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "y"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is ignored."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "y",
+              "type": "Param",
+              "type_": "array_like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Defines the alternative hypothesis. Default is 'two-sided'. The following options are available: * 'two-sided': the rank correlation is nonzero * 'less': the rank correlation is negative (less than zero) * 'greater':  the rank correlation is positive (greater than zero)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "alternative",
+              "type": "Param",
+              "type_": "{'two-sided', 'less', 'greater'}, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "SomersDResult"
+                    },
+                    {
+                      "type": "text",
+                      "value": " object with the following fields:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "dd": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "statistic"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "statistic"
+                              }
+                            ],
+                            "type": "paragraph"
+                          },
+                          "type": "DefListItem"
+                        },
+                        {
+                          "dd": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "pvalue"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "pvalue"
+                              }
+                            ],
+                            "type": "paragraph"
+                          },
+                          "type": "DefListItem"
+                        },
+                        {
+                          "dd": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "table"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "table"
+                              }
+                            ],
+                            "type": "paragraph"
+                          },
+                          "type": "DefListItem"
+                        }
+                      ],
+                      "type": "DefList"
+                    }
+                  ],
+                  "type": "blockquote"
+                }
+              ],
+              "param": "res",
+              "type": "Param",
+              "type_": "SomersDResult"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Calculates Somers' D, an asymmetric measure of ordinal association."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "We calculate Somers' D for the example given in [4]_, in which a hotel\nchain owner seeks to determine the association between hotel room\ncleanliness and customer satisfaction. The independent variable, hotel\nroom cleanliness, is ranked on an ordinal scale: \"below average (1)\",\n\"average (2)\", or \"above average (3)\". The dependent variable, customer\nsatisfaction, is ranked on a second scale: \"very dissatisfied (1)\",\n\"moderately dissatisfied (2)\", \"neither dissatisfied nor satisfied (3)\",\n\"moderately satisfied (4)\", or \"very satisfied (5)\". 189 customers\nrespond to the survey, and the results are cast into a contingency table\nwith the hotel room cleanliness as the \"row\" variable and customer\nsatisfaction as the \"column\" variable."
+      },
+      {
+        "type": "text",
+        "value": "+-----+-----+-----+-----+-----+-----+\n|     | (1) | (2) | (3) | (4) | (5) |\n+=====+=====+=====+=====+=====+=====+\n| (1) | 27  | 25  | 14  | 7   | 0   |\n+-----+-----+-----+-----+-----+-----+\n| (2) | 7   | 14  | 18  | 35  | 12  |\n+-----+-----+-----+-----+-----+-----+\n| (3) | 1   | 3   | 2   | 7   | 17  |\n+-----+-----+-----+-----+-----+-----+"
+      },
+      {
+        "type": "text",
+        "value": "For example, 27 customers assigned their room a cleanliness ranking of\n\"below average (1)\" and a corresponding satisfaction of \"very\ndissatisfied (1)\". We perform the analysis as follows."
+      },
+      {
+        "type": "code",
+        "value": "from scipy.stats import somersd\ntable = [[27, 25, 14, 7, 0], [7, 14, 18, 35, 12], [1, 3, 2, 7, 17]]\nres = somersd(table)\nres.statistic"
+      },
+      {
+        "type": "code",
+        "value": "res.pvalue"
+      },
+      {
+        "type": "text",
+        "value": "The value of the Somers' D statistic is approximately 0.6, indicating\na positive correlation between room cleanliness and customer satisfaction\nin the sample.\nThe *p*-value is very small, indicating a very small probability of\nobserving such an extreme value of the statistic under the null\nhypothesis that the statistic of the entire population (from which\nour sample of 189 customers is drawn) is zero. This supports the\nalternative hypothesis that the true value of Somers' D for the population\nis nonzero."
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_hypotests.py",
+  "item_line": 701,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Calculates Kendall's tau, another correlation measure."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "kendalltau",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "kendalltau"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Computes a weighted version of Kendall's tau."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.stats._stats_py:weightedtau",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "weightedtau"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Calculates a Spearman rank-order correlation coefficient."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "spearmanr",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "spearmanr"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Calculates a Pearson correlation coefficient."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "pearsonr",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "pearsonr"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(x, y=None, alternative='two-sided')"
+  },
+  "type": "DocBlob"
+}

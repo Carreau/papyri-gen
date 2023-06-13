@@ -1,0 +1,365 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "There are two main ways to define your own magic functions: from standalone functions and by inheriting from a base class provided by IPython: "
+            },
+            {
+              "type": "inlineCode",
+              "value": "IPython.core.magic.Magics"
+            },
+            {
+              "type": "text",
+              "value": ". Below we show code you can place in a file that you load from your configuration, such as any file in the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "startup"
+            },
+            {
+              "type": "text",
+              "value": " subdirectory of your default IPython profile."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "First, let us see the simplest case. The following shows how to create a line magic, a cell one and one that works in both modes, using just plain functions:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "python",
+          "children": [],
+          "name": "sourcecode",
+          "options": {},
+          "type": "mystDirective",
+          "value": "from IPython.core.magic import (register_line_magic, register_cell_magic,\n                                register_line_cell_magic)\n\n@register_line_magic\ndef lmagic(line):\n    \"my line magic\"\n    return line\n\n@register_cell_magic\ndef cmagic(line, cell):\n    \"my cell magic\"\n    return line, cell\n\n@register_line_cell_magic\ndef lcmagic(line, cell=None):\n    \"Magic that works both as %lcmagic and as %%lcmagic\"\n    if cell is None:\n        print(\"Called as line magic\")\n        return line\n    else:\n        print(\"Called as cell magic\")\n        return line, cell\n\n# In an interactive session, we need to delete these to avoid\n# name conflicts for automagic to work on line magics.\ndel lmagic, lcmagic"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You can also create magics of all three kinds by inheriting from the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "IPython.core.magic.Magics"
+            },
+            {
+              "type": "text",
+              "value": " class.  This lets you create magics that can potentially hold state in between calls, and that have full access to the main IPython object:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "python",
+          "children": [],
+          "name": "sourcecode",
+          "options": {},
+          "type": "mystDirective",
+          "value": "# This code can be put in any Python module, it does not require IPython\n# itself to be running already.  It only creates the magics subclass but\n# doesn't instantiate it yet.\nfrom __future__ import print_function\nfrom IPython.core.magic import (Magics, magics_class, line_magic,\n                                cell_magic, line_cell_magic)\n\n# The class MUST call this class decorator at creation time\n@magics_class\nclass MyMagics(Magics):\n\n    @line_magic\n    def lmagic(self, line):\n        \"my line magic\"\n        print(\"Full access to the main IPython object:\", self.shell)\n        print(\"Variables in the user namespace:\", list(self.shell.user_ns.keys()))\n        return line\n\n    @cell_magic\n    def cmagic(self, line, cell):\n        \"my cell magic\"\n        return line, cell\n\n    @line_cell_magic\n    def lcmagic(self, line, cell=None):\n        \"Magic that works both as %lcmagic and as %%lcmagic\"\n        if cell is None:\n            print(\"Called as line magic\")\n            return line\n        else:\n            print(\"Called as cell magic\")\n            return line, cell\n\n\n# In order to actually use these magics, you must register them with a\n# running IPython.\n\ndef load_ipython_extension(ipython):\n    \"\"\"\n    Any module file that define a function named `load_ipython_extension`\n    can be loaded via `%load_ext module.path` or be configured to be\n    autoloaded by IPython at startup time.\n    \"\"\"\n    # You can register the class itself without instantiating it.  IPython will\n    # call the default constructor on it.\n    ipython.register_magics(MyMagics)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If you want to create a class with a different constructor that holds additional state, then you should always call the parent constructor and instantiate the class yourself before registration:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "python",
+          "children": [],
+          "name": "sourcecode",
+          "options": {},
+          "type": "mystDirective",
+          "value": "@magics_class\nclass StatefulMagics(Magics):\n    \"Magics that hold additional state\"\n\n    def __init__(self, shell, data):\n        # You must call the parent constructor\n        super(StatefulMagics, self).__init__(shell)\n        self.data = data\n\n    # etc...\n\ndef load_ipython_extension(ipython):\n    \"\"\"\n    Any module file that define a function named `load_ipython_extension`\n    can be loaded via `%load_ext module.path` or be configured to be\n    autoloaded by IPython at startup time.\n    \"\"\"\n    # This class must then be registered with a manually created instance,\n    # since its constructor has different arguments from the default:\n    magics = StatefulMagics(ipython, some_data)\n    ipython.register_magics(magics)"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "note "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "In early IPython versions 0.12 and before the line magics were created using a "
+                },
+                {
+                  "domain": null,
+                  "role": "func",
+                  "type": "Directive",
+                  "value": "define_magic"
+                },
+                {
+                  "type": "text",
+                  "value": " API function.  This API has been replaced with the above in IPython 0.13 and then completely removed in IPython 5.  Maintainers of IPython extensions that still use the "
+                },
+                {
+                  "domain": null,
+                  "role": "func",
+                  "type": "Directive",
+                  "value": "define_magic"
+                },
+                {
+                  "type": "text",
+                  "value": " function are advised to adjust their code for the current API."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": "defining_magics",
+      "title": "Defining custom magics",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When creating line magics, you may need to access surrounding scope  to get user variables (e.g when called inside functions). IPython provides the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "@needs_local_scope"
+            },
+            {
+              "type": "text",
+              "value": " decorator that can be imported from "
+            },
+            {
+              "type": "inlineCode",
+              "value": "IPython.core.magics"
+            },
+            {
+              "type": "text",
+              "value": ". When decorated with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "@needs_local_scope"
+            },
+            {
+              "type": "text",
+              "value": " a magic will be passed "
+            },
+            {
+              "type": "inlineCode",
+              "value": "local_ns"
+            },
+            {
+              "type": "text",
+              "value": " as an argument. As a convenience "
+            },
+            {
+              "type": "inlineCode",
+              "value": "@needs_local_scope"
+            },
+            {
+              "type": "text",
+              "value": " can also be applied to cell magics even if cell magics cannot appear at local scope context."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": "Accessing user namespace and local scope",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Sometimes it may be useful to define a magic that can be silenced the same way that non-magic expressions can, i.e., by appending a semicolon at the end of the Python code to be executed. That can be achieved by decorating the magic function with the decorator "
+            },
+            {
+              "type": "inlineCode",
+              "value": "@output_can_be_silenced"
+            },
+            {
+              "type": "text",
+              "value": " that can be imported from "
+            },
+            {
+              "type": "inlineCode",
+              "value": "IPython.core.magics"
+            },
+            {
+              "type": "text",
+              "value": ". When this decorator is used, IPython will parse the Python code used by the magic and, if the last token is a "
+            },
+            {
+              "type": "inlineCode",
+              "value": ";"
+            },
+            {
+              "type": "text",
+              "value": ", the output created by the magic will not show up on the screen. If you want to see an example of this decorator in action, take a look on the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "time"
+            },
+            {
+              "type": "text",
+              "value": " magic defined in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "IPython.core.magics.execution.py"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": "Silencing the magic output",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Here is a full example of a magic package. You can distribute magics using setuptools, distutils, or any other distribution tools like "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "flit"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://flit.readthedocs.io"
+            },
+            {
+              "type": "text",
+              "value": " for pure Python packages."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When distributing magics as part of a package, recommended best practice is to execute the registration inside the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "load_ipython_extension"
+            },
+            {
+              "type": "text",
+              "value": " as demonstrated in the example below, instead of directly in the module (as in the initial example with the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "@register_*"
+            },
+            {
+              "type": "text",
+              "value": " decorators). This means a user will need to explicitly choose to load your magic with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%load_ext"
+            },
+            {
+              "type": "text",
+              "value": ". instead implicitly getting it when importing the module. This is particularly relevant if loading your magic has  side effects, if it is slow to load, or if it might override another magic with the same name."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "bash",
+          "children": [],
+          "name": "sourcecode",
+          "options": {},
+          "type": "mystDirective",
+          "value": ".\n\u251c\u2500\u2500 example_magic\n\u2502\u00a0\u00a0 \u251c\u2500\u2500 __init__.py\n\u2502\u00a0\u00a0 \u2514\u2500\u2500 abracadabra.py\n\u2514\u2500\u2500 setup.py"
+        },
+        {
+          "args": "bash",
+          "children": [],
+          "name": "sourcecode",
+          "options": {},
+          "type": "mystDirective",
+          "value": "$ cat example_magic/__init__.py\n\"\"\"An example magic\"\"\"\n__version__ = '0.0.1'\n\nfrom .abracadabra import Abracadabra\n\ndef load_ipython_extension(ipython):\n    ipython.register_magics(Abracadabra)"
+        },
+        {
+          "args": "bash",
+          "children": [],
+          "name": "sourcecode",
+          "options": {},
+          "type": "mystDirective",
+          "value": "$ cat example_magic/abracadabra.py\nfrom IPython.core.magic import (Magics, magics_class, line_magic, cell_magic)\n\n@magics_class\nclass Abracadabra(Magics):\n\n    @line_magic\n    def abra(self, line):\n        return line\n\n    @cell_magic\n    def cadabra(self, line, cell):\n        return line, cell"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": "Complete Example",
+      "type": "Section"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

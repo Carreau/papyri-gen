@@ -1,0 +1,432 @@
+{
+  "aliases": [
+    "distributed.Scheduler.rebalance"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "warning "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "This operation is generally not well tested against normal operation of the scheduler. It is not recommended to use it while waiting on computations."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Algorithm"
+                }
+              ],
+              "type": "strong"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Find the mean occupancy of the cluster, defined as data managed by dask +    unmanaged process memory that has been there for at least 30 seconds    ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "distributed.worker.memory.recent-to-old-time"
+                    },
+                    {
+                      "type": "text",
+                      "value": ").    This lets us ignore temporary spikes caused by task heap usage."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Alternatively, you may change how memory is measured both for the individual    workers as well as to calculate the mean through    "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "distributed.worker.memory.rebalance.measure"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Namely, this can be useful    to disregard inaccurate OS memory measurements."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Discard workers whose occupancy is within 5% of the mean cluster occupancy    ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "distributed.worker.memory.rebalance.sender-recipient-gap"
+                    },
+                    {
+                      "type": "text",
+                      "value": " / 2).    This helps avoid data from bouncing around the cluster repeatedly."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Workers above the mean are senders; those below are recipients."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Discard senders whose absolute occupancy is below 30%    ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "distributed.worker.memory.rebalance.sender-min"
+                    },
+                    {
+                      "type": "text",
+                      "value": "). In other words, no data    is moved regardless of imbalancing as long as all workers are below 30%."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Discard recipients whose absolute occupancy is above 60%    ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "distributed.worker.memory.rebalance.recipient-max"
+                    },
+                    {
+                      "type": "text",
+                      "value": ").    Note that this threshold by default is the same as    "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "distributed.worker.memory.target"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to prevent workers from accepting data    and immediately spilling it out to disk."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Iteratively pick the sender and recipient that are farthest from the mean and    move the "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "least recently inserted"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " key between the two, until either all    senders or all recipients fall within 5% of the mean."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A recipient will be skipped if it already has a copy of the data. In other    words, this method does not degrade replication.    A key will be skipped if there are no recipients available with enough memory    to accept the key and that don't already hold a copy."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": true,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The least recently insertd (LRI) policy is a greedy choice with the advantage of being O(1), trivial to implement (it relies on python dict insertion-sorting) and hopefully good enough in most cases. Discarded alternative policies were:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Largest first. O(n*log(n)) save for non-trivial additional data structures and   risks causing the largest chunks of data to repeatedly move around the   cluster like pinballs."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Least recently used (LRU). This information is currently available on the   workers only and not trivial to replicate on the scheduler; transmitting it   over the network would be very expensive. Also, note that dask will go out of   its way to minimise the amount of time intermediate keys are held in memory,   so in such a case LRI is a close approximation of LRU."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "allowlist of dask keys that should be considered for moving. All other keys will be ignored. Note that this offers no guarantee that a key will actually be moved (e.g. because it is unnecessary or because there are no viable recipient workers for it)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "keys: optional",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "allowlist of workers addresses to be considered as senders or recipients. All other workers will be ignored. The mean cluster occupancy will be calculated only using the allowed workers."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "workers: optional",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Rebalance keys so that each worker ends up with roughly the same process memory (managed+unmanaged)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/distributed/scheduler.py",
+  "item_line": 6034,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, comm=None, keys: 'Iterable[str] | None' = None, workers: 'Iterable[str] | None' = None, stimulus_id: 'str | None' = None) -> 'dict'"
+  },
+  "type": "DocBlob"
+}

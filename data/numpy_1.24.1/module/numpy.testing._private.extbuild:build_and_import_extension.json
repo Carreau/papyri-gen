@@ -1,0 +1,293 @@
+{
+  "aliases": [
+    "numpy.testing.extbuild.build_and_import_extension"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Each fragment is a sequence of func_name, calling convention, snippet."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "functions",
+              "type": "Param",
+              "type_": "list of fragments"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Code to precede the rest, usually extra "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "#include"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "#define"
+                    },
+                    {
+                      "type": "text",
+                      "value": " macros."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "prologue",
+              "type": "Param",
+              "type_": "string"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Where to build the module, usually a temporary directory"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "build_dir",
+              "type": "Param",
+              "type_": "pathlib.Path"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Extra directories to find include files when compiling"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "include_dirs",
+              "type": "Param",
+              "type_": "list"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Code to appear in the module PyMODINIT_FUNC"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "more_init",
+              "type": "Param",
+              "type_": "string"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The module will have been loaded and is ready for use"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "out: module"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Build and imports a c-extension module "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "modname"
+            },
+            {
+              "type": "text",
+              "value": " from a list of function fragments "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "functions",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "functions"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "functions = [(\"test_bytes\", \"METH_O\", \"\"\""
+      },
+      {
+        "type": "code",
+        "value": "mod = build_and_import_extension(\"testme\", functions)\nassert not mod.test_bytes(u'abc')\nassert mod.test_bytes(b'abc')"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/numpy/testing/_private/extbuild.py",
+  "item_line": 15,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(modname, functions, *, prologue='', build_dir=None, include_dirs=[], more_init='')"
+  },
+  "type": "DocBlob"
+}

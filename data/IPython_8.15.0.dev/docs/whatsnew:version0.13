@@ -1,0 +1,3882 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": "0.13 Series",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "IPython 0.13 contains several major new features, as well as a large amount of bug and regression fixes.  The previous version (0.12) was released on December 19 2011, and in this development cycle we had:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "~6 months of work."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "373 pull requests merged."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "742 issues closed (non-pull requests)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "contributions from 62 authors."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "1760 commits."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "a diff of 114226 lines."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The amount of work included in this release is so large, that we can only cover here the main highlights; please see our "
+            },
+            {
+              "type": "inlineCode",
+              "value": "detailed release statistics\n<issues_list_013>"
+            },
+            {
+              "type": "text",
+              "value": " for links to every issue and pull request closed on GitHub as well as a full list of individual contributors."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Release 0.13",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The IPython Notebook, which has proven since its release to be wildly popular, has seen a massive amount of work in this release cycle, leading to a significantly improved user experience as well as many new features."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The first user-visible change is a reorganization of the user interface; the left panel has been removed and was replaced by a real menu system and a toolbar with icons.  Both the toolbar and the header above the menu can be collapsed to leave an unobstructed working area:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "../_images/ipy_013_notebook_spectrogram.png",
+          "children": [],
+          "name": "image",
+          "options": {
+            "align": "center",
+            "alt": "New user interface for Notebook",
+            "target": "../_images/ipy_013_notebook_spectrogram.png",
+            "width": "460px"
+          },
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The notebook handles very long outputs much better than before (this was a serious usability issue when running processes that generated massive amounts of output).  Now, in the presence of outputs longer than ~100 lines, the notebook will automatically collapse to a scrollable area and the entire left part of this area controls the display: one click in this area will expand the output region completely, and a double-click will hide it completely.  This figure shows both the scrolled and hidden modes:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "../_images/ipy_013_notebook_long_out.png",
+          "children": [],
+          "name": "image",
+          "options": {
+            "align": "center",
+            "alt": "Scrolling and hiding of long output in the notebook.",
+            "target": "../_images/ipy_013_notebook_long_out.png",
+            "width": "460px"
+          },
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "note "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "The auto-folding of long outputs is disabled in Firefox due to bugs in its scrolling behavior.  See "
+                },
+                {
+                  "domain": null,
+                  "role": "ghpull",
+                  "type": "Directive",
+                  "value": "2047"
+                },
+                {
+                  "type": "text",
+                  "value": " for details."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Uploading notebooks to the dashboard is now easier: in addition to drag and drop (which can be finicky sometimes), you can now click on the upload text and use a regular file dialog box to select notebooks to upload. Furthermore, the notebook dashboard now auto-refreshes its contents and offers buttons to shut down any running kernels ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "#1739"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/ipython/ipython/pull/1739"
+            },
+            {
+              "type": "text",
+              "value": "):"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "../_images/ipy_013_dashboard.png",
+          "children": [],
+          "name": "image",
+          "options": {
+            "align": "center",
+            "alt": "Improved dashboard",
+            "target": "../_images/ipy_013_dashboard.png",
+            "width": "460px"
+          },
+          "type": "mystDirective",
+          "value": ""
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Major Notebook improvements: new user interface and more",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The notebook dashboard can now also start and stop clusters, thanks to a new tab in the dashboard user interface:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "../_images/ipy_013_dashboard_cluster.png",
+          "children": [],
+          "name": "image",
+          "options": {
+            "align": "center",
+            "alt": "Cluster management from the notebook dashboard",
+            "target": "../_images/ipy_013_dashboard_cluster.png",
+            "width": "460px"
+          },
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This interface allows, for each profile you have configured, to start and stop a cluster (and optionally override the default number of engines corresponding to that configuration).  While this hides all error reporting, once you have a configuration that you know works smoothly, it is a very convenient interface for controlling your parallel resources."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 3,
+      "target": null,
+      "title": "Cluster management",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The notebooks saved now use version 3 of our format, which supports heading levels as well as the concept of 'raw' text cells that are not rendered as Markdown.  These will be useful with "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "converters_"
+            },
+            {
+              "type": "text",
+              "value": " we are developing, to pass raw markup (say LaTeX).  That conversion code is still under heavy development and not quite ready for prime time, but we welcome help on this front so that we can merge it for full production use as soon as possible."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. _converters: https://github.com/ipython/nbconvert"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "note "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "v3 notebooks can "
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "not"
+                    }
+                  ],
+                  "type": "emphasis"
+                },
+                {
+                  "type": "text",
+                  "value": " be read by older versions of IPython, but we provide a "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "simple script"
+                },
+                {
+                  "type": "text",
+                  "value": " that you can use in case you need to export a v3 notebook to share with a v2 user."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. _simple script: https://gist.github.com/1935808"
+        }
+      ],
+      "level": 3,
+      "target": null,
+      "title": "New notebook format",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "All the client-side JavaScript has been decoupled to ease reuse of parts of the machinery without having to build a full-blown notebook. This will make it much easier to communicate with an IPython kernel from existing web pages and to integrate single cells into other sites, without loading the full notebook document-like UI. "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "#1711"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/ipython/ipython/pull/1711"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This refactoring also enables the possibility of writing dynamic javascript widgets that are returned from Python code and that present an interactive view to the user, with callbacks in Javascript executing calls to the Kernel.  This will enable many interactive elements to be added by users in notebooks."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "An example of this capability has been provided as a proof of concept in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "examples/widgets"
+            },
+            {
+              "type": "text",
+              "value": " that lets you directly communicate with one or more parallel engines, acting as a mini-console for parallel debugging and introspection."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 3,
+      "target": null,
+      "title": "JavaScript refactoring",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The object tooltips have gained some new functionality. By pressing tab several times, you can expand them to see more of a docstring, keep them visible as you fill in a function's parameters, or transfer the information to the pager at the bottom of the screen. For the details, look at the example notebook "
+            },
+            {
+              "type": "inlineCode",
+              "value": "01_notebook_introduction.ipynb"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "../_images/ipy_013_notebook_tooltip.png",
+          "children": [],
+          "name": "figure",
+          "options": {
+            "align": "center",
+            "alt": "Improved tooltips in the notebook.",
+            "target": "../_images/ipy_013_notebook_tooltip.png",
+            "width": "460px"
+          },
+          "type": "mystDirective",
+          "value": "The new notebook tooltips."
+        }
+      ],
+      "level": 3,
+      "target": null,
+      "title": "Improved tooltips",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "These are some other notable small improvements to the notebook, in addition to many bug fixes and minor changes to add polish and robustness throughout:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The notebook pager (the area at the bottom) is now Resizable by dragging its   divider handle, a feature that had been requested many times by just about   anyone who had used the notebook system.  "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#1705"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/1705"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "It is now possible to open notebooks directly from the command line; for   example: "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ipython notebook path/"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will automatically set "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "path/"
+                    },
+                    {
+                      "type": "text",
+                      "value": " as the   notebook directory, and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ipython notebook path/foo.ipynb"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will further   start with the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "foo.ipynb"
+                    },
+                    {
+                      "type": "text",
+                      "value": " notebook opened.  "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#1686"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/1686"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If a notebook directory is specified with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "--notebook-dir"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (or with the   corresponding configuration flag "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "NotebookManager.notebook_dir"
+                    },
+                    {
+                      "type": "text",
+                      "value": "), all   kernels start in this directory."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Fix codemirror clearing of cells with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Ctrl-Z"
+                    },
+                    {
+                      "type": "text",
+                      "value": "; "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#1965"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/1965"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Text (markdown) cells now line wrap correctly in the notebook, making them   much easier to edit "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#1330"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/1330"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "PNG and JPEG figures returned from plots can be interactively resized in the   notebook, by dragging them from their lower left corner. "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#1832"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/1832"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Clear "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "In []"
+                    },
+                    {
+                      "type": "text",
+                      "value": " prompt numbers on \"Clear All Output\".  For more   version-control-friendly "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": ".ipynb"
+                    },
+                    {
+                      "type": "text",
+                      "value": " files, we now strip all prompt numbers   when doing a \"Clear all output\".  This reduces the amount of noise in   commit-to-commit diffs that would otherwise show the (highly variable) prompt   number changes. "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#1621"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/1621"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The notebook server now requires "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "two"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " consecutive "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Ctrl-C"
+                    },
+                    {
+                      "type": "text",
+                      "value": " within 5   seconds (or an interactive confirmation) to terminate operation.  This makes   it less likely that you will accidentally kill a long-running server by   typing "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Ctrl-C"
+                    },
+                    {
+                      "type": "text",
+                      "value": " in the wrong terminal.  "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#1609"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/1609"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Using "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Ctrl-S"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Cmd-S"
+                    },
+                    {
+                      "type": "text",
+                      "value": " on a Mac) actually saves the notebook rather   than providing the fairly useless browser html save dialog.  "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#1334"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/1334"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Allow accessing local files from the notebook (in urls), by serving any local   file as the url "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "files/<relativepath>"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  This makes it possible to, for   example, embed local images in a notebook.  "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#1211"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/1211"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Other improvements to the Notebook",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "We have completely refactored the magic system, finally moving the magic objects to standalone, independent objects instead of being the mixin class we'd had since the beginning of IPython ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "#1732"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/ipython/ipython/pull/1732"
+            },
+            {
+              "type": "text",
+              "value": ").  Now, a separate base class is provided in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "IPython.core.magic.Magics"
+            },
+            {
+              "type": "text",
+              "value": " that users can subclass to create their own magics.  Decorators are also provided to create magics from simple functions without the need for object orientation.  Please see the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "magic"
+            },
+            {
+              "type": "text",
+              "value": " docs for further details."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "All builtin magics now exist in a few subclasses that group together related functionality, and the new "
+            },
+            {
+              "type": "inlineCode",
+              "value": "IPython.core.magics"
+            },
+            {
+              "type": "text",
+              "value": " package has been created to organize this into smaller files."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This cleanup was the last major piece of deep refactoring needed from the original 2001 codebase."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "We have also introduced a new type of magic function, prefixed with "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "%%"
+            },
+            {
+              "type": "text",
+              "value": " instead of "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "%"
+            },
+            {
+              "type": "text",
+              "value": ", which operates at the whole-cell level.  A cell magic receives two arguments: the line it is called on (like a line magic) and the body of the cell below it."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Cell magics are most natural in the notebook, but they also work in the terminal and qt console, with the usual approach of using a blank line to signal cell termination."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For example, to time the execution of several statements      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "%%timeit x = 0   # setup\nfor i in range(100000):\n    x += i**2"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This is particularly useful to integrate code in another language, and cell magics already exist for shell scripts, Cython, R and Octave. Using "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%%script\n/usr/bin/foo"
+            },
+            {
+              "type": "text",
+              "value": ", you can run a cell in any interpreter that accepts code via stdin."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Another handy cell magic makes it easy to write short text files: "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%%file\n~/save/to/here.txt"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The following cell magics are now included by default; all those that use special interpreters (Perl, Ruby, bash, etc.) assume you have the requisite interpreter installed:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "%%!"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": run cell body with the underlying OS shell; this is similar to   prefixing every line in the cell with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "!"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "%%bash"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": run cell body under bash."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "%%capture"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": capture the output of the code in the cell (and stderr as   well).  Useful to run codes that produce too much output that you don't even   want scrolled."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "%%file"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": save cell body as a file."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "%%perl"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": run cell body using Perl."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "%%prun"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": run cell body with profiler (cell extension of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%prun"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "%%python3"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": run cell body using Python 3."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "%%ruby"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": run cell body using Ruby."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "%%script"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": run cell body with the script specified in the first line."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "%%sh"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": run cell body using sh."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "%%sx"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": run cell with system shell and capture process output (cell   extension of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%sx"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "%%system"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": run cell with system shell ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%%!"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is an alias to this)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "%%timeit"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": time the execution of the cell (extension of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%timeit"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This is what some of the script-related magics look like in action:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "../_images/ipy_013_notebook_script_cells.png",
+          "children": [],
+          "name": "image",
+          "options": {
+            "align": "center",
+            "alt": "Cluster management from the notebook dashboard",
+            "target": "../_images/ipy_013_notebook_script_cells.png",
+            "width": "460px"
+          },
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In addition, we have also a number of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "extensions <extensions_overview>"
+            },
+            {
+              "type": "text",
+              "value": " that provide specialized magics.  These typically require additional software to run and must be manually loaded via "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%load_ext <extension name>"
+            },
+            {
+              "type": "text",
+              "value": ", but are extremely useful.  The following extensions are provided:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This extension provides magics to automatically build and compile Python     extension modules using the "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "Cython_"
+                    },
+                    {
+                      "type": "text",
+                      "value": " language. You must install Cython     separately, as well as a C compiler, for this to work.  The examples     directory in the source distribution ships with a full notebook     demonstrating these capabilities:"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Cython magics"
+                      }
+                    ],
+                    "type": "strong"
+                  },
+                  {
+                    "type": "text",
+                    "value": " (extension "
+                  },
+                  {
+                    "type": "inlineCode",
+                    "value": "cythonmagic"
+                  },
+                  {
+                    "type": "text",
+                    "value": ")"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            }
+          ],
+          "type": "DefList"
+        },
+        {
+          "args": "../_images/ipy_013_notebook_cythonmagic.png",
+          "children": [],
+          "name": "image",
+          "options": {
+            "align": "center",
+            "alt": "Cython magic",
+            "target": "../_images/ipy_013_notebook_cythonmagic.png",
+            "width": "460px"
+          },
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. _cython: http://cython.org"
+        },
+        {
+          "children": [
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This extension provides several magics that support calling code written in     the "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "Octave_"
+                    },
+                    {
+                      "type": "text",
+                      "value": " language for numerical computing.  You can execute single-lines     or whole blocks of Octave code, capture both output and figures inline     (just like matplotlib plots), and have variables automatically converted     between the two languages.  To use this extension, you must have Octave     installed as well as the "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "oct2py_"
+                    },
+                    {
+                      "type": "text",
+                      "value": " package.  The examples     directory in the source distribution ships with a full notebook     demonstrating these capabilities:"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Octave magics"
+                      }
+                    ],
+                    "type": "strong"
+                  },
+                  {
+                    "type": "text",
+                    "value": " (extension "
+                  },
+                  {
+                    "type": "inlineCode",
+                    "value": "octavemagic"
+                  },
+                  {
+                    "type": "text",
+                    "value": ")"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            }
+          ],
+          "type": "DefList"
+        },
+        {
+          "args": "../_images/ipy_013_notebook_octavemagic.png",
+          "children": [],
+          "name": "image",
+          "options": {
+            "align": "center",
+            "alt": "Octave magic",
+            "target": "../_images/ipy_013_notebook_octavemagic.png",
+            "width": "460px"
+          },
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. _octave: http://www.gnu.org/software/octave"
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. _oct2py: http://pypi.python.org/pypi/oct2py"
+        },
+        {
+          "children": [
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This extension provides several magics that support calling code written in     the "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "R_"
+                    },
+                    {
+                      "type": "text",
+                      "value": " language for statistical data analysis.  You can execute     single-lines or whole blocks of R code, capture both output and figures     inline (just like matplotlib plots), and have variables automatically     converted between the two languages.  To use this extension, you must have     R installed as well as the "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "rpy2_"
+                    },
+                    {
+                      "type": "text",
+                      "value": " package that bridges Python and R.  The     examples directory in the source distribution ships with a full notebook     demonstrating these capabilities:"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "R magics"
+                      }
+                    ],
+                    "type": "strong"
+                  },
+                  {
+                    "type": "text",
+                    "value": " (extension "
+                  },
+                  {
+                    "type": "inlineCode",
+                    "value": "rmagic"
+                  },
+                  {
+                    "type": "text",
+                    "value": ")"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            }
+          ],
+          "type": "DefList"
+        },
+        {
+          "args": "../_images/ipy_013_notebook_rmagic.png",
+          "children": [],
+          "name": "image",
+          "options": {
+            "align": "center",
+            "alt": "R magic",
+            "target": "../_images/ipy_013_notebook_rmagic.png",
+            "width": "460px"
+          },
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. _R: http://www.r-project.org"
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. _rpy2: http://rpy.sourceforge.net/rpy2.html"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Cell magics",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Useful tab-completion based on live inspection of objects is one of the most popular features of IPython. To make this process even more user-friendly, the completers of both the Qt console and the Notebook have been reworked."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The Qt console comes with a new ncurses-like tab completer, activated by default, which lets you cycle through the available completions by pressing tab, or select a completion with the arrow keys ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "#1851"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/ipython/ipython/pull/1851"
+            },
+            {
+              "type": "text",
+              "value": ")."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "../_images/ipy_013_qtconsole_completer.png",
+          "children": [],
+          "name": "figure",
+          "options": {
+            "align": "center",
+            "alt": "ncurses-like completer, with highlighted selection.",
+            "target": "../_images/ipy_013_qtconsole_completer.png",
+            "width": "460px"
+          },
+          "type": "mystDirective",
+          "value": "The new improved Qt console's ncurses-like completer allows to easily\nnavigate thought long list of completions."
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In the notebook, completions are now sourced both from object introspection and analysis of surrounding code, so limited completions can be offered for variables defined in the current cell, or while the kernel is busy  ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "#1711"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/ipython/ipython/pull/1711"
+            },
+            {
+              "type": "text",
+              "value": ")."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "We have implemented a new configurable flag to control tab completion on modules that provide the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "__all__"
+            },
+            {
+              "type": "text",
+              "value": " attribute    "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "IPCompleter.limit_to__all__= Boolean"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This instructs the completer to honor "
+            },
+            {
+              "type": "inlineCode",
+              "value": "__all__"
+            },
+            {
+              "type": "text",
+              "value": " for the completion. Specifically, when completing on "
+            },
+            {
+              "type": "inlineCode",
+              "value": "object.<tab>"
+            },
+            {
+              "type": "text",
+              "value": ", if True: only those names in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "obj.__all__"
+            },
+            {
+              "type": "text",
+              "value": " will be included.  When False [default]: the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "__all__"
+            },
+            {
+              "type": "text",
+              "value": " attribute is ignored. "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "#1529"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/ipython/ipython/pull/1529"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Tab completer improvements",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The Qt console continues to receive improvements and refinements, despite the fact that it is by now a fairly mature and robust component.  Lots of small polish has gone into it, here are a few highlights:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A number of changes were made to the underlying code for easier integration   into other projects such as "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "Spyder_"
+                    },
+                    {
+                      "type": "text",
+                      "value": " ("
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#2007"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/2007"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#2024"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/2024"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Improved menus with a new Magic menu that is organized by magic groups (this   was made possible by the reorganization of the magic system   internals). "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#1782"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/1782"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Allow for restarting kernels without clearing the qtconsole, while leaving a   visible indication that the kernel has restarted. "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#1681"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/1681"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Allow the native display of jpeg images in the qtconsole. "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#1643"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/1643"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. _spyder: https://code.google.com/p/spyderlib"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Improvements to the Qt console",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The parallel tools have been improved and fine-tuned on multiple fronts.  Now, the creation of an "
+            },
+            {
+              "type": "inlineCode",
+              "value": "IPython.parallel.Client"
+            },
+            {
+              "type": "text",
+              "value": " object automatically activates a line and cell magic function "
+            },
+            {
+              "type": "inlineCode",
+              "value": "px"
+            },
+            {
+              "type": "text",
+              "value": " that sends its code to all the engines. Further magics can be easily created with the "
+            },
+            {
+              "type": "inlineCode",
+              "value": ".Client.activate"
+            },
+            {
+              "type": "text",
+              "value": " method, to conveniently execute code on any subset of engines. "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "#1893"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/ipython/ipython/pull/1893"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%%px"
+            },
+            {
+              "type": "text",
+              "value": " cell magic can also be given an optional targets argument, as well as a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "--out"
+            },
+            {
+              "type": "text",
+              "value": " argument for storing its output."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A new magic has also been added, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%pxconfig"
+            },
+            {
+              "type": "text",
+              "value": ", that lets you configure various defaults of the parallel magics.  As usual, type  "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%pxconfig?"
+            },
+            {
+              "type": "text",
+              "value": " for details."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The exception reporting in parallel contexts has been improved to be easier to read.  Now, IPython directly reports the remote exceptions without showing any of the internal execution parts:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "../_images/ipy_013_par_tb.png",
+          "children": [],
+          "name": "image",
+          "options": {
+            "align": "center",
+            "alt": "Improved parallel exceptions.",
+            "target": "../_images/ipy_013_par_tb.png",
+            "width": "460px"
+          },
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The parallel tools now default to using "
+            },
+            {
+              "type": "inlineCode",
+              "value": "NoDB"
+            },
+            {
+              "type": "text",
+              "value": " as the storage backend for intermediate results.  This means that the default usage case will have a significantly reduced memory footprint, though certain advanced features are not available with this backend."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The parallel magics now display all output, so you can do parallel plotting or other actions with complex display.  The "
+            },
+            {
+              "type": "inlineCode",
+              "value": "px"
+            },
+            {
+              "type": "text",
+              "value": " magic has now both line and cell modes, and in cell mode finer control has been added about how to collate output from multiple engines. "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "#1768"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/ipython/ipython/pull/1768"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "There have also been incremental improvements to the SSH launchers:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "add to_send/fetch steps for moving connection files around."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "add SSHProxyEngineSetLauncher, for invoking to "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "ipcluster engines"
+                    },
+                    {
+                      "type": "text",
+                      "value": " on a   remote host. This can be used to start a set of engines via PBS/SGE/MPI   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "remotely"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This makes the SSHLauncher usable on machines without shared filesystems."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A number of 'sugar' methods/properties were added to AsyncResult that are quite useful ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "#1548"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/ipython/ipython/pull/1548"
+            },
+            {
+              "type": "text",
+              "value": ") for everday work:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "inlineCode",
+                          "value": "ar.wall_time"
+                        },
+                        {
+                          "type": "text",
+                          "value": " = received - submitted"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "inlineCode",
+                          "value": "ar.serial_time"
+                        },
+                        {
+                          "type": "text",
+                          "value": " = sum of serial computation time"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "inlineCode",
+                          "value": "ar.elapsed"
+                        },
+                        {
+                          "type": "text",
+                          "value": " = time since submission (wall_time if done)"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "inlineCode",
+                          "value": "ar.progress"
+                        },
+                        {
+                          "type": "text",
+                          "value": " = (int) number of sub-tasks that have completed"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "inlineCode",
+                          "value": "len(ar)"
+                        },
+                        {
+                          "type": "text",
+                          "value": " = # of tasks"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "inlineCode",
+                          "value": "ar.wait_interactive()"
+                        },
+                        {
+                          "type": "text",
+                          "value": ": prints progress"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                }
+              ],
+              "ordered": false,
+              "spread": false,
+              "start": 1,
+              "type": "list"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Added "
+            },
+            {
+              "type": "inlineCode",
+              "value": ".Client.spin_thread"
+            },
+            {
+              "type": "text",
+              "value": " / "
+            },
+            {
+              "type": "inlineCode",
+              "value": "~.Client.stop_spin_thread"
+            },
+            {
+              "type": "text",
+              "value": " for running spin in a background thread, to keep zmq queue clear.  This can be used to ensure that timing information is as accurate as possible (at the cost of having a background thread active)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Set TaskScheduler.hwm default to 1 instead of 0.  1 has more predictable/intuitive behavior, if often slower, and thus a more logical default.  Users whose workloads require maximum throughput and are largely homogeneous in time per task can make the optimization themselves, but now the behavior will be less surprising to new users. "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "#1294"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/ipython/ipython/pull/1294"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Parallel",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This is mostly work 'under the hood', but it is actually a "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "major"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " achievement for the project that has deep implications in the long term: at last, we have unified the main object that executes as the user's interactive shell (which we refer to as the "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "IPython kernel"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": ") with the objects that run in all the worker nodes of the parallel computing facilities (the "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "IPython engines"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": ").  Ever since the first implementation of IPython's parallel code back in 2006, we had wanted to have these two roles be played by the same machinery, but a number of technical reasons had prevented that from being true."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In this release we have now merged them, and this has a number of important consequences:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "It is now possible to connect any of our clients (qtconsole or terminal   console) to any individual parallel engine, with the "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "exact"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " behavior of   working at a 'regular' IPython console/qtconsole.  This makes debugging,   plotting, etc. in parallel scenarios vastly easier."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Parallel engines can always execute arbitrary 'IPython code', that is, code   that has magics, shell extensions, etc.  In combination with the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%%px"
+                    },
+                    {
+                      "type": "text",
+                      "value": "   magics, it is thus extremely natural for example to send to all engines a   block of Cython or R code to be executed via the new Cython and R magics. For   example, this snippet would send the R block to all active engines in a   cluster      "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "%%px\n%%R\n... R code goes here"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "It is possible to embed not only an interactive shell with the   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "IPython.embed"
+                    },
+                    {
+                      "type": "text",
+                      "value": " call as always, but now you can also embed a "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "kernel"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": "   with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "IPython.embed_kernel()"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  Embedding an IPython kernel in an   application is useful when you want to use "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "IPython.embed"
+                    },
+                    {
+                      "type": "text",
+                      "value": " but don't   have a terminal attached on stdin and stdout."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The new "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "IPython.parallel.bind_kernel"
+                    },
+                    {
+                      "type": "text",
+                      "value": " allows you to promote Engines to   listening Kernels, and connect QtConsoles to an Engine and debug it   directly."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In addition, having a single core object through our entire architecture also makes the project conceptually cleaner, easier to maintain and more robust. This took a lot of work to get in place, but we are thrilled to have this major piece of architecture finally where we'd always wanted it to be."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Kernel/Engine unification",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "We have begun organizing our API for easier public use, with an eye towards an official IPython 1.0 release which will firmly maintain this API compatible for its entire lifecycle.  There is now an "
+            },
+            {
+              "type": "inlineCode",
+              "value": "IPython.display"
+            },
+            {
+              "type": "text",
+              "value": " module that aggregates all display routines, and the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "traitlets.config"
+            },
+            {
+              "type": "text",
+              "value": " namespace has all public configuration tools.  We will continue improving our public API layout so that users only need to import names one level deeper than the main "
+            },
+            {
+              "type": "inlineCode",
+              "value": "IPython"
+            },
+            {
+              "type": "text",
+              "value": " package to access all public namespaces."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Official Public API",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The directory "
+            },
+            {
+              "type": "inlineCode",
+              "value": "docs/resources"
+            },
+            {
+              "type": "text",
+              "value": " in the source distribution contains SVG and PNG versions of our file icons, as well as an "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Info.plist.example"
+            },
+            {
+              "type": "text",
+              "value": " file with instructions to install them on Mac OSX.  This is a first draft of our icons, and we encourage contributions from users with graphic talent to improve them in the future."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "IPython notebook file icons",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Add "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "locate"
+            },
+            {
+              "type": "text",
+              "value": " entry points; these would be useful for quickly locating IPython directories and profiles from other (non-Python) applications. "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "#1762"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/ipython/ipython/pull/1762"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Examples          "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "$> ipython locate\n/Users/me/.ipython\n\n$> ipython locate profile foo\n/Users/me/.ipython/profile_foo\n\n$> ipython locate profile\n/Users/me/.ipython/profile_default\n\n$> ipython locate profile dne\n[ProfileLocate] Profile u'dne' not found."
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "New top-level `locate` command",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "%install_ext"
+                        }
+                      ],
+                      "type": "strong"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": A new magic function to install an IPython extension from   a URL. E.g. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%install_ext\n  https://bitbucket.org/birkenfeld/ipython-physics/raw/default/physics.py"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%loadpy"
+                    },
+                    {
+                      "type": "text",
+                      "value": " magic is no longer restricted to Python files, and has been   renamed "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%load"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". The old name remains as an alias."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "New command line arguments will help external programs find IPython folders:   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ipython locate"
+                    },
+                    {
+                      "type": "text",
+                      "value": " finds the user's IPython directory, and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ipython locate\n  profile foo"
+                    },
+                    {
+                      "type": "text",
+                      "value": " finds the folder for the 'foo' profile (if it exists)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The "
+                    },
+                    {
+                      "domain": null,
+                      "role": "envvar",
+                      "type": "Directive",
+                      "value": "IPYTHON_DIR"
+                    },
+                    {
+                      "type": "text",
+                      "value": " environment variable, introduced in the Great   Reorganization of 0.11 and existing only in versions 0.11-0.13, has been   deprecated. As described in "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#1167"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/1167"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the complexity and confusion of   migrating to this variable is not worth the aesthetic improvement. Please use   the historical "
+                    },
+                    {
+                      "domain": null,
+                      "role": "envvar",
+                      "type": "Directive",
+                      "value": "IPYTHONDIR"
+                    },
+                    {
+                      "type": "text",
+                      "value": " environment variable instead."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The default value of "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "interactivity"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " passed from   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "~IPython.core.interactiveshell.InteractiveShell.run_cell"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "~IPython.core.interactiveshell.InteractiveShell.run_ast_nodes"
+                    },
+                    {
+                      "type": "text",
+                      "value": "   is now configurable."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "New "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%alias_magic"
+                    },
+                    {
+                      "type": "text",
+                      "value": " function to conveniently create aliases of existing   magics, if you prefer to have shorter names for personal use."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "We ship unminified versions of the JavaScript libraries we use, to better   comply with Debian's packaging policies."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Simplify the information presented by "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "obj?/obj??"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to eliminate a few   redundant fields when possible.  "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#2038"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/2038"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Improved continuous integration for IPython.  We now have automated test runs   on "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Shining Panda"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://jenkins.shiningpanda.com/ipython"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Travis-CI"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "http://travis-ci.org/#!/ipython/ipython"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", as well as "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Tox support"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "http://tox.testrun.org"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "vim-ipython"
+                    },
+                    {
+                      "type": "text",
+                      "value": " functionality (externally developed) has been updated to   the latest version."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. _vim-ipython: https://github.com/ivanov/vim-ipython"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%save"
+                    },
+                    {
+                      "type": "text",
+                      "value": " magic now has a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "-f"
+                    },
+                    {
+                      "type": "text",
+                      "value": " flag to force overwriting, which makes   it much more usable in the notebook where it is not possible to reply to   interactive questions from the kernel. "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#1937"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/1937"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Use dvipng to format sympy.Matrix, enabling display of matrices in the Qt   console with the sympy printing extension. "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#1861"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/1861"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Our messaging protocol now has a reasonable test suite, helping ensure that   we don't accidentally deviate from the spec and possibly break third-party   applications that may have been using it.  We encourage users to contribute   more stringent tests to this part of the test suite.  "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#1627"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/1627"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Use LaTeX to display, on output, various built-in types with the SymPy   printing extension. "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#1399"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/1399"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Add Gtk3 event loop integration and example. "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#1588"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/1588"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "clear_output"
+                    },
+                    {
+                      "type": "text",
+                      "value": " improvements, which allow things like progress bars and other   simple animations to work well in the notebook ("
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#1563"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/1563"
+                    },
+                    {
+                      "type": "text",
+                      "value": "):"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "domain": null,
+                                  "role": null,
+                                  "type": "Directive",
+                                  "value": "clear_output()"
+                                },
+                                {
+                                  "type": "text",
+                                  "value": " clears the line, even in terminal IPython, the QtConsole       and plain Python as well, by printing "
+                                },
+                                {
+                                  "domain": null,
+                                  "role": null,
+                                  "type": "Directive",
+                                  "value": "\\r"
+                                },
+                                {
+                                  "type": "text",
+                                  "value": " to streams."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "domain": null,
+                                  "role": null,
+                                  "type": "Directive",
+                                  "value": "clear_output()"
+                                },
+                                {
+                                  "type": "text",
+                                  "value": " avoids the flicker in the notebook by adding a delay,       and firing immediately upon the next actual display message."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "domain": null,
+                                  "role": null,
+                                  "type": "Directive",
+                                  "value": "display_javascript"
+                                },
+                                {
+                                  "type": "text",
+                                  "value": " hides its "
+                                },
+                                {
+                                  "domain": null,
+                                  "role": null,
+                                  "type": "Directive",
+                                  "value": "output_area"
+                                },
+                                {
+                                  "type": "text",
+                                  "value": " element, so using display to       run a bunch of javascript doesn't result in ever-growing vertical space."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        }
+                      ],
+                      "ordered": false,
+                      "spread": false,
+                      "start": 1,
+                      "type": "list"
+                    }
+                  ],
+                  "type": "blockquote"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Add simple support for running inside a virtualenv.  While this doesn't   supplant proper installation (as users should do), it helps ad-hoc calling of   IPython from inside a virtualenv. "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#1388"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/1388"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Other new features and improvements",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In this cycle, we have "
+            },
+            {
+              "type": "inlineCode",
+              "value": "closed over 740 issues <issues_list_013>"
+            },
+            {
+              "type": "text",
+              "value": ", but a few major ones merit special mention:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%pastebin"
+                    },
+                    {
+                      "type": "text",
+                      "value": " magic has been updated to point to gist.github.com, since   unfortunately http://paste.pocoo.org has closed down. We also added a -d flag   for the user to provide a gist description string. "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#1670"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/1670"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Fix "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%paste"
+                    },
+                    {
+                      "type": "text",
+                      "value": " that would reject certain valid inputs. "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#1258"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/1258"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Fix sending and receiving of Numpy structured arrays (those with composite   dtypes, often used as recarrays). "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#2034"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/2034"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Reconnect when the websocket connection closes unexpectedly. "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#1577"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/1577"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Fix truncated representation of objects in the debugger by showing at least   80 characters' worth of information.  "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#1793"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/1793"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Fix logger to be Unicode-aware: logging could crash ipython if there was   unicode in the input. "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#1792"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/1792"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Fix images missing from XML/SVG export in the Qt console. "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#1449"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/1449"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Fix deepreload on Python 3. "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#1625"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/1625"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", as well as having a much cleaner   and more robust implementation of deepreload in general. "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#1457"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/1457"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Major Bugs fixed",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The exception "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "IPython.core.error.TryNext"
+                    },
+                    {
+                      "type": "text",
+                      "value": " previously accepted   arguments and keyword arguments to be passed to the next implementation   of the hook. This feature was removed as it made error message propagation   difficult and violated the principle of loose coupling."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Backwards incompatible changes",
+      "type": "Section"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

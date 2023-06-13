@@ -1,0 +1,933 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy",
+                "path": "numpy.distutils",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "numpy.distutils"
+            },
+            {
+              "type": "text",
+              "value": " has been deprecated in NumPy "
+            },
+            {
+              "type": "inlineCode",
+              "value": "1.23.0"
+            },
+            {
+              "type": "text",
+              "value": ". It will be removed for Python 3.12; for Python <= 3.11 it will not be removed until 2 years after the Python 3.12 release (Oct 2025)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "warning "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "inlineCode",
+                  "value": "numpy.distutils"
+                },
+                {
+                  "type": "text",
+                  "value": " is only tested with "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "setuptools < 60.0"
+                },
+                {
+                  "type": "text",
+                  "value": ", newer versions may break. See "
+                },
+                {
+                  "domain": null,
+                  "role": "ref",
+                  "type": "Directive",
+                  "value": "numpy-setuptools-interaction"
+                },
+                {
+                  "type": "text",
+                  "value": " for details."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": "distutils-status-migration",
+      "title": "Status of ``numpy.distutils`` and migration advice",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "It is "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "not necessary"
+                }
+              ],
+              "type": "strong"
+            },
+            {
+              "type": "text",
+              "value": " to migrate immediately - the release date for Python 3.12 is October 2023. It may be beneficial to wait with migrating until there are examples from other projects to follow (see below)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "There are several build systems which are good options to migrate to. Assuming you have compiled code in your package (if not, we recommend using "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "Flit_"
+            },
+            {
+              "type": "text",
+              "value": ") and you want to be using a well-designed, modern and reliable build system, we recommend:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "Meson_"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "CMake_"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (or "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "scikit-build_"
+                    },
+                    {
+                      "type": "text",
+                      "value": " as an interface to CMake)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": true,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If you have modest needs (only simple Cython/C extensions, and perhaps nested "
+            },
+            {
+              "type": "inlineCode",
+              "value": "setup.py"
+            },
+            {
+              "type": "text",
+              "value": " files) and have been happy with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.distutils"
+            },
+            {
+              "type": "text",
+              "value": " so far, you can also consider switching to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "setuptools"
+            },
+            {
+              "type": "text",
+              "value": ". Note that most functionality of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.distutils"
+            },
+            {
+              "type": "text",
+              "value": " is unlikely to be ported to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "setuptools"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Migration advice",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "SciPy is moving to Meson for its 1.9.0 release, planned for July 2022. During this process, any remaining issues with Meson's Python support and achieving feature parity with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.distutils"
+            },
+            {
+              "type": "text",
+              "value": " will be resolved. "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Note: parity means a\nlarge superset, but right now some BLAS/LAPACK support is missing and there are\na few open issues related to Cython."
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " SciPy uses almost all functionality that "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.distutils"
+            },
+            {
+              "type": "text",
+              "value": " offers, so if SciPy has successfully made a release with Meson as the build system, there should be no blockers left to migrate, and SciPy will be a good reference for other packages who are migrating. For more details about the SciPy migration, see:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "RFC: switch to Meson as a build system"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/scipy/scipy/issues/13615"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Tracking issue for Meson support"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/rgommers/scipy/issues/22"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "NumPy itself will very likely migrate to Meson as well, once the SciPy migration is done."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Moving to Meson",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "See the "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "scikit-build documentation"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://scikit-build.readthedocs.io/en/latest/"
+            },
+            {
+              "type": "text",
+              "value": " for how to use scikit-build. Please note that as of Feb 2022, scikit-build still relies on setuptools, so it's probably not quite ready yet for a post-distutils world. How quickly this changes depends on funding, the current (Feb 2022) estimate is that if funding arrives then a viable "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.distutils"
+            },
+            {
+              "type": "text",
+              "value": " replacement will be ready at the end of 2022, and a very polished replacement mid-2023.  For more details on this, see "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "this blog post by Henry Schreiner"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://iscinumpy.gitlab.io/post/scikit-build-proposal/"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Moving to CMake / scikit-build",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For projects that only use "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.distutils"
+            },
+            {
+              "type": "text",
+              "value": " for historical reasons, and do not actually use features beyond those that "
+            },
+            {
+              "type": "inlineCode",
+              "value": "setuptools"
+            },
+            {
+              "type": "text",
+              "value": " also supports, moving to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "setuptools"
+            },
+            {
+              "type": "text",
+              "value": " is likely the solution which costs the least effort. To assess that, there are the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.distutils"
+            },
+            {
+              "type": "text",
+              "value": " features that are "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "not"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " present in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "setuptools"
+            },
+            {
+              "type": "text",
+              "value": ":"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Nested "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "setup.py"
+                    },
+                    {
+                      "type": "text",
+                      "value": " files"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Fortran build support"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "BLAS/LAPACK library support (OpenBLAS, MKL, ATLAS, Netlib LAPACK/BLAS, BLIS, 64-bit ILP interface, etc.)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Support for a few other scientific libraries, like FFTW and UMFPACK"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Better MinGW support"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Per-compiler build flag customization (e.g. "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "-O3"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "SSE2"
+                    },
+                    {
+                      "type": "text",
+                      "value": " flags are default)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "a simple user build config system, see "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "site.cfg.example"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/numpy/numpy/blob/master/site.cfg.example"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "SIMD intrinsics support"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The most widely used feature is nested "
+            },
+            {
+              "type": "inlineCode",
+              "value": "setup.py"
+            },
+            {
+              "type": "text",
+              "value": " files. This feature will likely be ported to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "setuptools"
+            },
+            {
+              "type": "text",
+              "value": " (see "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "gh-18588"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/numpy/numpy/issues/18588"
+            },
+            {
+              "type": "text",
+              "value": " for status). Projects only using that feature could move to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "setuptools"
+            },
+            {
+              "type": "text",
+              "value": " after that is done. In case a project uses only a couple of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "setup.py"
+            },
+            {
+              "type": "text",
+              "value": " files, it also could make sense to simply aggregate all the content of those files into a single "
+            },
+            {
+              "type": "inlineCode",
+              "value": "setup.py"
+            },
+            {
+              "type": "text",
+              "value": " file and then move to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "setuptools"
+            },
+            {
+              "type": "text",
+              "value": ". This involves dropping all "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Configuration"
+            },
+            {
+              "type": "text",
+              "value": " instances, and using "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Extension"
+            },
+            {
+              "type": "text",
+              "value": " instead. E.g.,      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "from distutils.core import setup\nfrom distutils.extension import Extension\nsetup(name='foobar',\n      version='1.0',\n      ext_modules=[\n          Extension('foopkg.foo', ['foo.c']),\n          Extension('barpkg.bar', ['bar.c']),\n          ],\n      )"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For more details, see the "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "setuptools documentation"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://setuptools.pypa.io/en/latest/setuptools.html"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Moving to ``setuptools``",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "It is recommended to use "
+            },
+            {
+              "type": "inlineCode",
+              "value": "setuptools < 60.0"
+            },
+            {
+              "type": "text",
+              "value": ". Newer versions may work, but are not guaranteed to. The reason for this is that "
+            },
+            {
+              "type": "inlineCode",
+              "value": "setuptools"
+            },
+            {
+              "type": "text",
+              "value": " 60.0 enabled a vendored copy of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "distutils"
+            },
+            {
+              "type": "text",
+              "value": ", including backwards incompatible changes that affect some functionality in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.distutils"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If you are using only simple Cython or C extensions with minimal use of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.distutils"
+            },
+            {
+              "type": "text",
+              "value": " functionality beyond nested "
+            },
+            {
+              "type": "inlineCode",
+              "value": "setup.py"
+            },
+            {
+              "type": "text",
+              "value": " files (its most popular feature, see "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Configuration <numpy.distutils.misc_util.Configuration>"
+            },
+            {
+              "type": "text",
+              "value": "), then latest "
+            },
+            {
+              "type": "inlineCode",
+              "value": "setuptools"
+            },
+            {
+              "type": "text",
+              "value": " is likely to continue working. In case of problems, you can also try "
+            },
+            {
+              "type": "inlineCode",
+              "value": "SETUPTOOLS_USE_DISTUTILS=stdlib"
+            },
+            {
+              "type": "text",
+              "value": " to avoid the backwards incompatible changes in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "setuptools"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Whatever you do, it is recommended to put an upper bound on your "
+            },
+            {
+              "type": "inlineCode",
+              "value": "setuptools"
+            },
+            {
+              "type": "text",
+              "value": " build requirement in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "pyproject.toml"
+            },
+            {
+              "type": "text",
+              "value": " to avoid future breakage - see "
+            },
+            {
+              "type": "inlineCode",
+              "value": "for-downstream-package-authors"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. _Flit: https://flit.readthedocs.io"
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. _CMake: https://cmake.org/"
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. _Meson: https://mesonbuild.com/"
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. _scikit-build: https://scikit-build.readthedocs.io/"
+        }
+      ],
+      "level": 1,
+      "target": "numpy-setuptools-interaction",
+      "title": "Interaction of ``numpy.distutils`` with ``setuptools``",
+      "type": "Section"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

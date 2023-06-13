@@ -1,0 +1,485 @@
+{
+  "aliases": [
+    "IPython.core.magic_arguments"
+  ],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A decorator-based method of constructing IPython magics with "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "argparse",
+                "path": "argparse",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "argparse"
+            },
+            {
+              "type": "text",
+              "value": " option handling."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "New magic functions can be defined like so      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "from IPython.core.magic_arguments import (argument, magic_arguments,\n    parse_argstring)\n\n@magic_arguments()\n@argument('-o', '--option', help='An optional argument.')\n@argument('arg', type=int, help='An integer positional argument.')\ndef magic_cool(self, arg):\n    \"\"\" A really cool magic command.\n\n\"\"\"\n    args = parse_argstring(magic_cool, arg)\n    ..."
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "@magic_arguments"
+            },
+            {
+              "type": "text",
+              "value": " decorator marks the function as having argparse arguments. The "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "@argument"
+            },
+            {
+              "type": "text",
+              "value": " decorator adds an argument using the same syntax as argparse's "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "add_argument()"
+            },
+            {
+              "type": "text",
+              "value": " method. More sophisticated uses may also require the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "@argument_group"
+            },
+            {
+              "type": "text",
+              "value": " or "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "@kwds"
+            },
+            {
+              "type": "text",
+              "value": " decorator to customize the formatting and the parsing."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Help text for the magic is automatically generated from the docstring and the arguments      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "In[1]: %cool?\n    %cool [-o OPTION] arg\n\n    A really cool magic command.\n\n    positional arguments:\n      arg                   An integer positional argument.\n\n    optional arguments:\n      -o OPTION, --option OPTION\n                            An optional argument."
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Here is an elaborated example that uses default parameters in "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "argument"
+            },
+            {
+              "type": "text",
+              "value": " and calls the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "args"
+            },
+            {
+              "type": "text",
+              "value": " in the cell magic      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "from IPython.core.magic import register_cell_magic\nfrom IPython.core.magic_arguments import (argument, magic_arguments,\n                                        parse_argstring)\n\n\n@magic_arguments()\n@argument(\n    \"--option\",\n    \"-o\",\n    help=(\"Add an option here\"),\n)\n@argument(\n    \"--style\",\n    \"-s\",\n    default=\"foo\",\n    help=(\"Add some style arguments\"),\n)\n@register_cell_magic\ndef my_cell_magic(line, cell):\n    args = parse_argstring(my_cell_magic, line)\n    print(f\"{args.option=}\")\n    print(f\"{args.style=}\")\n    print(f\"{cell=}\")"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In a jupyter notebook, this cell magic can be executed like this      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "%%my_cell_magic -o Hello\nprint(\"bar\")\ni = 42"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Inheritance diagram:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "IPython.core.magic_arguments",
+          "children": [],
+          "name": "inheritance-diagram",
+          "options": {
+            "parts": "3"
+          },
+          "type": "mystDirective",
+          "value": ""
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  ],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "New magic functions can be defined like so      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "from IPython.core.magic_arguments import (argument, magic_arguments,\n    parse_argstring)\n\n@magic_arguments()\n@argument('-o', '--option', help='An optional argument.')\n@argument('arg', type=int, help='An integer positional argument.')\ndef magic_cool(self, arg):\n    \"\"\" A really cool magic command.\n\n\"\"\"\n    args = parse_argstring(magic_cool, arg)\n    ..."
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "@magic_arguments"
+            },
+            {
+              "type": "text",
+              "value": " decorator marks the function as having argparse arguments. The "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "@argument"
+            },
+            {
+              "type": "text",
+              "value": " decorator adds an argument using the same syntax as argparse's "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "add_argument()"
+            },
+            {
+              "type": "text",
+              "value": " method. More sophisticated uses may also require the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "@argument_group"
+            },
+            {
+              "type": "text",
+              "value": " or "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "@kwds"
+            },
+            {
+              "type": "text",
+              "value": " decorator to customize the formatting and the parsing."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Help text for the magic is automatically generated from the docstring and the arguments      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "In[1]: %cool?\n    %cool [-o OPTION] arg\n\n    A really cool magic command.\n\n    positional arguments:\n      arg                   An integer positional argument.\n\n    optional arguments:\n      -o OPTION, --option OPTION\n                            An optional argument."
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Here is an elaborated example that uses default parameters in "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "argument"
+            },
+            {
+              "type": "text",
+              "value": " and calls the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "args"
+            },
+            {
+              "type": "text",
+              "value": " in the cell magic      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "from IPython.core.magic import register_cell_magic\nfrom IPython.core.magic_arguments import (argument, magic_arguments,\n                                        parse_argstring)\n\n@magic_arguments()\n@argument(\n    \"--option\",\n    \"-o\",\n    help=(\"Add an option here\"),\n)\n@argument(\n    \"--style\",\n    \"-s\",\n    default=\"foo\",\n    help=(\"Add some style arguments\"),\n)\n@register_cell_magic\ndef my_cell_magic(line, cell):\n    args = parse_argstring(my_cell_magic, line)\n    print(f\"{args.option=}\")\n    print(f\"{args.style=}\")\n    print(f\"{cell=}\")"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In a jupyter notebook, this cell magic can be executed like this      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "%%my_cell_magic -o Hello\nprint(\"bar\")\ni = 42"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Inheritance diagram:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "IPython.core.magic_arguments",
+          "children": [],
+          "name": "inheritance-diagram",
+          "options": {
+            "parts": "3"
+          },
+          "type": "mystDirective",
+          "value": ""
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A decorator-based method of constructing IPython magics with "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "argparse",
+                "path": "argparse",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "argparse"
+            },
+            {
+              "type": "text",
+              "value": " option handling."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dev/ipython/IPython/core/magic_arguments.py",
+  "item_line": 0,
+  "item_type": "<class 'module'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

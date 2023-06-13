@@ -1,0 +1,388 @@
+{
+  "aliases": [
+    "skimage.restoration.rolling_ball"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This rolling ball algorithm estimates background intensity for a ndimage in case of uneven exposure. It is a generalization of the frequently used rolling ball algorithm ."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For the pixel that has its background intensity estimated (without loss of generality at "
+            },
+            {
+              "type": "inlineCode",
+              "value": "center"
+            },
+            {
+              "type": "text",
+              "value": ") the rolling ball method centers "
+            },
+            {
+              "type": "inlineCode",
+              "value": "kernel"
+            },
+            {
+              "type": "text",
+              "value": " under it and raises the kernel until the surface touches the image umbra at some "
+            },
+            {
+              "type": "inlineCode",
+              "value": "pos=(y,x)"
+            },
+            {
+              "type": "text",
+              "value": ". The background intensity is then estimated using the image intensity at that position ("
+            },
+            {
+              "type": "inlineCode",
+              "value": "image[pos]"
+            },
+            {
+              "type": "text",
+              "value": ") plus the difference of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "kernel[center] - kernel[pos]"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This algorithm assumes that dark pixels correspond to the background. If you have a bright background, invert the image before passing it to the function, e.g., using "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "utils.invert"
+            },
+            {
+              "type": "text",
+              "value": ". See the gallery example for details."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This algorithm is sensitive to noise (in particular salt-and-pepper noise). If this is a problem in your image, you can apply mild gaussian smoothing before passing the image to this function."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The image to be filtered."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "image",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Radius of a ball shaped kernel to be rolled/translated in the image. Used if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "kernel = None"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "radius",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The kernel to be rolled/translated in the image. It must have the same number of dimensions as "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "image"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Kernel is filled with the intensity of the kernel at that position."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "kernel",
+              "type": "Param",
+              "type_": "ndarray, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (default) assumes that none of the values in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "image"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.nan"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", and uses a faster implementation."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "nansafe: bool, optional",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The maximum number of threads to use. If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": " use the OpenMP default value; typically equal to the maximum number of virtual cores. Note: This is an upper limit to the number of threads. The exact number is determined by the system's OpenMP library."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "num_threads: int, optional",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The estimated background of the image."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "background",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Estimate background intensity by rolling/translating a kernel."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom skimage import data\nfrom skimage.restoration import rolling_ball\nimage = data.coins()\nbackground = rolling_ball(data.coins())\nfiltered_image = image - background"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom skimage import data\nfrom skimage.restoration import rolling_ball, ellipsoid_kernel\nimage = data.coins()\nkernel = ellipsoid_kernel((101, 101), 75)\nbackground = rolling_ball(data.coins(), kernel=kernel)\nfiltered_image = image - background"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/skimage/restoration/rolling_ball.py",
+  "item_line": 7,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(image, *, radius=100, kernel=None, nansafe=False, num_threads=None)"
+  },
+  "type": "DocBlob"
+}

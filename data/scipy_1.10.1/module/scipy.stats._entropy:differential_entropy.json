@@ -1,0 +1,567 @@
+{
+  "aliases": [
+    "scipy.stats.differential_entropy"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Several estimation methods are available using the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "method",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "method"
+            },
+            {
+              "type": "text",
+              "value": " parameter. By default, a method is selected based the size of the sample."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function will converge to the true differential entropy in the limit"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "n \\to \\infty, \\quad m \\to \\infty, \\quad \\frac{m}{n} \\to 0"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The optimal choice of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "window_length"
+            },
+            {
+              "type": "text",
+              "value": " for a given sample size depends on the (unknown) distribution. Typically, the smoother the density of the distribution, the larger the optimal value of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "window_length"
+            },
+            {
+              "type": "text",
+              "value": " ."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The following options are available for the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "method",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "method"
+            },
+            {
+              "type": "text",
+              "value": " parameter."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "'vasicek'"
+                    },
+                    {
+                      "type": "text",
+                      "value": " uses the estimator presented in . This is   one of the first and most influential estimators of differential entropy."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "'van es'"
+                    },
+                    {
+                      "type": "text",
+                      "value": " uses the bias-corrected estimator presented in , which   is not only consistent but, under some conditions, asymptotically normal."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "'ebrahimi'"
+                    },
+                    {
+                      "type": "text",
+                      "value": " uses an estimator presented in , which was shown   in simulation to have smaller bias and mean squared error than   the Vasicek estimator."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "'correa'"
+                    },
+                    {
+                      "type": "text",
+                      "value": " uses the estimator presented in  based on local linear   regression. In a simulation study, it had consistently smaller mean   square error than the Vasiceck estimator, but it is more expensive to   compute."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "'auto'"
+                    },
+                    {
+                      "type": "text",
+                      "value": " selects the method automatically (default). Currently,   this selects "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "'van es'"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for very small samples (<10), "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "'ebrahimi'"
+                    },
+                    {
+                      "type": "text",
+                      "value": "   for moderate sample sizes (11-1000), and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "'vasicek'"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for larger   samples, but this behavior is subject to change in future versions."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "All estimators are implemented as described in ."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Sample from a continuous distribution."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "values",
+              "type": "Param",
+              "type_": "sequence"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Window length for computing Vasicek estimate. Must be an integer between 1 and half of the sample size. If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (the default), it uses the heuristic value"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "math",
+                  "value": "\\left \\lfloor \\sqrt{n} + 0.5 \\right \\rfloor"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "where "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "n"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the sample size. This heuristic was originally proposed in  and has become common in the literature."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "window_length",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The logarithmic base to use, defaults to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "e"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (natural logarithm)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "base",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The axis along which the differential entropy is calculated. Default is 0."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "axis",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The method used to estimate the differential entropy from the sample. Default is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "'auto'"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  See Notes for more information."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "method",
+              "type": "Param",
+              "type_": "{'vasicek', 'van es', 'ebrahimi', 'correa', 'auto'}, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The calculated differential entropy."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "entropy",
+              "type": "Param",
+              "type_": "float"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Given a sample of a distribution, estimate the differential entropy."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.stats import differential_entropy, norm"
+      },
+      {
+        "type": "text",
+        "value": "Entropy of a standard normal distribution:"
+      },
+      {
+        "type": "code",
+        "value": "rng = np.random.default_rng()\nvalues = rng.standard_normal(100)\ndifferential_entropy(values)"
+      },
+      {
+        "type": "text",
+        "value": "Compare with the true entropy:"
+      },
+      {
+        "type": "code",
+        "value": "float(norm.entropy())"
+      },
+      {
+        "type": "text",
+        "value": "For several sample sizes between 5 and 1000, compare the accuracy of\nthe ``'vasicek'``, ``'van es'``, and ``'ebrahimi'`` methods. Specifically,\ncompare the root mean squared error (over 1000 trials) between the estimate\nand the true differential entropy of the distribution."
+      },
+      {
+        "type": "code",
+        "value": "from scipy import stats\nimport matplotlib.pyplot as plt"
+      },
+      {
+        "type": "code",
+        "value": "def rmse(res, expected):\n    '''Root mean squared error'''\n    return np.sqrt(np.mean((res - expected)**2))"
+      },
+      {
+        "type": "code",
+        "value": "a, b = np.log10(5), np.log10(1000)\nns = np.round(np.logspace(a, b, 10)).astype(int)\nreps = 1000  # number of repetitions for each sample size\nexpected = stats.expon.entropy()"
+      },
+      {
+        "type": "code",
+        "value": "method_errors = {'vasicek': [], 'van es': [], 'ebrahimi': []}\nfor method in method_errors:\n    for n in ns:\n       rvs = stats.expon.rvs(size=(reps, n), random_state=rng)\n       res = stats.differential_entropy(rvs, method=method, axis=-1)\n       error = rmse(res, expected)\n       method_errors[method].append(error)"
+      },
+      {
+        "type": "code",
+        "value": "for method, errors in method_errors.items():\n    plt.loglog(ns, errors, label=method)"
+      },
+      {
+        "type": "code",
+        "value": "plt.legend()\nplt.xlabel('sample size')\nplt.ylabel('RMSE (1000 trials)')\nplt.title('Entropy Estimator Error (Exponential Distribution)')"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_entropy.py",
+  "item_line": 149,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(values: 'np.typing.ArrayLike', *, window_length: 'Optional[int]' = None, base: 'Optional[float]' = None, axis: 'int' = 0, method: 'str' = 'auto') -> 'Union[np.number, np.ndarray]'"
+  },
+  "type": "DocBlob"
+}

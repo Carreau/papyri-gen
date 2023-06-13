@@ -1,0 +1,3131 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": "Migrating Widgets to IPython 3",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The first thing you'll notice when upgrading an IPython 2.0 widget    notebook to IPython 3.0 is the \"Notebook converted\" dialog. Click    \"ok\"."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "All of the widgets distributed with IPython have been renamed. The    \"Widget\" suffix was removed from the end of the class name. i.e.    "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ButtonWidget"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is now "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Button"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "ContainerWidget"
+                    },
+                    {
+                      "type": "text",
+                      "value": " was renamed to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Box"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "PopupWidget"
+                    },
+                    {
+                      "type": "text",
+                      "value": " was removed from IPython, because bootstrapjs was     problematic (creates global variables, etc.). If you use the    "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "PopupWidget"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", try using a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Box"
+                    },
+                    {
+                      "type": "text",
+                      "value": " widget instead. If your notebook    can't live without the popup functionality, subclass the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Box"
+                    },
+                    {
+                      "type": "text",
+                      "value": "    widget (both in Python and JS) and use JQuery UI's "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "draggable()"
+                    },
+                    {
+                      "type": "text",
+                      "value": "    and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "resizable()"
+                    },
+                    {
+                      "type": "text",
+                      "value": " methods to mimic the behavior."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "add_class"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "remove_class"
+                    },
+                    {
+                      "type": "text",
+                      "value": " were removed. More often than not    a new attribute exists on the widget that allows you to achieve the    same explicitly. i.e. the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Button"
+                    },
+                    {
+                      "type": "text",
+                      "value": " widget now has a    "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "button_style"
+                    },
+                    {
+                      "type": "text",
+                      "value": " attribute which you can set to 'primary', 'success',    'info', 'warning', 'danger', or '' instead of using "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "add_class"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to    add the bootstrap class. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "VBox"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "HBox"
+                    },
+                    {
+                      "type": "text",
+                      "value": " classes (flexible    "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Box"
+                    },
+                    {
+                      "type": "text",
+                      "value": " subclasses) were added that allow you to avoid using    "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "add_class"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "remove_class"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to make flexible box model    layouts. As a last resort, if you can't find a built in attribute for    the class you want to use, a new "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "_dom_classes"
+                    },
+                    {
+                      "type": "text",
+                      "value": " list trait was    added, which combines "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "add_class"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "remove_class"
+                    },
+                    {
+                      "type": "text",
+                      "value": " into one    stateful list."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "set_css"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "get_css"
+                    },
+                    {
+                      "type": "text",
+                      "value": " were removed in favor of explicit style    attributes - "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "visible"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "width"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "height"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "padding"
+                    },
+                    {
+                      "type": "text",
+                      "value": ",    "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "margin"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "color"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "background_color"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "border_color"
+                    },
+                    {
+                      "type": "text",
+                      "value": ",    "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "border_width"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "border_radius"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "border_style"
+                    },
+                    {
+                      "type": "text",
+                      "value": ",    "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "font_style"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "font_weight"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "font_size"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "font_family"
+                    },
+                    {
+                      "type": "text",
+                      "value": "    are a few. If you can't find a trait to see the css attribute you    need, you can, in order of preference, (A) subclass to create your    own custom widget, (B) use CSS and the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "_dom_classes"
+                    },
+                    {
+                      "type": "text",
+                      "value": " trait to set    "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "_dom_classes"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", or (C) use the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "_css"
+                    },
+                    {
+                      "type": "text",
+                      "value": " dictionary to set CSS    styling like "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "set_css"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "get_css"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "For selection widgets, such as "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Dropdown"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "values"
+                    },
+                    {
+                      "type": "text",
+                      "value": " argument    has been renamed to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "options"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": true,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Upgrading Notebooks",
+      "type": "Section"
+    },
+    {
+      "children": [],
+      "level": 1,
+      "target": null,
+      "title": "Upgrading Custom Widgets",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If you are distributing your widget and decide to use the deferred    loading technique (preferred), you can remove all references to the    WidgetManager and the register model/view calls (see the Python    section below for more information)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "In 2.0 require.js was used incorrectly, that has been fixed and now    loading works more like Python's import. Requiring    "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "widgets/js/widget"
+                    },
+                    {
+                      "type": "text",
+                      "value": " doesn't import the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "WidgetManager"
+                    },
+                    {
+                      "type": "text",
+                      "value": " class,    instead it imports a dictionary that exposes the classes within that    module:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "{\n   'WidgetModel': WidgetModel,\n   'WidgetView': WidgetView,\n   'DOMWidgetView': DOMWidgetView,\n   'ViewList': ViewList,\n   }"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If you decide to continue to use the widget registry (by registering    your widgets with the manager), you can import a dictionary with a    handle to the WidgetManager class by requiring    "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "widgets/js/manager"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Doing so will import:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "{'WidgetManager': WidgetManager}"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Don't rely on the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "IPython"
+                    },
+                    {
+                      "type": "text",
+                      "value": " namespace for anything. To inherit from    the DOMWidgetView, WidgetView, or WidgetModel, require    "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "widgets/js/widget"
+                    },
+                    {
+                      "type": "text",
+                      "value": " as "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "widget"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If you were inheriting from    DOMWidgetView, and the code looked like this:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "IPython.DOMWidgetView.extend({...})"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "It would become this:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "widget.DOMWidgetView.extend({...})"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Custom models are encouraged. When possible, it's recommended to move    your code into a custom model, so actions are performed 1 time,    instead of N times where N is the number of displayed views."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": true,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Javascript",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Generally, custom widget Python code can remain unchanged. If you distribute your custom widget, you may be using "
+            },
+            {
+              "type": "inlineCode",
+              "value": "display"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Javascript"
+            },
+            {
+              "type": "text",
+              "value": " to publish the widget's Javascript to the front-end. That is no longer the recommended way of distributing widget Javascript. Instead have the user install the Javascript to his/her nbextension directory or their profile's static directory. Then use the new "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_view_module"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_model_module"
+            },
+            {
+              "type": "text",
+              "value": " traitlets in combination with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_view_name"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_model_name"
+            },
+            {
+              "type": "text",
+              "value": " to instruct require.js on how to load the widget's Javascript. The Javascript is then loaded when the widget is used for the first time."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Python",
+      "type": "Section"
+    },
+    {
+      "children": [],
+      "level": 1,
+      "target": null,
+      "title": "Details",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In the IPython 2.x series the only way to register custom widget views and models was to use the registry in the widget manager. Unfortunately, using this method made distributing and running custom widgets difficult. The widget maintainer had to either use the rich display framework to push the widget's Javascript to the notebook or instruct the users to install the Javascript by hand in a custom profile. With the first method, the maintainer would have to be careful about when the Javascript was pushed to the front-end. If the Javascript was pushed on Python widget "
+            },
+            {
+              "type": "inlineCode",
+              "value": "import"
+            },
+            {
+              "type": "text",
+              "value": ", the widgets wouldn't work after page refresh. This is because refreshing the page does not restart the kernel, and the Python "
+            },
+            {
+              "type": "inlineCode",
+              "value": "import"
+            },
+            {
+              "type": "text",
+              "value": " statement only runs once in a given kernel instance (unless you reload the Python modules, which isn't straight forward). This meant the maintainer would have to have a separate "
+            },
+            {
+              "type": "inlineCode",
+              "value": "push_js()"
+            },
+            {
+              "type": "text",
+              "value": " method that the user would have to call after importing the widget's Python code."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Our solution was to add support for loading widget views and models using require.js paths. Thus the comm and widget frameworks now support lazy loading. To do so, everything had to be converted to asynchronous code. HTML5 promises are used to accomplish that ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "#6818"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/ipython/ipython/pull/6818"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "#6914"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/ipython/ipython/pull/6914"
+            },
+            {
+              "type": "text",
+              "value": ")."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Asynchronous",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In IPython 3.0, widgets can be instantiated from the front-end ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "#6664"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/ipython/ipython/pull/6664"
+            },
+            {
+              "type": "text",
+              "value": "). On top of this, a widget persistence API was added ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "#7163"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/ipython/ipython/pull/7163"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "#7227"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/ipython/ipython/pull/7227"
+            },
+            {
+              "type": "text",
+              "value": "). With the widget persistence API, you can persist your widget instances using Javascript. This makes it easy to persist your widgets to your notebook document (with a small amount of custom JS). By default, the widgets are persisted to your web browsers local storage which makes them reappear when your refresh the page."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Symmetry",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Latex math is supported in widget "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "description"
+                    },
+                    {
+                      "type": "text",
+                      "value": "\\ s    ("
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#5937"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/5937"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Widgets can be display more than once within a single container    widget ("
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#5963"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/5963"
+                    },
+                    {
+                      "type": "text",
+                      "value": ",    "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6990"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6990"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "FloatRangeSlider"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "IntRangeSlider"
+                    },
+                    {
+                      "type": "text",
+                      "value": " were added    ("
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6050"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6050"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "\"Widget\" was removed from the ends of all of the widget class names    ("
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6125"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6125"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "ContainerWidget"
+                    },
+                    {
+                      "type": "text",
+                      "value": " was renamed to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Box"
+                    },
+                    {
+                      "type": "text",
+                      "value": "    ("
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6125"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6125"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "HBox"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "VBox"
+                    },
+                    {
+                      "type": "text",
+                      "value": " widgets were added    ("
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6125"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6125"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "add\\_class"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "remove\\_class"
+                    },
+                    {
+                      "type": "text",
+                      "value": " were removed in favor of a    "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "_dom_classes"
+                    },
+                    {
+                      "type": "text",
+                      "value": " list    ("
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6235"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6235"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "get\\_css"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "set\\_css"
+                    },
+                    {
+                      "type": "text",
+                      "value": " were removed in favor of explicit    traits for widget styling    ("
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6235"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6235"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "jslink"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "jsdlink"
+                    },
+                    {
+                      "type": "text",
+                      "value": " were added    ("
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6454"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6454"
+                    },
+                    {
+                      "type": "text",
+                      "value": ",    "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#7468"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/7468"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Output"
+                    },
+                    {
+                      "type": "text",
+                      "value": " widget was added, which allows you to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "print"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and    "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "display"
+                    },
+                    {
+                      "type": "text",
+                      "value": " within widgets    ("
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6670"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6670"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "PopupWidget"
+                    },
+                    {
+                      "type": "text",
+                      "value": " was removed    ("
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#7341"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/7341"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A visual cue was added for widgets with 'dead' comms    ("
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#7227"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/7227"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "SelectMultiple"
+                    },
+                    {
+                      "type": "text",
+                      "value": " widget was added (a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Select"
+                    },
+                    {
+                      "type": "text",
+                      "value": " widget that    allows multiple things to be selected at once)    ("
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6890"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6890"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A class was added to help manage children views    ("
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6990"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6990"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A warning was added that shows on widget import because it's expected    that the API will change again by IPython 4.0. This warning can be    suppressed ("
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#7107"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/7107"
+                    },
+                    {
+                      "type": "text",
+                      "value": ",    "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#7200"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/7200"
+                    },
+                    {
+                      "type": "text",
+                      "value": ",    "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#7201"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/7201"
+                    },
+                    {
+                      "type": "text",
+                      "value": ",    "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#7204"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/7204"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Smaller Changes",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Here is a chronological list of PRs affecting the widget and comm frameworks for IPython 3.0. Note that later PRs may revert changes made in earlier PRs:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Add placeholder attribute to text widgets   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#5652"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/5652"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Add latex support in widget labels,   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#5937"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/5937"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Allow widgets to display more than once within container widgets.   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#5963"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/5963"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "use require.js,   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#5980"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/5980"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Range widgets   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6050"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6050"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Interact on\\_demand option   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6051"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6051"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Allow text input on slider widgets   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6106"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6106"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "support binary buffers in comm messages   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6110"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6110"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Embrace the flexible box model in the widgets   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6125"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6125"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Widget trait serialization   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6128"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6128"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Make Container widgets take children as the first positional   argument "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6153"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6153"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "once-displayed   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6168"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6168"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Validate slider value, when limits change   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6171"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6171"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Unregistering comms in Comm Manager   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6216"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6216"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Add EventfulList and EventfulDict trait types.   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6228"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6228"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Remove add/remove\\_class and set/get\\_css.   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6235"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6235"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "avoid unregistering widget model twice   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6250"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6250"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Widget property lock should compare json states, not python states   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6332"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6332"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Strip the IPY\\_MODEL\\_ prefix from widget IDs before referencing   them. "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6377"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6377"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "\"event\" is not defined error in Firefox   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6437"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6437"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Javascript link   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6454"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6454"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Bulk update of widget attributes   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6463"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6463"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Creating a widget registry on the Python side.   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6493"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6493"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Allow widget views to be loaded from require modules   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6494"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6494"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Fix Issue #6530   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6532"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6532"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Make comm manager (mostly) independent of InteractiveShell   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6540"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6540"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Add semantic classes to top-level containers for single widgets   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6609"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6609"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Selection Widgets: forcing 'value' to be in 'values'   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6617"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6617"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Allow widgets to be constructed from Javascript   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6664"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6664"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Output widget   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6670"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6670"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Minor change in widgets.less to fix alignment issue   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6681"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6681"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Make Selection widgets respect values order.   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6747"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6747"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Widget persistence API   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6789"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6789"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Add promises to the widget framework.   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6818"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6818"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "SelectMultiple widget   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6890"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6890"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Tooltip on toggle button   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6923"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6923"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Allow empty text box \\*while typing\\* for numeric widgets   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6943"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6943"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Ignore failure of widget MathJax typesetting   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6948"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6948"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Refactor the do\\_diff and manual child view lists into a separate   ViewList object   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#6990"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/6990"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Add warning to widget namespace import.   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#7107"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/7107"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "lazy load widgets   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#7120"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/7120"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Fix padding of widgets.   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#7139"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/7139"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Persist widgets across page refresh   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#7163"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/7163"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Make the widget experimental error a real python warning   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#7200"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/7200"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Make the widget error message shorter and more understandable.   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#7201"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/7201"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Make the widget warning brief and easy to filter   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#7204"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/7204"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Add visual cue for widgets with dead comms   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#7227"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/7227"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Widget values as positional arguments   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#7260"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/7260"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Remove the popup widget   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#7341"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/7341"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "document and validate link, dlink   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#7468"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/7468"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Document interact 5637   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#7525"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/7525"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Update some broken examples of using widgets   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#7547"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/7547"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Use Output widget with Interact   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#7554"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/7554"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "don't send empty execute\\_result messages   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#7560"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/7560"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Validation on the python side   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#7602"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/7602"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "only show prompt overlay if there's a prompt   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#7661"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/7661"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Allow predictate to be used for comparison in selection widgets   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#7674"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/7674"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Fix widget view persistence.   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#7680"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/7680"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Revert \"Use Output widget with Interact\"   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "#7703"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/ipython/ipython/pull/7703"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Comm and Widget PR Index",
+      "type": "Section"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

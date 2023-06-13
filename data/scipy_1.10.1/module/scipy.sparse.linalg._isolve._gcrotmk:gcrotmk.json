@@ -1,0 +1,525 @@
+{
+  "aliases": [
+    "scipy.sparse.linalg.gcrotmk"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The real or complex N-by-N matrix of the linear system. Alternatively, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "A"
+                    },
+                    {
+                      "type": "text",
+                      "value": " can be a linear operator which can produce "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Ax"
+                    },
+                    {
+                      "type": "text",
+                      "value": " using, e.g., "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "scipy.sparse.linalg.LinearOperator"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "A",
+              "type": "Param",
+              "type_": "{sparse matrix, ndarray, LinearOperator}"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Right hand side of the linear system. Has shape (N,) or (N,1)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "b",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Starting guess for the solution."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x0",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Tolerances for convergence, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "norm(residual) <= max(tol*norm(b), atol)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". The default for "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "atol"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "tol",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "tol"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "warning "
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "The default value for "
+                        },
+                        {
+                          "domain": null,
+                          "role": null,
+                          "type": "Directive",
+                          "value": "atol"
+                        },
+                        {
+                          "type": "text",
+                          "value": " will be changed in a future release. For future compatibility, specify "
+                        },
+                        {
+                          "domain": null,
+                          "role": null,
+                          "type": "Directive",
+                          "value": "atol"
+                        },
+                        {
+                          "type": "text",
+                          "value": " explicitly."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "tol, atol",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum number of iterations.  Iteration will stop after maxiter steps even if the specified tolerance has not been achieved."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "maxiter",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Preconditioner for A.  The preconditioner should approximate the inverse of A. gcrotmk is a 'flexible' algorithm and the preconditioner can vary from iteration to iteration. Effective preconditioning dramatically improves the rate of convergence, which implies that fewer iterations are needed to reach a given error tolerance."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "M",
+              "type": "Param",
+              "type_": "{sparse matrix, ndarray, LinearOperator}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "User-supplied function to call after each iteration.  It is called as callback(xk), where xk is the current solution vector."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "callback",
+              "type": "Param",
+              "type_": "function, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of inner FGMRES iterations per each outer iteration. Default: 20"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "m",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of vectors to carry between inner FGMRES iterations. According to , good values are around m. Default: m"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "k",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "List of tuples "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(c, u)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " which contain the columns of the matrices C and U in the GCROT(m,k) algorithm. For details, see . The list given and vectors contained in it are modified in-place. If not given, start from empty matrices. The "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "c"
+                    },
+                    {
+                      "type": "text",
+                      "value": " elements in the tuples can be "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", in which case the vectors are recomputed via "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "c = A u"
+                    },
+                    {
+                      "type": "text",
+                      "value": " on start and orthogonalized as described in ."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "CU",
+              "type": "Param",
+              "type_": "list of tuples, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Discard the C-vectors at the end. Useful if recycling Krylov subspaces for different linear systems."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "discard_C",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Truncation scheme to use. Drop: oldest vectors, or vectors with smallest singular values using the scheme discussed in [1,2]. See  for detailed comparison. Default: 'oldest'"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "truncate",
+              "type": "Param",
+              "type_": "{'oldest', 'smallest'}, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The solution found."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Provides convergence information:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "param": "info",
+              "type": "Param",
+              "type_": "int"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Solve a matrix equation using flexible GCROT(m,k) algorithm."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.sparse import csc_matrix\nfrom scipy.sparse.linalg import gcrotmk\nR = np.random.randn(5, 5)\nA = csc_matrix(R)\nb = np.random.randn(5)\nx, exit_code = gcrotmk(A, b)\nprint(exit_code)"
+      },
+      {
+        "type": "code",
+        "value": "np.allclose(A.dot(x), b)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/sparse/linalg/_isolve/_gcrotmk.py",
+  "item_line": 182,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Examples",
+    "References"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(A, b, x0=None, tol=1e-05, maxiter=1000, M=None, callback=None, m=20, k=None, CU=None, discard_C=False, truncate='oldest', atol=None)"
+  },
+  "type": "DocBlob"
+}

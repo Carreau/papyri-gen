@@ -1,0 +1,519 @@
+{
+  "aliases": [
+    "scipy.spatial.cKDTree"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The n data points of dimension m to be indexed. This array is not copied unless this is necessary to produce a contiguous array of doubles. The data are also copied if the kd-tree is built with "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "copy_data=True"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "data",
+              "type": "Param",
+              "type_": "ndarray, shape (n,m)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The number of points at which the algorithm switches over to brute-force."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "leafsize",
+              "type": "Param",
+              "type_": "positive int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The dimension of a single data-point."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "m",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The number of data points."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "n",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The maximum value in each dimension of the n data points."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "maxes",
+              "type": "Param",
+              "type_": "ndarray, shape (m,)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The minimum value in each dimension of the n data points."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mins",
+              "type": "Param",
+              "type_": "ndarray, shape (m,)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This attribute exposes a Python view of the root node in the cKDTree object. A full Python view of the kd-tree is created dynamically on the first access. This attribute allows you to create your own query functions in Python."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "tree",
+              "type": "Param",
+              "type_": "object, class cKDTreeNode"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The number of nodes in the tree."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "size",
+              "type": "Param",
+              "type_": "int"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This class provides an index into a set of k-dimensional points which can be used to rapidly look up the nearest neighbors of any point."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "note "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "cKDTree"
+                },
+                {
+                  "type": "text",
+                  "value": " is functionally identical to "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "KDTree"
+                },
+                {
+                  "type": "text",
+                  "value": ". Prior to SciPy v1.6.0, "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "cKDTree"
+                },
+                {
+                  "type": "text",
+                  "value": " had better performance and slightly different functionality but now the two names exist only for backward-compatibility reasons. If compatibility with SciPy < 1.6 is not a concern, prefer "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "KDTree"
+                },
+                {
+                  "type": "text",
+                  "value": "."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The algorithm used is described in Maneewongvatana and Mount 1999. The general idea is that the kd-tree is a binary tree, each of whose nodes represents an axis-aligned hyperrectangle. Each node specifies an axis and splits the set of points based on whether their coordinate along that axis is greater than or less than a particular value."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "During construction, the axis and splitting point are chosen by the \"sliding midpoint\" rule, which ensures that the cells do not all become long and thin."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The tree can be queried for the r closest neighbors of any given point (optionally returning only those within some maximum distance of the point). It can also be queried, with a substantial gain in efficiency, for the r approximate closest neighbors."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For large dimensions (20 is already large) do not expect this to run significantly faster than brute force. High-dimensional nearest-neighbor queries are a substantial open problem in computer science."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The n data points of dimension m to be indexed. This array is not copied unless this is necessary to produce a contiguous array of doubles, and so modifying this data will result in bogus results. The data are also copied if the kd-tree is built with copy_data=True."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "data",
+              "type": "Param",
+              "type_": "array_like, shape (n,m)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The number of points at which the algorithm switches over to brute-force. Default: 16."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "leafsize",
+              "type": "Param",
+              "type_": "positive int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, the kd-tree is built to shrink the hyperrectangles to the actual data range. This usually gives a more compact tree that is robust against degenerated input data and gives faster queries at the expense of longer build time. Default: True."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "compact_nodes",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True the data is always copied to protect the kd-tree against data corruption. Default: False."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "copy_data",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, the median is used to split the hyperrectangles instead of the midpoint. This usually gives a more compact tree and faster queries at the expense of longer build time. Default: True."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "balanced_tree",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Apply a m-d toroidal topology to the KDTree.. The topology is generated by "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "x_i + n_i L_i"
+                    },
+                    {
+                      "type": "text",
+                      "value": " where "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "n_i"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are integers and "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "L_i"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the boxsize along i-th dimension. The input data shall be wrapped into "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "[0, L_i)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". A ValueError is raised if any of the data is outside of this bound."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "boxsize",
+              "type": "Param",
+              "type_": "array_like or scalar, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "kd-tree for quick nearest-neighbor lookup"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/spatial/_ckdtree.cpython-311-darwin.so",
+  "item_line": null,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Signature",
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Notes",
+    "Attributes"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "cKDTree(data, leafsize=16, compact_nodes=True, copy_data=False, balanced_tree=True, boxsize=None)"
+  },
+  "type": "DocBlob"
+}

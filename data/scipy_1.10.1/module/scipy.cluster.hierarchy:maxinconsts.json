@@ -1,0 +1,297 @@
+{
+  "aliases": [
+    "scipy.cluster.hierarchy.maxinconsts"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The hierarchical clustering encoded as a matrix. See "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "linkage"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for more information."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "Z",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The inconsistency matrix."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "R",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A monotonic "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(n-1)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "-sized numpy array of doubles."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "MI",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Return the maximum inconsistency coefficient for each non-singleton cluster and its children."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from scipy.cluster.hierarchy import median, inconsistent, maxinconsts\nfrom scipy.spatial.distance import pdist"
+      },
+      {
+        "type": "text",
+        "value": "Given a data set ``X``, we can apply a clustering method to obtain a\nlinkage matrix ``Z``. `scipy.cluster.hierarchy.inconsistent` can\nbe also used to obtain the inconsistency matrix ``R`` associated to\nthis clustering process:"
+      },
+      {
+        "type": "code",
+        "value": "X = [[0, 0], [0, 1], [1, 0],\n     [0, 4], [0, 3], [1, 4],\n     [4, 0], [3, 0], [4, 1],\n     [4, 4], [3, 4], [4, 3]]"
+      },
+      {
+        "type": "code",
+        "value": "Z = median(pdist(X))\nR = inconsistent(Z)\nZ"
+      },
+      {
+        "type": "code",
+        "value": "R"
+      },
+      {
+        "type": "text",
+        "value": "Here, `scipy.cluster.hierarchy.maxinconsts` can be used to compute\nthe maximum value of the inconsistency statistic (the last column of\n``R``) for each non-singleton cluster and its children:"
+      },
+      {
+        "type": "code",
+        "value": "maxinconsts(Z, R)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/cluster/hierarchy.py",
+  "item_line": 3873,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "for a description of what a linkage matrix is."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "linkage",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "linkage"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "for the creation of a inconsistency matrix."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "inconsistent",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "inconsistent"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(Z, R)"
+  },
+  "type": "DocBlob"
+}

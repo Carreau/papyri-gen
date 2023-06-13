@@ -1,0 +1,775 @@
+{
+  "aliases": [
+    "astropy.io.fits.file.get_readable_fileobj"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This supports passing filenames, URLs, and readable file-like objects, any of which can be compressed in gzip, bzip2 or lzma (xz) if the appropriate compression libraries are provided by the Python installation."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function is a context manager, and should be used for example as      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "with get_readable_fileobj('file.dat') as f:\n    contents = f.read()"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If a URL is provided and the cache is in use, the provided URL will be the name used in the cache. The contents may already be stored in the cache under this URL provided, they may be downloaded from this URL, or they may be downloaded from one of the locations listed in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "sources"
+            },
+            {
+              "type": "text",
+              "value": ". See "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "~download_file"
+            },
+            {
+              "type": "text",
+              "value": " for details."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The filename of the file to access (if given as a string), or the file-like object to access."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If a file-like object, it must be opened in binary mode."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "name_or_obj",
+              "type": "Param",
+              "type_": "str or file-like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "When "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (default), returns a file-like object with a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "read"
+                    },
+                    {
+                      "type": "text",
+                      "value": " method that returns "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "str"
+                    },
+                    {
+                      "type": "text",
+                      "value": " ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "unicode"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") objects, using "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "locale",
+                        "path": "locale:getpreferredencoding",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "locale.getpreferredencoding"
+                    },
+                    {
+                      "type": "text",
+                      "value": " as an encoding.  This matches the default behavior of the built-in "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "open"
+                    },
+                    {
+                      "type": "text",
+                      "value": " when no "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "mode"
+                    },
+                    {
+                      "type": "text",
+                      "value": " argument is provided."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "When "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "'binary'"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", returns a file-like object where its "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "read"
+                    },
+                    {
+                      "type": "text",
+                      "value": " method returns "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "bytes"
+                    },
+                    {
+                      "type": "text",
+                      "value": " objects."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "When another string, it is the name of an encoding, and the file-like object's "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "read"
+                    },
+                    {
+                      "type": "text",
+                      "value": " method will return "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "str"
+                    },
+                    {
+                      "type": "text",
+                      "value": " ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "unicode"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") objects, decoded from binary using the given encoding."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "encoding",
+              "type": "Param",
+              "type_": "str, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to cache the contents of remote URLs. If \"update\", check the remote URL for a new version but store the result in the cache."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "cache",
+              "type": "Param",
+              "type_": "bool or \"update\", optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to display a progress bar if the file is downloaded from a remote server.  Default is "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "show_progress",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Timeout for remote requests in seconds (default is the configurable "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "astropy.utils.data.Conf.remote_timeout"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "remote_timeout",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If provided, a list of URLs to try to obtain the file from. The result will be stored under the original URL. The original URL will "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "not"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " be tried unless it is in this list; this is to prevent long waits for a primary server that is known to be inaccessible at the moment."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sources",
+              "type": "Param",
+              "type_": "list of str, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "HTTP request headers to pass into "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "urlopen"
+                    },
+                    {
+                      "type": "text",
+                      "value": " if needed. (These headers are ignored if the protocol for the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "name_or_obj"
+                    },
+                    {
+                      "type": "text",
+                      "value": "/"
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "sources"
+                    },
+                    {
+                      "type": "text",
+                      "value": " entry is not a remote HTTP URL.) In the default case (None), the headers are "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "User-Agent: some_value"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Accept: */*"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "some_value"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is set by "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "astropy.utils.data.conf.default_http_user_agent"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "http_headers",
+              "type": "Param",
+              "type_": "dict or None"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Use "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "fsspec.core",
+                        "path": "fsspec.core:open",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "fsspec.open"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to open the file? Defaults to "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": " unless "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "name_or_obj"
+                    },
+                    {
+                      "type": "text",
+                      "value": " starts with the Amazon S3 storage prefix "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "s3://"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or the Google Cloud Storage prefix "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "gs://"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  Can also be used for paths with other prefixes (e.g. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "http://"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") but in this case you must explicitely pass "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "use_fsspec=True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Use of this feature requires the optional "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "fsspec"
+                    },
+                    {
+                      "type": "text",
+                      "value": " package. A "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ModuleNotFoundError"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will be raised if the dependency is missing."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 5.2"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "use_fsspec",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Keyword arguments passed on to "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "fsspec.core",
+                        "path": "fsspec.core:open",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "fsspec.open"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". This can be used to configure cloud storage credentials and caching behavior. For example, pass "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "fsspec_kwargs={\"anon\": True}"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to enable anonymous access to Amazon S3 open data buckets. See "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "fsspec"
+                    },
+                    {
+                      "type": "text",
+                      "value": "'s documentation for available parameters."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 5.2"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "fsspec_kwargs",
+              "type": "Param",
+              "type_": "dict, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Close the file object when exiting the context manager. Default is "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 5.2"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "close_files",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "file",
+              "type": "Param",
+              "type_": "readable file-like"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Yield a readable, seekable file-like object from a file or URL."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/astropy/utils/data.py",
+  "item_line": 186,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Notes",
+    "Parameters",
+    "Returns"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(name_or_obj, encoding=None, cache=False, show_progress=True, remote_timeout=None, sources=None, http_headers=None, *, use_fsspec=None, fsspec_kwargs=None, close_files=True)"
+  },
+  "type": "DocBlob"
+}

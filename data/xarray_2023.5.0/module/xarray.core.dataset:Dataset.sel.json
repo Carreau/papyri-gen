@@ -1,0 +1,442 @@
+{
+  "aliases": [
+    "xarray.Dataset.sel"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In contrast to "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "xarray",
+                "path": "xarray.core.dataset:Dataset.isel",
+                "type": "RefInfo",
+                "version": "2023.5.0"
+              },
+              "type": "Link",
+              "value": "Dataset.isel"
+            },
+            {
+              "type": "text",
+              "value": ", indexers for this method should use labels instead of integers."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Under the hood, this method is powered by using pandas's powerful Index objects. This makes label based indexing essentially just as fast as using integer indexing."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "It also means this method uses pandas's (well documented) logic for indexing. This means you can use string shortcuts for datetime indexes (e.g., '2000-01' to select all values in January 2000). It also means that slices are treated as inclusive of both the start and stop values, unlike normal Python indexing."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A dict with keys matching dimensions and values given by scalars, slices or arrays of tick labels. For dimensions with multi-index, the indexer may also be a dict-like object with keys matching index level names. If DataArrays are passed as indexers, xarray-style indexing will be carried out. See "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "indexing"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for the details. One of indexers or indexers_kwargs must be provided."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "indexers",
+              "type": "Param",
+              "type_": "dict, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Method to use for inexact matches:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "None (default): only exact matches"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "pad / ffill: propagate last valid index value forward"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "backfill / bfill: propagate next valid index value backward"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "nearest: use nearest valid index value"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "param": "method",
+              "type": "Param",
+              "type_": "{None, \"nearest\", \"pad\", \"ffill\", \"backfill\", \"bfill\"}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum distance between original and new labels for inexact matches. The values of the index at the matching locations must satisfy the equation "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "abs(index[indexer] - target) <= tolerance"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "tolerance",
+              "type": "Param",
+              "type_": "optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "drop=True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", drop coordinates variables in "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "indexers",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "indexers"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instead of making them scalar."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "drop",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The keyword arguments form of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "indexers"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". One of indexers or indexers_kwargs must be provided."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "**indexers_kwargs",
+              "type": "Param",
+              "type_": "{dim: indexer, ...}, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A new Dataset with the same contents as this dataset, except each variable and dimension is indexed by the appropriate indexers. If indexer DataArrays have coordinates that do not conflict with this object, then these coordinates will be attached. In general, each array's data will be a view of the array's data in this dataset, unless vectorized indexing was triggered by using an array indexer, in which case the data will be a copy."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "obj",
+              "type": "Param",
+              "type_": "Dataset"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Returns a new dataset with each array indexed by tick labels along the specified dimension(s)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/xarray/core/dataset.py",
+  "item_line": 2573,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "xarray",
+          "path": "xarray.core.dataset:Dataset.isel",
+          "type": "RefInfo",
+          "version": "2023.5.0"
+        },
+        "type": "Link",
+        "value": "Dataset.isel"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "xarray",
+          "path": "xarray.core.dataarray:DataArray.sel",
+          "type": "RefInfo",
+          "version": "2023.5.0"
+        },
+        "type": "Link",
+        "value": "DataArray.sel"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(self: 'T_Dataset', indexers: 'Mapping[Any, Any] | None' = None, method: 'str | None' = None, tolerance: 'int | float | Iterable[int | float] | None' = None, drop: 'bool' = False, **indexers_kwargs: 'Any') -> 'T_Dataset'"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,231 @@
+{
+  "aliases": [
+    "scipy.sparse.linalg.use_solver"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The default sparse solver is UMFPACK when available ("
+            },
+            {
+              "type": "inlineCode",
+              "value": "scikits.umfpack"
+            },
+            {
+              "type": "text",
+              "value": " is installed). This can be changed by passing useUmfpack = False, which then causes the always present SuperLU based solver to be used."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "UMFPACK requires a CSR/CSC matrix to have sorted column/row indices. If sure that the matrix fulfills this, pass "
+            },
+            {
+              "type": "inlineCode",
+              "value": "assumeSortedIndices=True"
+            },
+            {
+              "type": "text",
+              "value": " to gain some speed."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Use UMFPACK , , , . over SuperLU. Has effect only if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "scikits.umfpack"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is installed. Default: True"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "useUmfpack",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Allow UMFPACK to skip the step of sorting indices for a CSR/CSC matrix. Has effect only if useUmfpack is True and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "scikits.umfpack"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is installed. Default: False"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "assumeSortedIndices",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Select default sparse direct solver to be used."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.sparse.linalg import use_solver, spsolve\nfrom scipy.sparse import csc_matrix\nR = np.random.randn(5, 5)\nA = csc_matrix(R)\nb = np.random.randn(5)\nuse_solver(useUmfpack=False) # enforce superLU over UMFPACK\nx = spsolve(A, b)\nnp.allclose(A.dot(x), b)"
+      },
+      {
+        "type": "code",
+        "value": "use_solver(useUmfpack=True) # reset umfPack usage to default"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/sparse/linalg/_dsolve/linsolve.py",
+  "item_line": 29,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(**kwargs)"
+  },
+  "type": "DocBlob"
+}

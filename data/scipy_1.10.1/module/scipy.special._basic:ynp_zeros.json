@@ -1,0 +1,303 @@
+{
+  "aliases": [
+    "scipy.special.ynp_zeros"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "nt",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "nt"
+            },
+            {
+              "type": "text",
+              "value": " zeros of the functions "
+            },
+            {
+              "type": "inlineMath",
+              "value": "Y_n'(x)"
+            },
+            {
+              "type": "text",
+              "value": " on the interval "
+            },
+            {
+              "type": "inlineMath",
+              "value": "(0, \\infty)"
+            },
+            {
+              "type": "text",
+              "value": ". The zeros are returned in ascending order."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Order of Bessel function"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "n",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of zeros to return"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "nt",
+              "type": "Param",
+              "type_": "int"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "First "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "nt",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "nt"
+                    },
+                    {
+                      "type": "text",
+                      "value": " zeros of the Bessel derivative function."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute zeros of integer-order Bessel function derivatives Yn'(x)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Compute the first four roots of the first derivative of the\nBessel function of second kind for order 0 :math:`Y_0'`."
+      },
+      {
+        "type": "code",
+        "value": "from scipy.special import ynp_zeros\nynp_zeros(0, 4)"
+      },
+      {
+        "type": "text",
+        "value": "Plot :math:`Y_0`, :math:`Y_0'` and confirm visually that the roots of\n:math:`Y_0'` are located at local extrema of :math:`Y_0`."
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.special import yn, ynp_zeros, yvp\nzeros = ynp_zeros(0, 4)\nxmax = 13\nx = np.linspace(0, xmax, 500)\nfig, ax = plt.subplots()\nax.plot(x, yn(0, x), label=r'$Y_0$')\nax.plot(x, yvp(0, x, 1), label=r\"$Y_0'$\")\nax.scatter(zeros, np.zeros((4, )), s=30, c='r',\n           label=r\"Roots of $Y_0'$\", zorder=5)\nfor root in zeros:\n    y0_extremum =  yn(0, root)\n    lower = min(0, y0_extremum)\n    upper = max(0, y0_extremum)\n    ax.vlines(root, lower, upper, color='r')\nax.hlines(0, 0, xmax, color='k')\nax.set_ylim(-0.6, 0.6)\nax.set_xlim(0, xmax)\nplt.legend()\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.special._basic:ynp_zeros-0-54aeac0f.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/special/_basic.py",
+  "item_line": 508,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.special._basic:yvp",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "yvp"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(n, nt)"
+  },
+  "type": "DocBlob"
+}

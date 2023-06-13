@@ -1,0 +1,915 @@
+{
+  "aliases": [
+    "scipy.integrate.LSODA"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of equations."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "n",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Current status of the solver: 'running', 'finished' or 'failed'."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "status",
+              "type": "Param",
+              "type_": "string"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Boundary time."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "t_bound",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Integration direction: +1 or -1."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "direction",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Current time."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "t",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Current state."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "y",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Previous time. None if no steps were made yet."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "t_old",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of evaluations of the right-hand side."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "nfev",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of evaluations of the Jacobian."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "njev",
+              "type": "Param",
+              "type_": "int"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This is a wrapper to the Fortran solver from ODEPACK . It switches automatically between the nonstiff Adams method and the stiff BDF method. The method was originally detailed in ."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Right-hand side of the system. The calling signature is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "fun(t, y)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Here "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "t"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a scalar, and there are two options for the ndarray "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "y"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": It can either have shape (n,); then "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "fun"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must return array_like with shape (n,). Alternatively it can have shape (n, k); then "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "fun"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must return an array_like with shape (n, k), i.e. each column corresponds to a single column in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "y"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". The choice between the two options is determined by "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "vectorized",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "vectorized"
+                    },
+                    {
+                      "type": "text",
+                      "value": " argument (see below). The vectorized implementation allows a faster approximation of the Jacobian by finite differences (required for this solver)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fun",
+              "type": "Param",
+              "type_": "callable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Initial time."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "t0",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Initial state."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "y0",
+              "type": "Param",
+              "type_": "array_like, shape (n,)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Boundary time - the integration won't continue beyond it. It also determines the direction of the integration."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "t_bound",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Initial step size. Default is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": " which means that the algorithm should choose."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "first_step",
+              "type": "Param",
+              "type_": "float or None, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Minimum allowed step size. Default is 0.0, i.e., the step size is not bounded and determined solely by the solver."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "min_step",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum allowed step size. Default is np.inf, i.e., the step size is not bounded and determined solely by the solver."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "max_step",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Relative and absolute tolerances. The solver keeps the local error estimates less than "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "atol + rtol * abs(y)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Here "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "rtol",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "rtol"
+                    },
+                    {
+                      "type": "text",
+                      "value": " controls a relative accuracy (number of correct digits), while "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "atol",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "atol"
+                    },
+                    {
+                      "type": "text",
+                      "value": " controls absolute accuracy (number of correct decimal places). To achieve the desired "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "rtol",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "rtol"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", set "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "atol",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "atol"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to be smaller than the smallest value that can be expected from "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "rtol * abs(y)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " so that "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "rtol",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "rtol"
+                    },
+                    {
+                      "type": "text",
+                      "value": " dominates the allowable error. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "atol",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "atol"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is larger than "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "rtol * abs(y)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " the number of correct digits is not guaranteed. Conversely, to achieve the desired "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "atol",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "atol"
+                    },
+                    {
+                      "type": "text",
+                      "value": " set "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "rtol",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "rtol"
+                    },
+                    {
+                      "type": "text",
+                      "value": " such that "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "rtol * abs(y)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is always smaller than "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "atol",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "atol"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If components of y have different scales, it might be beneficial to set different "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "atol",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "atol"
+                    },
+                    {
+                      "type": "text",
+                      "value": " values for different components by passing array_like with shape (n,) for "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "atol",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "atol"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Default values are 1e-3 for "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "rtol",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "rtol"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and 1e-6 for "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "atol",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "atol"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "rtol, atol",
+              "type": "Param",
+              "type_": "float and array_like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Jacobian matrix of the right-hand side of the system with respect to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "y"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". The Jacobian matrix has shape (n, n) and its element (i, j) is equal to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "d f_i / d y_j"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". The function will be called as "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "jac(t, y)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If None (default), the Jacobian will be approximated by finite differences. It is generally recommended to provide the Jacobian rather than relying on a finite-difference approximation."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "jac",
+              "type": "Param",
+              "type_": "None or callable, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Parameters defining the bandwidth of the Jacobian, i.e., "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "jac[i, j] != 0 only for i - lband <= j <= i + uband"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Setting these requires your jac routine to return the Jacobian in the packed format: the returned array must have "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "n"
+                    },
+                    {
+                      "type": "text",
+                      "value": " columns and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "uband + lband + 1"
+                    },
+                    {
+                      "type": "text",
+                      "value": " rows in which Jacobian diagonals are written. Specifically "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "jac_packed[uband + i - j , j] = jac[i, j]"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". The same format is used in "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "scipy.linalg._basic",
+                        "path": "scipy.linalg._basic:solve_banded",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "scipy.linalg.solve_banded"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (check for an illustration). These parameters can be also used with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "jac=None"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to reduce the number of Jacobian elements estimated by finite differences."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "lband, uband",
+              "type": "Param",
+              "type_": "int or None"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "fun",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "fun"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is implemented in a vectorized fashion. A vectorized implementation offers no advantages for this solver. Default is False."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "vectorized",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Adams/BDF method with automatic stiffness detection and switching."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/integrate/_ivp/lsoda.py",
+  "item_line": 7,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Attributes",
+    "References"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

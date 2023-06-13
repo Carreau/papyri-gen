@@ -1,0 +1,199 @@
+{
+  "aliases": [
+    "dask.array.core._Recurser.map_reduce"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For instance, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "map_reduce([[1, 2], 3, 4])"
+            },
+            {
+              "type": "text",
+              "value": " is      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "f_reduce([\n  f_reduce([\n    f_map(1),\n    f_map(2)\n  ]),\n  f_map(3),\n  f_map(4)\n]])"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "State can be passed down through the calls with "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "f_kwargs"
+            },
+            {
+              "type": "text",
+              "value": ", to iterables of mapped items. When kwargs are passed, as in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "map_reduce([[1, 2], 3, 4], **kw)"
+            },
+            {
+              "type": "text",
+              "value": ", this becomes      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "kw1 = f_kwargs(**kw)\nkw2 = f_kwargs(**kw1)\nf_reduce([\n  f_reduce([\n    f_map(1), **kw2)\n    f_map(2,  **kw2)\n  ],      **kw1),\n  f_map(3, **kw1),\n  f_map(4, **kw1)\n]],     **kw)"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Iterate over the nested list, applying: * "
+            },
+            {
+              "type": "inlineCode",
+              "value": "f_map"
+            },
+            {
+              "type": "text",
+              "value": " (T -> U) to items * "
+            },
+            {
+              "type": "inlineCode",
+              "value": "f_reduce"
+            },
+            {
+              "type": "text",
+              "value": " (Iterable[U] -> U) to mapped items"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dask/array/numpy_compat.py",
+  "item_line": 64,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, x, f_map=<function _Recurser.<lambda> at 0x10bfc9800>, f_reduce=<function _Recurser.<lambda> at 0x10bfc98a0>, f_kwargs=<function _Recurser.<lambda> at 0x10bfc9940>, **kwargs)"
+  },
+  "type": "DocBlob"
+}

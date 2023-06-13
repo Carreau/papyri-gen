@@ -1,0 +1,481 @@
+{
+  "aliases": [
+    "networkx.configuration_model"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The configuration model generates a random pseudograph (graph with parallel edges and self loops) by randomly assigning edges to match the given degree sequence."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "As described by Newman ."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A non-graphical degree sequence (not realizable by some simple graph) is allowed since this function returns graphs with self loops and parallel edges.  An exception is raised if the degree sequence does not have an even sum."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This configuration model construction process can lead to duplicate edges and loops.  You can remove the self-loops and parallel edges (see below) which will likely result in a graph that doesn't have the exact degree sequence specified."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The density of self-loops and parallel edges tends to decrease as the number of nodes increases. However, typically the number of self-loops will approach a Poisson distribution with a nonzero mean, and similarly for the number of parallel edges.  Consider a node with "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "k"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " stubs. The probability of being joined to another stub of the same node is basically ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "k"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " - "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "1"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": ") / "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "N"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": ", where "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "k"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " is the degree and "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "N"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " is the number of nodes. So the probability of a self-loop scales like "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "c"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " / "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "N"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " for some constant "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "c"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": ". As "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "N"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " grows, this means we expect "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "c"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " self-loops. Similarly for parallel edges."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Each list entry corresponds to the degree of a node."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "deg_sequence",
+              "type": "Param",
+              "type_": "list of nonnegative integers"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Graph type to create. If graph instance, then cleared before populated."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "create_using",
+              "type": "Param",
+              "type_": "NetworkX graph constructor, optional (default MultiGraph)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Indicator of random number generation state. See "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Randomness<randomness>"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "seed",
+              "type": "Param",
+              "type_": "integer, random_state, or None (default)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If the degree sequence does not have an even sum."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "NetworkXError"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A graph with the specified degree sequence. Nodes are labeled starting at 0 with an index corresponding to the position in deg_sequence."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "G",
+              "type": "Param",
+              "type_": "MultiGraph"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Returns a random graph with the given degree sequence."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "You can create a degree sequence following a particular distribution\nby using the one of the distribution functions in\n:mod:`~networkx.utils.random_sequence` (or one of your own). For\nexample, to create an undirected multigraph on one hundred nodes\nwith degree sequence chosen from the power law distribution:"
+      },
+      {
+        "type": "code",
+        "value": "sequence = nx.random_powerlaw_tree_sequence(100, tries=5000)\nG = nx.configuration_model(sequence)\nlen(G)"
+      },
+      {
+        "type": "code",
+        "value": "actual_degrees = [d for v, d in G.degree()]\nactual_degrees == sequence"
+      },
+      {
+        "type": "text",
+        "value": "The returned graph is a multigraph, which may have parallel\nedges. To remove any parallel edges from the returned graph:"
+      },
+      {
+        "type": "code",
+        "value": "G = nx.Graph(G)"
+      },
+      {
+        "type": "text",
+        "value": "Similarly, to remove self-loops:"
+      },
+      {
+        "type": "code",
+        "value": "G.remove_edges_from(nx.selfloop_edges(G))"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/generators/degree_seq.py",
+  "item_line": 126,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "networkx",
+          "path": "networkx.algorithms.graphical:is_graphical",
+          "type": "RefInfo",
+          "version": "3.1"
+        },
+        "type": "Link",
+        "value": "is_graphical"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(deg_sequence, create_using=None, seed=None)"
+  },
+  "type": "DocBlob"
+}

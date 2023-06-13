@@ -1,0 +1,339 @@
+{
+  "aliases": [
+    "scipy.interpolate._fitpack_impl.splantider"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "splder"
+            },
+            {
+              "type": "text",
+              "value": " function is the inverse operation of this function. Namely, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "splder(splantider(tck))"
+            },
+            {
+              "type": "text",
+              "value": " is identical to "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "tck",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "tck"
+            },
+            {
+              "type": "text",
+              "value": ", modulo rounding error."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 0.13.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Spline whose antiderivative to compute"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "tck",
+              "type": "Param",
+              "type_": "tuple of (t, c, k)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Order of antiderivative to evaluate. Default: 1"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "n",
+              "type": "Param",
+              "type_": "int, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Spline of order k2=k+n representing the antiderivative of the input spline."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "tck_ader",
+              "type": "Param",
+              "type_": "tuple of (t2, c2, k2)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute the spline for the antiderivative (integral) of a given spline."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from scipy.interpolate import splrep, splder, splantider, splev\nx = np.linspace(0, np.pi/2, 70)\ny = 1 / np.sqrt(1 - 0.8*np.sin(x)**2)\nspl = splrep(x, y)"
+      },
+      {
+        "type": "text",
+        "value": "The derivative is the inverse operation of the antiderivative,\nalthough some floating point error accumulates:"
+      },
+      {
+        "type": "code",
+        "value": "splev(1.7, spl), splev(1.7, splder(splantider(spl)))"
+      },
+      {
+        "type": "text",
+        "value": "Antiderivative can be used to evaluate definite integrals:"
+      },
+      {
+        "type": "code",
+        "value": "ispl = splantider(spl)\nsplev(np.pi/2, ispl) - splev(0, ispl)"
+      },
+      {
+        "type": "text",
+        "value": "This is indeed an approximation to the complete elliptic integral\n:math:`K(m) = \\int_0^{\\pi/2} [1 - m\\sin^2 x]^{-1/2} dx`:"
+      },
+      {
+        "type": "code",
+        "value": "from scipy.special import ellipk\nellipk(0.8)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/interpolate/_fitpack_impl.py",
+  "item_line": 1235,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "splder",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "splder"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "splev",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "splev"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "spalde",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "spalde"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(tck, n=1)"
+  },
+  "type": "DocBlob"
+}

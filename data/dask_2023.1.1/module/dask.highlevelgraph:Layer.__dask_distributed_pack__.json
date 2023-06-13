@@ -1,0 +1,252 @@
+{
+  "aliases": [
+    "dask.blockwise.Layer.__dask_distributed_pack__"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This method should pack its current state and is called by the Client when communicating with the Scheduler. The Scheduler will then use .__dask_distributed_unpack__(data, ...) to unpack the state, materialize the layer, and merge it into the global task graph."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The returned state must be compatible with Distributed's scheduler, which means it must obey the following:   - Serializable by msgpack (notice, msgpack converts lists to tuples)   - All remote data must be unpacked (see unpack_remotedata())   - All keys must be converted to strings now or when unpacking   - All tasks must be serialized (see dumps_task())"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The default implementation materialize the layer thus layers such as Blockwise and ShuffleLayer should implement a specialized pack and unpack function in order to avoid materialization."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "All keys in the high level graph"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "all_hlg_keys: Iterable[Hashable]",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Already known dependencies"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "known_key_dependencies: Mapping[Hashable, Set]",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The client calling this function."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "client: distributed.Client",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "List of keys requested by the client."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "client_keys",
+              "type": "Param",
+              "type_": "Iterable[Hashable]"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Scheduler compatible state of the layer"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "state: Object serializable by msgpack"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Pack the layer for scheduler communication in Distributed"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dask/highlevelgraph.py",
+  "item_line": 320,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, all_hlg_keys: 'Iterable[Hashable]', known_key_dependencies: 'Mapping[Hashable, Set]', client, client_keys: 'Iterable[Hashable]') -> 'Any'"
+  },
+  "type": "DocBlob"
+}

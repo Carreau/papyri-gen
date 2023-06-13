@@ -1,0 +1,752 @@
+{
+  "aliases": [
+    "dask.array.from_array"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Input must have a "
+            },
+            {
+              "type": "inlineCode",
+              "value": ".shape"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": ".ndim"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": ".dtype"
+            },
+            {
+              "type": "text",
+              "value": " and support numpy-style slicing."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "x",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "How to chunk the array. Must be one of the following forms:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "A blocksize like 1000."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "A blockshape like (1000, 1000)."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Explicit sizes of all blocks along all dimensions like   ((1000, 1000, 500), (400, 400))."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "A size in bytes, like \"100 MiB\" which will choose a uniform   block-like shape"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "The word \"auto\" which acts like the above, but uses a configuration   value "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "array.chunk-size"
+                            },
+                            {
+                              "type": "text",
+                              "value": " for the chunk size"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "-1 or None as a blocksize indicate the size of the corresponding dimension."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "chunks",
+              "type": "Param",
+              "type_": "int, tuple"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The key name to use for the array. Defaults to a hash of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Hashing is useful if the same value of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is used to create multiple arrays, as Dask can then recognise that they're the same and avoid duplicate computations. However, it can also be slow, and if the array is not contiguous it is copied for hashing. If the array uses stride tricks (such as "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "numpy.broadcast_to"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "skimage.util.view_as_windows"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") to have a larger logical than physical size, this copy can cause excessive memory usage."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If you don't need the deduplication provided by hashing, use "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "name=False"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to generate a random name instead of hashing, which avoids the pitfalls described above. Using "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "name=True"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is equivalent to the default."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "By default, hashing uses python's standard sha1. This behaviour can be changed by installing cityhash, xxhash or murmurhash. If installed, a large-factor speedup can be obtained in the tokenisation step."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "note "
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Because this "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "name"
+                        },
+                        {
+                          "type": "text",
+                          "value": " is used as the key in task graphs, you should ensure that it uniquely identifies the data contained within. If you'd like to provide a descriptive name that is still unique, combine the descriptive name with "
+                        },
+                        {
+                          "domain": null,
+                          "role": "func",
+                          "type": "Directive",
+                          "value": "dask.base.tokenize"
+                        },
+                        {
+                          "type": "text",
+                          "value": " of the "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "array_like"
+                        },
+                        {
+                          "type": "text",
+                          "value": ". See "
+                        },
+                        {
+                          "domain": null,
+                          "role": "ref",
+                          "type": "Directive",
+                          "value": "graphs"
+                        },
+                        {
+                          "type": "text",
+                          "value": " for more."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "name",
+              "type": "Param",
+              "type_": "str or bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " doesn't support concurrent reads then provide a lock here, or pass in True to have dask.array create one for you."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "lock",
+              "type": "Param",
+              "type_": "bool or Lock, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True then call np.asarray on chunks to convert them to numpy arrays. If False then chunks are passed through unchanged. If None (default) then we use True if the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "__array_function__"
+                    },
+                    {
+                      "type": "text",
+                      "value": " method is undefined."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "note "
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Dask does not preserve the memory layout of the original array when the array is created using Fortran rather than C ordering."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "asarray",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " doesn't support fancy indexing (e.g. indexing with lists or arrays) then set to False. Default is True."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fancy",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The metadata for the resulting dask array.  This is the kind of array that will result from slicing the input array. Defaults to the input array."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "meta",
+              "type": "Param",
+              "type_": "Array-like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "How to include the array in the task graph. By default ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "inline_array=False"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") the array is included in a task by itself, and each chunk refers to that task by its key."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "args": "python",
+                  "children": [],
+                  "name": "code-block",
+                  "options": {},
+                  "type": "mystDirective",
+                  "value": ">>> x = h5py.File(\"data.h5\")[\"/x\"]  # doctest: +SKIP\n>>> a = da.from_array(x, chunks=500)  # doctest: +SKIP\n>>> dict(a.dask)  # doctest: +SKIP\n{\n   'array-original-<name>': <HDF5 dataset ...>,\n   ('array-<name>', 0): (getitem, \"array-original-<name>\", ...),\n   ('array-<name>', 1): (getitem, \"array-original-<name>\", ...)\n}"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "With "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "inline_array=True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", Dask will instead inline the array directly in the values of the task graph."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "args": "python",
+                  "children": [],
+                  "name": "code-block",
+                  "options": {},
+                  "type": "mystDirective",
+                  "value": ">>> a = da.from_array(x, chunks=500, inline_array=True)  # doctest: +SKIP\n>>> dict(a.dask)  # doctest: +SKIP\n{\n   ('array-<name>', 0): (getitem, <HDF5 dataset ...>, ...),\n   ('array-<name>', 1): (getitem, <HDF5 dataset ...>, ...)\n}"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Note that there's no key in the task graph with just the array "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " anymore. Instead it's placed directly in the values."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The right choice for "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "inline_array"
+                    },
+                    {
+                      "type": "text",
+                      "value": " depends on several factors, including the size of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", how expensive it is to create, which scheduler you're using, and the pattern of downstream computations. As a heuristic, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "inline_array=True"
+                    },
+                    {
+                      "type": "text",
+                      "value": " may be the right choice when the array "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is cheap to serialize and deserialize (since it's included in the graph many times) and if you're experiencing ordering issues (see "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "order"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for more)."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This has no effect when "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a NumPy array."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "inline_array",
+              "type": "Param",
+              "type_": "bool, default False"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Create dask array from something that looks like an array."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "x = h5py.File('...')['/data/path']  # doctest: +SKIP\na = da.from_array(x, chunks=(1000, 1000))  # doctest: +SKIP"
+      },
+      {
+        "type": "text",
+        "value": "If your underlying datastore does not support concurrent reads then include\nthe ``lock=True`` keyword argument or ``lock=mylock`` if you want multiple\narrays to coordinate around the same lock."
+      },
+      {
+        "type": "code",
+        "value": "a = da.from_array(x, chunks=(1000, 1000), lock=True)  # doctest: +SKIP"
+      },
+      {
+        "type": "text",
+        "value": "If your underlying datastore has a ``.chunks`` attribute (as h5py and zarr\ndatasets do) then a multiple of that chunk shape will be used if you\ndo not provide a chunk shape."
+      },
+      {
+        "type": "code",
+        "value": "a = da.from_array(x, chunks='auto')  # doctest: +SKIP\na = da.from_array(x, chunks='100 MiB')  # doctest: +SKIP\na = da.from_array(x)  # doctest: +SKIP"
+      },
+      {
+        "type": "text",
+        "value": "If providing a name, ensure that it is unique"
+      },
+      {
+        "type": "code",
+        "value": "import dask.base\ntoken = dask.base.tokenize(x)  # doctest: +SKIP\na = da.from_array('myarray-' + token)  # doctest: +SKIP"
+      },
+      {
+        "type": "text",
+        "value": "NumPy ndarrays are eagerly sliced and then embedded in the graph."
+      },
+      {
+        "type": "code",
+        "value": "import dask.array\na = dask.array.from_array(np.array([[1, 2], [3, 4]]), chunks=(1,1))\na.dask[a.name, 0, 0][0]"
+      },
+      {
+        "type": "text",
+        "value": "Chunks with exactly-specified, different sizes can be created."
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nimport dask.array as da\nx = np.random.random((100, 6))\na = da.from_array(x, chunks=((67, 33), (6,)))"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dask/array/core.py",
+  "item_line": 3294,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(x, chunks='auto', name=None, lock=False, asarray=None, fancy=True, getitem=None, meta=None, inline_array=False)"
+  },
+  "type": "DocBlob"
+}

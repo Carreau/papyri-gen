@@ -1,0 +1,1327 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Polynomials in NumPy can be "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "created"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "manipulated"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": ", and even "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "fitted"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " using the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "convenience classes <routines.polynomials.classes>"
+            },
+            {
+              "type": "text",
+              "value": " of the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy",
+                "path": "numpy.polynomial",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "numpy.polynomial"
+            },
+            {
+              "type": "text",
+              "value": " package, introduced in NumPy 1.4."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Prior to NumPy 1.4, "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy:poly1d",
+                "path": "numpy:poly1d",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "numpy.poly1d"
+            },
+            {
+              "type": "text",
+              "value": " was the class of choice and it is still available in order to maintain backward compatibility. However, the newer "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "polynomial package <numpy.polynomial>"
+            },
+            {
+              "type": "text",
+              "value": " is more complete and its "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "convenience classes <routines.polynomials.classes>"
+            },
+            {
+              "type": "text",
+              "value": " provide a more consistent, better-behaved interface for working with polynomial expressions. Therefore "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.polynomial"
+            },
+            {
+              "type": "text",
+              "value": " is recommended for new coding."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "note **Terminology**"
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "The term "
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "polynomial module"
+                    }
+                  ],
+                  "type": "emphasis"
+                },
+                {
+                  "type": "text",
+                  "value": " refers to the old API defined in "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "numpy.lib.polynomial"
+                },
+                {
+                  "type": "text",
+                  "value": ", which includes the "
+                },
+                {
+                  "domain": null,
+                  "role": "class",
+                  "type": "Directive",
+                  "value": "numpy.poly1d"
+                },
+                {
+                  "type": "text",
+                  "value": " class and the polynomial functions prefixed with "
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "poly"
+                    }
+                  ],
+                  "type": "emphasis"
+                },
+                {
+                  "type": "text",
+                  "value": " accessible from the "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "numpy"
+                },
+                {
+                  "type": "text",
+                  "value": " namespace (e.g. "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "numpy.polyadd"
+                },
+                {
+                  "type": "text",
+                  "value": ", "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "numpy.polyval"
+                },
+                {
+                  "type": "text",
+                  "value": ", "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "numpy.polyfit"
+                },
+                {
+                  "type": "text",
+                  "value": ", etc.)."
+                }
+              ],
+              "type": "paragraph"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "The term "
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "polynomial package"
+                    }
+                  ],
+                  "type": "emphasis"
+                },
+                {
+                  "type": "text",
+                  "value": " refers to the new API defined in  "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "numpy.polynomial"
+                },
+                {
+                  "type": "text",
+                  "value": ", which includes the convenience classes for the different kinds of polynomials ("
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "numpy.polynomial.Polynomial"
+                },
+                {
+                  "type": "text",
+                  "value": ", "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "numpy.polynomial.Chebyshev"
+                },
+                {
+                  "type": "text",
+                  "value": ", etc.)."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": "routines.polynomial",
+      "title": "Polynomials",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "As noted above, the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "poly1d class <numpy.poly1d>"
+            },
+            {
+              "type": "text",
+              "value": " and associated functions defined in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.lib.polynomial"
+            },
+            {
+              "type": "text",
+              "value": ", such as "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy:polyfit",
+                "path": "numpy:polyfit",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "numpy.polyfit"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy:poly",
+                "path": "numpy:poly",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "numpy.poly"
+            },
+            {
+              "type": "text",
+              "value": ", are considered legacy and should "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "not"
+                }
+              ],
+              "type": "strong"
+            },
+            {
+              "type": "text",
+              "value": " be used in new code. Since NumPy version 1.4, the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy",
+                "path": "numpy.polynomial",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "numpy.polynomial"
+            },
+            {
+              "type": "text",
+              "value": " package is preferred for working with polynomials."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Transitioning from `numpy.poly1d` to `numpy.polynomial`",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The following table highlights some of the main differences between the legacy polynomial module and the polynomial package for common tasks. The "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy",
+                "path": "numpy.polynomial.polynomial:Polynomial",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "Polynomial"
+            },
+            {
+              "type": "text",
+              "value": " class is imported for brevity      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "from numpy.polynomial import Polynomial"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "+------------------------+------------------------------+---------------------------------------+ |  "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "How to..."
+                }
+              ],
+              "type": "strong"
+            },
+            {
+              "type": "text",
+              "value": "         | Legacy ("
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy:poly1d",
+                "path": "numpy:poly1d",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "numpy.poly1d"
+            },
+            {
+              "type": "text",
+              "value": ")      | "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy",
+                "path": "numpy.polynomial",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "numpy.polynomial"
+            },
+            {
+              "type": "text",
+              "value": "                    | +------------------------+------------------------------+---------------------------------------+ | Create a               | "
+            },
+            {
+              "type": "inlineCode",
+              "value": "p = np.poly1d([1, 2, 3])"
+            },
+            {
+              "type": "text",
+              "value": " | "
+            },
+            {
+              "type": "inlineCode",
+              "value": "p = Polynomial([3, 2, 1])"
+            },
+            {
+              "type": "text",
+              "value": "         | | polynomial object      |                              |                                       | | from coefficients  |                              |                                       | +------------------------+------------------------------+---------------------------------------+ | Create a polynomial    | "
+            },
+            {
+              "type": "inlineCode",
+              "value": "r = np.poly([-1, 1])"
+            },
+            {
+              "type": "text",
+              "value": "     | "
+            },
+            {
+              "type": "inlineCode",
+              "value": "p = Polynomial.fromroots([-1, 1])"
+            },
+            {
+              "type": "text",
+              "value": " | | object from roots      | "
+            },
+            {
+              "type": "inlineCode",
+              "value": "p = np.poly1d(r)"
+            },
+            {
+              "type": "text",
+              "value": "         |                                       | +------------------------+------------------------------+---------------------------------------+ | Fit a polynomial of    |                              |                                       | | degree "
+            },
+            {
+              "type": "inlineCode",
+              "value": "deg"
+            },
+            {
+              "type": "text",
+              "value": " to data | "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.polyfit(x, y, deg)"
+            },
+            {
+              "type": "text",
+              "value": "    | "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Polynomial.fit(x, y, deg)"
+            },
+            {
+              "type": "text",
+              "value": "         | +------------------------+------------------------------+---------------------------------------+"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "placeholder": "footnote",
+          "type": "Unimplemented",
+          "value": ".. [1] Note the reversed ordering of the coefficients"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Quick Reference",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "There are significant differences between "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.lib.polynomial"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy",
+                "path": "numpy.polynomial",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "numpy.polynomial"
+            },
+            {
+              "type": "text",
+              "value": ". The most significant difference is the ordering of the coefficients for the polynomial expressions. The  various routines in "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy",
+                "path": "numpy.polynomial",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "numpy.polynomial"
+            },
+            {
+              "type": "text",
+              "value": " all deal with series whose coefficients go from degree zero upward, which is the "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "reverse order"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " of the poly1d convention. The easy way to remember this is that indices correspond to degree, i.e., "
+            },
+            {
+              "type": "inlineCode",
+              "value": "coef[i]"
+            },
+            {
+              "type": "text",
+              "value": " is the coefficient of the term of degree "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "i"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Though the difference in convention may be confusing, it is straightforward to convert from the legacy polynomial API to the new. For example, the following demonstrates how you would convert a "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy:poly1d",
+                "path": "numpy:poly1d",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "numpy.poly1d"
+            },
+            {
+              "type": "text",
+              "value": " instance representing the expression "
+            },
+            {
+              "type": "inlineMath",
+              "value": "x^{2} + 2x + 3"
+            },
+            {
+              "type": "text",
+              "value": " to a "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy",
+                "path": "numpy.polynomial.polynomial:Polynomial",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "Polynomial"
+            },
+            {
+              "type": "text",
+              "value": " instance representing the same expression      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> p1d = np.poly1d([1, 2, 3])\n>>> p = np.polynomial.Polynomial(p1d.coef[::-1])"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In addition to the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "coef"
+            },
+            {
+              "type": "text",
+              "value": " attribute, polynomials from the polynomial package also have "
+            },
+            {
+              "type": "inlineCode",
+              "value": "domain"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "window"
+            },
+            {
+              "type": "text",
+              "value": " attributes. These attributes are most relevant when fitting polynomials to data, though it should be noted that polynomials with different "
+            },
+            {
+              "type": "inlineCode",
+              "value": "domain"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "window"
+            },
+            {
+              "type": "text",
+              "value": " attributes are not considered equal, and can't be mixed in arithmetic      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> p1 = np.polynomial.Polynomial([1, 2, 3])\n>>> p1\nPolynomial([1., 2., 3.], domain=[-1,  1], window=[-1,  1], symbol='x')\n>>> p2 = np.polynomial.Polynomial([1, 2, 3], domain=[-2, 2])\n>>> p1 == p2\nFalse\n>>> p1 + p2\nTraceback (most recent call last):\n    ...\nTypeError: Domains differ"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "See the documentation for the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "convenience classes <routines.polynomials.classes>"
+            },
+            {
+              "type": "text",
+              "value": " for further details on the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "domain"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "window"
+            },
+            {
+              "type": "text",
+              "value": " attributes."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Another major difference between the legacy polynomial module and the polynomial package is polynomial fitting. In the old module, fitting was done via the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy:polyfit",
+                "path": "numpy:polyfit",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "polyfit"
+            },
+            {
+              "type": "text",
+              "value": " function. In the polynomial package, the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy",
+                "path": "numpy.polynomial._polybase:ABCPolyBase.fit",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "fit"
+            },
+            {
+              "type": "text",
+              "value": " class method is preferred. For example, consider a simple linear fit to the following data:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "python",
+          "children": [],
+          "name": "ipython",
+          "options": {},
+          "type": "mystDirective",
+          "value": "rng = np.random.default_rng()\nx = np.arange(10)\ny = np.arange(10) + rng.standard_normal(10)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "With the legacy polynomial module, a linear fit (i.e. polynomial of degree 1) could be applied to these data with "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy:polyfit",
+                "path": "numpy:polyfit",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "polyfit"
+            },
+            {
+              "type": "text",
+              "value": ":"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "python",
+          "children": [],
+          "name": "ipython",
+          "options": {},
+          "type": "mystDirective",
+          "value": "np.polyfit(x, y, deg=1)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "With the new polynomial API, the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy",
+                "path": "numpy.polynomial._polybase:ABCPolyBase.fit",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "fit"
+            },
+            {
+              "type": "text",
+              "value": " class method is preferred:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "python",
+          "children": [],
+          "name": "ipython",
+          "options": {},
+          "type": "mystDirective",
+          "value": "p_fitted = np.polynomial.Polynomial.fit(x, y, deg=1)\np_fitted"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Note that the coefficients are given "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "in the scaled domain"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " defined by the linear mapping between the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "window"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "domain"
+            },
+            {
+              "type": "text",
+              "value": ". "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy",
+                "path": "numpy.polynomial._polybase:ABCPolyBase.convert",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "convert"
+            },
+            {
+              "type": "text",
+              "value": " can be used to get the coefficients in the unscaled data domain."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "python",
+          "children": [],
+          "name": "ipython",
+          "options": {},
+          "type": "mystDirective",
+          "value": "p_fitted.convert()"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Transition Guide",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In addition to standard power series polynomials, the polynomial package provides several additional kinds of polynomials including Chebyshev, Hermite (two subtypes), Laguerre, and Legendre polynomials. Each of these has an associated "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "convenience class <routines.polynomials.classes>"
+            },
+            {
+              "type": "text",
+              "value": " available from the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy",
+                "path": "numpy.polynomial",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "numpy.polynomial"
+            },
+            {
+              "type": "text",
+              "value": " namespace that provides a consistent interface for working with polynomials regardless of their type."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "exists",
+                      "reference": {
+                        "kind": "?",
+                        "module": "",
+                        "path": "routines.polynomials.classes",
+                        "type": "RefInfo",
+                        "version": ""
+                      },
+                      "type": "Link",
+                      "value": "routines.polynomials.classes"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Documentation pertaining to specific functions defined for each kind of polynomial individually can be found in the corresponding module documentation:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "exists",
+                      "reference": {
+                        "kind": "?",
+                        "module": "",
+                        "path": "routines.polynomials.polynomial",
+                        "type": "RefInfo",
+                        "version": ""
+                      },
+                      "type": "Link",
+                      "value": "routines.polynomials.polynomial"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "exists",
+                      "reference": {
+                        "kind": "?",
+                        "module": "",
+                        "path": "routines.polynomials.chebyshev",
+                        "type": "RefInfo",
+                        "version": ""
+                      },
+                      "type": "Link",
+                      "value": "routines.polynomials.chebyshev"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "exists",
+                      "reference": {
+                        "kind": "?",
+                        "module": "",
+                        "path": "routines.polynomials.hermite",
+                        "type": "RefInfo",
+                        "version": ""
+                      },
+                      "type": "Link",
+                      "value": "routines.polynomials.hermite"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "exists",
+                      "reference": {
+                        "kind": "?",
+                        "module": "",
+                        "path": "routines.polynomials.hermite_e",
+                        "type": "RefInfo",
+                        "version": ""
+                      },
+                      "type": "Link",
+                      "value": "routines.polynomials.hermite_e"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "exists",
+                      "reference": {
+                        "kind": "?",
+                        "module": "",
+                        "path": "routines.polynomials.laguerre",
+                        "type": "RefInfo",
+                        "version": ""
+                      },
+                      "type": "Link",
+                      "value": "routines.polynomials.laguerre"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "exists",
+                      "reference": {
+                        "kind": "?",
+                        "module": "",
+                        "path": "routines.polynomials.legendre",
+                        "type": "RefInfo",
+                        "version": ""
+                      },
+                      "type": "Link",
+                      "value": "routines.polynomials.legendre"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "exists",
+                      "reference": {
+                        "kind": "?",
+                        "module": "",
+                        "path": "routines.polynomials.polyutils",
+                        "type": "RefInfo",
+                        "version": ""
+                      },
+                      "type": "Link",
+                      "value": "routines.polynomials.polyutils"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Documentation for the `~numpy.polynomial` Package",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "exists",
+                      "reference": {
+                        "kind": "?",
+                        "module": "",
+                        "path": "routines.polynomials.poly1d",
+                        "type": "RefInfo",
+                        "version": ""
+                      },
+                      "type": "Link",
+                      "value": "routines.polynomials.poly1d"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Documentation for Legacy Polynomials",
+      "type": "Section"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,467 @@
+{
+  "aliases": [
+    "skimage.measure.regionprops_table"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The table is a dictionary mapping column names to value arrays. See Notes section below for details."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 0.16"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Each column contains either a scalar property, an object property, or an element in a multidimensional array."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Properties with scalar values for each region, such as \"eccentricity\", will appear as a float or int array with that property name as key."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Multidimensional properties "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "of fixed size"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " for a given image dimension, such as \"centroid\" (every centroid will have three elements in a 3D image, no matter the region size), will be split into that many columns, with the name {property_name}{separator}{element_num} (for 1D properties), {property_name}{separator}{elem_num0}{separator}{elem_num1} (for 2D properties), and so on."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For multidimensional properties that don't have a fixed size, such as \"image\" (the image of a region varies in size depending on the region size), an object array will be used, with the corresponding property name as the key."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Labeled input image. Labels with value 0 are ignored."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "label_image",
+              "type": "Param",
+              "type_": "(N, M[, P]) ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Intensity (i.e., input) image with same size as labeled image, plus optionally an extra dimension for multichannel data. Currently, this extra channel dimension, if present, must be the last axis. Default is None."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionchanged 0.18.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "The ability to provide an extra dimension for channels was added."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "intensity_image",
+              "type": "Param",
+              "type_": "(M, N[, P][, C]) ndarray, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Properties that will be included in the resulting dictionary For a list of available properties, please see "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "regionprops"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Users should remember to add \"label\" to keep track of region identities."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "properties",
+              "type": "Param",
+              "type_": "tuple or list of str, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Determine whether to cache calculated properties. The computation is much faster for cached properties, whereas the memory consumption increases."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "cache",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "For non-scalar properties not listed in OBJECT_COLUMNS, each element will appear in its own column, with the index of that element separated from the property name by this separator. For example, the inertia tensor of a 2D region will appear in four columns: "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "inertia_tensor-0-0"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "inertia_tensor-0-1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "inertia_tensor-1-0"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "inertia_tensor-1-1"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (where the separator is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "-"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Object columns are those that cannot be split in this way because the number of columns would change depending on the object. For example, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "image"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "coords"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "separator",
+              "type": "Param",
+              "type_": "str, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Add extra property computation functions that are not included with skimage. The name of the property is derived from the function name, the dtype is inferred by calling the function on a small sample. If the name of an extra property clashes with the name of an existing property the extra property wil not be visible and a UserWarning is issued. A property computation function must take a region mask as its first argument. If the property requires an intensity image, it must accept the intensity image as the second argument."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "extra_properties",
+              "type": "Param",
+              "type_": "Iterable of callables"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Dictionary mapping property names to an array of values of that property, one value per region. This dictionary can be used as input to pandas "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "DataFrame"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to map property names to columns in the frame and regions to rows. If the image has no regions, the arrays will have length 0, but the correct type."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "out_dict",
+              "type": "Param",
+              "type_": "dict"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute image properties and return them as a pandas-compatible table."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from skimage import data, util, measure\nimage = data.coins()\nlabel_image = measure.label(image > 110, connectivity=image.ndim)\nprops = measure.regionprops_table(label_image, image,\n                          properties=['label', 'inertia_tensor',\n                                      'inertia_tensor_eigvals'])\nprops  # doctest: +ELLIPSIS +SKIP"
+      },
+      {
+        "type": "text",
+        "value": "The resulting dictionary can be directly passed to pandas, if installed, to\nobtain a clean DataFrame:"
+      },
+      {
+        "type": "code",
+        "value": "import pandas as pd  # doctest: +SKIP\ndata = pd.DataFrame(props)  # doctest: +SKIP\ndata.head()  # doctest: +SKIP"
+      },
+      {
+        "type": "text",
+        "value": "[5 rows x 7 columns]"
+      },
+      {
+        "type": "text",
+        "value": "If we want to measure a feature that does not come as a built-in\nproperty, we can define custom functions and pass them as\n``extra_properties``. For example, we can create a custom function\nthat measures the intensity quartiles in a region:"
+      },
+      {
+        "type": "code",
+        "value": "from skimage import data, util, measure\nimport numpy as np\ndef quartiles(regionmask, intensity):\n    return np.percentile(intensity[regionmask], q=(25, 50, 75))"
+      },
+      {
+        "type": "code",
+        "value": "image = data.coins()\nlabel_image = measure.label(image > 110, connectivity=image.ndim)\nprops = measure.regionprops_table(label_image, intensity_image=image,\n                                  properties=('label',),\n                                  extra_properties=(quartiles,))\nimport pandas as pd # doctest: +SKIP\npd.DataFrame(props).head() # doctest: +SKIP"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/skimage/measure/_regionprops.py",
+  "item_line": 838,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(label_image, intensity_image=None, properties=('label', 'bbox'), *, cache=True, separator='-', extra_properties=None)"
+  },
+  "type": "DocBlob"
+}

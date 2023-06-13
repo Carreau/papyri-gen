@@ -1,0 +1,610 @@
+{
+  "aliases": [
+    "numpy.random.Philox"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Lock instance that is shared so that the same bit git generator can be used in multiple Generators without corrupting the state. Code that generates values from a bit generator should hold the bit generator's lock."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "lock: threading.Lock",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Philox is a 64-bit PRNG that uses a counter-based design based on weaker (and faster) versions of cryptographic functions . Instances using different values of the key produce independent sequences.  Philox has a period of "
+            },
+            {
+              "type": "inlineMath",
+              "value": "2^{256} - 1"
+            },
+            {
+              "type": "text",
+              "value": " and supports arbitrary advancing and jumping the sequence in increments of "
+            },
+            {
+              "type": "inlineMath",
+              "value": "2^{128}"
+            },
+            {
+              "type": "text",
+              "value": ". These features allow multiple non-overlapping sequences to be generated."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "inlineCode",
+              "value": "Philox"
+            },
+            {
+              "type": "text",
+              "value": " provides a capsule containing function pointers that produce doubles, and unsigned 32 and 64- bit integers. These are not directly consumable in Python and must be consumed by a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Generator"
+            },
+            {
+              "type": "text",
+              "value": " or similar object that supports low-level access."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "State and Seeding"
+                }
+              ],
+              "type": "strong"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Philox"
+            },
+            {
+              "type": "text",
+              "value": " state vector consists of a 256-bit value encoded as a 4-element uint64 array and a 128-bit value encoded as a 2-element uint64 array. The former is a counter which is incremented by 1 for every 4 64-bit randoms produced. The second is a key which determined the sequence produced. Using different keys produces independent sequences."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The input "
+            },
+            {
+              "type": "inlineCode",
+              "value": "seed"
+            },
+            {
+              "type": "text",
+              "value": " is processed by "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "SeedSequence"
+            },
+            {
+              "type": "text",
+              "value": " to generate the key. The counter is set to 0."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Alternately, one can omit the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "seed"
+            },
+            {
+              "type": "text",
+              "value": " parameter and set the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "key"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "counter"
+            },
+            {
+              "type": "text",
+              "value": " directly."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Parallel Features"
+                }
+              ],
+              "type": "strong"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The preferred way to use a BitGenerator in parallel applications is to use the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "numpy",
+                "path": "numpy.random.bit_generator:ISpawnableSeedSequence.spawn",
+                "type": "RefInfo",
+                "version": "1.24.1"
+              },
+              "type": "Link",
+              "value": "SeedSequence.spawn"
+            },
+            {
+              "type": "text",
+              "value": " method to obtain entropy values, and to use these to generate new BitGenerators:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> from numpy.random import Generator, Philox, SeedSequence\n>>> sg = SeedSequence(1234)\n>>> rg = [Generator(Philox(s)) for s in sg.spawn(10)]"
+        },
+        {
+          "children": [
+            {
+              "type": "inlineCode",
+              "value": "Philox"
+            },
+            {
+              "type": "text",
+              "value": " can be used in parallel applications by calling the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "jumped"
+            },
+            {
+              "type": "text",
+              "value": " method  to advances the state as-if "
+            },
+            {
+              "type": "inlineMath",
+              "value": "2^{128}"
+            },
+            {
+              "type": "text",
+              "value": " random numbers have been generated. Alternatively, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "advance"
+            },
+            {
+              "type": "text",
+              "value": " can be used to advance the counter for any positive step in [0, 2**256). When using "
+            },
+            {
+              "type": "inlineCode",
+              "value": "jumped"
+            },
+            {
+              "type": "text",
+              "value": ", all generators should be chained to ensure that the segments come from the same sequence."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> from numpy.random import Generator, Philox\n>>> bit_generator = Philox(1234)\n>>> rg = []\n>>> for _ in range(10):\n...    rg.append(Generator(bit_generator))\n...    bit_generator = bit_generator.jumped()"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Alternatively, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Philox"
+            },
+            {
+              "type": "text",
+              "value": " can be used in parallel applications by using a sequence of distinct keys where each instance uses different key."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> key = 2**96 + 2**33 + 2**17 + 2**9\n>>> rg = [Generator(Philox(key=key+i)) for i in range(10)]"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Compatibility Guarantee"
+                }
+              ],
+              "type": "strong"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "inlineCode",
+              "value": "Philox"
+            },
+            {
+              "type": "text",
+              "value": " makes a guarantee that a fixed "
+            },
+            {
+              "type": "inlineCode",
+              "value": "seed"
+            },
+            {
+              "type": "text",
+              "value": " will always produce the same random integer stream."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A seed to initialize the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "numpy",
+                        "path": "numpy.random.bit_generator:BitGenerator",
+                        "type": "RefInfo",
+                        "version": "1.24.1"
+                      },
+                      "type": "Link",
+                      "value": "BitGenerator"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If None, then fresh, unpredictable entropy will be pulled from the OS. If an "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "int"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "array_like[ints]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is passed, then it will be passed to "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "SeedSequence"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to derive the initial "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "numpy",
+                        "path": "numpy.random.bit_generator:BitGenerator",
+                        "type": "RefInfo",
+                        "version": "1.24.1"
+                      },
+                      "type": "Link",
+                      "value": "BitGenerator"
+                    },
+                    {
+                      "type": "text",
+                      "value": " state. One may also pass in a "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "SeedSequence"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instance."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "seed",
+              "type": "Param",
+              "type_": "{None, int, array_like[ints], SeedSequence}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Counter to use in the Philox state. Can be either a Python int (long in 2.x) in [0, 2**256) or a 4-element uint64 array. If not provided, the RNG is initialized at 0."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "counter",
+              "type": "Param",
+              "type_": "{None, int, array_like}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Key to use in the Philox state.  Unlike "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "seed"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the value in key is directly set. Can be either a Python int in [0, 2**128) or a 2-element uint64 array. "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "key",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "key"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "seed"
+                    },
+                    {
+                      "type": "text",
+                      "value": " cannot both be used."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "key",
+              "type": "Param",
+              "type_": "{None, int, array_like}, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Container for the Philox (4x64) pseudo-random number generator."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from numpy.random import Generator, Philox\nrg = Generator(Philox(1234))\nrg.standard_normal()"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/numpy/random/_philox.cpython-311-darwin.so",
+  "item_line": null,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Signature",
+    "Summary",
+    "Parameters",
+    "Attributes",
+    "Notes",
+    "Examples",
+    "References"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "Philox(seed=None, counter=None, key=None)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,916 @@
+{
+  "aliases": [
+    "scipy.sparse.linalg.lsmr"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "lsmr solves the system of linear equations "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Ax = b"
+            },
+            {
+              "type": "text",
+              "value": ". If the system is inconsistent, it solves the least-squares problem "
+            },
+            {
+              "type": "inlineCode",
+              "value": "min ||b - Ax||_2"
+            },
+            {
+              "type": "text",
+              "value": ". "
+            },
+            {
+              "type": "inlineCode",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": " is a rectangular matrix of dimension m-by-n, where all cases are allowed: m = n, m > n, or m < n. "
+            },
+            {
+              "type": "inlineCode",
+              "value": "b"
+            },
+            {
+              "type": "text",
+              "value": " is a vector of length m. The matrix A may be dense or sparse (usually sparse)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 0.11.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Matrix A in the linear system. Alternatively, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "A"
+                    },
+                    {
+                      "type": "text",
+                      "value": " can be a linear operator which can produce "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Ax"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "A^H x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " using, e.g., "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "scipy.sparse.linalg.LinearOperator"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "A",
+              "type": "Param",
+              "type_": "{sparse matrix, ndarray, LinearOperator}"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Vector "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "b"
+                    },
+                    {
+                      "type": "text",
+                      "value": " in the linear system."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "b",
+              "type": "Param",
+              "type_": "array_like, shape (m,)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Damping factor for regularized least-squares. "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "lsmr"
+                    },
+                    {
+                      "type": "text",
+                      "value": " solves the regularized least-squares problem   "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "min ||(b) - (  A   )x||\n    ||(0)   (damp*I) ||_2"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "where damp is a scalar.  If damp is None or 0, the system is solved without regularization. Default is 0."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "damp",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Stopping tolerances. "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "lsmr"
+                    },
+                    {
+                      "type": "text",
+                      "value": " continues iterations until a certain backward error estimate is smaller than some quantity depending on atol and btol.  Let "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "r = b - Ax"
+                    },
+                    {
+                      "type": "text",
+                      "value": " be the residual vector for the current approximate solution "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Ax = b"
+                    },
+                    {
+                      "type": "text",
+                      "value": " seems to be consistent, "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "lsmr"
+                    },
+                    {
+                      "type": "text",
+                      "value": " terminates when "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "norm(r) <= atol * norm(A) * norm(x) + btol * norm(b)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Otherwise, "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "lsmr"
+                    },
+                    {
+                      "type": "text",
+                      "value": " terminates when "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "norm(A^H r) <=\natol * norm(A) * norm(r)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  If both tolerances are 1.0e-6 (default), the final "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "norm(r)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " should be accurate to about 6 digits. (The final "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will usually have fewer correct digits, depending on "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "cond(A)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and the size of LAMBDA.)  If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "atol",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "atol"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "btol",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "btol"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is None, a default value of 1.0e-6 will be used. Ideally, they should be estimates of the relative error in the entries of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "A"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "b"
+                    },
+                    {
+                      "type": "text",
+                      "value": " respectively.  For example, if the entries of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "A"
+                    },
+                    {
+                      "type": "text",
+                      "value": " have 7 correct digits, set "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "atol = 1e-7"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". This prevents the algorithm from doing unnecessary work beyond the uncertainty of the input data."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "atol, btol",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "lsmr"
+                    },
+                    {
+                      "type": "text",
+                      "value": " terminates if an estimate of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "cond(A)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " exceeds "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "conlim",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "conlim"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  For compatible systems "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Ax = b"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", conlim could be as large as 1.0e+12 (say).  For least-squares problems, "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "conlim",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "conlim"
+                    },
+                    {
+                      "type": "text",
+                      "value": " should be less than 1.0e+8. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "conlim",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "conlim"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is None, the default value is 1e+8.  Maximum precision can be obtained by setting "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "atol = btol = conlim = 0"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", but the number of iterations may then be excessive. Default is 1e8."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "conlim",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "lsmr"
+                    },
+                    {
+                      "type": "text",
+                      "value": " terminates if the number of iterations reaches "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "maxiter",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "maxiter"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  The default is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "maxiter = min(m, n)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  For ill-conditioned systems, a larger value of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "maxiter",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "maxiter"
+                    },
+                    {
+                      "type": "text",
+                      "value": " may be needed. Default is False."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "maxiter",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Print iterations logs if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "show=True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Default is False."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "show",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Initial guess of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", if None zeros are used. Default is None."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.0.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "x0",
+              "type": "Param",
+              "type_": "array_like, shape (n,), optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Least-square solution returned."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "ndarray of float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "istop gives the reason for stopping    "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "istop   = 0 means x=0 is a solution.  If x0 was given, then x=x0 is a\n            solution.\n        = 1 means x is an approximate solution to A@x = B,\n            according to atol and btol.\n        = 2 means x approximately solves the least-squares problem\n            according to atol.\n        = 3 means COND(A) seems to be greater than CONLIM.\n        = 4 is the same as 1 with atol = btol = eps (machine\n            precision)\n        = 5 is the same as 2 with atol = eps.\n        = 6 is the same as 3 with CONLIM = 1/eps.\n        = 7 means ITN reached maxiter before the other stopping\n            conditions were satisfied."
+                }
+              ],
+              "param": "istop",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of iterations used."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "itn",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "norm(b-Ax)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "normr",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "norm(A^H (b - Ax))"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "normar",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "norm(A)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "norma",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Condition number of A."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "conda",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "norm(x)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "normx",
+              "type": "Param",
+              "type_": "float"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Iterative solver for least-squares problems."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.sparse import csc_matrix\nfrom scipy.sparse.linalg import lsmr\nA = csc_matrix([[1., 0.], [1., 1.], [0., 1.]], dtype=float)"
+      },
+      {
+        "type": "text",
+        "value": "The first example has the trivial solution ``[0, 0]``"
+      },
+      {
+        "type": "code",
+        "value": "b = np.array([0., 0., 0.], dtype=float)\nx, istop, itn, normr = lsmr(A, b)[:4]\nistop"
+      },
+      {
+        "type": "code",
+        "value": "x"
+      },
+      {
+        "type": "text",
+        "value": "The stopping code `istop=0` returned indicates that a vector of zeros was\nfound as a solution. The returned solution `x` indeed contains\n``[0., 0.]``. The next example has a non-trivial solution:"
+      },
+      {
+        "type": "code",
+        "value": "b = np.array([1., 0., -1.], dtype=float)\nx, istop, itn, normr = lsmr(A, b)[:4]\nistop"
+      },
+      {
+        "type": "code",
+        "value": "x"
+      },
+      {
+        "type": "code",
+        "value": "itn"
+      },
+      {
+        "type": "code",
+        "value": "normr"
+      },
+      {
+        "type": "text",
+        "value": "As indicated by `istop=1`, `lsmr` found a solution obeying the tolerance\nlimits. The given solution ``[1., -1.]`` obviously solves the equation. The\nremaining return values include information about the number of iterations\n(`itn=1`) and the remaining difference of left and right side of the solved\nequation.\nThe final example demonstrates the behavior in the case where there is no\nsolution for the equation:"
+      },
+      {
+        "type": "code",
+        "value": "b = np.array([1., 0.01, -1.], dtype=float)\nx, istop, itn, normr = lsmr(A, b)[:4]\nistop"
+      },
+      {
+        "type": "code",
+        "value": "x"
+      },
+      {
+        "type": "code",
+        "value": "A.dot(x)-b"
+      },
+      {
+        "type": "code",
+        "value": "normr"
+      },
+      {
+        "type": "text",
+        "value": "`istop` indicates that the system is inconsistent and thus `x` is rather an\napproximate solution to the corresponding least-squares problem. `normr`\ncontains the minimal distance that was found."
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/sparse/linalg/_isolve/lsmr.py",
+  "item_line": 29,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(A, b, damp=0.0, atol=1e-06, btol=1e-06, conlim=100000000.0, maxiter=None, show=False, x0=None)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,561 @@
+{
+  "aliases": [
+    "xarray.DataArray"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "DataArray provides a wrapper around numpy ndarrays that uses labeled dimensions and coordinates to support metadata aware operations. The API is similar to that for the pandas Series or DataFrame, but DataArray objects can have any number of dimensions, and their contents have fixed data types."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Additional features over raw numpy arrays:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Apply operations over dimensions by name: "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x.sum('time')"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Select or assign values by integer location (like numpy):   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x[:10]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or by label (like pandas): "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x.loc['2014-01-01']"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x.sel(time='2014-01-01')"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Mathematical operations (e.g., "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x - y"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") vectorize across   multiple dimensions (known in numpy as \"broadcasting\") based on   dimension names, regardless of their original order."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Keep track of arbitrary metadata in the form of a Python   dictionary: "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x.attrs"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Convert to a pandas Series: "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x.to_series()"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Getting items from or doing mathematical operations with a DataArray always returns another DataArray."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Values for this array. Must be an "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "numpy.ndarray"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", ndarray like, or castable to an "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ndarray"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If a self-described xarray or pandas object, attempts are made to use this array's metadata to fill in other unspecified arguments. A view of the array's data is used instead of a copy if possible."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "data",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Coordinates (tick labels) to use for indexing along each dimension. The following notations are accepted:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "mapping {dimension name: array-like}"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "sequence of tuples that are valid arguments for   "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "xarray.Variable()"
+                            },
+                            {
+                              "type": "text",
+                              "value": "   - (dims, data)   - (dims, data, attrs)   - (dims, data, attrs, encoding)"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Additionally, it is possible to define a coord whose name does not match the dimension name, or a coord based on multiple dimensions, with one of the following notations:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "mapping {coord name: DataArray}"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "mapping {coord name: Variable}"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "mapping {coord name: (dimension name, array-like)}"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "mapping {coord name: (tuple of dimension names, array-like)}"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "param": "coords",
+              "type": "Param",
+              "type_": "sequence or dict of array_like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Name(s) of the data dimension(s). Must be either a Hashable (only for 1D data) or a sequence of Hashables with length equal to the number of dimensions. If this argument is omitted, dimension names are taken from "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "coords"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (if possible) and otherwise default to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "['dim_0', ... 'dim_n']"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dims",
+              "type": "Param",
+              "type_": "Hashable or sequence of Hashable, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Name of this array."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "name",
+              "type": "Param",
+              "type_": "str or None, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Attributes to assign to the new instance. By default, an empty attribute dictionary is initialized."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "attrs",
+              "type": "Param",
+              "type_": "dict_like or None, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "N-dimensional array with labeled coordinates and dimensions."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Create data:"
+      },
+      {
+        "type": "code",
+        "value": "np.random.seed(0)\ntemperature = 15 + 8 * np.random.randn(2, 2, 3)\nlon = [[-99.83, -99.32], [-99.79, -99.23]]\nlat = [[42.25, 42.21], [42.63, 42.59]]\ntime = pd.date_range(\"2014-09-06\", periods=3)\nreference_time = pd.Timestamp(\"2014-09-05\")"
+      },
+      {
+        "type": "text",
+        "value": "Initialize a dataarray with multiple dimensions:"
+      },
+      {
+        "type": "code",
+        "value": "da = xr.DataArray(\n    data=temperature,\n    dims=[\"x\", \"y\", \"time\"],\n    coords=dict(\n        lon=([\"x\", \"y\"], lon),\n        lat=([\"x\", \"y\"], lat),\n        time=time,\n        reference_time=reference_time,\n    ),\n    attrs=dict(\n        description=\"Ambient temperature.\",\n        units=\"degC\",\n    ),\n)\nda"
+      },
+      {
+        "type": "text",
+        "value": "Find out where the coldest temperature was:"
+      },
+      {
+        "type": "code",
+        "value": "da.isel(da.argmin(...))"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/xarray/core/dataarray.py",
+  "item_line": 230,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

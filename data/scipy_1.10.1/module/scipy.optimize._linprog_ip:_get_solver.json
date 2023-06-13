@@ -1,0 +1,364 @@
+{
+  "aliases": [
+    "scipy.optimize._linprog_ip._get_solver"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "As defined in [4] Equation 8.31"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "M",
+              "type": "Param",
+              "type_": "2-D array"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "True if the system to be solved is sparse. This is typically set True when the original "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "A_ub"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "A_eq"
+                    },
+                    {
+                      "type": "text",
+                      "value": " arrays are sparse."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sparse",
+              "type": "Param",
+              "type_": "bool (default = False)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "True if the system is ill-conditioned and/or (nearly) singular and thus a more robust least-squares solver is desired. This is sometimes needed as the solution is approached."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "lstsq",
+              "type": "Param",
+              "type_": "bool (default = False)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "True if the system matrix is symmetric positive definite Sometimes this needs to be set false as the solution is approached, even when the system should be symmetric positive definite, due to numerical difficulties."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sym_pos",
+              "type": "Param",
+              "type_": "bool (default = True)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "True if the system is to be solved by Cholesky, rather than LU, decomposition. This is typically faster unless the problem is very small or prone to numerical difficulties."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "cholesky",
+              "type": "Param",
+              "type_": "bool (default = True)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Sparsity preservation strategy used by SuperLU. Acceptable values are:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "inlineCode",
+                              "value": "NATURAL"
+                            },
+                            {
+                              "type": "text",
+                              "value": ": natural ordering."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "inlineCode",
+                              "value": "MMD_ATA"
+                            },
+                            {
+                              "type": "text",
+                              "value": ": minimum degree ordering on the structure of A^T A."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "inlineCode",
+                              "value": "MMD_AT_PLUS_A"
+                            },
+                            {
+                              "type": "text",
+                              "value": ": minimum degree ordering on the structure of A^T+A."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "inlineCode",
+                              "value": "COLAMD"
+                            },
+                            {
+                              "type": "text",
+                              "value": ": approximate minimum degree column ordering."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "See SuperLU documentation."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "permc_spec",
+              "type": "Param",
+              "type_": "str (default = 'MMD_AT_PLUS_A')"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Handle to the appropriate solver function"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "solve",
+              "type": "Param",
+              "type_": "function"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Given solver options, return a handle to the appropriate linear system solver."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/optimize/_linprog_ip.py",
+  "item_line": 42,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(M, sparse=False, lstsq=False, sym_pos=True, cholesky=True, permc_spec='MMD_AT_PLUS_A')"
+  },
+  "type": "DocBlob"
+}

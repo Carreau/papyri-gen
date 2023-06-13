@@ -1,0 +1,652 @@
+{
+  "aliases": [
+    "scipy.ndimage.label"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A centrosymmetric matrix is a matrix that is symmetric about the center. See  for more information."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "structure",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "structure"
+            },
+            {
+              "type": "text",
+              "value": " matrix must be centrosymmetric to ensure two-way connections. For instance, if the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "structure",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "structure"
+            },
+            {
+              "type": "text",
+              "value": " matrix is not centrosymmetric and is defined as      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "[[0,1,0],\n [1,1,0],\n [0,0,0]]"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "and the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "input",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "input"
+            },
+            {
+              "type": "text",
+              "value": " is      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "[[1,2],\n [0,3]]"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "then the structure matrix would indicate the entry 2 in the input is connected to 1, but 1 is not connected to 2."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An array-like object to be labeled. Any non-zero values in "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "input",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "input"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are counted as features and zero values are considered the background."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "input",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A structuring element that defines feature connections. "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "structure",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "structure"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must be centrosymmetric (see Notes). If no structuring element is provided, one is automatically generated with a squared connectivity equal to one.  That is, for a 2-D "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "input",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "input"
+                    },
+                    {
+                      "type": "text",
+                      "value": " array, the default structuring element is      "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "[[0,1,0],\n [1,1,1],\n [0,1,0]]"
+                }
+              ],
+              "param": "structure",
+              "type": "Param",
+              "type_": "array_like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "output",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "output"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a data type, it specifies the type of the resulting labeled feature array. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "output",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "output"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is an array-like object, then "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "output",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "output"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will be updated with the labeled features from this function.  This function can operate in-place, by passing output=input. Note that the output must be able to store the largest label, or this function will raise an Exception."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "output",
+              "type": "Param",
+              "type_": "(None, data-type, array_like), optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An integer ndarray where each unique feature in "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "input",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "input"
+                    },
+                    {
+                      "type": "text",
+                      "value": " has a unique label in the returned array."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "label",
+              "type": "Param",
+              "type_": "ndarray or int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "How many objects were found."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "output",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "output"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is None, this function returns a tuple of ("
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "labeled_array"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "num_features",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "num_features"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "output",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "output"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a ndarray, then it will be updated with values in "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "labeled_array"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and only "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "num_features",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "num_features"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will be returned by this function."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "num_features",
+              "type": "Param",
+              "type_": "int"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Label features in an array."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Create an image with some features, then label it using the default\n(cross-shaped) structuring element:"
+      },
+      {
+        "type": "code",
+        "value": "from scipy.ndimage import label, generate_binary_structure\nimport numpy as np\na = np.array([[0,0,1,1,0,0],\n              [0,0,0,1,0,0],\n              [1,1,0,0,1,0],\n              [0,0,0,1,0,0]])\nlabeled_array, num_features = label(a)"
+      },
+      {
+        "type": "text",
+        "value": "Each of the 4 features are labeled with a different integer:"
+      },
+      {
+        "type": "code",
+        "value": "num_features"
+      },
+      {
+        "type": "code",
+        "value": "labeled_array"
+      },
+      {
+        "type": "text",
+        "value": "Generate a structuring element that will consider features connected even\nif they touch diagonally:"
+      },
+      {
+        "type": "code",
+        "value": "s = generate_binary_structure(2,2)"
+      },
+      {
+        "type": "text",
+        "value": "or,"
+      },
+      {
+        "type": "code",
+        "value": "s = [[1,1,1],\n     [1,1,1],\n     [1,1,1]]"
+      },
+      {
+        "type": "text",
+        "value": "Label the image using the new structuring element:"
+      },
+      {
+        "type": "code",
+        "value": "labeled_array, num_features = label(a, structure=s)"
+      },
+      {
+        "type": "text",
+        "value": "Show the 2 labeled features (note that features 1, 3, and 4 from above are\nnow considered a single feature):"
+      },
+      {
+        "type": "code",
+        "value": "num_features"
+      },
+      {
+        "type": "code",
+        "value": "labeled_array"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/ndimage/_measurements.py",
+  "item_line": 44,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples",
+    "References"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "generate a list of slices for the labeled features (or objects); useful for finding features' position or dimensions"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "find_objects",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "find_objects"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(input, structure=None, output=None)"
+  },
+  "type": "DocBlob"
+}

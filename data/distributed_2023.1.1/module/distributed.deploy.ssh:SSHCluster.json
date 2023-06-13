@@ -1,0 +1,471 @@
+{
+  "aliases": [
+    "distributed.SSHCluster"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The SSHCluster function deploys a Dask Scheduler and Workers for you on a set of machine addresses that you provide.  The first address will be used for the scheduler while the rest will be used for the workers (feel free to repeat the first hostname if you want to have the scheduler and worker co-habitate one machine.)"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You may configure the scheduler and workers by passing "
+            },
+            {
+              "type": "inlineCode",
+              "value": "scheduler_options"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "worker_options"
+            },
+            {
+              "type": "text",
+              "value": " dictionary keywords.  See the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "dask.distributed.Scheduler"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "dask.distributed.Worker"
+            },
+            {
+              "type": "text",
+              "value": " classes for details on the available options, but the defaults should work in most situations."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You may configure your use of SSH itself using the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "connect_options"
+            },
+            {
+              "type": "text",
+              "value": " keyword, which passes values to the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "asyncssh.connect"
+            },
+            {
+              "type": "text",
+              "value": " function.  For more information on these see the documentation for the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "asyncssh"
+            },
+            {
+              "type": "text",
+              "value": " library https://asyncssh.readthedocs.io ."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "List of hostnames or addresses on which to launch our cluster. The first will be used for the scheduler and the rest for workers."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "hosts",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Keywords to pass through to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "asyncssh.connect"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". This could include things such as "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "port"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "username"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "password"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "known_hosts"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". See docs for "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "asyncssh.connect"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "asyncssh.SSHClientConnectionOptions"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for full information. If a list it must have the same length as "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "hosts"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "connect_options",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Keywords to pass on to workers."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "worker_options",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Keywords to pass on to scheduler."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "scheduler_options",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The python class to use to create the worker(s)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "worker_class",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Path to Python on remote nodes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "remote_python",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Deploy a Dask cluster using SSH"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Create a cluster with one worker:"
+      },
+      {
+        "type": "code",
+        "value": "from dask.distributed import Client, SSHCluster\ncluster = SSHCluster([\"localhost\", \"localhost\"])\nclient = Client(cluster)"
+      },
+      {
+        "type": "text",
+        "value": "Create a cluster with three workers, each with two threads\nand host the dashdoard on port 8797:"
+      },
+      {
+        "type": "code",
+        "value": "from dask.distributed import Client, SSHCluster\ncluster = SSHCluster(\n    [\"localhost\", \"localhost\", \"localhost\", \"localhost\"],\n    connect_options={\"known_hosts\": None},\n    worker_options={\"nthreads\": 2},\n    scheduler_options={\"port\": 0, \"dashboard_address\": \":8797\"}\n)\nclient = Client(cluster)"
+      },
+      {
+        "type": "text",
+        "value": "Create a cluster with two workers on each host:"
+      },
+      {
+        "type": "code",
+        "value": "from dask.distributed import Client, SSHCluster\ncluster = SSHCluster(\n    [\"localhost\", \"localhost\", \"localhost\", \"localhost\"],\n    connect_options={\"known_hosts\": None},\n    worker_options={\"nthreads\": 2, \"n_workers\": 2},\n    scheduler_options={\"port\": 0, \"dashboard_address\": \":8797\"}\n)\nclient = Client(cluster)"
+      },
+      {
+        "type": "text",
+        "value": "An example using a different worker class, in particular the\n``CUDAWorker`` from the ``dask-cuda`` project:"
+      },
+      {
+        "type": "code",
+        "value": "from dask.distributed import Client, SSHCluster\ncluster = SSHCluster(\n    [\"localhost\", \"hostwithgpus\", \"anothergpuhost\"],\n    connect_options={\"known_hosts\": None},\n    scheduler_options={\"port\": 0, \"dashboard_address\": \":8797\"},\n    worker_class=\"dask_cuda.CUDAWorker\")\nclient = Client(cluster)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/distributed/deploy/ssh.py",
+  "item_line": 299,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Examples",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "dask.distributed.Scheduler",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "dask.distributed.Scheduler"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "dask.distributed.Worker",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "dask.distributed.Worker"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "asyncssh.connect",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "asyncssh.connect"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(hosts: 'list[str] | None' = None, connect_options: 'dict | list[dict] | None' = None, worker_options: 'dict | None' = None, scheduler_options: 'dict | None' = None, worker_module: 'str' = 'deprecated', worker_class: 'str' = 'distributed.Nanny', remote_python: 'str | list[str] | None' = None, **kwargs: 'Any') -> 'SpecCluster'"
+  },
+  "type": "DocBlob"
+}

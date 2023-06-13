@@ -1,0 +1,322 @@
+{
+  "aliases": [
+    "networkx.from_nested_tuple"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The nested tuple representation of a tree is defined recursively. The tree with one node and no edges is represented by the empty tuple, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "()"
+            },
+            {
+              "type": "text",
+              "value": ". A tree with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "k"
+            },
+            {
+              "type": "text",
+              "value": " subtrees is represented by a tuple of length "
+            },
+            {
+              "type": "inlineCode",
+              "value": "k"
+            },
+            {
+              "type": "text",
+              "value": " in which each element is the nested tuple representation of a subtree."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function is "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "not"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " the inverse of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "to_nested_tuple"
+            },
+            {
+              "type": "text",
+              "value": "; the only guarantee is that the rooted trees are isomorphic."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A nested tuple representing a rooted tree."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sequence",
+              "type": "Param",
+              "type_": "tuple"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to relabel the nodes of the tree so that nodes are labeled in increasing order according to their breadth-first search order from the root node."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sensible_relabeling",
+              "type": "Param",
+              "type_": "bool"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The tree corresponding to the given nested tuple, whose root node is node 0. If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "sensible_labeling"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", nodes will be labeled in breadth-first search order starting from the root node."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "NetworkX graph"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Returns the rooted tree corresponding to the given nested tuple."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Sensible relabeling ensures that the nodes are labeled from the root\nstarting at 0::"
+      },
+      {
+        "type": "text",
+        "value": "    >>> balanced = (((), ()), ((), ()))\n    >>> T = nx.from_nested_tuple(balanced, sensible_relabeling=True)\n    >>> edges = [(0, 1), (0, 2), (1, 3), (1, 4), (2, 5), (2, 6)]\n    >>> all((u, v) in T.edges() or (v, u) in T.edges() for (u, v) in edges)\n    True"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/algorithms/tree/coding.py",
+  "item_line": 130,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "See Also",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "networkx",
+          "path": "networkx.algorithms.tree.coding:to_nested_tuple",
+          "type": "RefInfo",
+          "version": "3.1"
+        },
+        "type": "Link",
+        "value": "to_nested_tuple"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "networkx",
+          "path": "networkx.algorithms.tree.coding:from_prufer_sequence",
+          "type": "RefInfo",
+          "version": "3.1"
+        },
+        "type": "Link",
+        "value": "from_prufer_sequence"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(sequence, sensible_relabeling=False)"
+  },
+  "type": "DocBlob"
+}

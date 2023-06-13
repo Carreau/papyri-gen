@@ -1,0 +1,428 @@
+{
+  "aliases": [
+    "matplotlib._api.select_matching_signature"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "funcs"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " is a list of functions which should not raise any exception (other than "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "TypeError"
+            },
+            {
+              "type": "text",
+              "value": " if the arguments passed do not match their signature)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "matplotlib",
+                "path": "matplotlib._api:select_matching_signature",
+                "type": "RefInfo",
+                "version": "3.6.3"
+              },
+              "type": "Link",
+              "value": "select_matching_signature"
+            },
+            {
+              "type": "text",
+              "value": " tries to call each of the functions in "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "funcs"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "*args, **kwargs"
+            },
+            {
+              "type": "text",
+              "value": " (in the order in which they are given).  Calls that fail with a "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "TypeError"
+            },
+            {
+              "type": "text",
+              "value": " are silently skipped.  As soon as a call succeeds, "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "matplotlib",
+                "path": "matplotlib._api:select_matching_signature",
+                "type": "RefInfo",
+                "version": "3.6.3"
+              },
+              "type": "Link",
+              "value": "select_matching_signature"
+            },
+            {
+              "type": "text",
+              "value": " returns its return value.  If no function accepts "
+            },
+            {
+              "type": "inlineCode",
+              "value": "*args, **kwargs"
+            },
+            {
+              "type": "text",
+              "value": ", then the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "TypeError"
+            },
+            {
+              "type": "text",
+              "value": " raised by the last failing call is re-raised."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Callers should normally make sure that any "
+            },
+            {
+              "type": "inlineCode",
+              "value": "*args, **kwargs"
+            },
+            {
+              "type": "text",
+              "value": " can only bind a single "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "func"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " (to avoid any ambiguity), although this is not checked by "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "matplotlib",
+                "path": "matplotlib._api:select_matching_signature",
+                "type": "RefInfo",
+                "version": "3.6.3"
+              },
+              "type": "Link",
+              "value": "select_matching_signature"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "matplotlib",
+                "path": "matplotlib._api:select_matching_signature",
+                "type": "RefInfo",
+                "version": "3.6.3"
+              },
+              "type": "Link",
+              "value": "select_matching_signature"
+            },
+            {
+              "type": "text",
+              "value": " is intended to help implementing signature-overloaded functions.  In general, such functions should be avoided, except for back-compatibility concerns.  A typical use pattern is ::"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "dd": [
+                    {
+                      "children": [
+                        {
+                          "dd": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "[lambda old1, old2: locals(), lambda new: locals()],             *args, **kwargs)"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "params = select_matching_signature("
+                              }
+                            ],
+                            "type": "paragraph"
+                          },
+                          "type": "DefListItem"
+                        },
+                        {
+                          "dd": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "warn_deprecated(...)             old1, old2 = params.values()  # note that locals() is ordered."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "if \"old1\" in params:"
+                              }
+                            ],
+                            "type": "paragraph"
+                          },
+                          "type": "DefListItem"
+                        },
+                        {
+                          "dd": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "new, = params.values()"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "else:"
+                              }
+                            ],
+                            "type": "paragraph"
+                          },
+                          "type": "DefListItem"
+                        }
+                      ],
+                      "type": "DefList"
+                    }
+                  ],
+                  "dt": {
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "def my_func(*args, **kwargs):"
+                      }
+                    ],
+                    "type": "paragraph"
+                  },
+                  "type": "DefListItem"
+                }
+              ],
+              "type": "DefList"
+            }
+          ],
+          "type": "blockquote"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Select and call the function that accepts "
+            },
+            {
+              "type": "inlineCode",
+              "value": "*args, **kwargs"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/matplotlib/_api/__init__.py",
+  "item_line": 285,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Notes"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(funcs, *args, **kwargs)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,465 @@
+{
+  "aliases": [
+    "astropy.io.fits.convenience._ValidHDU.req_cards"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If "
+            },
+            {
+              "type": "inlineCode",
+              "value": "pos=None"
+            },
+            {
+              "type": "text",
+              "value": ", the card can be anywhere in the header.  If the card does not exist, the new card will have the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "fix_value"
+            },
+            {
+              "type": "text",
+              "value": " as its value when created.  Also check the card's value by using the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "test"
+            },
+            {
+              "type": "text",
+              "value": " argument."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The keyword to validate"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "keyword",
+              "type": "Param",
+              "type_": "str"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If an "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "int"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", this specifies the exact location this card should have in the header.  Remember that Python is zero-indexed, so this means "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "pos=0"
+                    },
+                    {
+                      "type": "text",
+                      "value": " requires the card to be the first card in the header.  If given a callable, it should take one argument--the actual position of the keyword--and return "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  This can be used for custom evaluation.  For example if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "pos=lambda idx: idx > 10"
+                    },
+                    {
+                      "type": "text",
+                      "value": " this will check that the keyword's index is greater than 10."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "pos",
+              "type": "Param",
+              "type_": "int, callable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This should be a callable (generally a function) that is passed the value of the given keyword and returns "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  This can be used to validate the value associated with the given keyword."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "test",
+              "type": "Param",
+              "type_": "callable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A valid value for a FITS keyword to to use if the given "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "test"
+                    },
+                    {
+                      "type": "text",
+                      "value": " fails to replace an invalid value.  In other words, this provides a default value to use as a replacement if the keyword's current value is invalid.  If "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", there is no replacement value and the keyword is unfixable."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fix_value",
+              "type": "Param",
+              "type_": "str, int, float, complex, bool, None"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Output verification option.  Must be one of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "\"fix\""
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "\"silentfix\""
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "\"ignore\""
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "\"warn\""
+                    },
+                    {
+                      "type": "text",
+                      "value": ", or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "\"exception\""
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  May also be any combination of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "\"fix\""
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "\"silentfix\""
+                    },
+                    {
+                      "type": "text",
+                      "value": " with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "\"+ignore\""
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "+warn"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "+exception\"\n(e.g. ``\"fix+warn\""
+                    },
+                    {
+                      "type": "text",
+                      "value": ").  See "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "astropy:verify"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for more info."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "option",
+              "type": "Param",
+              "type_": "str"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A list of validation errors already found in the FITS file; this is used primarily for the validation system to collect errors across multiple HDUs and multiple calls to "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "astropy",
+                        "path": "astropy.io.fits.hdu.base:_ValidHDU.req_cards",
+                        "type": "RefInfo",
+                        "version": "5.3"
+                      },
+                      "type": "Link",
+                      "value": "req_cards"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "errlist",
+              "type": "Param",
+              "type_": "list"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Check the existence, location, and value of a required "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "Card"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/astropy/io/fits/hdu/base.py",
+  "item_line": 1109,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Notes"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, keyword, pos, test, fix_value, option, errlist)"
+  },
+  "type": "DocBlob"
+}

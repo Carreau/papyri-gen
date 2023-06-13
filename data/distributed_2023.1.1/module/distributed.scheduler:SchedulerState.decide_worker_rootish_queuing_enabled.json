@@ -1,0 +1,213 @@
+{
+  "aliases": [
+    "distributed.scheduler.SchedulerState.decide_worker_rootish_queuing_enabled"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Picks the least-busy worker out of the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "idle"
+            },
+            {
+              "type": "text",
+              "value": " workers (idle workers have fewer tasks running than threads, as set by "
+            },
+            {
+              "type": "inlineCode",
+              "value": "distributed.scheduler.worker-saturation"
+            },
+            {
+              "type": "text",
+              "value": "). It does not consider the location of dependencies, since they'll end up on every worker anyway."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If all workers are full, returns None, meaning the task should transition to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "queued"
+            },
+            {
+              "type": "text",
+              "value": ". The scheduler will wait to send it to a worker until a thread opens up. This ensures that downstream tasks always run before new root tasks are started."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This does not try to schedule sibling tasks on the same worker; in fact, it usually does the opposite. Even though this increases subsequent data transfer, it typically reduces overall memory use by eliminating root task overproduction."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The worker to assign the task to. If there are no idle workers, returns None, in which case the task should be transitioned to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "queued"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "ws: WorkerState | None"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Pick a worker for a runnable root-ish task, if not all are busy."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/distributed/scheduler.py",
+  "item_line": 2077,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Returns"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(self) -> 'WorkerState | None'"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,297 @@
+{
+  "aliases": [
+    "skimage.transform.ProjectiveTransform.estimate"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You can determine the over-, well- and under-determined parameters with the total least-squares method."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Number of source and destination coordinates must match."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The transformation is defined as      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "X = (a0*x + a1*y + a2) / (c0*x + c1*y + 1)\nY = (b0*x + b1*y + b2) / (c0*x + c1*y + 1)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "These equations can be transformed to the following form      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "0 = a0*x + a1*y + a2 - c0*x*X - c1*y*X - X\n0 = b0*x + b1*y + b2 - c0*x*Y - c1*y*Y - Y"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "which exist for each set of corresponding points, so we have a set of N * 2 equations. The coefficients appear linearly so we can write A x = 0, where      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "A   = [[x y 1 0 0 0 -x*X -y*X -X]\n       [0 0 0 x y 1 -x*Y -y*Y -Y]\n        ...\n        ...\n      ]\nx.T = [a0 a1 a2 b0 b1 b2 c0 c1 c3]"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In case of total least-squares the solution of this homogeneous system of equations is the right singular vector of A which corresponds to the smallest singular value normed by the coefficient c3."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Weights can be applied to each pair of corresponding points to indicate, particularly in an overdetermined system, if point pairs have higher or lower confidence or uncertainties associated with them. From the matrix treatment of least squares problems, these weight values are normalised, square-rooted, then built into a diagonal matrix, by which A is multiplied."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In case of the affine transformation the coefficients c0 and c1 are 0. Thus the system of equations is      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "A   = [[x y 1 0 0 0 -X]\n       [0 0 0 x y 1 -Y]\n        ...\n        ...\n      ]\nx.T = [a0 a1 a2 b0 b1 b2 c3]"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Source coordinates."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "src",
+              "type": "Param",
+              "type_": "(N, 2) array"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Destination coordinates."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dst",
+              "type": "Param",
+              "type_": "(N, 2) array"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Relative weight values for each pair of points."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "weights",
+              "type": "Param",
+              "type_": "(N,) array, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "True, if model estimation succeeds."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "success",
+              "type": "Param",
+              "type_": "bool"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Estimate the transformation from a set of corresponding points."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/skimage/transform/_geometric.py",
+  "item_line": 634,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, src, dst, weights=None)"
+  },
+  "type": "DocBlob"
+}

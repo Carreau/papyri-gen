@@ -1,0 +1,697 @@
+{
+  "aliases": [
+    "scipy.signal.choose_conv_method"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This primarily exists to be called during the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "method='auto'"
+            },
+            {
+              "type": "text",
+              "value": " option in "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.fftpack.convolve",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "convolve"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "correlate"
+            },
+            {
+              "type": "text",
+              "value": ". It can also be used to determine the value of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "method"
+            },
+            {
+              "type": "text",
+              "value": " for many different convolutions of the same dtype/shape. In addition, it supports timing the convolution to adapt the value of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "method"
+            },
+            {
+              "type": "text",
+              "value": " to a particular set of inputs and/or hardware."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Generally, this method is 99% accurate for 2D signals and 85% accurate for 1D signals for randomly chosen input sizes. For precision, use "
+            },
+            {
+              "type": "inlineCode",
+              "value": "measure=True"
+            },
+            {
+              "type": "text",
+              "value": " to find the fastest method by timing the convolution. This can be used to avoid the minimal overhead of finding the fastest "
+            },
+            {
+              "type": "inlineCode",
+              "value": "method"
+            },
+            {
+              "type": "text",
+              "value": " later, or to adapt the value of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "method"
+            },
+            {
+              "type": "text",
+              "value": " to a particular set of inputs."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Experiments were run on an Amazon EC2 r5a.2xlarge machine to test this function. These experiments measured the ratio between the time required when using "
+            },
+            {
+              "type": "inlineCode",
+              "value": "method='auto'"
+            },
+            {
+              "type": "text",
+              "value": " and the time required for the fastest method (i.e., "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ratio = time_auto / min(time_fft, time_direct)"
+            },
+            {
+              "type": "text",
+              "value": "). In these experiments, we found:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "There is a 95% chance of this ratio being less than 1.5 for 1D signals   and a 99% chance of being less than 2.5 for 2D signals."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The ratio was always less than 2.5/5 for 1D/2D signals respectively."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This function is most inaccurate for 1D convolutions that take between 1   and 10 milliseconds with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "method='direct'"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". A good proxy for this   (at least in our experiments) is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "1e6 <= in1.size * in2.size <= 1e7"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The 2D results almost certainly generalize to 3D/4D/etc because the implementation is the same (the 1D implementation is different)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "All the numbers above are specific to the EC2 machine. However, we did find that this function generalizes fairly decently across hardware. The speed tests were of similar quality (and even slightly better) than the same tests performed on the machine to tune this function's numbers (a mid-2014 15-inch MacBook Pro with 16GB RAM and a 2.5GHz Intel i7 processor)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "There are cases when "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.signal._signaltools:fftconvolve",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "fftconvolve"
+            },
+            {
+              "type": "text",
+              "value": " supports the inputs but this function returns "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "direct"
+            },
+            {
+              "type": "text",
+              "value": " (e.g., to protect against floating point integer precision)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 0.19"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The first argument passed into the convolution function."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "in1",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The second argument passed into the convolution function."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "in2",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A string indicating the size of the output:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "The output is the full discrete linear convolution    of the inputs. (Default)"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "inlineCode",
+                            "value": "full"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "The output consists only of those elements that do not    rely on the zero-padding."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "inlineCode",
+                            "value": "valid"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "The output is the same size as "
+                            },
+                            {
+                              "anchor": null,
+                              "exists": true,
+                              "kind": "local",
+                              "reference": {
+                                "kind": "local",
+                                "module": null,
+                                "path": "in1",
+                                "type": "RefInfo",
+                                "version": null
+                              },
+                              "type": "Link",
+                              "value": "in1"
+                            },
+                            {
+                              "type": "text",
+                              "value": ", centered    with respect to the 'full' output."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "inlineCode",
+                            "value": "same"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "param": "mode",
+              "type": "Param",
+              "type_": "str {'full', 'valid', 'same'}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, run and time the convolution of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "in1",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "in1"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "in2",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "in2"
+                    },
+                    {
+                      "type": "text",
+                      "value": " with both methods and return the fastest. If False (default), predict the fastest method using precomputed values."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "measure",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A string indicating which convolution method is fastest, either 'direct' or 'fft'"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "method",
+              "type": "Param",
+              "type_": "str"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A dictionary containing the times (in seconds) needed for each method. This value is only returned if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "measure=True"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "times",
+              "type": "Param",
+              "type_": "dict, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Find the fastest convolution/correlation method."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Estimate the fastest method for a given input:"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy import signal\nrng = np.random.default_rng()\nimg = rng.random((32, 32))\nfilter = rng.random((8, 8))\nmethod = signal.choose_conv_method(img, filter, mode='same')\nmethod"
+      },
+      {
+        "type": "text",
+        "value": "This can then be applied to other arrays of the same dtype and shape:"
+      },
+      {
+        "type": "code",
+        "value": "img2 = rng.random((32, 32))\nfilter2 = rng.random((8, 8))\ncorr2 = signal.correlate(img2, filter2, mode='same', method=method)\nconv2 = signal.convolve(img2, filter2, mode='same', method=method)"
+      },
+      {
+        "type": "text",
+        "value": "The output of this function (``method``) works with `correlate` and\n`convolve`."
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/signal/_signaltools.py",
+  "item_line": 1159,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.fftpack.convolve",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "convolve"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "correlate",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "correlate"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(in1, in2, mode='full', measure=False)"
+  },
+  "type": "DocBlob"
+}

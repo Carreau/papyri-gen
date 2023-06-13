@@ -1,0 +1,286 @@
+{
+  "aliases": [
+    "scipy.spatial.transform.RotationSpline"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The rotation vectors between each consecutive orientation are cubic functions of time and it is guaranteed that angular rate and acceleration are continuous. Such interpolation are analogous to cubic spline interpolation."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Refer to  for math and implementation details."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "__call__",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Times of the known rotations. At least 2 times must be specified."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "times",
+              "type": "Param",
+              "type_": "array_like, shape (N,)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Rotations to perform the interpolation between. Must contain N rotations."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "rotations",
+              "type": "Param",
+              "type_": "`Rotation` instance"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Interpolate rotations with continuous angular rate and acceleration."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from scipy.spatial.transform import Rotation, RotationSpline\nimport numpy as np"
+      },
+      {
+        "type": "text",
+        "value": "Define the sequence of times and rotations from the Euler angles:"
+      },
+      {
+        "type": "code",
+        "value": "times = [0, 10, 20, 40]\nangles = [[-10, 20, 30], [0, 15, 40], [-30, 45, 30], [20, 45, 90]]\nrotations = Rotation.from_euler('XYZ', angles, degrees=True)"
+      },
+      {
+        "type": "text",
+        "value": "Create the interpolator object:"
+      },
+      {
+        "type": "code",
+        "value": "spline = RotationSpline(times, rotations)"
+      },
+      {
+        "type": "text",
+        "value": "Interpolate the Euler angles, angular rate and acceleration:"
+      },
+      {
+        "type": "code",
+        "value": "angular_rate = np.rad2deg(spline(times, 1))\nangular_acceleration = np.rad2deg(spline(times, 2))\ntimes_plot = np.linspace(times[0], times[-1], 100)\nangles_plot = spline(times_plot).as_euler('XYZ', degrees=True)\nangular_rate_plot = np.rad2deg(spline(times_plot, 1))\nangular_acceleration_plot = np.rad2deg(spline(times_plot, 2))"
+      },
+      {
+        "type": "text",
+        "value": "On this plot you see that Euler angles are continuous and smooth:"
+      },
+      {
+        "type": "code",
+        "value": "import matplotlib.pyplot as plt\nplt.plot(times_plot, angles_plot)\nplt.plot(times, angles, 'x')\nplt.title(\"Euler angles\")\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.spatial.transform._rotation_spline:RotationSpline-0-900ec1f0.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      },
+      {
+        "type": "text",
+        "value": "The angular rate is also smooth:"
+      },
+      {
+        "type": "code",
+        "value": "plt.plot(times_plot, angular_rate_plot)\nplt.plot(times, angular_rate, 'x')\nplt.title(\"Angular rate\")\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.spatial.transform._rotation_spline:RotationSpline-1-a36114b7.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      },
+      {
+        "type": "text",
+        "value": "The angular acceleration is continuous, but not smooth. Also note that\nthe angular acceleration is not a piecewise-linear function, because\nit is different from the second derivative of the rotation vector (which\nis a piecewise-linear function as in the cubic spline)."
+      },
+      {
+        "type": "code",
+        "value": "plt.plot(times_plot, angular_acceleration_plot)\nplt.plot(times, angular_acceleration, 'x')\nplt.title(\"Angular acceleration\")\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.spatial.transform._rotation_spline:RotationSpline-2-be005f21.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/spatial/transform/_rotation_spline.py",
+  "item_line": 251,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Methods",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

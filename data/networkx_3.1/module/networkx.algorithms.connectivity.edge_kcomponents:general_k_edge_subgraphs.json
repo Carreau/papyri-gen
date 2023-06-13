@@ -1,0 +1,179 @@
+{
+  "aliases": [
+    "networkx.connectivity.edge_kcomponents.general_k_edge_subgraphs"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Implementation of the basic algorithm from _[1].  The basic idea is to find a global minimum cut of the graph. If the cut value is at least k, then the graph is a k-edge-connected subgraph and can be added to the results. Otherwise, the cut is used to split the graph in two and the procedure is applied recursively. If the graph is just a single node, then it is also added to the results. At the end, each result is either guaranteed to be a single node or a subgraph of G that is k-edge-connected."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This implementation contains optimizations for reducing the number of calls to max-flow, but there are other optimizations in _[1] that could be implemented."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Each k-edge-subgraph is a maximal set of nodes that defines a subgraph of G that is k-edge-connected."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "k_edge_subgraphs",
+              "type": "Param",
+              "type_": "a generator of nx.Graphs that are k-edge-subgraphs"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "General algorithm to find all maximal k-edge-connected subgraphs in G."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": ">>> from networkx.utils import pairwise\n>>> paths = [\n>>>     (11, 12, 13, 14, 11, 13, 14, 12),  # a 4-clique\n>>>     (21, 22, 23, 24, 21, 23, 24, 22),  # another 4-clique\n>>>     # connect the cliques with high degree but low connectivity\n>>>     (50, 13),\n>>>     (12, 50, 22),\n>>>     (13, 102, 23),\n>>>     (14, 101, 24),\n>>> ]\n>>> G = nx.Graph(it.chain(*[pairwise(path) for path in paths]))\n>>> sorted(map(len, k_edge_subgraphs(G, k=3)))"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/algorithms/connectivity/edge_kcomponents.py",
+  "item_line": 504,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Returns",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(G, k)"
+  },
+  "type": "DocBlob"
+}

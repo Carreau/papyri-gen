@@ -1,0 +1,320 @@
+{
+  "aliases": [
+    "distributed.Scheduler.retire_workers"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "List of worker addresses to retire."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "workers: list[str] (optional)",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "List of worker names to retire. Mutually exclusive with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "workers"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If neither "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "workers"
+                    },
+                    {
+                      "type": "text",
+                      "value": " nor "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "names"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are provided, we call "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "workers_to_close"
+                    },
+                    {
+                      "type": "text",
+                      "value": " which finds a good set."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "names: list (optional)",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether or not to actually close the worker explicitly from here. Otherwise we expect some external job scheduler to finish off the worker."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "close_workers: bool (defaults to False)",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether or not to remove the worker metadata immediately or else wait for the worker to contact us."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If close_workers=False and remove=False, this method just flushes the tasks in memory out of the workers and then returns. If close_workers=True and remove=False, this method will return while the workers are still in the cluster, although they won't accept new tasks. If close_workers=False or for whatever reason a worker doesn't accept the close command, it will be left permanently unable to accept new tasks and it is expected to be closed in some other way."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "remove: bool (defaults to True)",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Extra options to pass to workers_to_close to determine which workers we should drop"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "**kwargs: dict",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "Dictionary mapping worker ID/address to dictionary of information about"
+            },
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "that worker for each retired worker."
+            },
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "If there are keys that exist in memory only on the workers being retired and it"
+            },
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "was impossible to replicate them somewhere else (e.g. because there aren't"
+            },
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "any other running workers), the workers holding such keys won't be retired and"
+            },
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "won't appear in the returned dict."
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Gracefully retire workers from cluster. Any key that is in memory exclusively on the retired workers is replicated somewhere else."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/distributed/scheduler.py",
+  "item_line": 6596,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "distributed",
+          "path": "distributed.scheduler:Scheduler.workers_to_close",
+          "type": "RefInfo",
+          "version": "2023.1.0"
+        },
+        "type": "Link",
+        "value": "Scheduler.workers_to_close"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, workers: 'list[str] | None' = None, *, names: 'list | None' = None, close_workers: 'bool' = False, remove: 'bool' = True, stimulus_id: 'str | None' = None, **kwargs: 'Any') -> 'dict[str, Any]'"
+  },
+  "type": "DocBlob"
+}

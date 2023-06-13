@@ -1,0 +1,726 @@
+{
+  "aliases": [
+    "scipy.stats.pearsonr"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The Pearson correlation coefficient  measures the linear relationship between two datasets. Like other correlation coefficients, this one varies between -1 and +1 with 0 implying no correlation. Correlations of -1 or +1 imply an exact linear relationship. Positive correlations imply that as x increases, so does y. Negative correlations imply that as x increases, y decreases."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function also performs a test of the null hypothesis that the distributions underlying the samples are uncorrelated and normally distributed. (See Kowalski  for a discussion of the effects of non-normality of the input on the distribution of the correlation coefficient.) The p-value roughly indicates the probability of an uncorrelated system producing datasets that have a Pearson correlation at least as extreme as the one computed from these datasets."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The correlation coefficient is calculated as follows:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "r = \\frac{\\sum (x - m_x) (y - m_y)}\n         {\\sqrt{\\sum (x - m_x)^2 \\sum (y - m_y)^2}}"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where "
+            },
+            {
+              "type": "inlineMath",
+              "value": "m_x"
+            },
+            {
+              "type": "text",
+              "value": " is the mean of the vector x and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "m_y"
+            },
+            {
+              "type": "text",
+              "value": " is the mean of the vector y."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Under the assumption that x and y are drawn from independent normal distributions (so the population correlation coefficient is 0), the probability density function of the sample correlation coefficient r is (, ):"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "f(r) = \\frac{{(1-r^2)}^{n/2-2}}{\\mathrm{B}(\\frac{1}{2},\\frac{n}{2}-1)}"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where n is the number of samples, and B is the beta function.  This is sometimes referred to as the exact distribution of r.  This is the distribution that is used in "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "pearsonr"
+            },
+            {
+              "type": "text",
+              "value": " to compute the p-value. The distribution is a beta distribution on the interval [-1, 1], with equal shape parameters a = b = n/2 - 1.  In terms of SciPy's implementation of the beta distribution, the distribution of r is      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "dist = scipy.stats.beta(n/2 - 1, n/2 - 1, loc=-1, scale=2)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The default p-value returned by "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "pearsonr"
+            },
+            {
+              "type": "text",
+              "value": " is a two-sided p-value. For a given sample with correlation coefficient r, the p-value is the probability that abs(r') of a random sample x' and y' drawn from the population with zero correlation would be greater than or equal to abs(r). In terms of the object "
+            },
+            {
+              "type": "inlineCode",
+              "value": "dist"
+            },
+            {
+              "type": "text",
+              "value": " shown above, the p-value for a given r and length n can be computed as      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "p = 2*dist.cdf(-abs(r))"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When n is 2, the above continuous distribution is not well-defined. One can interpret the limit of the beta distribution as the shape parameters a and b approach a = b = 0 as a discrete distribution with equal probability masses at r = 1 and r = -1.  More directly, one can observe that, given the data x = [x1, x2] and y = [y1, y2], and assuming x1 != x2 and y1 != y2, the only possible values for r are 1 and -1.  Because abs(r') for any sample x' and y' with length 2 will be 1, the two-sided p-value for a sample of length 2 is always 1."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For backwards compatibility, the object that is returned also behaves like a tuple of length two that holds the statistic and the p-value."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Input array."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "(N,) array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Input array."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "y",
+              "type": "Param",
+              "type_": "(N,) array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Defines the alternative hypothesis. Default is 'two-sided'. The following options are available:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'two-sided': the correlation is nonzero"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'less': the correlation is negative (less than zero)"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'greater':  the correlation is positive (greater than zero)"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.9.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "alternative",
+              "type": "Param",
+              "type_": "{'two-sided', 'greater', 'less'}, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An object with the following attributes:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "statistic"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "statistic"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "pvalue"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "pvalue"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The object has the following method:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "This method computes the confidence interval of the correlation     coefficient "
+                            },
+                            {
+                              "domain": null,
+                              "role": null,
+                              "type": "Directive",
+                              "value": "statistic"
+                            },
+                            {
+                              "type": "text",
+                              "value": " for the given confidence level.     The confidence interval is returned in a "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "namedtuple"
+                            },
+                            {
+                              "type": "text",
+                              "value": " with     fields "
+                            },
+                            {
+                              "domain": null,
+                              "role": null,
+                              "type": "Directive",
+                              "value": "low"
+                            },
+                            {
+                              "type": "text",
+                              "value": " and "
+                            },
+                            {
+                              "domain": null,
+                              "role": null,
+                              "type": "Directive",
+                              "value": "high"
+                            },
+                            {
+                              "type": "text",
+                              "value": ".  See the Notes for more details."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "confidence_interval(confidence_level=0.95)"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "param": "result",
+              "type": "Param",
+              "type_": "`~scipy.stats._result_classes.PearsonRResult`"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Pearson correlation coefficient and p-value for testing non-correlation."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Raised if an input is a constant array.  The correlation coefficient is not defined in this case, so "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.nan"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is returned."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "`~scipy.stats.ConstantInputWarning`"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Raised if an input is \"nearly\" constant.  The array "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is considered nearly constant if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "norm(x - mean(x)) < 1e-13 * abs(mean(x))"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Numerical errors in the calculation "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x - mean(x)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " in this case might result in an inaccurate calculation of r."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "`~scipy.stats.NearConstantInputWarning`"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy import stats\nres = stats.pearsonr([1, 2, 3, 4, 5], [10, 9, 2.5, 6, 4])\nres"
+      },
+      {
+        "type": "code",
+        "value": "res.confidence_interval()"
+      },
+      {
+        "type": "text",
+        "value": "There is a linear dependence between x and y if y = a + b*x + e, where\na,b are constants and e is a random error term, assumed to be independent\nof x. For simplicity, assume that x is standard normal, a=0, b=1 and let\ne follow a normal distribution with mean zero and standard deviation s>0."
+      },
+      {
+        "type": "code",
+        "value": "rng = np.random.default_rng()\ns = 0.5\nx = stats.norm.rvs(size=500, random_state=rng)\ne = stats.norm.rvs(scale=s, size=500, random_state=rng)\ny = x + e\nstats.pearsonr(x, y).statistic"
+      },
+      {
+        "type": "text",
+        "value": "This should be close to the exact value given by"
+      },
+      {
+        "type": "code",
+        "value": "1/np.sqrt(1 + s**2)"
+      },
+      {
+        "type": "text",
+        "value": "For s=0.5, we observe a high level of correlation. In general, a large\nvariance of the noise reduces the correlation, while the correlation\napproaches one as the variance of the error goes to zero."
+      },
+      {
+        "type": "text",
+        "value": "It is important to keep in mind that no correlation does not imply\nindependence unless (x, y) is jointly normal. Correlation can even be zero\nwhen there is a very simple dependence structure: if X follows a\nstandard normal distribution, let y = abs(x). Note that the correlation\nbetween x and y is zero. Indeed, since the expectation of x is zero,\ncov(x, y) = E[x*y]. By definition, this equals E[x*abs(x)] which is zero\nby symmetry. The following lines of code illustrate this observation:"
+      },
+      {
+        "type": "code",
+        "value": "y = np.abs(x)\nstats.pearsonr(x, y)"
+      },
+      {
+        "type": "text",
+        "value": "A non-zero correlation coefficient can be misleading. For example, if X has\na standard normal distribution, define y = x if x < 0 and y = 0 otherwise.\nA simple calculation shows that corr(x, y) = sqrt(2/Pi) = 0.797...,\nimplying a high level of correlation:"
+      },
+      {
+        "type": "code",
+        "value": "y = np.where(x < 0, x, 0)\nstats.pearsonr(x, y)"
+      },
+      {
+        "type": "text",
+        "value": "This is unintuitive since there is no dependence of x and y if x is larger\nthan zero which happens in about half of the cases if we sample x and y."
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_stats_py.py",
+  "item_line": 4217,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Warns",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Spearman rank-order correlation coefficient."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "spearmanr",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "spearmanr"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Kendall's tau, a correlation measure for ordinal data."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "kendalltau",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "kendalltau"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(x, y, *, alternative='two-sided')"
+  },
+  "type": "DocBlob"
+}

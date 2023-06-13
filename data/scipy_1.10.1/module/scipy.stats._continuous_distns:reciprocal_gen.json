@@ -1,0 +1,325 @@
+{
+  "aliases": [
+    "scipy.stats._continuous_distns.reciprocal_gen"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "%(before_notes)s"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The probability density function for this class is:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "f(x, a, b) = \\frac{1}{x \\log(b/a)}"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "for "
+            },
+            {
+              "type": "inlineMath",
+              "value": "a \\le x \\le b"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineMath",
+              "value": "b > a > 0"
+            },
+            {
+              "type": "text",
+              "value": ". This class takes "
+            },
+            {
+              "type": "inlineMath",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "b"
+            },
+            {
+              "type": "text",
+              "value": " as shape parameters."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "%(after_notes)s"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "%(example)s"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This doesn't show the equal probability of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "0.01"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "0.1"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "1"
+            },
+            {
+              "type": "text",
+              "value": ". This is best when the x-axis is log-scaled:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> import numpy as np\n>>> fig, ax = plt.subplots(1, 1)\n>>> ax.hist(np.log10(r))\n>>> ax.set_ylabel(\"Frequency\")\n>>> ax.set_xlabel(\"Value of random variable\")\n>>> ax.xaxis.set_major_locator(plt.FixedLocator([-2, -1, 0]))\n>>> ticks = [\"$10^{{ {} }}$\".format(i) for i in [-2, -1, 0]]\n>>> ax.set_xticklabels(ticks)  # doctest: +SKIP\n>>> plt.show()"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This random variable will be log-uniform regardless of the base chosen for "
+            },
+            {
+              "type": "inlineCode",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "b"
+            },
+            {
+              "type": "text",
+              "value": ". Let's specify with base "
+            },
+            {
+              "type": "inlineCode",
+              "value": "2"
+            },
+            {
+              "type": "text",
+              "value": " instead:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> rvs = %(name)s(2**-2, 2**0).rvs(size=1000)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Values of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "1/4"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "1/2"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "1"
+            },
+            {
+              "type": "text",
+              "value": " are equally likely with this random variable.  Here's the histogram:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> fig, ax = plt.subplots(1, 1)\n>>> ax.hist(np.log2(rvs))\n>>> ax.set_ylabel(\"Frequency\")\n>>> ax.set_xlabel(\"Value of random variable\")\n>>> ax.xaxis.set_major_locator(plt.FixedLocator([-2, -1, 0]))\n>>> ticks = [\"$2^{{ {} }}$\".format(i) for i in [-2, -1, 0]]\n>>> ax.set_xticklabels(ticks)  # doctest: +SKIP\n>>> plt.show()"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A loguniform or reciprocal continuous random variable."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_continuous_distns.py",
+  "item_line": 7798,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Notes"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

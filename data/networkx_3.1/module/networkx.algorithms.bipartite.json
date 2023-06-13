@@ -1,0 +1,615 @@
+{
+  "aliases": [
+    "networkx.bipartite"
+  ],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This module provides functions and operations for bipartite graphs.  Bipartite graphs "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "B = (U, V, E)"
+            },
+            {
+              "type": "text",
+              "value": " have two node sets "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "U,V"
+            },
+            {
+              "type": "text",
+              "value": " and edges in "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "E"
+            },
+            {
+              "type": "text",
+              "value": " that only connect nodes from opposite sets. It is common in the literature to use an spatial analogy referring to the two node sets as top and bottom nodes."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The bipartite algorithms are not imported into the networkx namespace at the top level so the easiest way to use them is with:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> from networkx.algorithms import bipartite"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "NetworkX does not have a custom bipartite graph class but the Graph() or DiGraph() classes can be used to represent bipartite graphs. However, you have to keep track of which set each node belongs to, and make sure that there is no edge between nodes of the same set. The convention used in NetworkX is to use a node attribute named "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "networkx",
+                "path": "networkx.algorithms.bipartite",
+                "type": "RefInfo",
+                "version": "3.1"
+              },
+              "type": "Link",
+              "value": "bipartite"
+            },
+            {
+              "type": "text",
+              "value": " with values 0 or 1 to identify the sets each node belongs to. This convention is not enforced in the source code of bipartite functions, it's only a recommendation."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For example:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> B = nx.Graph()\n>>> # Add nodes with the node attribute \"bipartite\"\n>>> B.add_nodes_from([1, 2, 3, 4], bipartite=0)\n>>> B.add_nodes_from([\"a\", \"b\", \"c\"], bipartite=1)\n>>> # Add edges only between nodes of opposite node sets\n>>> B.add_edges_from([(1, \"a\"), (1, \"b\"), (2, \"b\"), (2, \"c\"), (3, \"c\"), (4, \"a\")])"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Many algorithms of the bipartite module of NetworkX require, as an argument, a container with all the nodes that belong to one set, in addition to the bipartite graph "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "B"
+            },
+            {
+              "type": "text",
+              "value": ". The functions in the bipartite package do not check that the node set is actually correct nor that the input graph is actually bipartite. If "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "B"
+            },
+            {
+              "type": "text",
+              "value": " is connected, you can find the two node sets using a two-coloring algorithm:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> nx.is_connected(B)\nTrue\n>>> bottom_nodes, top_nodes = bipartite.sets(B)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "However, if the input graph is not connected, there are more than one possible colorations. This is the reason why we require the user to pass a container with all nodes of one bipartite node set as an argument to most bipartite functions. In the face of ambiguity, we refuse the temptation to guess and raise an "
+            },
+            {
+              "type": "inlineCode",
+              "value": "AmbiguousSolution <networkx.AmbiguousSolution>"
+            },
+            {
+              "type": "text",
+              "value": " Exception if the input graph for "
+            },
+            {
+              "type": "inlineCode",
+              "value": "bipartite.sets <networkx.algorithms.bipartite.basic.sets>"
+            },
+            {
+              "type": "text",
+              "value": " is disconnected."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Using the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "networkx",
+                "path": "networkx.algorithms.bipartite",
+                "type": "RefInfo",
+                "version": "3.1"
+              },
+              "type": "Link",
+              "value": "bipartite"
+            },
+            {
+              "type": "text",
+              "value": " node attribute, you can easily get the two node sets:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> top_nodes = {n for n, d in B.nodes(data=True) if d[\"bipartite\"] == 0}\n>>> bottom_nodes = set(B) - top_nodes"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "So you can easily use the bipartite algorithms that require, as an argument, a container with all nodes that belong to one node set:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> print(round(bipartite.density(B, bottom_nodes), 2))\n0.5\n>>> G = bipartite.projected_graph(B, top_nodes)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "All bipartite graph generators in NetworkX build bipartite graphs with the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "networkx",
+                "path": "networkx.algorithms.bipartite",
+                "type": "RefInfo",
+                "version": "3.1"
+              },
+              "type": "Link",
+              "value": "bipartite"
+            },
+            {
+              "type": "text",
+              "value": " node attribute. Thus, you can use the same approach:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> RB = bipartite.random_graph(5, 7, 0.2)\n>>> RB_top = {n for n, d in RB.nodes(data=True) if d[\"bipartite\"] == 0}\n>>> RB_bottom = set(RB) - RB_top\n>>> list(RB_top)\n[0, 1, 2, 3, 4]\n>>> list(RB_bottom)\n[5, 6, 7, 8, 9, 10, 11]"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For other bipartite graph generators see "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Generators <networkx.algorithms.bipartite.generators>"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  ],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The bipartite algorithms are not imported into the networkx namespace at the top level so the easiest way to use them is with:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> from networkx.algorithms import bipartite"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "NetworkX does not have a custom bipartite graph class but the Graph() or DiGraph() classes can be used to represent bipartite graphs. However, you have to keep track of which set each node belongs to, and make sure that there is no edge between nodes of the same set. The convention used in NetworkX is to use a node attribute named "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "networkx",
+                "path": "networkx.algorithms.bipartite",
+                "type": "RefInfo",
+                "version": "3.1"
+              },
+              "type": "Link",
+              "value": "bipartite"
+            },
+            {
+              "type": "text",
+              "value": " with values 0 or 1 to identify the sets each node belongs to. This convention is not enforced in the source code of bipartite functions, it's only a recommendation."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For example:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> B = nx.Graph()\n>>> # Add nodes with the node attribute \"bipartite\"\n>>> B.add_nodes_from([1, 2, 3, 4], bipartite=0)\n>>> B.add_nodes_from([\"a\", \"b\", \"c\"], bipartite=1)\n>>> # Add edges only between nodes of opposite node sets\n>>> B.add_edges_from([(1, \"a\"), (1, \"b\"), (2, \"b\"), (2, \"c\"), (3, \"c\"), (4, \"a\")])"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Many algorithms of the bipartite module of NetworkX require, as an argument, a container with all the nodes that belong to one set, in addition to the bipartite graph "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "B"
+            },
+            {
+              "type": "text",
+              "value": ". The functions in the bipartite package do not check that the node set is actually correct nor that the input graph is actually bipartite. If "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "B"
+            },
+            {
+              "type": "text",
+              "value": " is connected, you can find the two node sets using a two-coloring algorithm:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> nx.is_connected(B)\nTrue\n>>> bottom_nodes, top_nodes = bipartite.sets(B)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "However, if the input graph is not connected, there are more than one possible colorations. This is the reason why we require the user to pass a container with all nodes of one bipartite node set as an argument to most bipartite functions. In the face of ambiguity, we refuse the temptation to guess and raise an "
+            },
+            {
+              "type": "inlineCode",
+              "value": "AmbiguousSolution <networkx.AmbiguousSolution>"
+            },
+            {
+              "type": "text",
+              "value": " Exception if the input graph for "
+            },
+            {
+              "type": "inlineCode",
+              "value": "bipartite.sets <networkx.algorithms.bipartite.basic.sets>"
+            },
+            {
+              "type": "text",
+              "value": " is disconnected."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Using the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "networkx",
+                "path": "networkx.algorithms.bipartite",
+                "type": "RefInfo",
+                "version": "3.1"
+              },
+              "type": "Link",
+              "value": "bipartite"
+            },
+            {
+              "type": "text",
+              "value": " node attribute, you can easily get the two node sets:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> top_nodes = {n for n, d in B.nodes(data=True) if d[\"bipartite\"] == 0}\n>>> bottom_nodes = set(B) - top_nodes"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "So you can easily use the bipartite algorithms that require, as an argument, a container with all nodes that belong to one node set:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> print(round(bipartite.density(B, bottom_nodes), 2))\n0.5\n>>> G = bipartite.projected_graph(B, top_nodes)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "All bipartite graph generators in NetworkX build bipartite graphs with the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "networkx",
+                "path": "networkx.algorithms.bipartite",
+                "type": "RefInfo",
+                "version": "3.1"
+              },
+              "type": "Link",
+              "value": "bipartite"
+            },
+            {
+              "type": "text",
+              "value": " node attribute. Thus, you can use the same approach:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> RB = bipartite.random_graph(5, 7, 0.2)\n>>> RB_top = {n for n, d in RB.nodes(data=True) if d[\"bipartite\"] == 0}\n>>> RB_bottom = set(RB) - RB_top\n>>> list(RB_top)\n[0, 1, 2, 3, 4]\n>>> list(RB_bottom)\n[5, 6, 7, 8, 9, 10, 11]"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For other bipartite graph generators see "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Generators <networkx.algorithms.bipartite.generators>"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This module provides functions and operations for bipartite graphs.  Bipartite graphs "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "B = (U, V, E)"
+            },
+            {
+              "type": "text",
+              "value": " have two node sets "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "U,V"
+            },
+            {
+              "type": "text",
+              "value": " and edges in "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "E"
+            },
+            {
+              "type": "text",
+              "value": " that only connect nodes from opposite sets. It is common in the literature to use an spatial analogy referring to the two node sets as top and bottom nodes."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/algorithms/bipartite/__init__.py",
+  "item_line": 0,
+  "item_type": "<class 'module'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

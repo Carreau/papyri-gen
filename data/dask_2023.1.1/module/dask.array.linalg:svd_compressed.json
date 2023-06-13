@@ -1,0 +1,311 @@
+{
+  "aliases": [
+    "dask.array.linalg.svd_compressed"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This computes the approximate singular value decomposition of a large array.  This algorithm is generally faster than the normal algorithm but does not provide exact results.  One can balance between performance and accuracy with input parameters (see below)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Input array"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "a: Array",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Rank of the desired thin SVD decomposition."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "k: int",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Define the technique used for iterations to cope with flat singular spectra or when the input matrix is very large."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "iterator: {'power', 'QR'}, default='power'",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of power iterations, useful when the singular values decay slowly. Error decreases exponentially as "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "n_power_iter"
+                    },
+                    {
+                      "type": "text",
+                      "value": " increases. In practice, set "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "n_power_iter"
+                    },
+                    {
+                      "type": "text",
+                      "value": " <= 4."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "n_power_iter: int, default=0",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of oversamples used for generating the sampling matrix. This value increases the size of the subspace computed, which is more accurate at the cost of efficiency.  Results are rarely sensitive to this choice though and in practice a value of 10 is very commonly high enough."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "n_oversamples: int, default=10",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether or not to compute data at each use. Recomputing the input while performing several passes reduces memory pressure, but means that we have to compute the input multiple times. This is a good choice if the data is larger than memory and cheap to recreate."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "compute",
+              "type": "Param",
+              "type_": "bool"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether or not to apply sign coercion to singular vectors in order to maintain deterministic results, by default True."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "coerce_signs",
+              "type": "Param",
+              "type_": "bool"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "u:  Array, unitary / orthogonal"
+            },
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "s:  Array, singular values in decreasing order (largest first)"
+            },
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "v:  Array, unitary / orthogonal"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Randomly compressed rank-k thin Singular Value Decomposition."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "u, s, v = svd_compressed(x, 20)  # doctest: +SKIP"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dask/array/linalg.py",
+  "item_line": 746,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Examples",
+    "Returns",
+    "References"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(a, k, iterator='power', n_power_iter=0, n_oversamples=10, seed=None, compute=False, coerce_signs=True)"
+  },
+  "type": "DocBlob"
+}

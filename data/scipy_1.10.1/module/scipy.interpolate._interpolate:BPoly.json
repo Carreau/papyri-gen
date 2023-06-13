@@ -1,0 +1,467 @@
+{
+  "aliases": [
+    "scipy.interpolate.BPoly"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Breakpoints."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Coefficients of the polynomials. They are reshaped to a 3-D array with the last dimension representing the trailing dimensions of the original coefficient array."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "c",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Interpolation axis."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "axis",
+              "type": "Param",
+              "type_": "int"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The polynomial between "
+            },
+            {
+              "type": "inlineCode",
+              "value": "x[i]"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "x[i + 1]"
+            },
+            {
+              "type": "text",
+              "value": " is written in the Bernstein polynomial basis      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "S = sum(c[a, i] * b(a, k; x) for a in range(k+1)),"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where "
+            },
+            {
+              "type": "inlineCode",
+              "value": "k"
+            },
+            {
+              "type": "text",
+              "value": " is the degree of the polynomial, and      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "b(a, k; x) = binom(k, a) * t**a * (1 - t)**(k - a),"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "t = (x - x[i]) / (x[i+1] - x[i])"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "binom"
+            },
+            {
+              "type": "text",
+              "value": " is the binomial coefficient."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "__call__",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [],
+              "param": "extend",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [],
+              "param": "derivative",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [],
+              "param": "antiderivative",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [],
+              "param": "integrate",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [],
+              "param": "construct_fast",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [],
+              "param": "from_power_basis",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [],
+              "param": "from_derivatives",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Properties of Bernstein polynomials are well documented in the literature, see for example   ."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Polynomial coefficients, order "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "k"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "m"
+                    },
+                    {
+                      "type": "text",
+                      "value": " intervals"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "c",
+              "type": "Param",
+              "type_": "ndarray, shape (k, m, ...)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Polynomial breakpoints. Must be sorted in either increasing or decreasing order."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "ndarray, shape (m+1,)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If bool, determines whether to extrapolate to out-of-bounds points based on first and last intervals, or to return NaNs. If 'periodic', periodic extrapolation is used. Default is True."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "extrapolate",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Interpolation axis. Default is zero."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "axis",
+              "type": "Param",
+              "type_": "int, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Piecewise polynomial in terms of coefficients and breakpoints."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from scipy.interpolate import BPoly\nx = [0, 1]\nc = [[1], [2], [3]]\nbp = BPoly(c, x)"
+      },
+      {
+        "type": "text",
+        "value": "This creates a 2nd order polynomial"
+      },
+      {
+        "type": "text",
+        "value": ".. math::"
+      },
+      {
+        "type": "text",
+        "value": "    B(x) = 1 \\times b_{0, 2}(x) + 2 \\times b_{1, 2}(x) + 3 \\times b_{2, 2}(x) \\\\\n         = 1 \\times (1-x)^2 + 2 \\times 2 x (1 - x) + 3 \\times x^2"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/interpolate/_interpolate.py",
+  "item_line": 1478,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Attributes",
+    "Methods",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "piecewise polynomials in the power basis"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "PPoly",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "PPoly"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

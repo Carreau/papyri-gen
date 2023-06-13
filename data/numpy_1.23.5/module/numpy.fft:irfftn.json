@@ -1,0 +1,1011 @@
+{
+  "aliases": [
+    "numpy.fft.irfftn"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function computes the inverse of the N-dimensional discrete Fourier Transform for real input over any number of axes in an M-dimensional array by means of the Fast Fourier Transform (FFT).  In other words, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "irfftn(rfftn(a), a.shape) == a"
+            },
+            {
+              "type": "text",
+              "value": " to within numerical accuracy. (The "
+            },
+            {
+              "type": "inlineCode",
+              "value": "a.shape"
+            },
+            {
+              "type": "text",
+              "value": " is necessary like "
+            },
+            {
+              "type": "inlineCode",
+              "value": "len(a)"
+            },
+            {
+              "type": "text",
+              "value": " is for "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "irfft"
+            },
+            {
+              "type": "text",
+              "value": ", and for the same reason.)"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The input should be ordered in the same way as is returned by "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "rfftn"
+            },
+            {
+              "type": "text",
+              "value": ", i.e. as for "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "irfft"
+            },
+            {
+              "type": "text",
+              "value": " for the final transformation axis, and as for "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "numpy",
+                "path": "numpy.fft:ifftn",
+                "type": "RefInfo",
+                "version": "1.23.5"
+              },
+              "type": "Link",
+              "value": "ifftn"
+            },
+            {
+              "type": "text",
+              "value": " along all the other axes."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "See "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "numpy",
+                "path": "numpy.fft",
+                "type": "RefInfo",
+                "version": "1.23.5"
+              },
+              "type": "Link",
+              "value": "fft"
+            },
+            {
+              "type": "text",
+              "value": " for definitions and conventions used."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "See "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "rfft"
+            },
+            {
+              "type": "text",
+              "value": " for definitions and conventions used for real input."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The correct interpretation of the hermitian input depends on the shape of the original data, as given by "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "s",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "s"
+            },
+            {
+              "type": "text",
+              "value": ". This is because each input shape could correspond to either an odd or even length signal. By default, "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "numpy",
+                "path": "numpy.fft:irfftn",
+                "type": "RefInfo",
+                "version": "1.23.5"
+              },
+              "type": "Link",
+              "value": "irfftn"
+            },
+            {
+              "type": "text",
+              "value": " assumes an even output length which puts the last entry at the Nyquist frequency; aliasing with its symmetric counterpart. When performing the final complex to real transform, the last value is thus treated as purely real. To avoid losing information, the correct shape of the real input "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "must"
+                }
+              ],
+              "type": "strong"
+            },
+            {
+              "type": "text",
+              "value": " be given."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Input array."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "a",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Shape (length of each transformed axis) of the output ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "s[0]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " refers to axis 0, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "s[1]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to axis 1, etc.). "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "s",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "s"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is also the number of input points used along this axis, except for the last axis, where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "s[-1]//2+1"
+                    },
+                    {
+                      "type": "text",
+                      "value": " points of the input are used. Along any axis, if the shape indicated by "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "s",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "s"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is smaller than that of the input, the input is cropped.  If it is larger, the input is padded with zeros. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "s",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "s"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is not given, the shape of the input along the axes specified by axes is used. Except for the last axis which is taken to be "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "2*(m-1)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "m"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the length of the input along that axis."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "s",
+              "type": "Param",
+              "type_": "sequence of ints, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Axes over which to compute the inverse FFT. If not given, the last "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "len(s)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " axes are used, or all axes if "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "s",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "s"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is also not specified. Repeated indices in "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "axes",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "axes"
+                    },
+                    {
+                      "type": "text",
+                      "value": " means that the inverse transform over that axis is performed multiple times."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "axes",
+              "type": "Param",
+              "type_": "sequence of ints, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.10.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Normalization mode (see "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "numpy",
+                        "path": "numpy.fft",
+                        "type": "RefInfo",
+                        "version": "1.23.5"
+                      },
+                      "type": "Link",
+                      "value": "numpy.fft"
+                    },
+                    {
+                      "type": "text",
+                      "value": "). Default is \"backward\". Indicates which direction of the forward/backward pair of transforms is scaled and with what normalization factor."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.20.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "The \"backward\", \"forward\" values were added."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "norm",
+              "type": "Param",
+              "type_": "{\"backward\", \"ortho\", \"forward\"}, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "s",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "s"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "axes",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "axes"
+                    },
+                    {
+                      "type": "text",
+                      "value": " have different length."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "ValueError"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If an element of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "axes",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "axes"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is larger than than the number of axes of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "IndexError"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The truncated or zero-padded input, transformed along the axes indicated by "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "axes",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "axes"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", or by a combination of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "s",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "s"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", as explained in the parameters section above. The length of each transformed axis is as given by the corresponding element of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "s",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "s"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", or the length of the input in every axis except for the last one if "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "s",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "s"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is not given.  In the final transformed axis the length of the output when "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "s",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "s"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is not given is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "2*(m-1)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "m"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the length of the final transformed axis of the input.  To get an odd number of output points in the final axis, "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "s",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "s"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must be specified."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "out",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Computes the inverse of "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "rfftn"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "a = np.zeros((3, 2, 2))\na[0, 0, 0] = 3 * 2 * 2\nnp.fft.irfftn(a)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/numpy/fft/_pocketfft.py",
+  "item_line": 1260,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The forward n-dimensional FFT of real input, of which "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "ifftn"
+            },
+            {
+              "type": "text",
+              "value": " is the inverse."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "rfftn",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "rfftn"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The one-dimensional FFT, with definitions and conventions used."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "numpy",
+          "path": "numpy.fft",
+          "type": "RefInfo",
+          "version": "1.23.5"
+        },
+        "type": "Link",
+        "value": "fft"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The inverse of the one-dimensional FFT of real input."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "irfft",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "irfft"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The inverse of the two-dimensional FFT of real input."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "numpy",
+          "path": "numpy.fft:irfft2",
+          "type": "RefInfo",
+          "version": "1.23.5"
+        },
+        "type": "Link",
+        "value": "irfft2"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(a, s=None, axes=None, norm=None)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,344 @@
+{
+  "aliases": [
+    "scipy.io.whosmat"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "v4 (Level 1.0), v6 and v7 to 7.2 matfiles are supported."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You will need an HDF5 python library to read matlab 7.3 format mat files (e.g. h5py). Because SciPy does not supply one, we do not implement the HDF5 / 7.3 interface here."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 0.12.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Name of the mat file (do not need .mat extension if appendmat==True) Can also pass open file-like object."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "file_name",
+              "type": "Param",
+              "type_": "str"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "True to append the .mat extension to the end of the given filename, if not already present. Default is True."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "appendmat",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "None by default, implying byte order guessed from mat file. Otherwise can be one of ('native', '=', 'little', '<', 'BIG', '>')."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "byte_order",
+              "type": "Param",
+              "type_": "str or None, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, return arrays in same dtype as would be loaded into MATLAB (instead of the dtype with which they are saved)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mat_dtype",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to squeeze unit matrix dimensions or not."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "squeeze_me",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to convert char arrays to string arrays."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "chars_as_strings",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Returns matrices as would be loaded by MATLAB (implies squeeze_me=False, chars_as_strings=False, mat_dtype=True, struct_as_record=True)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "matlab_compatible",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to load MATLAB structs as NumPy record arrays, or as old-style NumPy arrays with dtype=object. Setting this flag to False replicates the behavior of SciPy version 0.7.x (returning numpy object arrays). The default setting is True, because it allows easier round-trip load and save of MATLAB files."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "struct_as_record",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A list of tuples, where each tuple holds the matrix name (a string), its shape (tuple of ints), and its data class (a string). Possible data classes are: int8, uint8, int16, uint16, int32, uint32, int64, uint64, single, double, cell, struct, object, char, sparse, function, opaque, logical, unknown."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "variables",
+              "type": "Param",
+              "type_": "list of tuples"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "List variables inside a MATLAB file."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from io import BytesIO\nimport numpy as np\nfrom scipy.io import savemat, whosmat"
+      },
+      {
+        "type": "text",
+        "value": "Create some arrays, and use `savemat` to write them to a ``BytesIO``\ninstance."
+      },
+      {
+        "type": "code",
+        "value": "a = np.array([[10, 20, 30], [11, 21, 31]], dtype=np.int32)\nb = np.geomspace(1, 10, 5)\nf = BytesIO()\nsavemat(f, {'a': a, 'b': b})"
+      },
+      {
+        "type": "text",
+        "value": "Use `whosmat` to inspect ``f``.  Each tuple in the output list gives\nthe name, shape and data type of the array in ``f``."
+      },
+      {
+        "type": "code",
+        "value": "whosmat(f)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/io/matlab/_mio.py",
+  "item_line": 303,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(file_name, appendmat=True, **kwargs)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,715 @@
+{
+  "aliases": [
+    "scipy.stats.median_abs_deviation"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The median absolute deviation (MAD, ) computes the median over the absolute deviations from the median. It is a measure of dispersion similar to the standard deviation but more robust to outliers ."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The MAD of an empty array is "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.nan"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 1.5.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "center",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "center"
+            },
+            {
+              "type": "text",
+              "value": " argument only affects the calculation of the central value around which the MAD is calculated. That is, passing in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "center=np.mean"
+            },
+            {
+              "type": "text",
+              "value": " will calculate the MAD around the mean - it will not calculate the "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "mean"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " absolute deviation."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The input array may contain "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "inf"
+            },
+            {
+              "type": "text",
+              "value": ", but if "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "center",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "center"
+            },
+            {
+              "type": "text",
+              "value": " returns "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "inf"
+            },
+            {
+              "type": "text",
+              "value": ", the corresponding MAD for that data will be "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "nan"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Input array or object that can be converted to an array."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Axis along which the range is computed. Default is 0. If None, compute the MAD over the entire array."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "axis",
+              "type": "Param",
+              "type_": "int or None, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A function that will return the central value. The default is to use np.median. Any user defined function used will need to have the function signature "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "func(arr, axis)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "center",
+              "type": "Param",
+              "type_": "callable, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The numerical value of scale will be divided out of the final result. The default is 1.0. The string \"normal\" is also accepted, and results in "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "scale",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "scale"
+                    },
+                    {
+                      "type": "text",
+                      "value": " being the inverse of the standard normal quantile function at 0.75, which is approximately 0.67449. Array-like scale is also allowed, as long as it broadcasts correctly to the output such that "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "out / scale"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a valid operation. The output dimensions depend on the input array, "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", and the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "axis",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "axis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " argument."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "scale",
+              "type": "Param",
+              "type_": "scalar or str, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Defines how to handle when input contains nan. The following options are available (default is 'propagate'):"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'propagate': returns nan"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'raise': throws an error"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'omit': performs the calculations ignoring nan values"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "param": "nan_policy",
+              "type": "Param",
+              "type_": "{'propagate', 'raise', 'omit'}, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "axis=None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", a scalar is returned. If the input contains integers or floats of smaller precision than "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.float64"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", then the output data-type is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.float64"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Otherwise, the output data-type is the same as that of the input."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mad",
+              "type": "Param",
+              "type_": "scalar or ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute the median absolute deviation of the data along the given axis."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "When comparing the behavior of `median_abs_deviation` with ``np.std``,\nthe latter is affected when we change a single value of an array to have an\noutlier value while the MAD hardly changes:"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy import stats\nx = stats.norm.rvs(size=100, scale=1, random_state=123456)\nx.std()"
+      },
+      {
+        "type": "code",
+        "value": "stats.median_abs_deviation(x)"
+      },
+      {
+        "type": "code",
+        "value": "x[0] = 345.6\nx.std()"
+      },
+      {
+        "type": "code",
+        "value": "stats.median_abs_deviation(x)"
+      },
+      {
+        "type": "text",
+        "value": "Axis handling example:"
+      },
+      {
+        "type": "code",
+        "value": "x = np.array([[10, 7, 4], [3, 2, 1]])\nx"
+      },
+      {
+        "type": "code",
+        "value": "stats.median_abs_deviation(x)"
+      },
+      {
+        "type": "code",
+        "value": "stats.median_abs_deviation(x, axis=None)"
+      },
+      {
+        "type": "text",
+        "value": "Scale normal example:"
+      },
+      {
+        "type": "code",
+        "value": "x = stats.norm.rvs(size=1000000, scale=2, random_state=123456)\nstats.median_abs_deviation(x)"
+      },
+      {
+        "type": "code",
+        "value": "stats.median_abs_deviation(x, scale='normal')"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_stats_py.py",
+  "item_line": 3214,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "numpy.std",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "numpy.std"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "numpy.var",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "numpy.var"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "numpy.median",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "numpy.median"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.stats._stats_py:iqr",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "scipy.stats.iqr"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.stats._stats_py:tmean",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "scipy.stats.tmean"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.stats._stats_py:tstd",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "scipy.stats.tstd"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.stats._stats_py:tvar",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "scipy.stats.tvar"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(x, axis=0, center=<function median at 0x104d8c0e0>, scale=1.0, nan_policy='propagate')"
+  },
+  "type": "DocBlob"
+}

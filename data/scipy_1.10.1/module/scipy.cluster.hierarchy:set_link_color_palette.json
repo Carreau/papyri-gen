@@ -1,0 +1,299 @@
+{
+  "aliases": [
+    "scipy.cluster.hierarchy.set_link_color_palette"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Note that this palette is global (i.e., setting it once changes the colors for all subsequent calls to "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "dendrogram"
+            },
+            {
+              "type": "text",
+              "value": ") and that it affects only the the colors below "
+            },
+            {
+              "type": "inlineCode",
+              "value": "color_threshold"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Note that "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "dendrogram"
+            },
+            {
+              "type": "text",
+              "value": " also accepts a custom coloring function through its "
+            },
+            {
+              "type": "inlineCode",
+              "value": "link_color_func"
+            },
+            {
+              "type": "text",
+              "value": " keyword, which is more flexible and non-global."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Ability to reset the palette with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "None"
+            },
+            {
+              "type": "text",
+              "value": " added in SciPy 0.17.0."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A list of matplotlib color codes.  The order of the color codes is the order in which the colors are cycled through when color thresholding in the dendrogram."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", resets the palette to its default (which are matplotlib default colors C1 to C9)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "palette",
+              "type": "Param",
+              "type_": "list of str or None"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "None"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Set list of matplotlib color codes for use by dendrogram."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.cluster import hierarchy\nytdist = np.array([662., 877., 255., 412., 996., 295., 468., 268.,\n                   400., 754., 564., 138., 219., 869., 669.])\nZ = hierarchy.linkage(ytdist, 'single')\ndn = hierarchy.dendrogram(Z, no_plot=True)\ndn['color_list']"
+      },
+      {
+        "type": "code",
+        "value": "hierarchy.set_link_color_palette(['c', 'm', 'y', 'k'])\ndn = hierarchy.dendrogram(Z, no_plot=True, above_threshold_color='b')\ndn['color_list']"
+      },
+      {
+        "type": "code",
+        "value": "dn = hierarchy.dendrogram(Z, no_plot=True, color_threshold=267,\n                          above_threshold_color='k')\ndn['color_list']"
+      },
+      {
+        "type": "text",
+        "value": "Now, reset the color palette to its default:"
+      },
+      {
+        "type": "code",
+        "value": "hierarchy.set_link_color_palette(None)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/cluster/hierarchy.py",
+  "item_line": 2952,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "dendrogram",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "dendrogram"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(palette)"
+  },
+  "type": "DocBlob"
+}

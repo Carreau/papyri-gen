@@ -1,0 +1,1676 @@
+{
+  "aliases": [
+    "scipy.optimize.curve_fit"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Assumes "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ydata = f(xdata, *params) + eps"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Users should ensure that inputs "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "xdata",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "xdata"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "ydata",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "ydata"
+            },
+            {
+              "type": "text",
+              "value": ", and the output of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "f",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "f"
+            },
+            {
+              "type": "text",
+              "value": " are "
+            },
+            {
+              "type": "inlineCode",
+              "value": "float64"
+            },
+            {
+              "type": "text",
+              "value": ", or else the optimization may return incorrect results."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "With "
+            },
+            {
+              "type": "inlineCode",
+              "value": "method='lm'"
+            },
+            {
+              "type": "text",
+              "value": ", the algorithm uses the Levenberg-Marquardt algorithm through "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "leastsq"
+            },
+            {
+              "type": "text",
+              "value": ". Note that this algorithm can only deal with unconstrained problems."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Box constraints can be handled by methods 'trf' and 'dogbox'. Refer to the docstring of "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "least_squares"
+            },
+            {
+              "type": "text",
+              "value": " for more information."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The model function, f(x, ...). It must take the independent variable as the first argument and the parameters to fit as separate remaining arguments."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "f",
+              "type": "Param",
+              "type_": "callable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The independent variable where the data is measured. Should usually be an M-length sequence or an (k,M)-shaped array for functions with k predictors, and each element should be float convertible if it is an array like object."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "xdata",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The dependent data, a length M array - nominally "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "f(xdata, ...)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ydata",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Initial guess for the parameters (length N). If None, then the initial values will all be 1 (if the number of parameters for the function can be determined using introspection, otherwise a ValueError is raised)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "p0",
+              "type": "Param",
+              "type_": "array_like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Determines the uncertainty in "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "ydata",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "ydata"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If we define residuals as "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "r = ydata - f(xdata, *popt)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", then the interpretation of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "sigma",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "sigma"
+                    },
+                    {
+                      "type": "text",
+                      "value": " depends on its number of dimensions:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "A 1-D "
+                                },
+                                {
+                                  "anchor": null,
+                                  "exists": true,
+                                  "kind": "local",
+                                  "reference": {
+                                    "kind": "local",
+                                    "module": null,
+                                    "path": "sigma",
+                                    "type": "RefInfo",
+                                    "version": null
+                                  },
+                                  "type": "Link",
+                                  "value": "sigma"
+                                },
+                                {
+                                  "type": "text",
+                                  "value": " should contain values of standard deviations of       errors in "
+                                },
+                                {
+                                  "anchor": null,
+                                  "exists": true,
+                                  "kind": "local",
+                                  "reference": {
+                                    "kind": "local",
+                                    "module": null,
+                                    "path": "ydata",
+                                    "type": "RefInfo",
+                                    "version": null
+                                  },
+                                  "type": "Link",
+                                  "value": "ydata"
+                                },
+                                {
+                                  "type": "text",
+                                  "value": ". In this case, the optimized function is       "
+                                },
+                                {
+                                  "type": "inlineCode",
+                                  "value": "chisq = sum((r / sigma) ** 2)"
+                                },
+                                {
+                                  "type": "text",
+                                  "value": "."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "A 2-D "
+                                },
+                                {
+                                  "anchor": null,
+                                  "exists": true,
+                                  "kind": "local",
+                                  "reference": {
+                                    "kind": "local",
+                                    "module": null,
+                                    "path": "sigma",
+                                    "type": "RefInfo",
+                                    "version": null
+                                  },
+                                  "type": "Link",
+                                  "value": "sigma"
+                                },
+                                {
+                                  "type": "text",
+                                  "value": " should contain the covariance matrix of       errors in "
+                                },
+                                {
+                                  "anchor": null,
+                                  "exists": true,
+                                  "kind": "local",
+                                  "reference": {
+                                    "kind": "local",
+                                    "module": null,
+                                    "path": "ydata",
+                                    "type": "RefInfo",
+                                    "version": null
+                                  },
+                                  "type": "Link",
+                                  "value": "ydata"
+                                },
+                                {
+                                  "type": "text",
+                                  "value": ". In this case, the optimized function is       "
+                                },
+                                {
+                                  "type": "inlineCode",
+                                  "value": "chisq = r.T @ inv(sigma) @ r"
+                                },
+                                {
+                                  "type": "text",
+                                  "value": "."
+                                }
+                              ],
+                              "type": "paragraph"
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "value": "versionadded 0.19"
+                                    }
+                                  ],
+                                  "type": "admonitionTitle"
+                                }
+                              ],
+                              "kind": "note",
+                              "type": "admonition"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        }
+                      ],
+                      "ordered": false,
+                      "spread": false,
+                      "start": 1,
+                      "type": "list"
+                    }
+                  ],
+                  "type": "blockquote"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "None (default) is equivalent of 1-D "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "sigma",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "sigma"
+                    },
+                    {
+                      "type": "text",
+                      "value": " filled with ones."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sigma",
+              "type": "Param",
+              "type_": "None or M-length sequence or MxM array, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "sigma",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "sigma"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is used in an absolute sense and the estimated parameter covariance "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "pcov",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "pcov"
+                    },
+                    {
+                      "type": "text",
+                      "value": " reflects these absolute values."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If False (default), only the relative magnitudes of the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "sigma",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "sigma"
+                    },
+                    {
+                      "type": "text",
+                      "value": " values matter. The returned parameter covariance matrix "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "pcov",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "pcov"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is based on scaling "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "sigma",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "sigma"
+                    },
+                    {
+                      "type": "text",
+                      "value": " by a constant factor. This constant is set by demanding that the reduced "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "chisq"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for the optimal parameters "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "popt",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "popt"
+                    },
+                    {
+                      "type": "text",
+                      "value": " when using the "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "scaled"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "sigma",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "sigma"
+                    },
+                    {
+                      "type": "text",
+                      "value": " equals unity. In other words, "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "sigma",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "sigma"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is scaled to match the sample variance of the residuals after the fit. Default is False. Mathematically, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "pcov(absolute_sigma=False) = pcov(absolute_sigma=True) * chisq(popt)/(M-N)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "absolute_sigma",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, check that the input arrays do not contain nans of infs, and raise a ValueError if they do. Setting this parameter to False may silently produce nonsensical results if the input arrays do contain nans. Default is True."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "check_finite",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Lower and upper bounds on parameters. Defaults to no bounds. There are two ways to specify the bounds:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "Instance of "
+                                },
+                                {
+                                  "domain": null,
+                                  "role": null,
+                                  "type": "Directive",
+                                  "value": "Bounds"
+                                },
+                                {
+                                  "type": "text",
+                                  "value": " class."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "2-tuple of array_like: Each element of the tuple must be either       an array with the length equal to the number of parameters, or a       scalar (in which case the bound is taken to be the same for all       parameters). Use "
+                                },
+                                {
+                                  "type": "inlineCode",
+                                  "value": "np.inf"
+                                },
+                                {
+                                  "type": "text",
+                                  "value": " with an appropriate sign to disable       bounds on all or some parameters."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        }
+                      ],
+                      "ordered": false,
+                      "spread": false,
+                      "start": 1,
+                      "type": "list"
+                    }
+                  ],
+                  "type": "blockquote"
+                }
+              ],
+              "param": "bounds",
+              "type": "Param",
+              "type_": "2-tuple of array_like or `Bounds`, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Method to use for optimization. See "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "least_squares"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for more details. Default is 'lm' for unconstrained problems and 'trf' if "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "bounds",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "bounds"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are provided. The method 'lm' won't work when the number of observations is less than the number of variables, use 'trf' or 'dogbox' in this case."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 0.17"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "method",
+              "type": "Param",
+              "type_": "{'lm', 'trf', 'dogbox'}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Function with signature "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "jac(x, ...)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " which computes the Jacobian matrix of the model function with respect to parameters as a dense array_like structure. It will be scaled according to provided "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "sigma",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "sigma"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If None (default), the Jacobian will be estimated numerically. String keywords for 'trf' and 'dogbox' methods can be used to select a finite difference scheme, see "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "least_squares"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 0.18"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "jac",
+              "type": "Param",
+              "type_": "callable, string or None, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, this function returns additioal information: "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "infodict",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "infodict"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "mesg",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "mesg"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "ier",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "ier"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.9"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "full_output",
+              "type": "Param",
+              "type_": "boolean, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Keyword arguments passed to "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "leastsq"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "method='lm'"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "least_squares"
+                    },
+                    {
+                      "type": "text",
+                      "value": " otherwise."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "**kwargs",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "if either "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "ydata",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "ydata"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "xdata",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "xdata"
+                    },
+                    {
+                      "type": "text",
+                      "value": " contain NaNs, or if incompatible options are used."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "ValueError"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "if the least-squares minimization fails."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "RuntimeError"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "if covariance of the parameters can not be estimated."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "OptimizeWarning"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Optimal values for the parameters so that the sum of the squared residuals of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "f(xdata, *popt) - ydata"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is minimized."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "popt",
+              "type": "Param",
+              "type_": "array"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The estimated covariance of popt. The diagonals provide the variance of the parameter estimate. To compute one standard deviation errors on the parameters use "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "perr = np.sqrt(np.diag(pcov))"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "How the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "sigma",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "sigma"
+                    },
+                    {
+                      "type": "text",
+                      "value": " parameter affects the estimated covariance depends on "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "absolute_sigma",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "absolute_sigma"
+                    },
+                    {
+                      "type": "text",
+                      "value": " argument, as described above."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If the Jacobian matrix at the solution doesn't have a full rank, then 'lm' method returns a matrix filled with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.inf"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", on the other hand 'trf'  and 'dogbox' methods use Moore-Penrose pseudoinverse to compute the covariance matrix."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "pcov",
+              "type": "Param",
+              "type_": "2-D array"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "a dictionary of optional outputs with the keys:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "The number of function calls. Methods 'trf' and 'dogbox' do not     count function calls for numerical Jacobian approximation,     as opposed to 'lm' method."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "inlineCode",
+                            "value": "nfev"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "The function values evaluated at the solution."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "inlineCode",
+                            "value": "fvec"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "A permutation of the R matrix of a QR     factorization of the final approximate     Jacobian matrix, stored column wise.     Together with ipvt, the covariance of the     estimate can be approximated.     Method 'lm' only provides this information."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "inlineCode",
+                            "value": "fjac"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "An integer array of length N which defines     a permutation matrix, p, such that     fjac*p = q*r, where r is upper triangular     with diagonal elements of nonincreasing     magnitude. Column j of p is column ipvt(j)     of the identity matrix.     Method 'lm' only provides this information."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "inlineCode",
+                            "value": "ipvt"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "The vector (transpose(q) * fvec).     Method 'lm' only provides this information."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "inlineCode",
+                            "value": "qtf"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.9"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "infodict",
+              "type": "Param",
+              "type_": "dict (returned only if `full_output` is True)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A string message giving information about the solution."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.9"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "mesg",
+              "type": "Param",
+              "type_": "str (returned only if `full_output` is True)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An integer flag. If it is equal to 1, 2, 3 or 4, the solution was found. Otherwise, the solution was not found. In either case, the optional output variable "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "mesg",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "mesg"
+                    },
+                    {
+                      "type": "text",
+                      "value": " gives more information."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.9"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "ier",
+              "type": "Param",
+              "type_": "int (returnned only if `full_output` is True)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Use non-linear least squares to fit a function, f, to data."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.optimize import curve_fit"
+      },
+      {
+        "type": "code",
+        "value": "def func(x, a, b, c):\n    return a * np.exp(-b * x) + c"
+      },
+      {
+        "type": "text",
+        "value": "Define the data to be fit with some noise:"
+      },
+      {
+        "type": "code",
+        "value": "xdata = np.linspace(0, 4, 50)\ny = func(xdata, 2.5, 1.3, 0.5)\nrng = np.random.default_rng()\ny_noise = 0.2 * rng.normal(size=xdata.size)\nydata = y + y_noise\nplt.plot(xdata, ydata, 'b-', label='data')"
+      },
+      {
+        "type": "text",
+        "value": "Fit for the parameters a, b, c of the function `func`:"
+      },
+      {
+        "type": "code",
+        "value": "popt, pcov = curve_fit(func, xdata, ydata)\npopt"
+      },
+      {
+        "type": "code",
+        "value": "plt.plot(xdata, func(xdata, *popt), 'r-',\n         label='fit: a=%5.3f, b=%5.3f, c=%5.3f' % tuple(popt))"
+      },
+      {
+        "type": "text",
+        "value": "Constrain the optimization to the region of ``0 <= a <= 3``,\n``0 <= b <= 1`` and ``0 <= c <= 0.5``:"
+      },
+      {
+        "type": "code",
+        "value": "popt, pcov = curve_fit(func, xdata, ydata, bounds=(0, [3., 1., 0.5]))\npopt"
+      },
+      {
+        "type": "code",
+        "value": "plt.plot(xdata, func(xdata, *popt), 'g--',\n         label='fit: a=%5.3f, b=%5.3f, c=%5.3f' % tuple(popt))"
+      },
+      {
+        "type": "code",
+        "value": "plt.xlabel('x')\nplt.ylabel('y')\nplt.legend()\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.optimize._minpack_py:curve_fit-0-41e13eac.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/optimize/_minpack_py.py",
+  "item_line": 549,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Minimize the sum of squares of nonlinear functions."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "least_squares",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "least_squares"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Calculate a linear least squares regression for two sets of measurements."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.stats._stats_mstats_common:linregress",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "scipy.stats.linregress"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(f, xdata, ydata, p0=None, sigma=None, absolute_sigma=False, check_finite=True, bounds=(-inf, inf), method=None, jac=None, *, full_output=False, **kwargs)"
+  },
+  "type": "DocBlob"
+}

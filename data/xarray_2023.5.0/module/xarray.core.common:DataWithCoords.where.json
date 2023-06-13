@@ -1,0 +1,320 @@
+{
+  "aliases": [
+    "xarray.core.alignment.DataWithCoords.where"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This operation follows the normal broadcasting and alignment rules that xarray uses for binary arithmetic."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Locations at which to preserve this object's values. dtype must be "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "bool"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If a callable, it must expect this object as its only parameter."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "cond",
+              "type": "Param",
+              "type_": "DataArray, Dataset, or callable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Value to use for locations in this object where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "cond"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is False. By default, these locations filled with NA."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "other",
+              "type": "Param",
+              "type_": "scalar, DataArray or Dataset, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, coordinate labels that only correspond to False values of the condition are dropped from the result."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "drop",
+              "type": "Param",
+              "type_": "bool, default: False"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Same xarray type as caller, with dtype float64."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "DataArray or Dataset"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Filter elements from this object according to a condition."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "a = xr.DataArray(np.arange(25).reshape(5, 5), dims=(\"x\", \"y\"))\na"
+      },
+      {
+        "type": "code",
+        "value": "a.where(a.x + a.y < 4)"
+      },
+      {
+        "type": "code",
+        "value": "a.where(a.x + a.y < 5, -1)"
+      },
+      {
+        "type": "code",
+        "value": "a.where(a.x + a.y < 4, drop=True)"
+      },
+      {
+        "type": "code",
+        "value": "a.where(lambda x: x.x + x.y < 4, drop=True)"
+      },
+      {
+        "type": "code",
+        "value": "a.where(a.x + a.y < 4, -1, drop=True)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/xarray/core/common.py",
+  "item_line": 1028,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Examples",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "corresponding numpy function"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "numpy.where",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "numpy.where"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "equivalent function"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "xarray",
+          "path": "xarray.core.common:DataWithCoords.where",
+          "type": "RefInfo",
+          "version": "2023.5.0"
+        },
+        "type": "Link",
+        "value": "where"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(self: 'T_DataWithCoords', cond: 'Any', other: 'Any' = <NA>, drop: 'bool' = False) -> 'T_DataWithCoords'"
+  },
+  "type": "DocBlob"
+}

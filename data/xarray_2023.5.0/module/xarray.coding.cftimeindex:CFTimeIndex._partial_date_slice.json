@@ -1,0 +1,144 @@
+{
+  "aliases": [
+    "xarray.CFTimeIndex._partial_date_slice"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Note that when using a CFTimeIndex, if a partial-date selection returns a single element, it will never be converted to a scalar coordinate; this is in slight contrast to the behavior when using a DatetimeIndex, which sometimes will return a DataArray with a scalar coordinate depending on the resolution of the datetimes used in defining the index.  For example:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> from cftime import DatetimeNoLeap\n>>> da = xr.DataArray(\n...     [1, 2],\n...     coords=[[DatetimeNoLeap(2001, 1, 1), DatetimeNoLeap(2001, 2, 1)]],\n...     dims=[\"time\"],\n... )\n>>> da.sel(time=\"2001-01-01\")\n<xarray.DataArray (time: 1)>\narray([1])\nCoordinates:\n  * time     (time) object 2001-01-01 00:00:00\n>>> da = xr.DataArray(\n...     [1, 2],\n...     coords=[[pd.Timestamp(2001, 1, 1), pd.Timestamp(2001, 2, 1)]],\n...     dims=[\"time\"],\n... )\n>>> da.sel(time=\"2001-01-01\")\n<xarray.DataArray ()>\narray(1)\nCoordinates:\n    time     datetime64[ns] 2001-01-01\n>>> da = xr.DataArray(\n...     [1, 2],\n...     coords=[[pd.Timestamp(2001, 1, 1, 1), pd.Timestamp(2001, 2, 1)]],\n...     dims=[\"time\"],\n... )\n>>> da.sel(time=\"2001-01-01\")\n<xarray.DataArray (time: 1)>\narray([1])\nCoordinates:\n  * time     (time) datetime64[ns] 2001-01-01T01:00:00"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Adapted from pandas.tseries.index.DatetimeIndex._partial_date_slice"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/xarray/coding/cftimeindex.py",
+  "item_line": 367,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, resolution, parsed)"
+  },
+  "type": "DocBlob"
+}

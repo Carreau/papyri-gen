@@ -1,0 +1,970 @@
+{
+  "aliases": [
+    "scipy.optimize.root_scalar"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This section describes the available solvers that can be selected by the 'method' parameter."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The default is to use the best method available for the situation presented. If a bracket is provided, it may use one of the bracketing methods. If a derivative and an initial value are specified, it may select one of the derivative-based methods. If no method is judged applicable, it will raise an Exception."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Arguments for each method are as follows (x=required, o=optional)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "+-----------------------------------------------+---+------+---------+----+----+--------+---------+------+------+---------+---------+ |                    method                     | f | args | bracket | x0 | x1 | fprime | fprime2 | xtol | rtol | maxiter | options | +===============================================+===+======+=========+====+====+========+=========+======+======+=========+=========+ | "
+            },
+            {
+              "type": "inlineCode",
+              "value": "bisect <optimize.root_scalar-bisect>"
+            },
+            {
+              "type": "text",
+              "value": "   | x |  o   |    x    |    |    |        |         |  o   |  o   |    o    |   o     | +-----------------------------------------------+---+------+---------+----+----+--------+---------+------+------+---------+---------+ | "
+            },
+            {
+              "type": "inlineCode",
+              "value": "brentq <optimize.root_scalar-brentq>"
+            },
+            {
+              "type": "text",
+              "value": "   | x |  o   |    x    |    |    |        |         |  o   |  o   |    o    |   o     | +-----------------------------------------------+---+------+---------+----+----+--------+---------+------+------+---------+---------+ | "
+            },
+            {
+              "type": "inlineCode",
+              "value": "brenth <optimize.root_scalar-brenth>"
+            },
+            {
+              "type": "text",
+              "value": "   | x |  o   |    x    |    |    |        |         |  o   |  o   |    o    |   o     | +-----------------------------------------------+---+------+---------+----+----+--------+---------+------+------+---------+---------+ | "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ridder <optimize.root_scalar-ridder>"
+            },
+            {
+              "type": "text",
+              "value": "   | x |  o   |    x    |    |    |        |         |  o   |  o   |    o    |   o     | +-----------------------------------------------+---+------+---------+----+----+--------+---------+------+------+---------+---------+ | "
+            },
+            {
+              "type": "inlineCode",
+              "value": "toms748 <optimize.root_scalar-toms748>"
+            },
+            {
+              "type": "text",
+              "value": " | x |  o   |    x    |    |    |        |         |  o   |  o   |    o    |   o     | +-----------------------------------------------+---+------+---------+----+----+--------+---------+------+------+---------+---------+ | "
+            },
+            {
+              "type": "inlineCode",
+              "value": "newton <optimize.root_scalar-newton>"
+            },
+            {
+              "type": "text",
+              "value": "   | x |  o   |         | x  |    |   x    |         |  o   |  o   |    o    |   o     | +-----------------------------------------------+---+------+---------+----+----+--------+---------+------+------+---------+---------+ | "
+            },
+            {
+              "type": "inlineCode",
+              "value": "secant <optimize.root_scalar-secant>"
+            },
+            {
+              "type": "text",
+              "value": "   | x |  o   |         | x  | x  |        |         |  o   |  o   |    o    |   o     | +-----------------------------------------------+---+------+---------+----+----+--------+---------+------+------+---------+---------+ | "
+            },
+            {
+              "type": "inlineCode",
+              "value": "halley <optimize.root_scalar-halley>"
+            },
+            {
+              "type": "text",
+              "value": "   | x |  o   |         | x  |    |   x    |    x    |  o   |  o   |    o    |   o     | +-----------------------------------------------+---+------+---------+----+----+--------+---------+------+------+---------+---------+"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A function to find a root of."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "f",
+              "type": "Param",
+              "type_": "callable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Extra arguments passed to the objective function and its derivative(s)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "args",
+              "type": "Param",
+              "type_": "tuple, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Type of solver.  Should be one of"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "'bisect'    "
+                                },
+                                {
+                                  "type": "inlineCode",
+                                  "value": "(see here) <optimize.root_scalar-bisect>"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "'brentq'    "
+                                },
+                                {
+                                  "type": "inlineCode",
+                                  "value": "(see here) <optimize.root_scalar-brentq>"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "'brenth'    "
+                                },
+                                {
+                                  "type": "inlineCode",
+                                  "value": "(see here) <optimize.root_scalar-brenth>"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "'ridder'    "
+                                },
+                                {
+                                  "type": "inlineCode",
+                                  "value": "(see here) <optimize.root_scalar-ridder>"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "'toms748'    "
+                                },
+                                {
+                                  "type": "inlineCode",
+                                  "value": "(see here) <optimize.root_scalar-toms748>"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "'newton'    "
+                                },
+                                {
+                                  "type": "inlineCode",
+                                  "value": "(see here) <optimize.root_scalar-newton>"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "'secant'    "
+                                },
+                                {
+                                  "type": "inlineCode",
+                                  "value": "(see here) <optimize.root_scalar-secant>"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "'halley'    "
+                                },
+                                {
+                                  "type": "inlineCode",
+                                  "value": "(see here) <optimize.root_scalar-halley>"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        }
+                      ],
+                      "ordered": false,
+                      "spread": false,
+                      "start": 1,
+                      "type": "list"
+                    }
+                  ],
+                  "type": "blockquote"
+                }
+              ],
+              "param": "method",
+              "type": "Param",
+              "type_": "str, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An interval bracketing a root.  "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "f(x, *args)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must have different signs at the two endpoints."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "bracket: A sequence of 2 floats, optional",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Initial guess."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x0",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A second guess."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x1",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "fprime",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "fprime"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a boolean and is True, "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "f",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "f"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is assumed to return the value of the objective function and of the derivative. "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "fprime",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "fprime"
+                    },
+                    {
+                      "type": "text",
+                      "value": " can also be a callable returning the derivative of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "f",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "f"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". In this case, it must accept the same arguments as "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "f",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "f"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fprime",
+              "type": "Param",
+              "type_": "bool or callable, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "fprime2",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "fprime2"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a boolean and is True, "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "f",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "f"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is assumed to return the value of the objective function and of the first and second derivatives. "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "fprime2",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "fprime2"
+                    },
+                    {
+                      "type": "text",
+                      "value": " can also be a callable returning the second derivative of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "f",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "f"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". In this case, it must accept the same arguments as "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "f",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "f"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fprime2",
+              "type": "Param",
+              "type_": "bool or callable, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Tolerance (absolute) for termination."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "xtol",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Tolerance (relative) for termination."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "rtol",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum number of iterations."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "maxiter",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A dictionary of solver options. E.g., "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "k"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", see "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "show_options()"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for details."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "options",
+              "type": "Param",
+              "type_": "dict, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The solution represented as a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "RootResults"
+                    },
+                    {
+                      "type": "text",
+                      "value": " object. Important attributes are: "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "root"
+                    },
+                    {
+                      "type": "text",
+                      "value": " the solution , "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "converged"
+                    },
+                    {
+                      "type": "text",
+                      "value": " a boolean flag indicating if the algorithm exited successfully and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "flag"
+                    },
+                    {
+                      "type": "text",
+                      "value": " which describes the cause of the termination. See "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "RootResults"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for a description of other attributes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sol",
+              "type": "Param",
+              "type_": "RootResults"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Find a root of a scalar function."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Find the root of a simple cubic"
+      },
+      {
+        "type": "code",
+        "value": "from scipy import optimize\ndef f(x):\n    return (x**3 - 1)  # only one real root at x = 1"
+      },
+      {
+        "type": "code",
+        "value": "def fprime(x):\n    return 3*x**2"
+      },
+      {
+        "type": "text",
+        "value": "The `brentq` method takes as input a bracket"
+      },
+      {
+        "type": "code",
+        "value": "sol = optimize.root_scalar(f, bracket=[0, 3], method='brentq')\nsol.root, sol.iterations, sol.function_calls"
+      },
+      {
+        "type": "text",
+        "value": "The `newton` method takes as input a single point and uses the\nderivative(s)."
+      },
+      {
+        "type": "code",
+        "value": "sol = optimize.root_scalar(f, x0=0.2, fprime=fprime, method='newton')\nsol.root, sol.iterations, sol.function_calls"
+      },
+      {
+        "type": "text",
+        "value": "The function can provide the value and derivative(s) in a single call."
+      },
+      {
+        "type": "code",
+        "value": "def f_p_pp(x):\n    return (x**3 - 1), 3*x**2, 6*x"
+      },
+      {
+        "type": "code",
+        "value": "sol = optimize.root_scalar(\n    f_p_pp, x0=0.2, fprime=True, method='newton'\n)\nsol.root, sol.iterations, sol.function_calls"
+      },
+      {
+        "type": "code",
+        "value": "sol = optimize.root_scalar(\n    f_p_pp, x0=0.2, fprime=True, fprime2=True, method='halley'\n)\nsol.root, sol.iterations, sol.function_calls"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/optimize/_root_scalar.py",
+  "item_line": 61,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Additional options accepted by the solvers"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.optimize._optimize:show_options",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "show_options"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Find a root of a vector function."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "root",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "root"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(f, args=(), method=None, bracket=None, fprime=None, fprime2=None, x0=None, x1=None, xtol=None, rtol=None, maxiter=None, options=None)"
+  },
+  "type": "DocBlob"
+}

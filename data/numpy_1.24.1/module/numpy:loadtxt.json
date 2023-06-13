@@ -1,0 +1,1063 @@
+{
+  "aliases": [
+    "numpy.loadtxt",
+    "numpy.lib.npyio._loadtxt_with_like",
+    "numpy.lib.npyio.loadtxt"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function aims to be a fast reader for simply formatted files.  The "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "genfromtxt"
+            },
+            {
+              "type": "text",
+              "value": " function provides more sophisticated handling of, e.g., lines with missing values."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Each row in the input text file must have the same number of values to be able to read all values. If all rows do not have same number of values, a subset of up to n columns (where n is the least number of values present in all rows) can be read by specifying the columns via "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "usecols",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "usecols"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 1.10.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The strings produced by the Python float.hex method can be used as input for floats."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "File, filename, list, or generator to read.  If the filename extension is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": ".gz"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": ".bz2"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the file is first decompressed. Note that generators must return bytes or strings. The strings in a list or produced by a generator are treated as lines."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fname",
+              "type": "Param",
+              "type_": "file, str, pathlib.Path, list of str, generator"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Data-type of the resulting array; default: float.  If this is a structured data-type, the resulting array will be 1-dimensional, and each row will be interpreted as an element of the array.  In this case, the number of columns used must match the number of fields in the data-type."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dtype",
+              "type": "Param",
+              "type_": "data-type, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The characters or list of characters used to indicate the start of a comment. None implies no comments. For backwards compatibility, byte strings will be decoded as 'latin1'. The default is '#'."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "comments",
+              "type": "Param",
+              "type_": "str or sequence of str or None, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The character used to separate the values. For backwards compatibility, byte strings will be decoded as 'latin1'. The default is whitespace."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionchanged 1.23.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Only single character delimiters are supported. Newline characters cannot be used as the delimiter."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "delimiter",
+              "type": "Param",
+              "type_": "str, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Converter functions to customize value parsing. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "converters",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "converters"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is callable, the function is applied to all columns, else it must be a dict that maps column number to a parser function. See examples for further details. Default: None."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionchanged 1.23.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "The ability to pass a single callable to be applied to all columns was added."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "converters",
+              "type": "Param",
+              "type_": "dict or callable, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Skip the first "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "skiprows",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "skiprows"
+                    },
+                    {
+                      "type": "text",
+                      "value": " lines, including comments; default: 0."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "skiprows",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Which columns to read, with 0 being the first. For example, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "usecols = (1,4,5)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will extract the 2nd, 5th and 6th columns. The default, None, results in all columns being read."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionchanged 1.11.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "When a single column has to be read it is possible to use an integer instead of a tuple. E.g "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "usecols = 3"
+                        },
+                        {
+                          "type": "text",
+                          "value": " reads the fourth column the same way as "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "usecols = (3,)"
+                        },
+                        {
+                          "type": "text",
+                          "value": " would."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "usecols",
+              "type": "Param",
+              "type_": "int or sequence, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, the returned array is transposed, so that arguments may be unpacked using "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x, y, z = loadtxt(...)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  When used with a structured data-type, arrays are returned for each field. Default is False."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "unpack",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The returned array will have at least "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "ndmin",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "ndmin"
+                    },
+                    {
+                      "type": "text",
+                      "value": " dimensions. Otherwise mono-dimensional axes will be squeezed. Legal values: 0 (default), 1 or 2."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.6.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "ndmin",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Encoding used to decode the inputfile. Does not apply to input streams. The special value 'bytes' enables backward compatibility workarounds that ensures you receive byte arrays as results if possible and passes 'latin1' encoded strings to converters. Override this value to receive unicode arrays and pass strings as input to converters.  If set to None the system default is used. The default value is 'bytes'."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.14.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "encoding",
+              "type": "Param",
+              "type_": "str, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Read "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "max_rows",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "max_rows"
+                    },
+                    {
+                      "type": "text",
+                      "value": " rows of content after "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "skiprows",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "skiprows"
+                    },
+                    {
+                      "type": "text",
+                      "value": " lines. The default is to read all the rows. Note that empty rows containing no data such as empty lines and comment lines are not counted towards "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "max_rows",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "max_rows"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", while such lines are counted in "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "skiprows",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "skiprows"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.16.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionchanged 1.23.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Lines containing no data, including comment lines (e.g., lines starting with '#' or as specified via "
+                        },
+                        {
+                          "domain": null,
+                          "role": null,
+                          "type": "Directive",
+                          "value": "comments"
+                        },
+                        {
+                          "type": "text",
+                          "value": ") are not counted towards "
+                        },
+                        {
+                          "domain": null,
+                          "role": null,
+                          "type": "Directive",
+                          "value": "max_rows"
+                        },
+                        {
+                          "type": "text",
+                          "value": "."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "max_rows",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The character used to denote the start and end of a quoted item. Occurrences of the delimiter or comment characters are ignored within a quoted item. The default value is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "quotechar=None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", which means quoting support is disabled."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If two consecutive instances of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "quotechar",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "quotechar"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are found within a quoted field, the first is treated as an escape character. See examples."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.23.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "quotechar",
+              "type": "Param",
+              "type_": "unicode character or None, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Reference object to allow the creation of arrays which are not NumPy arrays. If an array-like passed in as "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "like"
+                    },
+                    {
+                      "type": "text",
+                      "value": " supports the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "__array_function__"
+                    },
+                    {
+                      "type": "text",
+                      "value": " protocol, the result will be defined by it. In this case, it ensures the creation of an array object compatible with that passed in via this argument."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.20.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "like",
+              "type": "Param",
+              "type_": "array_like, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Data read from the text file."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "out",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Load data from a text file."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from io import StringIO   # StringIO behaves like a file object\nc = StringIO(\"0 1\\n2 3\")\nnp.loadtxt(c)"
+      },
+      {
+        "type": "code",
+        "value": "d = StringIO(\"M 21 72\\nF 35 58\")\nnp.loadtxt(d, dtype={'names': ('gender', 'age', 'weight'),\n                     'formats': ('S1', 'i4', 'f4')})"
+      },
+      {
+        "type": "code",
+        "value": "c = StringIO(\"1,0,2\\n3,0,4\")\nx, y = np.loadtxt(c, delimiter=',', usecols=(0, 2), unpack=True)\nx"
+      },
+      {
+        "type": "code",
+        "value": "y"
+      },
+      {
+        "type": "text",
+        "value": "The `converters` argument is used to specify functions to preprocess the\ntext prior to parsing. `converters` can be a dictionary that maps\npreprocessing functions to each column:"
+      },
+      {
+        "type": "code",
+        "value": "s = StringIO(\"1.618, 2.296\\n3.141, 4.669\\n\")\nconv = {\n    0: lambda x: np.floor(float(x)),  # conversion fn for column 0\n    1: lambda x: np.ceil(float(x)),  # conversion fn for column 1\n}\nnp.loadtxt(s, delimiter=\",\", converters=conv)"
+      },
+      {
+        "type": "text",
+        "value": "`converters` can be a callable instead of a dictionary, in which case it\nis applied to all columns:"
+      },
+      {
+        "type": "code",
+        "value": "s = StringIO(\"0xDE 0xAD\\n0xC0 0xDE\")\nimport functools\nconv = functools.partial(int, base=16)\nnp.loadtxt(s, converters=conv)"
+      },
+      {
+        "type": "text",
+        "value": "This example shows how `converters` can be used to convert a field\nwith a trailing minus sign into a negative number."
+      },
+      {
+        "type": "code",
+        "value": "s = StringIO('10.01 31.25-\\n19.22 64.31\\n17.57- 63.94')\ndef conv(fld):\n    return -float(fld[:-1]) if fld.endswith(b'-') else float(fld)"
+      },
+      {
+        "type": "code",
+        "value": "np.loadtxt(s, converters=conv)"
+      },
+      {
+        "type": "text",
+        "value": "Using a callable as the converter can be particularly useful for handling\nvalues with different formatting, e.g. floats with underscores:"
+      },
+      {
+        "type": "code",
+        "value": "s = StringIO(\"1 2.7 100_000\")\nnp.loadtxt(s, converters=float)"
+      },
+      {
+        "type": "text",
+        "value": "This idea can be extended to automatically handle values specified in\nmany different formats:"
+      },
+      {
+        "type": "code",
+        "value": "def conv(val):\n    try:\n        return float(val)\n    except ValueError:\n        return float.fromhex(val)\ns = StringIO(\"1, 2.5, 3_000, 0b4, 0x1.4000000000000p+2\")\nnp.loadtxt(s, delimiter=\",\", converters=conv, encoding=None)"
+      },
+      {
+        "type": "text",
+        "value": "Note that with the default ``encoding=\"bytes\"``, the inputs to the\nconverter function are latin-1 encoded byte strings. To deactivate the\nimplicit encoding prior to conversion, use ``encoding=None``"
+      },
+      {
+        "type": "code",
+        "value": "s = StringIO('10.01 31.25-\\n19.22 64.31\\n17.57- 63.94')\nconv = lambda x: -float(x[:-1]) if x.endswith('-') else float(x)\nnp.loadtxt(s, converters=conv, encoding=None)"
+      },
+      {
+        "type": "text",
+        "value": "Support for quoted fields is enabled with the `quotechar` parameter.\nComment and delimiter characters are ignored when they appear within a\nquoted item delineated by `quotechar`:"
+      },
+      {
+        "type": "code",
+        "value": "s = StringIO('\"alpha, #42\", 10.0\\n\"beta, #64\", 2.0\\n')\ndtype = np.dtype([(\"label\", \"U12\"), (\"value\", float)])\nnp.loadtxt(s, dtype=dtype, delimiter=\",\", quotechar='\"')"
+      },
+      {
+        "type": "text",
+        "value": "Two consecutive quote characters within a quoted field are treated as a\nsingle escaped character:"
+      },
+      {
+        "type": "code",
+        "value": "s = StringIO('\"Hello, my name is \"\"Monty\"\"!\"')\nnp.loadtxt(s, dtype=\"U\", delimiter=\",\", quotechar='\"')"
+      },
+      {
+        "type": "text",
+        "value": "Read subset of columns when all rows do not contain equal number of values:"
+      },
+      {
+        "type": "code",
+        "value": "d = StringIO(\"1 2\\n2 4\\n3 9 12\\n4 16 20\")\nnp.loadtxt(d, usecols=(0, 1))"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/numpy/lib/npyio.py",
+  "item_line": 1081,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "numpy",
+          "path": "numpy:loadtxt",
+          "type": "RefInfo",
+          "version": "1.24.1"
+        },
+        "type": "Link",
+        "value": "load"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "fromstring",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "fromstring"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "fromregex",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "fromregex"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Load data with missing values handled as specified."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "genfromtxt",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "genfromtxt"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "reads MATLAB data files"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "scipy.io.loadmat",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "scipy.io.loadmat"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(fname, dtype=<class 'float'>, comments='#', delimiter=None, converters=None, skiprows=0, usecols=None, unpack=False, ndmin=0, encoding='bytes', max_rows=None, *, quotechar=None, like=None)"
+  },
+  "type": "DocBlob"
+}

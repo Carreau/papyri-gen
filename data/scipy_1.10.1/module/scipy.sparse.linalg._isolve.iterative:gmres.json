@@ -1,0 +1,680 @@
+{
+  "aliases": [
+    "scipy.sparse.linalg.gmres"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A preconditioner, P, is chosen such that P is close to A but easy to solve for. The preconditioner parameter required by this routine is "
+            },
+            {
+              "type": "inlineCode",
+              "value": "M = P^-1"
+            },
+            {
+              "type": "text",
+              "value": ". The inverse should preferably not be calculated explicitly.  Rather, use the following template to produce M    "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "# Construct a linear operator that computes P^-1 @ x.\nimport scipy.sparse.linalg as spla\nM_x = lambda x: spla.spsolve(P, x)\nM = spla.LinearOperator((n, n), M_x)"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Starting guess for the solution (a vector of zeros by default)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x0",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Tolerances for convergence, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "norm(residual) <= max(tol*norm(b), atol)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". The default for "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "atol"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "'legacy'"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", which emulates a different legacy behavior."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "warning "
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "The default value for "
+                        },
+                        {
+                          "domain": null,
+                          "role": null,
+                          "type": "Directive",
+                          "value": "atol"
+                        },
+                        {
+                          "type": "text",
+                          "value": " will be changed in a future release. For future compatibility, specify "
+                        },
+                        {
+                          "domain": null,
+                          "role": null,
+                          "type": "Directive",
+                          "value": "atol"
+                        },
+                        {
+                          "type": "text",
+                          "value": " explicitly."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "tol, atol",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of iterations between restarts. Larger values increase iteration cost, but may be necessary for convergence. Default is 20."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "restart",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum number of iterations (restart cycles).  Iteration will stop after maxiter steps even if the specified tolerance has not been achieved."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "maxiter",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Inverse of the preconditioner of A.  M should approximate the inverse of A and be easy to solve for (see Notes).  Effective preconditioning dramatically improves the rate of convergence, which implies that fewer iterations are needed to reach a given error tolerance.  By default, no preconditioner is used."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "M",
+              "type": "Param",
+              "type_": "{sparse matrix, ndarray, LinearOperator}"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "User-supplied function to call after each iteration.  It is called as "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "callback(args)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", where "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "args"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are selected by "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "callback_type",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "callback_type"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "callback",
+              "type": "Param",
+              "type_": "function"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "type": "inlineCode",
+                                      "value": "x"
+                                    },
+                                    {
+                                      "type": "text",
+                                      "value": ": current iterate (ndarray), called on every restart"
+                                    }
+                                  ],
+                                  "type": "paragraph"
+                                }
+                              ],
+                              "spread": false,
+                              "type": "listItem"
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "type": "inlineCode",
+                                      "value": "pr_norm"
+                                    },
+                                    {
+                                      "type": "text",
+                                      "value": ": relative (preconditioned) residual norm (float),     called on every inner iteration"
+                                    }
+                                  ],
+                                  "type": "paragraph"
+                                }
+                              ],
+                              "spread": false,
+                              "type": "listItem"
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "type": "inlineCode",
+                                      "value": "legacy"
+                                    },
+                                    {
+                                      "type": "text",
+                                      "value": " (default): same as "
+                                    },
+                                    {
+                                      "type": "inlineCode",
+                                      "value": "pr_norm"
+                                    },
+                                    {
+                                      "type": "text",
+                                      "value": ", but also changes the     meaning of 'maxiter' to count inner iterations instead of restart     cycles."
+                                    }
+                                  ],
+                                  "type": "paragraph"
+                                }
+                              ],
+                              "spread": false,
+                              "type": "listItem"
+                            }
+                          ],
+                          "ordered": false,
+                          "spread": false,
+                          "start": 1,
+                          "type": "list"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "Callback function argument requested:"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "param": "callback_type",
+              "type": "Param",
+              "type_": "{'x', 'pr_norm', 'legacy'}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "deprecated 0.11.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    },
+                    {
+                      "children": [
+                        {
+                          "domain": null,
+                          "role": null,
+                          "type": "Directive",
+                          "value": "gmres"
+                        },
+                        {
+                          "type": "text",
+                          "value": " keyword argument "
+                        },
+                        {
+                          "domain": null,
+                          "role": null,
+                          "type": "Directive",
+                          "value": "restrt"
+                        },
+                        {
+                          "type": "text",
+                          "value": " is deprecated infavour of "
+                        },
+                        {
+                          "domain": null,
+                          "role": null,
+                          "type": "Directive",
+                          "value": "restart"
+                        },
+                        {
+                          "type": "text",
+                          "value": " and will be removed in SciPy 1.12.0."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "restrt",
+              "type": "Param",
+              "type_": "int, optional, deprecated"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The real or complex N-by-N matrix of the linear system. Alternatively, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "A"
+                    },
+                    {
+                      "type": "text",
+                      "value": " can be a linear operator which can produce "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Ax"
+                    },
+                    {
+                      "type": "text",
+                      "value": " using, e.g., "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "scipy.sparse.linalg.LinearOperator"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "A",
+              "type": "Param",
+              "type_": "{sparse matrix, ndarray, LinearOperator}"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Right hand side of the linear system. Has shape (N,) or (N,1)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "b",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The converged solution."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "children": [],
+                              "spread": false,
+                              "type": "listItem"
+                            }
+                          ],
+                          "ordered": false,
+                          "spread": false,
+                          "start": 1,
+                          "type": "list"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "Provides convergence information:"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "param": "info",
+              "type": "Param",
+              "type_": "int"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Use Generalized Minimal RESidual iteration to solve "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Ax = b"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.sparse import csc_matrix\nfrom scipy.sparse.linalg import gmres\nA = csc_matrix([[3, 2, 0], [1, -1, 0], [0, 5, 1]], dtype=float)\nb = np.array([2, 4, -1], dtype=float)\nx, exitCode = gmres(A, b)\nprint(exitCode)            # 0 indicates successful convergence"
+      },
+      {
+        "type": "code",
+        "value": "np.allclose(A.dot(x), b)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/sparse/linalg/_isolve/iterative.py",
+  "item_line": 487,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Other Parameters",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "LinearOperator",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "LinearOperator"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(A, b, x0=None, tol=1e-05, restart=None, maxiter=None, M=None, callback=None, restrt=None, atol=None, callback_type=None)"
+  },
+  "type": "DocBlob"
+}

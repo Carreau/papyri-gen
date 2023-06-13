@@ -1,0 +1,625 @@
+{
+  "aliases": [
+    "dask.array.block"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Blocks in the innermost lists are concatenated along the last dimension (-1), then these are concatenated along the second-last dimension (-2), and so on until the outermost list is reached"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Blocks can be of any dimension, but will not be broadcasted using the normal rules. Instead, leading axes of size 1 are inserted, to make "
+            },
+            {
+              "type": "inlineCode",
+              "value": "block.ndim"
+            },
+            {
+              "type": "text",
+              "value": " the same for all blocks. This is primarily useful for working with scalars, and means that code like "
+            },
+            {
+              "type": "inlineCode",
+              "value": "block([v, 1])"
+            },
+            {
+              "type": "text",
+              "value": " is valid, where "
+            },
+            {
+              "type": "inlineCode",
+              "value": "v.ndim == 1"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When the nested list is two levels deep, this allows block matrices to be constructed from their components."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When called with only scalars, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "block"
+            },
+            {
+              "type": "text",
+              "value": " is equivalent to an ndarray call. So "
+            },
+            {
+              "type": "inlineCode",
+              "value": "block([[1, 2], [3, 4]])"
+            },
+            {
+              "type": "text",
+              "value": " is equivalent to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "array([[1, 2], [3, 4]])"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function does not enforce that the blocks lie on a fixed grid. "
+            },
+            {
+              "type": "inlineCode",
+              "value": "block([[a, b], [c, d]])"
+            },
+            {
+              "type": "text",
+              "value": " is not restricted to arrays of the form      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "AAAbb\nAAAbb\ncccDD"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "But is also allowed to produce, for some "
+            },
+            {
+              "type": "inlineCode",
+              "value": "a, b, c, d"
+            },
+            {
+              "type": "text",
+              "value": "      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "AAAbb\nAAAbb\ncDDDD"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Since concatenation happens along the last axis first, "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "block"
+            },
+            {
+              "type": "text",
+              "value": " is _not_ capable of producing the following directly      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "AAAbb\ncccbb\ncccDD"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Matlab's \"square bracket stacking\", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "[A, B, ...; p, q, ...]"
+            },
+            {
+              "type": "text",
+              "value": ", is equivalent to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "block([[A, B, ...], [p, q, ...]])"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If passed a single ndarray or scalar (a nested list of depth 0), this is returned unmodified (and not copied)."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Elements shapes must match along the appropriate axes (without broadcasting), but leading 1s will be prepended to the shape as necessary to make the dimensions match."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "arrays",
+              "type": "Param",
+              "type_": "nested list of array_like or scalars (but not tuples)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Allow unknown chunksizes, such as come from converting from dask dataframes.  Dask.array is unable to verify that chunks line up.  If data comes from differently aligned sources then this can cause unexpected results."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "allow_unknown_chunksizes: bool",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "If list depths are mismatched - for instance, "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "[[a, b], c]"
+                            },
+                            {
+                              "type": "text",
+                              "value": " is   illegal, and should be spelt "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "[[a, b], [c]]"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "If lists are empty - for instance, "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "[[a, b], []]"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "ValueError"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The array assembled from the given blocks."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The dimensionality of the output is equal to the greatest of: * the dimensionality of all the inputs * the depth to which the input list is nested"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "block_array",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Assemble an nd-array from nested lists of blocks."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dask/array/core.py",
+  "item_line": 3985,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "See Also",
+    "Notes"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Join a sequence of arrays together."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "concatenate",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "concatenate"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Stack arrays in sequence along a new dimension."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "stack",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "stack"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Stack arrays in sequence horizontally (column wise)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "dask",
+          "path": "dask.array.routines:hstack",
+          "type": "RefInfo",
+          "version": "2023.1.0"
+        },
+        "type": "Link",
+        "value": "hstack"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Stack arrays in sequence vertically (row wise)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "dask",
+          "path": "dask.array.routines:vstack",
+          "type": "RefInfo",
+          "version": "2023.1.0"
+        },
+        "type": "Link",
+        "value": "vstack"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Stack arrays in sequence depth wise (along third dimension)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "dask",
+          "path": "dask.array.routines:dstack",
+          "type": "RefInfo",
+          "version": "2023.1.0"
+        },
+        "type": "Link",
+        "value": "dstack"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Split array into a list of multiple sub-arrays vertically."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "vsplit",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "vsplit"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(arrays, allow_unknown_chunksizes=False)"
+  },
+  "type": "DocBlob"
+}

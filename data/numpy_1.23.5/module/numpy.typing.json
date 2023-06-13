@@ -1,0 +1,992 @@
+{
+  "aliases": [
+    "numpy.typing"
+  ],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 1.20"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Large parts of the NumPy API have PEP-484-style type annotations. In addition a number of type aliases are available to users, most prominently the two below:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "ArrayLike"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": objects that can be converted to arrays"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "DTypeLike"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": objects that can be converted to dtypes"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. _typing-extensions: https://pypi.org/project/typing-extensions/"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": "Typing (:mod:`numpy.typing`)",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 1.21"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "args": "numpy.typing.mypy_plugin",
+          "children": [],
+          "name": "automodule",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "args": "numpy.typing",
+          "children": [],
+          "name": "currentmodule",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Mypy plugin",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "NumPy is very flexible. Trying to describe the full range of possibilities statically would result in types that are not very helpful. For that reason, the typed NumPy API is often stricter than the runtime NumPy API. This section describes some notable differences."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Differences from the runtime NumPy API",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "ArrayLike"
+            },
+            {
+              "type": "text",
+              "value": " type tries to avoid creating object arrays. For example,"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "python",
+          "children": [],
+          "name": "code-block",
+          "options": {},
+          "type": "mystDirective",
+          "value": ">>> np.array(x**2 for x in range(10))\narray(<generator object <genexpr> at ...>, dtype=object)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "is valid NumPy code which will create a 0-dimensional object array. Type checkers will complain about the above example when using the NumPy types however. If you really intended to do the above, then you can either use a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "# type: ignore"
+            },
+            {
+              "type": "text",
+              "value": " comment:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "python",
+          "children": [],
+          "name": "code-block",
+          "options": {},
+          "type": "mystDirective",
+          "value": ">>> np.array(x**2 for x in range(10))  # type: ignore"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "or explicitly type the array like object as "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "~typing.Any"
+            },
+            {
+              "type": "text",
+              "value": ":"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "python",
+          "children": [],
+          "name": "code-block",
+          "options": {},
+          "type": "mystDirective",
+          "value": ">>> from typing import Any\n>>> array_like: Any = (x**2 for x in range(10))\n>>> np.array(array_like)\narray(<generator object <genexpr> at ...>, dtype=object)"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "ArrayLike",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "It's possible to mutate the dtype of an array at runtime. For example, the following code is valid:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "python",
+          "children": [],
+          "name": "code-block",
+          "options": {},
+          "type": "mystDirective",
+          "value": ">>> x = np.array([1, 2])\n>>> x.dtype = np.bool_"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This sort of mutation is not allowed by the types. Users who want to write statically typed code should instead use the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "numpy.ndarray.view"
+            },
+            {
+              "type": "text",
+              "value": " method to create a view of the array with a different dtype."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "ndarray",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "DTypeLike"
+            },
+            {
+              "type": "text",
+              "value": " type tries to avoid creation of dtype objects using dictionary of fields like below:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "python",
+          "children": [],
+          "name": "code-block",
+          "options": {},
+          "type": "mystDirective",
+          "value": ">>> x = np.dtype({\"field1\": (float, 1), \"field2\": (int, 3)})"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Although this is valid NumPy code, the type checker will complain about it, since its usage is discouraged. Please see : "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Data type objects <arrays.dtypes>"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "DTypeLike",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The precision of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy:number",
+                "path": "numpy:number",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "numpy.number"
+            },
+            {
+              "type": "text",
+              "value": " subclasses is treated as a covariant generic parameter (see "
+            },
+            {
+              "type": "inlineCode",
+              "value": "~NBitBase"
+            },
+            {
+              "type": "text",
+              "value": "), simplifying the annotating of processes involving precision-based casting."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "python",
+          "children": [],
+          "name": "code-block",
+          "options": {},
+          "type": "mystDirective",
+          "value": ">>> from typing import TypeVar\n>>> import numpy as np\n>>> import numpy.typing as npt\n\n>>> T = TypeVar(\"T\", bound=npt.NBitBase)\n>>> def func(a: \"np.floating[T]\", b: \"np.floating[T]\") -> \"np.floating[T]\":\n...     ..."
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Consequently, the likes of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy:float16",
+                "path": "numpy:float16",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "float16"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy:float32",
+                "path": "numpy:float32",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "float32"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy:float64",
+                "path": "numpy:float64",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "float64"
+            },
+            {
+              "type": "text",
+              "value": " are still sub-types of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy:floating",
+                "path": "numpy:floating",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "floating"
+            },
+            {
+              "type": "text",
+              "value": ", but, contrary to runtime, they're not necessarily considered as sub-classes."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Number precision",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy:timedelta64",
+                "path": "numpy:timedelta64",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "timedelta64"
+            },
+            {
+              "type": "text",
+              "value": " class is not considered a subclass of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy:signedinteger",
+                "path": "numpy:signedinteger",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "signedinteger"
+            },
+            {
+              "type": "text",
+              "value": ", the former only inheriting from "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy:generic",
+                "path": "numpy:generic",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "generic"
+            },
+            {
+              "type": "text",
+              "value": " while static type checking."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Timedelta64",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "During runtime numpy aggressively casts any passed 0D arrays into their corresponding "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy:generic",
+                "path": "numpy:generic",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "generic"
+            },
+            {
+              "type": "text",
+              "value": " instance. Until the introduction of shape typing (see "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Pep 646"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://peps.python.org/pep-0646/"
+            },
+            {
+              "type": "text",
+              "value": ") it is unfortunately not possible to make the necessary distinction between 0D and >0D arrays. While thus not strictly correct, all operations are that can potentially perform a 0D-array -> scalar cast are currently annotated as exclusively returning an "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "ndarray"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If it is known in advance that an operation _will_ perform a 0D-array -> scalar cast, then one can consider manually remedying the situation with either "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "typing:cast",
+                "path": "typing:cast",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "typing.cast"
+            },
+            {
+              "type": "text",
+              "value": " or a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "# type: ignore"
+            },
+            {
+              "type": "text",
+              "value": " comment."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "0D arrays",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The dtype of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy:recarray",
+                "path": "numpy:recarray",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "numpy.recarray"
+            },
+            {
+              "type": "text",
+              "value": ", and the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy",
+                "path": "numpy.core.records",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "numpy.rec"
+            },
+            {
+              "type": "text",
+              "value": " functions in general, can be specified in one of two ways:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Directly via the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "dtype"
+                    },
+                    {
+                      "type": "text",
+                      "value": " argument."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "With up to five helper arguments that operate via "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "numpy:format_parser",
+                        "path": "numpy:format_parser",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "numpy.format_parser"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "formats"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "names"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "titles"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "aligned"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "byteorder"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "These two approaches are currently typed as being mutually exclusive, "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "i.e."
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " if "
+            },
+            {
+              "type": "inlineCode",
+              "value": "dtype"
+            },
+            {
+              "type": "text",
+              "value": " is specified than one may not specify "
+            },
+            {
+              "type": "inlineCode",
+              "value": "formats"
+            },
+            {
+              "type": "text",
+              "value": ". While this mutual exclusivity is not (strictly) enforced during runtime, combining both dtype specifiers can lead to unexpected or even downright buggy behavior."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Record array dtypes",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "args": "ArrayLike",
+          "children": [],
+          "name": "data",
+          "options": {
+            "value": "typing.Union[...]"
+          },
+          "type": "mystDirective",
+          "value": "A `~typing.Union` representing objects that can be coerced\ninto an `~numpy.ndarray`.\n\nAmong others this includes the likes of:\n\n* Scalars.\n* (Nested) sequences.\n* Objects implementing the `~class.__array__` protocol.\n\n.. versionadded:: 1.20\n\n.. admonition:: See Also\n\n    :term:`array_like`:\n        Any scalar or sequence that can be interpreted as an ndarray.\n\n.. rubric:: Examples\n\n.. code-block:: python\n\n    >>> import numpy as np\n    >>> import numpy.typing as npt\n\n    >>> def as_array(a: npt.ArrayLike) -> np.ndarray:\n    ...     return np.array(a)"
+        },
+        {
+          "args": "DTypeLike",
+          "children": [],
+          "name": "data",
+          "options": {
+            "value": "typing.Union[...]"
+          },
+          "type": "mystDirective",
+          "value": "A `~typing.Union` representing objects that can be coerced\ninto a `~numpy.dtype`.\n\nAmong others this includes the likes of:\n\n* :class:`type` objects.\n* Character codes or the names of :class:`type` objects.\n* Objects with the ``.dtype`` attribute.\n\n.. versionadded:: 1.20\n\n.. admonition:: See Also\n\n    :ref:`Specifying and constructing data types <arrays.dtypes.constructing>`\n        A comprehensive overview of all objects that can be coerced\n        into data types.\n\n.. rubric:: Examples\n\n.. code-block:: python\n\n    >>> import numpy as np\n    >>> import numpy.typing as npt\n\n    >>> def as_dtype(d: npt.DTypeLike) -> np.dtype:\n    ...     return np.dtype(d)"
+        },
+        {
+          "args": "NDArray",
+          "children": [],
+          "name": "data",
+          "options": {
+            "value": "numpy.ndarray[typing.Any, numpy.dtype[+ScalarType]]"
+          },
+          "type": "mystDirective",
+          "value": "A :term:`generic <generic type>` version of\n`np.ndarray[Any, np.dtype[+ScalarType]] <numpy.ndarray>`.\n\nCan be used during runtime for typing arrays with a given dtype\nand unspecified shape.\n\n.. versionadded:: 1.21\n\n.. rubric:: Examples\n\n.. code-block:: python\n\n    >>> import numpy as np\n    >>> import numpy.typing as npt\n\n    >>> print(npt.NDArray)\n    numpy.ndarray[typing.Any, numpy.dtype[+ScalarType]]\n\n    >>> print(npt.NDArray[np.float64])\n    numpy.ndarray[typing.Any, numpy.dtype[numpy.float64]]\n\n    >>> NDArrayInt = npt.NDArray[np.int_]\n    >>> a: NDArrayInt = np.arange(10)\n\n    >>> def func(a: npt.ArrayLike) -> npt.NDArray[Any]:\n    ...     return np.array(a)"
+        },
+        {
+          "args": "numpy.typing.NBitBase",
+          "children": [],
+          "name": "autoclass",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "API",
+      "type": "Section"
+    }
+  ],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To remove in the future \u2013\u2013 numpy.typing"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/numpy/typing/__init__.py",
+  "item_line": 0,
+  "item_type": "<class 'module'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

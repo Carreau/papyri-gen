@@ -1,0 +1,1014 @@
+{
+  "aliases": [
+    "scipy.signal.freqz"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Given the M-order numerator "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "b",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "b"
+            },
+            {
+              "type": "text",
+              "value": " and N-order denominator "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "a",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " of a digital filter, compute its frequency response               "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "            jw                 -jw              -jwM\n   jw    B(e  )    b[0] + b[1]e    + ... + b[M]e\nH(e  ) = ------ = -----------------------------------\n            jw                 -jw              -jwN\n         A(e  )    a[0] + a[1]e    + ... + a[N]e"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Using Matplotlib's "
+            },
+            {
+              "type": "inlineCode",
+              "value": "matplotlib.pyplot.plot"
+            },
+            {
+              "type": "text",
+              "value": " function as the callable for "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "plot",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "plot"
+            },
+            {
+              "type": "text",
+              "value": " produces unexpected results, as this plots the real part of the complex transfer function, not the magnitude. Try "
+            },
+            {
+              "type": "inlineCode",
+              "value": "lambda w, h: plot(w, np.abs(h))"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A direct computation via (R)FFT is used to compute the frequency response when the following conditions are met:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An integer value is given for "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "worN",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "worN"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "worN",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "worN"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is fast to compute via FFT (i.e.,    "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "next_fast_len(worN) <scipy.fft.next_fast_len>"
+                    },
+                    {
+                      "type": "text",
+                      "value": " equals "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "worN",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "worN"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The denominator coefficients are a single value ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "a.shape[0] == 1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "worN",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "worN"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is at least as long as the numerator coefficients    ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "worN >= b.shape[0]"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "b.ndim > 1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", then "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "b.shape[-1] == 1"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": true,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For long FIR filters, the FFT approach can have lower error and be much faster than the equivalent direct polynomial calculation."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Numerator of a linear filter. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "b",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "b"
+                    },
+                    {
+                      "type": "text",
+                      "value": " has dimension greater than 1, it is assumed that the coefficients are stored in the first dimension, and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "b.shape[1:]"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "a.shape[1:]"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", and the shape of the frequencies array must be compatible for broadcasting."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "b",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Denominator of a linear filter. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "b",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "b"
+                    },
+                    {
+                      "type": "text",
+                      "value": " has dimension greater than 1, it is assumed that the coefficients are stored in the first dimension, and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "b.shape[1:]"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "a.shape[1:]"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", and the shape of the frequencies array must be compatible for broadcasting."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "a",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If a single integer, then compute at that many frequencies (default is N=512). This is a convenient alternative to      "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "np.linspace(0, fs if whole else fs/2, N, endpoint=include_nyquist)"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Using a number that is fast for FFT computations can result in faster computations (see Notes)."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If an array_like, compute the response at the frequencies given. These are in the same units as "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "fs",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "fs"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "worN",
+              "type": "Param",
+              "type_": "{None, int, array_like}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Normally, frequencies are computed from 0 to the Nyquist frequency, fs/2 (upper-half of unit-circle). If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "whole",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "whole"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is True, compute frequencies from 0 to fs. Ignored if worN is array_like."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "whole",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A callable that takes two arguments. If given, the return parameters "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "w",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "w"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "h",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "h"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are passed to plot. Useful for plotting the frequency response inside "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "freqz"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "plot",
+              "type": "Param",
+              "type_": "callable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The sampling frequency of the digital system. Defaults to 2*pi radians/sample (so w is from 0 to pi)."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.2.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "fs",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "whole",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "whole"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is False and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "worN",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "worN"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is an integer, setting "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "include_nyquist",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "include_nyquist"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to True will include the last frequency (Nyquist frequency) and is otherwise ignored."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.5.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "include_nyquist",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The frequencies at which "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "h",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "h"
+                    },
+                    {
+                      "type": "text",
+                      "value": " was computed, in the same units as "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "fs",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "fs"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". By default, "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "w",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "w"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is normalized to the range [0, pi) (radians/sample)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "w",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The frequency response, as complex numbers."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "h",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute the frequency response of a digital filter."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from scipy import signal\nimport numpy as np\nb = signal.firwin(80, 0.5, window=('kaiser', 8))\nw, h = signal.freqz(b)"
+      },
+      {
+        "type": "code",
+        "value": "import matplotlib.pyplot as plt\nfig, ax1 = plt.subplots()\nax1.set_title('Digital filter frequency response')"
+      },
+      {
+        "type": "code",
+        "value": "ax1.plot(w, 20 * np.log10(abs(h)), 'b')\nax1.set_ylabel('Amplitude [dB]', color='b')\nax1.set_xlabel('Frequency [rad/sample]')"
+      },
+      {
+        "type": "code",
+        "value": "ax2 = ax1.twinx()\nangles = np.unwrap(np.angle(h))\nax2.plot(w, angles, 'g')\nax2.set_ylabel('Angle (radians)', color='g')\nax2.grid(True)\nax2.axis('tight')\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.signal._filter_design:freqz-0-5fd4f4ce.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      },
+      {
+        "type": "text",
+        "value": "Broadcasting Examples"
+      },
+      {
+        "type": "text",
+        "value": "Suppose we have two FIR filters whose coefficients are stored in the\nrows of an array with shape (2, 25). For this demonstration, we'll\nuse random data:"
+      },
+      {
+        "type": "code",
+        "value": "rng = np.random.default_rng()\nb = rng.random((2, 25))"
+      },
+      {
+        "type": "text",
+        "value": "To compute the frequency response for these two filters with one call\nto `freqz`, we must pass in ``b.T``, because `freqz` expects the first\naxis to hold the coefficients. We must then extend the shape with a\ntrivial dimension of length 1 to allow broadcasting with the array\nof frequencies.  That is, we pass in ``b.T[..., np.newaxis]``, which has\nshape (25, 2, 1):"
+      },
+      {
+        "type": "code",
+        "value": "w, h = signal.freqz(b.T[..., np.newaxis], worN=1024)\nw.shape"
+      },
+      {
+        "type": "code",
+        "value": "h.shape"
+      },
+      {
+        "type": "text",
+        "value": "Now, suppose we have two transfer functions, with the same numerator\ncoefficients ``b = [0.5, 0.5]``. The coefficients for the two denominators\nare stored in the first dimension of the 2-D array  `a`::"
+      },
+      {
+        "type": "text",
+        "value": "    a = [   1      1  ]\n        [ -0.25, -0.5 ]"
+      },
+      {
+        "type": "code",
+        "value": "b = np.array([0.5, 0.5])\na = np.array([[1, 1], [-0.25, -0.5]])"
+      },
+      {
+        "type": "text",
+        "value": "Only `a` is more than 1-D. To make it compatible for\nbroadcasting with the frequencies, we extend it with a trivial dimension\nin the call to `freqz`:"
+      },
+      {
+        "type": "code",
+        "value": "w, h = signal.freqz(b, a[..., np.newaxis], worN=1024)\nw.shape"
+      },
+      {
+        "type": "code",
+        "value": "h.shape"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/signal/_filter_design.py",
+  "item_line": 276,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._filter_design:freqz_zpk",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "freqz_zpk"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._filter_design:sosfreqz",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "sosfreqz"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(b, a=1, worN=512, whole=False, plot=None, fs=6.283185307179586, include_nyquist=False)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,258 @@
+{
+  "aliases": [
+    "IPython.core.magics.ExecutionMagics.time"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The CPU and wall clock times are printed, and the value of the expression (if any) is returned.  Note that under Win32, system time is always reported as 0, since it can not be measured."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function can be used both as a line and cell magic:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "In line mode you can time a single-line statement (though multiple   ones can be chained with using semicolons)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "In cell mode, you can time the cell body (a directly   following statement raises an error)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function provides very basic timing functionality.  Use the timeit magic for more control over the measurement."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionchanged 7.3"
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "User variables are no longer expanded, the magic line is always left unmodified."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Time execution of a Python statement or expression."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "::"
+      },
+      {
+        "type": "text",
+        "value": "  In [1]: %time 2**128\n  CPU times: user 0.00 s, sys: 0.00 s, total: 0.00 s\n  Wall time: 0.00\n  Out[1]: 340282366920938463463374607431768211456L"
+      },
+      {
+        "type": "text",
+        "value": "  In [2]: n = 1000000"
+      },
+      {
+        "type": "text",
+        "value": "  In [3]: %time sum(range(n))\n  CPU times: user 1.20 s, sys: 0.05 s, total: 1.25 s\n  Wall time: 1.37\n  Out[3]: 499999500000L"
+      },
+      {
+        "type": "text",
+        "value": "  In [4]: %time print 'hello world'\n  hello world\n  CPU times: user 0.00 s, sys: 0.00 s, total: 0.00 s\n  Wall time: 0.00"
+      },
+      {
+        "type": "text",
+        "value": ".. note::\n    The time needed by Python to compile the given expression will be\n    reported if it is more than 0.1s."
+      },
+      {
+        "type": "text",
+        "value": "    In the example below, the actual exponentiation is done by Python\n    at compilation time, so while the expression can take a noticeable\n    amount of time to compute, that time is purely due to the\n    compilation::"
+      },
+      {
+        "type": "text",
+        "value": "        In [5]: %time 3**9999;\n        CPU times: user 0.00 s, sys: 0.00 s, total: 0.00 s\n        Wall time: 0.00 s"
+      },
+      {
+        "type": "text",
+        "value": "        In [6]: %time 3**999999;\n        CPU times: user 0.00 s, sys: 0.00 s, total: 0.00 s\n        Wall time: 0.00 s\n        Compiler : 0.78 s"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dev/ipython/IPython/core/magics/execution.py",
+  "item_line": 1217,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, line='', cell=None, local_ns=None)"
+  },
+  "type": "DocBlob"
+}

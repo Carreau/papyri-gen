@@ -1,0 +1,267 @@
+{
+  "aliases": [
+    "scipy.linalg.expm"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Implements the algorithm given in [1], which is essentially a Pade approximation with a variable order that is decided based on the array data."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For input with size "
+            },
+            {
+              "type": "inlineCode",
+              "value": "n"
+            },
+            {
+              "type": "text",
+              "value": ", the memory usage is in the worst case in the order of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "8*(n**2)"
+            },
+            {
+              "type": "text",
+              "value": ". If the input data is not of single and double precision of real and complex dtypes, it is copied to a new array."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For cases "
+            },
+            {
+              "type": "inlineCode",
+              "value": "n >= 400"
+            },
+            {
+              "type": "text",
+              "value": ", the exact 1-norm computation cost, breaks even with 1-norm estimation and from that point on the estimation scheme given in [2] is used to decide on the approximation order."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Input with last two dimensions are square "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(..., n, n)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "A",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The resulting matrix exponential with the same shape of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "A"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "eA",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute the matrix exponential of an array."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.linalg import expm, sinm, cosm"
+      },
+      {
+        "type": "text",
+        "value": "Matrix version of the formula exp(0) = 1:"
+      },
+      {
+        "type": "code",
+        "value": "expm(np.zeros((3, 2, 2)))"
+      },
+      {
+        "type": "text",
+        "value": "Euler's identity (exp(i*theta) = cos(theta) + i*sin(theta))\napplied to a matrix:"
+      },
+      {
+        "type": "code",
+        "value": "a = np.array([[1.0, 2.0], [-1.0, 3.0]])\nexpm(1j*a)"
+      },
+      {
+        "type": "code",
+        "value": "cosm(a) + 1j*sinm(a)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/linalg/_matfuncs.py",
+  "item_line": 215,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(A)"
+  },
+  "type": "DocBlob"
+}

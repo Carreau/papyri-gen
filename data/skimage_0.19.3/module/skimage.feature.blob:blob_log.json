@@ -1,0 +1,594 @@
+{
+  "aliases": [
+    "skimage.feature.blob_log"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Blobs are found using the Laplacian of Gaussian (LoG) method . For each blob found, the method returns its coordinates and the standard deviation of the Gaussian kernel that detected the blob."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The radius of each blob is approximately "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\sqrt{2}\\sigma"
+            },
+            {
+              "type": "text",
+              "value": " for a 2-D image and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\sqrt{3}\\sigma"
+            },
+            {
+              "type": "text",
+              "value": " for a 3-D image."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Input grayscale image, blobs are assumed to be light on dark background (white on black)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "image",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "the minimum standard deviation for Gaussian kernel. Keep this low to detect smaller blobs. The standard deviations of the Gaussian filter are given for each axis as a sequence, or as a single number, in which case it is equal for all axes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "min_sigma",
+              "type": "Param",
+              "type_": "scalar or sequence of scalars, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The maximum standard deviation for Gaussian kernel. Keep this high to detect larger blobs. The standard deviations of the Gaussian filter are given for each axis as a sequence, or as a single number, in which case it is equal for all axes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "max_sigma",
+              "type": "Param",
+              "type_": "scalar or sequence of scalars, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The number of intermediate values of standard deviations to consider between "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "min_sigma",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "min_sigma"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "max_sigma",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "max_sigma"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "num_sigma",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The absolute lower bound for scale space maxima. Local maxima smaller than "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "threshold",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "threshold"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are ignored. Reduce this to detect blobs with lower intensities. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "threshold_rel",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "threshold_rel"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is also specified, whichever threshold is larger will be used. If None, "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "threshold_rel",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "threshold_rel"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is used instead."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "threshold",
+              "type": "Param",
+              "type_": "float or None, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A value between 0 and 1. If the area of two blobs overlaps by a fraction greater than "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "threshold",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "threshold"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the smaller blob is eliminated."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "overlap",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If set intermediate values of standard deviations are interpolated using a logarithmic scale to the base "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "10"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If not, linear interpolation is used."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "log_scale",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Minimum intensity of peaks, calculated as "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "max(log_space) * threshold_rel"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "log_space"
+                    },
+                    {
+                      "type": "text",
+                      "value": " refers to the stack of Laplacian-of-Gaussian (LoG) images computed internally. This should have a value between 0 and 1. If None, "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "threshold",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "threshold"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is used instead."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "threshold_rel",
+              "type": "Param",
+              "type_": "float or None, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If tuple of ints, the length of the tuple must match the input array's dimensionality.  Each element of the tuple will exclude peaks from within "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "exclude_border",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "exclude_border"
+                    },
+                    {
+                      "type": "text",
+                      "value": "-pixels of the border of the image along that dimension. If nonzero int, "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "exclude_border",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "exclude_border"
+                    },
+                    {
+                      "type": "text",
+                      "value": " excludes peaks from within "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "exclude_border",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "exclude_border"
+                    },
+                    {
+                      "type": "text",
+                      "value": "-pixels of the border of the image. If zero or False, peaks are identified regardless of their distance from the border."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "exclude_border",
+              "type": "Param",
+              "type_": "tuple of ints, int, or False, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A 2d array with each row representing 2 coordinate values for a 2D image, or 3 coordinate values for a 3D image, plus the sigma(s) used. When a single sigma is passed, outputs are: "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(r, c, sigma)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(p, r, c, sigma)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(r, c)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(p, r, c)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are coordinates of the blob and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "sigma"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the standard deviation of the Gaussian kernel which detected the blob. When an anisotropic gaussian is used (sigmas per dimension), the detected sigma is returned for each dimension."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "A",
+              "type": "Param",
+              "type_": "(n, image.ndim + sigma) ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Finds blobs in the given grayscale image."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from skimage import data, feature, exposure\nimg = data.coins()\nimg = exposure.equalize_hist(img)  # improves detection\nfeature.blob_log(img, threshold = .3)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/skimage/feature/blob.py",
+  "item_line": 401,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "References",
+    "Examples",
+    "Notes"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(image, min_sigma=1, max_sigma=50, num_sigma=10, threshold=0.2, overlap=0.5, log_scale=False, *, threshold_rel=None, exclude_border=False)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,772 @@
+{
+  "aliases": [
+    "xarray.Dataset.pad"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "warning "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "This function is experimental and its behaviour is likely to change especially regarding padding of dimension coordinates (or IndexVariables)."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When using one of the modes (\"edge\", \"reflect\", \"symmetric\", \"wrap\"), coordinates will be padded with the same mode, otherwise coordinates are padded using the \"constant\" mode with fill_value dtypes.NA."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "By default when "
+            },
+            {
+              "type": "inlineCode",
+              "value": "mode=\"constant\""
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "constant_values=None"
+            },
+            {
+              "type": "text",
+              "value": ", integer types will be promoted to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "float"
+            },
+            {
+              "type": "text",
+              "value": " and padded with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.nan"
+            },
+            {
+              "type": "text",
+              "value": ". To avoid type promotion specify "
+            },
+            {
+              "type": "inlineCode",
+              "value": "constant_values=np.nan"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Padding coordinates will drop their corresponding index (if any) and will reset default indexes for dimension coordinates."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Mapping with the form of {dim: (pad_before, pad_after)} describing the number of values padded along each dimension. {dim: pad} is a shortcut for pad_before = pad_after = pad"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "pad_width",
+              "type": "Param",
+              "type_": "mapping of hashable to tuple of int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "How to pad the DataArray (taken from numpy docs):"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "\"constant\": Pads with a constant value."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "\"edge\": Pads with the edge values of array."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "\"linear_ramp\": Pads with the linear ramp between end_value and the   array edge value."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "\"maximum\": Pads with the maximum value of all or part of the   vector along each axis."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "\"mean\": Pads with the mean value of all or part of the   vector along each axis."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "\"median\": Pads with the median value of all or part of the   vector along each axis."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "\"minimum\": Pads with the minimum value of all or part of the   vector along each axis."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "\"reflect\": Pads with the reflection of the vector mirrored on   the first and last values of the vector along each axis."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "\"symmetric\": Pads with the reflection of the vector mirrored   along the edge of the array."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "\"wrap\": Pads with the wrap of the vector along the axis.   The first values are used to pad the end and the   end values are used to pad the beginning."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "param": "mode",
+              "type": "Param",
+              "type_": "{\"constant\", \"edge\", \"linear_ramp\", \"maximum\", \"mean\", \"median\",             \"minimum\", \"reflect\", \"symmetric\", \"wrap\"}, default: \"constant\""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Used in 'maximum', 'mean', 'median', and 'minimum'.  Number of values at edge of each axis used to calculate the statistic value. {dim_1: (before_1, after_1), ... dim_N: (before_N, after_N)} unique statistic lengths along each dimension. ((before, after),) yields same before and after statistic lengths for each dimension. (stat_length,) or int is a shortcut for before = after = statistic length for all axes. Default is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", to use the entire axis."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "stat_length",
+              "type": "Param",
+              "type_": "int, tuple or mapping of hashable to tuple, default: None"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Used in 'constant'.  The values to set the padded values for each axis. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "{dim_1: (before_1, after_1), ... dim_N: (before_N, after_N)}"
+                    },
+                    {
+                      "type": "text",
+                      "value": " unique pad constants along each dimension. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "((before, after),)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " yields same before and after constants for each dimension. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(constant,)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "constant"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a shortcut for "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "before = after = constant"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for all dimensions. Default is 0."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "constant_values",
+              "type": "Param",
+              "type_": "scalar, tuple or mapping of hashable to tuple, default: 0"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Used in 'linear_ramp'.  The values used for the ending value of the linear_ramp and that will form the edge of the padded array. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "{dim_1: (before_1, after_1), ... dim_N: (before_N, after_N)}"
+                    },
+                    {
+                      "type": "text",
+                      "value": " unique end values along each dimension. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "((before, after),)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " yields same before and after end values for each axis. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(constant,)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "constant"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a shortcut for "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "before = after = constant"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for all axes. Default is 0."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "end_values",
+              "type": "Param",
+              "type_": "scalar, tuple or mapping of hashable to tuple, default: 0"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Used in \"reflect\", and \"symmetric\".  The \"even\" style is the default with an unaltered reflection around the edge value.  For the \"odd\" style, the extended part of the array is created by subtracting the reflected values from two times the edge value."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "reflect_type",
+              "type": "Param",
+              "type_": "{\"even\", \"odd\", None}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, the attributes ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "attrs"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") will be copied from the original object to the new one. If False, the new object will be returned without attributes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "keep_attrs",
+              "type": "Param",
+              "type_": "bool or None, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The keyword arguments form of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "pad_width"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". One of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "pad_width"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "pad_width_kwargs"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must be provided."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "**pad_width_kwargs",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Dataset with the padded coordinates and data."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "padded",
+              "type": "Param",
+              "type_": "Dataset"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Pad this dataset along one or more dimensions."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "ds = xr.Dataset({\"foo\": (\"x\", range(5))})\nds.pad(x=(1, 2))"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/xarray/core/dataset.py",
+  "item_line": 8013,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "xarray",
+          "path": "xarray.core.dataset:Dataset.shift",
+          "type": "RefInfo",
+          "version": "2023.5.0"
+        },
+        "type": "Link",
+        "value": "Dataset.shift"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "Dataset.roll",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "Dataset.roll"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "xarray",
+          "path": "xarray.core.dataset:Dataset.bfill",
+          "type": "RefInfo",
+          "version": "2023.5.0"
+        },
+        "type": "Link",
+        "value": "Dataset.bfill"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "xarray",
+          "path": "xarray.core.dataset:Dataset.ffill",
+          "type": "RefInfo",
+          "version": "2023.5.0"
+        },
+        "type": "Link",
+        "value": "Dataset.ffill"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "numpy.pad",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "numpy.pad"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "dask.array.pad",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "dask.array.pad"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(self: 'T_Dataset', pad_width: 'Mapping[Any, int | tuple[int, int]] | None' = None, mode: 'PadModeOptions' = 'constant', stat_length: 'int | tuple[int, int] | Mapping[Any, tuple[int, int]] | None' = None, constant_values: 'float | tuple[float, float] | Mapping[Any, tuple[float, float]] | None' = None, end_values: 'int | tuple[int, int] | Mapping[Any, tuple[int, int]] | None' = None, reflect_type: 'PadReflectOptions' = None, keep_attrs: 'bool | None' = None, **pad_width_kwargs: 'Any') -> 'T_Dataset'"
+  },
+  "type": "DocBlob"
+}

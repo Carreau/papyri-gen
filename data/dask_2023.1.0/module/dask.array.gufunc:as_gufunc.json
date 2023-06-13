@@ -1,0 +1,432 @@
+{
+  "aliases": [
+    "dask.array.as_gufunc"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Specifies what core dimensions are consumed and produced by "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "func"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". According to the specification of numpy.gufunc signature"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "signature",
+              "type": "Param",
+              "type_": "String"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A list of tuples with indices of axes a generalized ufunc should operate on. For instance, for a signature of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "\"(i,j),(j,k)->(i,k)\""
+                    },
+                    {
+                      "type": "text",
+                      "value": " appropriate for matrix multiplication, the base elements are two-dimensional matrices and these are taken to be stored in the two last axes of each argument. The corresponding axes keyword would be "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "[(-2, -1), (-2, -1), (-2, -1)]"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". For simplicity, for generalized ufuncs that operate on 1-dimensional arrays (vectors), a single integer is accepted instead of a single-element tuple, and for generalized ufuncs for which all outputs are scalars, the output tuples can be omitted."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "axes: List of tuples, optional, keyword only",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A single axis over which a generalized ufunc should operate. This is a short-cut for ufuncs that operate over a single, shared core dimension, equivalent to passing in axes with entries of (axis,) for each single-core-dimension argument and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "()"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for all others. For instance, for a signature "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "\"(i),(i)->()\""
+                    },
+                    {
+                      "type": "text",
+                      "value": ", it is equivalent to passing in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "axes=[(axis,), (axis,), ()]"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "axis: int, optional, keyword only",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If this is set to True, axes which are reduced over will be left in the result as a dimension with size one, so that the result will broadcast correctly against the inputs. This option can only be used for generalized ufuncs that operate on inputs that all have the same number of core dimensions and with outputs that have no core dimensions , i.e., with signatures like "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "\"(i),(i)->()\""
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "\"(m,m)->()\""
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If used, the location of the dimensions in the output can be controlled with axes and axis."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "keepdims: bool, optional, keyword only",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Valid numpy dtype specification or list thereof. If not given, a call of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "func"
+                    },
+                    {
+                      "type": "text",
+                      "value": " with a small set of data is performed in order to try to automatically determine the output dtypes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "output_dtypes",
+              "type": "Param",
+              "type_": "Optional, dtype or list of dtypes, keyword only"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Optional mapping from dimension names to sizes for outputs. Only used if new core dimensions (not found on inputs) appear on outputs."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "output_sizes",
+              "type": "Param",
+              "type_": "dict, optional, keyword only"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If set to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.vectorize"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is applied to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "func"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for convenience. Defaults to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "vectorize: bool, keyword only",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Allows rechunking, otherwise chunk sizes need to match and core dimensions are to consist only of one chunk. Warning: enabling this can increase memory usage significantly. Defaults to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "allow_rechunk: Optional, bool, keyword only",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "tuple of empty ndarrays describing the shape and dtype of the output of the gufunc. Defaults to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "meta: Optional, tuple, keyword only",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "Decorator for `pyfunc` that itself returns a `gufunc`."
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Decorator for "
+            },
+            {
+              "type": "inlineCode",
+              "value": "dask.array.gufunc"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import dask.array as da\nimport numpy as np\na = da.random.normal(size=(10,20,30), chunks=(5, 10, 30))\n@da.as_gufunc(\"(i)->(),()\", output_dtypes=(float, float))\ndef stats(x):\n    return np.mean(x, axis=-1), np.std(x, axis=-1)\nmean, std = stats(a)\nmean.compute().shape"
+      },
+      {
+        "type": "code",
+        "value": "a = da.random.normal(size=(   20,30), chunks=(10, 30))\nb = da.random.normal(size=(10, 1,40), chunks=(5, 1, 40))\n@da.as_gufunc(\"(i),(j)->(i,j)\", output_dtypes=float, vectorize=True)\ndef outer_product(x, y):\n    return np.einsum(\"i,j->ij\", x, y)\nc = outer_product(a, b)\nc.compute().shape"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dask/array/gufunc.py",
+  "item_line": 690,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Examples",
+    "References"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(signature=None, **kwargs)"
+  },
+  "type": "DocBlob"
+}

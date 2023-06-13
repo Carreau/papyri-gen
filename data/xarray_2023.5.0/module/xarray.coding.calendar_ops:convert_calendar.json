@@ -1,0 +1,670 @@
+{
+  "aliases": [
+    "xarray.coding.calendar_ops.convert_calendar"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function only converts the individual timestamps; it does not modify any data except in dropping invalid/surplus dates, or inserting values for missing dates."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If the source and target calendars are both from a standard type, only the type of the time array is modified. When converting to a calendar with a leap year from to a calendar without a leap year, the 29th of February will be removed from the array. In the other direction the 29th of February will be missing in the output, unless "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "missing",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "missing"
+            },
+            {
+              "type": "text",
+              "value": " is specified, in which case that value is inserted. For conversions involving the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "360_day"
+            },
+            {
+              "type": "text",
+              "value": " calendar, see Notes."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This method is safe to use with sub-daily data as it doesn't touch the time part of the timestamps."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Passing a value to "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "missing",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "missing"
+            },
+            {
+              "type": "text",
+              "value": " is only usable if the source's time coordinate as an inferable frequencies (see "
+            },
+            {
+              "type": "inlineCode",
+              "value": "~xarray.infer_freq"
+            },
+            {
+              "type": "text",
+              "value": ") and is only appropriate if the target coordinate, generated from this frequency, has dates equivalent to the source. It is usually "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "not"
+                }
+              ],
+              "type": "strong"
+            },
+            {
+              "type": "text",
+              "value": " appropriate to use this mode with:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Period-end frequencies: 'A', 'Y', 'Q' or 'M', in opposition to 'AS' 'YS', 'QS' and 'MS'"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Sub-monthly frequencies that do not divide a day evenly: 'W', 'nD' where "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "n != 1"
+                    },
+                    {
+                      "type": "text",
+                      "value": "   or 'mH' where 24 % m != 0)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If one of the source or target calendars is "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "\"360_day\""
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "align_on",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "align_on"
+            },
+            {
+              "type": "text",
+              "value": " must be specified and two options are offered."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The dates are translated according to their relative position in the year,   ignoring their original month and day information, meaning that the   missing/surplus days are added/removed at regular intervals."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "From a "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "360_day"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to a standard calendar, the output will be missing the   following dates (day of year in parentheses):     To a leap year:       January 31st (31), March 31st (91), June 1st (153), July 31st (213),       September 31st (275) and November 30th (335).     To a non-leap year:       February 6th (36), April 19th (109), July 2nd (183),       September 12th (255), November 25th (329)."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "From a standard calendar to a "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "\"360_day\""
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the following dates in the   source array will be dropped:     From a leap year:       January 31st (31), April 1st (92), June 1st (153), August 1st (214),       September 31st (275), December 1st (336)     From a non-leap year:       February 6th (37), April 20th (110), July 2nd (183),       September 13th (256), November 25th (329)"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This option is best used on daily and subdaily data."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "\"year\""
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The month/day information is conserved and invalid dates are dropped   from the output. This means that when converting from a "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "\"360_day\""
+                    },
+                    {
+                      "type": "text",
+                      "value": " to a   standard calendar, all 31sts (Jan, March, May, July, August, October and   December) will be missing as there is no equivalent dates in the   "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "\"360_day\""
+                    },
+                    {
+                      "type": "text",
+                      "value": " calendar and the 29th (on non-leap years) and 30th of February   will be dropped as there are no equivalent dates in a standard calendar."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This option is best used with data on a frequency coarser than daily."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "\"date\""
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            }
+          ],
+          "type": "DefList"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Input DataArray or Dataset with a time coordinate of a valid dtype ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "numpy.datetime64"
+                    },
+                    {
+                      "type": "text",
+                      "value": "  or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "cftime.datetime"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "obj",
+              "type": "Param",
+              "type_": "DataArray or Dataset"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The target calendar name."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "calendar",
+              "type": "Param",
+              "type_": "str"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Name of the time coordinate in the input DataArray or Dataset."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dim",
+              "type": "Param",
+              "type_": "str"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Must be specified when either the source or target is a "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "\"360_day\""
+                    },
+                    {
+                      "type": "text",
+                      "value": " calendar; ignored otherwise. See Notes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "align_on",
+              "type": "Param",
+              "type_": "{None, 'date', 'year'}"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "By default, i.e. if the value is None, this method will simply attempt to convert the dates in the source calendar to the same dates in the target calendar, and drop any of those that are not possible to represent.  If a value is provided, a new time coordinate will be created in the target calendar with the same frequency as the original time coordinate; for any dates that are not present in the source, the data will be filled with this value.  Note that using this mode requires that the source data have an inferable frequency; for more information see "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "xarray.infer_freq"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  For certain frequency, source, and target calendar combinations, this could result in many missing values, see notes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "missing",
+              "type": "Param",
+              "type_": "any, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to use cftime objects in the output, only used if "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "calendar",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "calendar"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is one of {\"proleptic_gregorian\", \"gregorian\" or \"standard\"}. If True, the new time axis uses cftime objects. If None (default), it uses "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "numpy.datetime64"
+                    },
+                    {
+                      "type": "text",
+                      "value": " values if the date     range permits it, and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "cftime.datetime"
+                    },
+                    {
+                      "type": "text",
+                      "value": " objects if not. If False, it uses "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "numpy.datetime64"
+                    },
+                    {
+                      "type": "text",
+                      "value": "  or fails."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "use_cftime",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "Copy of source with the time coordinate converted to the target calendar."
+            },
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "If `missing` was None (default), invalid dates in the new calendar are"
+            },
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "dropped, but missing dates are not inserted."
+            },
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "If `missing` was given, the new data is reindexed to have a time axis"
+            },
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "with the same frequency as the source, but in the new calendar; any"
+            },
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "missing datapoints are filled with `missing`."
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Transform a time-indexed Dataset or DataArray to one that uses another calendar."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/xarray/coding/calendar_ops.py",
+  "item_line": 35,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(obj, calendar, dim='time', align_on=None, missing=None, use_cftime=None)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,700 @@
+{
+  "aliases": [
+    "skimage.feature.peak_local_max"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Peaks are the local maxima in a region of "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "2 * min_distance + 1"
+            },
+            {
+              "type": "text",
+              "value": " (i.e. peaks are separated by at least "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "min_distance",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "min_distance"
+            },
+            {
+              "type": "text",
+              "value": ")."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If both "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "threshold_abs",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "threshold_abs"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "threshold_rel",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "threshold_rel"
+            },
+            {
+              "type": "text",
+              "value": " are provided, the maximum of the two is chosen as the minimum intensity threshold of peaks."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionchanged 0.18"
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Prior to version 0.18, peaks of the same height within a radius of "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "min_distance"
+                },
+                {
+                  "type": "text",
+                  "value": " were all returned, but this could cause unexpected behaviour. From 0.18 onwards, an arbitrary peak within the region is returned. See issue gh-2592."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The peak local maximum function returns the coordinates of local peaks (maxima) in an image. Internally, a maximum filter is used for finding local maxima. This operation dilates the original image. After comparison of the dilated and original image, this function returns the coordinates or a mask of the peaks where the dilated image equals the original image."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Input image."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "image",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The minimal allowed distance separating peaks. To find the maximum number of peaks, use "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "min_distance=1"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "min_distance",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Minimum intensity of peaks. By default, the absolute threshold is the minimum intensity of the image."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "threshold_abs",
+              "type": "Param",
+              "type_": "float or None, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Minimum intensity of peaks, calculated as "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "max(image) * threshold_rel"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "threshold_rel",
+              "type": "Param",
+              "type_": "float or None, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If positive integer, "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "exclude_border",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "exclude_border"
+                    },
+                    {
+                      "type": "text",
+                      "value": " excludes peaks from within "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "exclude_border",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "exclude_border"
+                    },
+                    {
+                      "type": "text",
+                      "value": "-pixels of the border of the image. If tuple of non-negative ints, the length of the tuple must match the input array's dimensionality.  Each element of the tuple will exclude peaks from within "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "exclude_border",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "exclude_border"
+                    },
+                    {
+                      "type": "text",
+                      "value": "-pixels of the border of the image along that dimension. If True, takes the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "min_distance",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "min_distance"
+                    },
+                    {
+                      "type": "text",
+                      "value": " parameter as value. If zero or False, peaks are identified regardless of their distance from the border."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "exclude_border",
+              "type": "Param",
+              "type_": "int, tuple of ints, or bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, the output will be an array representing peak coordinates. The coordinates are sorted according to peaks values (Larger first). If False, the output will be a boolean array shaped as "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "image.shape"
+                    },
+                    {
+                      "type": "text",
+                      "value": " with peaks present at True elements. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "indices"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is deprecated and will be removed in version 0.20. Default behavior will be to always return peak coordinates. You can obtain a mask as shown in the example below."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "indices",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum number of peaks. When the number of peaks exceeds "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "num_peaks",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "num_peaks"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", return "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "num_peaks",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "num_peaks"
+                    },
+                    {
+                      "type": "text",
+                      "value": " peaks based on highest peak intensity."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "num_peaks",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If provided, "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "footprint == 1"
+                    },
+                    {
+                      "type": "text",
+                      "value": " represents the local region within which to search for peaks at every point in "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "image",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "image"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "footprint",
+              "type": "Param",
+              "type_": "ndarray of bools, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If provided, each unique region "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "labels == value"
+                    },
+                    {
+                      "type": "text",
+                      "value": " represents a unique region to search for peaks. Zero is reserved for background."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "labels",
+              "type": "Param",
+              "type_": "ndarray of ints, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum number of peaks for each label."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "num_peaks_per_label",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Which Minkowski p-norm to use. Should be in the range [1, inf]. A finite large p may cause a ValueError if overflow can occur. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "inf"
+                    },
+                    {
+                      "type": "text",
+                      "value": " corresponds to the Chebyshev distance and 2 to the Euclidean distance."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "p_norm",
+              "type": "Param",
+              "type_": "float"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "param": "output",
+              "type": "Param",
+              "type_": "ndarray or ndarray of bools"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Find peaks in an image as coordinate list or boolean mask."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "img1 = np.zeros((7, 7))\nimg1[3, 4] = 1\nimg1[3, 2] = 1.5\nimg1"
+      },
+      {
+        "type": "code",
+        "value": "peak_local_max(img1, min_distance=1)"
+      },
+      {
+        "type": "code",
+        "value": "peak_local_max(img1, min_distance=2)"
+      },
+      {
+        "type": "code",
+        "value": "img2 = np.zeros((20, 20, 20))\nimg2[10, 10, 10] = 1\nimg2[15, 15, 15] = 1\npeak_idx = peak_local_max(img2, exclude_border=0)\npeak_idx"
+      },
+      {
+        "type": "code",
+        "value": "peak_mask = np.zeros_like(img2, dtype=bool)\npeak_mask[tuple(peak_idx.T)] = True\nnp.argwhere(peak_mask)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/skimage/feature/peak.py",
+  "item_line": 119,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "See Also",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "skimage",
+          "path": "skimage.feature.corner:corner_peaks",
+          "type": "RefInfo",
+          "version": "0.19.3"
+        },
+        "type": "Link",
+        "value": "skimage.feature.corner_peaks"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(image, min_distance=1, threshold_abs=None, threshold_rel=None, exclude_border=True, indices=True, num_peaks=inf, footprint=None, labels=None, num_peaks_per_label=inf, p_norm=inf)"
+  },
+  "type": "DocBlob"
+}

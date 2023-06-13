@@ -1,0 +1,741 @@
+{
+  "aliases": [
+    "scipy.stats.binned_statistic"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This is a generalization of a histogram function.  A histogram divides the space into bins, and returns the count of the number of points in each bin.  This function allows the computation of the sum, mean, median, or other statistic of the values (or set of values) within each bin."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "All but the last (righthand-most) bin is half-open.  In other words, if "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "bins",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "bins"
+            },
+            {
+              "type": "text",
+              "value": " is "
+            },
+            {
+              "type": "inlineCode",
+              "value": "[1, 2, 3, 4]"
+            },
+            {
+              "type": "text",
+              "value": ", then the first bin is "
+            },
+            {
+              "type": "inlineCode",
+              "value": "[1, 2)"
+            },
+            {
+              "type": "text",
+              "value": " (including 1, but excluding 2) and the second "
+            },
+            {
+              "type": "inlineCode",
+              "value": "[2, 3)"
+            },
+            {
+              "type": "text",
+              "value": ".  The last bin, however, is "
+            },
+            {
+              "type": "inlineCode",
+              "value": "[3, 4]"
+            },
+            {
+              "type": "text",
+              "value": ", which "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "includes"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " 4."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 0.11.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A sequence of values to be binned."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "(N,) array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The data on which the statistic will be computed.  This must be the same shape as "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", or a set of sequences - each the same shape as "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "values",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "values"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a set of sequences, the statistic will be computed on each independently."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "values",
+              "type": "Param",
+              "type_": "(N,) array_like or list of (N,) array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The statistic to compute (default is 'mean'). The following statistics are available:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "spread": false,
+                          "type": "listItem"
+                        }
+                      ],
+                      "ordered": false,
+                      "spread": false,
+                      "start": 1,
+                      "type": "list"
+                    }
+                  ],
+                  "type": "blockquote"
+                }
+              ],
+              "param": "statistic",
+              "type": "Param",
+              "type_": "string or callable, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "bins",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "bins"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is an int, it defines the number of equal-width bins in the given range (10 by default).  If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "bins",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "bins"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a sequence, it defines the bin edges, including the rightmost edge, allowing for non-uniform bin widths.  Values in "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " that are smaller than lowest bin edge are assigned to bin number 0, values beyond the highest bin are assigned to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "bins[-1]"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  If the bin edges are specified, the number of bins will be, (nx = len(bins)-1)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "bins",
+              "type": "Param",
+              "type_": "int or sequence of scalars, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The lower and upper range of the bins.  If not provided, range is simply "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(x.min(), x.max())"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  Values outside the range are ignored."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "range",
+              "type": "Param",
+              "type_": "(float, float) or [(float, float)], optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The values of the selected statistic in each bin."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "statistic",
+              "type": "Param",
+              "type_": "array"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Return the bin edges "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(length(statistic)+1)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "bin_edges",
+              "type": "Param",
+              "type_": "array of dtype float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Indices of the bins (corresponding to "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "bin_edges",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "bin_edges"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") in which each value of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " belongs.  Same length as "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "values",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "values"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  A binnumber of "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "i"
+                    },
+                    {
+                      "type": "text",
+                      "value": " means the corresponding value is between (bin_edges[i-1], bin_edges[i])."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "binnumber: 1-D ndarray of ints"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute a binned statistic for one or more sets of data."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy import stats\nimport matplotlib.pyplot as plt"
+      },
+      {
+        "type": "text",
+        "value": "First some basic examples:"
+      },
+      {
+        "type": "text",
+        "value": "Create two evenly spaced bins in the range of the given sample, and sum the\ncorresponding values in each of those bins:"
+      },
+      {
+        "type": "code",
+        "value": "values = [1.0, 1.0, 2.0, 1.5, 3.0]\nstats.binned_statistic([1, 1, 2, 5, 7], values, 'sum', bins=2)"
+      },
+      {
+        "type": "text",
+        "value": "Multiple arrays of values can also be passed.  The statistic is calculated\non each set independently:"
+      },
+      {
+        "type": "code",
+        "value": "values = [[1.0, 1.0, 2.0, 1.5, 3.0], [2.0, 2.0, 4.0, 3.0, 6.0]]\nstats.binned_statistic([1, 1, 2, 5, 7], values, 'sum', bins=2)"
+      },
+      {
+        "type": "code",
+        "value": "stats.binned_statistic([1, 2, 1, 2, 4], np.arange(5), statistic='mean',\n                       bins=3)"
+      },
+      {
+        "type": "text",
+        "value": "As a second example, we now generate some random data of sailing boat speed\nas a function of wind speed, and then determine how fast our boat is for\ncertain wind speeds:"
+      },
+      {
+        "type": "code",
+        "value": "rng = np.random.default_rng()\nwindspeed = 8 * rng.random(500)\nboatspeed = .3 * windspeed**.5 + .2 * rng.random(500)\nbin_means, bin_edges, binnumber = stats.binned_statistic(windspeed,\n                boatspeed, statistic='median', bins=[1,2,3,4,5,6,7])\nplt.figure()\nplt.plot(windspeed, boatspeed, 'b.', label='raw data')\nplt.hlines(bin_means, bin_edges[:-1], bin_edges[1:], colors='g', lw=5,\n           label='binned statistic of data')\nplt.legend()"
+      },
+      {
+        "type": "text",
+        "value": "Now we can use ``binnumber`` to select all datapoints with a windspeed\nbelow 1:"
+      },
+      {
+        "type": "code",
+        "value": "low_boatspeed = boatspeed[binnumber == 0]"
+      },
+      {
+        "type": "text",
+        "value": "As a final example, we will use ``bin_edges`` and ``binnumber`` to make a\nplot of a distribution that shows the mean and distribution around that\nmean per bin, on top of a regular histogram and the probability\ndistribution function:"
+      },
+      {
+        "type": "code",
+        "value": "x = np.linspace(0, 5, num=500)\nx_pdf = stats.maxwell.pdf(x)\nsamples = stats.maxwell.rvs(size=10000)"
+      },
+      {
+        "type": "code",
+        "value": "bin_means, bin_edges, binnumber = stats.binned_statistic(x, x_pdf,\n        statistic='mean', bins=25)\nbin_width = (bin_edges[1] - bin_edges[0])\nbin_centers = bin_edges[1:] - bin_width/2"
+      },
+      {
+        "type": "code",
+        "value": "plt.figure()\nplt.hist(samples, bins=50, density=True, histtype='stepfilled',\n         alpha=0.2, label='histogram of data')\nplt.plot(x, x_pdf, 'r-', label='analytical pdf')\nplt.hlines(bin_means, bin_edges[:-1], bin_edges[1:], colors='g', lw=2,\n           label='binned statistic of data')\nplt.plot((binnumber - 0.5) * bin_width, x_pdf, 'g.', alpha=0.5)\nplt.legend(fontsize=10)\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.stats._binned_statistic:binned_statistic-0-cd459504.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.stats._binned_statistic:binned_statistic-1-9c255929.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_binned_statistic.py",
+  "item_line": 16,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "numpy.digitize",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "numpy.digitize"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "numpy.histogram",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "numpy.histogram"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.stats._binned_statistic:binned_statistic_2d",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "binned_statistic_2d"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.stats._binned_statistic:binned_statistic_dd",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "binned_statistic_dd"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(x, values, statistic='mean', bins=10, range=None)"
+  },
+  "type": "DocBlob"
+}

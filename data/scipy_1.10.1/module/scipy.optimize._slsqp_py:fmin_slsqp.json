@@ -1,0 +1,632 @@
+{
+  "aliases": [
+    "scipy.optimize.fmin_slsqp"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Python interface function for the SLSQP Optimization subroutine originally implemented by Dieter Kraft."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Exit modes are defined as follows       "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "-1 : Gradient evaluation required (g & a)\n 0 : Optimization terminated successfully\n 1 : Function evaluation required (f & c)\n 2 : More equality constraints than independent variables\n 3 : More than 3*n iterations in LSQ subproblem\n 4 : Inequality constraints incompatible\n 5 : Singular matrix E in LSQ subproblem\n 6 : Singular matrix C in LSQ subproblem\n 7 : Rank-deficient equality constraint subproblem HFTI\n 8 : Positive directional derivative for linesearch\n 9 : Iteration limit reached"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Objective function.  Must return a scalar."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "func",
+              "type": "Param",
+              "type_": "callable f(x,*args)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Initial guess for the independent variable(s)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x0",
+              "type": "Param",
+              "type_": "1-D ndarray of float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A list of functions of length n such that eqcons[j](x,*args) == 0.0 in a successfully optimized problem."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "eqcons",
+              "type": "Param",
+              "type_": "list, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Returns a 1-D array in which each element must equal 0.0 in a successfully optimized problem. If f_eqcons is specified, eqcons is ignored."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "f_eqcons",
+              "type": "Param",
+              "type_": "callable f(x,*args), optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A list of functions of length n such that ieqcons[j](x,*args) >= 0.0 in a successfully optimized problem."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ieqcons",
+              "type": "Param",
+              "type_": "list, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Returns a 1-D ndarray in which each element must be greater or equal to 0.0 in a successfully optimized problem. If f_ieqcons is specified, ieqcons is ignored."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "f_ieqcons",
+              "type": "Param",
+              "type_": "callable f(x,*args), optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A list of tuples specifying the lower and upper bound for each independent variable [(xl0, xu0),(xl1, xu1),...] Infinite values will be interpreted as large floating values."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "bounds",
+              "type": "Param",
+              "type_": "list, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A function that evaluates the partial derivatives of func."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fprime",
+              "type": "Param",
+              "type_": "callable `f(x,*args)`, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A function of the form "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "f(x, *args)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " that returns the m by n array of equality constraint normals. If not provided, the normals will be approximated. The array returned by fprime_eqcons should be sized as ( len(eqcons), len(x0) )."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fprime_eqcons",
+              "type": "Param",
+              "type_": "callable `f(x,*args)`, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A function of the form "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "f(x, *args)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " that returns the m by n array of inequality constraint normals. If not provided, the normals will be approximated. The array returned by fprime_ieqcons should be sized as ( len(ieqcons), len(x0) )."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fprime_ieqcons",
+              "type": "Param",
+              "type_": "callable `f(x,*args)`, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Additional arguments passed to func and fprime."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "args",
+              "type": "Param",
+              "type_": "sequence, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The maximum number of iterations."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "iter",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Requested accuracy."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "acc",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The verbosity of fmin_slsqp :"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "param": "iprint",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Overrides the iprint interface (preferred)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "disp",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If False, return only the minimizer of func (default). Otherwise, output final objective function and summary information."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "full_output",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The step size for finite-difference derivative estimates."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "epsilon",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Called after each iteration, as "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "callback(x)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the current parameter vector."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "callback",
+              "type": "Param",
+              "type_": "callable, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The final minimizer of func."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "out",
+              "type": "Param",
+              "type_": "ndarray of float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The final value of the objective function."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fx",
+              "type": "Param",
+              "type_": "ndarray of float, if full_output is true"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The number of iterations."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "its",
+              "type": "Param",
+              "type_": "int, if full_output is true"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The exit mode from the optimizer (see below)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "imode",
+              "type": "Param",
+              "type_": "int, if full_output is true"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Message describing the exit mode from the optimizer."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "smode",
+              "type": "Param",
+              "type_": "string, if full_output is true"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Minimize a function using Sequential Least Squares Programming"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Examples are given :ref:`in the tutorial <tutorial-sqlsp>`."
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/optimize/_slsqp_py.py",
+  "item_line": 68,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Interface to minimization algorithms for multivariate functions. See the 'SLSQP' "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "method"
+            },
+            {
+              "type": "text",
+              "value": " in particular."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.optimize._shgo:SHGO.minimize",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "minimize"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(func, x0, eqcons=(), f_eqcons=None, ieqcons=(), f_ieqcons=None, bounds=(), fprime=None, fprime_eqcons=None, fprime_ieqcons=None, args=(), iter=100, acc=1e-06, iprint=1, disp=None, full_output=0, epsilon=1.4901161193847656e-08, callback=None)"
+  },
+  "type": "DocBlob"
+}

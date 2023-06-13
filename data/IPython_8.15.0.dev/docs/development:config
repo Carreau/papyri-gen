@@ -1,0 +1,578 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This section describes the IPython configuration system. This is based on "
+            },
+            {
+              "type": "inlineCode",
+              "value": "traitlets.config"
+            },
+            {
+              "type": "text",
+              "value": "; see that documentation for more information about the overall architecture."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": "config_overview",
+      "title": "Overview of the IPython configuration system",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "So where should you put your configuration files? IPython uses \"profiles\" for configuration, and by default, all profiles will be stored in the so called \"IPython directory\". The location of this directory is determined by the following algorithm:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ipython-dir"
+                    },
+                    {
+                      "type": "text",
+                      "value": " command line flag is given, its value is used."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If not, the value returned by "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "IPython.paths.get_ipython_dir"
+                    },
+                    {
+                      "type": "text",
+                      "value": "   is used. This function will first look at the "
+                    },
+                    {
+                      "domain": null,
+                      "role": "envvar",
+                      "type": "Directive",
+                      "value": "IPYTHONDIR"
+                    },
+                    {
+                      "type": "text",
+                      "value": "   environment variable and then default to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "~/.ipython"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".   Historical support for the "
+                    },
+                    {
+                      "domain": null,
+                      "role": "envvar",
+                      "type": "Directive",
+                      "value": "IPYTHON_DIR"
+                    },
+                    {
+                      "type": "text",
+                      "value": " environment variable will   be removed in a future release."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For most users, the configuration directory will be "
+            },
+            {
+              "type": "inlineCode",
+              "value": "~/.ipython"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Previous versions of IPython on Linux would use the XDG config directory, creating "
+            },
+            {
+              "type": "inlineCode",
+              "value": "~/.config/ipython"
+            },
+            {
+              "type": "text",
+              "value": " by default. We have decided to go back to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "~/.ipython"
+            },
+            {
+              "type": "text",
+              "value": " for consistency among systems. IPython will issue a warning if it finds the XDG location, and will move it to the new location if there isn't already a directory there."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Once the location of the IPython directory has been determined, you need to know which profile you are using. For users with a single configuration, this will simply be 'default', and will be located in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "<IPYTHONDIR>/profile_default"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The next thing you need to know is what to call your configuration file. The basic idea is that each application has its own default configuration filename. The default named used by the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ipython"
+            },
+            {
+              "type": "text",
+              "value": " command line program is "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ipython_config.py"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "all"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " IPython applications will use this file. The IPython kernel will load its own config file "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "after"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ipython_config.py"
+            },
+            {
+              "type": "text",
+              "value": ". To load a particular configuration file instead of the default, the name can be overridden by the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "config_file"
+            },
+            {
+              "type": "text",
+              "value": " command line flag."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To generate the default configuration files, do      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "$ ipython profile create"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "and you will have a default "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ipython_config.py"
+            },
+            {
+              "type": "text",
+              "value": " in your IPython directory under "
+            },
+            {
+              "type": "inlineCode",
+              "value": "profile_default"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "note "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "IPython configuration options are case sensitive, and IPython cannot catch misnamed keys or invalid values."
+                }
+              ],
+              "type": "paragraph"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "By default IPython will also ignore any invalid configuration files."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 5.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "IPython can be configured to abort in case of invalid configuration file. To do so set the environment variable "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "IPYTHON_SUPPRESS_CONFIG_ERRORS"
+                },
+                {
+                  "type": "text",
+                  "value": " to "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "'1'"
+                },
+                {
+                  "type": "text",
+                  "value": " or "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "'true'"
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Configuration file location",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "From the command-line, you can quickly locate the IPYTHONDIR or a specific profile with:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "bash",
+          "children": [],
+          "name": "sourcecode",
+          "options": {},
+          "type": "mystDirective",
+          "value": "$ ipython locate\n/home/you/.ipython\n\n$ ipython locate profile foo\n/home/you/.ipython/profile_foo"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "These map to the utility functions: "
+            },
+            {
+              "type": "inlineCode",
+              "value": "IPython.paths.get_ipython_dir"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "IPython.paths.locate_profile"
+            },
+            {
+              "type": "text",
+              "value": " respectively."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Locating these files",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A profile is a directory containing configuration and runtime files, such as logs, connection info for the parallel apps, and your IPython command history."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The idea is that users often want to maintain a set of configuration files for different purposes: one for doing numerical computing with NumPy and SciPy and another for doing symbolic computing with SymPy. Profiles make it easy to keep a separate configuration files, logs, and histories for each of these purposes."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Let's start by showing how a profile is used:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "bash",
+          "children": [],
+          "name": "code-block",
+          "options": {},
+          "type": "mystDirective",
+          "value": "$ ipython --profile=sympy"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This tells the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ipython"
+            },
+            {
+              "type": "text",
+              "value": " command line program to get its configuration from the \"sympy\" profile. The file names for various profiles do not change. The only difference is that profiles are named in a special way. In the case above, the \"sympy\" profile means looking for "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ipython_config.py"
+            },
+            {
+              "type": "text",
+              "value": " in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "<IPYTHONDIR>/profile_sympy"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The general pattern is this: simply create a new profile with:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "bash",
+          "children": [],
+          "name": "code-block",
+          "options": {},
+          "type": "mystDirective",
+          "value": "$ ipython profile create <name>"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "which adds a directory called "
+            },
+            {
+              "type": "inlineCode",
+              "value": "profile_<name>"
+            },
+            {
+              "type": "text",
+              "value": " to your IPython directory. Then you can load this profile by adding "
+            },
+            {
+              "type": "inlineCode",
+              "value": "--profile=<name>"
+            },
+            {
+              "type": "text",
+              "value": " to your command line options. Profiles are supported by all IPython applications."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "IPython extends the config loader for Python files so that you can inherit config from another profile. To do this, use a line like this in your Python config file:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "python",
+          "children": [],
+          "name": "sourcecode",
+          "options": {},
+          "type": "mystDirective",
+          "value": "load_subconfig('ipython_config.py', profile='default')"
+        }
+      ],
+      "level": 1,
+      "target": "profiles_dev",
+      "title": "Profiles",
+      "type": "Section"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

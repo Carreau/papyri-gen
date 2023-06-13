@@ -1,0 +1,432 @@
+{
+  "aliases": [
+    "distributed.Client.persist"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Starts computation of the collection on the cluster in the background. Provides a new dask collection that is semantically identical to the previous one, but now based off of futures currently in execution."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Collections like dask.array or dataframe or dask.value objects"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "collections",
+              "type": "Param",
+              "type_": "sequence or single dask object"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether or not to optimize the underlying graphs"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "optimize_graph",
+              "type": "Param",
+              "type_": "bool"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A set of worker hostnames on which computations may be performed. Leave empty to default to all workers (common case)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "workers",
+              "type": "Param",
+              "type_": "string or iterable of strings"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Used with "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "workers",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "workers"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Indicates whether or not the computations may be performed on workers that are not in the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "workers",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "workers"
+                    },
+                    {
+                      "type": "text",
+                      "value": " set(s)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "allow_other_workers",
+              "type": "Param",
+              "type_": "bool (defaults to False)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of allowed automatic retries if computing a result fails"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "retries",
+              "type": "Param",
+              "type_": "int (default to 0)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Optional prioritization of task.  Zero is default. Higher priorities take precedence"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "priority",
+              "type": "Param",
+              "type_": "Number"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Allowed amount of time between calls to consider the same priority"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fifo_timeout",
+              "type": "Param",
+              "type_": "timedelta str (defaults to '60s')"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Defines the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "resources",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "resources"
+                    },
+                    {
+                      "type": "text",
+                      "value": " each instance of this mapped task requires on the worker; e.g. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "{'GPU': 2}"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". See "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "worker resources <resources>"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for details on defining resources."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "resources",
+              "type": "Param",
+              "type_": "dict (defaults to {})"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether these tasks should exist on the worker as stateful actors. Specified on a global (True/False) or per-task ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "{'x': True,\n'y': False}"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") basis. See "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "actors"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for additional details."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "actors",
+              "type": "Param",
+              "type_": "bool or dict (default None)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Options to pass to the graph optimize calls"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "**kwargs",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "List of collections, or single collection, depending on type of input."
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Persist dask collections on cluster"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "xx = client.persist(x)  # doctest: +SKIP\nxx, yy = client.persist([x, y])  # doctest: +SKIP"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/distributed/client.py",
+  "item_line": 3368,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Examples",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "distributed",
+          "path": "distributed.client:Client.compute",
+          "type": "RefInfo",
+          "version": "2023.1.0"
+        },
+        "type": "Link",
+        "value": "Client.compute"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, collections, optimize_graph=True, workers=None, allow_other_workers=None, resources=None, retries=None, priority=0, fifo_timeout='60s', actors=None, **kwargs)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,506 @@
+{
+  "aliases": [
+    "skimage.restoration.wiener"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Return the deconvolution with a Wiener-Hunt approach (i.e. with Fourier diagonalisation)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function applies the Wiener filter to a noisy and degraded image by an impulse response (or PSF). If the data model is"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "y = Hx + n"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where "
+            },
+            {
+              "type": "inlineMath",
+              "value": "n"
+            },
+            {
+              "type": "text",
+              "value": " is noise, "
+            },
+            {
+              "type": "inlineMath",
+              "value": "H"
+            },
+            {
+              "type": "text",
+              "value": " the PSF and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "x"
+            },
+            {
+              "type": "text",
+              "value": " the unknown original image, the Wiener filter is"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "\\hat x = F^\\dagger (|\\Lambda_H|^2 + \\lambda |\\Lambda_D|^2)\n\\Lambda_H^\\dagger F y"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where "
+            },
+            {
+              "type": "inlineMath",
+              "value": "F"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "F^\\dagger"
+            },
+            {
+              "type": "text",
+              "value": " are the Fourier and inverse Fourier transforms respectively, "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\Lambda_H"
+            },
+            {
+              "type": "text",
+              "value": " the transfer function (or the Fourier transform of the PSF, see [Hunt] below) and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\Lambda_D"
+            },
+            {
+              "type": "text",
+              "value": " the filter to penalize the restored image frequencies (Laplacian by default, that is penalization of high frequency). The parameter "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\lambda"
+            },
+            {
+              "type": "text",
+              "value": " tunes the balance between the data (that tends to increase high frequency, even those coming from noise), and the regularization."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "These methods are then specific to a prior model. Consequently, the application or the true image nature must corresponds to the prior model. By default, the prior model (Laplacian) introduce image smoothness or pixel correlation. It can also be interpreted as high-frequency penalization to compensate the instability of the solution with respect to the data (sometimes called noise amplification or \"explosive\" solution)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Finally, the use of Fourier space implies a circulant property of "
+            },
+            {
+              "type": "inlineMath",
+              "value": "H"
+            },
+            {
+              "type": "text",
+              "value": ", see [Hunt]."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Input degraded image"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "image",
+              "type": "Param",
+              "type_": "(M, N) ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Point Spread Function. This is assumed to be the impulse response (input image space) if the data-type is real, or the transfer function (Fourier space) if the data-type is complex. There is no constraints on the shape of the impulse response. The transfer function must be of shape "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "(M, N)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " if "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "is_real is True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "(M, N // 2 + 1)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " otherwise (see "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "np.fft.rfftn"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "psf",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The regularisation parameter value that tunes the balance between the data adequacy that improve frequency restoration and the prior adequacy that reduce frequency restoration (to avoid noise artifacts)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "balance",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The regularisation operator. The Laplacian by default. It can be an impulse response or a transfer function, as for the psf. Shape constraint is the same as for the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "psf",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "psf"
+                    },
+                    {
+                      "type": "text",
+                      "value": " parameter."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "reg",
+              "type": "Param",
+              "type_": "ndarray, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "True by default. Specify if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "psf"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "reg"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are provided with hermitian hypothesis, that is only half of the frequency plane is provided (due to the redundancy of Fourier transform of real signal). It's apply only if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "psf"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and/or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "reg"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are provided as transfer function.  For the hermitian property see "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "uft"
+                    },
+                    {
+                      "type": "text",
+                      "value": " module or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.fft.rfftn"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "is_real",
+              "type": "Param",
+              "type_": "boolean, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "True by default. If True, pixel values of the result above 1 or under -1 are thresholded for skimage pipeline compatibility."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "clip",
+              "type": "Param",
+              "type_": "boolean, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The deconvolved image."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "im_deconv",
+              "type": "Param",
+              "type_": "(M, N) ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Wiener-Hunt deconvolution"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from skimage import color, data, restoration\nimg = color.rgb2gray(data.astronaut())\nfrom scipy.signal import convolve2d\npsf = np.ones((5, 5)) / 25\nimg = convolve2d(img, psf, 'same')\nrng = np.random.default_rng()\nimg += 0.1 * img.std() * rng.standard_normal(img.shape)\ndeconvolved_img = restoration.wiener(img, psf, 1100)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/skimage/restoration/deconvolution.py",
+  "item_line": 11,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Examples",
+    "Notes",
+    "References"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(image, psf, balance, reg=None, is_real=True, clip=True)"
+  },
+  "type": "DocBlob"
+}

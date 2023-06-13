@@ -1,0 +1,411 @@
+{
+  "aliases": [
+    "networkx.to_pandas_adjacency"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For directed graphs, entry i,j corresponds to an edge from i to j."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The DataFrame entries are assigned to the weight edge attribute. When an edge does not have a weight attribute, the value of the entry is set to the number 1.  For multiple (parallel) edges, the values of the entries are determined by the 'multigraph_weight' parameter.  The default is to sum the weight attributes for each of the parallel edges."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "nodelist",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "nodelist"
+            },
+            {
+              "type": "text",
+              "value": " does not contain every node in "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "G",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "G"
+            },
+            {
+              "type": "text",
+              "value": ", the matrix is built from the subgraph of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "G",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "G"
+            },
+            {
+              "type": "text",
+              "value": " that is induced by the nodes in "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "nodelist",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "nodelist"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The convention used for self-loop edges in graphs is to assign the diagonal matrix entry value to the weight attribute of the edge (or the number 1 if the edge has no weight attribute).  If the alternate convention of doubling the edge weight is desired the resulting Pandas DataFrame can be modified as follows:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> import pandas as pd\n>>> pd.options.display.max_columns = 20\n>>> import numpy as np\n>>> G = nx.Graph([(1, 1)])\n>>> df = nx.to_pandas_adjacency(G, dtype=int)\n>>> df\n   1\n1  1\n>>> df.values[np.diag_indices_from(df)] *= 2\n>>> df\n   1\n1  2"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The NetworkX graph used to construct the Pandas DataFrame."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "G",
+              "type": "Param",
+              "type_": "graph"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The rows and columns are ordered according to the nodes in "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "nodelist",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "nodelist"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "nodelist",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "nodelist"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is None, then the ordering is produced by G.nodes()."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "nodelist",
+              "type": "Param",
+              "type_": "list, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An operator that determines how weights in multigraphs are handled. The default is to sum the weights of the multiple edges."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "multigraph_weight",
+              "type": "Param",
+              "type_": "{sum, min, max}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The edge attribute that holds the numerical value used for the edge weight.  If an edge does not have that attribute, then the value 1 is used instead."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "weight",
+              "type": "Param",
+              "type_": "string or None, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The matrix values corresponding to nonedges are typically set to zero. However, this could be undesirable if there are matrix values corresponding to actual edges that also have the value zero. If so, one might prefer nonedges to have some other value, such as nan."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "nonedge",
+              "type": "Param",
+              "type_": "float, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Graph adjacency matrix"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "df",
+              "type": "Param",
+              "type_": "Pandas DataFrame"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Returns the graph adjacency matrix as a Pandas DataFrame."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "G = nx.MultiDiGraph()\nG.add_edge(0, 1, weight=2)"
+      },
+      {
+        "type": "code",
+        "value": "G.add_edge(1, 0)"
+      },
+      {
+        "type": "code",
+        "value": "G.add_edge(2, 2, weight=3)"
+      },
+      {
+        "type": "code",
+        "value": "G.add_edge(2, 2)"
+      },
+      {
+        "type": "code",
+        "value": "nx.to_pandas_adjacency(G, nodelist=[0, 1, 2], dtype=int)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/convert_matrix.py",
+  "item_line": 46,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(G, nodelist=None, dtype=None, order=None, multigraph_weight=<built-in function sum>, weight='weight', nonedge=0.0)"
+  },
+  "type": "DocBlob"
+}

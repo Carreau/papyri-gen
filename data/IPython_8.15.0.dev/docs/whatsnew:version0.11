@@ -1,0 +1,4532 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": "0.11 Series",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "IPython 0.11 is a "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "major"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " overhaul of IPython, two years in the making.  Most of the code base has been rewritten or at least reorganized, breaking backward compatibility with several APIs in previous versions.  It is the first major release in two years, and probably the most significant change to IPython since its inception.  We plan to have a relatively quick succession of releases, as people discover new bugs and regressions.  Once we iron out any significant bugs in this process and settle down the new APIs, this series will become IPython 1.0.  We encourage feedback now on the core APIs, which we hope to maintain stable during the 1.0 series."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Since the internal APIs have changed so much, projects using IPython as a library (as opposed to end-users of the application) are the most likely to encounter regressions or changes that break their existing use patterns.  We will make every effort to provide updated versions of the APIs to facilitate the transition, and we encourage you to contact us on the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "development mailing\nlist"
+            },
+            {
+              "type": "text",
+              "value": " with questions and feedback."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. __: http://mail.scipy.org/mailman/listinfo/ipython-dev"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Chris Fonnesbeck recently wrote an "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "excellent post"
+            },
+            {
+              "type": "text",
+              "value": " that highlights some of our major new features, with examples and screenshots.  We encourage you to read it as it provides an illustrated, high-level overview complementing the detailed feature breakdown in this document."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. __: http://stronginference.com/post/innovations-in-ipython"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A quick summary of the major changes (see below for details):"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Standalone Qt console"
+                        }
+                      ],
+                      "type": "strong"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": a new rich console has been added to IPython,   started with "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "ipython qtconsole"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  In this application we have tried to   retain the feel of a terminal for fast and efficient workflows, while adding   many features that a line-oriented terminal simply can not support, such as   inline figures, full multiline editing with syntax highlighting, graphical   tooltips for function calls and much more.  This development was sponsored by   "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "Enthought Inc."
+                    },
+                    {
+                      "type": "text",
+                      "value": ". See "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "below <qtconsole_011>"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for details."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. __: http://enthought.com"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "High-level parallel computing with ZeroMQ"
+                        }
+                      ],
+                      "type": "strong"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Using the same architecture   that our Qt console is based on, we have completely rewritten our high-level   parallel computing machinery that in prior versions used the Twisted   networking framework.  While this change will require users to update their   codes, the improvements in performance, memory control and internal   consistency across our codebase convinced us it was a price worth paying.  We   have tried to explain how to best proceed with this update, and will be happy   to answer questions that may arise.  A full tutorial describing these   features "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "was presented at SciPy'11"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", more details "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "below\n  <parallel_011>"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. __: http://minrk.github.com/scipy-tutorial-2011"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "New model for GUI/plotting support in the terminal"
+                        }
+                      ],
+                      "type": "strong"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  Now instead of the   various "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "-Xthread"
+                    },
+                    {
+                      "type": "text",
+                      "value": " flags we had before, GUI support is provided without the   use of any threads, by directly integrating GUI event loops with Python's   "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "PyOS_InputHook"
+                    },
+                    {
+                      "type": "text",
+                      "value": " API.  A new command-line flag "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "--gui"
+                    },
+                    {
+                      "type": "text",
+                      "value": " controls GUI support,   and it can also be enabled after IPython startup via the new "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "%gui"
+                    },
+                    {
+                      "type": "text",
+                      "value": " magic.   This requires some changes if you want to execute GUI-using scripts inside   IPython, see "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "the GUI support section <gui_support>"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for more details."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "A two-process architecture."
+                        }
+                      ],
+                      "type": "strong"
+                    },
+                    {
+                      "type": "text",
+                      "value": " The Qt console is the first use of a new   model that splits IPython between a kernel process where code is executed and   a client that handles user interaction.  We plan on also providing terminal   and web-browser based clients using this infrastructure in future releases.   This model allows multiple clients to interact with an IPython process   through a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "well-documented messaging protocol <messaging>"
+                    },
+                    {
+                      "type": "text",
+                      "value": " using the   ZeroMQ networking library."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Refactoring."
+                        }
+                      ],
+                      "type": "strong"
+                    },
+                    {
+                      "type": "text",
+                      "value": " the entire codebase has been refactored, in order to make it   more modular and easier to contribute to.  IPython has traditionally been a   hard project to participate because the old codebase was very monolithic.  We   hope this (ongoing) restructuring will make it easier for new developers to   join us."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Vim integration"
+                        }
+                      ],
+                      "type": "strong"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Vim can be configured to seamlessly control an IPython   kernel, see the files in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "docs/examples/vim"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for the full details.   This work was done by Paul Ivanov, who prepared a nice "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "video\n  demonstration"
+                    },
+                    {
+                      "type": "text",
+                      "value": " of the features it provides."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. __: http://pirsquared.org/blog/2011/07/28/vim-ipython/"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Integration into Microsoft Visual Studio"
+                        }
+                      ],
+                      "type": "strong"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Thanks to the work of the   Microsoft "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "Python Tools for Visual Studio"
+                    },
+                    {
+                      "type": "text",
+                      "value": " team, this version of IPython   has been integrated into Microsoft Visual Studio's Python tools open source   plug-in.  "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "Details below"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. __: http://pytools.codeplex.com"
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. _details below: ms_visual_studio_011_"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Improved unicode support"
+                        }
+                      ],
+                      "type": "strong"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". We closed many bugs related to unicode input."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Python 3"
+                        }
+                      ],
+                      "type": "strong"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". IPython now runs on Python 3.x. See "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "python3_011"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for   details."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "New profile model"
+                        }
+                      ],
+                      "type": "strong"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Profiles are now directories that contain all relevant   information for that session, and thus better isolate IPython use-cases."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "SQLite storage for history"
+                        }
+                      ],
+                      "type": "strong"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". All history is now stored in a SQLite   database, providing support for multiple simultaneous sessions that won't   clobber each other as well as the ability to perform queries on all stored   data."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "New configuration system"
+                        }
+                      ],
+                      "type": "strong"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". All parts of IPython are now configured via a   mechanism inspired by the Enthought Traits library.  Any configurable element   can have its attributes set either via files that now use real Python syntax   or from the command-line."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Pasting of code with prompts"
+                        }
+                      ],
+                      "type": "strong"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". IPython now intelligently strips out input   prompts , be they plain Python ones ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": ">>>"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "..."
+                    },
+                    {
+                      "type": "text",
+                      "value": ") or IPython ones   ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "In [N]:"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "...:"
+                    },
+                    {
+                      "type": "text",
+                      "value": ").  More details "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "here <pasting_with_prompts>"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Release 0.11",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Over 60 separate authors have contributed to this release, see "
+            },
+            {
+              "type": "inlineCode",
+              "value": "below\n<credits_011>"
+            },
+            {
+              "type": "text",
+              "value": " for a full list.  In particular, we want to highlight the extremely active participation of two new core team members: Evan Patterson implemented the Qt console, and Thomas Kluyver started with our Python 3 port and by now has made major contributions to just about every area of IPython."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "We are also grateful for the support we have received during this development cycle from several institutions:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "Enthought Inc"
+                    },
+                    {
+                      "type": "text",
+                      "value": " funded the development of our new Qt console, an effort that   required developing major pieces of underlying infrastructure, which now   power not only the Qt console but also our new parallel machinery.  We'd like   to thank Eric Jones and Travis Oliphant for their support, as well as Ilan   Schnell for his tireless work integrating and testing IPython in the   "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "Enthought Python Distribution"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. __: http://enthought.com"
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. _Enthought Python Distribution: http://www.enthought.com/products/epd.php"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Nipy/NIH: funding via the "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "NiPy project"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (NIH grant 5R01MH081909-02) helped   us jumpstart the development of this series by restructuring the entire   codebase two years ago in a way that would make modular development and   testing more approachable.  Without this initial groundwork, all the new   features we have added would have been impossible to develop."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. __: http://nipy.org"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Sage/NSF: funding via the grant "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "Sage: Unifying Mathematical Software for\n  Scientists, Engineers, and Mathematicians"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (NSF grant DMS-1015114)   supported a meeting in spring 2011 of several of the core IPython developers   where major progress was made integrating the last key pieces leading to this   release."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. __: http://modular.math.washington.edu/grants/compmath09"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Microsoft's team working on "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "Python Tools for Visual Studio"
+                    },
+                    {
+                      "type": "text",
+                      "value": " developed the    integratron of IPython into the Python plugin for Visual Studio 2010."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. __: http://pytools.codeplex.com"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Google Summer of Code: in 2010, we had two students developing prototypes of   the new machinery that is now maturing in this release: "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "Omar Zapata"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and   "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "Gerardo Guti\u00e9rrez"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. _Omar Zapata: http://ipythonzmq.blogspot.com/2010/08/ipython-zmq-status.html"
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. _Gerardo Guti\u00e9rrez: http://ipythonqt.blogspot.com/2010/04/ipython-qt-interface-gsoc-2010-proposal.html>"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Authors and support",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In April 2010, after "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "one breakage too many with bzr"
+            },
+            {
+              "type": "text",
+              "value": ", we decided to move our entire development process to Git and Github.com.  This has proven to be one of the best decisions in the project's history, as the combination of git and github have made us far, far more productive than we could be with our previous tools.  We first converted our bzr repo to a git one without losing history, and a few weeks later ported all open Launchpad bugs to github issues with their comments mostly intact (modulo some formatting changes).  This ensured a smooth transition where no development history or submitted bugs were lost. Feel free to use our little Launchpad to Github issues "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "porting script"
+            },
+            {
+              "type": "text",
+              "value": " if you need to make a similar transition."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. __: http://mail.scipy.org/pipermail/ipython-dev/2010-April/005944.html"
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. _porting script: https://gist.github.com/835577"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "These simple statistics show how much work has been done on the new release, by comparing the current code to the last point it had in common with the 0.10 series.  A huge diff and ~2200 commits make up this cycle      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "git diff $(git merge-base 0.10.2 HEAD)  | wc -l\n288019\n\ngit log $(git merge-base 0.10.2 HEAD)..HEAD --oneline | wc -l\n2200"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Since our move to github, 511 issues were closed, 226 of which were pull requests and 285 regular issues ("
+            },
+            {
+              "type": "inlineCode",
+              "value": "a full list with links\n<issues_list_011>"
+            },
+            {
+              "type": "text",
+              "value": " is available for those interested in the details).  Github's pull requests are a fantastic mechanism for reviewing code and building a shared ownership of the project, and we are making enthusiastic use of it."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "",
+          "children": [],
+          "name": "Note",
+          "options": {},
+          "type": "mystDirective",
+          "value": "This undercounts the number of issues closed in this development cycle,\nsince we only moved to github for issue tracking in May 2010, but we have no\nway of collecting statistics on the number of issues closed in the old\nLaunchpad bug tracker prior to that."
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Development summary: moving to Git and Github",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "IPython now ships with a Qt application that feels very much like a terminal, but is in fact a rich GUI that runs an IPython client but supports inline figures, saving sessions to PDF and HTML, multiline editing with syntax highlighting, graphical calltips and much more:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "../_images/qtconsole.png",
+          "children": [],
+          "name": "figure",
+          "options": {
+            "align": "center",
+            "alt": "IPython Qt console with embedded plots",
+            "target": "../_images/qtconsole.png",
+            "width": "400px"
+          },
+          "type": "mystDirective",
+          "value": "The Qt console for IPython, using inline matplotlib plots."
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "We hope that many projects will embed this widget, which we've kept deliberately very lightweight, into their own environments.  In the future we may also offer a slightly more featureful application (with menus and other GUI elements), but we remain committed to always shipping this easy to embed widget."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "See the "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Jupyter Qt Console site"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://jupyter.org/qtconsole"
+            },
+            {
+              "type": "text",
+              "value": " for a detailed description of the console's features and use."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": "qtconsole_011",
+      "title": "Qt Console",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "We have completely rewritten the Twisted-based code for high-level parallel computing to work atop our new ZeroMQ architecture.  While we realize this will break compatibility for a number of users, we hope to make the transition as easy as possible with our docs, and we are convinced the change is worth it. ZeroMQ provides us with much tighter control over memory, higher performance, and its communications are impervious to the Python Global Interpreter Lock because they take place in a system-level C++ thread.  The impact of the GIL in our previous code was something we could simply not work around, given that Twisted is itself a Python library.  So while Twisted is a very capable framework, we think ZeroMQ fits our needs much better and we hope you will find the change to be a significant improvement in the long run."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Our manual contains a full description of how to use IPython for parallel computing, and the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "tutorial"
+            },
+            {
+              "type": "text",
+              "value": " presented by Min Ragan-Kelley at the SciPy 2011 conference provides a hands-on complement to the reference docs."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. __: http://minrk.github.com/scipy-tutorial-2011"
+        }
+      ],
+      "level": 2,
+      "target": "parallel_011",
+      "title": "High-level parallel computing with ZeroMQ",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "As of this release, a significant portion of IPython has been refactored.  This refactoring is founded on a number of new abstractions.  The main new classes that implement these abstractions are:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "traitlets.HasTraits"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "traitlets.config.configurable.Configurable"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "traitlets.config.application.Application"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "traitlets.config.loader.ConfigLoader"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "traitlets.config.loader.Config"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "We are still in the process of writing developer focused documentation about these classes, but for now our "
+            },
+            {
+              "type": "inlineCode",
+              "value": "configuration documentation\n<config_overview>"
+            },
+            {
+              "type": "text",
+              "value": " contains a high level overview of the concepts that these classes express."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The biggest user-visible change is likely the move to using the config system to determine the command-line arguments for IPython applications. The benefit of this is that "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "all"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " configurable values in IPython are exposed on the command-line, but the syntax for specifying values has changed. The gist is that assigning values is pure Python assignment.  Simple flags exist for commonly used options, these are always prefixed with '--'."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The IPython command-line help has the details of all the options (via "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ipython --help"
+            },
+            {
+              "type": "text",
+              "value": "), but a simple example should clarify things; the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "pylab"
+            },
+            {
+              "type": "text",
+              "value": " flag can be used to start in pylab mode with the qt4 backend    "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "ipython --pylab=qt"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "which is equivalent to using the fully qualified form    "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "ipython --TerminalIPythonApp.pylab=qt"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The long-form options can be listed via "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ipython --help-all"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Refactoring",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "There is a new GUI framework for IPython, based on a client-server model in which multiple clients can communicate with one IPython kernel, using the ZeroMQ messaging framework. There is already a Qt console client, which can be started by calling "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ipython qtconsole"
+            },
+            {
+              "type": "text",
+              "value": ". The protocol is "
+            },
+            {
+              "type": "inlineCode",
+              "value": "documented\n<messaging>"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The parallel computing framework has also been rewritten using ZMQ. The protocol is described "
+            },
+            {
+              "type": "inlineCode",
+              "value": "here <ipyparallel:/reference/messages.md>"
+            },
+            {
+              "type": "text",
+              "value": ", and the code is in the new "
+            },
+            {
+              "type": "inlineCode",
+              "value": "IPython.parallel"
+            },
+            {
+              "type": "text",
+              "value": " module."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "ZeroMQ architecture",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A Python 3 version of IPython has been prepared. For the time being, this is maintained separately and updated from the main codebase. Its code can be found "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "here"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/ipython/ipython-py3k"
+            },
+            {
+              "type": "text",
+              "value": ". The parallel computing components are not perfect on Python3, but most functionality appears to be working.  As this work is evolving quickly, the best place to find updated information about it is our "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "Python 3 wiki page"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. __: http://wiki.ipython.org/index.php?title=Python_3"
+        }
+      ],
+      "level": 2,
+      "target": "python3_011",
+      "title": "Python 3 support",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Entering non-ascii characters in unicode literals ("
+            },
+            {
+              "type": "inlineCode",
+              "value": "u\"\u20ac\u00f8\""
+            },
+            {
+              "type": "text",
+              "value": ") now works properly on all platforms. However, entering these in byte/string literals ("
+            },
+            {
+              "type": "inlineCode",
+              "value": "\"\u20ac\u00f8\""
+            },
+            {
+              "type": "text",
+              "value": ") will not work as expected on Windows (or any platform where the terminal encoding is not UTF-8, as it typically is for Linux & Mac OS X). You can use escape sequences ("
+            },
+            {
+              "type": "inlineCode",
+              "value": "\"\\xe9\\x82\""
+            },
+            {
+              "type": "text",
+              "value": ") to get bytes above 128, or use unicode literals and encode them. This is a limitation of Python 2 which we cannot easily work around."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Unicode",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "IPython can be used as the interactive shell in the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "Python plugin for\nMicrosoft Visual Studio"
+            },
+            {
+              "type": "text",
+              "value": ", as seen here:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "../_images/ms_visual_studio.png",
+          "children": [],
+          "name": "figure",
+          "options": {
+            "align": "center",
+            "alt": "IPython console embedded in Microsoft Visual Studio.",
+            "target": "../_images/ms_visual_studio.png",
+            "width": "500px"
+          },
+          "type": "mystDirective",
+          "value": "IPython console embedded in Microsoft Visual Studio."
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The Microsoft team developing this currently has a release candidate out using IPython 0.11. We will continue to collaborate with them to ensure that as they approach their final release date, the integration with IPython remains smooth. We'd like to thank Dino Viehland and Shahrokh Mortazavi for the work they have done towards this feature, as well as Wenming Ye for his support of our WinHPC capabilities."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. __: http://pytools.codeplex.com"
+        }
+      ],
+      "level": 2,
+      "target": "ms_visual_studio_011",
+      "title": "Integration with Microsoft Visual Studio",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Added "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Bytes"
+                    },
+                    {
+                      "type": "text",
+                      "value": " traitlet, removing "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Str"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  All 'string' traitlets should   either be "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Unicode"
+                    },
+                    {
+                      "type": "text",
+                      "value": " if a real string, or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Bytes"
+                    },
+                    {
+                      "type": "text",
+                      "value": " if a C-string. This   removes ambiguity and helps the Python 3 transition."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "New magic "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%loadpy"
+                    },
+                    {
+                      "type": "text",
+                      "value": " loads a python file from disk or web URL into   the current input buffer."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "New magic "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%pastebin"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for sharing code via the 'Lodge it' pastebin."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "New magic "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%precision"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for controlling float and numpy pretty printing."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "IPython applications initiate logging, so any object can gain access to   a the logger of the currently running Application with:"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "args": "python",
+          "children": [],
+          "name": "sourcecode",
+          "options": {},
+          "type": "mystDirective",
+          "value": "from traitlets.config.application import Application\nlogger = Application.instance().log"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "You can now get help on an object halfway through typing a command. For   instance, typing "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "a = zip?"
+                    },
+                    {
+                      "type": "text",
+                      "value": " shows the details of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "zip"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". It also   leaves the command at the next prompt so you can carry on with it."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The input history is now written to an SQLite database. The API for   retrieving items from the history has also been redesigned."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "IPython.extensions.pretty"
+                    },
+                    {
+                      "type": "text",
+                      "value": " extension has been moved out of   quarantine and fully updated to the new extension API."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "New magics for loading/unloading/reloading extensions have been added:   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%load_ext"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%unload_ext"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%reload_ext"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The configuration system and configuration files are brand new. See the   configuration system "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "documentation <config_index>"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for more details."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "~IPython.core.interactiveshell.InteractiveShell"
+                    },
+                    {
+                      "type": "text",
+                      "value": " class is now a   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "~traitlets.config.configurable.Configurable"
+                    },
+                    {
+                      "type": "text",
+                      "value": " subclass and has traitlets   that determine the defaults and runtime environment. The "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "__init__"
+                    },
+                    {
+                      "type": "text",
+                      "value": " method   has also been refactored so this class can be instantiated and run without   the old "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ipmaker"
+                    },
+                    {
+                      "type": "text",
+                      "value": " module."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The methods of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "~IPython.core.interactiveshell.InteractiveShell"
+                    },
+                    {
+                      "type": "text",
+                      "value": " have   been organized into sections to make it easier to turn more sections   of functionality into components."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The embedded shell has been refactored into a truly standalone subclass of   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "InteractiveShell"
+                    },
+                    {
+                      "type": "text",
+                      "value": " called "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "InteractiveShellEmbed"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  All   embedding logic has been taken out of the base class and put into the    embedded subclass."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Added methods of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "~IPython.core.interactiveshell.InteractiveShell"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to   help it cleanup after itself. The "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "cleanup"
+                    },
+                    {
+                      "type": "text",
+                      "value": " method controls this. We   couldn't do this in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "__del__"
+                    },
+                    {
+                      "type": "text",
+                      "value": " because we have cycles in our object   graph that prevent it from being called."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Created a new module "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "IPython.utils.importstring"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for resolving   strings like "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "foo.bar.Bar"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to the actual class."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Completely refactored the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "IPython.core.prefilter"
+                    },
+                    {
+                      "type": "text",
+                      "value": " module into   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "~traitlets.config.configurable.Configurable"
+                    },
+                    {
+                      "type": "text",
+                      "value": " subclasses. Added a new   layer into the prefilter system, called \"transformations\" that all new   prefilter logic should use (rather than the older \"checker/handler\"   approach)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Aliases are now components ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "IPython.core.alias"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "New top level "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "~IPython.frontend.terminal.embed.embed"
+                    },
+                    {
+                      "type": "text",
+                      "value": " function that can   be called to embed IPython at any place in user's code. On the first call it   will create an "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "~IPython.frontend.terminal.embed.InteractiveShellEmbed"
+                    },
+                    {
+                      "type": "text",
+                      "value": "   instance and call it. In later calls, it just calls the previously created   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "~IPython.frontend.terminal.embed.InteractiveShellEmbed"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Created a configuration system ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "traitlets.config.configurable"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") that is   based on "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "traitlets"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Configurables are arranged into a   runtime containment tree (not inheritance) that i) automatically propagates   configuration information and ii) allows singletons to discover each other in   a loosely coupled manner. In the future all parts of IPython will be   subclasses of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "~traitlets.config.configurable.Configurable"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". All IPython   developers should become familiar with the config system."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Created a new "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "~traitlets.config.loader.Config"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for holding   configuration information. This is a dict like class with a few extras: i)   it supports attribute style access, ii) it has a merge function that merges   two "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "~traitlets.config.loader.Config"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instances recursively and iii) it   will automatically create sub-"
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "~traitlets.config.loader.Config"
+                    },
+                    {
+                      "type": "text",
+                      "value": "   instances for attributes that start with an uppercase character."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Created new configuration loaders in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "traitlets.config.loader"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". These   loaders provide a unified loading interface for all configuration   information including command line arguments and configuration files. We   have two default implementations based on "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "argparse"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and plain python   files.  These are used to implement the new configuration system."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Created a top-level "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Application"
+                    },
+                    {
+                      "type": "text",
+                      "value": " class in   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "IPython.core.application"
+                    },
+                    {
+                      "type": "text",
+                      "value": " that is designed to encapsulate the starting   of any basic Python program. An application loads and merges all the   configuration objects, constructs the main application, configures and   initiates logging, and creates and configures any "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Configurable"
+                    },
+                    {
+                      "type": "text",
+                      "value": "   instances and then starts the application running. An extended   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "BaseIPythonApplication"
+                    },
+                    {
+                      "type": "text",
+                      "value": " class adds logic for handling the   IPython directory as well as profiles, and all IPython entry points   extend it."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Type"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Instance"
+                    },
+                    {
+                      "type": "text",
+                      "value": " traitlets now handle classes given   as strings, like "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "foo.bar.Bar"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". This is needed for forward declarations.   But, this was implemented in a careful way so that string to class   resolution is done at a single point, when the parent   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "~traitlets.HasTraitlets"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is instantiated."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "IPython.utils.ipstruct"
+                    },
+                    {
+                      "type": "text",
+                      "value": " has been refactored to be a subclass of    dict.  It also now has full docstrings and doctests."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Created a Traits like implementation in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "traitlets"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  This   is a pure Python, lightweight version of a library that is similar to   Enthought's Traits project, but has no dependencies on Enthought's code.  We   are using this for validation, defaults and notification in our new component   system.  Although it is not 100% API compatible with Enthought's Traits, we   plan on moving in this direction so that eventually our implementation could   be replaced by a (yet to exist) pure Python version of Enthought Traits."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Added a new module "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "IPython.lib.inputhook"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to manage the integration   with GUI event loops using "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "PyOS_InputHook"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  See the docstrings in this   module or the main IPython docs for details."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "For users, GUI event loop integration is now handled through the new   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%gui"
+                    },
+                    {
+                      "type": "text",
+                      "value": " magic command.  Type "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%gui?"
+                    },
+                    {
+                      "type": "text",
+                      "value": " at an IPython prompt for   documentation."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "For developers "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "IPython.lib.inputhook"
+                    },
+                    {
+                      "type": "text",
+                      "value": " provides a simple interface   for managing the event loops in their interactive GUI applications.   Examples can be found in our "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "examples/lib"
+                    },
+                    {
+                      "type": "text",
+                      "value": " directory."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Additional new features",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The Twisted-based "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "IPython.kernel"
+                    },
+                    {
+                      "type": "text",
+                      "value": " has been removed, and completely   rewritten as "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "IPython.parallel"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", using ZeroMQ."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Profiles are now directories. Instead of a profile being a single config file,   profiles are now self-contained directories. By default, profiles get their   own IPython history, log files, and everything. To create a new profile, do   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ipython profile create <name>"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "All IPython applications have been rewritten to use   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "~traitlets.config.loader.KeyValueConfigLoader"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". This means that   command-line options have changed. Now, all configurable values are accessible   from the command-line with the same syntax as in a configuration file."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The command line options "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "-wthread"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "-qthread"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "-gthread"
+                    },
+                    {
+                      "type": "text",
+                      "value": " have been removed. Use "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "--gui=wx"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "--gui=qt"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "--gui=gtk"
+                    },
+                    {
+                      "type": "text",
+                      "value": "   instead."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The extension loading functions have been renamed to   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "load_ipython_extension"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "unload_ipython_extension"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~IPython.core.interactiveshell.InteractiveShell"
+                    },
+                    {
+                      "type": "text",
+                      "value": " no longer takes an   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "embedded"
+                    },
+                    {
+                      "type": "text",
+                      "value": " argument. Instead just use the   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "~IPython.core.interactiveshell.InteractiveShellEmbed"
+                    },
+                    {
+                      "type": "text",
+                      "value": " class."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "__IPYTHON__"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is no longer injected into "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "__builtin__"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "Struct.__init__"
+                    },
+                    {
+                      "type": "text",
+                      "value": " no longer takes "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": " as its first argument.  It   must be a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "dict"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Struct"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "~IPython.core.interactiveshell.InteractiveShell.ipmagic"
+                    },
+                    {
+                      "type": "text",
+                      "value": " has been   renamed "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "~IPython.core.interactiveshell.InteractiveShell.magic."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The functions "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ipmagic"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ipalias"
+                    },
+                    {
+                      "type": "text",
+                      "value": " have been removed from   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "__builtins__"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The references to the global   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "~IPython.core.interactivehell.InteractiveShell"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instance ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "_ip"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", and   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "__IP"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") have been removed from the user's namespace. They are replaced by a   new function called "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "get_ipython"
+                    },
+                    {
+                      "type": "text",
+                      "value": " that returns the current   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "~IPython.core.interactiveshell.InteractiveShell"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instance. This   function is injected into the user's namespace and is now the main way of   accessing the running IPython."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Old style configuration files "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ipythonrc"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ipy_user_conf.py"
+                    },
+                    {
+                      "type": "text",
+                      "value": "   are no longer supported. Users should migrate there configuration files to   the new format described "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "here </config/intro>"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "here <config_overview>"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The old IPython extension API that relied on "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ipapi"
+                    },
+                    {
+                      "type": "text",
+                      "value": " has been   completely removed. The new extension API is described "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "here\n  <extensions_overview>"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Support for "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "qt3"
+                    },
+                    {
+                      "type": "text",
+                      "value": " has been dropped.  Users who need this should use   previous versions of IPython."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Removed "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "shellglobals"
+                    },
+                    {
+                      "type": "text",
+                      "value": " as it was obsolete."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Removed all the threaded shells in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "IPython.core.shell"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". These are no   longer needed because of the new capabilities in   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "IPython.lib.inputhook"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "New top-level sub-packages have been created: "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "IPython.core"
+                    },
+                    {
+                      "type": "text",
+                      "value": ",    "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "IPython.lib"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "IPython.utils"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "IPython.deathrow"
+                    },
+                    {
+                      "type": "text",
+                      "value": ",   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "IPython.quarantine"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  All existing top-level modules have been   moved to appropriate sub-packages.  All internal import statements   have been updated and tests have been added.  The build system (setup.py   and friends) have been updated. See "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "/api/index"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for details of these   new sub-packages."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "IPython.ipapi"
+                    },
+                    {
+                      "type": "text",
+                      "value": " has been moved to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "IPython.core.ipapi"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "IPython.Shell"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "IPython.iplib"
+                    },
+                    {
+                      "type": "text",
+                      "value": " have been split and removed as   part of the refactor."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "Extensions"
+                    },
+                    {
+                      "type": "text",
+                      "value": " has been moved to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "extensions"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and all existing   extensions have been moved to either "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "IPython.quarantine"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "IPython.deathrow"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "IPython.quarantine"
+                    },
+                    {
+                      "type": "text",
+                      "value": " contains modules that we   plan on keeping but that need to be updated. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "IPython.deathrow"
+                    },
+                    {
+                      "type": "text",
+                      "value": " contains   modules that are either dead or that should be maintained as third party   libraries."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Previous IPython GUIs in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "IPython.frontend"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "IPython.gui"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are   likely broken, and have been removed to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "IPython.deathrow"
+                    },
+                    {
+                      "type": "text",
+                      "value": " because of the   refactoring in the core. With proper updates, these should still work."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Backwards incompatible changes",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "We do our best to improve IPython, but there are some known regressions in 0.11 relative to 0.10.2.  First of all, there are features that have yet to be ported to the new APIs, and in order to ensure that all of the installed code runs for our users, we have moved them to two separate directories in the source distribution, "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "quarantine"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "deathrow"
+            },
+            {
+              "type": "text",
+              "value": ".  Finally, we have some other miscellaneous regressions that we hope to fix as soon as possible.  We now describe all of these in more detail."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Known Regressions",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "These are tools and extensions that we consider relatively easy to update to the new classes and APIs, but that we simply haven't had time for.  Any user who is interested in one of these is encouraged to help us by porting it and submitting a pull request on our "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "development site"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. _development site: http://github.com/ipython/ipython"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Currently, the quarantine directory contains      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "clearcmd.py            ipy_fsops.py            ipy_signals.py\nenvpersist.py          ipy_gnuglobal.py        ipy_synchronize_with.py\next_rescapture.py      ipy_greedycompleter.py  ipy_system_conf.py\nInterpreterExec.py     ipy_jot.py              ipy_which.py\nipy_app_completers.py  ipy_lookfor.py          ipy_winpdb.py\nipy_autoreload.py      ipy_profile_doctest.py  ipy_workdir.py\nipy_completers.py      ipy_pydb.py             jobctrl.py\nipy_editors.py         ipy_rehashdir.py        ledit.py\nipy_exportdb.py        ipy_render.py           pspersistence.py\nipy_extutil.py         ipy_server.py           win32clip.py"
+        }
+      ],
+      "level": 3,
+      "target": null,
+      "title": "Quarantine",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "These packages may be harder to update or make most sense as third-party libraries.  Some of them are completely obsolete and have been already replaced by better functionality (we simply haven't had the time to carefully weed them out so they are kept here for now). Others simply require fixes to code that the current core team may not be familiar with.  If a tool you were used to is included here, we encourage you to contact the dev list and we can discuss whether it makes sense to keep it in IPython (if it can be maintained)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Currently, the deathrow directory contains      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "astyle.py              ipy_defaults.py          ipy_vimserver.py\ndtutils.py             ipy_kitcfg.py            numeric_formats.py\nGnuplot2.py            ipy_legacy.py            numutils.py\nGnuplotInteractive.py  ipy_p4.py                outputtrap.py\nGnuplotRuntime.py      ipy_profile_none.py      PhysicalQInput.py\nibrowse.py             ipy_profile_numpy.py     PhysicalQInteractive.py\nigrid.py               ipy_profile_scipy.py     quitter.py*\nipipe.py               ipy_profile_sh.py        scitedirector.py\niplib.py               ipy_profile_zope.py      Shell.py\nipy_constants.py       ipy_traits_completer.py  twshell.py"
+        }
+      ],
+      "level": 3,
+      "target": null,
+      "title": "Deathrow",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The machinery that adds functionality to the 'sh' profile for using IPython   as your system shell has not been updated to use the new APIs.  As a result,   only the aesthetic (prompt) changes are still implemented. We intend to fix   this by 0.12.  Tracked as issue "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "547_"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. _547: https://github.com/ipython/ipython/issues/547"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The installation of scripts on Windows was broken without setuptools, so we   now depend on setuptools on Windows.  We hope to fix setuptools-less   installation, and then remove the setuptools dependency.  Issue "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "539_"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. _539: https://github.com/ipython/ipython/issues/539"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The directory history "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "_dh"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is not saved between sessions.  Issue "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "634_"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. _634: https://github.com/ipython/ipython/issues/634"
+        }
+      ],
+      "level": 3,
+      "target": null,
+      "title": "Other regressions",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "As part of the updating of IPython, we have removed a few features for the purposes of cleaning up the codebase and interfaces.  These removals are permanent, but for any item listed below, equivalent functionality is available."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The magics Exit and Quit have been dropped as ways to exit IPython. Instead,   the lowercase forms of both work either as a bare name ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "exit"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") or a   function call ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "exit()"
+                    },
+                    {
+                      "type": "text",
+                      "value": ").  You can assign these to other names using   exec_lines in the config file."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Removed Features",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Many users and developers contributed code, features, bug reports and ideas to this release.  Please do not hesitate in contacting us if we've failed to acknowledge your contribution here.  In particular, for this release we have contribution from the following people, a mix of new and regular names (in alphabetical order by first name):"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Aenugu Sai Kiran Reddy <saikrn08-at-gmail.com>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "andy wilson <wilson.andrew.j+github-at-gmail.com>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Antonio Cuni <antocuni>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Barry Wark <barrywark-at-gmail.com>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Beetoju Anuradha <anu.beethoju-at-gmail.com>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Benjamin Ragan-Kelley <minrk-at-Mercury.local>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Brad Reisfeld"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Brian E. Granger <ellisonbg-at-gmail.com>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Christoph Gohlke <cgohlke-at-uci.edu>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Cody Precord"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "dan.milstein"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Darren Dale <dsdale24-at-gmail.com>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Dav Clark <davclark-at-berkeley.edu>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "David Warde-Farley <wardefar-at-iro.umontreal.ca>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "epatters <ejpatters-at-gmail.com>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "epatters <epatters-at-caltech.edu>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "epatters <epatters-at-enthought.com>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Eric Firing <efiring-at-hawaii.edu>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Erik Tollerud <erik.tollerud-at-gmail.com>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Evan Patterson <epatters-at-enthought.com>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Fernando Perez <Fernando.Perez-at-berkeley.edu>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Gael Varoquaux <gael.varoquaux-at-normalesup.org>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Gerardo <muzgash-at-Muzpelheim>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Jason Grout <jason.grout-at-drake.edu>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "John Hunter <jdh2358-at-gmail.com>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Jens Hedegaard Nielsen <jenshnielsen-at-gmail.com>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Johann Cohen-Tanugi <johann.cohentanugi-at-gmail.com>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "J\u00f6rgen Stenarson <jorgen.stenarson-at-bostream.nu>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Justin Riley <justin.t.riley-at-gmail.com>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Kiorky"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Laurent Dufrechou <laurent.dufrechou-at-gmail.com>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Luis Pedro Coelho <lpc-at-cmu.edu>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Mani chandra <mchandra-at-iitk.ac.in>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Mark E. Smith"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Mark Voorhies <mark.voorhies-at-ucsf.edu>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Martin Spacek <git-at-mspacek.mm.st>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Michael Droettboom <mdroe-at-stsci.edu>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "MinRK <benjaminrk-at-gmail.com>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "muzuiget <muzuiget-at-gmail.com>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Nick Tarleton <nick-at-quixey.com>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Nicolas Rougier <Nicolas.rougier-at-inria.fr>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Omar Andres Zapata Mesa <andresete.chaos-at-gmail.com>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Paul Ivanov <pivanov314-at-gmail.com>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Pauli Virtanen <pauli.virtanen-at-iki.fi>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Prabhu Ramachandran"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Ramana <sramana9-at-gmail.com>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Robert Kern <robert.kern-at-gmail.com>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Sathesh Chandra <satheshchandra88-at-gmail.com>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Satrajit Ghosh <satra-at-mit.edu>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Sebastian Busch"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Skipper Seabold <jsseabold-at-gmail.com>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Stefan van der Walt <bzr-at-mentat.za.net>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Stephan Peijnik <debian-at-sp.or.at>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Steven Bethard"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Thomas Kluyver <takowl-at-gmail.com>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Thomas Spura <tomspur-at-fedoraproject.org>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Tom Fetherston <tfetherston-at-aol.com>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Tom MacWright"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "tzanko"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "vankayala sowjanya <hai.sowjanya-at-gmail.com>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Vivian De Smedt <vds2212-at-VIVIAN>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Ville M. Vainio <vivainio-at-gmail.com>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Vishal Vatsa <vishal.vatsa-at-gmail.com>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Vishnu S G <sgvishnu777-at-gmail.com>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Walter Doerwald <walter-at-livinglogic.de>"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "note "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "This list was generated with the output of "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "git log dev-0.11 HEAD --format='* %aN <%aE>' | sed 's/@/\\-at\\-/' | sed 's/<>//' | sort -u"
+                },
+                {
+                  "type": "text",
+                  "value": " after some cleanup.  If you should be on this list, please add yourself."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 2,
+      "target": "credits_011",
+      "title": "Credits",
+      "type": "Section"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

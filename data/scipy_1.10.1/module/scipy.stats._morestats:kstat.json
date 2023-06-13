@@ -1,0 +1,509 @@
+{
+  "aliases": [
+    "scipy.stats.kstat"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The nth k-statistic k_n is the unique symmetric unbiased estimator of the nth cumulant kappa_n."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For a sample size n, the first few k-statistics are given by:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "k_{1} = \\mu\nk_{2} = \\frac{n}{n-1} m_{2}\nk_{3} = \\frac{ n^{2} } {(n-1) (n-2)} m_{3}\nk_{4} = \\frac{ n^{2} [(n + 1)m_{4} - 3(n - 1) m^2_{2}]} {(n-1) (n-2) (n-3)}"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\mu"
+            },
+            {
+              "type": "text",
+              "value": " is the sample mean, "
+            },
+            {
+              "type": "inlineMath",
+              "value": "m_2"
+            },
+            {
+              "type": "text",
+              "value": " is the sample variance, and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "m_i"
+            },
+            {
+              "type": "text",
+              "value": " is the i-th sample central moment."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Beginning in SciPy 1.9, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.matrix"
+            },
+            {
+              "type": "text",
+              "value": " inputs (not recommended for new code) are converted to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.ndarray"
+            },
+            {
+              "type": "text",
+              "value": " before the calculation is performed. In this case, the output will be a scalar or "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.ndarray"
+            },
+            {
+              "type": "text",
+              "value": " of appropriate shape rather than a 2D "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.matrix"
+            },
+            {
+              "type": "text",
+              "value": ". Similarly, while masked elements of masked arrays are ignored, the output will be a scalar or "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.ndarray"
+            },
+            {
+              "type": "text",
+              "value": " rather than a masked array with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "mask=False"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Input array. Note that n-D input gets flattened."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "data",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Default is equal to 2."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "n",
+              "type": "Param",
+              "type_": "int, {1, 2, 3, 4}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If an int, the axis of the input along which to compute the statistic. The statistic of each axis-slice (e.g. row) of the input will appear in a corresponding element of the output. If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the input will be raveled before computing the statistic."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "axis",
+              "type": "Param",
+              "type_": "int or None, default: None"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Defines how to handle input NaNs."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "inlineCode",
+                              "value": "propagate"
+                            },
+                            {
+                              "type": "text",
+                              "value": ": if a NaN is present in the axis slice (e.g. row) along   which the  statistic is computed, the corresponding entry of the output   will be NaN."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "inlineCode",
+                              "value": "omit"
+                            },
+                            {
+                              "type": "text",
+                              "value": ": NaNs will be omitted when performing the calculation.   If insufficient data remains in the axis slice along which the   statistic is computed, the corresponding entry of the output will be   NaN."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "inlineCode",
+                              "value": "raise"
+                            },
+                            {
+                              "type": "text",
+                              "value": ": if a NaN is present, a "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "ValueError"
+                            },
+                            {
+                              "type": "text",
+                              "value": " will be raised."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "param": "nan_policy",
+              "type": "Param",
+              "type_": "{'propagate', 'omit', 'raise'}"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If this is set to True, the axes which are reduced are left in the result as dimensions with size one. With this option, the result will broadcast correctly against the input array."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "keepdims",
+              "type": "Param",
+              "type_": "bool, default: False"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The nth k-statistic."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "kstat",
+              "type": "Param",
+              "type_": "float"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Return the nth k-statistic (1<=n<=4 so far)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from scipy import stats\nfrom numpy.random import default_rng\nrng = default_rng()"
+      },
+      {
+        "type": "text",
+        "value": "As sample size increases, n-th moment and n-th k-statistic converge to the\nsame number (although they aren't identical). In the case of the normal\ndistribution, they converge to zero."
+      },
+      {
+        "type": "code",
+        "value": "for n in [2, 3, 4, 5, 6, 7]:\n    x = rng.normal(size=10**n)\n    m, k = stats.moment(x, 3), stats.kstat(x, 3)\n    print(\"%.3g %.3g %.3g\" % (m, k, m-k))"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_morestats.py",
+  "item_line": 219,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Returns an unbiased estimator of the variance of the k-statistic."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.stats._morestats:kstatvar",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "kstatvar"
+      },
+      "type": "func"
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Returns the n-th central moment about the mean for a sample."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "moment",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "moment"
+      },
+      "type": "func"
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(data, n=2, *, axis=None, nan_policy='propagate', keepdims=False)"
+  },
+  "type": "DocBlob"
+}

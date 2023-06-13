@@ -1,0 +1,1426 @@
+{
+  "aliases": [
+    "numpy.core._multiarray_umath.c_einsum"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Evaluates the Einstein summation convention on the operands."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Using the Einstein summation convention, many common multi-dimensional, linear algebraic array operations can be represented in a simple fashion. In "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "implicit"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " mode "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "einsum"
+            },
+            {
+              "type": "text",
+              "value": " computes these values."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "explicit"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " mode, "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "einsum"
+            },
+            {
+              "type": "text",
+              "value": " provides further flexibility to compute other array operations that might not be considered classical Einstein summation operations, by disabling, or forcing summation over specified subscript labels."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "See the notes and examples for clarification."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 1.6.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The Einstein summation convention can be used to compute many multi-dimensional, linear algebraic array operations. "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "einsum"
+            },
+            {
+              "type": "text",
+              "value": " provides a succinct way of representing these."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A non-exhaustive list of these operations, which can be computed by "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "einsum"
+            },
+            {
+              "type": "text",
+              "value": ", is shown below along with examples:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Trace of an array, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "numpy.trace"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Return a diagonal, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "numpy.diag"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Array axis summations, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "numpy.sum"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Transpositions and permutations, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "numpy.transpose"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Matrix multiplication and dot product, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "numpy.matmul"
+                    },
+                    {
+                      "type": "text",
+                      "value": " "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "numpy.dot"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Vector inner and outer products, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "numpy.inner"
+                    },
+                    {
+                      "type": "text",
+                      "value": " "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "numpy.outer"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Broadcasting, element-wise and scalar multiplication, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "numpy.multiply"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Tensor contractions, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "numpy.tensordot"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Chained array operations, in efficient calculation order, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "numpy.einsum_path"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The subscripts string is a comma-separated list of subscript labels, where each label refers to a dimension of the corresponding operand. Whenever a label is repeated it is summed, so "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.einsum('i,i', a, b)"
+            },
+            {
+              "type": "text",
+              "value": " is equivalent to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.inner(a,b) <numpy.inner>"
+            },
+            {
+              "type": "text",
+              "value": ". If a label appears only once, it is not summed, so "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.einsum('i', a)"
+            },
+            {
+              "type": "text",
+              "value": " produces a view of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " with no changes. A further example "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.einsum('ij,jk', a, b)"
+            },
+            {
+              "type": "text",
+              "value": " describes traditional matrix multiplication and is equivalent to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.matmul(a,b) <numpy.matmul>"
+            },
+            {
+              "type": "text",
+              "value": ". Repeated subscript labels in one operand take the diagonal. For example, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.einsum('ii', a)"
+            },
+            {
+              "type": "text",
+              "value": " is equivalent to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.trace(a) <numpy.trace>"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "implicit mode"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": ", the chosen subscripts are important since the axes of the output are reordered alphabetically.  This means that "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.einsum('ij', a)"
+            },
+            {
+              "type": "text",
+              "value": " doesn't affect a 2D array, while "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.einsum('ji', a)"
+            },
+            {
+              "type": "text",
+              "value": " takes its transpose. Additionally, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.einsum('ij,jk', a, b)"
+            },
+            {
+              "type": "text",
+              "value": " returns a matrix multiplication, while, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.einsum('ij,jh', a, b)"
+            },
+            {
+              "type": "text",
+              "value": " returns the transpose of the multiplication since subscript 'h' precedes subscript 'i'."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "explicit mode"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " the output can be directly controlled by specifying output subscript labels.  This requires the identifier '->' as well as the list of output subscript labels. This feature increases the flexibility of the function since summing can be disabled or forced when required. The call "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.einsum('i->', a)"
+            },
+            {
+              "type": "text",
+              "value": " is like "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.sum(a, axis=-1) <numpy.sum>"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.einsum('ii->i', a)"
+            },
+            {
+              "type": "text",
+              "value": " is like "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.diag(a) <numpy.diag>"
+            },
+            {
+              "type": "text",
+              "value": ". The difference is that "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "einsum"
+            },
+            {
+              "type": "text",
+              "value": " does not allow broadcasting by default. Additionally "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.einsum('ij,jh->ih', a, b)"
+            },
+            {
+              "type": "text",
+              "value": " directly specifies the order of the output subscript labels and therefore returns matrix multiplication, unlike the example above in implicit mode."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To enable and control broadcasting, use an ellipsis.  Default NumPy-style broadcasting is done by adding an ellipsis to the left of each term, like "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.einsum('...ii->...i', a)"
+            },
+            {
+              "type": "text",
+              "value": ". To take the trace along the first and last axes, you can do "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.einsum('i...i', a)"
+            },
+            {
+              "type": "text",
+              "value": ", or to do a matrix-matrix product with the left-most indices instead of rightmost, one can do "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.einsum('ij...,jk...->ik...', a, b)"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When there is only one operand, no axes are summed, and no output parameter is provided, a view into the operand is returned instead of a new array.  Thus, taking the diagonal as "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.einsum('ii->i', a)"
+            },
+            {
+              "type": "text",
+              "value": " produces a view (changed in version 1.10.0)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "einsum"
+            },
+            {
+              "type": "text",
+              "value": " also provides an alternative way to provide the subscripts and operands as "
+            },
+            {
+              "type": "inlineCode",
+              "value": "einsum(op0, sublist0, op1, sublist1, ..., [sublistout])"
+            },
+            {
+              "type": "text",
+              "value": ". If the output shape is not provided in this format "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "einsum"
+            },
+            {
+              "type": "text",
+              "value": " will be calculated in implicit mode, otherwise it will be performed explicitly. The examples below have corresponding "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "einsum"
+            },
+            {
+              "type": "text",
+              "value": " calls with the two parameter methods."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 1.10.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Views returned from einsum are now writeable whenever the input array is writeable. For example, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.einsum('ijk...->kji...', a)"
+            },
+            {
+              "type": "text",
+              "value": " will now have the same effect as "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.swapaxes(a, 0, 2) <numpy.swapaxes>"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.einsum('ii->i', a)"
+            },
+            {
+              "type": "text",
+              "value": " will return a writeable view of the diagonal of a 2D array."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Specifies the subscripts for summation as comma separated list of subscript labels. An implicit (classical Einstein summation) calculation is performed unless the explicit indicator '->' is included as well as subscript labels of the precise output form."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "subscripts",
+              "type": "Param",
+              "type_": "str"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "These are the arrays for the operation."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "operands",
+              "type": "Param",
+              "type_": "list of array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If provided, the calculation is done into this array."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "out",
+              "type": "Param",
+              "type_": "ndarray, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If provided, forces the calculation to use the data type specified. Note that you may have to also give a more liberal "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "casting",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "casting"
+                    },
+                    {
+                      "type": "text",
+                      "value": " parameter to allow the conversions. Default is None."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dtype",
+              "type": "Param",
+              "type_": "{data-type, None}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Controls the memory layout of the output. 'C' means it should be C contiguous. 'F' means it should be Fortran contiguous, 'A' means it should be 'F' if the inputs are all 'F', 'C' otherwise. 'K' means it should be as close to the layout of the inputs as is possible, including arbitrarily permuted axes. Default is 'K'."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "order",
+              "type": "Param",
+              "type_": "{'C', 'F', 'A', 'K'}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Controls what kind of data casting may occur.  Setting this to 'unsafe' is not recommended, as it can adversely affect accumulations."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "'no' means the data types should not be cast at all."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "'equiv' means only byte-order changes are allowed."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "'safe' means only casts which can preserve values are allowed."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "'same_kind' means only safe casts or casts within a kind,     like float64 to float32, are allowed."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "'unsafe' means any data conversions may be done."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        }
+                      ],
+                      "ordered": false,
+                      "spread": false,
+                      "start": 1,
+                      "type": "list"
+                    }
+                  ],
+                  "type": "blockquote"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Default is 'safe'."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "casting",
+              "type": "Param",
+              "type_": "{'no', 'equiv', 'safe', 'same_kind', 'unsafe'}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Controls if intermediate optimization should occur. No optimization will occur if False and True will default to the 'greedy' algorithm. Also accepts an explicit contraction list from the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.einsum_path"
+                    },
+                    {
+                      "type": "text",
+                      "value": " function. See "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.einsum_path"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for more details. Defaults to False."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "optimize",
+              "type": "Param",
+              "type_": "{False, True, 'greedy', 'optimal'}, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The calculation based on the Einstein summation convention."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "output",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "This documentation shadows that of the native python implementation of the `einsum` function,\nexcept all references and examples related to the `optimize` argument (v 0.12.0) have been removed."
+                }
+              ],
+              "type": "emphasis"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "a = np.arange(25).reshape(5,5)\nb = np.arange(5)\nc = np.arange(6).reshape(2,3)"
+      },
+      {
+        "type": "text",
+        "value": "Trace of a matrix:"
+      },
+      {
+        "type": "code",
+        "value": "np.einsum('ii', a)"
+      },
+      {
+        "type": "code",
+        "value": "np.einsum(a, [0,0])"
+      },
+      {
+        "type": "code",
+        "value": "np.trace(a)"
+      },
+      {
+        "type": "text",
+        "value": "Extract the diagonal (requires explicit form):"
+      },
+      {
+        "type": "code",
+        "value": "np.einsum('ii->i', a)"
+      },
+      {
+        "type": "code",
+        "value": "np.einsum(a, [0,0], [0])"
+      },
+      {
+        "type": "code",
+        "value": "np.diag(a)"
+      },
+      {
+        "type": "text",
+        "value": "Sum over an axis (requires explicit form):"
+      },
+      {
+        "type": "code",
+        "value": "np.einsum('ij->i', a)"
+      },
+      {
+        "type": "code",
+        "value": "np.einsum(a, [0,1], [0])"
+      },
+      {
+        "type": "code",
+        "value": "np.sum(a, axis=1)"
+      },
+      {
+        "type": "text",
+        "value": "For higher dimensional arrays summing a single axis can be done with ellipsis:"
+      },
+      {
+        "type": "code",
+        "value": "np.einsum('...j->...', a)"
+      },
+      {
+        "type": "code",
+        "value": "np.einsum(a, [Ellipsis,1], [Ellipsis])"
+      },
+      {
+        "type": "text",
+        "value": "Compute a matrix transpose, or reorder any number of axes:"
+      },
+      {
+        "type": "code",
+        "value": "np.einsum('ji', c)"
+      },
+      {
+        "type": "code",
+        "value": "np.einsum('ij->ji', c)"
+      },
+      {
+        "type": "code",
+        "value": "np.einsum(c, [1,0])"
+      },
+      {
+        "type": "code",
+        "value": "np.transpose(c)"
+      },
+      {
+        "type": "text",
+        "value": "Vector inner products:"
+      },
+      {
+        "type": "code",
+        "value": "np.einsum('i,i', b, b)"
+      },
+      {
+        "type": "code",
+        "value": "np.einsum(b, [0], b, [0])"
+      },
+      {
+        "type": "code",
+        "value": "np.inner(b,b)"
+      },
+      {
+        "type": "text",
+        "value": "Matrix vector multiplication:"
+      },
+      {
+        "type": "code",
+        "value": "np.einsum('ij,j', a, b)"
+      },
+      {
+        "type": "code",
+        "value": "np.einsum(a, [0,1], b, [1])"
+      },
+      {
+        "type": "code",
+        "value": "np.dot(a, b)"
+      },
+      {
+        "type": "code",
+        "value": "np.einsum('...j,j', a, b)"
+      },
+      {
+        "type": "text",
+        "value": "Broadcasting and scalar multiplication:"
+      },
+      {
+        "type": "code",
+        "value": "np.einsum('..., ...', 3, c)"
+      },
+      {
+        "type": "code",
+        "value": "np.einsum(',ij', 3, c)"
+      },
+      {
+        "type": "code",
+        "value": "np.einsum(3, [Ellipsis], c, [Ellipsis])"
+      },
+      {
+        "type": "code",
+        "value": "np.multiply(3, c)"
+      },
+      {
+        "type": "text",
+        "value": "Vector outer product:"
+      },
+      {
+        "type": "code",
+        "value": "np.einsum('i,j', np.arange(2)+1, b)"
+      },
+      {
+        "type": "code",
+        "value": "np.einsum(np.arange(2)+1, [0], b, [1])"
+      },
+      {
+        "type": "code",
+        "value": "np.outer(np.arange(2)+1, b)"
+      },
+      {
+        "type": "text",
+        "value": "Tensor contraction:"
+      },
+      {
+        "type": "code",
+        "value": "a = np.arange(60.).reshape(3,4,5)\nb = np.arange(24.).reshape(4,3,2)\nnp.einsum('ijk,jil->kl', a, b)"
+      },
+      {
+        "type": "code",
+        "value": "np.einsum(a, [0,1,2], b, [1,0,3], [2,3])"
+      },
+      {
+        "type": "code",
+        "value": "np.tensordot(a,b, axes=([1,0],[0,1]))"
+      },
+      {
+        "type": "text",
+        "value": "Writeable returned arrays (since version 1.10.0):"
+      },
+      {
+        "type": "code",
+        "value": "a = np.zeros((3, 3))\nnp.einsum('ii->i', a)[:] = 1\na"
+      },
+      {
+        "type": "text",
+        "value": "Example of ellipsis use:"
+      },
+      {
+        "type": "code",
+        "value": "a = np.arange(6).reshape((3,2))\nb = np.arange(12).reshape((4,3))\nnp.einsum('ki,jk->ij', a, b)"
+      },
+      {
+        "type": "code",
+        "value": "np.einsum('ki,...k->i...', a, b)"
+      },
+      {
+        "type": "code",
+        "value": "np.einsum('k...,jk', a, b)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": "<class 'builtin_function_or_method'>",
+  "ordered_sections": [
+    "Signature",
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "einsum_path",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "einsum_path"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "numpy",
+          "path": "numpy.ma.core:MaskedArray.dot",
+          "type": "RefInfo",
+          "version": "1.24.1"
+        },
+        "type": "Link",
+        "value": "dot"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "inner",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "inner"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "outer",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "outer"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "tensordot",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "tensordot"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "linalg.multi_dot",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "linalg.multi_dot"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "c_einsum(subscripts, *operands, out=None, dtype=None, order='K', casting='safe')"
+  },
+  "type": "DocBlob"
+}

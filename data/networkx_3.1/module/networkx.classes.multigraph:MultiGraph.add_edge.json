@@ -1,0 +1,326 @@
+{
+  "aliases": [
+    "networkx.MultiGraph.add_edge"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The nodes u and v will be automatically added if they are not already in the graph."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Edge attributes can be specified with keywords or by directly accessing the edge's attribute dictionary. See examples below."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To replace/update edge data, use the optional key argument to identify a unique edge.  Otherwise a new edge will be created."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "NetworkX algorithms designed for weighted graphs cannot use multigraphs directly because it is not clear how to handle multiedge weights.  Convert to Graph using edge attribute 'weight' to enable weighted graph algorithms."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Default keys are generated using the method "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "new_edge_key()"
+            },
+            {
+              "type": "text",
+              "value": ". This method can be overridden by subclassing the base class and providing a custom "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "new_edge_key()"
+            },
+            {
+              "type": "text",
+              "value": " method."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Nodes can be, for example, strings or numbers. Nodes must be hashable (and not None) Python objects."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "u_for_edge, v_for_edge",
+              "type": "Param",
+              "type_": "nodes"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Used to distinguish multiedges between a pair of nodes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "key",
+              "type": "Param",
+              "type_": "hashable identifier, optional (default=lowest unused integer)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Edge data (or labels or objects) can be assigned using keyword arguments."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "attr",
+              "type": "Param",
+              "type_": "keyword arguments, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "The edge key assigned to the edge."
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Add an edge between u and v."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "The following each add an additional edge e=(1, 2) to graph G:"
+      },
+      {
+        "type": "code",
+        "value": "G = nx.MultiGraph()\ne = (1, 2)\nekey = G.add_edge(1, 2)  # explicit two-node form\nG.add_edge(*e)  # single edge as tuple of two nodes"
+      },
+      {
+        "type": "code",
+        "value": "G.add_edges_from([(1, 2)])  # add edges from iterable container"
+      },
+      {
+        "type": "text",
+        "value": "Associate data to edges using keywords:"
+      },
+      {
+        "type": "code",
+        "value": "ekey = G.add_edge(1, 2, weight=3)\nekey = G.add_edge(1, 2, key=0, weight=4)  # update data for key=0\nekey = G.add_edge(1, 3, weight=7, capacity=15, length=342.7)"
+      },
+      {
+        "type": "text",
+        "value": "For non-string attribute keys, use subscript notation."
+      },
+      {
+        "type": "code",
+        "value": "ekey = G.add_edge(1, 2)\nG[1][2][0].update({0: 5})\nG.edges[1, 2, 0].update({0: 5})"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/classes/multigraph.py",
+  "item_line": 430,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "add a collection of edges"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "networkx",
+          "path": "networkx.classes.multigraph:MultiGraph.add_edges_from",
+          "type": "RefInfo",
+          "version": "3.1"
+        },
+        "type": "Link",
+        "value": "add_edges_from"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, u_for_edge, v_for_edge, key=None, **attr)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,755 @@
+{
+  "aliases": [
+    "scipy.interpolate.RegularGridInterpolator"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The points defining the regular grid in n dimensions. This tuple defines the full grid via "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.meshgrid(*grid, indexing='ij')"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "grid",
+              "type": "Param",
+              "type_": "tuple of ndarrays"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Data values at the grid."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "values",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Interpolation method."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "method",
+              "type": "Param",
+              "type_": "str"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Use this value for out-of-bounds arguments to "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "__call__",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "__call__"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fill_value",
+              "type": "Param",
+              "type_": "float or ``None``"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", out-of-bounds argument raise a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ValueError"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "bounds_error",
+              "type": "Param",
+              "type_": "bool"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The data must be defined on a rectilinear grid; that is, a rectangular grid with even or uneven spacing. Linear, nearest-neighbor, spline interpolations are supported. After setting up the interpolator object, the interpolation method may be chosen at each evaluation."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "__call__",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Contrary to "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "LinearNDInterpolator"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "NearestNDInterpolator"
+            },
+            {
+              "type": "text",
+              "value": ", this class avoids expensive triangulation of the input data by taking advantage of the regular grid structure."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In other words, this class assumes that the data is defined on a "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "rectilinear"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " grid."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 0.14"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The 'slinear'(k=1), 'cubic'(k=3), and 'quintic'(k=5) methods are tensor-product spline interpolators, where "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "k"
+            },
+            {
+              "type": "text",
+              "value": " is the spline degree, If any dimension has fewer points than "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "k"
+            },
+            {
+              "type": "text",
+              "value": " + 1, an error will be raised."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 1.9"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If the input data is such that dimensions have incommensurate units and differ by many orders of magnitude, the interpolant may have numerical artifacts. Consider rescaling the data before interpolating."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The points defining the regular grid in n dimensions. The points in each dimension (i.e. every elements of the points tuple) must be strictly ascending or descending."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "points",
+              "type": "Param",
+              "type_": "tuple of ndarray of float, with shapes (m1, ), ..., (mn, )"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The data on the regular grid in n dimensions. Complex data can be acceptable."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "values",
+              "type": "Param",
+              "type_": "array_like, shape (m1, ..., mn, ...)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The method of interpolation to perform. Supported are \"linear\", \"nearest\", \"slinear\", \"cubic\", \"quintic\" and \"pchip\". This parameter will become the default for the object's "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "__call__"
+                    },
+                    {
+                      "type": "text",
+                      "value": " method. Default is \"linear\"."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "method",
+              "type": "Param",
+              "type_": "str, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, when interpolated values are requested outside of the domain of the input data, a ValueError is raised. If False, then "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "fill_value",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "fill_value"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is used. Default is True."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "bounds_error",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The value to use for points outside of the interpolation domain. If None, values outside the domain are extrapolated. Default is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.nan"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fill_value",
+              "type": "Param",
+              "type_": "float or None, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Interpolation on a regular or rectilinear grid in arbitrary dimensions."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "**Evaluate a function on the points of a 3-D grid**"
+      },
+      {
+        "type": "text",
+        "value": "As a first example, we evaluate a simple example function on the points of\na 3-D grid:"
+      },
+      {
+        "type": "code",
+        "value": "from scipy.interpolate import RegularGridInterpolator\nimport numpy as np\ndef f(x, y, z):\n    return 2 * x**3 + 3 * y**2 - z\nx = np.linspace(1, 4, 11)\ny = np.linspace(4, 7, 22)\nz = np.linspace(7, 9, 33)\nxg, yg ,zg = np.meshgrid(x, y, z, indexing='ij', sparse=True)\ndata = f(xg, yg, zg)"
+      },
+      {
+        "type": "text",
+        "value": "``data`` is now a 3-D array with ``data[i, j, k] = f(x[i], y[j], z[k])``.\nNext, define an interpolating function from this data:"
+      },
+      {
+        "type": "code",
+        "value": "interp = RegularGridInterpolator((x, y, z), data)"
+      },
+      {
+        "type": "text",
+        "value": "Evaluate the interpolating function at the two points\n``(x,y,z) = (2.1, 6.2, 8.3)`` and ``(3.3, 5.2, 7.1)``:"
+      },
+      {
+        "type": "code",
+        "value": "pts = np.array([[2.1, 6.2, 8.3],\n                [3.3, 5.2, 7.1]])\ninterp(pts)"
+      },
+      {
+        "type": "text",
+        "value": "which is indeed a close approximation to"
+      },
+      {
+        "type": "code",
+        "value": "f(2.1, 6.2, 8.3), f(3.3, 5.2, 7.1)"
+      },
+      {
+        "type": "text",
+        "value": "**Interpolate and extrapolate a 2D dataset**"
+      },
+      {
+        "type": "text",
+        "value": "As a second example, we interpolate and extrapolate a 2D data set:"
+      },
+      {
+        "type": "code",
+        "value": "x, y = np.array([-2, 0, 4]), np.array([-2, 0, 2, 5])\ndef ff(x, y):\n    return x**2 + y**2"
+      },
+      {
+        "type": "code",
+        "value": "xg, yg = np.meshgrid(x, y, indexing='ij')\ndata = ff(xg, yg)\ninterp = RegularGridInterpolator((x, y), data,\n                                 bounds_error=False, fill_value=None)"
+      },
+      {
+        "type": "code",
+        "value": "import matplotlib.pyplot as plt\nfig = plt.figure()\nax = fig.add_subplot(projection='3d')\nax.scatter(xg.ravel(), yg.ravel(), data.ravel(),\n           s=60, c='k', label='data')"
+      },
+      {
+        "type": "text",
+        "value": "Evaluate and plot the interpolator on a finer grid"
+      },
+      {
+        "type": "code",
+        "value": "xx = np.linspace(-4, 9, 31)\nyy = np.linspace(-4, 9, 31)\nX, Y = np.meshgrid(xx, yy, indexing='ij')"
+      },
+      {
+        "type": "code",
+        "value": "# interpolator\nax.plot_wireframe(X, Y, interp((X, Y)), rstride=3, cstride=3,\n                  alpha=0.4, color='m', label='linear interp')"
+      },
+      {
+        "type": "code",
+        "value": "# ground truth\nax.plot_wireframe(X, Y, ff(X, Y), rstride=3, cstride=3,\n                  alpha=0.4, label='ground truth')\nplt.legend()\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.interpolate._rgi:RegularGridInterpolator-0-d80f59d6.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      },
+      {
+        "type": "text",
+        "value": "Other examples are given\n:ref:`in the tutorial <tutorial-interpolate_regular_grid_interpolator>`."
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/interpolate/_rgi.py",
+  "item_line": 49,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Methods",
+    "Attributes",
+    "Notes",
+    "Examples",
+    "See Also",
+    "References"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Nearest neighbor interpolation on "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "unstructured"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " data in N dimensions"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "NearestNDInterpolator",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "NearestNDInterpolator"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Piecewise linear interpolant on "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "unstructured"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " data in N dimensions"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "LinearNDInterpolator",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "LinearNDInterpolator"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "a convenience function which wraps "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "RegularGridInterpolator"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "interpn",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "interpn"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "interpolation on grids with equal spacing (suitable for e.g., N-D image resampling)"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.ndimage._interpolation:map_coordinates",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "scipy.ndimage.map_coordinates"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

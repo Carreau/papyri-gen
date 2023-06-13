@@ -1,0 +1,468 @@
+{
+  "aliases": [
+    "skimage.restoration.calibrate_denoiser"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The returned function is partially evaluated with optimal parameter values set for denoising the input image."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The calibration procedure uses a self-supervised mean-square-error loss to evaluate the performance of J-invariant versions of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "denoise_function",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "denoise_function"
+            },
+            {
+              "type": "text",
+              "value": ". The minimizer of the self-supervised loss is also the minimizer of the ground-truth loss (i.e., the true MSE error) [1]. The returned function can be used on the original noisy image, or other images with similar characteristics."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "at the expense of increasing its runtime. It has no effect on the runtime  of the calibration."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Increasing the stride increases the performance of "
+                  },
+                  {
+                    "anchor": null,
+                    "exists": true,
+                    "kind": "local",
+                    "reference": {
+                      "kind": "local",
+                      "module": null,
+                      "path": "best_denoise_function",
+                      "type": "RefInfo",
+                      "version": null
+                    },
+                    "type": "Link",
+                    "value": "best_denoise_function"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            }
+          ],
+          "type": "DefList"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Input data to be denoised (converted using "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "img_as_float"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "image",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Denoising function to be calibrated."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "denoise_function",
+              "type": "Param",
+              "type_": "function"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Ranges of parameters for "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "denoise_function",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "denoise_function"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to be calibrated over."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "denoise_parameters",
+              "type": "Param",
+              "type_": "dict of list"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Stride used in masking procedure that converts "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "denoise_function",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "denoise_function"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to J-invariance."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "stride",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to approximate the self-supervised loss used to evaluate the denoiser by only computing it on one masked version of the image. If False, the runtime will be a factor of "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "stride**image.ndim"
+                    },
+                    {
+                      "type": "text",
+                      "value": " longer."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "approximate_loss",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, return parameters and losses in addition to the calibrated denoising function"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "extra_output",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The optimal J-invariant version of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "denoise_function",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "denoise_function"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "best_denoise_function",
+              "type": "Param",
+              "type_": "function"
+            },
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "If `extra_output` is True, the following tuple is also returned:"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "List of parameters tested for "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "denoise_function",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "denoise_function"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", as a dictionary of kwargs Self-supervised loss for each set of parameters in "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "parameters_tested"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "(parameters_tested, losses)",
+              "type": "Param",
+              "type_": "tuple (list of dict, list of int)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Calibrate a denoising function and return optimal J-invariant version."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from skimage import color, data\nfrom skimage.restoration import denoise_wavelet\nimport numpy as np\nimg = color.rgb2gray(data.astronaut()[:50, :50])\nrng = np.random.default_rng()\nnoisy = img + 0.5 * img.std() * rng.standard_normal(img.shape)\nparameters = {'sigma': np.arange(0.1, 0.4, 0.02)}\ndenoising_function = calibrate_denoiser(noisy, denoise_wavelet,\n                                        denoise_parameters=parameters)\ndenoised_img = denoising_function(img)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/skimage/restoration/j_invariant.py",
+  "item_line": 170,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(image, denoise_function, denoise_parameters, *, stride=4, approximate_loss=True, extra_output=False)"
+  },
+  "type": "DocBlob"
+}

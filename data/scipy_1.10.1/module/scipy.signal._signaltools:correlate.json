@@ -1,0 +1,869 @@
+{
+  "aliases": [
+    "scipy.signal.correlate"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Cross-correlate "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "in1",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "in1"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "in2",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "in2"
+            },
+            {
+              "type": "text",
+              "value": ", with the output size determined by the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "mode",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "mode"
+            },
+            {
+              "type": "text",
+              "value": " argument."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The correlation z of two d-dimensional arrays x and y is defined as      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "z[...,k,...] = sum[..., i_l, ...] x[..., i_l,...] * conj(y[..., i_l - k,...])"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This way, if x and y are 1-D arrays and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "z = correlate(x, y, 'full')"
+            },
+            {
+              "type": "text",
+              "value": " then"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "z[k] = (x * y)(k - N + 1)\n     = \\sum_{l=0}^{||x||-1}x_l y_{l-k+N-1}^{*}"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "for "
+            },
+            {
+              "type": "inlineMath",
+              "value": "k = 0, 1, ..., ||x|| + ||y|| - 2"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where "
+            },
+            {
+              "type": "inlineMath",
+              "value": "||x||"
+            },
+            {
+              "type": "text",
+              "value": " is the length of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "x"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineMath",
+              "value": "N = \\max(||x||,||y||)"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "y_m"
+            },
+            {
+              "type": "text",
+              "value": " is 0 when m is outside the range of y."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "inlineCode",
+              "value": "method='fft'"
+            },
+            {
+              "type": "text",
+              "value": " only works for numerical arrays as it relies on "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.signal._signaltools:fftconvolve",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "fftconvolve"
+            },
+            {
+              "type": "text",
+              "value": ". In certain cases (i.e., arrays of objects or when rounding integers can lose precision), "
+            },
+            {
+              "type": "inlineCode",
+              "value": "method='direct'"
+            },
+            {
+              "type": "text",
+              "value": " is always used."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When using \"same\" mode with even-length inputs, the outputs of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "correlate",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "correlate"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.signal._signaltools:correlate2d",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "correlate2d"
+            },
+            {
+              "type": "text",
+              "value": " differ: There is a 1-index offset between them."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "First input."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "in1",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Second input. Should have the same number of dimensions as "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "in1",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "in1"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "in2",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A string indicating the size of the output:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "The output is the full discrete linear cross-correlation    of the inputs. (Default)"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "inlineCode",
+                            "value": "full"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "The output consists only of those elements that do not    rely on the zero-padding. In 'valid' mode, either "
+                            },
+                            {
+                              "anchor": null,
+                              "exists": true,
+                              "kind": "local",
+                              "reference": {
+                                "kind": "local",
+                                "module": null,
+                                "path": "in1",
+                                "type": "RefInfo",
+                                "version": null
+                              },
+                              "type": "Link",
+                              "value": "in1"
+                            },
+                            {
+                              "type": "text",
+                              "value": " or "
+                            },
+                            {
+                              "anchor": null,
+                              "exists": true,
+                              "kind": "local",
+                              "reference": {
+                                "kind": "local",
+                                "module": null,
+                                "path": "in2",
+                                "type": "RefInfo",
+                                "version": null
+                              },
+                              "type": "Link",
+                              "value": "in2"
+                            },
+                            {
+                              "type": "text",
+                              "value": "    must be at least as large as the other in every dimension."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "inlineCode",
+                            "value": "valid"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "The output is the same size as "
+                            },
+                            {
+                              "anchor": null,
+                              "exists": true,
+                              "kind": "local",
+                              "reference": {
+                                "kind": "local",
+                                "module": null,
+                                "path": "in1",
+                                "type": "RefInfo",
+                                "version": null
+                              },
+                              "type": "Link",
+                              "value": "in1"
+                            },
+                            {
+                              "type": "text",
+                              "value": ", centered    with respect to the 'full' output."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "inlineCode",
+                            "value": "same"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "param": "mode",
+              "type": "Param",
+              "type_": "str {'full', 'valid', 'same'}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A string indicating which method to use to calculate the correlation."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "The correlation is determined directly from sums, the definition of    correlation."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "inlineCode",
+                            "value": "direct"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "The Fast Fourier Transform is used to perform the correlation more    quickly (only available for numerical arrays.)"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "inlineCode",
+                            "value": "fft"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Automatically chooses direct or Fourier method based on an estimate    of which is faster (default).  See "
+                            },
+                            {
+                              "anchor": null,
+                              "exists": true,
+                              "kind": "module",
+                              "reference": {
+                                "kind": "module",
+                                "module": "scipy",
+                                "path": "scipy.fftpack.convolve",
+                                "type": "RefInfo",
+                                "version": "1.10.1"
+                              },
+                              "type": "Link",
+                              "value": "convolve"
+                            },
+                            {
+                              "type": "text",
+                              "value": " Notes for more detail."
+                            }
+                          ],
+                          "type": "paragraph"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "versionadded 0.19.0"
+                                }
+                              ],
+                              "type": "admonitionTitle"
+                            }
+                          ],
+                          "kind": "note",
+                          "type": "admonition"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "inlineCode",
+                            "value": "auto"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "param": "method",
+              "type": "Param",
+              "type_": "str {'auto', 'direct', 'fft'}, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An N-dimensional array containing a subset of the discrete linear cross-correlation of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "in1",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "in1"
+                    },
+                    {
+                      "type": "text",
+                      "value": " with "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "in2",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "in2"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "correlate",
+              "type": "Param",
+              "type_": "array"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Cross-correlate two N-dimensional arrays."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Implement a matched filter using cross-correlation, to recover a signal\nthat has passed through a noisy channel."
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy import signal\nimport matplotlib.pyplot as plt\nrng = np.random.default_rng()"
+      },
+      {
+        "type": "code",
+        "value": "sig = np.repeat([0., 1., 1., 0., 1., 0., 0., 1.], 128)\nsig_noise = sig + rng.standard_normal(len(sig))\ncorr = signal.correlate(sig_noise, np.ones(128), mode='same') / 128"
+      },
+      {
+        "type": "code",
+        "value": "clock = np.arange(64, len(sig), 128)\nfig, (ax_orig, ax_noise, ax_corr) = plt.subplots(3, 1, sharex=True)\nax_orig.plot(sig)\nax_orig.plot(clock, sig[clock], 'ro')\nax_orig.set_title('Original signal')\nax_noise.plot(sig_noise)\nax_noise.set_title('Signal with noise')\nax_corr.plot(corr)\nax_corr.plot(clock, corr[clock], 'ro')\nax_corr.axhline(0.5, ls=':')\nax_corr.set_title('Cross-correlated with rectangular pulse')\nax_orig.margins(0, 0.1)\nfig.tight_layout()\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.signal._signaltools:correlate-0-0b210cdb.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      },
+      {
+        "type": "text",
+        "value": "Compute the cross-correlation of a noisy signal with the original signal."
+      },
+      {
+        "type": "code",
+        "value": "x = np.arange(128) / 128\nsig = np.sin(2 * np.pi * x)\nsig_noise = sig + rng.standard_normal(len(sig))\ncorr = signal.correlate(sig_noise, sig)\nlags = signal.correlation_lags(len(sig), len(sig_noise))\ncorr /= np.max(corr)"
+      },
+      {
+        "type": "code",
+        "value": "fig, (ax_orig, ax_noise, ax_corr) = plt.subplots(3, 1, figsize=(4.8, 4.8))\nax_orig.plot(sig)\nax_orig.set_title('Original signal')\nax_orig.set_xlabel('Sample Number')\nax_noise.plot(sig_noise)\nax_noise.set_title('Signal with noise')\nax_noise.set_xlabel('Sample Number')\nax_corr.plot(lags, corr)\nax_corr.set_title('Cross-correlated signal')\nax_corr.set_xlabel('Lag')\nax_orig.margins(0, 0.1)\nax_noise.margins(0, 0.1)\nax_corr.margins(0, 0.1)\nfig.tight_layout()\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.signal._signaltools:correlate-1-f6113d01.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/signal/_signaltools.py",
+  "item_line": 90,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "contains more documentation on "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "method"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._signaltools:choose_conv_method",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "choose_conv_method"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "calculates the lag / displacement indices array for 1D cross-correlation."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._signaltools:correlation_lags",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "correlation_lags"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(in1, in2, mode='full', method='auto')"
+  },
+  "type": "DocBlob"
+}

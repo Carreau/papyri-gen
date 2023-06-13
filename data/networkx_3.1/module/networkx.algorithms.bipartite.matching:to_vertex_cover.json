@@ -1,0 +1,379 @@
+{
+  "aliases": [
+    "networkx.bipartite.to_vertex_cover"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function is implemented using the procedure guaranteed by "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Konig's theorem"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://en.wikipedia.org/wiki/K%C3%B6nig%27s_theorem_%28graph_theory%29"
+            },
+            {
+              "type": "text",
+              "value": ", which proves an equivalence between a maximum matching and a minimum vertex cover in bipartite graphs."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Since a minimum vertex cover is the complement of a maximum independent set for any graph, one can compute the maximum independent set of a bipartite graph this way:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> G = nx.complete_bipartite_graph(2, 3)\n>>> matching = nx.bipartite.maximum_matching(G)\n>>> vertex_cover = nx.bipartite.to_vertex_cover(G, matching)\n>>> independent_set = set(G) - vertex_cover\n>>> print(list(independent_set))\n[2, 3, 4]"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "See "
+            },
+            {
+              "type": "inlineCode",
+              "value": "bipartite documentation <networkx.algorithms.bipartite>"
+            },
+            {
+              "type": "text",
+              "value": " for further details on how bipartite graphs are handled in NetworkX."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Undirected bipartite graph"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "G",
+              "type": "Param",
+              "type_": "NetworkX graph"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A dictionary whose keys are vertices in "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "G",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "G"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and whose values are the distinct neighbors comprising the maximum matching for "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "G",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "G"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", as returned by, for example, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "maximum_matching"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". The dictionary "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "must"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " represent the maximum matching."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "matching",
+              "type": "Param",
+              "type_": "dictionary"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Container with all nodes in one bipartite node set. If not supplied it will be computed. But if more than one solution exists an exception will be raised."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "top_nodes",
+              "type": "Param",
+              "type_": "container"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Raised if the input bipartite graph is disconnected and no container with all nodes in one bipartite set is provided. When determining the nodes in each bipartite set more than one valid solution is possible if the input graph is disconnected."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "AmbiguousSolution"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The minimum vertex cover in "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "G",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "G"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "vertex_cover",
+              "type": "Param",
+              "type_": ":class:`set`"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Returns the minimum vertex cover corresponding to the given maximum matching of the bipartite graph "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "G",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "G"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/algorithms/bipartite/matching.py",
+  "item_line": 421,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "Notes"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(G, matching, top_nodes=None)"
+  },
+  "type": "DocBlob"
+}

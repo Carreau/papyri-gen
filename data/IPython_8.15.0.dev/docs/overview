@@ -1,0 +1,1399 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "One of Python's most useful features is its interactive interpreter. It allows for very fast testing of ideas without the overhead of creating test files as is typical in most programming languages. However, the interpreter supplied with the standard Python distribution is somewhat limited for extended interactive use."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The goal of IPython is to create a comprehensive environment for interactive and exploratory computing.  To support this goal, IPython has three main components:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An enhanced interactive Python shell."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A decoupled "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "two-process communication model <ipythonzmq>"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", which   allows for multiple clients to connect to a computation kernel, most notably   the web-based notebook provided with "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Jupyter"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://jupyter.org"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An architecture for interactive parallel computing now part of the   "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "ipyparallel",
+                        "path": "ipyparallel",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "ipyparallel"
+                    },
+                    {
+                      "type": "text",
+                      "value": " package."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "All of IPython is open source (released under the revised BSD license)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": "overview",
+      "title": "Overview",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "IPython's interactive shell ("
+            },
+            {
+              "type": "inlineCode",
+              "value": "ipython"
+            },
+            {
+              "type": "text",
+              "value": "), has the following goals, amongst others:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Provide an interactive shell superior to Python's default. IPython    has many features for tab-completion, object introspection, system shell    access, command history retrieval across sessions, and its own special    command system for adding functionality when working interactively. It    tries to be a very efficient environment both for Python code development    and for exploration of problems using Python objects (in situations like    data analysis)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Serve as an embeddable, ready to use interpreter for your own    programs. An interactive IPython shell can be started with a single call    from inside another program, providing access to the current namespace.    This can be very useful both for debugging purposes and for situations    where a blend of batch-processing and interactive exploration are needed."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Offer a flexible framework which can be used as the base    environment for working with other systems, with Python as the underlying    bridge language. Specifically scientific environments like Mathematica,    IDL and Matlab inspired its design, but similar ideas can be    useful in many fields."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Allow interactive testing of threaded graphical toolkits. IPython    has support for interactive, non-blocking control of GTK, Qt, WX, GLUT, and    OS X applications via special threading flags. The normal Python    shell can only do this for Tkinter applications."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": true,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Enhanced interactive Python shell",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Dynamic object introspection. One can access docstrings, function   definition prototypes, source code, source files and other details   of any object accessible to the interpreter with a single   keystroke ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "?"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", and using "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "??"
+                    },
+                    {
+                      "type": "text",
+                      "value": " provides additional detail)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Searching through modules and namespaces with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "*"
+                    },
+                    {
+                      "type": "text",
+                      "value": " wildcards, both   when using the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "?"
+                    },
+                    {
+                      "type": "text",
+                      "value": " system and via the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%psearch"
+                    },
+                    {
+                      "type": "text",
+                      "value": " command."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Completion in the local namespace, by typing "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "TAB"
+                    },
+                    {
+                      "type": "text",
+                      "value": " at the prompt.   This works for keywords, modules, methods, variables and files in the   current directory. This is supported via the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "prompt_toolkit"
+                    },
+                    {
+                      "type": "text",
+                      "value": " library.   Custom completers can be implemented easily for different purposes   (system commands, magic arguments etc.)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Numbered input/output prompts with command history (persistent   across sessions and tied to each profile), full searching in this   history and caching of all input and output."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "User-extensible 'magic' commands. A set of commands prefixed with   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%"
+                    },
+                    {
+                      "type": "text",
+                      "value": "  or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%%"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is available for controlling IPython itself and provides   directory control, namespace information and many aliases to   common system shell commands."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Alias facility for defining your own system aliases."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Complete system shell access. Lines starting with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "!"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are passed   directly to the system shell, and using "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "!!"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "var = !cmd"
+                    },
+                    {
+                      "type": "text",
+                      "value": "    captures shell output into python variables for further use."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The ability to expand python variables when calling the system shell. In a   shell command, any python variable prefixed with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "$"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is expanded. A   double "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "$$"
+                    },
+                    {
+                      "type": "text",
+                      "value": " allows passing a literal "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "$"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to the shell (for access   to shell and environment variables like "
+                    },
+                    {
+                      "domain": null,
+                      "role": "envvar",
+                      "type": "Directive",
+                      "value": "PATH"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Filesystem navigation, via a magic "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%cd"
+                    },
+                    {
+                      "type": "text",
+                      "value": " command, along with a   persistent bookmark system (using "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%bookmark"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") for fast access to   frequently visited directories."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A lightweight persistence framework via the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%store"
+                    },
+                    {
+                      "type": "text",
+                      "value": " command, which   allows you to save arbitrary Python variables. These get restored   when you run the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%store -r"
+                    },
+                    {
+                      "type": "text",
+                      "value": " command."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Automatic indentation and highlighting of code as you type (through the   "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "prompt_toolkit",
+                        "path": "prompt_toolkit",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "prompt_toolkit"
+                    },
+                    {
+                      "type": "text",
+                      "value": " library)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Macro system for quickly re-executing multiple lines of previous   input with a single name via the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%macro"
+                    },
+                    {
+                      "type": "text",
+                      "value": " command. Macros can be   stored persistently via "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%store"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and edited via "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%edit"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Session logging (you can then later use these logs as code in your   programs). Logs can optionally timestamp all input, and also store   session output (marked as comments, so the log remains valid   Python source code)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Session restoring: logs can be replayed to restore a previous   session to the state where you left it."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Verbose and colored exception traceback printouts. Easier to parse   visually, and in verbose mode they produce a lot of useful   debugging information (basically a terminal version of the cgitb   module)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Auto-parentheses via the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%autocall"
+                    },
+                    {
+                      "type": "text",
+                      "value": " command: callable objects can be   executed without parentheses: "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "sin 3"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is automatically converted to   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "sin(3)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Auto-quoting: using "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": ","
+                    },
+                    {
+                      "type": "text",
+                      "value": ", or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": ";"
+                    },
+                    {
+                      "type": "text",
+                      "value": " as the first character forces   auto-quoting of the rest of the line: "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": ",my_function a b"
+                    },
+                    {
+                      "type": "text",
+                      "value": " becomes   automatically "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "my_function(\"a\",\"b\")"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", while "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": ";my_function a b"
+                    },
+                    {
+                      "type": "text",
+                      "value": "   becomes "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "my_function(\"a b\")"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Extensible input syntax. You can define filters that pre-process   user input to simplify input in special situations. This allows   for example pasting multi-line code fragments which start with   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": ">>>"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "..."
+                    },
+                    {
+                      "type": "text",
+                      "value": " such as those from other python sessions or the   standard Python documentation."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Flexible "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "configuration system <config_overview>"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". It uses a   configuration file which allows permanent setting of all command-line   options, module loading, code and file execution. The system allows   recursive file inclusion, so you can have a base file with defaults and   layers which load other customizations for particular projects."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Embeddable. You can call IPython as a python shell inside your own   python programs. This can be used both for debugging code or for   providing interactive abilities to your programs with knowledge   about the local namespaces (very useful in debugging and data   analysis situations)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Easy debugger access. You can set IPython to call up an enhanced version of   the Python debugger (pdb) every time there is an uncaught exception. This   drops you inside the code which triggered the exception with all the data   live and it is possible to navigate the stack to rapidly isolate the source   of a bug. The "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%run"
+                    },
+                    {
+                      "type": "text",
+                      "value": " magic command (with the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "-d"
+                    },
+                    {
+                      "type": "text",
+                      "value": " option) can run   any script under pdb's control, automatically setting initial breakpoints for   you.  This version of pdb has IPython-specific improvements, including   tab-completion and traceback coloring support. For even easier debugger   access, try "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%debug"
+                    },
+                    {
+                      "type": "text",
+                      "value": " after seeing an exception."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Profiler support. You can run single statements (similar to   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "profile.run()"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") or complete programs under the profiler's control.   While this is possible with standard cProfile or profile modules,   IPython wraps this functionality with magic commands (see "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%prun"
+                    },
+                    {
+                      "type": "text",
+                      "value": "   and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%run -p"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") convenient for rapid interactive work."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Simple timing information. You can use the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%timeit"
+                    },
+                    {
+                      "type": "text",
+                      "value": " command to get   the execution time of a Python statement or expression. This machinery is   intelligent enough to do more repetitions for commands that finish very   quickly in order to get a better estimate of their running time."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "args": "ipython",
+          "children": [],
+          "name": "sourcecode",
+          "options": {},
+          "type": "mystDirective",
+          "value": "In [1]: %timeit 1+1\n10000000 loops, best of 3: 25.5 ns per loop\n\nIn [2]: %timeit [math.sin(x) for x in range(5000)]\n1000 loops, best of 3: 719 \u00b5s per loop"
+        },
+        {
+          "type": "mystComment",
+          "value": ".."
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "To get the timing information for more than one expression, use the   "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "%%timeit"
+                },
+                {
+                  "type": "text",
+                  "value": " cell magic command."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Doctest support. The special "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%doctest_mode"
+                    },
+                    {
+                      "type": "text",
+                      "value": " command toggles a mode   to use doctest-compatible prompts, so you can use IPython sessions as   doctest code. By default, IPython also allows you to paste existing   doctests, and strips out the leading "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": ">>>"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "..."
+                    },
+                    {
+                      "type": "text",
+                      "value": " prompts in   them."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Main features of the interactive shell",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "IPython has abstracted and extended the notion of a traditional "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Read-Evaluate-Print Loop"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " (REPL) environment by decoupling the "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "evaluation"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " into its own process. We call this process a "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "kernel"
+                }
+              ],
+              "type": "strong"
+            },
+            {
+              "type": "text",
+              "value": ": it receives execution instructions from clients and communicates the results back to them."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This decoupling allows us to have several clients connected to the same kernel, and even allows clients and kernels to live on different machines. With the exclusion of the traditional single process terminal-based IPython (what you start if you run "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ipython"
+            },
+            {
+              "type": "text",
+              "value": " without any subcommands), all other IPython machinery uses this two-process model. Most of this is now part of the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "Jupyter"
+            },
+            {
+              "type": "text",
+              "value": " project, which includes "
+            },
+            {
+              "type": "inlineCode",
+              "value": "jupyter console"
+            },
+            {
+              "type": "text",
+              "value": ",  "
+            },
+            {
+              "type": "inlineCode",
+              "value": "jupyter\nqtconsole"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "jupyter notebook"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "As an example, this means that when you start "
+            },
+            {
+              "type": "inlineCode",
+              "value": "jupyter qtconsole"
+            },
+            {
+              "type": "text",
+              "value": ", you're really starting two processes, a kernel and a Qt-based client which can send commands to and receive results from that kernel. If there is already a kernel running that you want to connect to, you can pass the  "
+            },
+            {
+              "type": "inlineCode",
+              "value": "--existing"
+            },
+            {
+              "type": "text",
+              "value": " flag which will skip initiating a new kernel and connect to the most recent kernel, instead. To connect to a specific kernel once you have several kernels running, use the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%connect_info"
+            },
+            {
+              "type": "text",
+              "value": " magic to get the unique connection file, which will be something like "
+            },
+            {
+              "type": "inlineCode",
+              "value": "--existing kernel-19732.json"
+            },
+            {
+              "type": "text",
+              "value": " but with different numbers which correspond to the Process ID of the kernel."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You can read more about using "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "jupyter qtconsole"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://jupyter.org/qtconsole/"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "jupyter notebook"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://jupyter-notebook.readthedocs.io/en/latest/"
+            },
+            {
+              "type": "text",
+              "value": ". There is also a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "message spec <messaging>"
+            },
+            {
+              "type": "text",
+              "value": " which documents the protocol for communication between kernels and clients."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "",
+          "children": [],
+          "name": "seealso",
+          "options": {},
+          "type": "mystDirective",
+          "value": "`Frontend/Kernel Model`_ example notebook"
+        }
+      ],
+      "level": 1,
+      "target": "ipythonzmq",
+      "title": "Decoupled two-process model",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This functionality is optional and now part of the "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "ipyparallel"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://ipyparallel.readthedocs.io/"
+            },
+            {
+              "type": "text",
+              "value": " project."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Interactive parallel computing",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Version 7.0+ supports Python 3.4 and higher. Versions 6.x support Python 3.3 and higher. Versions 2.0 to 5.x work with Python 2.7.x releases and Python 3.3 and higher. Version 1.0 additionally worked with Python 2.6 and 3.2. Version 0.12 was the first version to fully support Python 3."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "IPython is known to work on the following operating systems:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Linux"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Most other Unix-like OSs (AIX, Solaris, BSD, etc.)"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Mac OS X"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Windows (CygWin, XP, Vista, etc.)"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                }
+              ],
+              "ordered": false,
+              "spread": false,
+              "start": 1,
+              "type": "list"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "See "
+            },
+            {
+              "type": "inlineCode",
+              "value": "here <install_index>"
+            },
+            {
+              "type": "text",
+              "value": " for instructions on how to install IPython."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "links.txt",
+          "children": [],
+          "name": "include",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Portability and Python requirements",
+      "type": "Section"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,401 @@
+{
+  "aliases": [
+    "networkx.group_betweenness_centrality"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Group betweenness centrality of a group of nodes $C$ is the sum of the fraction of all-pairs shortest paths that pass through any vertex in $C$"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "c_B(v) =\\sum_{s,t \\in V} \\frac{\\sigma(s, t|v)}{\\sigma(s, t)}"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where $V$ is the set of nodes, $\\sigma(s, t)$ is the number of shortest $(s, t)$-paths, and $\\sigma(s, t|C)$ is the number of those paths passing through some node in group $C$. Note that $(s, t)$ are not members of the group ($V-C$ is the set of nodes in $V$ that are not in $C$)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Group betweenness centrality is described in  and its importance discussed in . The initial implementation of the algorithm is mentioned in . This function uses an improved algorithm presented in ."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The number of nodes in the group must be a maximum of n - 2 where "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "n"
+            },
+            {
+              "type": "text",
+              "value": " is the total number of nodes in the graph."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For weighted graphs the edge weights must be greater than zero. Zero edge weights can produce an infinite number of equal length paths between pairs of nodes."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The total number of paths between source and target is counted differently for directed and undirected graphs. Directed paths between \"u\" and \"v\" are counted as two possible paths (one each direction) while undirected paths between \"u\" and \"v\" are counted as one path. Said another way, the sum in the expression above is over all "
+            },
+            {
+              "type": "inlineCode",
+              "value": "s != t"
+            },
+            {
+              "type": "text",
+              "value": " for directed graphs and for "
+            },
+            {
+              "type": "inlineCode",
+              "value": "s < t"
+            },
+            {
+              "type": "text",
+              "value": " for undirected graphs."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A NetworkX graph."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "G",
+              "type": "Param",
+              "type_": "graph"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A group or a list of groups containing nodes which belong to G, for which group betweenness centrality is to be calculated."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "C",
+              "type": "Param",
+              "type_": "list or set or list of lists or list of sets"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, group betweenness is normalized by "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "1/((|V|-|C|)(|V|-|C|-1))"
+                    },
+                    {
+                      "type": "text",
+                      "value": " where "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "|V|"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the number of nodes in G and "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "|C|"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the number of nodes in C."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "normalized",
+              "type": "Param",
+              "type_": "bool, optional (default=True)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If None, all edge weights are considered equal. Otherwise holds the name of the edge attribute used as weight. The weight of an edge is treated as the length or distance between the two sides."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "weight",
+              "type": "Param",
+              "type_": "None or string, optional (default=None)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True include the endpoints in the shortest path counts."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "endpoints",
+              "type": "Param",
+              "type_": "bool, optional (default=False)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If node(s) in C are not present in G."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "NodeNotFound"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If C is a single group then return a float. If C is a list with several groups then return a list of group betweenness centralities."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "betweenness",
+              "type": "Param",
+              "type_": "list of floats or float"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute the group betweenness centrality for a group of nodes."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/algorithms/centrality/group.py",
+  "item_line": 22,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Raises",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "betweenness_centrality",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "betweenness_centrality"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(G, C, normalized=True, weight=None, endpoints=False)"
+  },
+  "type": "DocBlob"
+}

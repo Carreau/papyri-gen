@@ -1,0 +1,375 @@
+{
+  "aliases": [
+    "networkx.Graph.update"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Like dict.update, this method takes a graph as input, adding the graph's nodes and edges to this graph. It can also take two inputs: edges and nodes. Finally it can take either edges or nodes. To specify only nodes the keyword "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "nodes",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "nodes"
+            },
+            {
+              "type": "text",
+              "value": " must be used."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The collections of edges and nodes are treated similarly to the add_edges_from/add_nodes_from methods. When iterated, they should yield 2-tuples (u, v) or 3-tuples (u, v, datadict)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "It you want to update the graph using an adjacency structure it is straightforward to obtain the edges/nodes from adjacency. The following examples provide common cases, your adjacency may be slightly different and require tweaks of these examples  "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> # dict-of-set/list/tuple\n>>> adj = {1: {2, 3}, 2: {1, 3}, 3: {1, 2}}\n>>> e = [(u, v) for u, nbrs in adj.items() for v in nbrs]\n>>> G.update(edges=e, nodes=adj)"
+        },
+        {
+          "type": "code",
+          "value": ">>> DG = nx.DiGraph()\n>>> # dict-of-dict-of-attribute\n>>> adj = {1: {2: 1.3, 3: 0.7}, 2: {1: 1.4}, 3: {1: 0.7}}\n>>> e = [\n...     (u, v, {\"weight\": d})\n...     for u, nbrs in adj.items()\n...     for v, d in nbrs.items()\n... ]\n>>> DG.update(edges=e, nodes=adj)"
+        },
+        {
+          "type": "code",
+          "value": ">>> # dict-of-dict-of-dict\n>>> adj = {1: {2: {\"weight\": 1.3}, 3: {\"color\": 0.7, \"weight\": 1.2}}}\n>>> e = [\n...     (u, v, {\"weight\": d})\n...     for u, nbrs in adj.items()\n...     for v, d in nbrs.items()\n... ]\n>>> DG.update(edges=e, nodes=adj)"
+        },
+        {
+          "type": "code",
+          "value": ">>> # predecessor adjacency (dict-of-set)\n>>> pred = {1: {2, 3}, 2: {3}, 3: {3}}\n>>> e = [(v, u) for u, nbrs in pred.items() for v in nbrs]"
+        },
+        {
+          "type": "code",
+          "value": ">>> # MultiGraph dict-of-dict-of-dict-of-attribute\n>>> MDG = nx.MultiDiGraph()\n>>> adj = {\n...     1: {2: {0: {\"weight\": 1.3}, 1: {\"weight\": 1.2}}},\n...     3: {2: {0: {\"weight\": 0.7}}},\n... }\n>>> e = [\n...     (u, v, ekey, d)\n...     for u, nbrs in adj.items()\n...     for v, keydict in nbrs.items()\n...     for ekey, d in keydict.items()\n... ]\n>>> MDG.update(edges=e)"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The first parameter can be a graph or some edges. If it has attributes "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "nodes",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "nodes"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "edges",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "edges"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", then it is taken to be a Graph-like object and those attributes are used as collections of nodes and edges to be added to the graph. If the first parameter does not have those attributes, it is treated as a collection of edges and added to the graph. If the first argument is None, no edges are added."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "edges",
+              "type": "Param",
+              "type_": "Graph object, collection of edges, or None"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The second parameter is treated as a collection of nodes to be added to the graph unless it is None. If "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "edges is None"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "nodes is None"
+                    },
+                    {
+                      "type": "text",
+                      "value": " an exception is raised. If the first parameter is a Graph, then "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "nodes",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "nodes"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is ignored."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "nodes",
+              "type": "Param",
+              "type_": "collection of nodes, or None"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Update the graph using nodes/edges/graphs as input."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "G = nx.path_graph(5)\nG.update(nx.complete_graph(range(4, 10)))\nfrom itertools import combinations\nedges = (\n    (u, v, {\"power\": u * v})\n    for u, v in combinations(range(10, 20), 2)\n    if u * v < 225\n)\nnodes = [1000]  # for singleton, use a container\nG.update(edges, nodes)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/classes/graph.py",
+  "item_line": 1158,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Examples",
+    "Notes",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "add multiple edges to a graph"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "networkx",
+          "path": "networkx.classes.graph:Graph.add_edges_from",
+          "type": "RefInfo",
+          "version": "3.1"
+        },
+        "type": "Link",
+        "value": "add_edges_from"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "add multiple nodes to a graph"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "networkx",
+          "path": "networkx.classes.graph:Graph.add_nodes_from",
+          "type": "RefInfo",
+          "version": "3.1"
+        },
+        "type": "Link",
+        "value": "add_nodes_from"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, edges=None, nodes=None)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,929 @@
+{
+  "aliases": [
+    "scipy.spatial.Delaunay"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Coordinates of input points."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "points",
+              "type": "Param",
+              "type_": "ndarray of double, shape (npoints, ndim)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Indices of the points forming the simplices in the triangulation. For 2-D, the points are oriented counterclockwise."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "simplices",
+              "type": "Param",
+              "type_": "ndarray of ints, shape (nsimplex, ndim+1)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Indices of neighbor simplices for each simplex. The kth neighbor is opposite to the kth vertex. For simplices at the boundary, -1 denotes no neighbor."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "neighbors",
+              "type": "Param",
+              "type_": "ndarray of ints, shape (nsimplex, ndim+1)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "[normal, offset] forming the hyperplane equation of the facet on the paraboloid (see "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Qhull documentation"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "http://www.qhull.org/"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for more)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "equations",
+              "type": "Param",
+              "type_": "ndarray of double, shape (nsimplex, ndim+2)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Scale and shift for the extra paraboloid dimension (see "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Qhull documentation"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "http://www.qhull.org/"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for more)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "paraboloid_scale, paraboloid_shift",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Affine transform from "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to the barycentric coordinates "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "c"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". This is defined by      "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "T c = x - r"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "At vertex "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "j"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "c_j = 1"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and the other coordinates zero."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "For simplex "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "i"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "transform[i,:ndim,:ndim]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " contains inverse of the matrix "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "T"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "transform[i,ndim,:]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " contains the vector "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "r"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If the simplex is degenerate or nearly degenerate, its barycentric transform contains NaNs."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "transform",
+              "type": "Param",
+              "type_": "ndarray of double, shape (nsimplex, ndim+1, ndim)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Lookup array, from a vertex, to some simplex which it is a part of. If qhull option \"Qc\" was not specified, the list will contain -1 for points that are not vertices of the tessellation."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "vertex_to_simplex",
+              "type": "Param",
+              "type_": "ndarray of int, shape (npoints,)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Vertices of facets forming the convex hull of the point set. The array contains the indices of the points belonging to the (N-1)-dimensional facets that form the convex hull of the triangulation."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "note "
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Computing convex hulls via the Delaunay triangulation is inefficient and subject to increased numerical instability. Use "
+                        },
+                        {
+                          "domain": null,
+                          "role": null,
+                          "type": "Directive",
+                          "value": "ConvexHull"
+                        },
+                        {
+                          "type": "text",
+                          "value": " instead."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "convex_hull",
+              "type": "Param",
+              "type_": "ndarray of int, shape (nfaces, ndim)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Indices of coplanar points and the corresponding indices of the nearest facet and the nearest vertex.  Coplanar points are input points which were "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "not"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " included in the triangulation due to numerical precision issues."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If option \"Qc\" is not specified, this list is not computed."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 0.12.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "coplanar",
+              "type": "Param",
+              "type_": "ndarray of int, shape (ncoplanar, 3)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Same as "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "simplices",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "simplices"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", but deprecated."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "deprecated 0.12.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Delaunay attribute "
+                        },
+                        {
+                          "domain": null,
+                          "role": null,
+                          "type": "Directive",
+                          "value": "vertices"
+                        },
+                        {
+                          "type": "text",
+                          "value": " is deprecated in favour of "
+                        },
+                        {
+                          "domain": null,
+                          "role": null,
+                          "type": "Directive",
+                          "value": "simplices"
+                        },
+                        {
+                          "type": "text",
+                          "value": " and will be removed in Scipy 1.11.0."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "vertices",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Neighboring vertices of vertices. The indices of neighboring vertices of vertex "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "k"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "indices[indptr[k]:indptr[k+1]]"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "vertex_neighbor_vertices",
+              "type": "Param",
+              "type_": "tuple of two ndarrays of int; (indptr, indices)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "True if this was a furthest site triangulation and False if not."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.4.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "furthest_site",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 0.9"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The tessellation is computed using the Qhull library "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Qhull library"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "http://www.qhull.org/"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "note "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Unless you pass in the Qhull option \"QJ\", Qhull does not guarantee that each input point appears as a vertex in the Delaunay triangulation. Omitted points are listed in the "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "coplanar"
+                },
+                {
+                  "type": "text",
+                  "value": " attribute."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Coordinates of points to triangulate"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "points",
+              "type": "Param",
+              "type_": "ndarray of floats, shape (npoints, ndim)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to compute a furthest-site Delaunay triangulation. Default: False"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 0.12.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "furthest_site",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Allow adding new points incrementally. This takes up some additional resources."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "incremental",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Additional options to pass to Qhull. See Qhull manual for details. Option \"Qt\" is always enabled. Default:\"Qbb Qc Qz Qx Q12\" for ndim > 4 and \"Qbb Qc Qz Q12\" otherwise. Incremental mode omits \"Qz\"."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 0.12.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "qhull_options",
+              "type": "Param",
+              "type_": "str, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Raised when Qhull encounters an error condition, such as geometrical degeneracy when options to resolve are not enabled."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "QhullError"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Raised if an incompatible array is given as input."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "ValueError"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Delaunay tessellation in N dimensions."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Triangulation of a set of points:"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\npoints = np.array([[0, 0], [0, 1.1], [1, 0], [1, 1]])\nfrom scipy.spatial import Delaunay\ntri = Delaunay(points)"
+      },
+      {
+        "type": "text",
+        "value": "We can plot it:"
+      },
+      {
+        "type": "code",
+        "value": "import matplotlib.pyplot as plt\nplt.triplot(points[:,0], points[:,1], tri.simplices)\nplt.plot(points[:,0], points[:,1], 'o')\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.spatial._qhull:Delaunay-0-4d8aa8d0.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      },
+      {
+        "type": "text",
+        "value": "Point indices and coordinates for the two triangles forming the\ntriangulation:"
+      },
+      {
+        "type": "code",
+        "value": "tri.simplices"
+      },
+      {
+        "type": "text",
+        "value": "Note that depending on how rounding errors go, the simplices may\nbe in a different order than above."
+      },
+      {
+        "type": "code",
+        "value": "points[tri.simplices]"
+      },
+      {
+        "type": "text",
+        "value": "Triangle 0 is the only neighbor of triangle 1, and it's opposite to\nvertex 1 of triangle 1:"
+      },
+      {
+        "type": "code",
+        "value": "tri.neighbors[1]"
+      },
+      {
+        "type": "code",
+        "value": "points[tri.simplices[1,1]]"
+      },
+      {
+        "type": "text",
+        "value": "We can find out which triangle points are in:"
+      },
+      {
+        "type": "code",
+        "value": "p = np.array([(0.1, 0.2), (1.5, 0.5), (0.5, 1.05)])\ntri.find_simplex(p)"
+      },
+      {
+        "type": "text",
+        "value": "The returned integers in the array are the indices of the simplex the\ncorresponding point is in. If -1 is returned, the point is in no simplex.\nBe aware that the shortcut in the following example only works correctly\nfor valid points as invalid points result in -1 which is itself a valid\nindex for the last simplex in the list."
+      },
+      {
+        "type": "code",
+        "value": "p_valids = np.array([(0.1, 0.2), (0.5, 1.05)])\ntri.simplices[tri.find_simplex(p_valids)]"
+      },
+      {
+        "type": "text",
+        "value": "We can also compute barycentric coordinates in triangle 1 for\nthese points:"
+      },
+      {
+        "type": "code",
+        "value": "b = tri.transform[1,:2].dot(np.transpose(p - tri.transform[1,2]))\nnp.c_[np.transpose(b), 1 - b.sum(axis=0)]"
+      },
+      {
+        "type": "text",
+        "value": "The coordinates for the first point are all positive, meaning it\nis indeed inside the triangle. The third point is on an edge,\nhence its null third coordinate."
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/spatial/_qhull.cpython-311-darwin.so",
+  "item_line": null,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Signature",
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Attributes",
+    "Raises",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "Delaunay(points, furthest_site=False, incremental=False, qhull_options=None)"
+  },
+  "type": "DocBlob"
+}

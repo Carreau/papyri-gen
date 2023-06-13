@@ -1,0 +1,247 @@
+{
+  "aliases": [
+    "scipy.spatial.KDTree.sparse_distance_matrix"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Computes a distance matrix between two KDTrees, leaving as zero any distance greater than max_distance."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "other",
+              "type": "Param",
+              "type_": "KDTree"
+            },
+            {
+              "desc": [],
+              "param": "max_distance",
+              "type": "Param",
+              "type_": "positive float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Which Minkowski p-norm to use. A finite large p may cause a ValueError if overflow can occur."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "p",
+              "type": "Param",
+              "type_": "float, 1<=p<=infinity"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Which container to use for output data. Options: 'dok_matrix', 'coo_matrix', 'dict', or 'ndarray'. Default: 'dok_matrix'."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.6.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "output_type",
+              "type": "Param",
+              "type_": "string, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Sparse matrix representing the results in \"dictionary of keys\" format. If a dict is returned the keys are (i,j) tuples of indices. If output_type is 'ndarray' a record array with fields 'i', 'j', and 'v' is returned,"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "result",
+              "type": "Param",
+              "type_": "dok_matrix, coo_matrix, dict or ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute a sparse distance matrix."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "You can compute a sparse distance matrix between two kd-trees:"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.spatial import KDTree\nrng = np.random.default_rng()\npoints1 = rng.random((5, 2))\npoints2 = rng.random((5, 2))\nkd_tree1 = KDTree(points1)\nkd_tree2 = KDTree(points2)\nsdm = kd_tree1.sparse_distance_matrix(kd_tree2, 0.3)\nsdm.toarray()"
+      },
+      {
+        "type": "text",
+        "value": "You can check distances above the `max_distance` are zeros:"
+      },
+      {
+        "type": "code",
+        "value": "from scipy.spatial import distance_matrix\ndistance_matrix(points1, points2)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/spatial/_kdtree.py",
+  "item_line": 804,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, other, max_distance, p=2.0, output_type='dok_matrix')"
+  },
+  "type": "DocBlob"
+}

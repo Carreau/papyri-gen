@@ -1,0 +1,1374 @@
+{
+  "aliases": [
+    "scipy.stats.multiscale_graphcorr"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Specifically, for each point, MGC finds the "
+            },
+            {
+              "type": "inlineMath",
+              "value": "k"
+            },
+            {
+              "type": "text",
+              "value": "-nearest neighbors for one property (e.g. cloud density), and the "
+            },
+            {
+              "type": "inlineMath",
+              "value": "l"
+            },
+            {
+              "type": "text",
+              "value": "-nearest neighbors for the other property (e.g. grass wetness) . This pair "
+            },
+            {
+              "type": "inlineMath",
+              "value": "(k, l)"
+            },
+            {
+              "type": "text",
+              "value": " is called the \"scale\". A priori, however, it is not know which scales will be most informative. So, MGC computes all distance pairs, and then efficiently computes the distance correlations for all scales. The local correlations illustrate which scales are relatively informative about the relationship. The key, therefore, to successfully discover and decipher relationships between disparate data modalities is to adaptively determine which scales are the most informative, and the geometric implication for the most informative scales. Doing so not only provides an estimate of whether the modalities are related, but also provides insight into how the determination was made. This is especially important in high-dimensional data, where simple visualizations do not reveal relationships to the unaided human eye. Characterizations of this implementation in particular have been derived from and benchmarked within in ."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A description of the process of MGC and applications on neuroscience data can be found in . It is performed using the following steps:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Two distance matrices "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "D^X"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "D^Y"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are computed and    modified to be mean zero columnwise. This results in two    "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "n \\times n"
+                    },
+                    {
+                      "type": "text",
+                      "value": " distance matrices "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "A"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "B"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (the    centering and unbiased modification) ."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "For all values "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "k"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "l"
+                    },
+                    {
+                      "type": "text",
+                      "value": " from "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "1, ..., n"
+                    },
+                    {
+                      "type": "text",
+                      "value": ","
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "The "
+                            },
+                            {
+                              "type": "inlineMath",
+                              "value": "k"
+                            },
+                            {
+                              "type": "text",
+                              "value": "-nearest neighbor and "
+                            },
+                            {
+                              "type": "inlineMath",
+                              "value": "l"
+                            },
+                            {
+                              "type": "text",
+                              "value": "-nearest neighbor graphs      are calculated for each property. Here, "
+                            },
+                            {
+                              "type": "inlineMath",
+                              "value": "G_k (i, j)"
+                            },
+                            {
+                              "type": "text",
+                              "value": " indicates      the "
+                            },
+                            {
+                              "type": "inlineMath",
+                              "value": "k"
+                            },
+                            {
+                              "type": "text",
+                              "value": "-smallest values of the "
+                            },
+                            {
+                              "type": "inlineMath",
+                              "value": "i"
+                            },
+                            {
+                              "type": "text",
+                              "value": "-th row of "
+                            },
+                            {
+                              "type": "inlineMath",
+                              "value": "A"
+                            },
+                            {
+                              "type": "text",
+                              "value": "      and "
+                            },
+                            {
+                              "type": "inlineMath",
+                              "value": "H_l (i, j)"
+                            },
+                            {
+                              "type": "text",
+                              "value": " indicates the "
+                            },
+                            {
+                              "type": "inlineMath",
+                              "value": "l"
+                            },
+                            {
+                              "type": "text",
+                              "value": " smallested values of      the "
+                            },
+                            {
+                              "type": "inlineMath",
+                              "value": "i"
+                            },
+                            {
+                              "type": "text",
+                              "value": "-th row of "
+                            },
+                            {
+                              "type": "inlineMath",
+                              "value": "B"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Let "
+                            },
+                            {
+                              "type": "inlineMath",
+                              "value": "\\circ"
+                            },
+                            {
+                              "type": "text",
+                              "value": " denotes the entry-wise matrix product, then local      correlations are summed and normalized using the following statistic:"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": true,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "type": "math",
+          "value": "c^{kl} = \\frac{\\sum_{ij} A G_k B H_l}\n              {\\sqrt{\\sum_{ij} A^2 G_k \\times \\sum_{ij} B^2 H_l}}"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The MGC test statistic is the smoothed optimal local correlation of    "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "\\{ c^{kl} \\}"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Denote the smoothing operation as "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "R(\\cdot)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "    (which essentially set all isolated large correlations) as 0 and    connected large correlations the same as before, see .) MGC is,"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": true,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "type": "math",
+          "value": "MGC_n (x, y) = \\max_{(k, l)} R \\left(c^{kl} \\left( x_n, y_n \\right)\n                                            \\right)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The test statistic returns a value between "
+            },
+            {
+              "type": "inlineMath",
+              "value": "(-1, 1)"
+            },
+            {
+              "type": "text",
+              "value": " since it is normalized."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The p-value returned is calculated using a permutation test. This process is completed by first randomly permuting "
+            },
+            {
+              "type": "inlineMath",
+              "value": "y"
+            },
+            {
+              "type": "text",
+              "value": " to estimate the null distribution and then calculating the probability of observing a test statistic, under the null, at least as extreme as the observed test statistic."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "MGC requires at least 5 samples to run with reliable results. It can also handle high-dimensional data sets. In addition, by manipulating the input data matrices, the two-sample testing problem can be reduced to the independence testing problem . Given sample data "
+            },
+            {
+              "type": "inlineMath",
+              "value": "U"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "V"
+            },
+            {
+              "type": "text",
+              "value": " of sizes "
+            },
+            {
+              "type": "inlineMath",
+              "value": "p \\times n"
+            },
+            {
+              "type": "text",
+              "value": " "
+            },
+            {
+              "type": "inlineMath",
+              "value": "p \\times m"
+            },
+            {
+              "type": "text",
+              "value": ", data matrix "
+            },
+            {
+              "type": "inlineMath",
+              "value": "X"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "Y"
+            },
+            {
+              "type": "text",
+              "value": " can be created as follows:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "X = [U | V] \\in \\mathcal{R}^{p \\times (n + m)}\nY = [0_{1 \\times n} | 1_{1 \\times m}] \\in \\mathcal{R}^{(n + m)}"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Then, the MGC statistic can be calculated as normal. This methodology can be extended to similar tests such as distance correlation ."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 1.4.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "y"
+                    },
+                    {
+                      "type": "text",
+                      "value": " have shapes "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(n, p)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(n, q)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " where "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "n"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the number of samples and "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "p"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "q"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are the number of dimensions, then the MGC independence test will be run.  Alternatively, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "y"
+                    },
+                    {
+                      "type": "text",
+                      "value": " can have shapes "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(n, n)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " if they are distance or similarity matrices, and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "compute_distance"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must be sent to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "y"
+                    },
+                    {
+                      "type": "text",
+                      "value": " have shapes "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(n, p)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(m, p)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", an unpaired two-sample MGC test will be run."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x, y",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A function that computes the distance or similarity among the samples within each data matrix. Set to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": " if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "y"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are already distance matrices. The default uses the euclidean norm metric. If you are calling a custom function, either create the distance matrix before-hand or create a function of the form "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "compute_distance(x)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " where "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the data matrix for which pairwise distances are calculated."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "compute_distance",
+              "type": "Param",
+              "type_": "callable, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The number of replications used to estimate the null when using the permutation test. The default is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "1000"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "reps",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "workers"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is an int the population is subdivided into "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "workers"
+                    },
+                    {
+                      "type": "text",
+                      "value": " sections and evaluated in parallel (uses "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "multiprocessing.Pool\n<multiprocessing>"
+                    },
+                    {
+                      "type": "text",
+                      "value": "). Supply "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "-1"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to use all cores available to the Process. Alternatively supply a map-like callable, such as "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "multiprocessing.Pool.map"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for evaluating the p-value in parallel. This evaluation is carried out as "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "workers(func, iterable)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Requires that "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "func"
+                    },
+                    {
+                      "type": "text",
+                      "value": " be pickleable. The default is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "1"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "workers",
+              "type": "Param",
+              "type_": "int or map-like callable, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", a two sample test will be run. If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "y"
+                    },
+                    {
+                      "type": "text",
+                      "value": " have shapes "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(n, p)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(m, p)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", this optional will be overridden and set to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Set to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": " if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "y"
+                    },
+                    {
+                      "type": "text",
+                      "value": " both have shapes "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(n, p)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and a two sample test is desired. The default is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Note that this will not run if inputs are distance matrices."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "is_twosamp",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "anchor": null,
+                          "exists": true,
+                          "kind": "module",
+                          "reference": {
+                            "kind": "api",
+                            "module": "numpy.random.mtrand",
+                            "path": "numpy.random.mtrand:RandomState",
+                            "type": "RefInfo",
+                            "version": "*"
+                          },
+                          "type": "Link",
+                          "value": "numpy.random.RandomState"
+                        },
+                        {
+                          "type": "text",
+                          "value": "}, optional"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "type": "blockquote"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "scipy",
+                        "path": "scipy.linalg.interpolative:seed",
+                        "type": "RefInfo",
+                        "version": "1.10.1"
+                      },
+                      "type": "Link",
+                      "value": "seed"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is None (or "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "np.random"
+                    },
+                    {
+                      "type": "text",
+                      "value": "), the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "numpy.random.mtrand",
+                        "path": "numpy.random.mtrand:RandomState",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "numpy.random.RandomState"
+                    },
+                    {
+                      "type": "text",
+                      "value": " singleton is used. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "scipy",
+                        "path": "scipy.linalg.interpolative:seed",
+                        "type": "RefInfo",
+                        "version": "1.10.1"
+                      },
+                      "type": "Link",
+                      "value": "seed"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is an int, a new "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "RandomState"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instance is used, seeded with "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "scipy",
+                        "path": "scipy.linalg.interpolative:seed",
+                        "type": "RefInfo",
+                        "version": "1.10.1"
+                      },
+                      "type": "Link",
+                      "value": "seed"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "scipy",
+                        "path": "scipy.linalg.interpolative:seed",
+                        "type": "RefInfo",
+                        "version": "1.10.1"
+                      },
+                      "type": "Link",
+                      "value": "seed"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is already a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Generator"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "RandomState"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instance then that instance is used."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "random_state",
+              "type": "Param",
+              "type_": "{None, int, `numpy.random.Generator`,"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An object containing attributes:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "statistic"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "statistic"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "pvalue"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "pvalue"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "mgc_dict"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "mgc_dict"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "param": "res",
+              "type": "Param",
+              "type_": "MGCResult"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Computes the Multiscale Graph Correlation (MGC) test statistic."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.stats import multiscale_graphcorr\nx = np.arange(100)\ny = x\nres = multiscale_graphcorr(x, y)\nres.statistic, res.pvalue"
+      },
+      {
+        "type": "text",
+        "value": "To run an unpaired two-sample test,"
+      },
+      {
+        "type": "code",
+        "value": "x = np.arange(100)\ny = np.arange(79)\nres = multiscale_graphcorr(x, y)\nres.statistic, res.pvalue  # doctest: +SKIP"
+      },
+      {
+        "type": "text",
+        "value": "or, if shape of the inputs are the same,"
+      },
+      {
+        "type": "code",
+        "value": "x = np.arange(100)\ny = x\nres = multiscale_graphcorr(x, y, is_twosamp=True)\nres.statistic, res.pvalue  # doctest: +SKIP"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_stats_py.py",
+  "item_line": 5563,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Pearson correlation coefficient and p-value for testing non-correlation."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "pearsonr",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "pearsonr"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Calculates Kendall's tau."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "kendalltau",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "kendalltau"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Calculates a Spearman rank-order correlation coefficient."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "spearmanr",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "spearmanr"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(x, y, compute_distance=<function _euclidean_dist at 0x11ac50220>, reps=1000, workers=1, is_twosamp=False, random_state=None)"
+  },
+  "type": "DocBlob"
+}

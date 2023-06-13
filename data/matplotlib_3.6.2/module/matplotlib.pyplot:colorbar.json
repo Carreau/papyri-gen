@@ -1,0 +1,1117 @@
+{
+  "aliases": [
+    "matplotlib.pyplot.colorbar"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "mappable"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " is a "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "~.contour.ContourSet"
+            },
+            {
+              "type": "text",
+              "value": ", its "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "extend"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " kwarg is included automatically."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "shrink"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " kwarg provides a simple way to scale the colorbar with respect to the axes. Note that if "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "cax"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " is specified, it determines the size of the colorbar and "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "shrink"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "aspect"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " kwargs are ignored."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For more precise control, you can manually specify the positions of the axes objects in which the mappable and the colorbar are drawn.  In this case, do not use any of the axes properties kwargs."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "It is known that some vector graphics viewers (svg and pdf) renders white gaps between segments of the colorbar.  This is due to bugs in the viewers, not Matplotlib.  As a workaround, the colorbar can be rendered with overlapping segments      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "cbar = colorbar()\ncbar.solids.set_edgecolor(\"face\")\ndraw()"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "However this has negative consequences in other circumstances, e.g. with semi-transparent images (alpha < 1) and colorbar extensions; therefore, this workaround is not used by default (see issue #1188)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The location, relative to the parent axes, where the colorbar axes is created.  It also determines the "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "orientation"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " of the colorbar (colorbars on the left and right are vertical, colorbars at the top and bottom are horizontal).  If None, the location will come from the "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "orientation"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " if it is set (vertical colorbars on the right, horizontal ones at the bottom), or default to 'right' if "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "orientation"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is unset."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "location",
+              "type": "Param",
+              "type_": "None or {'left', 'right', 'top', 'bottom'}"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The orientation of the colorbar.  It is preferable to set the "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "location"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " of the colorbar, as that also determines the "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "orientation"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": "; passing incompatible values for "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "location"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "orientation"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " raises an exception."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "orientation",
+              "type": "Param",
+              "type_": "None or {'vertical', 'horizontal'}"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Fraction of original axes to use for colorbar."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fraction",
+              "type": "Param",
+              "type_": "float, default: 0.15"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Fraction by which to multiply the size of the colorbar."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "shrink",
+              "type": "Param",
+              "type_": "float, default: 1.0"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Ratio of long to short dimensions."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "aspect",
+              "type": "Param",
+              "type_": "float, default: 20"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Fraction of original axes between colorbar and new image axes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "pad",
+              "type": "Param",
+              "type_": "float, default: 0.05 if vertical, 0.15 if horizontal"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The anchor point of the colorbar axes. Defaults to (0.0, 0.5) if vertical; (0.5, 1.0) if horizontal."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "anchor",
+              "type": "Param",
+              "type_": "(float, float), optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The anchor point of the colorbar parent axes. If "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "False"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the parent axes' anchor will be unchanged. Defaults to (1.0, 0.5) if vertical; (0.5, 0.0) if horizontal."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "panchor",
+              "type": "Param",
+              "type_": "(float, float), or *False*, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Make pointed end(s) for out-of-range values (unless 'neither').  These are set for a given colormap using the colormap set_under and set_over methods."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "extend",
+              "type": "Param",
+              "type_": "{'neither', 'both', 'min', 'max'}"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If set to "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "None"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", both the minimum and maximum triangular colorbar extensions will have a length of 5% of the interior colorbar length (this is the default setting)."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If set to 'auto', makes the triangular colorbar extensions the same lengths as the interior boxes (when "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "spacing"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is set to 'uniform') or the same lengths as the respective adjacent interior boxes (when "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "spacing"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is set to 'proportional')."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If a scalar, indicates the length of both the minimum and maximum triangular colorbar extensions as a fraction of the interior colorbar length.  A two-element sequence of fractions may also be given, indicating the lengths of the minimum and maximum colorbar extensions respectively as a fraction of the interior colorbar length."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "extendfrac",
+              "type": "Param",
+              "type_": "{*None*, 'auto', length, lengths}"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "False"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " the minimum and maximum colorbar extensions will be triangular (the default).  If "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "True"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " the extensions will be rectangular."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "extendrect",
+              "type": "Param",
+              "type_": "bool"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "For discrete colorbars ("
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": ".BoundaryNorm"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or contours), 'uniform' gives each color the same space; 'proportional' makes the space proportional to the data interval."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "spacing",
+              "type": "Param",
+              "type_": "{'uniform', 'proportional'}"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If None, ticks are determined automatically from the input."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ticks",
+              "type": "Param",
+              "type_": "None or list of ticks or Locator"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If None, "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "~.ticker.ScalarFormatter"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is used. Format strings, e.g., "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "\"%4.2e\""
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "\"{x:.2e}\""
+                    },
+                    {
+                      "type": "text",
+                      "value": ", are supported. An alternative "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "~.ticker.Formatter"
+                    },
+                    {
+                      "type": "text",
+                      "value": " may be given instead."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "format",
+              "type": "Param",
+              "type_": "None or str or Formatter"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to draw lines at color boundaries."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "drawedges",
+              "type": "Param",
+              "type_": "bool"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The label on the colorbar's long axis."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "label",
+              "type": "Param",
+              "type_": "str"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If unset, the colormap will be displayed on a 0-1 scale. If sequences, "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "values"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must have a length 1 less than "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "boundaries"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  For each region delimited by adjacent entries in "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "boundaries"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the color mapped to the corresponding value in values will be used. Normally only useful for indexed colors (i.e. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "norm=NoNorm()"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") or other unusual circumstances."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "boundaries, values",
+              "type": "Param",
+              "type_": "None or a sequence"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "matplotlib.cm",
+                        "path": "matplotlib.cm:ScalarMappable",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "matplotlib.cm.ScalarMappable"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (i.e., "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": ".AxesImage"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": ".ContourSet"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", etc.) described by this colorbar.  This argument is mandatory for the "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": ".Figure.colorbar"
+                    },
+                    {
+                      "type": "text",
+                      "value": " method but optional for the "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": ".pyplot.colorbar"
+                    },
+                    {
+                      "type": "text",
+                      "value": " function, which sets the default to the current image."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Note that one can create a "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": ".ScalarMappable"
+                    },
+                    {
+                      "type": "text",
+                      "value": " \"on-the-fly\" to generate colorbars not attached to a previously drawn artist, e.g. ::"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "fig.colorbar(cm.ScalarMappable(norm=norm, cmap=cmap), ax=ax)"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "type": "blockquote"
+                }
+              ],
+              "param": "mappable",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Axes into which the colorbar will be drawn."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "cax",
+              "type": "Param",
+              "type_": "`~matplotlib.axes.Axes`, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "One or more parent axes from which space for a new colorbar axes will be stolen, if "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "cax"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is None.  This has no effect if "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "cax"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is set."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ax",
+              "type": "Param",
+              "type_": "`~.axes.Axes` or list or `numpy.ndarray` of Axes, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "cax"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", a new "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "cax"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is created as an instance of Axes.  If "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "ax"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is an instance of Subplot and "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "use_gridspec"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "cax"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is created as an instance of Subplot using the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": ".gridspec"
+                    },
+                    {
+                      "type": "text",
+                      "value": " module."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "use_gridspec",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "colorbar",
+              "type": "Param",
+              "type_": "`~matplotlib.colorbar.Colorbar`"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Add a colorbar to a plot."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/matplotlib/pyplot.py",
+  "item_line": 2056,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Other Parameters",
+    "Notes"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(mappable=None, cax=None, ax=None, **kwargs)"
+  },
+  "type": "DocBlob"
+}

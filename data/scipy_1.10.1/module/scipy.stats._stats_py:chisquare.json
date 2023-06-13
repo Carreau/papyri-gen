@@ -1,0 +1,620 @@
+{
+  "aliases": [
+    "scipy.stats.chisquare"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The chi-square test tests the null hypothesis that the categorical data has the given frequencies."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This test is invalid when the observed or expected frequencies in each category are too small.  A typical rule is that all of the observed and expected frequencies should be at least 5. According to , the total number of samples is recommended to be greater than 13, otherwise exact tests (such as Barnard's Exact test) should be used because they do not overreject."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Also, the sum of the observed and expected frequencies must be the same for the test to be valid; "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "chisquare"
+            },
+            {
+              "type": "text",
+              "value": " raises an error if the sums do not agree within a relative tolerance of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "1e-8"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The default degrees of freedom, k-1, are for the case when no parameters of the distribution are estimated. If p parameters are estimated by efficient maximum likelihood then the correct degrees of freedom are k-1-p. If the parameters are estimated in a different way, then the dof can be between k-1-p and k-1. However, it is also possible that the asymptotic distribution is not chi-square, in which case this test is not appropriate."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Observed frequencies in each category."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "f_obs",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Expected frequencies in each category.  By default the categories are assumed to be equally likely."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "f_exp",
+              "type": "Param",
+              "type_": "array_like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "\"Delta degrees of freedom\": adjustment to the degrees of freedom for the p-value.  The p-value is computed using a chi-squared distribution with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "k - 1 - ddof"
+                    },
+                    {
+                      "type": "text",
+                      "value": " degrees of freedom, where "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "k"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the number of observed frequencies.  The default value of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "ddof",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "ddof"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is 0."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ddof",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The axis of the broadcast result of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "f_obs",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "f_obs"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "f_exp",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "f_exp"
+                    },
+                    {
+                      "type": "text",
+                      "value": " along which to apply the test.  If axis is None, all values in "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "f_obs",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "f_obs"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are treated as a single data set.  Default is 0."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "axis",
+              "type": "Param",
+              "type_": "int or None, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The chi-squared test statistic.  The value is a float if "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "axis",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "axis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is None or "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "f_obs",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "f_obs"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "f_exp",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "f_exp"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are 1-D."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "chisq",
+              "type": "Param",
+              "type_": "float or ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The p-value of the test.  The value is a float if "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "ddof",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "ddof"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and the return value "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "chisq",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "chisq"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are scalars."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "p",
+              "type": "Param",
+              "type_": "float or ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Calculate a one-way chi-square test."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "When just `f_obs` is given, it is assumed that the expected frequencies\nare uniform and given by the mean of the observed frequencies."
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.stats import chisquare\nchisquare([16, 18, 16, 14, 12, 12])"
+      },
+      {
+        "type": "text",
+        "value": "With `f_exp` the expected frequencies can be given."
+      },
+      {
+        "type": "code",
+        "value": "chisquare([16, 18, 16, 14, 12, 12], f_exp=[16, 16, 16, 16, 16, 8])"
+      },
+      {
+        "type": "text",
+        "value": "When `f_obs` is 2-D, by default the test is applied to each column."
+      },
+      {
+        "type": "code",
+        "value": "obs = np.array([[16, 18, 16, 14, 12, 12], [32, 24, 16, 28, 20, 24]]).T\nobs.shape"
+      },
+      {
+        "type": "code",
+        "value": "chisquare(obs)"
+      },
+      {
+        "type": "text",
+        "value": "By setting ``axis=None``, the test is applied to all data in the array,\nwhich is equivalent to applying the test to the flattened array."
+      },
+      {
+        "type": "code",
+        "value": "chisquare(obs, axis=None)"
+      },
+      {
+        "type": "code",
+        "value": "chisquare(obs.ravel())"
+      },
+      {
+        "type": "text",
+        "value": "`ddof` is the change to make to the default degrees of freedom."
+      },
+      {
+        "type": "code",
+        "value": "chisquare([16, 18, 16, 14, 12, 12], ddof=1)"
+      },
+      {
+        "type": "text",
+        "value": "The calculation of the p-values is done by broadcasting the\nchi-squared statistic with `ddof`."
+      },
+      {
+        "type": "code",
+        "value": "chisquare([16, 18, 16, 14, 12, 12], ddof=[0,1,2])"
+      },
+      {
+        "type": "text",
+        "value": "`f_obs` and `f_exp` are also broadcast.  In the following, `f_obs` has\nshape (6,) and `f_exp` has shape (2, 6), so the result of broadcasting\n`f_obs` and `f_exp` has shape (2, 6).  To compute the desired chi-squared\nstatistics, we use ``axis=1``:"
+      },
+      {
+        "type": "code",
+        "value": "chisquare([16, 18, 16, 14, 12, 12],\n          f_exp=[[16, 16, 16, 16, 16, 8], [8, 20, 20, 16, 12, 12]],\n          axis=1)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_stats_py.py",
+  "item_line": 7428,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.stats._stats_py:power_divergence",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "scipy.stats.power_divergence"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Fisher exact test on a 2x2 contingency table."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.stats._stats_py:fisher_exact",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "scipy.stats.fisher_exact"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "An unconditional exact test. An alternative to chi-squared test for small sample sizes."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.stats._hypotests:barnard_exact",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "scipy.stats.barnard_exact"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(f_obs, f_exp=None, ddof=0, axis=0)"
+  },
+  "type": "DocBlob"
+}

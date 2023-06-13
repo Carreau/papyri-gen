@@ -1,0 +1,574 @@
+{
+  "aliases": [
+    "scipy.linalg.pinv"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Calculate a generalized inverse of a matrix using its singular-value decomposition "
+            },
+            {
+              "type": "inlineCode",
+              "value": "U @ S @ V"
+            },
+            {
+              "type": "text",
+              "value": " in the economy mode and picking up only the columns/rows that are associated with significant singular values."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If "
+            },
+            {
+              "type": "inlineCode",
+              "value": "s"
+            },
+            {
+              "type": "text",
+              "value": " is the maximum singular value of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": ", then the significance cut-off value is determined by "
+            },
+            {
+              "type": "inlineCode",
+              "value": "atol + rtol * s"
+            },
+            {
+              "type": "text",
+              "value": ". Any singular value below this value is assumed insignificant."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Matrix to be pseudo-inverted."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "a",
+              "type": "Param",
+              "type_": "(M, N) array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Absolute threshold term, default value is 0."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.7.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "atol",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Relative threshold term, default value is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "max(M, N) * eps"
+                    },
+                    {
+                      "type": "text",
+                      "value": " where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "eps"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the machine precision value of the datatype of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.7.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "rtol",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, return the effective rank of the matrix."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "return_rank",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to check that the input matrix contains only finite numbers. Disabling may give a performance gain, but may result in problems (crashes, non-termination) if the inputs do contain infinities or NaNs."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "check_finite",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "In older versions, these values were meant to be used as "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "atol"
+                    },
+                    {
+                      "type": "text",
+                      "value": " with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "rtol=0"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If both were given "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "rcond"
+                    },
+                    {
+                      "type": "text",
+                      "value": " overwrote "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "cond"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and hence the code was not correct. Thus using these are strongly discouraged and the tolerances above are recommended instead. In fact, if provided, atol, rtol takes precedence over these keywords."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionchanged 1.7.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Deprecated in favor of "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "rtol"
+                        },
+                        {
+                          "type": "text",
+                          "value": " and "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "atol"
+                        },
+                        {
+                          "type": "text",
+                          "value": " parameters above and will be removed in future versions of SciPy."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionchanged 1.3.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Previously the default cutoff value was just "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "eps*f"
+                        },
+                        {
+                          "type": "text",
+                          "value": " where "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "f"
+                        },
+                        {
+                          "type": "text",
+                          "value": " was "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "1e3"
+                        },
+                        {
+                          "type": "text",
+                          "value": " for single precision and "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "1e6"
+                        },
+                        {
+                          "type": "text",
+                          "value": " for double precision."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "cond, rcond",
+              "type": "Param",
+              "type_": "float, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If SVD computation does not converge."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "LinAlgError"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The pseudo-inverse of matrix "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "B",
+              "type": "Param",
+              "type_": "(N, M) ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The effective rank of the matrix. Returned if "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "return_rank",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "return_rank"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is True."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "rank",
+              "type": "Param",
+              "type_": "int"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute the (Moore-Penrose) pseudo-inverse of a matrix."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy import linalg\nrng = np.random.default_rng()\na = rng.standard_normal((9, 6))\nB = linalg.pinv(a)\nnp.allclose(a, a @ B @ a)"
+      },
+      {
+        "type": "code",
+        "value": "np.allclose(B, B @ a @ B)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/linalg/_basic.py",
+  "item_line": 1250,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(a, atol=None, rtol=None, return_rank=False, check_finite=True, cond=None, rcond=None)"
+  },
+  "type": "DocBlob"
+}

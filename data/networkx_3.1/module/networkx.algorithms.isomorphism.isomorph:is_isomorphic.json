@@ -1,0 +1,420 @@
+{
+  "aliases": [
+    "networkx.is_isomorphic"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Uses the vf2 algorithm ."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The two graphs G1 and G2 must be the same type."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "G1, G2: graphs",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A function that returns True if node n1 in G1 and n2 in G2 should be considered equal during the isomorphism test. If node_match is not specified then node attributes are not considered."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The function will be called like"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "node_match(G1.nodes[n1], G2.nodes[n2])."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "type": "blockquote"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "That is, the function will receive the node attribute dictionaries for n1 and n2 as inputs."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "node_match",
+              "type": "Param",
+              "type_": "callable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A function that returns True if the edge attribute dictionary for the pair of nodes (u1, v1) in G1 and (u2, v2) in G2 should be considered equal during the isomorphism test.  If edge_match is not specified then edge attributes are not considered."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The function will be called like"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "edge_match(G1[u1][v1], G2[u2][v2])."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "type": "blockquote"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "That is, the function will receive the edge attribute dictionaries of the edges under consideration."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "edge_match",
+              "type": "Param",
+              "type_": "callable"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Returns True if the graphs G1 and G2 are isomorphic and False otherwise."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import networkx.algorithms.isomorphism as iso"
+      },
+      {
+        "type": "text",
+        "value": "For digraphs G1 and G2, using 'weight' edge attribute (default: 1)"
+      },
+      {
+        "type": "code",
+        "value": "G1 = nx.DiGraph()\nG2 = nx.DiGraph()\nnx.add_path(G1, [1, 2, 3, 4], weight=1)\nnx.add_path(G2, [10, 20, 30, 40], weight=2)\nem = iso.numerical_edge_match(\"weight\", 1)\nnx.is_isomorphic(G1, G2)  # no weights considered"
+      },
+      {
+        "type": "code",
+        "value": "nx.is_isomorphic(G1, G2, edge_match=em)  # match weights"
+      },
+      {
+        "type": "text",
+        "value": "For multidigraphs G1 and G2, using 'fill' node attribute (default: '')"
+      },
+      {
+        "type": "code",
+        "value": "G1 = nx.MultiDiGraph()\nG2 = nx.MultiDiGraph()\nG1.add_nodes_from([1, 2, 3], fill=\"red\")\nG2.add_nodes_from([10, 20, 30, 40], fill=\"red\")\nnx.add_path(G1, [1, 2, 3, 4], weight=3, linewidth=2.5)\nnx.add_path(G2, [10, 20, 30, 40], weight=3)\nnm = iso.categorical_node_match(\"fill\", \"red\")\nnx.is_isomorphic(G1, G2, node_match=nm)"
+      },
+      {
+        "type": "text",
+        "value": "For multidigraphs G1 and G2, using 'weight' edge attribute (default: 7)"
+      },
+      {
+        "type": "code",
+        "value": "G1.add_edge(1, 2, weight=7)"
+      },
+      {
+        "type": "code",
+        "value": "G2.add_edge(10, 20)"
+      },
+      {
+        "type": "code",
+        "value": "em = iso.numerical_multiedge_match(\"weight\", 7, rtol=1e-6)\nnx.is_isomorphic(G1, G2, edge_match=em)"
+      },
+      {
+        "type": "text",
+        "value": "For multigraphs G1 and G2, using 'weight' and 'linewidth' edge attributes\nwith default values 7 and 2.5. Also using 'fill' node attribute with\ndefault value 'red'."
+      },
+      {
+        "type": "code",
+        "value": "em = iso.numerical_multiedge_match([\"weight\", \"linewidth\"], [7, 2.5])\nnm = iso.categorical_node_match(\"fill\", \"red\")\nnx.is_isomorphic(G1, G2, edge_match=em, node_match=nm)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/algorithms/isomorphism/isomorph.py",
+  "item_line": 134,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Notes",
+    "Examples",
+    "See Also",
+    "References"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "networkx",
+          "path": "networkx.algorithms.isomorphism.matchhelpers:numerical_node_match",
+          "type": "RefInfo",
+          "version": "3.1"
+        },
+        "type": "Link",
+        "value": "numerical_node_match"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "numerical_edge_match",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "numerical_edge_match"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "networkx",
+          "path": "networkx.algorithms.isomorphism.matchhelpers:numerical_multiedge_match",
+          "type": "RefInfo",
+          "version": "3.1"
+        },
+        "type": "Link",
+        "value": "numerical_multiedge_match"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "networkx",
+          "path": "networkx.algorithms.isomorphism.matchhelpers:categorical_node_match",
+          "type": "RefInfo",
+          "version": "3.1"
+        },
+        "type": "Link",
+        "value": "categorical_node_match"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "categorical_edge_match",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "categorical_edge_match"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "networkx",
+          "path": "networkx.algorithms.isomorphism.matchhelpers:categorical_multiedge_match",
+          "type": "RefInfo",
+          "version": "3.1"
+        },
+        "type": "Link",
+        "value": "categorical_multiedge_match"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(G1, G2, node_match=None, edge_match=None)"
+  },
+  "type": "DocBlob"
+}

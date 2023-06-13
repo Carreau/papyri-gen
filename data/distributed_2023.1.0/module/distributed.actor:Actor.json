@@ -1,0 +1,170 @@
+{
+  "aliases": [
+    "distributed.Actor"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "An actor allows remote control of a stateful object living on a remote worker.  Method calls on this object trigger operations on the remote object and return BaseActorFutures on which we can block to get results."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Controls an object on a remote worker"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "class Counter:\n   def __init__(self):\n       self.n = 0\n   def increment(self):\n       self.n += 1\n       return self.n"
+      },
+      {
+        "type": "code",
+        "value": "from dask.distributed import Client\nclient = Client()"
+      },
+      {
+        "type": "text",
+        "value": "You can create an actor by submitting a class with the keyword\n``actor=True``."
+      },
+      {
+        "type": "code",
+        "value": "future = client.submit(Counter, actor=True)\ncounter = future.result()\ncounter"
+      },
+      {
+        "type": "text",
+        "value": "Calling methods on this object immediately returns deferred ``BaseActorFuture``\nobjects.  You can call ``.result()`` on these objects to block and get the\nresult of the function call."
+      },
+      {
+        "type": "code",
+        "value": "future = counter.increment()\nfuture.result()"
+      },
+      {
+        "type": "code",
+        "value": "future = counter.increment()\nfuture.result()"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/distributed/actor.py",
+  "item_line": 55,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

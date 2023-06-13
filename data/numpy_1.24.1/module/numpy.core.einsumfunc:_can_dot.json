@@ -1,0 +1,232 @@
+{
+  "aliases": [
+    "numpy.core.einsumfunc._can_dot"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If the operations is BLAS level 1 or 2 and is not already aligned we default back to einsum as the memory movement to copy is more costly than the operation itself."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Specifies the subscripts for summation."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "inputs",
+              "type": "Param",
+              "type_": "list of str"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Resulting summation."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "result",
+              "type": "Param",
+              "type_": "str"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Indices that are removed in the summation"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "idx_removed",
+              "type": "Param",
+              "type_": "set"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Returns true if BLAS should and can be used, else False"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "type",
+              "type": "Param",
+              "type_": "bool"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Checks if we can use BLAS (np.tensordot) call and its beneficial to do so."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "# Standard GEMM operation\n>>> _can_dot(['ij', 'jk'], 'ik', set('j'))\nTrue"
+      },
+      {
+        "type": "text",
+        "value": "# Can use the standard BLAS, but requires odd data movement\n>>> _can_dot(['ijj', 'jk'], 'ik', set('j'))\nFalse"
+      },
+      {
+        "type": "text",
+        "value": "# DDOT where the memory is not aligned\n>>> _can_dot(['ijk', 'ikj'], '', set('ijk'))\nFalse"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/numpy/core/einsumfunc.py",
+  "item_line": 413,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(inputs, result, idx_removed)"
+  },
+  "type": "DocBlob"
+}

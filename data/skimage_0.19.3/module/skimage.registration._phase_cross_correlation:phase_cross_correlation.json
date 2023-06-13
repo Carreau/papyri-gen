@@ -1,0 +1,655 @@
+{
+  "aliases": [
+    "skimage.registration.phase_cross_correlation"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This code gives the same precision as the FFT upsampled cross-correlation in a fraction of the computation time and with reduced memory requirements. It obtains an initial estimate of the cross-correlation peak by an FFT and then refines the shift estimation by upsampling the DFT only in a small neighborhood of that estimate by means of a matrix-multiply DFT ."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The use of cross-correlation to estimate image translation has a long history dating back to at least . The \"phase correlation\" method (selected by "
+            },
+            {
+              "type": "inlineCode",
+              "value": "normalization=\"phase\""
+            },
+            {
+              "type": "text",
+              "value": ") was first proposed in . Publications  and  use an unnormalized cross-correlation ("
+            },
+            {
+              "type": "inlineCode",
+              "value": "normalization=None"
+            },
+            {
+              "type": "text",
+              "value": "). Which form of normalization is better is application-dependent. For example, the phase correlation method works well in registering images under different illumination, but is not very robust to noise. In a high noise scenario, the unnormalized method may be preferable."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When masks are provided, a masked normalized cross-correlation algorithm is used , ."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Reference image."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "reference_image",
+              "type": "Param",
+              "type_": "array"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Image to register. Must be same dimensionality as "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "reference_image"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "moving_image",
+              "type": "Param",
+              "type_": "array"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Upsampling factor. Images will be registered to within "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "1 / upsample_factor"
+                    },
+                    {
+                      "type": "text",
+                      "value": " of a pixel. For example "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "upsample_factor == 20"
+                    },
+                    {
+                      "type": "text",
+                      "value": " means the images will be registered within 1/20th of a pixel. Default is 1 (no upsampling). Not used if any of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "reference_mask"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "moving_mask"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is not None."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "upsample_factor",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Defines how the algorithm interprets input data. \"real\" means data will be FFT'd to compute the correlation, while \"fourier\" data will bypass FFT of input data. Case insensitive. Not used if any of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "reference_mask"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "moving_mask"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is not None."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "space",
+              "type": "Param",
+              "type_": "string, one of \"real\" or \"fourier\", optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Returns error and phase difference if on, otherwise only shifts are returned. Has noeffect if any of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "reference_mask"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "moving_mask"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is not None. In this case only shifts is returned."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "return_error",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Boolean mask for "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "reference_image"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". The mask should evaluate to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (or 1) on valid pixels. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "reference_mask"
+                    },
+                    {
+                      "type": "text",
+                      "value": " should have the same shape as "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "reference_image"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "reference_mask",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Boolean mask for "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "moving_image"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". The mask should evaluate to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (or 1) on valid pixels. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "moving_mask"
+                    },
+                    {
+                      "type": "text",
+                      "value": " should have the same shape as "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "moving_image"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "reference_mask"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will be used."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "moving_mask",
+              "type": "Param",
+              "type_": "ndarray or None, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Minimum allowed overlap ratio between images. The correlation for translations corresponding with an overlap ratio lower than this threshold will be ignored. A lower "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "overlap_ratio",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "overlap_ratio"
+                    },
+                    {
+                      "type": "text",
+                      "value": " leads to smaller maximum translation, while a higher "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "overlap_ratio",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "overlap_ratio"
+                    },
+                    {
+                      "type": "text",
+                      "value": " leads to greater robustness against spurious matches due to small overlap between masked images. Used only if one of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "reference_mask"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "moving_mask"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is not None."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "overlap_ratio",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The type of normalization to apply to the cross-correlation. This parameter is unused when masks ("
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "reference_mask",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "reference_mask"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "moving_mask",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "moving_mask"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") are supplied."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "normalization",
+              "type": "Param",
+              "type_": "{\"phase\", None}"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Shift vector (in pixels) required to register "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "moving_image"
+                    },
+                    {
+                      "type": "text",
+                      "value": " with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "reference_image"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Axis ordering is consistent with numpy (e.g. Z, Y, X)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "shifts",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Translation invariant normalized RMS error between "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "reference_image"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "moving_image"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "error",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Global phase difference between the two images (should be zero if images are non-negative)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "phasediff",
+              "type": "Param",
+              "type_": "float"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Efficient subpixel image translation registration by cross-correlation."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/skimage/registration/_phase_cross_correlation.py",
+  "item_line": 112,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(reference_image, moving_image, *, upsample_factor=1, space='real', return_error=True, reference_mask=None, moving_mask=None, overlap_ratio=0.3, normalization='phase')"
+  },
+  "type": "DocBlob"
+}

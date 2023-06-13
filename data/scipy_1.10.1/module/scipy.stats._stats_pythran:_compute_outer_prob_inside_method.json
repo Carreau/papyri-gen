@@ -1,0 +1,341 @@
+{
+  "aliases": [
+    "scipy.stats._stats_py._compute_outer_prob_inside_method"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Supported prototypes:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "_compute_outer_prob_inside_method(int64, int64, int64, int64)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "m > 0"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "m",
+              "type": "Param",
+              "type_": "integer"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "n > 0"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "n",
+              "type": "Param",
+              "type_": "integer"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "g is greatest common divisor of m and n"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "g",
+              "type": "Param",
+              "type_": "integer"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "0 <= h <= lcm(m,n)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "h",
+              "type": "Param",
+              "type_": "integer"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The proportion of paths that do not stay inside the two lines."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "p",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "The classical algorithm counts the integer lattice paths from (0, 0)"
+            },
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "to (m, n) which satisfy |x/m - y/n| < h / lcm(m, n)."
+            },
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "The paths make steps of size +1 in either positive x or positive y"
+            },
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "directions."
+            },
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "We are, however, interested in 1 - proportion to computes p-values,"
+            },
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "so we change the recursion to compute 1 - p directly while staying"
+            },
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "within the \"inside method\" a described by Hodges."
+            },
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "We generally follow Hodges' treatment of Drion/Gnedenko/Korolyuk."
+            },
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "Hodges, J.L. Jr.,"
+            },
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "\"The Significance Probability of the Smirnov Two-Sample Test,\""
+            },
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "Arkiv fiur Matematik, 3, No. 43 (1958), 469-86."
+            },
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "For the recursion for 1-p see"
+            },
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "Viehmann, T.: \"Numerically more stable computation of the p-values"
+            },
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "for the two-sample Kolmogorov-Smirnov test,\" arXiv: 2102.08037"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Count the proportion of paths that do not stay strictly inside two diagonal lines."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": "<class 'builtin_function_or_method'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

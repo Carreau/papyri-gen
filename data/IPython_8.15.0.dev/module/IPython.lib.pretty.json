@@ -1,0 +1,518 @@
+{
+  "aliases": [
+    "IPython.lib.pretty"
+  ],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Python advanced pretty printer.  This pretty printer is intended to replace the old "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "IPython",
+                "path": "IPython.core.magics.basic:BasicMagics.pprint",
+                "type": "RefInfo",
+                "version": "8.15.0.dev"
+              },
+              "type": "Link",
+              "value": "pprint"
+            },
+            {
+              "type": "text",
+              "value": " python module which does not allow developers to provide their own pretty print callbacks."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This module is based on ruby's "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "prettyprint.rb"
+            },
+            {
+              "type": "text",
+              "value": " library by "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "Tanaka Akira"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To directly print the representation of an object use "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "IPython",
+                "path": "IPython.core.magics.basic:BasicMagics.pprint",
+                "type": "RefInfo",
+                "version": "8.15.0.dev"
+              },
+              "type": "Link",
+              "value": "pprint"
+            },
+            {
+              "type": "text",
+              "value": ":      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "from pretty import pprint\npprint(complex_object)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To get a string of the output use "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "IPython",
+                "path": "IPython.lib.pretty",
+                "type": "RefInfo",
+                "version": "8.15.0.dev"
+              },
+              "type": "Link",
+              "value": "pretty"
+            },
+            {
+              "type": "text",
+              "value": ":      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "from pretty import pretty\nstring = pretty(complex_object)"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": "Example Usage",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The pretty library allows developers to add pretty printing rules for their own objects.  This process is straightforward.  All you have to do is to add a "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "_repr_pretty_"
+            },
+            {
+              "type": "text",
+              "value": " method to your object and call the methods on the pretty printer passed      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "class MyObject(object):\n\n    def _repr_pretty_(self, p, cycle):\n        ..."
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Here's an example for a class with a simple constructor      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "class MySimpleObject:\n\n    def __init__(self, a, b, *, c=None):\n        self.a = a\n        self.b = b\n        self.c = c\n\n    def _repr_pretty_(self, p, cycle):\n        ctor = CallExpression.factory(self.__class__.__name__)\n        if self.c is None:\n            p.pretty(ctor(a, b))\n        else:\n            p.pretty(ctor(a, b, c=c))"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Here is an example implementation of a "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "_repr_pretty_"
+            },
+            {
+              "type": "text",
+              "value": " method for a list subclass      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "class MyList(list):\n\n    def _repr_pretty_(self, p, cycle):\n        if cycle:\n            p.text('MyList(...)')\n        else:\n            with p.group(8, 'MyList([', '])'):\n                for idx, item in enumerate(self):\n                    if idx:\n                        p.text(',')\n                        p.breakable()\n                    p.pretty(item)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "cycle"
+            },
+            {
+              "type": "text",
+              "value": " parameter is "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "True"
+            },
+            {
+              "type": "text",
+              "value": " if pretty detected a cycle.  You "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "have"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " to react to that or the result is an infinite loop.  "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "p.text()"
+            },
+            {
+              "type": "text",
+              "value": " just adds non breaking text to the output, "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "p.breakable()"
+            },
+            {
+              "type": "text",
+              "value": " either adds a whitespace or breaks here.  If you pass it an argument it's used instead of the default space.  "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "p.pretty"
+            },
+            {
+              "type": "text",
+              "value": " prettyprints another object using the pretty print method."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The first parameter to the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "IPython",
+                "path": "IPython.lib.pretty:_PrettyPrinterBase.group",
+                "type": "RefInfo",
+                "version": "8.15.0.dev"
+              },
+              "type": "Link",
+              "value": "group"
+            },
+            {
+              "type": "text",
+              "value": " function specifies the extra indentation of the next line.  In this example the next item will either be on the same line (if the items are short enough) or aligned with the right edge of the opening bracket of "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "MyList"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If you just want to indent something you can use the group function without open / close parameters.  You can also use this code      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "with p.indent(2):\n    ..."
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Inheritance diagram:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "IPython.lib.pretty",
+          "children": [],
+          "name": "inheritance-diagram",
+          "options": {
+            "parts": "3"
+          },
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "children": [
+            {
+              "body": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "2007 by Armin Ronacher.             Portions (c) 2009 by Robert Kern."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "name": [
+                {
+                  "type": "text",
+                  "value": "copyright"
+                }
+              ],
+              "type": "FieldListItem"
+            },
+            {
+              "body": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "BSD License."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "name": [
+                {
+                  "type": "text",
+                  "value": "license"
+                }
+              ],
+              "type": "FieldListItem"
+            }
+          ],
+          "type": "FieldList"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": "Extending",
+      "type": "Section"
+    }
+  ],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To remove in the future \u2013\u2013 IPython.lib.pretty"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dev/ipython/IPython/lib/pretty.py",
+  "item_line": 0,
+  "item_type": "<class 'module'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

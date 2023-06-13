@@ -1,0 +1,768 @@
+{
+  "aliases": [
+    "numpy.lib.stride_tricks.sliding_window_view"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Also known as rolling or moving window, the window slides across all dimensions of the array and extracts subsets of the array at all window positions."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 1.20.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For many applications using a sliding window view can be convenient, but potentially very slow. Often specialized solutions exist, for example:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "scipy",
+                        "path": "scipy.signal._signaltools:fftconvolve",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "scipy.signal.fftconvolve"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "filtering functions in "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "scipy",
+                        "path": "scipy.ndimage",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "scipy.ndimage"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "moving window functions provided by   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "bottleneck"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/pydata/bottleneck"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "As a rough estimate, a sliding window approach with an input size of "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "N"
+            },
+            {
+              "type": "text",
+              "value": " and a window size of "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "W"
+            },
+            {
+              "type": "text",
+              "value": " will scale as "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "O(N*W)"
+            },
+            {
+              "type": "text",
+              "value": " where frequently a special algorithm can achieve "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "O(N)"
+            },
+            {
+              "type": "text",
+              "value": ". That means that the sliding window variant for a window size of 100 can be a 100 times slower than a more specialized version."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Nevertheless, for small window sizes, when no custom algorithm exists, or as a prototyping and developing tool, this function can be a good solution."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Array to create the sliding window view from."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Size of window over each axis that takes part in the sliding window. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "axis",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "axis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is not present, must have same length as the number of input array dimensions. Single integers "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "i"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are treated as if they were the tuple "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "(i,)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "window_shape",
+              "type": "Param",
+              "type_": "int or tuple of int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Axis or axes along which the sliding window is applied. By default, the sliding window is applied to all axes and "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "window_shape[i]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will refer to axis "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "i"
+                    },
+                    {
+                      "type": "text",
+                      "value": " of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "axis",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "axis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is given as a "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "tuple of int"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "window_shape[i]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will refer to the axis "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "axis[i]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Single integers "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "i"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are treated as if they were the tuple "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "(i,)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "axis",
+              "type": "Param",
+              "type_": "int or tuple of int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, sub-classes will be passed-through, otherwise the returned array will be forced to be a base-class array (default)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "subok",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "When true, allow writing to the returned view. The default is false, as this should be used with caution: the returned view contains the same memory location multiple times, so writing to one location will cause others to change."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "writeable",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Sliding window view of the array. The sliding window dimensions are inserted at the end, and the original dimensions are trimmed as required by the size of the sliding window. That is, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "view.shape = x_shape_trimmed + window_shape"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x_shape_trimmed"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x.shape"
+                    },
+                    {
+                      "type": "text",
+                      "value": " with every entry reduced by one less than the corresponding window size."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "view",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Create a sliding window view into the array with the given window shape."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "x = np.arange(6)\nx.shape"
+      },
+      {
+        "type": "code",
+        "value": "v = sliding_window_view(x, 3)\nv.shape"
+      },
+      {
+        "type": "code",
+        "value": "v"
+      },
+      {
+        "type": "text",
+        "value": "This also works in more dimensions, e.g."
+      },
+      {
+        "type": "code",
+        "value": "i, j = np.ogrid[:3, :4]\nx = 10*i + j\nx.shape"
+      },
+      {
+        "type": "code",
+        "value": "x"
+      },
+      {
+        "type": "code",
+        "value": "shape = (2,2)\nv = sliding_window_view(x, shape)\nv.shape"
+      },
+      {
+        "type": "code",
+        "value": "v"
+      },
+      {
+        "type": "text",
+        "value": "The axis can be specified explicitly:"
+      },
+      {
+        "type": "code",
+        "value": "v = sliding_window_view(x, 3, 0)\nv.shape"
+      },
+      {
+        "type": "code",
+        "value": "v"
+      },
+      {
+        "type": "text",
+        "value": "The same axis can be used several times. In that case, every use reduces\nthe corresponding original dimension:"
+      },
+      {
+        "type": "code",
+        "value": "v = sliding_window_view(x, (2, 3), (1, 1))\nv.shape"
+      },
+      {
+        "type": "code",
+        "value": "v"
+      },
+      {
+        "type": "text",
+        "value": "Combining with stepped slicing (`::step`), this can be used to take sliding\nviews which skip elements:"
+      },
+      {
+        "type": "code",
+        "value": "x = np.arange(7)\nsliding_window_view(x, 5)[:, ::2]"
+      },
+      {
+        "type": "text",
+        "value": "or views which move by multiple elements"
+      },
+      {
+        "type": "code",
+        "value": "x = np.arange(7)\nsliding_window_view(x, 3)[::2, :]"
+      },
+      {
+        "type": "text",
+        "value": "A common application of `sliding_window_view` is the calculation of running\nstatistics. The simplest example is the\n`moving average <https://en.wikipedia.org/wiki/Moving_average>`_:"
+      },
+      {
+        "type": "code",
+        "value": "x = np.arange(6)\nx.shape"
+      },
+      {
+        "type": "code",
+        "value": "v = sliding_window_view(x, 3)\nv.shape"
+      },
+      {
+        "type": "code",
+        "value": "v"
+      },
+      {
+        "type": "code",
+        "value": "moving_average = v.mean(axis=-1)\nmoving_average"
+      },
+      {
+        "type": "text",
+        "value": "Note that a sliding window approach is often **not** optimal (see Notes)."
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/numpy/lib/stride_tricks.py",
+  "item_line": 123,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A lower-level and less safe routine for creating arbitrary views from custom shape and strides."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "lib.stride_tricks.as_strided",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "lib.stride_tricks.as_strided"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "broadcast an array to a given shape."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "broadcast_to",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "broadcast_to"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(x, window_shape, axis=None, *, subok=False, writeable=False)"
+  },
+  "type": "DocBlob"
+}

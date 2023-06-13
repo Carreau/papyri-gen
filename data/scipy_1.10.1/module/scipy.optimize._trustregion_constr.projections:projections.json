@@ -1,0 +1,544 @@
+{
+  "aliases": [
+    "scipy.optimize._trustregion_constr.equality_constrained_sqp.projections"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Uses iterative refinements described in [1] during the computation of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Z"
+            },
+            {
+              "type": "text",
+              "value": " in order to cope with the possibility of large roundoff errors."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Matrix "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "A"
+                    },
+                    {
+                      "type": "text",
+                      "value": " used in the projection."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "A",
+              "type": "Param",
+              "type_": "sparse matrix (or ndarray), shape (m, n)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Method used for compute the given linear operators. Should be one of:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "dd": [
+                                    {
+                                      "children": [
+                                        {
+                                          "type": "text",
+                                          "value": "will be computed using the        so-called normal equation approach        explained in . In order to do        so the Cholesky factorization of        "
+                                        },
+                                        {
+                                          "type": "inlineCode",
+                                          "value": "(A A.T)"
+                                        },
+                                        {
+                                          "type": "text",
+                                          "value": " is computed. Exclusive        for sparse matrices."
+                                        }
+                                      ],
+                                      "type": "paragraph"
+                                    }
+                                  ],
+                                  "dt": {
+                                    "children": [
+                                      {
+                                        "type": "text",
+                                        "value": "'NormalEquation': The operators"
+                                      }
+                                    ],
+                                    "type": "paragraph"
+                                  },
+                                  "type": "DefListItem"
+                                }
+                              ],
+                              "type": "DefList"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "dd": [
+                                    {
+                                      "children": [
+                                        {
+                                          "type": "text",
+                                          "value": "will be computed using the        so-called augmented system approach        explained in . Exclusive        for sparse matrices."
+                                        }
+                                      ],
+                                      "type": "paragraph"
+                                    }
+                                  ],
+                                  "dt": {
+                                    "children": [
+                                      {
+                                        "type": "text",
+                                        "value": "'AugmentedSystem': The operators"
+                                      }
+                                    ],
+                                    "type": "paragraph"
+                                  },
+                                  "type": "DefListItem"
+                                }
+                              ],
+                              "type": "DefList"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "dd": [
+                                    {
+                                      "children": [
+                                        {
+                                          "type": "text",
+                                          "value": "using QR factorization. Exclusive for        dense matrices."
+                                        }
+                                      ],
+                                      "type": "paragraph"
+                                    }
+                                  ],
+                                  "dt": {
+                                    "children": [
+                                      {
+                                        "type": "text",
+                                        "value": "'QRFactorization': Compute projections"
+                                      }
+                                    ],
+                                    "type": "paragraph"
+                                  },
+                                  "type": "DefListItem"
+                                }
+                              ],
+                              "type": "DefList"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "dd": [
+                                    {
+                                      "children": [
+                                        {
+                                          "type": "text",
+                                          "value": "using SVD factorization. Exclusive for        dense matrices."
+                                        }
+                                      ],
+                                      "type": "paragraph"
+                                    }
+                                  ],
+                                  "dt": {
+                                    "children": [
+                                      {
+                                        "type": "text",
+                                        "value": "'SVDFactorization': Compute projections"
+                                      }
+                                    ],
+                                    "type": "paragraph"
+                                  },
+                                  "type": "DefListItem"
+                                }
+                              ],
+                              "type": "DefList"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        }
+                      ],
+                      "ordered": false,
+                      "spread": false,
+                      "start": 1,
+                      "type": "list"
+                    }
+                  ],
+                  "type": "blockquote"
+                }
+              ],
+              "param": "method",
+              "type": "Param",
+              "type_": "string, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Tolerance for iterative refinements."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "orth_tol",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum number of iterative refinements."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "max_refin",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Tolerance for singular values."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "tol",
+              "type": "Param",
+              "type_": "float, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Null-space operator. For a given vector "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the null space operator is equivalent to apply a projection matrix "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "P = I - A.T inv(A A.T) A"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to the vector. It can be shown that this is equivalent to project "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " into the null space of A."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "Z",
+              "type": "Param",
+              "type_": "LinearOperator, shape (n, n)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Least-squares operator. For a given vector "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the least-squares operator is equivalent to apply a pseudoinverse matrix "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "pinv(A.T) = inv(A A.T) A"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to the vector. It can be shown that this vector "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "pinv(A.T) x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the least_square solution to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "A.T y = x"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "LS",
+              "type": "Param",
+              "type_": "LinearOperator, shape (m, n)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Row-space operator. For a given vector "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the row-space operator is equivalent to apply a projection matrix "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Q = A.T inv(A A.T)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to the vector.  It can be shown that this vector "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "y = Q x"
+                    },
+                    {
+                      "type": "text",
+                      "value": "  the minimum norm solution of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "A y = x"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "Y",
+              "type": "Param",
+              "type_": "LinearOperator, shape (n, m)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Return three linear operators related with a given matrix A."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/optimize/_trustregion_constr/projections.py",
+  "item_line": 289,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(A, method=None, orth_tol=1e-12, max_refin=3, tol=1e-15)"
+  },
+  "type": "DocBlob"
+}

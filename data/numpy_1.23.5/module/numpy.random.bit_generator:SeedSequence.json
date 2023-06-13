@@ -1,0 +1,341 @@
+{
+  "aliases": [
+    "numpy.random.SeedSequence"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Once the SeedSequence is instantiated, you can call the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "numpy",
+                "path": "numpy.random.bit_generator:ISeedSequence.generate_state",
+                "type": "RefInfo",
+                "version": "1.23.5"
+              },
+              "type": "Link",
+              "value": "generate_state"
+            },
+            {
+              "type": "text",
+              "value": " method to get an appropriately sized seed. Calling "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "numpy",
+                "path": "numpy.random.bit_generator:ISpawnableSeedSequence.spawn",
+                "type": "RefInfo",
+                "version": "1.23.5"
+              },
+              "type": "Link",
+              "value": "spawn(n)"
+            },
+            {
+              "type": "text",
+              "value": " will create "
+            },
+            {
+              "type": "inlineCode",
+              "value": "n"
+            },
+            {
+              "type": "text",
+              "value": " SeedSequences that can be used to seed independent BitGenerators, i.e. for different threads."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Best practice for achieving reproducible bit streams is to use the default "
+            },
+            {
+              "type": "inlineCode",
+              "value": "None"
+            },
+            {
+              "type": "text",
+              "value": " for the initial entropy, and then use "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "SeedSequence.entropy"
+            },
+            {
+              "type": "text",
+              "value": " to log/pickle the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "entropy",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "entropy"
+            },
+            {
+              "type": "text",
+              "value": " for reproducibility:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> sq1 = np.random.SeedSequence()\n>>> sq1.entropy\n243799254704924441050048792905230269161  # random\n>>> sq2 = np.random.SeedSequence(sq1.entropy)\n>>> np.all(sq1.generate_state(10) == sq2.generate_state(10))\nTrue"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The entropy for creating a "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "SeedSequence"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "entropy",
+              "type": "Param",
+              "type_": "{None, int, sequence[int]}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A third source of entropy, used internally when calling "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "numpy",
+                        "path": "numpy.random.bit_generator:ISpawnableSeedSequence.spawn",
+                        "type": "RefInfo",
+                        "version": "1.23.5"
+                      },
+                      "type": "Link",
+                      "value": "SeedSequence.spawn"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "spawn_key",
+              "type": "Param",
+              "type_": "{(), sequence[int]}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Size of the pooled entropy to store. Default is 4 to give a 128-bit entropy pool. 8 (for 256 bits) is another reasonable choice if working with larger PRNGs, but there is very little to be gained by selecting another value."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "pool_size",
+              "type": "Param",
+              "type_": "{int}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The number of children already spawned. Only pass this if reconstructing a "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "SeedSequence"
+                    },
+                    {
+                      "type": "text",
+                      "value": " from a serialized form."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "n_children_spawned",
+              "type": "Param",
+              "type_": "{int}, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "SeedSequence mixes sources of entropy in a reproducible way to set the initial state for independent and very probably non-overlapping BitGenerators."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/numpy/random/bit_generator.cpython-39-darwin.so",
+  "item_line": null,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Signature",
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Notes"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "SeedSequence(entropy=None, *, spawn_key=(), pool_size=4)"
+  },
+  "type": "DocBlob"
+}

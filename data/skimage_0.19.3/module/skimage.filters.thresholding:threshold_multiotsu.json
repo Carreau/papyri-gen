@@ -1,0 +1,398 @@
+{
+  "aliases": [
+    "skimage.filters.threshold_multiotsu"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The threshold values are chosen to maximize the total sum of pairwise variances between the thresholded graylevel classes. See Notes and  for more details."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Either image or hist must be provided. If hist is provided, the actual histogram of the image is ignored."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This implementation relies on a Cython function whose complexity is "
+            },
+            {
+              "type": "inlineMath",
+              "value": "O\\left(\\frac{Ch^{C-1}}{(C-1)!}\\right)"
+            },
+            {
+              "type": "text",
+              "value": ", where "
+            },
+            {
+              "type": "inlineMath",
+              "value": "h"
+            },
+            {
+              "type": "text",
+              "value": " is the number of histogram bins and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "C"
+            },
+            {
+              "type": "text",
+              "value": " is the number of classes desired."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If no hist is given, this function will make use of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "skimage",
+                "path": "skimage.exposure.exposure:histogram",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "skimage.exposure.histogram"
+            },
+            {
+              "type": "text",
+              "value": ", which behaves differently than "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "np.histogram"
+            },
+            {
+              "type": "text",
+              "value": ". While both allowed, use the former for consistent behaviour."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The input image must be grayscale."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Grayscale input image."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "image",
+              "type": "Param",
+              "type_": "(N, M[, ..., P]) ndarray, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of classes to be thresholded, i.e. the number of resulting regions."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "classes",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of bins used to calculate the histogram. This value is ignored for integer arrays."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "nbins",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Histogram from which to determine the threshold, and optionally a corresponding array of bin center intensities. If no hist provided, this function will compute it from the image (see notes)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "hist",
+              "type": "Param",
+              "type_": "array, or 2-tuple of arrays, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "image"
+                    },
+                    {
+                      "type": "text",
+                      "value": " contains less grayscale value then the desired number of classes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "ValueError"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Array containing the threshold values for the desired classes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "thresh",
+              "type": "Param",
+              "type_": "array"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Generate "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "classes",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "classes"
+            },
+            {
+              "type": "text",
+              "value": "-1 threshold values to divide gray levels in "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "image",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "image"
+            },
+            {
+              "type": "text",
+              "value": ", following Otsu's method for multiple classes."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from skimage.color import label2rgb\nfrom skimage import data\nimage = data.camera()\nthresholds = threshold_multiotsu(image)\nregions = np.digitize(image, bins=thresholds)\nregions_colorized = label2rgb(regions)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/skimage/filters/thresholding.py",
+  "item_line": 1206,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(image=None, classes=3, nbins=256, *, hist=None)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,299 @@
+{
+  "aliases": [
+    "astropy.utils.data.check_download_cache"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "note "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Since v5.0, this function no longer returns anything."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Because the cache is shared by all versions of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "astropy"
+            },
+            {
+              "type": "text",
+              "value": " in all virtualenvs run by your user, possibly concurrently, it could accumulate problems. This could lead to hard-to-debug problems or wasted space. This function detects a number of incorrect conditions, including nonexistent files that are indexed, files that are indexed but in the wrong place, and, if you request it, files whose content does not match the hash that is indexed."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function also returns a list of non-indexed files. A few will be associated with the shelve object; their exact names depend on the backend used but will probably be based on "
+            },
+            {
+              "type": "inlineCode",
+              "value": "urlmap"
+            },
+            {
+              "type": "text",
+              "value": ". The presence of other files probably indicates that something has gone wrong and inaccessible files have accumulated in the cache. These can be removed with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "clear_download_cache"
+            },
+            {
+              "type": "text",
+              "value": ", either passing the filename returned here, or with no arguments to empty the entire cache and return it to a reasonable, if empty, state."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The package name to use to locate the download cache, i.e., for "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "pkgname='astropy'"
+                    },
+                    {
+                      "type": "text",
+                      "value": " the default cache location is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "~/.astropy/cache"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "pkgname",
+              "type": "Param",
+              "type_": "str, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "To indicate a problem with the cache contents; the exception contains a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": ".bad_files"
+                    },
+                    {
+                      "type": "text",
+                      "value": " attribute containing a set of filenames to allow the user to use "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "clear_download_cache"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to remove the offending items."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "`~astropy.utils.data.CacheDamaged`"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "To indicate some problem with the cache structure. This may need a full "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "clear_download_cache"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to resolve, or may indicate some kind of misconfiguration."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "OSError, RuntimeError"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Do a consistency check on the cache."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/astropy/utils/data.py",
+  "item_line": 1914,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Raises"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(pkgname='astropy')"
+  },
+  "type": "DocBlob"
+}

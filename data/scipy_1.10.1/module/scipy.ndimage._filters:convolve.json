@@ -1,0 +1,762 @@
+{
+  "aliases": [
+    "scipy.ndimage.convolve"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The array is convolved with the given kernel."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Each value in result is "
+            },
+            {
+              "type": "inlineMath",
+              "value": "C_i = \\sum_j{I_{i+k-j} W_j}"
+            },
+            {
+              "type": "text",
+              "value": ", where W is the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "weights",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "weights"
+            },
+            {
+              "type": "text",
+              "value": " kernel, j is the N-D spatial index over "
+            },
+            {
+              "type": "inlineMath",
+              "value": "W"
+            },
+            {
+              "type": "text",
+              "value": ", I is the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "input",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "input"
+            },
+            {
+              "type": "text",
+              "value": " and k is the coordinate of the center of W, specified by "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "origin",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "origin"
+            },
+            {
+              "type": "text",
+              "value": " in the input parameters."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The input array."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "input",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Array of weights, same number of dimensions as input"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "weights",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The array in which to place the output, or the dtype of the returned array. By default an array of the same dtype as input will be created."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "output",
+              "type": "Param",
+              "type_": "array or dtype, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "mode",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "mode"
+                    },
+                    {
+                      "type": "text",
+                      "value": " parameter determines how the input array is extended beyond its boundaries. Default is 'reflect'. Behavior for each valid value is as follows:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "The input is extended by reflecting about the edge of the last     pixel. This mode is also sometimes referred to as half-sample     symmetric."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "'reflect' ("
+                          },
+                          {
+                            "domain": null,
+                            "role": null,
+                            "type": "Directive",
+                            "value": "d c b a | a b c d | d c b a"
+                          },
+                          {
+                            "type": "text",
+                            "value": ")"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "The input is extended by filling all values beyond the edge with     the same constant value, defined by the "
+                            },
+                            {
+                              "anchor": null,
+                              "exists": true,
+                              "kind": "local",
+                              "reference": {
+                                "kind": "local",
+                                "module": null,
+                                "path": "cval",
+                                "type": "RefInfo",
+                                "version": null
+                              },
+                              "type": "Link",
+                              "value": "cval"
+                            },
+                            {
+                              "type": "text",
+                              "value": " parameter."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "'constant' ("
+                          },
+                          {
+                            "domain": null,
+                            "role": null,
+                            "type": "Directive",
+                            "value": "k k k k | a b c d | k k k k"
+                          },
+                          {
+                            "type": "text",
+                            "value": ")"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "The input is extended by replicating the last pixel."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "'nearest' ("
+                          },
+                          {
+                            "domain": null,
+                            "role": null,
+                            "type": "Directive",
+                            "value": "a a a a | a b c d | d d d d"
+                          },
+                          {
+                            "type": "text",
+                            "value": ")"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "The input is extended by reflecting about the center of the last     pixel. This mode is also sometimes referred to as whole-sample     symmetric."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "'mirror' ("
+                          },
+                          {
+                            "domain": null,
+                            "role": null,
+                            "type": "Directive",
+                            "value": "d c b | a b c d | c b a"
+                          },
+                          {
+                            "type": "text",
+                            "value": ")"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "The input is extended by wrapping around to the opposite edge."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "'wrap' ("
+                          },
+                          {
+                            "domain": null,
+                            "role": null,
+                            "type": "Directive",
+                            "value": "a b c d | a b c d | a b c d"
+                          },
+                          {
+                            "type": "text",
+                            "value": ")"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "For consistency with the interpolation functions, the following mode names can also be used:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "This is a synonym for 'reflect'."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "'grid-mirror'"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "This is a synonym for 'constant'."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "'grid-constant'"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "This is a synonym for 'wrap'."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "'grid-wrap'"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "param": "mode",
+              "type": "Param",
+              "type_": "{'reflect', 'constant', 'nearest', 'mirror', 'wrap'}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Value to fill past edges of input if "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "mode",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "mode"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is 'constant'. Default is 0.0"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "cval",
+              "type": "Param",
+              "type_": "scalar, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Controls the origin of the input signal, which is where the filter is centered to produce the first element of the output. Positive values shift the filter to the right, and negative values shift the filter to the left. Default is 0."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "origin",
+              "type": "Param",
+              "type_": "int, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The result of convolution of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "input",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "input"
+                    },
+                    {
+                      "type": "text",
+                      "value": " with "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "weights",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "weights"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "result",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Multidimensional convolution."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Perhaps the simplest case to understand is ``mode='constant', cval=0.0``,\nbecause in this case borders (i.e., where the `weights` kernel, centered\non any one value, extends beyond an edge of `input`) are treated as zeros."
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\na = np.array([[1, 2, 0, 0],\n              [5, 3, 0, 4],\n              [0, 0, 0, 7],\n              [9, 3, 0, 0]])\nk = np.array([[1,1,1],[1,1,0],[1,0,0]])\nfrom scipy import ndimage\nndimage.convolve(a, k, mode='constant', cval=0.0)"
+      },
+      {
+        "type": "text",
+        "value": "Setting ``cval=1.0`` is equivalent to padding the outer edge of `input`\nwith 1.0's (and then extracting only the original region of the result)."
+      },
+      {
+        "type": "code",
+        "value": "ndimage.convolve(a, k, mode='constant', cval=1.0)"
+      },
+      {
+        "type": "text",
+        "value": "With ``mode='reflect'`` (the default), outer values are reflected at the\nedge of `input` to fill in missing values."
+      },
+      {
+        "type": "code",
+        "value": "b = np.array([[2, 0, 0],\n              [1, 0, 0],\n              [0, 0, 0]])\nk = np.array([[0,1,0], [0,1,0], [0,1,0]])\nndimage.convolve(b, k, mode='reflect')"
+      },
+      {
+        "type": "text",
+        "value": "This includes diagonally at the corners."
+      },
+      {
+        "type": "code",
+        "value": "k = np.array([[1,0,0],[0,1,0],[0,0,1]])\nndimage.convolve(b, k)"
+      },
+      {
+        "type": "text",
+        "value": "With ``mode='nearest'``, the single nearest value in to an edge in\n`input` is repeated as many times as needed to match the overlapping\n`weights`."
+      },
+      {
+        "type": "code",
+        "value": "c = np.array([[2, 0, 1],\n              [1, 0, 0],\n              [0, 0, 0]])\nk = np.array([[0, 1, 0],\n              [0, 1, 0],\n              [0, 1, 0],\n              [0, 1, 0],\n              [0, 1, 0]])\nndimage.convolve(c, k, mode='nearest')"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/ndimage/_filters.py",
+  "item_line": 783,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Correlate an image with a kernel."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "correlate",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "correlate"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(input, weights, output=None, mode='reflect', cval=0.0, origin=0)"
+  },
+  "type": "DocBlob"
+}

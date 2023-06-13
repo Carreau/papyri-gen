@@ -1,0 +1,297 @@
+{
+  "aliases": [
+    "numpy.set_numeric_ops"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "deprecated 1.16"
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "For the general case, use "
+                },
+                {
+                  "domain": "c",
+                  "role": "func",
+                  "type": "Directive",
+                  "value": "PyUFunc_ReplaceLoopBySignature"
+                },
+                {
+                  "type": "text",
+                  "value": ". For ndarray subclasses, define the "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "__array_ufunc__"
+                },
+                {
+                  "type": "text",
+                  "value": " method and override the relevant ufunc."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "warning "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Use with care!  Incorrect usage may lead to memory errors."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A function replacing an operator cannot make use of that operator. For example, when replacing add, you may not use "
+            },
+            {
+              "type": "inlineCode",
+              "value": "+"
+            },
+            {
+              "type": "text",
+              "value": ".  Instead, directly call ufuncs."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Each "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "op = func"
+                    },
+                    {
+                      "type": "text",
+                      "value": " pair describes an operator to be replaced. For example, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "add = lambda x, y: np.add(x, y) % 5"
+                    },
+                    {
+                      "type": "text",
+                      "value": " would replace addition by modulus 5 addition."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "op1, op2, ...",
+              "type": "Param",
+              "type_": "callable"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A list of all operators, stored before making replacements."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "saved_ops",
+              "type": "Param",
+              "type_": "list of callables"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Set numerical operators for array objects."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "def add_mod5(x, y):\n    return np.add(x, y) % 5"
+      },
+      {
+        "type": "code",
+        "value": "old_funcs = np.set_numeric_ops(add=add_mod5)"
+      },
+      {
+        "type": "code",
+        "value": "x = np.arange(12).reshape((3, 4))\nx + x"
+      },
+      {
+        "type": "code",
+        "value": "ignore = np.set_numeric_ops(**old_funcs) # restore operators"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": "<class 'builtin_function_or_method'>",
+  "ordered_sections": [
+    "Signature",
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "set_numeric_ops(op1=func1, op2=func2, ...)"
+  },
+  "type": "DocBlob"
+}

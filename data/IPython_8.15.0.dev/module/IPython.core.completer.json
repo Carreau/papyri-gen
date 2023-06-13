@@ -1,0 +1,1071 @@
+{
+  "aliases": [
+    "IPython.core.completer"
+  ],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Completion for IPython."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This module started as fork of the rlcompleter module in the Python standard library.  The original enhancements made to rlcompleter have been sent upstream and were accepted as of Python 2.3,"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This module now support a wide variety of completion mechanism both available for normal classic Python code, as well as completer for IPython specific Syntax like magics."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "IPython and compatible frontends not only can complete your code, but can help you to input a wide range of characters. In particular we allow you to insert a unicode character using the tab completion mechanism."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": "Latex and Unicode completion",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Forward completion allows you to easily type a unicode character using its latex name, or unicode long description. To do so type a backslash follow by the relevant name and press tab:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Using latex completion:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "\\alpha<tab>\n\u03b1"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "or using unicode completion:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "\\GREEK SMALL LETTER ALPHA<tab>\n\u03b1"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Only valid Python identifiers will complete. Combining characters (like arrow or dots) are also available, unlike latex they need to be put after the their counterpart that is to say, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "F\\\\vec<tab>"
+            },
+            {
+              "type": "text",
+              "value": " is correct, not "
+            },
+            {
+              "type": "inlineCode",
+              "value": "\\\\vec<tab>F"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Some browsers are known to display combining characters incorrectly."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Forward latex/unicode completion",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "It is sometime challenging to know how to type a character, if you are using IPython, or any compatible frontend you can prepend backslash to the character and press "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Tab"
+            },
+            {
+              "type": "text",
+              "value": " to expand it to its latex form."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "\\\u03b1<tab>\n\\alpha"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Both forward and backward completions can be deactivated by setting the "
+            },
+            {
+              "domain": "std",
+              "role": "configtrait",
+              "type": "Directive",
+              "value": "Completer.backslash_combining_completions"
+            },
+            {
+              "type": "text",
+              "value": " option to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "False"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Backward latex completion",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Starting with IPython 6.0, this module can make use of the Jedi library to generate completions both using static analysis of the code, and dynamically inspecting multiple namespaces. Jedi is an autocompletion and static analysis for Python. The APIs attached to this new mechanism is unstable and will raise unless use in an "
+            },
+            {
+              "type": "inlineCode",
+              "value": "provisionalcompleter"
+            },
+            {
+              "type": "text",
+              "value": " context manager."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You will find that the following are experimental:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "inlineCode",
+                          "value": "provisionalcompleter"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "inlineCode",
+                          "value": "IPCompleter.completions"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "inlineCode",
+                          "value": "Completion"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "inlineCode",
+                          "value": "rectify_completions"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                }
+              ],
+              "ordered": false,
+              "spread": false,
+              "start": 1,
+              "type": "list"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "note "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "better name for "
+                },
+                {
+                  "domain": null,
+                  "role": "any",
+                  "type": "Directive",
+                  "value": "rectify_completions"
+                },
+                {
+                  "type": "text",
+                  "value": " ?"
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "We welcome any feedback on these new API, and we also encourage you to try this module in debug mode (start IPython with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "--Completer.debug=True"
+            },
+            {
+              "type": "text",
+              "value": ") in order to have extra logging information if "
+            },
+            {
+              "type": "inlineCode",
+              "value": "jedi"
+            },
+            {
+              "type": "text",
+              "value": " is crashing, or if current IPython completer pending deprecations are returning results not yet handled by "
+            },
+            {
+              "type": "inlineCode",
+              "value": "jedi"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Using Jedi for tab completion allow snippets like the following to work without having to execute any code:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "code",
+              "value": ">>> myvar = ['hello', 42]\n... myvar[1].bi<tab>"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Tab completion will be able to infer that "
+            },
+            {
+              "type": "inlineCode",
+              "value": "myvar[1]"
+            },
+            {
+              "type": "text",
+              "value": " is a real number without executing almost any code unlike the deprecated "
+            },
+            {
+              "type": "inlineCode",
+              "value": "IPCompleter.greedy"
+            },
+            {
+              "type": "text",
+              "value": " option."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Be sure to update "
+            },
+            {
+              "type": "inlineCode",
+              "value": "jedi"
+            },
+            {
+              "type": "text",
+              "value": " to the latest stable version or to try the current development version to get better completions."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": "Experimental",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "All completions routines are implemented using unified "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Matchers"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " API. The matchers API is provisional and subject to change without notice."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The built-in matchers include:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "IPCompleter.dict_key_matcher"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":  dictionary key completions,"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "IPCompleter.magic_matcher"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": completions for magics,"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "IPCompleter.unicode_name_matcher"
+                    },
+                    {
+                      "type": "text",
+                      "value": ",   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "IPCompleter.fwd_unicode_matcher"
+                    },
+                    {
+                      "type": "text",
+                      "value": "   and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "IPCompleter.latex_name_matcher"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": see "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "Forward latex/unicode completion"
+                    },
+                    {
+                      "type": "text",
+                      "value": ","
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "back_unicode_name_matcher"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "back_latex_name_matcher"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": see "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "Backward latex completion"
+                    },
+                    {
+                      "type": "text",
+                      "value": ","
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "IPCompleter.file_matcher"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": paths to files and directories,"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "IPCompleter.python_func_kw_matcher"
+                    },
+                    {
+                      "type": "text",
+                      "value": " - function keywords,"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "IPCompleter.python_matches"
+                    },
+                    {
+                      "type": "text",
+                      "value": " - globals and attributes (v1 API),"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "IPCompleter.jedi_matcher"
+                    },
+                    {
+                      "type": "text",
+                      "value": " - static analysis with Jedi,"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "IPCompleter.custom_completer_matcher"
+                    },
+                    {
+                      "type": "text",
+                      "value": " - pluggable completer with a default   implementation in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "InteractiveShell"
+                    },
+                    {
+                      "type": "text",
+                      "value": " which uses IPython hooks system   ("
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "complete_command"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") with string dispatch (including regular expressions).   Differently to other matchers, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "custom_completer_matcher"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will not suppress   Jedi results to match behaviour in earlier IPython versions."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Custom matchers can be added by appending to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "IPCompleter.custom_matchers"
+            },
+            {
+              "type": "text",
+              "value": " list."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": "Matchers",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Simplifying some details, the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Matcher"
+            },
+            {
+              "type": "text",
+              "value": " interface can described as"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "",
+          "children": [],
+          "name": "code-block",
+          "options": {},
+          "type": "mystDirective",
+          "value": "MatcherAPIv1 = Callable[[str], list[str]]\nMatcherAPIv2 = Callable[[CompletionContext], SimpleMatcherResult]\n\nMatcher = MatcherAPIv1 | MatcherAPIv2"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "type": "inlineCode",
+              "value": "MatcherAPIv1"
+            },
+            {
+              "type": "text",
+              "value": " reflects the matcher API as available prior to IPython 8.6.0 and remains supported as a simplest way for generating completions. This is also currently the only API supported by the IPython hooks system "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "complete_command"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To distinguish between matcher versions "
+            },
+            {
+              "type": "inlineCode",
+              "value": "matcher_api_version"
+            },
+            {
+              "type": "text",
+              "value": " attribute is used. More precisely, the API allows to omit "
+            },
+            {
+              "type": "inlineCode",
+              "value": "matcher_api_version"
+            },
+            {
+              "type": "text",
+              "value": " for v1 Matchers, and requires a literal "
+            },
+            {
+              "type": "inlineCode",
+              "value": "2"
+            },
+            {
+              "type": "text",
+              "value": " for v2 Matchers."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Once the API stabilises future versions may relax the requirement for specifying "
+            },
+            {
+              "type": "inlineCode",
+              "value": "matcher_api_version"
+            },
+            {
+              "type": "text",
+              "value": " by switching to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "functools.singledispatch"
+            },
+            {
+              "type": "text",
+              "value": ", therefore please do not rely on the presence of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "matcher_api_version"
+            },
+            {
+              "type": "text",
+              "value": " for any purposes."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Matcher API",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "By default results from all matchers are combined, in the order determined by their priority. Matchers can request to suppress results from subsequent matchers by setting "
+            },
+            {
+              "type": "inlineCode",
+              "value": "suppress"
+            },
+            {
+              "type": "text",
+              "value": " to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "True"
+            },
+            {
+              "type": "text",
+              "value": " in the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "MatcherResult"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When multiple matchers simultaneously request surpression, the results from of the matcher with higher priority will be returned."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Sometimes it is desirable to suppress most but not all other matchers; this can be achieved by adding a set of identifiers of matchers which should not be suppressed to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "MatcherResult"
+            },
+            {
+              "type": "text",
+              "value": " under "
+            },
+            {
+              "type": "inlineCode",
+              "value": "do_not_suppress"
+            },
+            {
+              "type": "text",
+              "value": " key."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The suppression behaviour can is user-configurable via "
+            },
+            {
+              "domain": "std",
+              "role": "configtrait",
+              "type": "Directive",
+              "value": "IPCompleter.suppress_competing_matchers"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Suppression of competing matchers",
+      "type": "Section"
+    }
+  ],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To remove in the future \u2013\u2013 IPython.core.completer"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dev/ipython/IPython/core/completer.py",
+  "item_line": 0,
+  "item_type": "<class 'module'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

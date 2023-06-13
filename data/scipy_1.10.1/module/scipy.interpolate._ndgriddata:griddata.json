@@ -1,0 +1,587 @@
+{
+  "aliases": [
+    "scipy.interpolate.griddata"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 0.9"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For data on a regular grid use "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "interpn"
+            },
+            {
+              "type": "text",
+              "value": " instead."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Data point coordinates."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "points",
+              "type": "Param",
+              "type_": "2-D ndarray of floats with shape (n, D), or length D tuple of 1-D ndarrays with shape (n,)."
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Data values."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "values",
+              "type": "Param",
+              "type_": "ndarray of float or complex, shape (n,)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Points at which to interpolate data."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "xi",
+              "type": "Param",
+              "type_": "2-D ndarray of floats with shape (m, D), or length D tuple of ndarrays broadcastable to the same shape."
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Method of interpolation. One of"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "return the value at the data point closest to   the point of interpolation. See "
+                            },
+                            {
+                              "domain": null,
+                              "role": null,
+                              "type": "Directive",
+                              "value": "NearestNDInterpolator"
+                            },
+                            {
+                              "type": "text",
+                              "value": " for   more details."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "inlineCode",
+                            "value": "nearest"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "tessellate the input point set to N-D   simplices, and interpolate linearly on each simplex. See   "
+                            },
+                            {
+                              "domain": null,
+                              "role": null,
+                              "type": "Directive",
+                              "value": "LinearNDInterpolator"
+                            },
+                            {
+                              "type": "text",
+                              "value": " for more details."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "inlineCode",
+                            "value": "linear"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "return the value determined from a cubic   spline."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "inlineCode",
+                            "value": "cubic"
+                          },
+                          {
+                            "type": "text",
+                            "value": " (1-D)"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "return the value determined from a   piecewise cubic, continuously differentiable (C1), and   approximately curvature-minimizing polynomial surface. See   "
+                            },
+                            {
+                              "domain": null,
+                              "role": null,
+                              "type": "Directive",
+                              "value": "CloughTocher2DInterpolator"
+                            },
+                            {
+                              "type": "text",
+                              "value": " for more details."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "inlineCode",
+                            "value": "cubic"
+                          },
+                          {
+                            "type": "text",
+                            "value": " (2-D)"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "param": "method",
+              "type": "Param",
+              "type_": "{'linear', 'nearest', 'cubic'}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Value used to fill in for requested points outside of the convex hull of the input points. If not provided, then the default is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "nan"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". This option has no effect for the 'nearest' method."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fill_value",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Rescale points to unit cube before performing interpolation. This is useful if some of the input dimensions have incommensurable units and differ by many orders of magnitude."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 0.14.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "rescale",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Array of interpolated values."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Interpolate unstructured D-D data."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Suppose we want to interpolate the 2-D function"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\ndef func(x, y):\n    return x*(1-x)*np.cos(4*np.pi*x) * np.sin(4*np.pi*y**2)**2"
+      },
+      {
+        "type": "text",
+        "value": "on a grid in [0, 1]x[0, 1]"
+      },
+      {
+        "type": "code",
+        "value": "grid_x, grid_y = np.mgrid[0:1:100j, 0:1:200j]"
+      },
+      {
+        "type": "text",
+        "value": "but we only know its values at 1000 data points:"
+      },
+      {
+        "type": "code",
+        "value": "rng = np.random.default_rng()\npoints = rng.random((1000, 2))\nvalues = func(points[:,0], points[:,1])"
+      },
+      {
+        "type": "text",
+        "value": "This can be done with `griddata` -- below we try out all of the\ninterpolation methods:"
+      },
+      {
+        "type": "code",
+        "value": "from scipy.interpolate import griddata\ngrid_z0 = griddata(points, values, (grid_x, grid_y), method='nearest')\ngrid_z1 = griddata(points, values, (grid_x, grid_y), method='linear')\ngrid_z2 = griddata(points, values, (grid_x, grid_y), method='cubic')"
+      },
+      {
+        "type": "text",
+        "value": "One can see that the exact result is reproduced by all of the\nmethods to some degree, but for this smooth function the piecewise\ncubic interpolant gives the best results:"
+      },
+      {
+        "type": "code",
+        "value": "import matplotlib.pyplot as plt\nplt.subplot(221)\nplt.imshow(func(grid_x, grid_y).T, extent=(0,1,0,1), origin='lower')\nplt.plot(points[:,0], points[:,1], 'k.', ms=1)\nplt.title('Original')\nplt.subplot(222)\nplt.imshow(grid_z0.T, extent=(0,1,0,1), origin='lower')\nplt.title('Nearest')\nplt.subplot(223)\nplt.imshow(grid_z1.T, extent=(0,1,0,1), origin='lower')\nplt.title('Linear')\nplt.subplot(224)\nplt.imshow(grid_z2.T, extent=(0,1,0,1), origin='lower')\nplt.title('Cubic')\nplt.gcf().set_size_inches(6, 6)\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.interpolate._ndgriddata:griddata-0-ad59c588.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/interpolate/_ndgriddata.py",
+  "item_line": 119,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "Examples",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Piecewise linear interpolant in N dimensions."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "LinearNDInterpolator",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "LinearNDInterpolator"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Nearest-neighbor interpolation in N dimensions."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "NearestNDInterpolator",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "NearestNDInterpolator"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Piecewise cubic, C1 smooth, curvature-minimizing interpolant in 2D."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "CloughTocher2DInterpolator",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "CloughTocher2DInterpolator"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(points, values, xi, method='linear', fill_value=nan, rescale=False)"
+  },
+  "type": "DocBlob"
+}

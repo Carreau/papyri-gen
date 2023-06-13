@@ -1,0 +1,1143 @@
+{
+  "aliases": [
+    "scipy.integrate.solve_bvp"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function numerically solves a first order system of ODEs subject to two-point boundary conditions      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "dy / dx = f(x, y, p) + S * y / (x - a), a <= x <= b\nbc(y(a), y(b), p) = 0"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Here x is a 1-D independent variable, y(x) is an N-D vector-valued function and p is a k-D vector of unknown parameters which is to be found along with y(x). For the problem to be determined, there must be n + k boundary conditions, i.e., bc must be an (n + k)-D function."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The last singular term on the right-hand side of the system is optional. It is defined by an n-by-n matrix S, such that the solution must satisfy S y(a) = 0. This condition will be forced during iterations, so it must not contradict boundary conditions. See  for the explanation how this term is handled when solving BVPs numerically."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Problems in a complex domain can be solved as well. In this case, y and p are considered to be complex, and f and bc are assumed to be complex-valued functions, but x stays real. Note that f and bc must be complex differentiable (satisfy Cauchy-Riemann equations ), otherwise you should rewrite your problem for real and imaginary parts separately. To solve a problem in a complex domain, pass an initial guess for y with a complex data type (see below)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function implements a 4th order collocation algorithm with the control of residuals similar to . A collocation system is solved by a damped Newton method with an affine-invariant criterion function as described in ."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Note that in   integral residuals are defined without normalization by interval lengths. So, their definition is different by a multiplier of h**0.5 (h is an interval length) from the definition used here."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 0.18.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Right-hand side of the system. The calling signature is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "fun(x, y)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "fun(x, y, p)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " if parameters are present. All arguments are ndarray: "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " with shape (m,), "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "y"
+                    },
+                    {
+                      "type": "text",
+                      "value": " with shape (n, m), meaning that "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "y[:, i]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " corresponds to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x[i]"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "p"
+                    },
+                    {
+                      "type": "text",
+                      "value": " with shape (k,). The return value must be an array with shape (n, m) and with the same layout as "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "y"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fun",
+              "type": "Param",
+              "type_": "callable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Function evaluating residuals of the boundary conditions. The calling signature is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "bc(ya, yb)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "bc(ya, yb, p)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " if parameters are present. All arguments are ndarray: "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ya"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "yb"
+                    },
+                    {
+                      "type": "text",
+                      "value": " with shape (n,), and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "p"
+                    },
+                    {
+                      "type": "text",
+                      "value": " with shape (k,). The return value must be an array with shape (n + k,)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "bc",
+              "type": "Param",
+              "type_": "callable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Initial mesh. Must be a strictly increasing sequence of real numbers with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x[0]=a"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x[-1]=b"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "array_like, shape (m,)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Initial guess for the function values at the mesh nodes, ith column corresponds to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x[i]"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". For problems in a complex domain pass "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "y",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "y"
+                    },
+                    {
+                      "type": "text",
+                      "value": " with a complex data type (even if the initial guess is purely real)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "y",
+              "type": "Param",
+              "type_": "array_like, shape (n, m)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Initial guess for the unknown parameters. If None (default), it is assumed that the problem doesn't depend on any parameters."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "p",
+              "type": "Param",
+              "type_": "array_like with shape (k,) or None, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Matrix defining the singular term. If None (default), the problem is solved without the singular term."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "S",
+              "type": "Param",
+              "type_": "array_like with shape (n, n) or None"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Function computing derivatives of f with respect to y and p. The calling signature is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "fun_jac(x, y)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "fun_jac(x, y, p)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " if parameters are present. The return must contain 1 or 2 elements in the following order:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "spread": false,
+                          "type": "listItem"
+                        }
+                      ],
+                      "ordered": false,
+                      "spread": false,
+                      "start": 1,
+                      "type": "list"
+                    }
+                  ],
+                  "type": "blockquote"
+                }
+              ],
+              "param": "fun_jac",
+              "type": "Param",
+              "type_": "callable or None, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Function computing derivatives of bc with respect to ya, yb, and p. The calling signature is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "bc_jac(ya, yb)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "bc_jac(ya, yb, p)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " if parameters are present. The return must contain 2 or 3 elements in the following order:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "spread": false,
+                          "type": "listItem"
+                        }
+                      ],
+                      "ordered": false,
+                      "spread": false,
+                      "start": 1,
+                      "type": "list"
+                    }
+                  ],
+                  "type": "blockquote"
+                }
+              ],
+              "param": "bc_jac",
+              "type": "Param",
+              "type_": "callable or None, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Desired tolerance of the solution. If we define "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "r = y' - f(x, y)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", where y is the found solution, then the solver tries to achieve on each mesh interval "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "norm(r / (1 + abs(f)) < tol"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "norm"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is estimated in a root mean squared sense (using a numerical quadrature formula). Default is 1e-3."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "tol",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum allowed number of the mesh nodes. If exceeded, the algorithm terminates. Default is 1000."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "max_nodes",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Level of algorithm's verbosity:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "spread": false,
+                          "type": "listItem"
+                        }
+                      ],
+                      "ordered": false,
+                      "spread": false,
+                      "start": 1,
+                      "type": "list"
+                    }
+                  ],
+                  "type": "blockquote"
+                }
+              ],
+              "param": "verbose",
+              "type": "Param",
+              "type_": "{0, 1, 2}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Desired absolute tolerance for the boundary condition residuals: "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "bc",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "bc"
+                    },
+                    {
+                      "type": "text",
+                      "value": " value should satisfy "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "abs(bc) < bc_tol"
+                    },
+                    {
+                      "type": "text",
+                      "value": " component-wise. Equals to "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "tol",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "tol"
+                    },
+                    {
+                      "type": "text",
+                      "value": " by default. Up to 10 iterations are allowed to achieve this tolerance."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "bc_tol",
+              "type": "Param",
+              "type_": "float, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "Bunch object with the following fields defined:"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Found solution for y as "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "scipy.interpolate._interpolate",
+                        "path": "scipy.interpolate._interpolate:PPoly",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "scipy.interpolate.PPoly"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instance, a C1 continuous cubic spline."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sol",
+              "type": "Param",
+              "type_": "PPoly"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Found parameters. None, if the parameters were not present in the problem."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "p",
+              "type": "Param",
+              "type_": "ndarray or None, shape (k,)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Nodes of the final mesh."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "ndarray, shape (m,)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Solution values at the mesh nodes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "y",
+              "type": "Param",
+              "type_": "ndarray, shape (n, m)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Solution derivatives at the mesh nodes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "yp",
+              "type": "Param",
+              "type_": "ndarray, shape (n, m)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "RMS values of the relative residuals over each mesh interval (see the description of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "tol",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "tol"
+                    },
+                    {
+                      "type": "text",
+                      "value": " parameter)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "rms_residuals",
+              "type": "Param",
+              "type_": "ndarray, shape (m - 1,)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of completed iterations."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "niter",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Reason for algorithm termination:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "0: The algorithm converged to the desired accuracy."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "1: The maximum number of mesh nodes is exceeded."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "2: A singular Jacobian encountered when solving the collocation       system."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        }
+                      ],
+                      "ordered": false,
+                      "spread": false,
+                      "start": 1,
+                      "type": "list"
+                    }
+                  ],
+                  "type": "blockquote"
+                }
+              ],
+              "param": "status",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Verbal description of the termination reason."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "message",
+              "type": "Param",
+              "type_": "string"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "True if the algorithm converged to the desired accuracy ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "status=0"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "success",
+              "type": "Param",
+              "type_": "bool"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Solve a boundary value problem for a system of ODEs."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "In the first example, we solve Bratu's problem::"
+      },
+      {
+        "type": "text",
+        "value": "    y'' + k * exp(y) = 0\n    y(0) = y(1) = 0"
+      },
+      {
+        "type": "text",
+        "value": "for k = 1."
+      },
+      {
+        "type": "text",
+        "value": "We rewrite the equation as a first-order system and implement its\nright-hand side evaluation::"
+      },
+      {
+        "type": "text",
+        "value": "    y1' = y2\n    y2' = -exp(y1)"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\ndef fun(x, y):\n    return np.vstack((y[1], -np.exp(y[0])))"
+      },
+      {
+        "type": "text",
+        "value": "Implement evaluation of the boundary condition residuals:"
+      },
+      {
+        "type": "code",
+        "value": "def bc(ya, yb):\n    return np.array([ya[0], yb[0]])"
+      },
+      {
+        "type": "text",
+        "value": "Define the initial mesh with 5 nodes:"
+      },
+      {
+        "type": "code",
+        "value": "x = np.linspace(0, 1, 5)"
+      },
+      {
+        "type": "text",
+        "value": "This problem is known to have two solutions. To obtain both of them, we\nuse two different initial guesses for y. We denote them by subscripts\na and b."
+      },
+      {
+        "type": "code",
+        "value": "y_a = np.zeros((2, x.size))\ny_b = np.zeros((2, x.size))\ny_b[0] = 3"
+      },
+      {
+        "type": "text",
+        "value": "Now we are ready to run the solver."
+      },
+      {
+        "type": "code",
+        "value": "from scipy.integrate import solve_bvp\nres_a = solve_bvp(fun, bc, x, y_a)\nres_b = solve_bvp(fun, bc, x, y_b)"
+      },
+      {
+        "type": "text",
+        "value": "Let's plot the two found solutions. We take an advantage of having the\nsolution in a spline form to produce a smooth plot."
+      },
+      {
+        "type": "code",
+        "value": "x_plot = np.linspace(0, 1, 100)\ny_plot_a = res_a.sol(x_plot)[0]\ny_plot_b = res_b.sol(x_plot)[0]\nimport matplotlib.pyplot as plt\nplt.plot(x_plot, y_plot_a, label='y_a')\nplt.plot(x_plot, y_plot_b, label='y_b')\nplt.legend()\nplt.xlabel(\"x\")\nplt.ylabel(\"y\")\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.integrate._bvp:solve_bvp-0-3b327fe6.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      },
+      {
+        "type": "text",
+        "value": "We see that the two solutions have similar shape, but differ in scale\nsignificantly."
+      },
+      {
+        "type": "text",
+        "value": "In the second example, we solve a simple Sturm-Liouville problem::"
+      },
+      {
+        "type": "text",
+        "value": "    y'' + k**2 * y = 0\n    y(0) = y(1) = 0"
+      },
+      {
+        "type": "text",
+        "value": "It is known that a non-trivial solution y = A * sin(k * x) is possible for\nk = pi * n, where n is an integer. To establish the normalization constant\nA = 1 we add a boundary condition::"
+      },
+      {
+        "type": "text",
+        "value": "    y'(0) = k"
+      },
+      {
+        "type": "text",
+        "value": "Again, we rewrite our equation as a first-order system and implement its\nright-hand side evaluation::"
+      },
+      {
+        "type": "text",
+        "value": "    y1' = y2\n    y2' = -k**2 * y1"
+      },
+      {
+        "type": "code",
+        "value": "def fun(x, y, p):\n    k = p[0]\n    return np.vstack((y[1], -k**2 * y[0]))"
+      },
+      {
+        "type": "text",
+        "value": "Note that parameters p are passed as a vector (with one element in our\ncase)."
+      },
+      {
+        "type": "text",
+        "value": "Implement the boundary conditions:"
+      },
+      {
+        "type": "code",
+        "value": "def bc(ya, yb, p):\n    k = p[0]\n    return np.array([ya[0], yb[0], ya[1] - k])"
+      },
+      {
+        "type": "text",
+        "value": "Set up the initial mesh and guess for y. We aim to find the solution for\nk = 2 * pi, to achieve that we set values of y to approximately follow\nsin(2 * pi * x):"
+      },
+      {
+        "type": "code",
+        "value": "x = np.linspace(0, 1, 5)\ny = np.zeros((2, x.size))\ny[0, 1] = 1\ny[0, 3] = -1"
+      },
+      {
+        "type": "text",
+        "value": "Run the solver with 6 as an initial guess for k."
+      },
+      {
+        "type": "code",
+        "value": "sol = solve_bvp(fun, bc, x, y, p=[6])"
+      },
+      {
+        "type": "text",
+        "value": "We see that the found k is approximately correct:"
+      },
+      {
+        "type": "code",
+        "value": "sol.p[0]"
+      },
+      {
+        "type": "text",
+        "value": "And, finally, plot the solution to see the anticipated sinusoid:"
+      },
+      {
+        "type": "code",
+        "value": "x_plot = np.linspace(0, 1, 100)\ny_plot = sol.sol(x_plot)[0]\nplt.plot(x_plot, y_plot)\nplt.xlabel(\"x\")\nplt.ylabel(\"y\")\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.integrate._bvp:solve_bvp-1-fbced74c.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/integrate/_bvp.py",
+  "item_line": 710,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(fun, bc, x, y, p=None, S=None, fun_jac=None, bc_jac=None, tol=0.001, max_nodes=1000, verbose=0, bc_tol=None)"
+  },
+  "type": "DocBlob"
+}

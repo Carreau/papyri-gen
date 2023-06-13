@@ -1,0 +1,330 @@
+{
+  "aliases": [
+    "dask.layers.DataFrameIOLayer"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Name to use for the constructed layer."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "name",
+              "type": "Param",
+              "type_": "str"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Field name(s) to read in as columns in the output."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "columns",
+              "type": "Param",
+              "type_": "str, list or None"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "List of arguments to be passed to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "io_func"
+                    },
+                    {
+                      "type": "text",
+                      "value": " so that the materialized task to produce partition "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "i"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will be: "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(<io_func>, inputs[i])"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  Note that each element of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "inputs"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is typically a tuple of arguments."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "inputs",
+              "type": "Param",
+              "type_": "list or BlockwiseDep"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A callable function that takes in a single tuple of arguments, and outputs a DataFrame partition. Column projection will be supported for functions that satisfy the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "DataFrameIOFunction"
+                    },
+                    {
+                      "type": "text",
+                      "value": " protocol."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "io_func",
+              "type": "Param",
+              "type_": "callable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "String to use as a prefix in the place-holder collection name. If nothing is specified (default), \"subset-\" will be used."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "label",
+              "type": "Param",
+              "type_": "str (optional)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether one or more elements of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "inputs",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "inputs"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is expected to contain a nested task. This argument in only used for serialization purposes, and will be deprecated in the future. Default is False."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "produces_tasks",
+              "type": "Param",
+              "type_": "bool (optional)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Dictionary containing the callable function ('func'), positional arguments ('args'), and key-word arguments ('kwargs') used to produce the dask collection with this underlying "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "DataFrameIOLayer"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "creation_info: dict (optional)",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Layer annotations to pass through to Blockwise."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "annotations: dict (optional)",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "DataFrame-based Blockwise Layer with IO"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dask/layers.py",
+  "item_line": 1133,
+  "item_type": "<class 'abc.ABCMeta'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,905 @@
+{
+  "aliases": [
+    "xarray.Dataset.to_zarr"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Zarr chunks are determined in the following way:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "From the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "chunks"
+                    },
+                    {
+                      "type": "text",
+                      "value": " attribute in each variable's "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "encoding"
+                    },
+                    {
+                      "type": "text",
+                      "value": "   (can be set via "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "xarray",
+                        "path": "xarray.core.dataset:Dataset.chunk",
+                        "type": "RefInfo",
+                        "version": "2023.5.0"
+                      },
+                      "type": "Link",
+                      "value": "Dataset.chunk"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If the variable is a Dask array, from the dask chunks"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If neither Dask chunks nor encoding chunks are present, chunks will   be determined automatically by Zarr"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If both Dask chunks and encoding chunks are present, encoding chunks   will be used, provided that there is a many-to-one relationship between   encoding chunks and dask chunks (i.e. Dask chunks are bigger than and   evenly divide encoding chunks); otherwise raise a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ValueError"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".   This restriction ensures that no synchronization / locks are required   when writing. To disable this restriction, use "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "safe_chunks=False"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If chunks are found in the encoding argument or attribute     corresponding to any DataArray, those chunks are used.     If a DataArray is a dask array, it is written with those chunks.     If not other chunks are found, Zarr uses its own heuristics to     choose automatic chunk sizes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Zarr chunking behavior:"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The encoding attribute (if exists) of the DataArray(s) will be     used. Override any existing encodings by providing the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "encoding"
+                    },
+                    {
+                      "type": "text",
+                      "value": " kwarg."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "encoding:"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            }
+          ],
+          "type": "DefList"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Store or path to directory in local or remote file system."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "store",
+              "type": "Param",
+              "type_": "MutableMapping, str or path-like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Store or path to directory in local or remote file system only for Zarr array chunks. Requires zarr-python v2.4.0 or later."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "chunk_store",
+              "type": "Param",
+              "type_": "MutableMapping, str or path-like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Persistence mode: \"w\" means create (overwrite if exists); \"w-\" means create (fail if exists); \"a\" means override existing variables (create if does not exist); \"r+\" means modify existing array "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "values"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " only (raise an error if any metadata or shapes would change). The default mode is \"a\" if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "append_dim"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is set. Otherwise, it is \"r+\" if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "region"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is set and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "w-"
+                    },
+                    {
+                      "type": "text",
+                      "value": " otherwise."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mode",
+              "type": "Param",
+              "type_": "{\"w\", \"w-\", \"a\", \"r+\", None}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Zarr array synchronizer."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "synchronizer",
+              "type": "Param",
+              "type_": "object, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Group path. (a.k.a. "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "path"
+                    },
+                    {
+                      "type": "text",
+                      "value": " in zarr terminology.)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "group",
+              "type": "Param",
+              "type_": "str, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Nested dictionary with variable names as keys and dictionaries of variable specific encodings as values, e.g., "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "{\"my_variable\": {\"dtype\": \"int16\", \"scale_factor\": 0.1,}, ...}"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "encoding",
+              "type": "Param",
+              "type_": "dict, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True write array data immediately, otherwise return a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "dask.delayed.Delayed"
+                    },
+                    {
+                      "type": "text",
+                      "value": " object that can be computed to write array data later. Metadata is always updated eagerly."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "compute",
+              "type": "Param",
+              "type_": "bool, default: True"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, apply zarr's "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "consolidate_metadata"
+                    },
+                    {
+                      "type": "text",
+                      "value": " function to the store after writing metadata and read existing stores with consolidated metadata; if False, do not. The default ("
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "consolidated=None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") means write consolidated metadata and attempt to read consolidated metadata for existing stores (falling back to non-consolidated)."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "When the experimental "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "zarr_version=3"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "consolidated"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must be either be "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "consolidated",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If set, the dimension along which the data will be appended. All other dimensions on overridden variables must remain the same size."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "append_dim",
+              "type": "Param",
+              "type_": "hashable, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Optional mapping from dimension names to integer slices along dataset dimensions to indicate the region of existing zarr array(s) in which to write this dataset's data. For example, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "{'x': slice(0, 1000), 'y': slice(10000, 11000)}"
+                    },
+                    {
+                      "type": "text",
+                      "value": " would indicate that values should be written to the region "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "0:1000"
+                    },
+                    {
+                      "type": "text",
+                      "value": " along "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "10000:11000"
+                    },
+                    {
+                      "type": "text",
+                      "value": " along "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "y"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Two restrictions apply to the use of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "region"
+                    },
+                    {
+                      "type": "text",
+                      "value": ":"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "If "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "region"
+                            },
+                            {
+                              "type": "text",
+                              "value": " is set, _all_ variables in a dataset must have at   least one dimension in common with the region. Other variables   should be written in a separate call to "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "to_zarr()"
+                            },
+                            {
+                              "type": "text",
+                              "value": "."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Dimensions cannot be included in both "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "region"
+                            },
+                            {
+                              "type": "text",
+                              "value": " and   "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "append_dim"
+                            },
+                            {
+                              "type": "text",
+                              "value": " at the same time. To create empty arrays to fill   in with "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "region"
+                            },
+                            {
+                              "type": "text",
+                              "value": ", use a separate call to "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "to_zarr()"
+                            },
+                            {
+                              "type": "text",
+                              "value": " with   "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "compute=False"
+                            },
+                            {
+                              "type": "text",
+                              "value": ". See \"Appending to existing Zarr stores\" in   the reference documentation for full details."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "param": "region",
+              "type": "Param",
+              "type_": "dict, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, only allow writes to when there is a many-to-one relationship between Zarr chunks (specified in encoding) and Dask chunks. Set False to override this restriction; however, data may become corrupted if Zarr arrays are written in parallel. This option may be useful in combination with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "compute=False"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to initialize a Zarr from an existing Dataset with arbitrary chunk structure."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "safe_chunks",
+              "type": "Param",
+              "type_": "bool, default: True"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Any additional parameters for the storage backend (ignored for local paths)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "storage_options",
+              "type": "Param",
+              "type_": "dict, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The desired zarr spec version to target (currently 2 or 3). The default of None will attempt to determine the zarr version from "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "store"
+                    },
+                    {
+                      "type": "text",
+                      "value": " when possible, otherwise defaulting to 2."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "zarr_version",
+              "type": "Param",
+              "type_": "int or None, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Additional keyword arguments passed on to the "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "ChunkManager.store"
+                    },
+                    {
+                      "type": "text",
+                      "value": " method used to store chunked arrays. For example for a dask array additional kwargs will be passed eventually to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "dask.array.store()"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Experimental API that should not be relied upon."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "chunkmanager_store_kwargs",
+              "type": "Param",
+              "type_": "dict, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "* ``dask.delayed.Delayed`` if compute is False"
+            },
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "* ZarrStore otherwise"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Write dataset contents to a zarr group."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/xarray/core/dataset.py",
+  "item_line": 2003,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "References",
+    "Notes",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The I/O user guide, with more details and examples."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "io.zarr",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "io.zarr"
+      },
+      "type": "ref"
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, store: 'MutableMapping | str | PathLike[str] | None' = None, chunk_store: 'MutableMapping | str | PathLike | None' = None, mode: \"Literal['w', 'w-', 'a', 'r+', None]\" = None, synchronizer=None, group: 'str | None' = None, encoding: 'Mapping | None' = None, compute: 'bool' = True, consolidated: 'bool | None' = None, append_dim: 'Hashable | None' = None, region: 'Mapping[str, slice] | None' = None, safe_chunks: 'bool' = True, storage_options: 'dict[str, str] | None' = None, zarr_version: 'int | None' = None, chunkmanager_store_kwargs: 'dict[str, Any] | None' = None) -> 'ZarrStore | Delayed'"
+  },
+  "type": "DocBlob"
+}

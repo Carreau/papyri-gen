@@ -1,0 +1,270 @@
+{
+  "aliases": [
+    "scipy.cluster.hierarchy.is_monotonic"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The linkage is monotonic if for every cluster "
+            },
+            {
+              "type": "inlineMath",
+              "value": "s"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "t"
+            },
+            {
+              "type": "text",
+              "value": " joined, the distance between them is no less than the distance between any previously joined clusters."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The linkage matrix to check for monotonicity."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "Z",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A boolean indicating whether the linkage is monotonic."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "b",
+              "type": "Param",
+              "type_": "bool"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Return True if the linkage passed is monotonic."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from scipy.cluster.hierarchy import median, ward, is_monotonic\nfrom scipy.spatial.distance import pdist"
+      },
+      {
+        "type": "text",
+        "value": "By definition, some hierarchical clustering algorithms - such as\n`scipy.cluster.hierarchy.ward` - produce monotonic assignments of\nsamples to clusters; however, this is not always true for other\nhierarchical methods - e.g. `scipy.cluster.hierarchy.median`."
+      },
+      {
+        "type": "text",
+        "value": "Given a linkage matrix ``Z`` (as the result of a hierarchical clustering\nmethod) we can test programmatically whether it has the monotonicity\nproperty or not, using `scipy.cluster.hierarchy.is_monotonic`:"
+      },
+      {
+        "type": "code",
+        "value": "X = [[0, 0], [0, 1], [1, 0],\n     [0, 4], [0, 3], [1, 4],\n     [4, 0], [3, 0], [4, 1],\n     [4, 4], [3, 4], [4, 3]]"
+      },
+      {
+        "type": "code",
+        "value": "Z = ward(pdist(X))\nZ"
+      },
+      {
+        "type": "code",
+        "value": "is_monotonic(Z)"
+      },
+      {
+        "type": "code",
+        "value": "Z = median(pdist(X))\nZ"
+      },
+      {
+        "type": "code",
+        "value": "is_monotonic(Z)"
+      },
+      {
+        "type": "text",
+        "value": "Note that this method is equivalent to just verifying that the distances\nin the third column of the linkage matrix appear in a monotonically\nincreasing order."
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/cluster/hierarchy.py",
+  "item_line": 1970,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "for a description of what a linkage matrix is."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "linkage",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "linkage"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(Z)"
+  },
+  "type": "DocBlob"
+}

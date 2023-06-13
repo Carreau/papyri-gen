@@ -1,0 +1,840 @@
+{
+  "aliases": [
+    "scipy.stats._qmc.LatinHypercube"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A Latin hypercube sample  generates "
+            },
+            {
+              "type": "inlineMath",
+              "value": "n"
+            },
+            {
+              "type": "text",
+              "value": " points in "
+            },
+            {
+              "type": "inlineMath",
+              "value": "[0,1)^{d}"
+            },
+            {
+              "type": "text",
+              "value": ". Each univariate marginal distribution is stratified, placing exactly one point in "
+            },
+            {
+              "type": "inlineMath",
+              "value": "[j/n, (j+1)/n)"
+            },
+            {
+              "type": "text",
+              "value": " for "
+            },
+            {
+              "type": "inlineMath",
+              "value": "j=0,1,...,n-1"
+            },
+            {
+              "type": "text",
+              "value": ". They are still applicable when "
+            },
+            {
+              "type": "inlineMath",
+              "value": "n << d"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When LHS is used for integrating a function "
+            },
+            {
+              "type": "inlineMath",
+              "value": "f"
+            },
+            {
+              "type": "text",
+              "value": " over "
+            },
+            {
+              "type": "inlineMath",
+              "value": "n"
+            },
+            {
+              "type": "text",
+              "value": ", LHS is extremely effective on integrands that are nearly additive . With a LHS of "
+            },
+            {
+              "type": "inlineMath",
+              "value": "n"
+            },
+            {
+              "type": "text",
+              "value": " points, the variance of the integral is always lower than plain MC on "
+            },
+            {
+              "type": "inlineMath",
+              "value": "n-1"
+            },
+            {
+              "type": "text",
+              "value": " points . There is a central limit theorem for LHS on the mean and variance of the integral , but not necessarily for optimized LHS due to the randomization."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "inlineMath",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": " is called an orthogonal array of strength "
+            },
+            {
+              "type": "inlineMath",
+              "value": "t"
+            },
+            {
+              "type": "text",
+              "value": " if in each n-row-by-t-column submatrix of "
+            },
+            {
+              "type": "inlineMath",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": ": all "
+            },
+            {
+              "type": "inlineMath",
+              "value": "p^t"
+            },
+            {
+              "type": "text",
+              "value": " possible distinct rows occur the same number of times. The elements of "
+            },
+            {
+              "type": "inlineMath",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": " are in the set "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\{0, 1, ..., p-1\\}"
+            },
+            {
+              "type": "text",
+              "value": ", also called symbols. The constraint that "
+            },
+            {
+              "type": "inlineMath",
+              "value": "p"
+            },
+            {
+              "type": "text",
+              "value": " must be a prime number is to allow modular arithmetic. Increasing strength adds some symmetry to the sub-projections of a sample. With strength 2, samples are symmetric along the diagonals of 2D sub-projections. This may be undesirable, but on the other hand, the sample dispersion is improved."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Strength 1 (plain LHS) brings an advantage over strength 0 (MC) and strength 2 is a useful increment over strength 1. Going to strength 3 is a smaller increment and scrambled QMC like Sobol', Halton are more performant ."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To create a LHS of strength 2, the orthogonal array "
+            },
+            {
+              "type": "inlineMath",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": " is randomized by applying a random, bijective map of the set of symbols onto itself. For example, in column 0, all 0s might become 2; in column 1, all 0s might become 1, etc. Then, for each column "
+            },
+            {
+              "type": "inlineMath",
+              "value": "i"
+            },
+            {
+              "type": "text",
+              "value": " and symbol "
+            },
+            {
+              "type": "inlineMath",
+              "value": "j"
+            },
+            {
+              "type": "text",
+              "value": ", we add a plain, one-dimensional LHS of size "
+            },
+            {
+              "type": "inlineMath",
+              "value": "p"
+            },
+            {
+              "type": "text",
+              "value": " to the subarray where "
+            },
+            {
+              "type": "inlineMath",
+              "value": "A^i = j"
+            },
+            {
+              "type": "text",
+              "value": ". The resulting matrix is finally divided by "
+            },
+            {
+              "type": "inlineMath",
+              "value": "p"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Dimension of the parameter space."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "d",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Center samples within cells of a multi-dimensional grid. Default is False."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "deprecated 1.10.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    },
+                    {
+                      "children": [
+                        {
+                          "domain": null,
+                          "role": null,
+                          "type": "Directive",
+                          "value": "centered"
+                        },
+                        {
+                          "type": "text",
+                          "value": " is deprecated as of SciPy 1.10.0 and will be removed in 1.12.0. Use "
+                        },
+                        {
+                          "domain": null,
+                          "role": null,
+                          "type": "Directive",
+                          "value": "scramble"
+                        },
+                        {
+                          "type": "text",
+                          "value": " instead. "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "centered=True"
+                        },
+                        {
+                          "type": "text",
+                          "value": " corresponds to "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "scramble=False"
+                        },
+                        {
+                          "type": "text",
+                          "value": "."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "centered",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "When False, center samples within cells of a multi-dimensional grid. Otherwise, samples are randomly placed within cells of the grid."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "note "
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Setting "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "scramble=False"
+                        },
+                        {
+                          "type": "text",
+                          "value": " does not ensure deterministic output. For that, use the "
+                        },
+                        {
+                          "domain": null,
+                          "role": null,
+                          "type": "Directive",
+                          "value": "seed"
+                        },
+                        {
+                          "type": "text",
+                          "value": " parameter."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Default is True."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.10.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "scramble",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to use an optimization scheme to improve the quality after sampling. Note that this is a post-processing step that does not guarantee that all properties of the sample will be conserved. Default is None."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "inlineCode",
+                              "value": "random-cd"
+                            },
+                            {
+                              "type": "text",
+                              "value": ": random permutations of coordinates to lower the   centered discrepancy. The best sample based on the centered   discrepancy is constantly updated. Centered discrepancy-based   sampling shows better space-filling robustness toward 2D and 3D   subprojections compared to using other discrepancy measures."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "inlineCode",
+                              "value": "lloyd"
+                            },
+                            {
+                              "type": "text",
+                              "value": ": Perturb samples using a modified Lloyd-Max algorithm.   The process converges to equally spaced samples."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.8.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionchanged 1.10.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Add "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "lloyd"
+                        },
+                        {
+                          "type": "text",
+                          "value": "."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "optimization",
+              "type": "Param",
+              "type_": "{None, \"random-cd\", \"lloyd\"}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Strength of the LHS. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "strength=1"
+                    },
+                    {
+                      "type": "text",
+                      "value": " produces a plain LHS while "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "strength=2"
+                    },
+                    {
+                      "type": "text",
+                      "value": " produces an orthogonal array based LHS of strength 2 , . In that case, only "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "n=p**2"
+                    },
+                    {
+                      "type": "text",
+                      "value": " points can be sampled, with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "p"
+                    },
+                    {
+                      "type": "text",
+                      "value": " a prime number. It also constrains "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "d <= p + 1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Default is 1."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.8.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "strength",
+              "type": "Param",
+              "type_": "{1, 2}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "seed",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "seed"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is an int or None, a new "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "numpy.random._generator",
+                        "path": "numpy.random._generator:Generator",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "numpy.random.Generator"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is created using "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.random.default_rng(seed)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "seed",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "seed"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is already a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Generator"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instance, then the provided instance is used."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "seed",
+              "type": "Param",
+              "type_": "{None, int, `numpy.random.Generator`}, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Latin hypercube sampling (LHS)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Generate samples from a Latin hypercube generator."
+      },
+      {
+        "type": "code",
+        "value": "from scipy.stats import qmc\nsampler = qmc.LatinHypercube(d=2)\nsample = sampler.random(n=5)\nsample"
+      },
+      {
+        "type": "text",
+        "value": "Compute the quality of the sample using the discrepancy criterion."
+      },
+      {
+        "type": "code",
+        "value": "qmc.discrepancy(sample)"
+      },
+      {
+        "type": "text",
+        "value": "Samples can be scaled to bounds."
+      },
+      {
+        "type": "code",
+        "value": "l_bounds = [0, 2]\nu_bounds = [10, 5]\nqmc.scale(sample, l_bounds, u_bounds)"
+      },
+      {
+        "type": "text",
+        "value": "Use the `optimization` keyword argument to produce a LHS with\nlower discrepancy at higher computational cost."
+      },
+      {
+        "type": "code",
+        "value": "sampler = qmc.LatinHypercube(d=2, optimization=\"random-cd\")\nsample = sampler.random(n=5)\nqmc.discrepancy(sample)"
+      },
+      {
+        "type": "text",
+        "value": "Use the `strength` keyword argument to produce an orthogonal array based\nLHS of strength 2. In this case, the number of sample points must be the\nsquare of a prime number."
+      },
+      {
+        "type": "code",
+        "value": "sampler = qmc.LatinHypercube(d=2, strength=2)\nsample = sampler.random(n=9)\nqmc.discrepancy(sample)"
+      },
+      {
+        "type": "text",
+        "value": "Options could be combined to produce an optimized centered\northogonal array based LHS. After optimization, the result would not\nbe guaranteed to be of strength 2."
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_qmc.py",
+  "item_line": 1024,
+  "item_type": "<class 'abc.ABCMeta'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

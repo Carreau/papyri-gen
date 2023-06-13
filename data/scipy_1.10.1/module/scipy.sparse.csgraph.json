@@ -1,0 +1,401 @@
+{
+  "aliases": [
+    "scipy.sparse.csgraph"
+  ],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "args": "scipy.sparse.csgraph",
+          "children": [],
+          "name": "currentmodule",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Fast graph algorithms based on sparse matrix representations."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": "Compressed sparse graph routines (:mod:`scipy.sparse.csgraph`)",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "type": "code",
+          "value": ".. autosummary:: \n    :toctree:generated/\n    connected_components -- determine connected components of a graph\n    laplacian -- compute the laplacian of a graph\n    shortest_path -- compute the shortest path between points on a positive graph\n    dijkstra -- use Dijkstra's algorithm for shortest path\n    floyd_warshall -- use the Floyd-Warshall algorithm for shortest path\n    bellman_ford -- use the Bellman-Ford algorithm for shortest path\n    johnson -- use Johnson's algorithm for shortest path\n    breadth_first_order -- compute a breadth-first order of nodes\n    depth_first_order -- compute a depth-first order of nodes\n    breadth_first_tree -- construct the breadth-first tree from a given node\n    depth_first_tree -- construct a depth-first tree from a given node\n    minimum_spanning_tree -- construct the minimum spanning tree of a graph\n    reverse_cuthill_mckee -- compute permutation for reverse Cuthill-McKee ordering\n    maximum_flow -- solve the maximum flow problem for a graph\n    maximum_bipartite_matching -- compute a maximum matching of a bipartite graph\n    min_weight_full_bipartite_matching - compute a minimum weight full matching of a bipartite graph\n    structural_rank -- compute the structural rank of a graph\n    NegativeCycleError"
+        },
+        {
+          "type": "code",
+          "value": ".. autosummary:: \n    :toctree:generated/\n    construct_dist_matrix\n    csgraph_from_dense\n    csgraph_from_masked\n    csgraph_masked_from_dense\n    csgraph_to_dense\n    csgraph_to_masked\n    reconstruct_path"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Contents",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This module uses graphs which are stored in a matrix format. A graph with N nodes can be represented by an (N x N) adjacency matrix G. If there is a connection from node i to node j, then G[i, j] = w, where w is the weight of the connection. For nodes i and j which are not connected, the value depends on the representation:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "for dense array representations, non-edges are represented by   G[i, j] = 0, infinity, or NaN."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "for dense masked representations (of type np.ma.MaskedArray), non-edges   are represented by masked values. This can be useful when graphs with   zero-weight edges are desired."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "for sparse array representations, non-edges are represented by   non-entries in the matrix. This sort of sparse representation also   allows for edges with zero weights."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "As a concrete example, imagine that you would like to represent the following undirected graph                "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "      G\n\n     (0)\n    /   \\\n   1     2\n  /       \\\n(2)       (1)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This graph has three nodes, where node 0 and 1 are connected by an edge of weight 2, and nodes 0 and 2 are connected by an edge of weight 1. We can construct the dense, masked, and sparse representations as follows, keeping in mind that an undirected graph is represented by a symmetric matrix      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> import numpy as np\n>>> G_dense = np.array([[0, 2, 1],\n...                     [2, 0, 0],\n...                     [1, 0, 0]])\n>>> G_masked = np.ma.masked_values(G_dense, 0)\n>>> from scipy.sparse import csr_matrix\n>>> G_sparse = csr_matrix(G_dense)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This becomes more difficult when zero edges are significant. For example, consider the situation when we slightly modify the above graph               "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "     G2\n\n     (0)\n    /   \\\n   0     2\n  /       \\\n(2)       (1)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This is identical to the previous graph, except nodes 0 and 2 are connected by an edge of zero weight. In this case, the dense representation above leads to ambiguities: how can non-edges be represented if zero is a meaningful value? In this case, either a masked or sparse representation must be used to eliminate the ambiguity      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> import numpy as np\n>>> G2_data = np.array([[np.inf, 2,      0     ],\n...                     [2,      np.inf, np.inf],\n...                     [0,      np.inf, np.inf]])\n>>> G2_masked = np.ma.masked_invalid(G2_data)\n>>> from scipy.sparse.csgraph import csgraph_from_dense\n>>> # G2_sparse = csr_matrix(G2_data) would give the wrong result\n>>> G2_sparse = csgraph_from_dense(G2_data, null_value=np.inf)\n>>> G2_sparse.data\narray([ 2.,  0.,  2.,  0.])"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Here we have used a utility routine from the csgraph submodule in order to convert the dense representation to a sparse representation which can be understood by the algorithms in submodule. By viewing the data array, we can see that the zero values are explicitly encoded in the graph."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Graph Representations",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Matrices may represent either directed or undirected graphs. This is specified throughout the csgraph module by a boolean keyword. Graphs are assumed to be directed by default. In a directed graph, traversal from node i to node j can be accomplished over the edge G[i, j], but not the edge G[j, i].  Consider the following dense graph      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> import numpy as np\n>>> G_dense = np.array([[0, 1, 0],\n...                     [2, 0, 3],\n...                     [0, 4, 0]])"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When "
+            },
+            {
+              "type": "inlineCode",
+              "value": "directed=True"
+            },
+            {
+              "type": "text",
+              "value": " we get the graph        "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "  ---1--> ---3-->\n(0)     (1)     (2)\n  <--2--- <--4---"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In a non-directed graph, traversal from node i to node j can be accomplished over either G[i, j] or G[j, i].  If both edges are not null, and the two have unequal weights, then the smaller of the two is used."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "So for the same graph, when "
+            },
+            {
+              "type": "inlineCode",
+              "value": "directed=False"
+            },
+            {
+              "type": "text",
+              "value": " we get the graph      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "(0)--1--(1)--3--(2)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Note that a symmetric matrix will represent an undirected graph, regardless of whether the 'directed' keyword is set to True or False. In this case, using "
+            },
+            {
+              "type": "inlineCode",
+              "value": "directed=True"
+            },
+            {
+              "type": "text",
+              "value": " generally leads to more efficient computation."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The routines in this module accept as input either scipy.sparse representations (csr, csc, or lil format), masked representations, or dense representations with non-edges indicated by zeros, infinities, and NaN entries."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Directed vs. undirected",
+      "type": "Section"
+    }
+  ],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To remove in the future \u2013\u2013 scipy.sparse.csgraph"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/sparse/csgraph/__init__.py",
+  "item_line": 0,
+  "item_type": "<class 'module'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

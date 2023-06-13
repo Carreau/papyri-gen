@@ -1,0 +1,436 @@
+{
+  "aliases": [
+    "scipy.spatial.geometric_slerp"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The interpolation occurs along a unit-radius great circle arc in arbitrary dimensional space."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The implementation is based on the mathematical formula provided in , and the first known presentation of this algorithm, derived from study of 4-D geometry, is credited to Glenn Davis in a footnote of the original quaternion Slerp publication by Ken Shoemake ."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 1.5.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Single n-dimensional input coordinate in a 1-D array-like object. "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "n"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must be greater than 1."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "start",
+              "type": "Param",
+              "type_": "(n_dimensions, ) array-like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Single n-dimensional input coordinate in a 1-D array-like object. "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "n"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must be greater than 1."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "end",
+              "type": "Param",
+              "type_": "(n_dimensions, ) array-like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A float or 1D array-like of doubles representing interpolation parameters, with values required in the inclusive interval between 0 and 1. A common approach is to generate the array with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.linspace(0, 1, n_pts)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for linearly spaced points. Ascending, descending, and scrambled orders are permitted."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "t",
+              "type": "Param",
+              "type_": "float or (n_points,) 1D array-like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The absolute tolerance for determining if the start and end coordinates are antipodes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "tol",
+              "type": "Param",
+              "type_": "float"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "start"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "end"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are antipodes, not on the unit n-sphere, or for a variety of degenerate conditions."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "ValueError"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An array of doubles containing the interpolated spherical path and including start and end when 0 and 1 t are used. The interpolated values should correspond to the same sort order provided in the t array. The result may be 1-dimensional if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "t"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a float."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "result",
+              "type": "Param",
+              "type_": "(t.size, D)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Geometric spherical linear interpolation."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Interpolate four linearly-spaced values on the circumference of\na circle spanning 90 degrees:"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.spatial import geometric_slerp\nimport matplotlib.pyplot as plt\nfig = plt.figure()\nax = fig.add_subplot(111)\nstart = np.array([1, 0])\nend = np.array([0, 1])\nt_vals = np.linspace(0, 1, 4)\nresult = geometric_slerp(start,\n                         end,\n                         t_vals)"
+      },
+      {
+        "type": "text",
+        "value": "The interpolated results should be at 30 degree intervals\nrecognizable on the unit circle:"
+      },
+      {
+        "type": "code",
+        "value": "ax.scatter(result[...,0], result[...,1], c='k')\ncircle = plt.Circle((0, 0), 1, color='grey')\nax.add_artist(circle)\nax.set_aspect('equal')\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.spatial._geometric_slerp:geometric_slerp-0-19182fa3.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      },
+      {
+        "type": "text",
+        "value": "Attempting to interpolate between antipodes on a circle is\nambiguous because there are two possible paths, and on a\nsphere there are infinite possible paths on the geodesic surface.\nNonetheless, one of the ambiguous paths is returned along\nwith a warning:"
+      },
+      {
+        "type": "code",
+        "value": "opposite_pole = np.array([-1, 0])\nwith np.testing.suppress_warnings() as sup:\n    sup.filter(UserWarning)\n    geometric_slerp(start,\n                    opposite_pole,\n                    t_vals)"
+      },
+      {
+        "type": "text",
+        "value": "Extend the original example to a sphere and plot interpolation\npoints in 3D:"
+      },
+      {
+        "type": "code",
+        "value": "from mpl_toolkits.mplot3d import proj3d\nfig = plt.figure()\nax = fig.add_subplot(111, projection='3d')"
+      },
+      {
+        "type": "text",
+        "value": "Plot the unit sphere for reference (optional):"
+      },
+      {
+        "type": "code",
+        "value": "u = np.linspace(0, 2 * np.pi, 100)\nv = np.linspace(0, np.pi, 100)\nx = np.outer(np.cos(u), np.sin(v))\ny = np.outer(np.sin(u), np.sin(v))\nz = np.outer(np.ones(np.size(u)), np.cos(v))\nax.plot_surface(x, y, z, color='y', alpha=0.1)"
+      },
+      {
+        "type": "text",
+        "value": "Interpolating over a larger number of points\nmay provide the appearance of a smooth curve on\nthe surface of the sphere, which is also useful\nfor discretized integration calculations on a\nsphere surface:"
+      },
+      {
+        "type": "code",
+        "value": "start = np.array([1, 0, 0])\nend = np.array([0, 0, 1])\nt_vals = np.linspace(0, 1, 200)\nresult = geometric_slerp(start,\n                         end,\n                         t_vals)\nax.plot(result[...,0],\n        result[...,1],\n        result[...,2],\n        c='k')\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.spatial._geometric_slerp:geometric_slerp-1-4f92d56a.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/spatial/_geometric_slerp.py",
+  "item_line": 35,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "3-D Slerp that works with quaternions"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.spatial.transform._rotation:Slerp",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "scipy.spatial.transform.Slerp"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(start: 'npt.ArrayLike', end: 'npt.ArrayLike', t: 'npt.ArrayLike', tol: 'float' = 1e-07) -> 'np.ndarray'"
+  },
+  "type": "DocBlob"
+}

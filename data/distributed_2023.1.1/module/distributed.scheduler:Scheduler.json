@@ -1,0 +1,845 @@
+{
+  "aliases": [
+    "distributed.Scheduler"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The scheduler tracks the current state of workers, data, and computations. The scheduler listens for events and responds by controlling workers appropriately.  It continuously tries to use the workers to execute an ever growing dask graph."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "All events are handled quickly, in linear time with respect to their input (which is often of constant size) and generally within a millisecond.  To accomplish this the scheduler tracks a lot of state.  Every operation maintains the consistency of this state."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The scheduler communicates with the outside world through Comm objects. It maintains a consistent and valid view of the world even when listening to several clients at once."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A Scheduler is typically started either with the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "dask scheduler"
+            },
+            {
+              "type": "text",
+              "value": " executable       "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "$ dask scheduler\nScheduler started at 127.0.0.1:8786"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Or within a LocalCluster a Client starts up without connection information      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> c = Client()  # doctest: +SKIP\n>>> c.cluster.scheduler  # doctest: +SKIP\nScheduler(...)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Users typically do not interact with the scheduler directly but rather with the client object "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Client"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "type": "inlineCode",
+              "value": "contact_address"
+            },
+            {
+              "type": "text",
+              "value": " parameter allows to advertise a specific address to the workers for communication with the scheduler, which is different than the address the scheduler binds to. This is useful when the scheduler listens on a private address, which therefore cannot be used by the workers to contact it."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "State"
+                }
+              ],
+              "type": "strong"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The scheduler contains the following state variables.  Each variable is listed along with what it stores and a brief description."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Tasks currently known to the scheduler"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "tasks:"
+                              }
+                            ],
+                            "type": "strong"
+                          },
+                          {
+                            "type": "text",
+                            "value": " "
+                          },
+                          {
+                            "type": "inlineCode",
+                            "value": "{task key: TaskState}"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Tasks in the \"no-worker\" state"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "unrunnable:"
+                              }
+                            ],
+                            "type": "strong"
+                          },
+                          {
+                            "type": "text",
+                            "value": " "
+                          },
+                          {
+                            "type": "inlineCode",
+                            "value": "{TaskState}"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Workers currently connected to the scheduler"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "workers:"
+                              }
+                            ],
+                            "type": "strong"
+                          },
+                          {
+                            "type": "text",
+                            "value": " "
+                          },
+                          {
+                            "type": "inlineCode",
+                            "value": "{worker key: WorkerState}"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Set of workers that are not fully utilized"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "idle:"
+                              }
+                            ],
+                            "type": "strong"
+                          },
+                          {
+                            "type": "text",
+                            "value": " "
+                          },
+                          {
+                            "type": "inlineCode",
+                            "value": "{WorkerState}"
+                          },
+                          {
+                            "type": "text",
+                            "value": ":"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Set of workers that are not over-utilized"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "saturated:"
+                              }
+                            ],
+                            "type": "strong"
+                          },
+                          {
+                            "type": "text",
+                            "value": " "
+                          },
+                          {
+                            "type": "inlineCode",
+                            "value": "{WorkerState}"
+                          },
+                          {
+                            "type": "text",
+                            "value": ":"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Information about each worker host"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "host_info:"
+                              }
+                            ],
+                            "type": "strong"
+                          },
+                          {
+                            "type": "text",
+                            "value": " "
+                          },
+                          {
+                            "type": "inlineCode",
+                            "value": "{hostname: dict}"
+                          },
+                          {
+                            "type": "text",
+                            "value": ":"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Clients currently connected to the scheduler"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "clients:"
+                              }
+                            ],
+                            "type": "strong"
+                          },
+                          {
+                            "type": "text",
+                            "value": " "
+                          },
+                          {
+                            "type": "inlineCode",
+                            "value": "{client key: ClientState}"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Other services running on this scheduler, like Bokeh"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "services:"
+                              }
+                            ],
+                            "type": "strong"
+                          },
+                          {
+                            "type": "text",
+                            "value": " "
+                          },
+                          {
+                            "type": "inlineCode",
+                            "value": "{str: port}"
+                          },
+                          {
+                            "type": "text",
+                            "value": ":"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "The running Tornado IOLoop"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "loop:"
+                              }
+                            ],
+                            "type": "strong"
+                          },
+                          {
+                            "type": "text",
+                            "value": " "
+                          },
+                          {
+                            "type": "inlineCode",
+                            "value": "IOLoop"
+                          },
+                          {
+                            "type": "text",
+                            "value": ":"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "For each client, a Comm object used to receive task requests and     report task status updates."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "client_comms:"
+                              }
+                            ],
+                            "type": "strong"
+                          },
+                          {
+                            "type": "text",
+                            "value": " "
+                          },
+                          {
+                            "type": "inlineCode",
+                            "value": "{client key: Comm}"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "For each worker, a Comm object from which we both accept stimuli and     report results"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "stream_comms:"
+                              }
+                            ],
+                            "type": "strong"
+                          },
+                          {
+                            "type": "text",
+                            "value": " "
+                          },
+                          {
+                            "type": "inlineCode",
+                            "value": "{worker key: Comm}"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Time we expect certain functions to take, e.g. "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "{'sum': 0.25}"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "task_duration:"
+                              }
+                            ],
+                            "type": "strong"
+                          },
+                          {
+                            "type": "text",
+                            "value": " "
+                          },
+                          {
+                            "type": "inlineCode",
+                            "value": "{key-prefix: time}"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Dynamic distributed task scheduler"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/distributed/scheduler.py",
+  "item_line": 3292,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,389 @@
+{
+  "aliases": [
+    "scipy.sparse.csgraph.dijkstra"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 0.11.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "As currently implemented, Dijkstra's algorithm does not work for graphs with direction-dependent distances when directed == False. i.e., if csgraph[i,j] and csgraph[j,i] are not equal and both are nonzero, setting directed=False will not yield the correct result."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Also, this routine does not work for graphs with negative distances.  Negative distances can lead to infinite cycles that must be handled by specialized algorithms such as Bellman-Ford's algorithm or Johnson's algorithm."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The N x N array of non-negative distances representing the input graph."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "csgraph",
+              "type": "Param",
+              "type_": "array, matrix, or sparse matrix, 2 dimensions"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True (default), then find the shortest path on a directed graph: only move from point i to point j along paths csgraph[i, j] and from point j to i along paths csgraph[j, i]. If False, then find the shortest path on an undirected graph: the algorithm can progress from point i to j or j to i along either csgraph[i, j] or csgraph[j, i]."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "directed",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "if specified, only compute the paths from the points at the given indices."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "indices",
+              "type": "Param",
+              "type_": "array_like or int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, return the size (N, N) predecesor matrix"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "return_predecessors",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, then find unweighted distances.  That is, rather than finding the path between each point such that the sum of weights is minimized, find the path such that the number of edges is minimized."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "unweighted",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The maximum distance to calculate, must be >= 0. Using a smaller limit will decrease computation time by aborting calculations between pairs that are separated by a distance > limit. For such pairs, the distance will be equal to np.inf (i.e., not connected)."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 0.14.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "limit",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If False (default), for every node in the graph, find the shortest path from every node in indices. If True, for every node in the graph, find the shortest path from any of the nodes in indices (which can be substantially faster)."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.3.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "min_only",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The matrix of distances between graph nodes. If min_only=False, dist_matrix has shape (n_indices, n_nodes) and dist_matrix[i, j] gives the shortest distance from point i to point j along the graph. If min_only=True, dist_matrix has shape (n_nodes,) and contains for a given node the shortest path to that node from any of the nodes in indices."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dist_matrix",
+              "type": "Param",
+              "type_": "ndarray, shape ([n_indices, ]n_nodes,)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If min_only=False, this has shape (n_indices, n_nodes), otherwise it has shape (n_nodes,). Returned only if return_predecessors == True. The matrix of predecessors, which can be used to reconstruct the shortest paths.  Row i of the predecessor matrix contains information on the shortest paths from point i: each entry predecessors[i, j] gives the index of the previous node in the path from point i to point j.  If no path exists between point i and j, then predecessors[i, j] = -9999"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "predecessors",
+              "type": "Param",
+              "type_": "ndarray, shape ([n_indices, ]n_nodes,)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Returned only if min_only=True and return_predecessors=True. Contains the index of the source which had the shortest path to each target.  If no path exists within the limit, this will contain -9999.  The value at the indices passed will be equal to that index (i.e. the fastest way to reach node i, is to start on node i)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sources",
+              "type": "Param",
+              "type_": "ndarray, shape (n_nodes,)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Dijkstra algorithm using Fibonacci Heaps"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from scipy.sparse import csr_matrix\nfrom scipy.sparse.csgraph import dijkstra"
+      },
+      {
+        "type": "code",
+        "value": "graph = [\n[0, 1, 2, 0],\n[0, 0, 0, 1],\n[0, 0, 0, 3],\n[0, 0, 0, 0]\n]\ngraph = csr_matrix(graph)\nprint(graph)"
+      },
+      {
+        "type": "code",
+        "value": "dist_matrix, predecessors = dijkstra(csgraph=graph, directed=False, indices=0, return_predecessors=True)\ndist_matrix"
+      },
+      {
+        "type": "code",
+        "value": "predecessors"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": "<class 'builtin_function_or_method'>",
+  "ordered_sections": [
+    "Signature",
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "dijkstra(csgraph, directed=True, indices=None, return_predecessors=False, unweighted=False, limit=np.inf, min_only=False)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,781 @@
+{
+  "aliases": [
+    "scipy.signal.zpk2sos"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The algorithm used to convert ZPK to SOS format is designed to minimize errors due to numerical precision issues. The pairing algorithm attempts to minimize the peak gain of each biquadratic section. This is done by pairing poles with the nearest zeros, starting with the poles closest to the unit circle for discrete-time systems, and poles closest to the imaginary axis for continuous-time systems."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "inlineCode",
+              "value": "pairing='minimal'"
+            },
+            {
+              "type": "text",
+              "value": " outputs may not be suitable for "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "sosfilt"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "analog=True"
+            },
+            {
+              "type": "text",
+              "value": " outputs will never be suitable for "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "sosfilt"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Algorithms"
+                }
+              ],
+              "type": "emphasis"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The steps in the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "pairing='nearest'"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "pairing='keep_odd'"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "pairing='minimal'"
+            },
+            {
+              "type": "text",
+              "value": " algorithms are mostly shared. The "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'nearest'"
+            },
+            {
+              "type": "text",
+              "value": " algorithm attempts to minimize the peak gain, while "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'keep_odd'"
+            },
+            {
+              "type": "text",
+              "value": " minimizes peak gain under the constraint that odd-order systems should retain one section as first order. "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'minimal'"
+            },
+            {
+              "type": "text",
+              "value": " is similar to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'keep_odd'"
+            },
+            {
+              "type": "text",
+              "value": ", but no additional poles or zeros are introduced"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The algorithm steps are as follows:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "As a pre-processing step for "
+            },
+            {
+              "type": "inlineCode",
+              "value": "pairing='nearest'"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "pairing='keep_odd'"
+            },
+            {
+              "type": "text",
+              "value": ", add poles or zeros to the origin as necessary to obtain the same number of poles and zeros for pairing.  If "
+            },
+            {
+              "type": "inlineCode",
+              "value": "pairing == 'nearest'"
+            },
+            {
+              "type": "text",
+              "value": " and there are an odd number of poles, add an additional pole and a zero at the origin."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The following steps are then iterated over until no more poles or zeros remain:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Take the (next remaining) pole (complex or real) closest to the    unit circle (or imaginary axis, for "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "analog=True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") to    begin a new filter section."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If the pole is real and there are no other remaining real poles ,    add the closest real zero to the section and leave it as a first    order section. Note that after this step we are guaranteed to be    left with an even number of real poles, complex poles, real zeros,    and complex zeros for subsequent pairing iterations."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Else:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "If the pole is complex and the zero is the only remaining real        zero*, then pair the pole with the "
+                                },
+                                {
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "value": "next"
+                                    }
+                                  ],
+                                  "type": "emphasis"
+                                },
+                                {
+                                  "type": "text",
+                                  "value": " closest zero        (guaranteed to be complex). This is necessary to ensure that        there will be a real zero remaining to eventually create a        first-order section (thus keeping the odd order)."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "Else pair the pole with the closest remaining zero (complex or        real)."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "Proceed to complete the second-order section by adding another        pole and zero to the current pole and zero in the section:"
+                                }
+                              ],
+                              "type": "paragraph"
+                            },
+                            {
+                              "children": [
+                                {
+                                  "children": [
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [
+                                            {
+                                              "type": "text",
+                                              "value": "If the current pole and zero are both complex, add their            conjugates."
+                                            }
+                                          ],
+                                          "type": "paragraph"
+                                        }
+                                      ],
+                                      "spread": false,
+                                      "type": "listItem"
+                                    },
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [
+                                            {
+                                              "type": "text",
+                                              "value": "Else if the pole is complex and the zero is real, add the            conjugate pole and the next closest real zero."
+                                            }
+                                          ],
+                                          "type": "paragraph"
+                                        }
+                                      ],
+                                      "spread": false,
+                                      "type": "listItem"
+                                    },
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [
+                                            {
+                                              "type": "text",
+                                              "value": "Else if the pole is real and the zero is complex, add the            conjugate zero and the real pole closest to those zeros."
+                                            }
+                                          ],
+                                          "type": "paragraph"
+                                        }
+                                      ],
+                                      "spread": false,
+                                      "type": "listItem"
+                                    },
+                                    {
+                                      "children": [
+                                        {
+                                          "children": [
+                                            {
+                                              "type": "text",
+                                              "value": "Else (we must have a real pole and real zero) add the next            real pole closest to the unit circle, and then add the real            zero closest to that pole."
+                                            }
+                                          ],
+                                          "type": "paragraph"
+                                        }
+                                      ],
+                                      "spread": false,
+                                      "type": "listItem"
+                                    }
+                                  ],
+                                  "ordered": true,
+                                  "spread": false,
+                                  "start": 1,
+                                  "type": "list"
+                                }
+                              ],
+                              "type": "blockquote"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        }
+                      ],
+                      "ordered": true,
+                      "spread": false,
+                      "start": 1,
+                      "type": "list"
+                    }
+                  ],
+                  "type": "blockquote"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": true,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "placeholder": "footnote",
+          "type": "Unimplemented",
+          "value": ".. [#] This conditional can only be met for specific odd-order inputs\n       with the ``pairing = 'keep_odd'`` or ``'minimal'`` methods."
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 0.16.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Zeros of the transfer function."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "z",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Poles of the transfer function."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "p",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "System gain."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "k",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The method to use to combine pairs of poles and zeros into sections. If analog is False and pairing is None, pairing is set to 'nearest'; if analog is True, pairing must be 'minimal', and is set to that if it is None."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "pairing",
+              "type": "Param",
+              "type_": "{None, 'nearest', 'keep_odd', 'minimal'}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, system is analog, otherwise discrete."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.8.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "analog",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Array of second-order filter coefficients, with shape "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(n_sections, 6)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". See "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "sosfilt"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for the SOS filter format specification."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sos",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Return second-order sections from zeros, poles, and gain of a system"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Design a 6th order low-pass elliptic digital filter for a system with a\nsampling rate of 8000 Hz that has a pass-band corner frequency of\n1000 Hz. The ripple in the pass-band should not exceed 0.087 dB, and\nthe attenuation in the stop-band should be at least 90 dB."
+      },
+      {
+        "type": "text",
+        "value": "In the following call to `ellip`, we could use ``output='sos'``,\nbut for this example, we'll use ``output='zpk'``, and then convert\nto SOS format with `zpk2sos`:"
+      },
+      {
+        "type": "code",
+        "value": "from scipy import signal\nimport numpy as np\nz, p, k = signal.ellip(6, 0.087, 90, 1000/(0.5*8000), output='zpk')"
+      },
+      {
+        "type": "text",
+        "value": "Now convert to SOS format."
+      },
+      {
+        "type": "code",
+        "value": "sos = signal.zpk2sos(z, p, k)"
+      },
+      {
+        "type": "text",
+        "value": "The coefficients of the numerators of the sections:"
+      },
+      {
+        "type": "code",
+        "value": "sos[:, :3]"
+      },
+      {
+        "type": "text",
+        "value": "The symmetry in the coefficients occurs because all the zeros are on the\nunit circle."
+      },
+      {
+        "type": "text",
+        "value": "The coefficients of the denominators of the sections:"
+      },
+      {
+        "type": "code",
+        "value": "sos[:, 3:]"
+      },
+      {
+        "type": "text",
+        "value": "The next example shows the effect of the `pairing` option.  We have a\nsystem with three poles and three zeros, so the SOS array will have\nshape (2, 6). The means there is, in effect, an extra pole and an extra\nzero at the origin in the SOS representation."
+      },
+      {
+        "type": "code",
+        "value": "z1 = np.array([-1, -0.5-0.5j, -0.5+0.5j])\np1 = np.array([0.75, 0.8+0.1j, 0.8-0.1j])"
+      },
+      {
+        "type": "text",
+        "value": "With ``pairing='nearest'`` (the default), we obtain"
+      },
+      {
+        "type": "code",
+        "value": "signal.zpk2sos(z1, p1, 1)"
+      },
+      {
+        "type": "text",
+        "value": "The first section has the zeros {-0.5-0.05j, -0.5+0.5j} and the poles\n{0, 0.75}, and the second section has the zeros {-1, 0} and poles\n{0.8+0.1j, 0.8-0.1j}. Note that the extra pole and zero at the origin\nhave been assigned to different sections."
+      },
+      {
+        "type": "text",
+        "value": "With ``pairing='keep_odd'``, we obtain:"
+      },
+      {
+        "type": "code",
+        "value": "signal.zpk2sos(z1, p1, 1, pairing='keep_odd')"
+      },
+      {
+        "type": "text",
+        "value": "The extra pole and zero at the origin are in the same section.\nThe first section is, in effect, a first-order section."
+      },
+      {
+        "type": "text",
+        "value": "With ``pairing='minimal'``, the first-order section doesn't have\nthe extra pole and zero at the origin:"
+      },
+      {
+        "type": "code",
+        "value": "signal.zpk2sos(z1, p1, 1, pairing='minimal')"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/signal/_filter_design.py",
+  "item_line": 1297,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "sosfilt",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "sosfilt"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(z, p, k, pairing=None, *, analog=False)"
+  },
+  "type": "DocBlob"
+}

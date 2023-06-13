@@ -1,0 +1,1298 @@
+{
+  "aliases": [
+    "scipy.stats.page_trend_test"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Page's Test (also known as Page's "
+            },
+            {
+              "type": "inlineMath",
+              "value": "L"
+            },
+            {
+              "type": "text",
+              "value": " test) is useful when:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "there are "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "n \\geq 3"
+                    },
+                    {
+                      "type": "text",
+                      "value": " treatments,"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineMath",
+                      "value": "m \\geq 2"
+                    },
+                    {
+                      "type": "text",
+                      "value": " subjects are observed for each treatment, and"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "the observations are hypothesized to have a particular order."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Specifically, the test considers the null hypothesis that"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "m_1 = m_2 = m_3 \\cdots = m_n,"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where "
+            },
+            {
+              "type": "inlineMath",
+              "value": "m_j"
+            },
+            {
+              "type": "text",
+              "value": " is the mean of the observed quantity under treatment "
+            },
+            {
+              "type": "inlineMath",
+              "value": "j"
+            },
+            {
+              "type": "text",
+              "value": ", against the alternative hypothesis that"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "m_1 \\leq m_2 \\leq m_3 \\leq \\cdots \\leq m_n,"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where at least one inequality is strict."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "As noted by , Page's "
+            },
+            {
+              "type": "inlineMath",
+              "value": "L"
+            },
+            {
+              "type": "text",
+              "value": " test has greater statistical power than the Friedman test against the alternative that there is a difference in trend, as Friedman's test only considers a difference in the means of the observations without considering their order. Whereas Spearman "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\rho"
+            },
+            {
+              "type": "text",
+              "value": " considers the correlation between the ranked observations of two variables (e.g. the airspeed velocity of a swallow vs. the weight of the coconut it carries), Page's "
+            },
+            {
+              "type": "inlineMath",
+              "value": "L"
+            },
+            {
+              "type": "text",
+              "value": " is concerned with a trend in an observation (e.g. the airspeed velocity of a swallow) across several distinct treatments (e.g. carrying each of five coconuts of different weight) even as the observation is repeated with multiple subjects (e.g. one European swallow and one African swallow)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "As noted in , \"the "
+            },
+            {
+              "type": "inlineMath",
+              "value": "n"
+            },
+            {
+              "type": "text",
+              "value": " 'treatments' could just as well represent "
+            },
+            {
+              "type": "inlineMath",
+              "value": "n"
+            },
+            {
+              "type": "text",
+              "value": " objects or events or performances or persons or trials ranked.\" Similarly, the "
+            },
+            {
+              "type": "inlineMath",
+              "value": "m"
+            },
+            {
+              "type": "text",
+              "value": " 'subjects' could equally stand for "
+            },
+            {
+              "type": "inlineMath",
+              "value": "m"
+            },
+            {
+              "type": "text",
+              "value": " \"groupings by ability or some other control variable, or judges doing the ranking, or random replications of some other sort.\""
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The procedure for calculating the "
+            },
+            {
+              "type": "inlineMath",
+              "value": "L"
+            },
+            {
+              "type": "text",
+              "value": " statistic, adapted from , is:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "\"Predetermine with careful logic the appropriate hypotheses    concerning the predicted ording of the experimental results.    If no reasonable basis for ordering any treatments is known, the    "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "L"
+                    },
+                    {
+                      "type": "text",
+                      "value": " test is not appropriate.\""
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "\"As in other experiments, determine at what level of confidence    you will reject the null hypothesis that there is no agreement of    experimental results with the monotonic hypothesis.\""
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "\"Cast the experimental material into a two-way table of "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "n"
+                    },
+                    {
+                      "type": "text",
+                      "value": "    columns (treatments, objects ranked, conditions) and "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "m"
+                    },
+                    {
+                      "type": "text",
+                      "value": "    rows (subjects, replication groups, levels of control variables).\""
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "\"When experimental observations are recorded, rank them across each    row\", e.g. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ranks = scipy.stats.rankdata(data, axis=1)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "\"Add the ranks in each column\", e.g.    "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "colsums = np.sum(ranks, axis=0)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "\"Multiply each sum of ranks by the predicted rank for that same    column\", e.g. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "products = predicted_ranks * colsums"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "\"Sum all such products\", e.g. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "L = products.sum()"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": true,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": " continues by suggesting use of the standardized statistic"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "\\chi_L^2 = \\frac{\\left[12L-3mn(n+1)^2\\right]^2}{mn^2(n^2-1)(n+1)}"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "\"which is distributed approximately as chi-square with 1 degree of freedom. The ordinary use of "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\chi^2"
+            },
+            {
+              "type": "text",
+              "value": " tables would be equivalent to a two-sided test of agreement. If a one-sided test is desired, "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "as will almost always be the case"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": ", the probability discovered in the chi-square table should be "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "halved"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": ".\""
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "However, this standardized statistic does not distinguish between the observed values being well correlated with the predicted ranks and being _anti_-correlated with the predicted ranks. Instead, we follow  and calculate the standardized statistic"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "\\Lambda = \\frac{L - E_0}{\\sqrt{V_0}},"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where "
+            },
+            {
+              "type": "inlineMath",
+              "value": "E_0 = \\frac{1}{4} mn(n+1)^2"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "V_0 = \\frac{1}{144} mn^2(n+1)(n^2-1)"
+            },
+            {
+              "type": "text",
+              "value": ", \"which is asymptotically normal under the null hypothesis\"."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "p"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": "-value for "
+            },
+            {
+              "type": "inlineCode",
+              "value": "method='exact'"
+            },
+            {
+              "type": "text",
+              "value": " is generated by comparing the observed value of "
+            },
+            {
+              "type": "inlineMath",
+              "value": "L"
+            },
+            {
+              "type": "text",
+              "value": " against the "
+            },
+            {
+              "type": "inlineMath",
+              "value": "L"
+            },
+            {
+              "type": "text",
+              "value": " values generated for all "
+            },
+            {
+              "type": "inlineMath",
+              "value": "(n!)^m"
+            },
+            {
+              "type": "text",
+              "value": " possible permutations of ranks. The calculation is performed using the recursive method of [5]."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "p"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": "-values are not adjusted for the possibility of ties. When ties are present, the reported  "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'exact'"
+            },
+            {
+              "type": "text",
+              "value": " "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "p"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": "-values may be somewhat larger (i.e. more conservative) than the true "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "p"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": "-value . The "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'asymptotic'`"
+            },
+            {
+              "type": "text",
+              "value": " "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "p"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": "-values, however, tend to be smaller (i.e. less conservative) than the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'exact'"
+            },
+            {
+              "type": "text",
+              "value": " "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "p"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": "-values."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "m \\times n"
+                    },
+                    {
+                      "type": "text",
+                      "value": " array; the element in row "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "i"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and column "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "j"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the observation corresponding with subject "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "i"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and treatment "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "j"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". By default, the columns are assumed to be arranged in order of increasing predicted mean."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "data",
+              "type": "Param",
+              "type_": "array-like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "By default, "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "data",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "data"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is assumed to be observations rather than ranks; it will be ranked with "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "scipy.stats._stats_py",
+                        "path": "scipy.stats._stats_py:rankdata",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "scipy.stats.rankdata"
+                    },
+                    {
+                      "type": "text",
+                      "value": " along "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "axis=1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "data",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "data"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is provided in the form of ranks, pass argument "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ranked",
+              "type": "Param",
+              "type_": "boolean, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The predicted ranks of the column means. If not specified, the columns are assumed to be arranged in order of increasing predicted mean, so the default "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "predicted_ranks",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "predicted_ranks"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "[1, 2, \\dots, n-1, n]"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "predicted_ranks",
+              "type": "Param",
+              "type_": "array-like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Selects the method used to calculate the "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "p"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": "-value. The following options are available."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'auto': selects between 'exact' and 'asymptotic' to   achieve reasonably accurate results in reasonable time (default)"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'asymptotic': compares the standardized test statistic against   the normal distribution"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'exact': computes the exact "
+                            },
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "p"
+                                }
+                              ],
+                              "type": "emphasis"
+                            },
+                            {
+                              "type": "text",
+                              "value": "-value by comparing the observed   "
+                            },
+                            {
+                              "type": "inlineMath",
+                              "value": "L"
+                            },
+                            {
+                              "type": "text",
+                              "value": " statistic against those realized by all possible   permutations of ranks (under the null hypothesis that each   permutation is equally likely)"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "param": "method",
+              "type": "Param",
+              "type_": "{'auto', 'asymptotic', 'exact'}, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An object containing attributes:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "statistic"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "statistic"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "pvalue"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "pvalue"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "method"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "method"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "param": "res",
+              "type": "Param",
+              "type_": "PageTrendTestResult"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Perform Page's Test, a measure of trend in observations between treatments."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "We use the example from [3]_: 10 students are asked to rate three\nteaching methods - tutorial, lecture, and seminar - on a scale of 1-5,\nwith 1 being the lowest and 5 being the highest. We have decided that\na confidence level of 99% is required to reject the null hypothesis in\nfavor of our alternative: that the seminar will have the highest ratings\nand the tutorial will have the lowest. Initially, the data have been\ntabulated with each row representing an individual student's ratings of\nthe three methods in the following order: tutorial, lecture, seminar."
+      },
+      {
+        "type": "code",
+        "value": "table = [[3, 4, 3],\n         [2, 2, 4],\n         [3, 3, 5],\n         [1, 3, 2],\n         [2, 3, 2],\n         [2, 4, 5],\n         [1, 2, 4],\n         [3, 4, 4],\n         [2, 4, 5],\n         [1, 3, 4]]"
+      },
+      {
+        "type": "text",
+        "value": "Because the tutorial is hypothesized to have the lowest ratings, the\ncolumn corresponding with tutorial rankings should be first; the seminar\nis hypothesized to have the highest ratings, so its column should be last.\nSince the columns are already arranged in this order of increasing\npredicted mean, we can pass the table directly into `page_trend_test`."
+      },
+      {
+        "type": "code",
+        "value": "from scipy.stats import page_trend_test\nres = page_trend_test(table)\nres"
+      },
+      {
+        "type": "text",
+        "value": "This *p*-value indicates that there is a 0.1819% chance that\nthe :math:`L` statistic would reach such an extreme value under the null\nhypothesis. Because 0.1819% is less than 1%, we have evidence to reject\nthe null hypothesis in favor of our alternative at a 99% confidence level."
+      },
+      {
+        "type": "text",
+        "value": "The value of the :math:`L` statistic is 133.5. To check this manually,\nwe rank the data such that high scores correspond with high ranks, settling\nties with an average rank:"
+      },
+      {
+        "type": "code",
+        "value": "from scipy.stats import rankdata\nranks = rankdata(table, axis=1)\nranks"
+      },
+      {
+        "type": "text",
+        "value": "We add the ranks within each column, multiply the sums by the\npredicted ranks, and sum the products."
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nm, n = ranks.shape\npredicted_ranks = np.arange(1, n+1)\nL = (predicted_ranks * np.sum(ranks, axis=0)).sum()\nres.statistic == L"
+      },
+      {
+        "type": "text",
+        "value": "As presented in [3]_, the asymptotic approximation of the *p*-value is the\nsurvival function of the normal distribution evaluated at the standardized\ntest statistic:"
+      },
+      {
+        "type": "code",
+        "value": "from scipy.stats import norm\nE0 = (m*n*(n+1)**2)/4\nV0 = (m*n**2*(n+1)*(n**2-1))/144\nLambda = (L-E0)/np.sqrt(V0)\np = norm.sf(Lambda)\np"
+      },
+      {
+        "type": "text",
+        "value": "This does not precisely match the *p*-value reported by `page_trend_test`\nabove. The asymptotic distribution is not very accurate, nor conservative,\nfor :math:`m \\leq 12` and :math:`n \\leq 8`, so `page_trend_test` chose to\nuse ``method='exact'`` based on the dimensions of the table and the\nrecommendations in Page's original paper [1]_. To override\n`page_trend_test`'s choice, provide the `method` argument."
+      },
+      {
+        "type": "code",
+        "value": "res = page_trend_test(table, method=\"asymptotic\")\nres"
+      },
+      {
+        "type": "text",
+        "value": "If the data are already ranked, we can pass in the ``ranks`` instead of\nthe ``table`` to save computation time."
+      },
+      {
+        "type": "code",
+        "value": "res = page_trend_test(ranks,             # ranks of data\n                      ranked=True,       # data is already ranked\n                      )\nres"
+      },
+      {
+        "type": "text",
+        "value": "Suppose the raw data had been tabulated in an order different from the\norder of predicted means, say lecture, seminar, tutorial."
+      },
+      {
+        "type": "code",
+        "value": "table = np.asarray(table)[:, [1, 2, 0]]"
+      },
+      {
+        "type": "text",
+        "value": "Since the arrangement of this table is not consistent with the assumed\nordering, we can either rearrange the table or provide the\n`predicted_ranks`. Remembering that the lecture is predicted\nto have the middle rank, the seminar the highest, and tutorial the lowest,\nwe pass:"
+      },
+      {
+        "type": "code",
+        "value": "res = page_trend_test(table,             # data as originally tabulated\n                      predicted_ranks=[2, 3, 1],  # our predicted order\n                      )\nres"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_page_trend_test.py",
+  "item_line": 13,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "rankdata",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "rankdata"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "friedmanchisquare",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "friedmanchisquare"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "spearmanr",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "spearmanr"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(data, ranked=False, predicted_ranks=None, method='auto')"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,362 @@
+{
+  "aliases": [
+    "scipy.cluster.hierarchy.is_valid_im"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "It must be a "
+            },
+            {
+              "type": "inlineMath",
+              "value": "n"
+            },
+            {
+              "type": "text",
+              "value": " by 4 array of doubles. The standard deviations "
+            },
+            {
+              "type": "inlineCode",
+              "value": "R[:,1]"
+            },
+            {
+              "type": "text",
+              "value": " must be nonnegative. The link counts "
+            },
+            {
+              "type": "inlineCode",
+              "value": "R[:,2]"
+            },
+            {
+              "type": "text",
+              "value": " must be positive and no greater than "
+            },
+            {
+              "type": "inlineMath",
+              "value": "n-1"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The inconsistency matrix to check for validity."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "R",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "When True, issues a Python warning if the linkage matrix passed is invalid."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "warning",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "When True, throws a Python exception if the linkage matrix passed is invalid."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "throw",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This string refers to the variable name of the invalid linkage matrix."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "name",
+              "type": "Param",
+              "type_": "str, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "True if the inconsistency matrix is valid."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "b",
+              "type": "Param",
+              "type_": "bool"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Return True if the inconsistency matrix passed is valid."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from scipy.cluster.hierarchy import ward, inconsistent, is_valid_im\nfrom scipy.spatial.distance import pdist"
+      },
+      {
+        "type": "text",
+        "value": "Given a data set ``X``, we can apply a clustering method to obtain a\nlinkage matrix ``Z``. `scipy.cluster.hierarchy.inconsistent` can\nbe also used to obtain the inconsistency matrix ``R`` associated to\nthis clustering process:"
+      },
+      {
+        "type": "code",
+        "value": "X = [[0, 0], [0, 1], [1, 0],\n     [0, 4], [0, 3], [1, 4],\n     [4, 0], [3, 0], [4, 1],\n     [4, 4], [3, 4], [4, 3]]"
+      },
+      {
+        "type": "code",
+        "value": "Z = ward(pdist(X))\nR = inconsistent(Z)\nZ"
+      },
+      {
+        "type": "code",
+        "value": "R"
+      },
+      {
+        "type": "text",
+        "value": "Now we can use `scipy.cluster.hierarchy.is_valid_im` to verify that\n``R`` is correct:"
+      },
+      {
+        "type": "code",
+        "value": "is_valid_im(R)"
+      },
+      {
+        "type": "text",
+        "value": "However, if ``R`` is wrongly constructed (e.g., one of the standard\ndeviations is set to a negative value), then the check will fail:"
+      },
+      {
+        "type": "code",
+        "value": "R[-1,1] = R[-1,1] * -1\nis_valid_im(R)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/cluster/hierarchy.py",
+  "item_line": 2055,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "for a description of what a linkage matrix is."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "linkage",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "linkage"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "for the creation of a inconsistency matrix."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "inconsistent",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "inconsistent"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(R, warning=False, throw=False, name=None)"
+  },
+  "type": "DocBlob"
+}

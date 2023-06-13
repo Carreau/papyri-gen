@@ -1,0 +1,364 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "args": "numpy.random",
+          "children": [],
+          "name": "currentmodule",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "RandomState"
+            },
+            {
+              "type": "text",
+              "value": " provides access to legacy generators. This generator is considered frozen and will have no further improvements.  It is guaranteed to produce the same values as the final point release of NumPy v1.16. These all depend on Box-Muller normals or inverse CDF exponentials or gammas. This class should only be used if it is essential to have randoms that are identical to what would have been produced by previous versions of NumPy."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "RandomState"
+            },
+            {
+              "type": "text",
+              "value": " adds additional information to the state which is required when using Box-Muller normals since these are produced in pairs. It is important to use "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "RandomState.get_state"
+            },
+            {
+              "type": "text",
+              "value": ", and not the underlying bit generators "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "state"
+            },
+            {
+              "type": "text",
+              "value": ", when accessing the state so that these extra values are saved."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Although we provide the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "MT19937"
+            },
+            {
+              "type": "text",
+              "value": " BitGenerator for use independent of "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "RandomState"
+            },
+            {
+              "type": "text",
+              "value": ", note that its default seeding uses "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "SeedSequence"
+            },
+            {
+              "type": "text",
+              "value": " rather than the legacy seeding algorithm. "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "RandomState"
+            },
+            {
+              "type": "text",
+              "value": " will use the legacy seeding algorithm. The methods to use the legacy seeding algorithm are currently private as the main reason to use them is just to implement "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "RandomState"
+            },
+            {
+              "type": "text",
+              "value": ". However, one can reset the state of "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "MT19937"
+            },
+            {
+              "type": "text",
+              "value": " using the state of the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "RandomState"
+            },
+            {
+              "type": "text",
+              "value": ":"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "python",
+          "children": [],
+          "name": "code-block",
+          "options": {},
+          "type": "mystDirective",
+          "value": "from numpy.random import MT19937\nfrom numpy.random import RandomState\n\nrs = RandomState(12345)\nmt19937 = MT19937()\nmt19937.state = rs.get_state()\nrs2 = RandomState(mt19937)\n\n# Same output\nrs.standard_normal()\nrs2.standard_normal()\n\nrs.random()\nrs2.random()\n\nrs.standard_exponential()\nrs2.standard_exponential()"
+        },
+        {
+          "args": "RandomState",
+          "children": [],
+          "name": "autoclass",
+          "options": {
+            "exclude-members": "__init__",
+            "members": "__init__"
+          },
+          "type": "mystDirective",
+          "value": ""
+        }
+      ],
+      "level": 0,
+      "target": "legacy",
+      "title": "Legacy Random Generation",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "type": "code",
+          "value": ".. autosummary:: \n    :toctree:generated/\n    ~RandomState.get_state\n    ~RandomState.set_state\n    ~RandomState.seed"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Seeding and State",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "type": "code",
+          "value": ".. autosummary:: \n    :toctree:generated/\n    ~RandomState.rand\n    ~RandomState.randn\n    ~RandomState.randint\n    ~RandomState.random_integers\n    ~RandomState.random_sample\n    ~RandomState.choice\n    ~RandomState.bytes"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Simple random data",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "type": "code",
+          "value": ".. autosummary:: \n    :toctree:generated/\n    ~RandomState.shuffle\n    ~RandomState.permutation"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Permutations",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "type": "code",
+          "value": ".. autosummary:: \n    :toctree:generated/\n    ~RandomState.beta\n    ~RandomState.binomial\n    ~RandomState.chisquare\n    ~RandomState.dirichlet\n    ~RandomState.exponential\n    ~RandomState.f\n    ~RandomState.gamma\n    ~RandomState.geometric\n    ~RandomState.gumbel\n    ~RandomState.hypergeometric\n    ~RandomState.laplace\n    ~RandomState.logistic\n    ~RandomState.lognormal\n    ~RandomState.logseries\n    ~RandomState.multinomial\n    ~RandomState.multivariate_normal\n    ~RandomState.negative_binomial\n    ~RandomState.noncentral_chisquare\n    ~RandomState.noncentral_f\n    ~RandomState.normal\n    ~RandomState.pareto\n    ~RandomState.poisson\n    ~RandomState.power\n    ~RandomState.rayleigh\n    ~RandomState.standard_cauchy\n    ~RandomState.standard_exponential\n    ~RandomState.standard_gamma\n    ~RandomState.standard_normal\n    ~RandomState.standard_t\n    ~RandomState.triangular\n    ~RandomState.uniform\n    ~RandomState.vonmises\n    ~RandomState.wald\n    ~RandomState.weibull\n    ~RandomState.zipf"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Distributions",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Many of the RandomState methods above are exported as functions in "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy",
+                "path": "numpy.random",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "numpy.random"
+            },
+            {
+              "type": "text",
+              "value": " This usage is discouraged, as it is implemented via a global "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "RandomState"
+            },
+            {
+              "type": "text",
+              "value": " instance which is not advised on two counts:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "It uses global state, which means results will change as the code changes"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "It uses a "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "RandomState"
+                    },
+                    {
+                      "type": "text",
+                      "value": " rather than the more modern "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "Generator"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For backward compatible legacy reasons, we will not change this."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ".. autosummary:: \n    :toctree:generated/\n\n    beta\n    binomial\n    bytes\n    chisquare\n    choice\n    dirichlet\n    exponential\n    f\n    gamma\n    geometric\n    get_state\n    gumbel\n    hypergeometric\n    laplace\n    logistic\n    lognormal\n    logseries\n    multinomial\n    multivariate_normal\n    negative_binomial\n    noncentral_chisquare\n    noncentral_f\n    normal\n    pareto\n    permutation\n    poisson\n    power\n    rand\n    randint\n    randn\n    random\n    random_integers\n    random_sample\n    ranf\n    rayleigh\n    sample\n    seed\n    set_state\n    shuffle\n    standard_cauchy\n    standard_exponential\n    standard_gamma\n    standard_normal\n    standard_t\n    triangular\n    uniform\n    vonmises\n    wald\n    weibull\n    zipf\n"
+        }
+      ],
+      "level": 1,
+      "target": "functions-in-numpy-random",
+      "title": "Functions in `numpy.random`",
+      "type": "Section"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

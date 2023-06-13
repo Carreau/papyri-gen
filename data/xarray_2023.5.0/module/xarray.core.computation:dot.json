@@ -1,0 +1,235 @@
+{
+  "aliases": [
+    "xarray.dot"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Arrays to compute."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "*arrays",
+              "type": "Param",
+              "type_": "DataArray or Variable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Which dimensions to sum over. Ellipsis ('...') sums over all dimensions. If not specified, then all the common dimensions are summed over."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dims",
+              "type": "Param",
+              "type_": "str, iterable of hashable, \"...\" or None, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Additional keyword arguments passed to numpy.einsum or dask.array.einsum"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "**kwargs",
+              "type": "Param",
+              "type_": "dict"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "DataArray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Generalized dot product for xarray objects. Like np.einsum, but provides a simpler interface based on array dimensions."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "da_a = xr.DataArray(np.arange(3 * 2).reshape(3, 2), dims=[\"a\", \"b\"])\nda_b = xr.DataArray(np.arange(3 * 2 * 2).reshape(3, 2, 2), dims=[\"a\", \"b\", \"c\"])\nda_c = xr.DataArray(np.arange(2 * 3).reshape(2, 3), dims=[\"c\", \"d\"])"
+      },
+      {
+        "type": "code",
+        "value": "da_a"
+      },
+      {
+        "type": "code",
+        "value": "da_b"
+      },
+      {
+        "type": "code",
+        "value": "da_c"
+      },
+      {
+        "type": "code",
+        "value": "xr.dot(da_a, da_b, dims=[\"a\", \"b\"])"
+      },
+      {
+        "type": "code",
+        "value": "xr.dot(da_a, da_b, dims=[\"a\"])"
+      },
+      {
+        "type": "code",
+        "value": "xr.dot(da_a, da_b, da_c, dims=[\"b\", \"c\"])"
+      },
+      {
+        "type": "code",
+        "value": "xr.dot(da_a, da_b)"
+      },
+      {
+        "type": "code",
+        "value": "xr.dot(da_a, da_b, dims=...)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/xarray/core/computation.py",
+  "item_line": 1623,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(*arrays, dims: 'Dims' = None, **kwargs: 'Any')"
+  },
+  "type": "DocBlob"
+}

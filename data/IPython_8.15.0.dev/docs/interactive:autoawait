@@ -1,0 +1,861 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "note "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "This feature is experimental and behavior can change between python and IPython version without prior deprecation."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Starting with IPython 7.0, and when using Python 3.6 and above, IPython offer the ability to run asynchronous code from the REPL. Constructs which are "
+            },
+            {
+              "type": "inlineCode",
+              "value": "SyntaxError"
+            },
+            {
+              "type": "text",
+              "value": " s in the Python REPL can be used seamlessly in IPython."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The examples given here are for terminal IPython, running async code in a notebook interface or any other frontend using the Jupyter protocol needs IPykernel version 5.0 or above. The details of how async code runs in IPykernel will differ between IPython, IPykernel and their versions."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When a supported library is used, IPython will automatically allow Futures and Coroutines in the REPL to be "
+            },
+            {
+              "type": "inlineCode",
+              "value": "await"
+            },
+            {
+              "type": "text",
+              "value": " ed. This will happen if an "
+            },
+            {
+              "type": "inlineCode",
+              "value": "await\n<await>"
+            },
+            {
+              "type": "text",
+              "value": " (or any other async constructs like async-with, async-for) is used at top level scope, or if any structure valid only in "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "async def"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://docs.python.org/3/reference/compound_stmts.html#async-def"
+            },
+            {
+              "type": "text",
+              "value": " function context are present. For example, the following being a syntax error in the Python REPL      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "Python 3.6.0 \n[GCC 4.2.1]\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n>>> import aiohttp\n>>> session = aiohttp.ClientSession()\n>>> result = session.get('https://api.github.com')\n>>> response = await result\n  File \"<stdin>\", line 1\n    response = await result\n                          ^\nSyntaxError: invalid syntax"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Should behave as expected in the IPython REPL      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "Python 3.6.0\nType 'copyright', 'credits' or 'license' for more information\nIPython 7.0.0 -- An enhanced Interactive Python. Type '?' for help.\n\nIn [1]: import aiohttp\n   ...: session = aiohttp.ClientSession()\n   ...: result = session.get('https://api.github.com')\n\nIn [2]: response = await result\n<pause for a few 100s ms>\n\nIn [3]: await response.json()\nOut[3]:\n{'authorizations_url': 'https://api.github.com/authorizations',\n 'code_search_url': 'https://api.github.com/search/code?q={query}...',\n...\n}"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You can use the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "c.InteractiveShell.autoawait"
+            },
+            {
+              "type": "text",
+              "value": " configuration option and set it to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "False"
+            },
+            {
+              "type": "text",
+              "value": " to deactivate automatic wrapping of asynchronous code. You can also use the "
+            },
+            {
+              "domain": null,
+              "role": "magic",
+              "type": "Directive",
+              "value": "%autoawait"
+            },
+            {
+              "type": "text",
+              "value": " magic to toggle the behavior at runtime      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "In [1]: %autoawait False\n\nIn [2]: %autoawait\nIPython autoawait is `Off`, and set to use `asyncio`"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "By default IPython will assume integration with Python's provided "
+            },
+            {
+              "type": "inlineCode",
+              "value": "asyncio"
+            },
+            {
+              "type": "text",
+              "value": ", but integration with other libraries is provided. In particular we provide experimental integration with the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "curio"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "trio"
+            },
+            {
+              "type": "text",
+              "value": " library."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You can switch the current integration by using the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "c.InteractiveShell.loop_runner"
+            },
+            {
+              "type": "text",
+              "value": " option or the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "autoawait <name\nintegration>"
+            },
+            {
+              "type": "text",
+              "value": " magic."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For example      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "In [1]: %autoawait trio\n\nIn [2]: import trio\n\nIn [3]: async def child(i):\n   ...:     print(\"   child %s goes to sleep\"%i)\n   ...:     await trio.sleep(2)\n   ...:     print(\"   child %s wakes up\"%i)\n\nIn [4]: print('parent start')\n   ...: async with trio.open_nursery() as n:\n   ...:     for i in range(5):\n   ...:         n.spawn(child, i)\n   ...: print('parent end')\nparent start\n   child 2 goes to sleep\n   child 0 goes to sleep\n   child 3 goes to sleep\n   child 1 goes to sleep\n   child 4 goes to sleep\n   <about 2 seconds pause>\n   child 2 wakes up\n   child 1 wakes up\n   child 0 wakes up\n   child 3 wakes up\n   child 4 wakes up\nparent end"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In the above example, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "async with"
+            },
+            {
+              "type": "text",
+              "value": " at top level scope is a syntax error in Python."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Using this mode can have unexpected consequences if used in interaction with other features of IPython and various registered extensions. In particular if you are a direct or indirect user of the AST transformers, these may not apply to your code."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When using command line IPython, the default loop (or runner) does not process in the background, so top level asynchronous code must finish for the REPL to allow you to enter more code. As with usual Python semantics, the awaitables are started only when awaited for the first time. That is to say, in first example, no network request is done between "
+            },
+            {
+              "type": "inlineCode",
+              "value": "In[1]"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "In[2]"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": "autoawait",
+      "title": "Asynchronous in REPL: Autoawait",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "IPython core being asynchronous, the use of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "IPython.embed()"
+            },
+            {
+              "type": "text",
+              "value": " will now require a loop to run. By default IPython will use a fake coroutine runner which should allow "
+            },
+            {
+              "type": "inlineCode",
+              "value": "IPython.embed()"
+            },
+            {
+              "type": "text",
+              "value": " to be nested. Though this will prevent usage of the "
+            },
+            {
+              "domain": null,
+              "role": "magic",
+              "type": "Directive",
+              "value": "%autoawait"
+            },
+            {
+              "type": "text",
+              "value": " feature when using IPython embed."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You can set a coroutine runner explicitly for "
+            },
+            {
+              "type": "inlineCode",
+              "value": "embed()"
+            },
+            {
+              "type": "text",
+              "value": " if you want to run asynchronous code, though the exact behavior is undefined."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Effects on IPython.embed()",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A couple of magics ("
+            },
+            {
+              "type": "inlineCode",
+              "value": "%%timeit"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%timeit"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%%time"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%%prun"
+            },
+            {
+              "type": "text",
+              "value": ") have not yet been updated to work with asynchronous code and will raise syntax errors when trying to use top-level "
+            },
+            {
+              "type": "inlineCode",
+              "value": "await"
+            },
+            {
+              "type": "text",
+              "value": ". We welcome any contribution to help fix those, and extra cases we haven't caught yet. We hope for better support in Core Python for top-level Async code."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Effects on Magics",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "As running asynchronous code is not supported in interactive REPL (as of Python 3.7) we have to rely to a number of complex workarounds and heuristics to allow this to happen. It is interesting to understand how this works in order to comprehend potential bugs, or provide a custom runner."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Among the many approaches that are at our disposition, we find only one that suited out need. Under the hood we use the code object from a async-def function and run it in global namespace after modifying it to not create a new "
+            },
+            {
+              "type": "inlineCode",
+              "value": "locals()"
+            },
+            {
+              "type": "text",
+              "value": " scope      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "async def inner_async():\n    locals().update(**global_namespace)\n    #\n    # here is user code\n    #\n    return last_user_statement\ncodeobj = modify(inner_async.__code__)\ncoroutine = eval(codeobj, user_ns)\ndisplay(loop_runner(coroutine))"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The first thing you'll notice is that unlike classical "
+            },
+            {
+              "type": "inlineCode",
+              "value": "exec"
+            },
+            {
+              "type": "text",
+              "value": ", there is only one namespace. Second, user code runs in a function scope, and not a module scope."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "On top of the above there are significant modification to the AST of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "function"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "loop_runner"
+            },
+            {
+              "type": "text",
+              "value": " can be arbitrary complex. So there is a significant overhead to this kind of code."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "By default the generated coroutine function will be consumed by Asyncio's "
+            },
+            {
+              "type": "inlineCode",
+              "value": "loop_runner = asyncio.get_event_loop().run_until_complete()"
+            },
+            {
+              "type": "text",
+              "value": " method if "
+            },
+            {
+              "type": "inlineCode",
+              "value": "async"
+            },
+            {
+              "type": "text",
+              "value": " mode is deemed necessary, otherwise the coroutine will just be exhausted in a simple runner. It is possible, though, to change the default runner."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A loop runner is a "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "synchronous"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": "  function responsible from running a coroutine object."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The runner is responsible for ensuring that "
+            },
+            {
+              "type": "inlineCode",
+              "value": "coroutine"
+            },
+            {
+              "type": "text",
+              "value": " runs to completion, and it should return the result of executing the coroutine. Let's write a runner for "
+            },
+            {
+              "type": "inlineCode",
+              "value": "trio"
+            },
+            {
+              "type": "text",
+              "value": " that print a message when used as an exercise, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "trio"
+            },
+            {
+              "type": "text",
+              "value": " is special as it usually prefers to run a function object and make a coroutine by itself, we can get around this limitation by wrapping it in an async-def without parameters and passing this value to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "trio"
+            },
+            {
+              "type": "text",
+              "value": "       "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "In [1]: import trio\n   ...: from types import CoroutineType\n   ...:\n   ...: def trio_runner(coro:CoroutineType):\n   ...:     print('running asynchronous code')\n   ...:     async def corowrap(coro):\n   ...:         return await coro\n   ...:     return trio.run(corowrap, coro)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "We can set it up by passing it to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%autoawait"
+            },
+            {
+              "type": "text",
+              "value": "      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "In [2]: %autoawait trio_runner\n\nIn [3]: async def async_hello(name):\n   ...:     await trio.sleep(1)\n   ...:     print(f'Hello {name} world !')\n   ...:     await trio.sleep(1)\n\nIn [4]: await async_hello('async')\nrunning asynchronous code\nHello async world !"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Asynchronous programming in python (and in particular in the REPL) is still a relatively young subject. We expect some code to not behave as you expect, so feel free to contribute improvements to this codebase and give us feedback."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "We invite you to thoroughly test this feature and report any unexpected behavior as well as propose any improvement."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Internals",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Update ipykernel to version 5.0 or greater     "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "pip install ipykernel ipython --upgrade\n# or\nconda install ipykernel ipython --upgrade"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This should automatically enable "
+            },
+            {
+              "domain": null,
+              "role": "magic",
+              "type": "Directive",
+              "value": "autoawait"
+            },
+            {
+              "type": "text",
+              "value": " integration. Unlike terminal IPython, all code runs on "
+            },
+            {
+              "type": "inlineCode",
+              "value": "asyncio"
+            },
+            {
+              "type": "text",
+              "value": " eventloop, so creating a loop by hand will not work, including with magics like "
+            },
+            {
+              "domain": null,
+              "role": "magic",
+              "type": "Directive",
+              "value": "%run"
+            },
+            {
+              "type": "text",
+              "value": " or other frameworks that create the eventloop themselves. In cases like these you can try to use projects like "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "nest_asyncio"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/erdewit/nest_asyncio"
+            },
+            {
+              "type": "text",
+              "value": " and follow "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "this discussion"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/jupyter/notebook/issues/3397#issuecomment-419386811"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Using Autoawait in a notebook (IPykernel)",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The exact asynchronous code running behavior varies between Terminal IPython and IPykernel. The root cause of this behavior is due to IPykernel having a "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "persistent"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "asyncio",
+                "path": "asyncio",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "asyncio"
+            },
+            {
+              "type": "text",
+              "value": " loop running, while Terminal IPython starts and stops a loop for each code block. This can lead to surprising behavior in some cases if you are used to manipulating asyncio loop yourself, see for example "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "#11303"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/ipython/ipython/issue/11303"
+            },
+            {
+              "type": "text",
+              "value": " for a longer discussion but here are some of the astonishing cases."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This behavior is an implementation detail, and should not be relied upon. It can change without warnings in future versions of IPython."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In terminal IPython a loop is started for each code blocks only if there is top level async code     "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "$ ipython\nIn [1]: import asyncio\n   ...: asyncio.get_event_loop()\nOut[1]: <_UnixSelectorEventLoop running=False closed=False debug=False>\n\nIn [2]:\n\nIn [2]: import asyncio\n   ...: await asyncio.sleep(0)\n   ...: asyncio.get_event_loop()\nOut[2]: <_UnixSelectorEventLoop running=True closed=False debug=False>"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "See that "
+            },
+            {
+              "type": "inlineCode",
+              "value": "running"
+            },
+            {
+              "type": "text",
+              "value": " is "
+            },
+            {
+              "type": "inlineCode",
+              "value": "True"
+            },
+            {
+              "type": "text",
+              "value": " only in the case were we "
+            },
+            {
+              "type": "inlineCode",
+              "value": "await sleep()"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In a Notebook, with ipykernel the asyncio eventloop is always running     "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "$ jupyter notebook\nIn [1]: import asyncio\n   ...: loop1 = asyncio.get_event_loop()\n   ...: loop1\nOut[1]: <_UnixSelectorEventLoop running=True closed=False debug=False>\n\nIn [2]: loop2 = asyncio.get_event_loop()\n   ...: loop2\nOut[2]: <_UnixSelectorEventLoop running=True closed=False debug=False>\n\nIn [3]: loop1 is loop2\nOut[3]: True"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In Terminal IPython background tasks are only processed while the foreground task is running, if and only if the foreground task is async     "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "$ ipython\nIn [1]: import asyncio\n   ...:\n   ...: async def repeat(msg, n):\n   ...:     for i in range(n):\n   ...:         print(f\"{msg} {i}\")\n   ...:         await asyncio.sleep(1)\n   ...:     return f\"{msg} done\"\n   ...:\n   ...: asyncio.ensure_future(repeat(\"background\", 10))\nOut[1]: <Task pending coro=<repeat() running at <ipython-input-1-02d0ef250fe7>:3>>\n\nIn [2]: await asyncio.sleep(3)\nbackground 0\nbackground 1\nbackground 2\nbackground 3\n\nIn [3]: import time\n...: time.sleep(5)\n\nIn [4]: await asyncio.sleep(3)\nbackground 4\nbackground 5\nbackground 6g"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In a Notebook, QtConsole, or any other frontend using IPykernel, background tasks should behave as expected."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Difference between terminal IPython and IPykernel",
+      "type": "Section"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

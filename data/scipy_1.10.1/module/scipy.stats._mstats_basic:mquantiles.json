@@ -1,0 +1,470 @@
+{
+  "aliases": [
+    "scipy.stats._mstats_basic.mquantiles"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Samples quantile are defined by "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Q(p) = (1-gamma)*x[j] + gamma*x[j+1]"
+            },
+            {
+              "type": "text",
+              "value": ", where "
+            },
+            {
+              "type": "inlineCode",
+              "value": "x[j]"
+            },
+            {
+              "type": "text",
+              "value": " is the j-th order statistic, and gamma is a function of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "j = floor(n*p + m)"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "m = alphap + p*(1 - alphap - betap)"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "g = n*p + m - j"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Reinterpreting the above equations to compare to "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "R"
+                }
+              ],
+              "type": "strong"
+            },
+            {
+              "type": "text",
+              "value": " lead to the equation: "
+            },
+            {
+              "type": "inlineCode",
+              "value": "p(k) = (k - alphap)/(n + 1 - alphap - betap)"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Typical values of (alphap,betap) are:"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            }
+          ],
+          "type": "DefList"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This formulation is very similar to "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "R"
+                }
+              ],
+              "type": "strong"
+            },
+            {
+              "type": "text",
+              "value": " except the calculation of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "m"
+            },
+            {
+              "type": "text",
+              "value": " from "
+            },
+            {
+              "type": "inlineCode",
+              "value": "alphap"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "betap"
+            },
+            {
+              "type": "text",
+              "value": ", where in "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "R"
+                }
+              ],
+              "type": "strong"
+            },
+            {
+              "type": "text",
+              "value": " "
+            },
+            {
+              "type": "inlineCode",
+              "value": "m"
+            },
+            {
+              "type": "text",
+              "value": " is defined with each type."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Input data, as a sequence or array of dimension at most 2."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "a",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "List of quantiles to compute."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "prob",
+              "type": "Param",
+              "type_": "array_like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Plotting positions parameter, default is 0.4."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "alphap",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Plotting positions parameter, default is 0.4."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "betap",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Axis along which to perform the trimming. If None (default), the input array is first flattened."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "axis",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Tuple of (lower, upper) values. Values of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": " outside this open interval are ignored."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "limit",
+              "type": "Param",
+              "type_": "tuple, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An array containing the calculated quantiles."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mquantiles",
+              "type": "Param",
+              "type_": "MaskedArray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Computes empirical quantiles for a data array."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.stats.mstats import mquantiles\na = np.array([6., 47., 49., 15., 42., 41., 7., 39., 43., 40., 36.])\nmquantiles(a)"
+      },
+      {
+        "type": "text",
+        "value": "Using a 2D array, specifying axis and limit."
+      },
+      {
+        "type": "code",
+        "value": "data = np.array([[   6.,    7.,    1.],\n                 [  47.,   15.,    2.],\n                 [  49.,   36.,    3.],\n                 [  15.,   39.,    4.],\n                 [  42.,   40., -999.],\n                 [  41.,   41., -999.],\n                 [   7., -999., -999.],\n                 [  39., -999., -999.],\n                 [  43., -999., -999.],\n                 [  40., -999., -999.],\n                 [  36., -999., -999.]])\nprint(mquantiles(data, axis=0, limit=(0, 50)))"
+      },
+      {
+        "type": "code",
+        "value": "data[:, 2] = -999.\nprint(mquantiles(data, axis=0, limit=(0, 50)))"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_mstats_basic.py",
+  "item_line": 3071,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(a, prob=[0.25, 0.5, 0.75], alphap=0.4, betap=0.4, axis=None, limit=())"
+  },
+  "type": "DocBlob"
+}

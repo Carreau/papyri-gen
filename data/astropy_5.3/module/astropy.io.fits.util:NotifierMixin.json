@@ -1,0 +1,213 @@
+{
+  "aliases": [
+    "astropy.io.fits.column.NotifierMixin"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "All methods provided by this class are underscored, since this is intended for internal use to communicate between classes in a generic way, and is not machinery that should be exposed to users of the classes involved."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Use the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_add_listener"
+            },
+            {
+              "type": "text",
+              "value": " method to register a listener on an instance of the notifier.  This registers the listener with a weak reference, so if no other references to the listener exist it is automatically dropped from the list and does not need to be manually removed."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Call the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_notify"
+            },
+            {
+              "type": "text",
+              "value": " method on the notifier to update all listeners upon changes.  "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_notify('change_type', *args, **kwargs)"
+            },
+            {
+              "type": "text",
+              "value": " results in calling "
+            },
+            {
+              "type": "inlineCode",
+              "value": "listener._update_change_type(*args, **kwargs)"
+            },
+            {
+              "type": "text",
+              "value": " on all listeners subscribed to that notifier."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If a particular listener does not have the appropriate update method it is ignored."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Mixin class that provides services by which objects can register listeners to changes on that object."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "class Widget(NotifierMixin):\n    state = 1\n    def __init__(self, name):\n        self.name = name\n    def update_state(self):\n        self.state += 1\n        self._notify('widget_state_changed', self)"
+      },
+      {
+        "type": "code",
+        "value": "class WidgetListener:\n    def _update_widget_state_changed(self, widget):\n        print('Widget {0} changed state to {1}'.format(\n            widget.name, widget.state))"
+      },
+      {
+        "type": "code",
+        "value": "widget = Widget('fred')\nlistener = WidgetListener()\nwidget._add_listener(listener)\nwidget.update_state()"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/astropy/io/fits/util.py",
+  "item_line": 33,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

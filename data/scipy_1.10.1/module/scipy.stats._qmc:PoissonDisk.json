@@ -1,0 +1,574 @@
+{
+  "aliases": [
+    "scipy.stats._qmc.PoissonDisk"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Poisson disk sampling is an iterative sampling strategy. Starting from a seed sample, "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "ncandidates",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "ncandidates"
+            },
+            {
+              "type": "text",
+              "value": " are sampled in the hypersphere surrounding the seed. Candidates bellow a certain "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "radius",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "radius"
+            },
+            {
+              "type": "text",
+              "value": " or outside the domain are rejected. New samples are added in a pool of sample seed. The process stops when the pool is empty or when the number of required samples is reached."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The maximum number of point that a sample can contain is directly linked to the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "radius",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "radius"
+            },
+            {
+              "type": "text",
+              "value": ". As the dimension of the space increases, a higher radius spreads the points further and help overcome the curse of dimensionality. See the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "quasi monte carlo tutorial <quasi-monte-carlo>"
+            },
+            {
+              "type": "text",
+              "value": " for more details."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "warning "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "The algorithm is more suitable for low dimensions and sampling size due to its iterative nature and memory requirements. Selecting a small radius with a high dimension would mean that the space could contain more samples than using lower dimension or a bigger radius."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Some code taken from , written consent given on 31.03.2021 by the original author, Shamis, for free use in SciPy under the 3-clause BSD."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Dimension of the parameter space."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "d",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Minimal distance to keep between points when sampling new candidates."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "radius",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Sampling strategy to generate potential candidates to be added in the final sample. Default is \"volume\"."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "inlineCode",
+                              "value": "volume"
+                            },
+                            {
+                              "type": "text",
+                              "value": ": original Bridson algorithm as described in .   New candidates are sampled "
+                            },
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "within"
+                                }
+                              ],
+                              "type": "emphasis"
+                            },
+                            {
+                              "type": "text",
+                              "value": " the hypersphere."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "inlineCode",
+                              "value": "surface"
+                            },
+                            {
+                              "type": "text",
+                              "value": ": only sample the surface of the hypersphere."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "param": "hypersphere",
+              "type": "Param",
+              "type_": "{\"volume\", \"surface\"}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of candidates to sample per iteration. More candidates result in a denser sampling as more candidates can be accepted per iteration."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ncandidates",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to use an optimization scheme to improve the quality after sampling. Note that this is a post-processing step that does not guarantee that all properties of the sample will be conserved. Default is None."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "inlineCode",
+                              "value": "random-cd"
+                            },
+                            {
+                              "type": "text",
+                              "value": ": random permutations of coordinates to lower the   centered discrepancy. The best sample based on the centered   discrepancy is constantly updated. Centered discrepancy-based   sampling shows better space-filling robustness toward 2D and 3D   subprojections compared to using other discrepancy measures."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "inlineCode",
+                              "value": "lloyd"
+                            },
+                            {
+                              "type": "text",
+                              "value": ": Perturb samples using a modified Lloyd-Max algorithm.   The process converges to equally spaced samples."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.10.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "optimization",
+              "type": "Param",
+              "type_": "{None, \"random-cd\", \"lloyd\"}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "seed",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "seed"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is an int or None, a new "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "numpy.random._generator",
+                        "path": "numpy.random._generator:Generator",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "numpy.random.Generator"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is created using "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.random.default_rng(seed)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "seed",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "seed"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is already a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Generator"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instance, then the provided instance is used."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "seed",
+              "type": "Param",
+              "type_": "{None, int, `numpy.random.Generator`}, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Poisson disk sampling."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Generate a 2D sample using a `radius` of 0.2."
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nimport matplotlib.pyplot as plt\nfrom matplotlib.collections import PatchCollection\nfrom scipy.stats import qmc"
+      },
+      {
+        "type": "code",
+        "value": "rng = np.random.default_rng()\nradius = 0.2\nengine = qmc.PoissonDisk(d=2, radius=radius, seed=rng)\nsample = engine.random(20)"
+      },
+      {
+        "type": "text",
+        "value": "Visualizing the 2D sample and showing that no points are closer than\n`radius`. ``radius/2`` is used to visualize non-intersecting circles.\nIf two samples are exactly at `radius` from each other, then their circle\nof radius ``radius/2`` will touch."
+      },
+      {
+        "type": "code",
+        "value": "fig, ax = plt.subplots()\n_ = ax.scatter(sample[:, 0], sample[:, 1])\ncircles = [plt.Circle((xi, yi), radius=radius/2, fill=False)\n           for xi, yi in sample]\ncollection = PatchCollection(circles, match_original=True)\nax.add_collection(collection)\n_ = ax.set(aspect='equal', xlabel=r'$x_1$', ylabel=r'$x_2$',\n           xlim=[0, 1], ylim=[0, 1])\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.stats._qmc:PoissonDisk-0-9b96cbe5.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      },
+      {
+        "type": "text",
+        "value": "Such visualization can be seen as circle packing: how many circle can\nwe put in the space. It is a np-hard problem. The method `fill_space`\ncan be used to add samples until no more samples can be added. This is\na hard problem and parameters may need to be adjusted manually. Beware of\nthe dimension: as the dimensionality increases, the number of samples\nrequired to fill the space increases exponentially\n(curse-of-dimensionality)."
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_qmc.py",
+  "item_line": 1638,
+  "item_type": "<class 'abc.ABCMeta'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

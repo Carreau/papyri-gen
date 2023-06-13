@@ -1,0 +1,653 @@
+{
+  "aliases": [
+    "scipy.stats._levy_stable.levy_stable_gen"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "%(before_notes)s"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The distribution for "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "levy_stable"
+            },
+            {
+              "type": "text",
+              "value": " has characteristic function:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "\\varphi(t, \\alpha, \\beta, c, \\mu) =\ne^{it\\mu -|ct|^{\\alpha}(1-i\\beta\\operatorname{sign}(t)\\Phi(\\alpha, t))}"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where two different parameterizations are supported. The first "
+            },
+            {
+              "type": "inlineMath",
+              "value": "S_1"
+            },
+            {
+              "type": "text",
+              "value": ":"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "\\Phi = \\begin{cases}\n        \\tan \\left({\\frac {\\pi \\alpha }{2}}\\right)&\\alpha \\neq 1\\\\\n        -{\\frac {2}{\\pi }}\\log |t|&\\alpha =1\n        \\end{cases}"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The second "
+            },
+            {
+              "type": "inlineMath",
+              "value": "S_0"
+            },
+            {
+              "type": "text",
+              "value": ":"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "\\Phi = \\begin{cases}\n        -\\tan \\left({\\frac {\\pi \\alpha }{2}}\\right)(|ct|^{1-\\alpha}-1)\n        &\\alpha \\neq 1\\\\\n        -{\\frac {2}{\\pi }}\\log |ct|&\\alpha =1\n        \\end{cases}"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The probability density function for "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "levy_stable"
+            },
+            {
+              "type": "text",
+              "value": " is:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "f(x) = \\frac{1}{2\\pi}\\int_{-\\infty}^\\infty \\varphi(t)e^{-ixt}\\,dt"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where "
+            },
+            {
+              "type": "inlineMath",
+              "value": "-\\infty < t < \\infty"
+            },
+            {
+              "type": "text",
+              "value": ". This integral does not have a known closed form."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "levy_stable"
+            },
+            {
+              "type": "text",
+              "value": " generalizes several distributions.  Where possible, they should be used instead.  Specifically, when the shape parameters assume the values in the table below, the corresponding equivalent distribution should be used."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "=========  ========  =========== "
+            },
+            {
+              "type": "inlineCode",
+              "value": "alpha"
+            },
+            {
+              "type": "text",
+              "value": "  "
+            },
+            {
+              "type": "inlineCode",
+              "value": "beta"
+            },
+            {
+              "type": "text",
+              "value": "   Equivalent =========  ========  ===========  1/2       -1        "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "levy_l"
+            },
+            {
+              "type": "text",
+              "value": "  1/2       1         "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "levy"
+            },
+            {
+              "type": "text",
+              "value": "  1         0         "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "cauchy"
+            },
+            {
+              "type": "text",
+              "value": "  2         any       "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "norm"
+            },
+            {
+              "type": "text",
+              "value": " (with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "scale=sqrt(2)"
+            },
+            {
+              "type": "text",
+              "value": ") =========  ========  ==========="
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Evaluation of the pdf uses Nolan's piecewise integration approach with the Zolotarev "
+            },
+            {
+              "type": "inlineMath",
+              "value": "M"
+            },
+            {
+              "type": "text",
+              "value": " parameterization by default. There is also the option to use direct numerical integration of the standard parameterization of the characteristic function or to evaluate by taking the FFT of the characteristic function."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The default method can changed by setting the class variable "
+            },
+            {
+              "type": "inlineCode",
+              "value": "levy_stable.pdf_default_method"
+            },
+            {
+              "type": "text",
+              "value": " to one of 'piecewise' for Nolan's approach, 'dni' for direct numerical integration, or 'fft-simpson' for the FFT based approach. For the sake of backwards compatibility, the methods 'best' and 'zolotarev' are equivalent to 'piecewise' and the method 'quadrature' is equivalent to 'dni'."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The parameterization can be changed  by setting the class variable "
+            },
+            {
+              "type": "inlineCode",
+              "value": "levy_stable.parameterization"
+            },
+            {
+              "type": "text",
+              "value": " to either 'S0' or 'S1'. The default is 'S1'."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To improve performance of piecewise and direct numerical integration one can specify "
+            },
+            {
+              "type": "inlineCode",
+              "value": "levy_stable.quad_eps"
+            },
+            {
+              "type": "text",
+              "value": " (defaults to 1.2e-14). This is used as both the absolute and relative quadrature tolerance for direct numerical integration and as the relative quadrature tolerance for the piecewise method. One can also specify "
+            },
+            {
+              "type": "inlineCode",
+              "value": "levy_stable.piecewise_x_tol_near_zeta"
+            },
+            {
+              "type": "text",
+              "value": " (defaults to 0.005) for how close x is to zeta before it is considered the same as x [NO]. The exact check is "
+            },
+            {
+              "type": "inlineCode",
+              "value": "abs(x0 - zeta) < piecewise_x_tol_near_zeta*alpha**(1/alpha)"
+            },
+            {
+              "type": "text",
+              "value": ". One can also specify "
+            },
+            {
+              "type": "inlineCode",
+              "value": "levy_stable.piecewise_alpha_tol_near_one"
+            },
+            {
+              "type": "text",
+              "value": " (defaults to 0.005) for how close alpha is to 1 before being considered equal to 1."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To increase accuracy of FFT calculation one can specify "
+            },
+            {
+              "type": "inlineCode",
+              "value": "levy_stable.pdf_fft_grid_spacing"
+            },
+            {
+              "type": "text",
+              "value": " (defaults to 0.001) and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "pdf_fft_n_points_two_power"
+            },
+            {
+              "type": "text",
+              "value": " (defaults to None which means a value is calculated that sufficiently covers the input range)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Further control over FFT calculation is available by setting "
+            },
+            {
+              "type": "inlineCode",
+              "value": "pdf_fft_interpolation_degree"
+            },
+            {
+              "type": "text",
+              "value": " (defaults to 3) for spline order and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "pdf_fft_interpolation_level"
+            },
+            {
+              "type": "text",
+              "value": " for determining the number of points to use in the Newton-Cotes formula when approximating the characteristic function (considered experimental)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Evaluation of the cdf uses Nolan's piecewise integration approach with the Zolatarev "
+            },
+            {
+              "type": "inlineMath",
+              "value": "S_0"
+            },
+            {
+              "type": "text",
+              "value": " parameterization by default. There is also the option to evaluate through integration of an interpolated spline of the pdf calculated by means of the FFT method. The settings affecting FFT calculation are the same as for pdf calculation. The default cdf method can be changed by setting "
+            },
+            {
+              "type": "inlineCode",
+              "value": "levy_stable.cdf_default_method"
+            },
+            {
+              "type": "text",
+              "value": " to either 'piecewise' or 'fft-simpson'.  For cdf calculations the Zolatarev method is superior in accuracy, so FFT is disabled by default."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Fitting estimate uses quantile estimation method in [MC]. MLE estimation of parameters in fit method uses this quantile estimate initially. Note that MLE doesn't always converge if using FFT for pdf calculations; this will be the case if alpha <= 1 where the FFT approach doesn't give good approximations."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Any non-missing value for the attribute "
+            },
+            {
+              "type": "inlineCode",
+              "value": "levy_stable.pdf_fft_min_points_threshold"
+            },
+            {
+              "type": "text",
+              "value": " will set "
+            },
+            {
+              "type": "inlineCode",
+              "value": "levy_stable.pdf_default_method"
+            },
+            {
+              "type": "text",
+              "value": " to 'fft-simpson' if a valid default method is not otherwise set."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "warning "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "For pdf calculations FFT calculation is considered experimental."
+                }
+              ],
+              "type": "paragraph"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "For cdf calculations FFT calculation is considered experimental. Use Zolatarev's method instead (default)."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "%(after_notes)s"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A Levy-stable continuous random variable."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_levy_stable/__init__.py",
+  "item_line": 635,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "See Also",
+    "Notes",
+    "References"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "levy",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "levy"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "levy_l",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "levy_l"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "cauchy",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "cauchy"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "norm",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "norm"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

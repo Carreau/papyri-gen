@@ -1,0 +1,1248 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "note "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "The IPython Sphinx Directive is in 'beta' and currently under active development. Improvements to the code or documentation are welcome!"
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "directive": {
+            "args": "reStructured text",
+            "children": [],
+            "name": "replace",
+            "options": {},
+            "type": "mystDirective",
+            "value": ""
+          },
+          "name": "|rst|",
+          "type": "SubstitutionDef"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "domain": "rst",
+              "role": "dir",
+              "type": "Directive",
+              "value": "ipython"
+            },
+            {
+              "type": "text",
+              "value": " directive is a stateful shell that can be used in "
+            },
+            {
+              "type": "SubstitutionRef",
+              "value": "|rst|"
+            },
+            {
+              "type": "text",
+              "value": " files."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "It knows about standard ipython prompts, and extracts the input and output lines.  These prompts will be renumbered starting at "
+            },
+            {
+              "type": "inlineCode",
+              "value": "1"
+            },
+            {
+              "type": "text",
+              "value": ".  The inputs will be fed to an embedded ipython interpreter and the outputs from that interpreter will be inserted as well.  For example, code blocks like the following    "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ".. ipython::\n\n   In [136]: x = 2\n\n   In [137]: x**3\n   Out[137]: 8"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "will be rendered as"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "",
+          "children": [],
+          "name": "ipython",
+          "options": {},
+          "type": "mystDirective",
+          "value": "In [136]: x = 2\n\nIn [137]: x**3\nOut[137]: 8"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "note "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "This tutorial should be read side-by-side with the Sphinx source for this document because otherwise you will see only the rendered output and not the code that generated it.  Excepting the example above, we will not in general be showing the literal ReST in this document that generates the rendered output."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": "ipython_directive",
+      "title": "IPython Sphinx Directive",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The IPython directive takes a number of options detailed here."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "ipython",
+          "children": [],
+          "name": "rst:directive",
+          "options": {},
+          "type": "mystDirective",
+          "value": "Create an IPython directive.\n\n.. rst:directive:option:: doctest\n\n   Run a doctest on IPython code blocks in rst.\n\n.. rst:directive:option:: python\n\n   Used to indicate that the relevant code block does not have IPython prompts.\n\n.. rst:directive:option:: okexcept\n\n   Allow the code block to raise an exception.\n\n.. rst:directive:option:: okwarning\n\n   Allow the code block to emit an warning.\n\n.. rst:directive:option:: suppress\n\n   Silence any warnings or expected errors.\n\n.. rst:directive:option:: verbatim\n\n   A noop that allows for any text to be syntax highlighted as valid IPython code.\n\n.. rst:directive:option:: savefig: OUTFILE [IMAGE_OPTIONS]\n\n   Save output from matplotlib to *outfile*."
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "It's important to note that all of these options can be used for the entire directive block or they can decorate individual lines of code as explained in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "pseudo-decorators"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Directive and options",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The state from previous sessions is stored, and standard error is trapped. At doc build time, ipython's output and std err will be inserted, and prompts will be renumbered. So the prompt below should be renumbered in the rendered docs, and pick up where the block above left off."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "",
+          "children": [],
+          "name": "ipython",
+          "options": {
+            "verbatim": ""
+          },
+          "type": "mystDirective",
+          "value": "  In [138]: z = x*3   # x is recalled from previous block\n\n  In [139]: z\n  Out[139]: 6\n\n  In [142]: print(z)\n  6\n\n  In [141]: q = z[)   # this is a syntax error -- we trap ipy exceptions\n  ------------------------------------------------------------\n     File \"<ipython console>\", line 1\n       q = z[)   # this is a syntax error -- we trap ipy exceptions\n\t     ^\n  SyntaxError: invalid syntax"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Persisting the Python session across IPython directive blocks",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The embedded interpreter supports some limited markup.  For example, you can put comments in your ipython sessions, which are reported verbatim.  There are some handy \"pseudo-decorators\" that let you doctest the output.  The inputs are fed to an embedded ipython session and the outputs from the ipython session are inserted into your doc.  If the output in your doc and in the ipython session don't match on a doctest assertion, an error will occur."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "",
+          "children": [],
+          "name": "ipython",
+          "options": {},
+          "type": "mystDirective",
+          "value": "In [1]: x = 'hello world'\n\n# this will raise an error if the ipython output is different\n@doctest\nIn [2]: x.upper()\nOut[2]: 'HELLO WORLD'\n\n# some readline features cannot be supported, so we allow\n# \"verbatim\" blocks, which are dumped in verbatim except prompts\n# are continuously numbered\n@verbatim\nIn [3]: x.st<TAB>\nx.startswith  x.strip"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For more information on @doctest decorator, please refer to the end of this page in Pseudo-Decorators section."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Adding documentation tests to your IPython directive",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Multi-line input is supported."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "",
+          "children": [],
+          "name": "ipython",
+          "options": {
+            "verbatim": ""
+          },
+          "type": "mystDirective",
+          "value": "In [130]: url = 'http://ichart.finance.yahoo.com/table.csv?s=CROX\\\n   .....: &d=9&e=22&f=2009&g=d&a=1&br=8&c=2006&ignore=.csv'\n\nIn [131]: print(url.split('&'))\n['http://ichart.finance.yahoo.com/table.csv?s=CROX', 'd=9', 'e=22',"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Multi-line input",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The IPython Sphinx Directive makes it possible to test the outputs that you provide with your code. To do this, decorate the contents in your directive block with one of the options listed above."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If an IPython doctest decorator is found, it will take these steps when your documentation is built:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Run the "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "input"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " lines in your IPython directive block against the current Python kernel (remember that the session"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": true,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "persists across IPython directive blocks);"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Compare the "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "output"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " of this with the output text that you've put in the IPython directive block (what comes"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": true,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "after "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "Out[NN]"
+            },
+            {
+              "type": "text",
+              "value": ");"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If there is a difference, the directive will raise an error and your documentation build will fail."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": true,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You can do doctesting on multi-line output as well.  Just be careful when using non-deterministic inputs like random numbers in the ipython directive, because your inputs are run through a live interpreter, so if you are doctesting random output you will get an error.  Here we \"seed\" the random number generator for deterministic output, and we suppress the seed line so it doesn't show up in the rendered output"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "",
+          "children": [],
+          "name": "ipython",
+          "options": {},
+          "type": "mystDirective",
+          "value": "In [133]: import numpy.random\n\n@suppress\nIn [134]: numpy.random.seed(2358)\n\n@doctest\nIn [135]: numpy.random.rand(10,2)\nOut[135]:\narray([[0.64524308, 0.59943846],\n       [0.47102322, 0.8715456 ],\n       [0.29370834, 0.74776844],\n       [0.99539577, 0.1313423 ],\n       [0.16250302, 0.21103583],\n       [0.81626524, 0.1312433 ],\n       [0.67338089, 0.72302393],\n       [0.7566368 , 0.07033696],\n       [0.22591016, 0.77731835],\n       [0.0072729 , 0.34273127]])"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For more information on @suppress and @doctest decorators, please refer to the end of this file in Pseudo-Decorators section."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Another demonstration of multi-line input and output"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "",
+          "children": [],
+          "name": "ipython",
+          "options": {
+            "verbatim": ""
+          },
+          "type": "mystDirective",
+          "value": "In [106]: print(x)\njdh\n\nIn [109]: for i in range(10):\n   .....:     print(i)\n   .....:\n   .....:\n0\n1\n2\n3\n4\n5\n6\n7\n8\n9"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Most of the \"pseudo-decorators\" can be used an options to ipython mode.  For example, to setup matplotlib pylab but suppress the output, you can do.  When using the matplotlib "
+            },
+            {
+              "type": "inlineCode",
+              "value": "use"
+            },
+            {
+              "type": "text",
+              "value": " directive, it should occur before any import of pylab.  This will not show up in the rendered docs, but the commands will be executed in the embedded interpreter and subsequent line numbers will be incremented to reflect the inputs     "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ".. ipython::\n   :suppress:\n\n   In [144]: from matplotlib.pylab import *\n\n   In [145]: ion()"
+        },
+        {
+          "args": "",
+          "children": [],
+          "name": "ipython",
+          "options": {
+            "suppress": ""
+          },
+          "type": "mystDirective",
+          "value": "In [144]: from matplotlib.pylab import *\n\nIn [145]: ion()"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Likewise, you can set "
+            },
+            {
+              "type": "inlineCode",
+              "value": ":doctest:"
+            },
+            {
+              "type": "text",
+              "value": " or "
+            },
+            {
+              "type": "inlineCode",
+              "value": ":verbatim:"
+            },
+            {
+              "type": "text",
+              "value": " to apply these settings to the entire block.  For example,"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "",
+          "children": [],
+          "name": "ipython",
+          "options": {
+            "verbatim": ""
+          },
+          "type": "mystDirective",
+          "value": "In [9]: cd mpl/examples/\n/home/jdhunter/mpl/examples\n\nIn [10]: pwd\nOut[10]: '/home/jdhunter/mpl/examples'\n\n\nIn [14]: cd mpl/examples/<TAB>\nmpl/examples/animation/        mpl/examples/misc/\nmpl/examples/api/              mpl/examples/mplot3d/\nmpl/examples/axes_grid/        mpl/examples/pylab_examples/\nmpl/examples/event_handling/   mpl/examples/widgets\n\nIn [14]: cd mpl/examples/widgets/\n/home/msierig/mpl/examples/widgets\n\nIn [15]: !wc *\n    2    12    77 README.txt\n   40    97   884 buttons.py\n   26    90   712 check_buttons.py\n   19    52   416 cursor.py\n  180   404  4882 menu.py\n   16    45   337 multicursor.py\n   36   106   916 radio_buttons.py\n   48   226  2082 rectangle_selector.py\n   43   118  1063 slider_demo.py\n   40   124  1088 span_selector.py\n  450  1274 12457 total"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You can create one or more pyplot plots and insert them with the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "@savefig"
+            },
+            {
+              "type": "text",
+              "value": " decorator."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For more information on @savefig decorator, please refer to the end of this page in Pseudo-Decorators section."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "",
+          "children": [],
+          "name": "ipython",
+          "options": {},
+          "type": "mystDirective",
+          "value": "@savefig plot_simple.png width=4in\nIn [151]: plot([1,2,3]);\n\n# use a semicolon to suppress the output\n@savefig hist_simple.png width=4in\nIn [151]: hist(np.random.randn(10000), 100);"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In a subsequent session, we can update the current figure with some text, and then resave"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "",
+          "children": [],
+          "name": "ipython",
+          "options": {},
+          "type": "mystDirective",
+          "value": "In [151]: ylabel('number')\n\nIn [152]: title('normal distribution')\n\n@savefig hist_with_text.png width=4in\nIn [153]: grid(True)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You can also have function definitions included in the source."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "",
+          "children": [],
+          "name": "ipython",
+          "options": {},
+          "type": "mystDirective",
+          "value": "In [3]: def square(x):\n   ...:     \"\"\"\n   ...:     An overcomplicated square function as an example.\n   ...:     \"\"\"\n   ...:     if x < 0:\n   ...:         x = abs(x)\n   ...:     y = x * x\n   ...:     return y\n   ...:"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Then call it from a subsequent section."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "",
+          "children": [],
+          "name": "ipython",
+          "options": {},
+          "type": "mystDirective",
+          "value": "In [4]: square(3)\nOut [4]: 9\n\nIn [5]: square(-2)\nOut [5]: 4"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Testing directive outputs",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Pure python code is supported by the optional argument "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "python"
+            },
+            {
+              "type": "text",
+              "value": ". In this pure python syntax you do not include the output from the python interpreter. The following markup     "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ".. ipython:: python\n\n   foo = 'bar'\n   print(foo)\n   foo = 2\n   foo**2"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Renders as"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "python",
+          "children": [],
+          "name": "ipython",
+          "options": {},
+          "type": "mystDirective",
+          "value": "foo = 'bar'\nprint(foo)\nfoo = 2\nfoo**2"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "We can even plot from python, using the savefig decorator, as well as, suppress output with a semicolon"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "python",
+          "children": [],
+          "name": "ipython",
+          "options": {},
+          "type": "mystDirective",
+          "value": "@savefig plot_simple_python.png width=4in\nplot([1,2,3]);"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For more information on @savefig decorator, please refer to the end of this page in Pseudo-Decorators section."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Similarly, std err is inserted"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "python",
+          "children": [],
+          "name": "ipython",
+          "options": {
+            "okexcept": ""
+          },
+          "type": "mystDirective",
+          "value": "foo = 'bar'\nfoo[)"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Writing Pure Python Code",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Comments are handled and state is preserved"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "python",
+          "children": [],
+          "name": "ipython",
+          "options": {},
+          "type": "mystDirective",
+          "value": "# comments are handled\nprint(foo)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If you don't see the next code block then the options work."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "python",
+          "children": [],
+          "name": "ipython",
+          "options": {
+            "suppress": ""
+          },
+          "type": "mystDirective",
+          "value": "ioff()\nion()"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Handling Comments",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Multi-line input is handled."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "python",
+          "children": [],
+          "name": "ipython",
+          "options": {},
+          "type": "mystDirective",
+          "value": "line = 'Multi\\\n        line &\\\n        support &\\\n        works'\nprint(line.split('&'))"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Functions definitions are correctly parsed"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "python",
+          "children": [],
+          "name": "ipython",
+          "options": {},
+          "type": "mystDirective",
+          "value": "def square(x):\n    \"\"\"\n    An overcomplicated square function as an example.\n    \"\"\"\n    if x < 0:\n        x = abs(x)\n    y = x * x\n    return y"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "And persist across sessions"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "python",
+          "children": [],
+          "name": "ipython",
+          "options": {},
+          "type": "mystDirective",
+          "value": "print(square(3))\nprint(square(-2))"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Pretty much anything you can do with the ipython code, you can do with a simple python script. Obviously, though it doesn't make sense to use the doctest option."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Splitting Python statements across lines",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Here are the supported decorators, and any optional arguments they take.  Some of the decorators can be used as options to the entire block (eg "
+            },
+            {
+              "type": "inlineCode",
+              "value": "verbatim"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "suppress"
+            },
+            {
+              "type": "text",
+              "value": "), and some only apply to the line just below them (eg "
+            },
+            {
+              "type": "inlineCode",
+              "value": "savefig"
+            },
+            {
+              "type": "text",
+              "value": ")."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "@suppress"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "execute the ipython input block, but suppress the input and output     block from the rendered output.  Also, can be applied to the entire     "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": ".. ipython"
+                },
+                {
+                  "type": "text",
+                  "value": " block as a directive option with "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": ":suppress:"
+                },
+                {
+                  "type": "text",
+                  "value": "."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "@verbatim"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "insert the input and output block in verbatim, but auto-increment     the line numbers. Internally, the interpreter will be fed an empty     string, so it is a no-op that keeps line numbering consistent.     Also, can be applied to the entire "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": ".. ipython"
+                },
+                {
+                  "type": "text",
+                  "value": " block as a     directive option with "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": ":verbatim:"
+                },
+                {
+                  "type": "text",
+                  "value": "."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "@savefig OUTFILE [IMAGE_OPTIONS]"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "save the figure to the static directory and insert it into the     document, possibly binding it into a minipage and/or putting     code/figure label/references to associate the code and the     figure. Takes args to pass to the image directive ("
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "scale"
+                    }
+                  ],
+                  "type": "emphasis"
+                },
+                {
+                  "type": "text",
+                  "value": ",     "
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "width"
+                    }
+                  ],
+                  "type": "emphasis"
+                },
+                {
+                  "type": "text",
+                  "value": ", etc can be kwargs); see "
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "image options"
+                    }
+                  ],
+                  "title": "",
+                  "type": "link",
+                  "url": "http://docutils.sourceforge.net/docs/ref/rst/directives.html#image"
+                },
+                {
+                  "type": "text",
+                  "value": "     for details."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "@doctest"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Compare the pasted in output in the ipython block with the output     generated at doc build time, and raise errors if they don't     match. Also, can be applied to the entire "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": ".. ipython"
+                },
+                {
+                  "type": "text",
+                  "value": " block as a     directive option with "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": ":doctest:"
+                },
+                {
+                  "type": "text",
+                  "value": "."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "type": "blockquote"
+        }
+      ],
+      "level": 1,
+      "target": "pseudo-decorators",
+      "title": "Pseudo-Decorators",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "ipython_savefig_dir"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "The directory in which to save the figures. This is relative to the     Sphinx source directory. The default is "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "html_static_path"
+                },
+                {
+                  "type": "text",
+                  "value": "."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "ipython_rgxin"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "The compiled regular expression to denote the start of IPython input     lines. The default is "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "re.compile('In \\[(\\d+)\\]:\\s?(.*)\\s*')"
+                },
+                {
+                  "type": "text",
+                  "value": ". You     shouldn't need to change this."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "ipython_rgxout"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "The compiled regular expression to denote the start of IPython output     lines. The default is "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "re.compile('Out\\[(\\d+)\\]:\\s?(.*)\\s*')"
+                },
+                {
+                  "type": "text",
+                  "value": ". You     shouldn't need to change this."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "ipython_promptin"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "The string to represent the IPython input prompt in the generated ReST.     The default is "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "'In [%d]:'"
+                },
+                {
+                  "type": "text",
+                  "value": ". This expects that the line numbers are used     in the prompt."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "ipython_promptout"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "The string to represent the IPython prompt in the generated ReST. The     default is "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "'Out [%d]:'"
+                },
+                {
+                  "type": "text",
+                  "value": ". This expects that the line numbers are used     in the prompt."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "type": "blockquote"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Configuration Options",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "args": "IPython.sphinxext.ipython_directive",
+          "children": [],
+          "name": "automodule",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Automatically generated documentation",
+      "type": "Section"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

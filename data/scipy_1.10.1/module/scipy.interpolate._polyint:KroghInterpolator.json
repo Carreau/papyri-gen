@@ -1,0 +1,259 @@
+{
+  "aliases": [
+    "scipy.interpolate.KroghInterpolator"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The polynomial passes through all the pairs (xi,yi). One may additionally specify a number of derivatives at each point xi; this is done by repeating the value xi and specifying the derivatives as successive yi values."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Allows evaluation of the polynomial and all its derivatives. For reasons of numerical stability, this function does not compute the coefficients of the polynomial, although they can be obtained by evaluating all the derivatives."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Be aware that the algorithms implemented here are not necessarily the most numerically stable known. Moreover, even in a world of exact computation, unless the x coordinates are chosen very carefully - Chebyshev zeros (e.g., cos(i*pi/n)) are a good choice - polynomial interpolation itself is a very ill-conditioned process due to the Runge phenomenon. In general, even with well-chosen x values, degrees higher than about thirty cause problems with numerical instability in this code."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Based on ."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Known x-coordinates. Must be sorted in increasing order."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "xi",
+              "type": "Param",
+              "type_": "array_like, length N"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Known y-coordinates. When an xi occurs two or more times in a row, the corresponding yi's represent derivative values."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "yi",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Axis in the yi array corresponding to the x-coordinate values."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "axis",
+              "type": "Param",
+              "type_": "int, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Interpolating polynomial for a set of points."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "To produce a polynomial that is zero at 0 and 1 and has\nderivative 2 at 0, call"
+      },
+      {
+        "type": "code",
+        "value": "from scipy.interpolate import KroghInterpolator\nKroghInterpolator([0,0,1],[0,2,0])"
+      },
+      {
+        "type": "text",
+        "value": "This constructs the quadratic 2*X**2-2*X. The derivative condition\nis indicated by the repeated zero in the xi array; the corresponding\nyi values are 0, the function value, and 2, the derivative value."
+      },
+      {
+        "type": "text",
+        "value": "For another example, given xi, yi, and a derivative ypi for each\npoint, appropriate arrays can be constructed as:"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nrng = np.random.default_rng()\nxi = np.linspace(0, 1, 5)\nyi, ypi = rng.random((2, 5))\nxi_k, yi_k = np.repeat(xi, 2), np.ravel(np.dstack((yi,ypi)))\nKroghInterpolator(xi_k, yi_k)"
+      },
+      {
+        "type": "text",
+        "value": "To produce a vector-valued polynomial, supply a higher-dimensional\narray for yi:"
+      },
+      {
+        "type": "code",
+        "value": "KroghInterpolator([0,1],[[2,3],[4,5]])"
+      },
+      {
+        "type": "text",
+        "value": "This constructs a linear polynomial giving (2,3) at 0 and (4,5) at 1."
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/interpolate/_polyint.py",
+  "item_line": 222,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

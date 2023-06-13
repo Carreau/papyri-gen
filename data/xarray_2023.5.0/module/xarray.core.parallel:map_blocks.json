@@ -1,0 +1,525 @@
+{
+  "aliases": [
+    "xarray.map_blocks"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "warning "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "This function is experimental and its signature may change."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function is designed for when "
+            },
+            {
+              "type": "inlineCode",
+              "value": "func"
+            },
+            {
+              "type": "text",
+              "value": " needs to manipulate a whole xarray object subset to each block. Each block is loaded into memory. In the more common case where "
+            },
+            {
+              "type": "inlineCode",
+              "value": "func"
+            },
+            {
+              "type": "text",
+              "value": " can work on numpy arrays, it is recommended to use "
+            },
+            {
+              "type": "inlineCode",
+              "value": "apply_ufunc"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If none of the variables in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "obj"
+            },
+            {
+              "type": "text",
+              "value": " is backed by dask arrays, calling this function is equivalent to calling "
+            },
+            {
+              "type": "inlineCode",
+              "value": "func(obj, *args, **kwargs)"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "User-provided function that accepts a DataArray or Dataset as its first parameter "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "obj"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". The function will receive a subset or 'block' of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "obj"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (see below), corresponding to one chunk along each chunked dimension. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "func"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will be executed as "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "func(subset_obj, *subset_args, **kwargs)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This function must return either a single DataArray or a single Dataset."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This function cannot add a new chunked dimension."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "func",
+              "type": "Param",
+              "type_": "callable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Passed to the function as its first argument, one block at a time."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "obj",
+              "type": "Param",
+              "type_": "DataArray, Dataset"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Passed to func after unpacking and subsetting any xarray objects by blocks. xarray objects in args must be aligned with obj, otherwise an error is raised."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "args",
+              "type": "Param",
+              "type_": "sequence"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Passed verbatim to func after unpacking. xarray objects, if any, will not be subset to blocks. Passing dask collections in kwargs is not allowed."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "kwargs",
+              "type": "Param",
+              "type_": "mapping"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "xarray object representing the final result after compute is called. If not provided, the function will be first run on mocked-up data, that looks like "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "obj"
+                    },
+                    {
+                      "type": "text",
+                      "value": " but has sizes 0, to determine properties of the returned object such as dtype, variable names, attributes, new dimensions and new indexes (if any). "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "template"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must be provided if the function changes the size of existing dimensions. When provided, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "attrs"
+                    },
+                    {
+                      "type": "text",
+                      "value": " on variables in "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "template",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "template"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are copied over to the result. Any "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "attrs"
+                    },
+                    {
+                      "type": "text",
+                      "value": " set by "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "func"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will be ignored."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "template",
+              "type": "Param",
+              "type_": "DataArray or Dataset, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "A single DataArray or Dataset with dask backend, reassembled from the outputs of the"
+            },
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "function."
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Apply a function to each block of a DataArray or Dataset."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Calculate an anomaly from climatology using ``.groupby()``. Using\n``xr.map_blocks()`` allows for parallel operations with knowledge of ``xarray``,\nits indices, and its methods like ``.groupby()``."
+      },
+      {
+        "type": "code",
+        "value": "def calculate_anomaly(da, groupby_type=\"time.month\"):\n    gb = da.groupby(groupby_type)\n    clim = gb.mean(dim=\"time\")\n    return gb - clim"
+      },
+      {
+        "type": "code",
+        "value": "time = xr.cftime_range(\"1990-01\", \"1992-01\", freq=\"M\")\nmonth = xr.DataArray(time.month, coords={\"time\": time}, dims=[\"time\"])\nnp.random.seed(123)\narray = xr.DataArray(\n    np.random.rand(len(time)),\n    dims=[\"time\"],\n    coords={\"time\": time, \"month\": month},\n).chunk()\narray.map_blocks(calculate_anomaly, template=array).compute()"
+      },
+      {
+        "type": "text",
+        "value": "Note that one must explicitly use ``args=[]`` and ``kwargs={}`` to pass arguments\nto the function being applied in ``xr.map_blocks()``:"
+      },
+      {
+        "type": "code",
+        "value": "array.map_blocks(\n    calculate_anomaly,\n    kwargs={\"groupby_type\": \"time.year\"},\n    template=array,\n)  # doctest: +ELLIPSIS"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/xarray/core/parallel.py",
+  "item_line": 147,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "See Also",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "dask.array.map_blocks",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "dask.array.map_blocks"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "xarray",
+          "path": "xarray.core.computation:apply_ufunc",
+          "type": "RefInfo",
+          "version": "2023.5.0"
+        },
+        "type": "Link",
+        "value": "xarray.apply_ufunc"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "xarray",
+          "path": "xarray.core.dataset:Dataset.map_blocks",
+          "type": "RefInfo",
+          "version": "2023.5.0"
+        },
+        "type": "Link",
+        "value": "xarray.Dataset.map_blocks"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "xarray",
+          "path": "xarray.core.dataarray:DataArray.map_blocks",
+          "type": "RefInfo",
+          "version": "2023.5.0"
+        },
+        "type": "Link",
+        "value": "xarray.DataArray.map_blocks"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(func: 'Callable[..., T_Xarray]', obj: 'DataArray | Dataset', args: 'Sequence[Any]' = (), kwargs: 'Mapping[str, Any] | None' = None, template: 'DataArray | Dataset | None' = None) -> 'T_Xarray'"
+  },
+  "type": "DocBlob"
+}

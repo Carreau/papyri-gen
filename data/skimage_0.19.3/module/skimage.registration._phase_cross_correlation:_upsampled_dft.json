@@ -1,0 +1,291 @@
+{
+  "aliases": [
+    "skimage.registration._phase_cross_correlation._upsampled_dft"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This code is intended to provide the same result as if the following operations were performed:     - Embed the array \"data\" in an array that is "
+            },
+            {
+              "type": "inlineCode",
+              "value": "upsample_factor"
+            },
+            {
+              "type": "text",
+              "value": " times       larger in each dimension.  ifftshift to bring the center of the       image to (1,1).     - Take the FFT of the larger array.     - Extract an "
+            },
+            {
+              "type": "inlineCode",
+              "value": "[upsampled_region_size]"
+            },
+            {
+              "type": "text",
+              "value": " region of the result, starting       with the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "[axis_offsets+1]"
+            },
+            {
+              "type": "text",
+              "value": " element."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "It achieves this result by computing the DFT in the output array without the need to zeropad. Much faster and memory efficient than the zero-padded FFT approach if "
+            },
+            {
+              "type": "inlineCode",
+              "value": "upsampled_region_size"
+            },
+            {
+              "type": "text",
+              "value": " is much smaller than "
+            },
+            {
+              "type": "inlineCode",
+              "value": "data.size * upsample_factor"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The input data array (DFT of original data) to upsample."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "data",
+              "type": "Param",
+              "type_": "array"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The size of the region to be sampled.  If one integer is provided, it is duplicated up to the dimensionality of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "data"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "upsampled_region_size",
+              "type": "Param",
+              "type_": "integer or tuple of integers, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The upsampling factor.  Defaults to 1."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "upsample_factor",
+              "type": "Param",
+              "type_": "integer, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The offsets of the region to be sampled.  Defaults to None (uses image center)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "axis_offsets",
+              "type": "Param",
+              "type_": "tuple of integers, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The upsampled DFT of the specified region."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "output",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Upsampled DFT by matrix multiplication."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/skimage/registration/_phase_cross_correlation.py",
+  "item_line": 12,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(data, upsampled_region_size, upsample_factor=1, axis_offsets=None)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,1509 @@
+{
+  "aliases": [
+    "scipy.integrate.nquad"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Wraps "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "quad"
+            },
+            {
+              "type": "text",
+              "value": " to enable integration over multiple variables. Various options allow improved integration of discontinuous functions, as well as the use of weighted integration, and generally finer control of the integration process."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Details of QUADPACK level routines"
+                }
+              ],
+              "type": "strong"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.integrate._quadpack_py:nquad",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "nquad"
+            },
+            {
+              "type": "text",
+              "value": " calls routines from the FORTRAN library QUADPACK. This section provides details on the conditions for each routine to be called and a short description of each routine. The routine called depends on "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "weight"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.signal._czt:CZT.points",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "points"
+            },
+            {
+              "type": "text",
+              "value": " and the integration limits "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "b"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "================  ==============  ==========  ===================== QUADPACK routine  "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "weight"
+            },
+            {
+              "type": "text",
+              "value": "        "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.signal._czt:CZT.points",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "points"
+            },
+            {
+              "type": "text",
+              "value": "    infinite bounds ================  ==============  ==========  ===================== qagse             None            No          No qagie             None            No          Yes qagpe             None            Yes         No qawoe             'sin', 'cos'    No          No qawfe             'sin', 'cos'    No          either "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " or "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "b"
+            },
+            {
+              "type": "text",
+              "value": " qawse             'alg*'          No          No qawce             'cauchy'        No          No ================  ==============  ==========  ====================="
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The following provides a short desciption from  for each routine."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "is an integrator based on globally adaptive interval     subdivision in connection with extrapolation, which will     eliminate the effects of integrand singularities of     several types."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "qagse"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "handles integration over infinite intervals. The infinite range is     mapped onto a finite interval and subsequently the same strategy as     in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "QAGS"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is applied."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "qagie"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "serves the same purposes as QAGS, but also allows the     user to provide explicit information about the location     and type of trouble-spots i.e. the abscissae of internal     singularities, discontinuities and other difficulties of     the integrand function."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "qagpe"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "is an integrator for the evaluation of     "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "\\int^b_a \\cos(\\omega x)f(x)dx"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or     "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "\\int^b_a \\sin(\\omega x)f(x)dx"
+                    },
+                    {
+                      "type": "text",
+                      "value": "     over a finite interval [a,b], where "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "\\omega"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "f"
+                    },
+                    {
+                      "type": "text",
+                      "value": "     are specified by the user. The rule evaluation component is based     on the modified Clenshaw-Curtis technique"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An adaptive subdivision scheme is used in connection     with an extrapolation procedure, which is a modification     of that in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "QAGS"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and allows the algorithm to deal with     singularities in "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "f(x)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "qawoe"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "calculates the Fourier transform     "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "\\int^\\infty_a \\cos(\\omega x)f(x)dx"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or     "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "\\int^\\infty_a \\sin(\\omega x)f(x)dx"
+                    },
+                    {
+                      "type": "text",
+                      "value": "     for user-provided "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "\\omega"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "f"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". The procedure of     "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "QAWO"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is applied on successive finite intervals, and convergence     acceleration by means of the "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "\\varepsilon"
+                    },
+                    {
+                      "type": "text",
+                      "value": "-algorithm is applied     to the series of integral approximations."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "qawfe"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "approximate "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "\\int^b_a w(x)f(x)dx"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", with "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "a < b"
+                    },
+                    {
+                      "type": "text",
+                      "value": " where     "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "w(x) = (x-a)^{\\alpha}(b-x)^{\\beta}v(x)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " with     "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "\\alpha,\\beta > -1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", where "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "v(x)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " may be one of the     following functions: "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "\\log(x-a)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "\\log(b-x)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ",     "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "\\log(x-a)\\log(b-x)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The user specifies "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "\\alpha"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "\\beta"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and the type of the     function "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "v"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". A globally adaptive subdivision strategy is     applied, with modified Clenshaw-Curtis integration on those     subintervals which contain "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "b"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "qawse"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "compute "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "\\int^b_a f(x) / (x-c)dx"
+                    },
+                    {
+                      "type": "text",
+                      "value": " where the integral must be     interpreted as a Cauchy principal value integral, for user specified     "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "c"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "f"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". The strategy is globally adaptive. Modified     Clenshaw-Curtis integration is used on those intervals containing the     point "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "x = c"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "qawce"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            }
+          ],
+          "type": "DefList"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The function to be integrated. Has arguments of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x0, ... xn"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "t0, ... tm"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", where integration is carried out over "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x0, ... xn"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", which must be floats.  Where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "t0, ... tm"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are extra arguments passed in args. Function signature should be "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "func(x0, x1, ..., xn, t0, t1, ..., tm)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Integration is carried out in order.  That is, integration over "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x0"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the innermost integral, and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "xn"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the outermost."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If the user desires improved integration performance, then "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "scipy",
+                        "path": "scipy.optimize._bglu_dense:_consider_refactor.<locals>.f",
+                        "type": "RefInfo",
+                        "version": "1.10.1"
+                      },
+                      "type": "Link",
+                      "value": "f"
+                    },
+                    {
+                      "type": "text",
+                      "value": " may be a "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "scipy._lib._ccallback",
+                        "path": "scipy._lib._ccallback:LowLevelCallable",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "scipy.LowLevelCallable"
+                    },
+                    {
+                      "type": "text",
+                      "value": " with one of the signatures      "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double func(int n, double *xx)\ndouble func(int n, double *xx, void *user_data)"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "n"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the number of variables and args.  The "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "xx"
+                    },
+                    {
+                      "type": "text",
+                      "value": " array contains the coordinates and extra arguments. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "user_data"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the data contained in the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "scipy._lib._ccallback",
+                        "path": "scipy._lib._ccallback:LowLevelCallable",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "scipy.LowLevelCallable"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "func",
+              "type": "Param",
+              "type_": "{callable, scipy.LowLevelCallable}"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Each element of ranges may be either a sequence  of 2 numbers, or else a callable that returns such a sequence. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ranges[0]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " corresponds to integration over x0, and so on. If an element of ranges is a callable, then it will be called with all of the integration arguments available, as well as any parametric arguments. e.g., if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "func = f(x0, x1, x2, t0, t1)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", then "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ranges[0]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " may be defined as either "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(a, b)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or else as "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(a, b) = range0(x1, x2, t0, t1)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ranges",
+              "type": "Param",
+              "type_": "iterable object"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Additional arguments "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "t0, ... tn"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", required by "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "func"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ranges"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "opts"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "args",
+              "type": "Param",
+              "type_": "iterable object, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Options to be passed to "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "quad"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". May be empty, a dict, or a sequence of dicts or functions that return a dict. If empty, the default options from scipy.integrate.quad are used. If a dict, the same options are used for all levels of integraion. If a sequence, then each element of the sequence corresponds to a particular integration. e.g., "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "opts[0]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " corresponds to integration over "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x0"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", and so on. If a callable, the signature must be the same as for "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ranges"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". The available options together with their default values are:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "epsabs = 1.49e-08"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "epsrel = 1.49e-08"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "limit  = 50"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "points = None"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "weight = None"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "wvar   = None"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "wopts  = None"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        }
+                      ],
+                      "ordered": false,
+                      "spread": false,
+                      "start": 1,
+                      "type": "list"
+                    }
+                  ],
+                  "type": "blockquote"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "For more information on these options, see "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "quad"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "opts",
+              "type": "Param",
+              "type_": "iterable object or dict, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Partial implementation of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "full_output"
+                    },
+                    {
+                      "type": "text",
+                      "value": " from scipy.integrate.quad. The number of integrand function evaluations "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "neval"
+                    },
+                    {
+                      "type": "text",
+                      "value": " can be obtained by setting "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "full_output=True"
+                    },
+                    {
+                      "type": "text",
+                      "value": " when calling nquad."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "full_output",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The result of the integration."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "result",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The maximum of the estimates of the absolute error in the various integration results."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "abserr",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A dict containing additional information on the integration."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "out_dict",
+              "type": "Param",
+              "type_": "dict, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Integration over multiple variables."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Calculate"
+      },
+      {
+        "type": "text",
+        "value": ".. math::"
+      },
+      {
+        "type": "text",
+        "value": "    \\int^{1}_{-0.15} \\int^{0.8}_{0.13} \\int^{1}_{-1} \\int^{1}_{0}\n    f(x_0, x_1, x_2, x_3) \\,dx_0 \\,dx_1 \\,dx_2 \\,dx_3 ,"
+      },
+      {
+        "type": "text",
+        "value": "where"
+      },
+      {
+        "type": "text",
+        "value": ".. math::"
+      },
+      {
+        "type": "text",
+        "value": "    f(x_0, x_1, x_2, x_3) = \\begin{cases}\n      x_0^2+x_1 x_2-x_3^3+ \\sin{x_0}+1 & (x_0-0.2 x_3-0.5-0.25 x_1 > 0) \\\\\n      x_0^2+x_1 x_2-x_3^3+ \\sin{x_0}+0 & (x_0-0.2 x_3-0.5-0.25 x_1 \\leq 0)\n    \\end{cases} ."
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy import integrate\nfunc = lambda x0,x1,x2,x3 : x0**2 + x1*x2 - x3**3 + np.sin(x0) + (\n                                1 if (x0-.2*x3-.5-.25*x1>0) else 0)\ndef opts0(*args, **kwargs):\n    return {'points':[0.2*args[2] + 0.5 + 0.25*args[0]]}\nintegrate.nquad(func, [[0,1], [-1,1], [.13,.8], [-.15,1]],\n                opts=[opts0,{},{},{}], full_output=True)"
+      },
+      {
+        "type": "text",
+        "value": "Calculate"
+      },
+      {
+        "type": "text",
+        "value": ".. math::"
+      },
+      {
+        "type": "text",
+        "value": "    \\int^{t_0+t_1+1}_{t_0+t_1-1}\n    \\int^{x_2+t_0^2 t_1^3+1}_{x_2+t_0^2 t_1^3-1}\n    \\int^{t_0 x_1+t_1 x_2+1}_{t_0 x_1+t_1 x_2-1}\n    f(x_0,x_1, x_2,t_0,t_1)\n    \\,dx_0 \\,dx_1 \\,dx_2,"
+      },
+      {
+        "type": "text",
+        "value": "where"
+      },
+      {
+        "type": "text",
+        "value": ".. math::"
+      },
+      {
+        "type": "text",
+        "value": "    f(x_0, x_1, x_2, t_0, t_1) = \\begin{cases}\n      x_0 x_2^2 + \\sin{x_1}+2 & (x_0+t_1 x_1-t_0 > 0) \\\\\n      x_0 x_2^2 +\\sin{x_1}+1 & (x_0+t_1 x_1-t_0 \\leq 0)\n    \\end{cases}"
+      },
+      {
+        "type": "text",
+        "value": "and :math:`(t_0, t_1) = (0, 1)` ."
+      },
+      {
+        "type": "code",
+        "value": "def func2(x0, x1, x2, t0, t1):\n    return x0*x2**2 + np.sin(x1) + 1 + (1 if x0+t1*x1-t0>0 else 0)\ndef lim0(x1, x2, t0, t1):\n    return [t0*x1 + t1*x2 - 1, t0*x1 + t1*x2 + 1]\ndef lim1(x2, t0, t1):\n    return [x2 + t0**2*t1**3 - 1, x2 + t0**2*t1**3 + 1]\ndef lim2(t0, t1):\n    return [t0 + t1 - 1, t0 + t1 + 1]\ndef opts0(x1, x2, t0, t1):\n    return {'points' : [t0 - t1*x1]}\ndef opts1(x2, t0, t1):\n    return {}\ndef opts2(t0, t1):\n    return {}\nintegrate.nquad(func2, [lim0, lim1, lim2], args=(0,1),\n                opts=[opts0, opts1, opts2])"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/integrate/_quadpack_py.py",
+  "item_line": 923,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "1-D numerical integration"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "quad",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "quad"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "double and triple integrals"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.integrate._quadpack_py:dblquad",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "dblquad"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "double and triple integrals"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.integrate._quadpack_py:tplquad",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "tplquad"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "fixed-order Gaussian quadrature"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.integrate._quadrature:fixed_quad",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "fixed_quad"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "adaptive Gaussian quadrature"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "quadrature",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "quadrature"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(func, ranges, args=None, opts=None, full_output=False)"
+  },
+  "type": "DocBlob"
+}

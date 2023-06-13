@@ -1,0 +1,636 @@
+{
+  "aliases": [
+    "scipy.special.lambertw"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The Lambert W function "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "W(z)"
+            },
+            {
+              "type": "text",
+              "value": " is defined as the inverse function of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "w * exp(w)"
+            },
+            {
+              "type": "text",
+              "value": ". In other words, the value of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "W(z)"
+            },
+            {
+              "type": "text",
+              "value": " is such that "
+            },
+            {
+              "type": "inlineCode",
+              "value": "z = W(z) * exp(W(z))"
+            },
+            {
+              "type": "text",
+              "value": " for any complex number "
+            },
+            {
+              "type": "inlineCode",
+              "value": "z"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The Lambert W function is a multivalued function with infinitely many branches. Each branch gives a separate solution of the equation "
+            },
+            {
+              "type": "inlineCode",
+              "value": "z = w exp(w)"
+            },
+            {
+              "type": "text",
+              "value": ". Here, the branches are indexed by the integer "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "k",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "k"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "All branches are supported by "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "lambertw"
+            },
+            {
+              "type": "text",
+              "value": ":"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "lambertw(z)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " gives the principal solution (branch 0)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "lambertw(z, k)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " gives the solution on branch "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "k",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "k"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The Lambert W function has two partially real branches: the principal branch ("
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "k = 0"
+            },
+            {
+              "type": "text",
+              "value": ") is real for real "
+            },
+            {
+              "type": "inlineCode",
+              "value": "z > -1/e"
+            },
+            {
+              "type": "text",
+              "value": ", and the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "k = -1"
+            },
+            {
+              "type": "text",
+              "value": " branch is real for "
+            },
+            {
+              "type": "inlineCode",
+              "value": "-1/e < z < 0"
+            },
+            {
+              "type": "text",
+              "value": ". All branches except "
+            },
+            {
+              "type": "inlineCode",
+              "value": "k = 0"
+            },
+            {
+              "type": "text",
+              "value": " have a logarithmic singularity at "
+            },
+            {
+              "type": "inlineCode",
+              "value": "z = 0"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Possible issues"
+                }
+              ],
+              "type": "strong"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The evaluation can become inaccurate very close to the branch point at "
+            },
+            {
+              "type": "inlineCode",
+              "value": "-1/e"
+            },
+            {
+              "type": "text",
+              "value": ". In some corner cases, "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "lambertw"
+            },
+            {
+              "type": "text",
+              "value": " might currently fail to converge, or can end up on the wrong branch."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Algorithm"
+                }
+              ],
+              "type": "strong"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Halley's iteration is used to invert "
+            },
+            {
+              "type": "inlineCode",
+              "value": "w * exp(w)"
+            },
+            {
+              "type": "text",
+              "value": ", using a first-order asymptotic approximation (O(log(w)) or "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "O(w)"
+            },
+            {
+              "type": "text",
+              "value": ") as the initial estimate."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The definition, implementation and choice of branches is based on ."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Input argument."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "z",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Branch index."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "k",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Evaluation tolerance."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "tol",
+              "type": "Param",
+              "type_": "float, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "w",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "w"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will have the same shape as "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "z",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "z"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "w",
+              "type": "Param",
+              "type_": "array"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Lambert W function."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "The Lambert W function is the inverse of ``w exp(w)``:"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.special import lambertw\nw = lambertw(1)\nw"
+      },
+      {
+        "type": "code",
+        "value": "w * np.exp(w)"
+      },
+      {
+        "type": "text",
+        "value": "Any branch gives a valid inverse:"
+      },
+      {
+        "type": "code",
+        "value": "w = lambertw(1, k=3)\nw"
+      },
+      {
+        "type": "code",
+        "value": "w*np.exp(w)"
+      },
+      {
+        "type": "text",
+        "value": "**Applications to equation-solving**"
+      },
+      {
+        "type": "text",
+        "value": "The Lambert W function may be used to solve various kinds of\nequations, such as finding the value of the infinite power\ntower :math:`z^{z^{z^{\\ldots}}}`:"
+      },
+      {
+        "type": "code",
+        "value": "def tower(z, n):\n    if n == 0:\n        return z\n    return z ** tower(z, n-1)"
+      },
+      {
+        "type": "code",
+        "value": "tower(0.5, 100)"
+      },
+      {
+        "type": "code",
+        "value": "-lambertw(-np.log(0.5)) / np.log(0.5)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/special/_lambertw.py",
+  "item_line": 4,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Signature",
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "See Also",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "the Wright Omega function"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.special.cython_special:wrightomega",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "wrightomega"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "lambertw(z, k=0, tol=1e-8)"
+  },
+  "type": "DocBlob"
+}

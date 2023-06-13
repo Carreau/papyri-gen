@@ -1,0 +1,228 @@
+{
+  "aliases": [
+    "scipy.interpolate.PPoly.from_spline"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A spline, as returned by "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "splrep"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or a BSpline object."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "tck",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If bool, determines whether to extrapolate to out-of-bounds points based on first and last intervals, or to return NaNs. If 'periodic', periodic extrapolation is used. Default is True."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "extrapolate",
+              "type": "Param",
+              "type_": "bool or 'periodic', optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Construct a piecewise polynomial from a spline"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Construct an interpolating spline and convert it to a `PPoly` instance "
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.interpolate import splrep, PPoly\nx = np.linspace(0, 1, 11)\ny = np.sin(2*np.pi*x)\ntck = splrep(x, y, s=0)\np = PPoly.from_spline(tck)\nisinstance(p, PPoly)"
+      },
+      {
+        "type": "text",
+        "value": "Note that this function only supports 1D splines out of the box."
+      },
+      {
+        "type": "text",
+        "value": "If the ``tck`` object represents a parametric spline (e.g. constructed\nby `splprep` or a `BSpline` with ``c.ndim > 1``), you will need to loop\nover the dimensions manually."
+      },
+      {
+        "type": "code",
+        "value": "from scipy.interpolate import splprep, splev\nt = np.linspace(0, 1, 11)\nx = np.sin(2*np.pi*t)\ny = np.cos(2*np.pi*t)\n(t, c, k), u = splprep([x, y], s=0)"
+      },
+      {
+        "type": "text",
+        "value": "Note that ``c`` is a list of two arrays of length 11."
+      },
+      {
+        "type": "code",
+        "value": "unew = np.arange(0, 1.01, 0.01)\nout = splev(unew, (t, c, k))"
+      },
+      {
+        "type": "text",
+        "value": "To convert this spline to the power basis, we convert each\ncomponent of the list of b-spline coefficients, ``c``, into the\ncorresponding cubic polynomial."
+      },
+      {
+        "type": "code",
+        "value": "polys = [PPoly.from_spline((t, cj, k)) for cj in c]\npolys[0].c.shape"
+      },
+      {
+        "type": "text",
+        "value": "Note that the coefficients of the polynomials `polys` are in the\npower basis and their dimensions reflect just that: here 4 is the order\n(degree+1), and 14 is the number of intervals---which is nothing but\nthe length of the knot array of the original `tck` minus one."
+      },
+      {
+        "type": "text",
+        "value": "Optionally, we can stack the components into a single `PPoly` along\nthe third dimension:"
+      },
+      {
+        "type": "code",
+        "value": "cc = np.dstack([p.c for p in polys])    # has shape = (4, 14, 2)\npoly = PPoly(cc, polys[0].x)\nnp.allclose(poly(unew).T,     # note the transpose to match `splev`\n            out, atol=1e-15)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/interpolate/_interpolate.py",
+  "item_line": 1360,
+  "item_type": "<class 'classmethod'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

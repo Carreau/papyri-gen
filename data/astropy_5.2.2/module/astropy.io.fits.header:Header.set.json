@@ -1,0 +1,408 @@
+{
+  "aliases": [
+    "astropy.io.fits.Header.set"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If the keyword does not already exist in the header, a new keyword is created in the specified position, or appended to the end of the header if no position is specified."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This method is similar to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Header.update"
+            },
+            {
+              "type": "text",
+              "value": " prior to Astropy v0.1."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "note "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "It should be noted that "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "header.set(keyword, value)"
+                },
+                {
+                  "type": "text",
+                  "value": " and "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "header.set(keyword, value, comment)"
+                },
+                {
+                  "type": "text",
+                  "value": " are equivalent to "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "header[keyword] = value"
+                },
+                {
+                  "type": "text",
+                  "value": " and "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "header[keyword] = (value, comment)"
+                },
+                {
+                  "type": "text",
+                  "value": " respectively."
+                }
+              ],
+              "type": "paragraph"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "New keywords can also be inserted relative to existing keywords using, for example      "
+                }
+              ],
+              "type": "paragraph"
+            },
+            {
+              "type": "code",
+              "value": ">>> header.insert('NAXIS1', ('NAXIS', 2, 'Number of axes'))"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "to insert before an existing keyword, or      "
+                }
+              ],
+              "type": "paragraph"
+            },
+            {
+              "type": "code",
+              "value": ">>> header.insert('NAXIS', ('NAXIS1', 4096), after=True)"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "to insert after an existing keyword."
+                }
+              ],
+              "type": "paragraph"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "The only advantage of using "
+                },
+                {
+                  "domain": null,
+                  "role": "meth",
+                  "type": "Directive",
+                  "value": "Header.set"
+                },
+                {
+                  "type": "text",
+                  "value": " is that it easily replaces the old usage of "
+                },
+                {
+                  "domain": null,
+                  "role": "meth",
+                  "type": "Directive",
+                  "value": "Header.update"
+                },
+                {
+                  "type": "text",
+                  "value": " both conceptually and in terms of function signature."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A header keyword"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "keyword",
+              "type": "Param",
+              "type_": "str"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The value to set for the given keyword; if None the existing value is kept, but '' may be used to set a blank value"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "value",
+              "type": "Param",
+              "type_": "str, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The comment to set for the given keyword; if None the existing comment is kept, but "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "''"
+                    },
+                    {
+                      "type": "text",
+                      "value": " may be used to set a blank comment"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "comment",
+              "type": "Param",
+              "type_": "str, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Name of the keyword, or index of the "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "Card"
+                    },
+                    {
+                      "type": "text",
+                      "value": " before which this card should be located in the header.  The argument "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "before"
+                    },
+                    {
+                      "type": "text",
+                      "value": " takes precedence over "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "after"
+                    },
+                    {
+                      "type": "text",
+                      "value": " if both specified."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "before",
+              "type": "Param",
+              "type_": "str, int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Name of the keyword, or index of the "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "Card"
+                    },
+                    {
+                      "type": "text",
+                      "value": " after which this card should be located in the header."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "after",
+              "type": "Param",
+              "type_": "str, int, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Set the value and/or comment and/or position of a specified keyword."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/astropy/io/fits/header.py",
+  "item_line": 910,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, keyword, value=None, comment=None, before=None, after=None)"
+  },
+  "type": "DocBlob"
+}

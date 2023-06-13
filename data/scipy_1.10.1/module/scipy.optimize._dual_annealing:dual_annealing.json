@@ -1,0 +1,988 @@
+{
+  "aliases": [
+    "scipy.optimize.dual_annealing"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function implements the Dual Annealing optimization. This stochastic approach derived from  combines the generalization of CSA (Classical Simulated Annealing) and FSA (Fast Simulated Annealing)   coupled to a strategy for applying a local search on accepted locations . An alternative implementation of this same algorithm is described in  and benchmarks are presented in . This approach introduces an advanced method to refine the solution found by the generalized annealing process. This algorithm uses a distorted Cauchy-Lorentz visiting distribution, with its shape controlled by the parameter "
+            },
+            {
+              "type": "inlineMath",
+              "value": "q_{v}"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "g_{q_{v}}(\\Delta x(t)) \\propto \\frac{ \\\n\\left[T_{q_{v}}(t) \\right]^{-\\frac{D}{3-q_{v}}}}{ \\\n\\left[{1+(q_{v}-1)\\frac{(\\Delta x(t))^{2}} { \\\n\\left[T_{q_{v}}(t)\\right]^{\\frac{2}{3-q_{v}}}}}\\right]^{ \\\n\\frac{1}{q_{v}-1}+\\frac{D-1}{2}}}"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Where "
+            },
+            {
+              "type": "inlineMath",
+              "value": "t"
+            },
+            {
+              "type": "text",
+              "value": " is the artificial time. This visiting distribution is used to generate a trial jump distance "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\Delta x(t)"
+            },
+            {
+              "type": "text",
+              "value": " of variable "
+            },
+            {
+              "type": "inlineMath",
+              "value": "x(t)"
+            },
+            {
+              "type": "text",
+              "value": " under artificial temperature "
+            },
+            {
+              "type": "inlineMath",
+              "value": "T_{q_{v}}(t)"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "From the starting point, after calling the visiting distribution function, the acceptance probability is computed as follows:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "p_{q_{a}} = \\min{\\{1,\\left[1-(1-q_{a}) \\beta \\Delta E \\right]^{ \\\n\\frac{1}{1-q_{a}}}\\}}"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Where "
+            },
+            {
+              "type": "inlineMath",
+              "value": "q_{a}"
+            },
+            {
+              "type": "text",
+              "value": " is a acceptance parameter. For "
+            },
+            {
+              "type": "inlineMath",
+              "value": "q_{a}<1"
+            },
+            {
+              "type": "text",
+              "value": ", zero acceptance probability is assigned to the cases where"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "[1-(1-q_{a}) \\beta \\Delta E] < 0"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The artificial temperature "
+            },
+            {
+              "type": "inlineMath",
+              "value": "T_{q_{v}}(t)"
+            },
+            {
+              "type": "text",
+              "value": " is decreased according to"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "T_{q_{v}}(t) = T_{q_{v}}(1) \\frac{2^{q_{v}-1}-1}{\\left( \\\n1 + t\\right)^{q_{v}-1}-1}"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Where "
+            },
+            {
+              "type": "inlineMath",
+              "value": "q_{v}"
+            },
+            {
+              "type": "text",
+              "value": " is the visiting parameter."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 1.2.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The objective function to be minimized. Must be in the form "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "f(x, *args)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the argument in the form of a 1-D array and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "args"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a  tuple of any additional fixed parameters needed to completely specify the function."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "func",
+              "type": "Param",
+              "type_": "callable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Bounds for variables. There are two ways to specify the bounds:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Instance of "
+                            },
+                            {
+                              "domain": null,
+                              "role": null,
+                              "type": "Directive",
+                              "value": "Bounds"
+                            },
+                            {
+                              "type": "text",
+                              "value": " class."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Sequence of "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "(min, max)"
+                            },
+                            {
+                              "type": "text",
+                              "value": " pairs for each element in "
+                            },
+                            {
+                              "domain": null,
+                              "role": null,
+                              "type": "Directive",
+                              "value": "x"
+                            },
+                            {
+                              "type": "text",
+                              "value": "."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": true,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "param": "bounds",
+              "type": "Param",
+              "type_": "sequence or `Bounds`"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Any additional fixed parameters needed to completely specify the objective function."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "args",
+              "type": "Param",
+              "type_": "tuple, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The maximum number of global search iterations. Default value is 1000."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "maxiter",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Extra keyword arguments to be passed to the local minimizer ("
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "scipy",
+                        "path": "scipy.optimize._shgo:SHGO.minimize",
+                        "type": "RefInfo",
+                        "version": "1.10.1"
+                      },
+                      "type": "Link",
+                      "value": "minimize"
+                    },
+                    {
+                      "type": "text",
+                      "value": "). Some important options could be: "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "method"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for the minimizer method to use and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "args"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for objective function additional arguments."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "minimizer_kwargs",
+              "type": "Param",
+              "type_": "dict, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The initial temperature, use higher values to facilitates a wider search of the energy landscape, allowing dual_annealing to escape local minima that it is trapped in. Default value is 5230. Range is (0.01, 5.e4]."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "initial_temp",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "During the annealing process, temperature is decreasing, when it reaches "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "initial_temp * restart_temp_ratio"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the reannealing process is triggered. Default value of the ratio is 2e-5. Range is (0, 1)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "restart_temp_ratio",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Parameter for visiting distribution. Default value is 2.62. Higher values give the visiting distribution a heavier tail, this makes the algorithm jump to a more distant region. The value range is (1, 3]."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "visit",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Parameter for acceptance distribution. It is used to control the probability of acceptance. The lower the acceptance parameter, the smaller the probability of acceptance. Default value is -5.0 with a range (-1e4, -5]."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "accept",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Soft limit for the number of objective function calls. If the algorithm is in the middle of a local search, this number will be exceeded, the algorithm will stop just after the local search is done. Default value is 1e7."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "maxfun",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "seed",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "seed"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is None (or "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "np.random"
+                    },
+                    {
+                      "type": "text",
+                      "value": "), the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "numpy.random.mtrand",
+                        "path": "numpy.random.mtrand:RandomState",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "numpy.random.RandomState"
+                    },
+                    {
+                      "type": "text",
+                      "value": " singleton is used. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "seed",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "seed"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is an int, a new "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "RandomState"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instance is used, seeded with "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "seed",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "seed"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "seed",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "seed"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is already a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Generator"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "RandomState"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instance then that instance is used. Specify "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "seed",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "seed"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for repeatable minimizations. The random numbers generated with this seed only affect the visiting distribution function and new coordinates generation."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "seed",
+              "type": "Param",
+              "type_": "{None, int, `numpy.random.Generator`, `numpy.random.RandomState`}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "no_local_search",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "no_local_search"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is set to True, a traditional Generalized Simulated Annealing will be performed with no local search strategy applied."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "no_local_search",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A callback function with signature "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "callback(x, f, context)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", which will be called for all minima found. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "f"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are the coordinates and function value of the latest minimum found, and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "context"
+                    },
+                    {
+                      "type": "text",
+                      "value": " has value in [0, 1, 2], with the following meaning:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "0: minimum detected in the annealing process."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "1: detection occurred in the local search process."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "2: detection done in the dual annealing process."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "spread": false,
+                          "type": "listItem"
+                        }
+                      ],
+                      "ordered": false,
+                      "spread": false,
+                      "start": 1,
+                      "type": "list"
+                    }
+                  ],
+                  "type": "blockquote"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If the callback implementation returns True, the algorithm will stop."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "callback",
+              "type": "Param",
+              "type_": "callable, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Coordinates of a single N-D starting point."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x0",
+              "type": "Param",
+              "type_": "ndarray, shape(n,), optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The optimization result represented as a "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "OptimizeResult"
+                    },
+                    {
+                      "type": "text",
+                      "value": " object. Important attributes are: "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " the solution array, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "fun"
+                    },
+                    {
+                      "type": "text",
+                      "value": " the value of the function at the solution, and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "message"
+                    },
+                    {
+                      "type": "text",
+                      "value": " which describes the cause of the termination. See "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "OptimizeResult"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for a description of other attributes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "res",
+              "type": "Param",
+              "type_": "OptimizeResult"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Find the global minimum of a function using Dual Annealing."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "The following example is a 10-D problem, with many local minima.\nThe function involved is called Rastrigin\n(https://en.wikipedia.org/wiki/Rastrigin_function)"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.optimize import dual_annealing\nfunc = lambda x: np.sum(x*x - 10*np.cos(2*np.pi*x)) + 10*np.size(x)\nlw = [-5.12] * 10\nup = [5.12] * 10\nret = dual_annealing(func, bounds=list(zip(lw, up)))\nret.x"
+      },
+      {
+        "type": "code",
+        "value": "ret.fun"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/optimize/_dual_annealing.py",
+  "item_line": 435,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(func, bounds, args=(), maxiter=1000, minimizer_kwargs=None, initial_temp=5230.0, restart_temp_ratio=2e-05, visit=2.62, accept=-5.0, maxfun=10000000.0, seed=None, no_local_search=False, callback=None, x0=None)"
+  },
+  "type": "DocBlob"
+}

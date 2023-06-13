@@ -1,0 +1,1121 @@
+{
+  "aliases": [
+    "numpy.ma.polyfit"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "note "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "This forms part of the old polynomial API. Since version 1.4, the new polynomial API defined in "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "numpy.polynomial"
+                },
+                {
+                  "type": "text",
+                  "value": " is preferred. A summary of the differences can be found in the "
+                },
+                {
+                  "domain": null,
+                  "role": "doc",
+                  "type": "Directive",
+                  "value": "transition guide </reference/routines.polynomials>"
+                },
+                {
+                  "type": "text",
+                  "value": "."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Fit a polynomial "
+            },
+            {
+              "type": "inlineCode",
+              "value": "p(x) = p[0] * x**deg + ... + p[deg]"
+            },
+            {
+              "type": "text",
+              "value": " of degree "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "deg",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "deg"
+            },
+            {
+              "type": "text",
+              "value": " to points "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "(x, y)"
+            },
+            {
+              "type": "text",
+              "value": ". Returns a vector of coefficients "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "p",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "p"
+            },
+            {
+              "type": "text",
+              "value": " that minimises the squared error in the order "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "deg",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "deg"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "deg-1"
+            },
+            {
+              "type": "text",
+              "value": ", ... "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "0"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "Polynomial.fit <numpy.polynomial.polynomial.Polynomial.fit>"
+            },
+            {
+              "type": "text",
+              "value": " class method is recommended for new code as it is more stable numerically. See the documentation of the method for more information."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Any masked values in x is propagated in y, and vice-versa."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The solution minimizes the squared error"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "E = \\sum_{j=0}^k |p(x_j) - y_j|^2"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "in the equations      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "x[0]**n * p[0] + ... + x[0] * p[n-1] + p[n] = y[0]\nx[1]**n * p[0] + ... + x[1] * p[n-1] + p[n] = y[1]\n...\nx[k]**n * p[0] + ... + x[k] * p[n-1] + p[n] = y[k]"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The coefficient matrix of the coefficients "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "p",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "p"
+            },
+            {
+              "type": "text",
+              "value": " is a Vandermonde matrix."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "polyfit"
+            },
+            {
+              "type": "text",
+              "value": " issues a "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "RankWarning"
+            },
+            {
+              "type": "text",
+              "value": " when the least-squares fit is badly conditioned. This implies that the best fit is not well-defined due to numerical error. The results may be improved by lowering the polynomial degree or by replacing "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "x",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "x"
+            },
+            {
+              "type": "text",
+              "value": " by "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "x",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "x"
+            },
+            {
+              "type": "text",
+              "value": " - "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "x",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "x"
+            },
+            {
+              "type": "text",
+              "value": ".mean(). The "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "rcond",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "rcond"
+            },
+            {
+              "type": "text",
+              "value": " parameter can also be set to a value smaller than its default, but the resulting fit may be spurious: including contributions from the small singular values can add numerical noise to the result."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Note that fitting polynomial coefficients is inherently badly conditioned when the degree of the polynomial is large or the interval of sample points is badly centered. The quality of the fit should always be checked in these cases. When polynomial fits are not satisfactory, splines may be a good alternative."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "x-coordinates of the M sample points "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(x[i], y[i])"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "array_like, shape (M,)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "y-coordinates of the sample points. Several data sets of sample points sharing the same x-coordinates can be fitted at once by passing in a 2D-array that contains one dataset per column."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "y",
+              "type": "Param",
+              "type_": "array_like, shape (M,) or (M, K)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Degree of the fitting polynomial"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "deg",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Relative condition number of the fit. Singular values smaller than this relative to the largest singular value will be ignored. The default value is len(x)*eps, where eps is the relative precision of the float type, about 2e-16 in most cases."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "rcond",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Switch determining nature of return value. When it is False (the default) just the coefficients are returned, when True diagnostic information from the singular value decomposition is also returned."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "full",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Weights. If not None, the weight "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "w[i]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " applies to the unsquared residual "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "y[i] - y_hat[i]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " at "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x[i]"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Ideally the weights are chosen so that the errors of the products "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "w[i]*y[i]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " all have the same variance.  When using inverse-variance weighting, use "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "w[i] = 1/sigma(y[i])"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  The default value is None."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "w",
+              "type": "Param",
+              "type_": "array_like, shape (M,), optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If given and not "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", return not just the estimate but also its covariance matrix. By default, the covariance are scaled by chi2/dof, where dof = M - (deg + 1), i.e., the weights are presumed to be unreliable except in a relative sense and everything is scaled such that the reduced chi2 is unity. This scaling is omitted if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "cov='unscaled'"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", as is relevant for the case that the weights are w = 1/sigma, with sigma known to be a reliable estimate of the uncertainty."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "cov",
+              "type": "Param",
+              "type_": "bool or str, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Polynomial coefficients, highest power first.  If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "y",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "y"
+                    },
+                    {
+                      "type": "text",
+                      "value": " was 2-D, the coefficients for "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "k"
+                    },
+                    {
+                      "type": "text",
+                      "value": "-th data set are in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "p[:,k]"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "p",
+              "type": "Param",
+              "type_": "ndarray, shape (deg + 1,) or (deg + 1, K)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "These values are only returned if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "full == True"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "residuals -- sum of squared residuals of the least squares fit"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "dd": [
+                                {
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "value": "coefficient matrix"
+                                    }
+                                  ],
+                                  "type": "paragraph"
+                                }
+                              ],
+                              "dt": {
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "value": "rank -- the effective rank of the scaled Vandermonde"
+                                  }
+                                ],
+                                "type": "paragraph"
+                              },
+                              "type": "DefListItem"
+                            }
+                          ],
+                          "type": "DefList"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "dd": [
+                                {
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "value": "coefficient matrix"
+                                    }
+                                  ],
+                                  "type": "paragraph"
+                                }
+                              ],
+                              "dt": {
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "value": "singular_values -- singular values of the scaled Vandermonde"
+                                  }
+                                ],
+                                "type": "paragraph"
+                              },
+                              "type": "DefListItem"
+                            }
+                          ],
+                          "type": "DefList"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "rcond -- value of "
+                            },
+                            {
+                              "anchor": null,
+                              "exists": true,
+                              "kind": "local",
+                              "reference": {
+                                "kind": "local",
+                                "module": null,
+                                "path": "rcond",
+                                "type": "RefInfo",
+                                "version": null
+                              },
+                              "type": "Link",
+                              "value": "rcond"
+                            },
+                            {
+                              "type": "text",
+                              "value": "."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "For more details, see "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "numpy.linalg",
+                        "path": "numpy.linalg:lstsq",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "numpy.linalg.lstsq"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "residuals, rank, singular_values, rcond"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Present only if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "full == False"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "cov == True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  The covariance matrix of the polynomial coefficient estimates.  The diagonal of this matrix are the variance estimates for each coefficient.  If y is a 2-D array, then the covariance matrix for the "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "k"
+                    },
+                    {
+                      "type": "text",
+                      "value": "-th data set are in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "V[:,:,k]"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "V",
+              "type": "Param",
+              "type_": "ndarray, shape (M,M) or (M,M,K)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Least squares polynomial fit."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The rank of the coefficient matrix in the least-squares fit is deficient. The warning is only raised if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "full == False"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The warnings can be turned off by"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": ">>> import warnings\n>>> warnings.simplefilter('ignore', np.RankWarning)"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "RankWarning"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import warnings\nx = np.array([0.0, 1.0, 2.0, 3.0,  4.0,  5.0])\ny = np.array([0.0, 0.8, 0.9, 0.1, -0.8, -1.0])\nz = np.polyfit(x, y, 3)\nz"
+      },
+      {
+        "type": "text",
+        "value": "It is convenient to use `poly1d` objects for dealing with polynomials:"
+      },
+      {
+        "type": "code",
+        "value": "p = np.poly1d(z)\np(0.5)"
+      },
+      {
+        "type": "code",
+        "value": "p(3.5)"
+      },
+      {
+        "type": "code",
+        "value": "p(10)"
+      },
+      {
+        "type": "text",
+        "value": "High-order polynomials may oscillate wildly:"
+      },
+      {
+        "type": "code",
+        "value": "with warnings.catch_warnings():\n    warnings.simplefilter('ignore', np.RankWarning)\n    p30 = np.poly1d(np.polyfit(x, y, 30))"
+      },
+      {
+        "type": "code",
+        "value": "p30(4)"
+      },
+      {
+        "type": "code",
+        "value": "p30(5)"
+      },
+      {
+        "type": "code",
+        "value": "p30(4.5)"
+      },
+      {
+        "type": "text",
+        "value": "Illustration:"
+      },
+      {
+        "type": "code",
+        "value": "import matplotlib.pyplot as plt\nxp = np.linspace(-2, 6, 100)\n_ = plt.plot(x, y, '.', xp, p(xp), '-', xp, p30(xp), '--')\nplt.ylim(-2,2)"
+      },
+      {
+        "type": "code",
+        "value": "plt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "numpy",
+          "path": "fig-numpy.ma.extras:polyfit-0-61dbe519.png",
+          "type": "RefInfo",
+          "version": "1.24.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/numpy/ma/extras.py",
+  "item_line": 2011,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Warns",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute polynomial values."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "polyval",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "polyval"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Computes a least-squares fit."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "linalg.lstsq",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "linalg.lstsq"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Computes spline fits."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "scipy.interpolate.UnivariateSpline",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "scipy.interpolate.UnivariateSpline"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(x, y, deg, rcond=None, full=False, w=None, cov=False)"
+  },
+  "type": "DocBlob"
+}

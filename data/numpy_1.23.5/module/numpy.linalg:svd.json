@@ -1,0 +1,1240 @@
+{
+  "aliases": [
+    "numpy.dual.svd"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "a",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " is a 2D array, and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "full_matrices=False"
+            },
+            {
+              "type": "text",
+              "value": ", then it is factorized as "
+            },
+            {
+              "type": "inlineCode",
+              "value": "u @ np.diag(s) @ vh = (u * s) @ vh"
+            },
+            {
+              "type": "text",
+              "value": ", where "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "u",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "u"
+            },
+            {
+              "type": "text",
+              "value": " and the Hermitian transpose of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "vh",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "vh"
+            },
+            {
+              "type": "text",
+              "value": " are 2D arrays with orthonormal columns and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "s",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "s"
+            },
+            {
+              "type": "text",
+              "value": " is a 1D array of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "a",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": "'s singular values. When "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "a",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " is higher-dimensional, SVD is applied in stacked mode as explained below."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionchanged 1.8.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Broadcasting rules apply, see the "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "numpy.linalg"
+                },
+                {
+                  "type": "text",
+                  "value": " documentation for details."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The decomposition is performed using LAPACK routine "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_gesdd"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "SVD is usually described for the factorization of a 2D matrix "
+            },
+            {
+              "type": "inlineMath",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": ". The higher-dimensional case will be discussed below. In the 2D case, SVD is written as "
+            },
+            {
+              "type": "inlineMath",
+              "value": "A = U S V^H"
+            },
+            {
+              "type": "text",
+              "value": ", where "
+            },
+            {
+              "type": "inlineMath",
+              "value": "A = a"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineMath",
+              "value": "U= u"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineMath",
+              "value": "S= \\mathtt{np.diag}(s)"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "V^H = vh"
+            },
+            {
+              "type": "text",
+              "value": ". The 1D array "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "s",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "s"
+            },
+            {
+              "type": "text",
+              "value": " contains the singular values of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "a",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "u",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "u"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "vh",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "vh"
+            },
+            {
+              "type": "text",
+              "value": " are unitary. The rows of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "vh",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "vh"
+            },
+            {
+              "type": "text",
+              "value": " are the eigenvectors of "
+            },
+            {
+              "type": "inlineMath",
+              "value": "A^H A"
+            },
+            {
+              "type": "text",
+              "value": " and the columns of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "u",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "u"
+            },
+            {
+              "type": "text",
+              "value": " are the eigenvectors of "
+            },
+            {
+              "type": "inlineMath",
+              "value": "A A^H"
+            },
+            {
+              "type": "text",
+              "value": ". In both cases the corresponding (possibly non-zero) eigenvalues are given by "
+            },
+            {
+              "type": "inlineCode",
+              "value": "s**2"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "a",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " has more than two dimensions, then broadcasting rules apply, as explained in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "routines.linalg-broadcasting"
+            },
+            {
+              "type": "text",
+              "value": ". This means that SVD is working in \"stacked\" mode: it iterates over all indices of the first "
+            },
+            {
+              "type": "inlineCode",
+              "value": "a.ndim - 2"
+            },
+            {
+              "type": "text",
+              "value": " dimensions and for each combination SVD is applied to the last two indices. The matrix "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "a",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " can be reconstructed from the decomposition with either "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(u * s[..., None, :]) @ vh"
+            },
+            {
+              "type": "text",
+              "value": " or "
+            },
+            {
+              "type": "inlineCode",
+              "value": "u @ (s[..., None] * vh)"
+            },
+            {
+              "type": "text",
+              "value": ". (The "
+            },
+            {
+              "type": "inlineCode",
+              "value": "@"
+            },
+            {
+              "type": "text",
+              "value": " operator can be replaced by the function "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.matmul"
+            },
+            {
+              "type": "text",
+              "value": " for python versions below 3.5.)"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "a",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " is a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "matrix"
+            },
+            {
+              "type": "text",
+              "value": " object (as opposed to an "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ndarray"
+            },
+            {
+              "type": "text",
+              "value": "), then so are all the return values."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A real or complex array with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "a.ndim >= 2"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "a",
+              "type": "Param",
+              "type_": "(..., M, N) array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True (default), "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "u",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "u"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "vh",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "vh"
+                    },
+                    {
+                      "type": "text",
+                      "value": " have the shapes "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(..., M, M)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(..., N, N)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", respectively.  Otherwise, the shapes are "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(..., M, K)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(..., K, N)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", respectively, where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "K = min(M, N)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "full_matrices",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether or not to compute "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "u",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "u"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "vh",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "vh"
+                    },
+                    {
+                      "type": "text",
+                      "value": " in addition to "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "s",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "s"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  True by default."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "compute_uv",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is assumed to be Hermitian (symmetric if real-valued), enabling a more efficient method for finding singular values. Defaults to False."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.17.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "hermitian",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If SVD computation does not converge."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "LinAlgError"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Unitary array(s). The first "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "a.ndim - 2"
+                    },
+                    {
+                      "type": "text",
+                      "value": " dimensions have the same size as those of the input "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". The size of the last two dimensions depends on the value of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "full_matrices",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "full_matrices"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Only returned when "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "compute_uv",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "compute_uv"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is True."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "u",
+              "type": "Param",
+              "type_": "{ (..., M, M), (..., M, K) } array"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Vector(s) with the singular values, within each vector sorted in descending order. The first "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "a.ndim - 2"
+                    },
+                    {
+                      "type": "text",
+                      "value": " dimensions have the same size as those of the input "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "s",
+              "type": "Param",
+              "type_": "(..., K) array"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Unitary array(s). The first "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "a.ndim - 2"
+                    },
+                    {
+                      "type": "text",
+                      "value": " dimensions have the same size as those of the input "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". The size of the last two dimensions depends on the value of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "full_matrices",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "full_matrices"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Only returned when "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "compute_uv",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "compute_uv"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is True."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "vh",
+              "type": "Param",
+              "type_": "{ (..., N, N), (..., K, N) } array"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Singular Value Decomposition."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "a = np.random.randn(9, 6) + 1j*np.random.randn(9, 6)\nb = np.random.randn(2, 7, 8, 3) + 1j*np.random.randn(2, 7, 8, 3)"
+      },
+      {
+        "type": "text",
+        "value": "Reconstruction based on full SVD, 2D case:"
+      },
+      {
+        "type": "code",
+        "value": "u, s, vh = np.linalg.svd(a, full_matrices=True)\nu.shape, s.shape, vh.shape"
+      },
+      {
+        "type": "code",
+        "value": "np.allclose(a, np.dot(u[:, :6] * s, vh))"
+      },
+      {
+        "type": "code",
+        "value": "smat = np.zeros((9, 6), dtype=complex)\nsmat[:6, :6] = np.diag(s)\nnp.allclose(a, np.dot(u, np.dot(smat, vh)))"
+      },
+      {
+        "type": "text",
+        "value": "Reconstruction based on reduced SVD, 2D case:"
+      },
+      {
+        "type": "code",
+        "value": "u, s, vh = np.linalg.svd(a, full_matrices=False)\nu.shape, s.shape, vh.shape"
+      },
+      {
+        "type": "code",
+        "value": "np.allclose(a, np.dot(u * s, vh))"
+      },
+      {
+        "type": "code",
+        "value": "smat = np.diag(s)\nnp.allclose(a, np.dot(u, np.dot(smat, vh)))"
+      },
+      {
+        "type": "text",
+        "value": "Reconstruction based on full SVD, 4D case:"
+      },
+      {
+        "type": "code",
+        "value": "u, s, vh = np.linalg.svd(b, full_matrices=True)\nu.shape, s.shape, vh.shape"
+      },
+      {
+        "type": "code",
+        "value": "np.allclose(b, np.matmul(u[..., :3] * s[..., None, :], vh))"
+      },
+      {
+        "type": "code",
+        "value": "np.allclose(b, np.matmul(u[..., :3], s[..., None] * vh))"
+      },
+      {
+        "type": "text",
+        "value": "Reconstruction based on reduced SVD, 4D case:"
+      },
+      {
+        "type": "code",
+        "value": "u, s, vh = np.linalg.svd(b, full_matrices=False)\nu.shape, s.shape, vh.shape"
+      },
+      {
+        "type": "code",
+        "value": "np.allclose(b, np.matmul(u * s[..., None, :], vh))"
+      },
+      {
+        "type": "code",
+        "value": "np.allclose(b, np.matmul(u, s[..., None] * vh))"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/numpy/linalg/linalg.py",
+  "item_line": 1477,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Similar function in SciPy."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "scipy.linalg.svd",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "scipy.linalg.svd"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute singular values of a matrix."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "scipy.linalg.svdvals",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "scipy.linalg.svdvals"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(a, full_matrices=True, compute_uv=True, hermitian=False)"
+  },
+  "type": "DocBlob"
+}

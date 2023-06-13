@@ -1,0 +1,598 @@
+{
+  "aliases": [
+    "astropy.io.fits.tabledump"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The primary use for the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "astropy",
+                "path": "astropy.io.fits.convenience:tabledump",
+                "type": "RefInfo",
+                "version": "5.2.2"
+              },
+              "type": "Link",
+              "value": "tabledump"
+            },
+            {
+              "type": "text",
+              "value": " function is to allow editing in a standard text editor of the table data and parameters.  The "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "astropy",
+                "path": "astropy.io.fits.convenience:tableload",
+                "type": "RefInfo",
+                "version": "5.2.2"
+              },
+              "type": "Link",
+              "value": "tableload"
+            },
+            {
+              "type": "text",
+              "value": " function can be used to reassemble the table from the three ASCII files."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "datafile:"
+                        }
+                      ],
+                      "type": "strong"
+                    },
+                    {
+                      "type": "text",
+                      "value": " Each line of the data file represents one row of table   data.  The data is output one column at a time in column order.  If   a column contains an array, each element of the column array in the   current row is output before moving on to the next column.  Each row   ends with a new line."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Integer data is output right-justified in a 21-character field   followed by a blank.  Floating point data is output right justified   using 'g' format in a 21-character field with 15 digits of   precision, followed by a blank.  String data that does not contain   whitespace is output left-justified in a field whose width matches   the width specified in the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "TFORM"
+                    },
+                    {
+                      "type": "text",
+                      "value": " header parameter for the   column, followed by a blank.  When the string data contains   whitespace characters, the string is enclosed in quotation marks   ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "\"\""
+                    },
+                    {
+                      "type": "text",
+                      "value": ").  For the last data element in a row, the trailing blank in   the field is replaced by a new line character."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "For column data containing variable length arrays ('P' format), the   array data is preceded by the string "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "'VLA_Length= '"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and the   integer length of the array for that row, left-justified in a   21-character field, followed by a blank."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "note "
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    },
+                    {
+                      "children": [
+                        {
+                          "dd": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "('Q' format) due to difficult to overcome ambiguities. What this   means is that this file format cannot support VLA columns in   tables stored in files that are over 2 GB in size."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "This format does "
+                              },
+                              {
+                                "children": [
+                                  {
+                                    "type": "text",
+                                    "value": "not"
+                                  }
+                                ],
+                                "type": "emphasis"
+                              },
+                              {
+                                "type": "text",
+                                "value": " support variable length arrays using the"
+                              }
+                            ],
+                            "type": "paragraph"
+                          },
+                          "type": "DefListItem"
+                        }
+                      ],
+                      "type": "DefList"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "For column data representing a bit field ('X' format), each bit   value in the field is output right-justified in a 21-character field   as 1 (for true) or 0 (for false)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "cdfile:"
+                        }
+                      ],
+                      "type": "strong"
+                    },
+                    {
+                      "type": "text",
+                      "value": " Each line of the column definitions file provides the   definitions for one column in the table.  The line is broken up into   8, sixteen-character fields.  The first field provides the column   name ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "TTYPEn"
+                    },
+                    {
+                      "type": "text",
+                      "value": ").  The second field provides the column format   ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "TFORMn"
+                    },
+                    {
+                      "type": "text",
+                      "value": ").  The third field provides the display format   ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "TDISPn"
+                    },
+                    {
+                      "type": "text",
+                      "value": ").  The fourth field provides the physical units   ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "TUNITn"
+                    },
+                    {
+                      "type": "text",
+                      "value": ").  The fifth field provides the dimensions for a   multidimensional array ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "TDIMn"
+                    },
+                    {
+                      "type": "text",
+                      "value": ").  The sixth field provides the   value that signifies an undefined value ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "TNULLn"
+                    },
+                    {
+                      "type": "text",
+                      "value": ").  The seventh   field provides the scale factor ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "TSCALn"
+                    },
+                    {
+                      "type": "text",
+                      "value": ").  The eighth field   provides the offset value ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "TZEROn"
+                    },
+                    {
+                      "type": "text",
+                      "value": ").  A field value of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "\"\""
+                    },
+                    {
+                      "type": "text",
+                      "value": " is   used to represent the case where no value is provided."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "hfile:"
+                        }
+                      ],
+                      "type": "strong"
+                    },
+                    {
+                      "type": "text",
+                      "value": " Each line of the header parameters file provides the   definition of a single HDU header card as represented by the card   image."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Input fits file."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "filename",
+              "type": "Param",
+              "type_": "path-like or file-like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Output data file.  The default is the root name of the input fits file appended with an underscore, followed by the extension number (ext), followed by the extension "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": ".txt"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "datafile",
+              "type": "Param",
+              "type_": "path-like or file-like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Output column definitions file.  The default is "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", no column definitions output is produced."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "cdfile",
+              "type": "Param",
+              "type_": "path-like or file-like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Output header parameters file.  The default is "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", no header parameters output is produced."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "hfile",
+              "type": "Param",
+              "type_": "path-like or file-like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The number of the extension containing the table HDU to be dumped."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ext",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", overwrite the output file if it exists. Raises an "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "OSError"
+                    },
+                    {
+                      "type": "text",
+                      "value": " if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and the output file exists. Default is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "overwrite",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Dump a table HDU to a file in ASCII format.  The table may be dumped in three separate files, one containing column definitions, one containing header parameters, and one for table data."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/astropy/io/fits/convenience.py",
+  "item_line": 950,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Notes"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(filename, datafile=None, cdfile=None, hfile=None, ext=1, overwrite=False)"
+  },
+  "type": "DocBlob"
+}

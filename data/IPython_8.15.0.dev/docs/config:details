@@ -1,0 +1,1207 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": "Specific config details",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionchanged 5.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "From IPython 5, prompts are produced as a list of Pygments tokens, which are tuples of (token_type, text). You can customise prompts by writing a method which generates a list of tokens."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "There are four kinds of prompt:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "in"
+                        }
+                      ],
+                      "type": "strong"
+                    },
+                    {
+                      "type": "text",
+                      "value": " prompt is shown before the first line of input   (default like "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "In [1]:"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "continuation"
+                        }
+                      ],
+                      "type": "strong"
+                    },
+                    {
+                      "type": "text",
+                      "value": " prompt is shown before further lines of input   (default like "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "...:"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "rewrite"
+                        }
+                      ],
+                      "type": "strong"
+                    },
+                    {
+                      "type": "text",
+                      "value": " prompt is shown to highlight how special syntax has been   interpreted (default like "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "----->"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "out"
+                        }
+                      ],
+                      "type": "strong"
+                    },
+                    {
+                      "type": "text",
+                      "value": " prompt is shown before the result from evaluating the input   (default like "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Out[1]:"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Custom prompts are supplied together as a class. If you want to customise only some of the prompts, inherit from "
+            },
+            {
+              "type": "inlineCode",
+              "value": "IPython.terminal.prompts.Prompts"
+            },
+            {
+              "type": "text",
+              "value": ", which defines the defaults. The required interface is like this:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "MyPrompts(shell)",
+          "children": [],
+          "name": "class",
+          "options": {},
+          "type": "mystDirective",
+          "value": "Prompt style definition. *shell* is a reference to the\n:class:`~.TerminalInteractiveShell` instance.\n\n.. method:: in_prompt_tokens(cli=None)\n            continuation_prompt_tokens(self, cli=None, width=None)\n            rewrite_prompt_tokens()\n            out_prompt_tokens()\n\n   Return the respective prompts as lists of ``(token_type, text)`` tuples.\n\n   For continuation prompts, *width* is an integer representing the width of\n   the prompt area in terminal columns.\n\n   *cli*, where used, is the prompt_toolkit ``CommandLineInterface`` instance.\n   This is mainly for compatibility with the API prompt_toolkit expects."
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Here is an example Prompt class that will show the current working directory in the input prompt:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "python",
+          "children": [],
+          "name": "code-block",
+          "options": {},
+          "type": "mystDirective",
+          "value": "from IPython.terminal.prompts import Prompts, Token\nimport os\n\nclass MyPrompt(Prompts):\n     def in_prompt_tokens(self, cli=None):\n         return [(Token, os.getcwd()),\n                 (Token.Prompt, ' >>>')]"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To set the new prompt, assign it to the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "prompts"
+            },
+            {
+              "type": "text",
+              "value": " attribute of the IPython shell:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "python",
+          "children": [],
+          "name": "code-block",
+          "options": {},
+          "type": "mystDirective",
+          "value": "In [2]: ip = get_ipython()\n   ...: ip.prompts = MyPrompt(ip)\n\n/home/bob >>> # it works"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "See "
+            },
+            {
+              "type": "inlineCode",
+              "value": "IPython/example/utils/cwd_prompt.py"
+            },
+            {
+              "type": "text",
+              "value": " for an example of how to write extensions to customise prompts."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Inside IPython or in a startup script, you can use a custom prompts class by setting "
+            },
+            {
+              "type": "inlineCode",
+              "value": "get_ipython().prompts"
+            },
+            {
+              "type": "text",
+              "value": " to an "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "instance"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " of the class. In configuration, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "TerminalInteractiveShell.prompts_class"
+            },
+            {
+              "type": "text",
+              "value": " may be set to either the class object, or a string of its full importable name."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To include invisible terminal control sequences in a prompt, use "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Token.ZeroWidthEscape"
+            },
+            {
+              "type": "text",
+              "value": " as the token type. Tokens with this type are ignored when calculating the width."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Colours in the prompt are determined by the token types and the highlighting style; see below for more details. The tokens used in the default prompts are "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Prompt"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "PromptNum"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "OutPrompt"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "OutPromptNum"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": "custom_prompts",
+      "title": "Custom Prompts",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionchanged 5.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "There are two main configuration options controlling colours."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "inlineCode",
+              "value": "InteractiveShell.colors"
+            },
+            {
+              "type": "text",
+              "value": " sets the colour of tracebacks and object info (the output from e.g. "
+            },
+            {
+              "type": "inlineCode",
+              "value": "zip?"
+            },
+            {
+              "type": "text",
+              "value": "). It may also affect other things if the option below is set to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'legacy'"
+            },
+            {
+              "type": "text",
+              "value": ". It has four case-insensitive values: "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'nocolor', 'neutral', 'linux', 'lightbg'"
+            },
+            {
+              "type": "text",
+              "value": ". The default is "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "neutral"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": ", which should be legible on either dark or light terminal backgrounds. "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "linux"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " is optimised for dark backgrounds and "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "lightbg"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " for light ones."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "inlineCode",
+              "value": "TerminalInteractiveShell.highlighting_style"
+            },
+            {
+              "type": "text",
+              "value": " determines prompt colours and syntax highlighting. It takes the name (as a string) or class (as a subclass of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "pygments.style.Style"
+            },
+            {
+              "type": "text",
+              "value": ") of a Pygments style, or the special value "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'legacy'"
+            },
+            {
+              "type": "text",
+              "value": " to pick a style in accordance with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "InteractiveShell.colors"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You can see the Pygments styles available on your system by running      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "import pygments\nlist(pygments.styles.get_all_styles())"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Additionally, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "TerminalInteractiveShell.highlighting_style_overrides"
+            },
+            {
+              "type": "text",
+              "value": " can override specific styles in the highlighting. It should be a dictionary mapping Pygments token types to strings defining the style. See "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Pygments' documentation"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "http://pygments.org/docs/styles/#creating-own-styles"
+            },
+            {
+              "type": "text",
+              "value": " for the language used to define styles."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": "termcolour",
+      "title": "Terminal Colors",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "On some systems, the default pager has problems with ANSI colour codes. To configure your default pager to allow these:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Set the environment PAGER variable to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "less"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Set the environment LESS variable to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "-r"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (plus any other options    you always want to pass to less by default). This tells less to    properly interpret control sequences, which is how color    information is given to your terminal."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": true,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Colors in the pager",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "IPython can integrate with text editors in a number of different ways:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Editors (such as "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "(X)Emacs"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "vim_"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "TextMate_"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") can   send code to IPython for execution."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "IPython's "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "%edit"
+                    },
+                    {
+                      "type": "text",
+                      "value": " magic command can open an editor of choice to edit   a code block."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The %edit command (and its alias %ed) will invoke the editor set in your environment as "
+            },
+            {
+              "domain": null,
+              "role": "envvar",
+              "type": "Directive",
+              "value": "EDITOR"
+            },
+            {
+              "type": "text",
+              "value": ". If this variable is not set, it will default to vi under Linux/Unix and to notepad under Windows. You may want to set this variable properly and to a lightweight editor which doesn't take too long to start (that is, something other than a new instance of Emacs). This way you can edit multi-line code quickly and with the power of a real editor right inside IPython."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You can also control the editor by setting "
+            },
+            {
+              "type": "inlineCode",
+              "value": "TerminalInteractiveShell.editor"
+            },
+            {
+              "type": "text",
+              "value": " in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ipython_config.py"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": "editors",
+      "title": "Editor configuration",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Paul Ivanov's "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "vim-ipython"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/ivanov/vim-ipython"
+            },
+            {
+              "type": "text",
+              "value": " provides powerful IPython integration for vim."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Vim",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If you are a dedicated Emacs user, and want to use Emacs when IPython's "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%edit"
+            },
+            {
+              "type": "text",
+              "value": " magic command is called you should set up the Emacs server so that new requests are handled by the original process. This means that almost no time is spent in handling the request (assuming an Emacs process is already running). For this to work, you need to set your EDITOR environment variable to 'emacsclient'. The code below, supplied by Francois Pinard, can then be used in your "
+            },
+            {
+              "type": "inlineCode",
+              "value": ".emacs"
+            },
+            {
+              "type": "text",
+              "value": " file to enable the server:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "common-lisp",
+          "children": [],
+          "name": "code-block",
+          "options": {},
+          "type": "mystDirective",
+          "value": "(defvar server-buffer-clients)\n(when (and (fboundp 'server-start) (string-equal (getenv \"TERM\") 'xterm))\n  (server-start)\n  (defun fp-kill-server-with-buffer-routine ()\n    (and server-buffer-clients (server-done)))\n  (add-hook 'kill-buffer-hook 'fp-kill-server-with-buffer-routine))"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Thanks to the work of Alexander Schmolck and Prabhu Ramachandran, currently (X)Emacs and IPython get along very well in other ways."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "With (X)EMacs >= 24, You can enable IPython in python-mode with:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "common-lisp",
+          "children": [],
+          "name": "code-block",
+          "options": {},
+          "type": "mystDirective",
+          "value": "(require 'python)\n(setq python-shell-interpreter \"ipython\")"
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. _`(X)Emacs`: http://www.gnu.org/software/emacs/"
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. _TextMate: http://macromates.com/"
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. _vim: http://www.vim.org/"
+        }
+      ],
+      "level": 2,
+      "target": "emacs",
+      "title": "(X)Emacs",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 8.11"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You can modify, disable or modify keyboard shortcuts for IPython Terminal using "
+            },
+            {
+              "domain": "std",
+              "role": "configtrait",
+              "type": "Directive",
+              "value": "TerminalInteractiveShell.shortcuts"
+            },
+            {
+              "type": "text",
+              "value": " traitlet."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The list of shortcuts is available in the Configuring IPython "
+            },
+            {
+              "type": "inlineCode",
+              "value": "terminal-shortcuts-list"
+            },
+            {
+              "type": "text",
+              "value": " section."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": "custom_keyboard_shortcuts",
+      "title": "Keyboard Shortcuts",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionchanged 5.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Creating custom commands requires adding custom code to a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "startup file <startup_files>"
+            },
+            {
+              "type": "text",
+              "value": ":      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "from IPython import get_ipython\nfrom prompt_toolkit.enums import DEFAULT_BUFFER\nfrom prompt_toolkit.keys import Keys\nfrom prompt_toolkit.filters import HasFocus, HasSelection, ViInsertMode, EmacsInsertMode\n\nip = get_ipython()\ninsert_mode = ViInsertMode() | EmacsInsertMode()\n\ndef insert_unexpected(event):\n    buf = event.current_buffer\n    buf.insert_text('The Spanish Inquisition')\n# Register the shortcut if IPython is using prompt_toolkit\nif getattr(ip, 'pt_app', None):\n    registry = ip.pt_app.key_bindings\n    registry.add_binding(Keys.ControlN,\n                     filter=(HasFocus(DEFAULT_BUFFER)\n                             & ~HasSelection()\n                             & insert_mode))(insert_unexpected)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Here is a second example that bind the key sequence "
+            },
+            {
+              "type": "inlineCode",
+              "value": "j"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "k"
+            },
+            {
+              "type": "text",
+              "value": " to switch to VI input mode to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Normal"
+            },
+            {
+              "type": "text",
+              "value": " when in insert mode     "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "from IPython import get_ipython\nfrom prompt_toolkit.enums import DEFAULT_BUFFER\nfrom prompt_toolkit.filters import HasFocus, ViInsertMode\nfrom prompt_toolkit.key_binding.vi_state import InputMode\n\nip = get_ipython()\n\ndef switch_to_navigation_mode(event):\n   vi_state = event.cli.vi_state\n   vi_state.input_mode = InputMode.NAVIGATION\n\nif getattr(ip, 'pt_app', None):\n   registry = ip.pt_app.key_bindings\n   registry.add_binding(u'j',u'k',\n                        filter=(HasFocus(DEFAULT_BUFFER)\n                                 & ViInsertMode()))(switch_to_navigation_mode)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For more information on filters and what you can do with the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "event"
+            },
+            {
+              "type": "text",
+              "value": " object, "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "see the prompt_toolkit docs"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://python-prompt-toolkit.readthedocs.io/en/latest/pages/asking_for_input.html#adding-custom-key-bindings"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Advanced configuration",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In the Terminal IPython shell \u2013 which by default uses the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "prompt_toolkit"
+            },
+            {
+              "type": "text",
+              "value": " interface, the semantic meaning of pressing the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Enter"
+            },
+            {
+              "type": "text",
+              "value": " key can be ambiguous. In some case "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Enter"
+            },
+            {
+              "type": "text",
+              "value": " should execute code, and in others it should add a new line. IPython uses heuristics to decide whether to execute or insert a new line at cursor position. For example, if we detect that the current code is not valid Python, then the user is likely editing code and the right behavior is to likely to insert a new line. If the current code is a simple statement like "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "ord('*')"
+            },
+            {
+              "type": "text",
+              "value": ", then the right behavior is likely to execute. Though the exact desired semantics often varies from users to users."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "As the exact behavior of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Enter"
+            },
+            {
+              "type": "text",
+              "value": " is ambiguous, it has been special cased to allow users to completely configure the behavior they like. Hence you can have enter always execute code. If you prefer fancier behavior, you need to get your hands dirty and read the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "prompt_toolkit"
+            },
+            {
+              "type": "text",
+              "value": " and IPython documentation though. See "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "#10500"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/ipython/ipython/pull/10500"
+            },
+            {
+              "type": "text",
+              "value": ", set the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "c.TerminalInteractiveShell.handle_return"
+            },
+            {
+              "type": "text",
+              "value": " option and get inspiration from the following example that only auto-executes the input if it begins with a bang or a modulo character ("
+            },
+            {
+              "type": "inlineCode",
+              "value": "!"
+            },
+            {
+              "type": "text",
+              "value": " or "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%"
+            },
+            {
+              "type": "text",
+              "value": "). To use the following code, add it to your IPython configuration      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "def custom_return(shell):\n\n    \"\"\"This function is required by the API. It takes a reference to\n    the shell, which is the same thing `get_ipython()` evaluates to.\n    This function must return a function that handles each keypress\n    event. That function, named `handle` here, references `shell`\n    by closure.\"\"\"\n\n    def handle(event):\n\n        \"\"\"This function is called each time `Enter` is pressed,\n        and takes a reference to a Prompt Toolkit event object.\n        If the current input starts with a bang or modulo, then\n        the input is executed, otherwise a newline is entered,\n        followed by any spaces needed to auto-indent.\"\"\"\n\n        # set up a few handy references to nested items...\n\n        buffer = event.current_buffer\n        document = buffer.document\n        text = document.text\n\n        if text.startswith('!') or text.startswith('%'): # execute the input...\n\n            buffer.accept_action.validate_and_handle(event.cli, buffer)\n\n        else: # insert a newline with auto-indentation...\n\n            if document.line_count > 1: text = text[:document.cursor_position]\n            indent = shell.check_complete(text)[1]\n            buffer.insert_text('\\n' + indent)\n\n            # if you just wanted a plain newline without any indentation, you\n            # could use `buffer.insert_text('\\n')` instead of the lines above\n\n    return handle\n\nc.TerminalInteractiveShell.handle_return = custom_return"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Enter to execute",
+      "type": "Section"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

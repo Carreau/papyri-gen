@@ -1,0 +1,585 @@
+{
+  "aliases": [
+    "networkx.is_minimal_d_separator"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A d-separating set, "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "z",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "z"
+            },
+            {
+              "type": "text",
+              "value": ", in a DAG is a set of nodes that blocks all paths between the two nodes, "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "u",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "u"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "v",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "v"
+            },
+            {
+              "type": "text",
+              "value": ". This function verifies that a set is \"minimal\", meaning there is no smaller d-separating set between the two nodes."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function only works on verifying a d-separating set is minimal between two nodes. To verify that a d-separating set is minimal between two sets of nodes is not supported."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Uses algorithm 2 presented in . The complexity of the algorithm is "
+            },
+            {
+              "type": "inlineMath",
+              "value": "O(|E_{An}^m|)"
+            },
+            {
+              "type": "text",
+              "value": ", where "
+            },
+            {
+              "type": "inlineMath",
+              "value": "|E_{An}^m|"
+            },
+            {
+              "type": "text",
+              "value": " stands for the number of edges in the moralized graph of the sub-graph consisting of only the ancestors of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "u"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "v"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The algorithm works by constructing the moral graph consisting of just the ancestors of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "u",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "u"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "v",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "v"
+            },
+            {
+              "type": "text",
+              "value": ". First, it performs BFS on the moral graph starting from "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "u",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "u"
+            },
+            {
+              "type": "text",
+              "value": " and marking any nodes it encounters that are part of the separating set, "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "z",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "z"
+            },
+            {
+              "type": "text",
+              "value": ". If a node is marked, then it does not continue along that path. In the second stage, BFS with markings is repeated on the moral graph starting from "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "v",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "v"
+            },
+            {
+              "type": "text",
+              "value": ". If at any stage, any node in "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "z",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "z"
+            },
+            {
+              "type": "text",
+              "value": " is not marked, then "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "z",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "z"
+            },
+            {
+              "type": "text",
+              "value": " is considered not minimal. If the end of the algorithm is reached, then "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "z",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "z"
+            },
+            {
+              "type": "text",
+              "value": " is minimal."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For full details, see ."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "https://en.wikipedia.org/wiki/Bayesian_network#d-separation"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The graph."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "G",
+              "type": "Param",
+              "type_": "nx.DiGraph"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A node in the graph."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "u",
+              "type": "Param",
+              "type_": "node"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A node in the graph."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "v",
+              "type": "Param",
+              "type_": "node"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The set of nodes to check if it is a minimal d-separating set."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "z",
+              "type": "Param",
+              "type_": "Set of nodes"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Raises a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "NetworkXError"
+                    },
+                    {
+                      "type": "text",
+                      "value": " if the input graph is not a DAG."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "NetworkXError"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If any of the input nodes are not found in the graph, a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "NodeNotFound"
+                    },
+                    {
+                      "type": "text",
+                      "value": " exception is raised."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "NodeNotFound"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether or not the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "z",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "z"
+                    },
+                    {
+                      "type": "text",
+                      "value": " separating set is minimal."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "bool"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Determine if a d-separating set is minimal."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/algorithms/d_separation.py",
+  "item_line": 297,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "References",
+    "Notes"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(G, u, v, z)"
+  },
+  "type": "DocBlob"
+}

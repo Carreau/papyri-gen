@@ -1,0 +1,349 @@
+{
+  "aliases": [
+    "scipy.sparse.csgraph.maximum_bipartite_matching"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function implements the Hopcroft--Karp algorithm . Its time complexity is "
+            },
+            {
+              "type": "inlineMath",
+              "value": "O(\\lvert E \\rvert \\sqrt{\\lvert V \\rvert})"
+            },
+            {
+              "type": "text",
+              "value": ", and its space complexity is linear in the number of rows. In practice, this asymmetry between rows and columns means that it can be more efficient to transpose the input if it contains more columns than rows."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "By Konig's theorem, the cardinality of the matching is also the number of vertices appearing in a minimum vertex cover of the graph."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Note that if the sparse representation contains explicit zeros, these are still counted as edges."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The implementation was changed in SciPy 1.4.0 to allow matching of general bipartite graphs, where previous versions would assume that a perfect matching existed. As such, code written against 1.4.0 will not necessarily work on older versions."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Input sparse in CSR format whose rows represent one partition of the graph and whose columns represent the other partition. An edge between two vertices is indicated by the corresponding entry in the matrix existing in its sparse representation."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "graph",
+              "type": "Param",
+              "type_": "sparse matrix"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Which partition to return the matching in terms of: If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "'row'"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the function produces an array whose length is the number of columns in the input, and whose "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "j"
+                    },
+                    {
+                      "type": "text",
+                      "value": "'th element is the row matched to the "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "j"
+                    },
+                    {
+                      "type": "text",
+                      "value": "'th column. Conversely, if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "perm_type"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "'column'"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", this returns the columns matched to each row."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "perm_type",
+              "type": "Param",
+              "type_": "str, {'row', 'column'}"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A matching of the vertices in one of the two partitions. Unmatched vertices are represented by a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "-1"
+                    },
+                    {
+                      "type": "text",
+                      "value": " in the result."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "perm",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Returns a matching of a bipartite graph whose cardinality is as least that of any given matching of the graph."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from scipy.sparse import csr_matrix\nfrom scipy.sparse.csgraph import maximum_bipartite_matching"
+      },
+      {
+        "type": "text",
+        "value": "As a simple example, consider a bipartite graph in which the partitions\ncontain 2 and 3 elements respectively. Suppose that one partition contains\nvertices labelled 0 and 1, and that the other partition contains vertices\nlabelled A, B, and C. Suppose that there are edges connecting 0 and C,\n1 and A, and 1 and B. This graph would then be represented by the following\nsparse matrix:"
+      },
+      {
+        "type": "code",
+        "value": "graph = csr_matrix([[0, 0, 1], [1, 1, 0]])"
+      },
+      {
+        "type": "text",
+        "value": "Here, the 1s could be anything, as long as they end up being stored as\nelements in the sparse matrix. We can now calculate maximum matchings as\nfollows:"
+      },
+      {
+        "type": "code",
+        "value": "print(maximum_bipartite_matching(graph, perm_type='column'))"
+      },
+      {
+        "type": "code",
+        "value": "print(maximum_bipartite_matching(graph, perm_type='row'))"
+      },
+      {
+        "type": "text",
+        "value": "The first output tells us that 1 and 2 are matched with C and A\nrespectively, and the second output tells us that A, B, and C are matched\nwith 1, nothing, and 0 respectively."
+      },
+      {
+        "type": "text",
+        "value": "Note that explicit zeros are still converted to edges. This means that a\ndifferent way to represent the above graph is by using the CSR structure\ndirectly as follows:"
+      },
+      {
+        "type": "code",
+        "value": "data = [0, 0, 0]\nindices = [2, 0, 1]\nindptr = [0, 1, 3]\ngraph = csr_matrix((data, indices, indptr))\nprint(maximum_bipartite_matching(graph, perm_type='column'))"
+      },
+      {
+        "type": "code",
+        "value": "print(maximum_bipartite_matching(graph, perm_type='row'))"
+      },
+      {
+        "type": "text",
+        "value": "When one or both of the partitions are empty, the matching is empty as\nwell:"
+      },
+      {
+        "type": "code",
+        "value": "graph = csr_matrix((2, 0))\nprint(maximum_bipartite_matching(graph, perm_type='column'))"
+      },
+      {
+        "type": "code",
+        "value": "print(maximum_bipartite_matching(graph, perm_type='row'))"
+      },
+      {
+        "type": "text",
+        "value": "When the input matrix is square, and the graph is known to admit a perfect\nmatching, i.e. a matching with the property that every vertex in the graph\nbelongs to some edge in the matching, then one can view the output as the\npermutation of rows (or columns) turning the input matrix into one with the\nproperty that all diagonal elements are non-empty:"
+      },
+      {
+        "type": "code",
+        "value": "a = [[0, 1, 2, 0], [1, 0, 0, 1], [2, 0, 0, 3], [0, 1, 3, 0]]\ngraph = csr_matrix(a)\nperm = maximum_bipartite_matching(graph, perm_type='row')\nprint(graph[perm].toarray())"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": "<class 'builtin_function_or_method'>",
+  "ordered_sections": [
+    "Signature",
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "maximum_bipartite_matching(graph, perm_type='row')"
+  },
+  "type": "DocBlob"
+}

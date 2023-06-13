@@ -1,0 +1,234 @@
+{
+  "aliases": [
+    "xarray.plot.dataarray_plot._guess_coords_to_plot"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The DataArray to check for available coords."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "darray",
+              "type": "Param",
+              "type_": "DataArray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Coords defined by the user to plot."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "coords_to_plot",
+              "type": "Param",
+              "type_": "MutableMapping[str, Hashable]"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Extra kwargs that will be sent to matplotlib."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "kwargs",
+              "type": "Param",
+              "type_": "dict"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Default values and order to retrieve dims if values in dims_plot is missing, default: (\"x\", \"hue\", \"size\")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "default_guess",
+              "type": "Param",
+              "type_": "Iterable[str], optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Matplotlib arguments to ignore."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ignore_guess_kwargs",
+              "type": "Param",
+              "type_": "tuple[tuple[str, ...], ...]"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Guess what coords to plot if some of the values in coords_to_plot are None which happens when the user has not defined all available ways of visualizing the data."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "ds = xr.tutorial.scatter_example_dataset(seed=42)\n# Only guess x by default:\nxr.plot.utils._guess_coords_to_plot(\n    ds.A,\n    coords_to_plot={\"x\": None, \"z\": None, \"hue\": None, \"size\": None},\n    kwargs={},\n)"
+      },
+      {
+        "type": "code",
+        "value": "# Guess all plot dims with other default values:\nxr.plot.utils._guess_coords_to_plot(\n    ds.A,\n    coords_to_plot={\"x\": None, \"z\": None, \"hue\": None, \"size\": None},\n    kwargs={},\n    default_guess=(\"x\", \"hue\", \"size\"),\n    ignore_guess_kwargs=((), (\"c\", \"color\"), (\"s\",)),\n)"
+      },
+      {
+        "type": "code",
+        "value": "# Don't guess \u00b4size\u00b4, since the matplotlib kwarg \u00b4s\u00b4 has been defined:\nxr.plot.utils._guess_coords_to_plot(\n    ds.A,\n    coords_to_plot={\"x\": None, \"z\": None, \"hue\": None, \"size\": None},\n    kwargs={\"s\": 5},\n    default_guess=(\"x\", \"hue\", \"size\"),\n    ignore_guess_kwargs=((), (\"c\", \"color\"), (\"s\",)),\n)"
+      },
+      {
+        "type": "code",
+        "value": "# Prioritize \u00b4size\u00b4 over \u00b4s\u00b4:\nxr.plot.utils._guess_coords_to_plot(\n    ds.A,\n    coords_to_plot={\"x\": None, \"z\": None, \"hue\": None, \"size\": \"x\"},\n    kwargs={\"s\": 5},\n    default_guess=(\"x\", \"hue\", \"size\"),\n    ignore_guess_kwargs=((), (\"c\", \"color\"), (\"s\",)),\n)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/xarray/plot/utils.py",
+  "item_line": 1740,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(darray: 'DataArray', coords_to_plot: 'MutableMapping[str, Hashable | None]', kwargs: 'dict', default_guess: 'tuple[str, ...]' = ('x',), ignore_guess_kwargs: 'tuple[tuple[str, ...], ...]' = ((),)) -> 'MutableMapping[str, Hashable]'"
+  },
+  "type": "DocBlob"
+}

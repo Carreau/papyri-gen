@@ -1,0 +1,506 @@
+{
+  "aliases": [
+    "scipy.stats._odds_ratio.OddsRatioResult.confidence_interval"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "kind"
+            },
+            {
+              "type": "text",
+              "value": " is "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'conditional'"
+            },
+            {
+              "type": "text",
+              "value": ", the limits of the confidence interval are the conditional \"exact confidence limits\" as described by Fisher . The conditional odds ratio and confidence interval are also discussed in Section 4.1.2 of the text by Sahai and Khurshid ."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "kind"
+            },
+            {
+              "type": "text",
+              "value": " is "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'sample'"
+            },
+            {
+              "type": "text",
+              "value": ", the confidence interval is computed under the assumption that the logarithm of the odds ratio is normally distributed with standard error given by      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "se = sqrt(1/a + 1/b + 1/c + 1/d)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where "
+            },
+            {
+              "type": "inlineCode",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "b"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "c"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "d"
+            },
+            {
+              "type": "text",
+              "value": " are the elements of the contingency table.  (See, for example, , section 3.1.3.2, or , section 2.3.3)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Desired confidence level for the confidence interval. The value must be given as a fraction between 0 and 1. Default is 0.95 (meaning 95%)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "confidence_level: float",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The alternative hypothesis of the hypothesis test to which the confidence interval corresponds. That is, suppose the null hypothesis is that the true odds ratio equals "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "OR"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and the confidence interval is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(low, high)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Then the following options for "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "alternative",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "alternative"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are available (default is 'two-sided'):"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'two-sided': the true odds ratio is not equal to "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "OR"
+                            },
+                            {
+                              "type": "text",
+                              "value": ". There   is evidence against the null hypothesis at the chosen   "
+                            },
+                            {
+                              "domain": null,
+                              "role": null,
+                              "type": "Directive",
+                              "value": "confidence_level"
+                            },
+                            {
+                              "type": "text",
+                              "value": " if "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "high < OR"
+                            },
+                            {
+                              "type": "text",
+                              "value": " or "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "low > OR"
+                            },
+                            {
+                              "type": "text",
+                              "value": "."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'less': the true odds ratio is less than "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "OR"
+                            },
+                            {
+                              "type": "text",
+                              "value": ". The "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "low"
+                            },
+                            {
+                              "type": "text",
+                              "value": " end   of the confidence interval is 0, and there is evidence against   the null hypothesis at  the chosen "
+                            },
+                            {
+                              "domain": null,
+                              "role": null,
+                              "type": "Directive",
+                              "value": "confidence_level"
+                            },
+                            {
+                              "type": "text",
+                              "value": " if   "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "high < OR"
+                            },
+                            {
+                              "type": "text",
+                              "value": "."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'greater': the true odds ratio is greater than "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "OR"
+                            },
+                            {
+                              "type": "text",
+                              "value": ".  The   "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "high"
+                            },
+                            {
+                              "type": "text",
+                              "value": " end of the confidence interval is "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "np.inf"
+                            },
+                            {
+                              "type": "text",
+                              "value": ", and there   is evidence against the null hypothesis at the chosen   "
+                            },
+                            {
+                              "domain": null,
+                              "role": null,
+                              "type": "Directive",
+                              "value": "confidence_level"
+                            },
+                            {
+                              "type": "text",
+                              "value": " if "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "low > OR"
+                            },
+                            {
+                              "type": "text",
+                              "value": "."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "param": "alternative",
+              "type": "Param",
+              "type_": "{'two-sided', 'less', 'greater'}, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The confidence interval, represented as an object with attributes "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "low"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "high"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ci",
+              "type": "Param",
+              "type_": "``ConfidenceInterval`` instance"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Confidence interval for the odds ratio."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_odds_ratio.py",
+  "item_line": 210,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, confidence_level=0.95, alternative='two-sided')"
+  },
+  "type": "DocBlob"
+}

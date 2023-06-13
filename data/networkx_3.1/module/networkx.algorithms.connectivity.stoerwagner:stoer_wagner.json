@@ -1,0 +1,346 @@
+{
+  "aliases": [
+    "networkx.stoer_wagner"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Determine the minimum edge cut of a connected graph using the Stoer-Wagner algorithm. In weighted cases, all weights must be nonnegative."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The running time of the algorithm depends on the type of heaps used:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "============== ============================================= Type of heap   Running time ============== ============================================= Binary heap    $O(n (m + n) \\log n)$ Fibonacci heap $O(nm + n^2 \\log n)$ Pairing heap   $O(2^{2 \\sqrt{\\log \\log n}} nm + n^2 \\log n)$ ============== ============================================="
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Edges of the graph are expected to have an attribute named by the weight parameter below. If this attribute is not present, the edge is considered to have unit weight."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "G",
+              "type": "Param",
+              "type_": "NetworkX graph"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Name of the weight attribute of the edges. If the attribute is not present, unit weight is assumed. Default value: 'weight'."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "weight",
+              "type": "Param",
+              "type_": "string"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Type of heap to be used in the algorithm. It should be a subclass of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "MinHeap"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or implement a compatible interface."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If a stock heap implementation is to be used, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "BinaryHeap"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is recommended over "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "PairingHeap"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for Python implementations without optimized attribute accesses (e.g., CPython) despite a slower asymptotic running time. For Python implementations with optimized attribute accesses (e.g., PyPy), "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "PairingHeap"
+                    },
+                    {
+                      "type": "text",
+                      "value": " provides better performance. Default value: "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "BinaryHeap"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "heap",
+              "type": "Param",
+              "type_": "class"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If the graph is directed or a multigraph."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "NetworkXNotImplemented"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If the graph has less than two nodes, is not connected or has a negative-weighted edge."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "NetworkXError"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The sum of weights of edges in a minimum cut."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "cut_value",
+              "type": "Param",
+              "type_": "integer or float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A partitioning of the nodes that defines a minimum cut."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "partition",
+              "type": "Param",
+              "type_": "pair of node lists"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Returns the weighted minimum edge cut using the Stoer-Wagner algorithm."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "G = nx.Graph()\nG.add_edge(\"x\", \"a\", weight=3)\nG.add_edge(\"x\", \"b\", weight=1)\nG.add_edge(\"a\", \"c\", weight=3)\nG.add_edge(\"b\", \"c\", weight=5)\nG.add_edge(\"b\", \"d\", weight=4)\nG.add_edge(\"d\", \"e\", weight=2)\nG.add_edge(\"c\", \"y\", weight=2)\nG.add_edge(\"e\", \"y\", weight=3)\ncut_value, partition = nx.stoer_wagner(G)\ncut_value"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/algorithms/connectivity/stoerwagner.py",
+  "item_line": 13,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(G, weight='weight', heap=<class 'networkx.utils.heaps.BinaryHeap'>)"
+  },
+  "type": "DocBlob"
+}

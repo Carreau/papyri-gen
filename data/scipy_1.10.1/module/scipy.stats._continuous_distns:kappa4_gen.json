@@ -1,0 +1,342 @@
+{
+  "aliases": [
+    "scipy.stats._continuous_distns.kappa4_gen"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "%(before_notes)s"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The probability density function for kappa4 is:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "f(x, h, k) = (1 - k x)^{1/k - 1} (1 - h (1 - k x)^{1/k})^{1/h-1}"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "if "
+            },
+            {
+              "type": "inlineMath",
+              "value": "h"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "k"
+            },
+            {
+              "type": "text",
+              "value": " are not equal to 0."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If "
+            },
+            {
+              "type": "inlineMath",
+              "value": "h"
+            },
+            {
+              "type": "text",
+              "value": " or "
+            },
+            {
+              "type": "inlineMath",
+              "value": "k"
+            },
+            {
+              "type": "text",
+              "value": " are zero then the pdf can be simplified:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "h = 0 and k != 0      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "kappa4.pdf(x, h, k) = (1.0 - k*x)**(1.0/k - 1.0)*\n                      exp(-(1.0 - k*x)**(1.0/k))"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "h != 0 and k = 0      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "kappa4.pdf(x, h, k) = exp(-x)*(1.0 - h*exp(-x))**(1.0/h - 1.0)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "h = 0 and k = 0      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "kappa4.pdf(x, h, k) = exp(-x)*exp(-exp(-x))"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "kappa4 takes "
+            },
+            {
+              "type": "inlineMath",
+              "value": "h"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "k"
+            },
+            {
+              "type": "text",
+              "value": " as shape parameters."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The kappa4 distribution returns other distributions when certain "
+            },
+            {
+              "type": "inlineMath",
+              "value": "h"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "k"
+            },
+            {
+              "type": "text",
+              "value": " values are used."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "+------+-------------+----------------+------------------+ | h    | k=0.0       | k=1.0          | -inf<=k<=inf     | +======+=============+================+==================+ | -1.0 | Logistic    |                | Generalized      | |      |             |                | Logistic(1)      | |      |             |                |                  | |      | logistic(x) |                |                  | +------+-------------+----------------+------------------+ |  0.0 | Gumbel      | Reverse        | Generalized      | |      |             | Exponential(2) | Extreme Value    | |      |             |                |                  | |      | gumbel_r(x) |                | genextreme(x, k) | +------+-------------+----------------+------------------+ |  1.0 | Exponential | Uniform        | Generalized      | |      |             |                | Pareto           | |      |             |                |                  | |      | expon(x)    | uniform(x)     | genpareto(x, -k) | +------+-------------+----------------+------------------+"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "There are at least five generalized logistic distributions.     Four are described here:     https://en.wikipedia.org/wiki/Generalized_logistic_distribution     The \"fifth\" one is the one kappa4 should match which currently     isn't implemented in scipy:     https://en.wikipedia.org/wiki/Talk:Generalized_logistic_distribution     https://www.mathwave.com/help/easyfit/html/analyses/distributions/gen_logistic.html"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This distribution is currently not in scipy."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": true,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Kappa 4 parameter distribution."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_continuous_distns.py",
+  "item_line": 5951,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Notes",
+    "References"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

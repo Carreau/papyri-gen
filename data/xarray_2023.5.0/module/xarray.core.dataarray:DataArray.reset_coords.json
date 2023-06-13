@@ -1,0 +1,203 @@
+{
+  "aliases": [
+    "xarray.DataArray.reset_coords"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Name(s) of non-index coordinates in this dataset to reset into variables. By default, all non-index coordinates are reset."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "names",
+              "type": "Param",
+              "type_": "str, Iterable of Hashable or None, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, remove coordinates instead of converting them into variables."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "drop",
+              "type": "Param",
+              "type_": "bool, default: False"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "Dataset, or DataArray if ``drop == True``"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Given names of coordinates, reset them to become variables."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "temperature = np.arange(25).reshape(5, 5)\npressure = np.arange(50, 75).reshape(5, 5)\nda = xr.DataArray(\n    data=temperature,\n    dims=[\"x\", \"y\"],\n    coords=dict(\n        lon=(\"x\", np.arange(10, 15)),\n        lat=(\"y\", np.arange(20, 25)),\n        Pressure=([\"x\", \"y\"], pressure),\n    ),\n    name=\"Temperature\",\n)\nda"
+      },
+      {
+        "type": "text",
+        "value": "Return Dataset with target coordinate as a data variable rather than a coordinate variable:"
+      },
+      {
+        "type": "code",
+        "value": "da.reset_coords(names=\"Pressure\")"
+      },
+      {
+        "type": "text",
+        "value": "Return DataArray without targeted coordinate:"
+      },
+      {
+        "type": "code",
+        "value": "da.reset_coords(names=\"Pressure\", drop=True)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/xarray/core/dataarray.py",
+  "item_line": 933,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(self: 'T_DataArray', names: 'Dims' = None, drop: 'bool' = False) -> 'T_DataArray | Dataset'"
+  },
+  "type": "DocBlob"
+}

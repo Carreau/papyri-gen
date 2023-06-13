@@ -1,0 +1,651 @@
+{
+  "aliases": [
+    "skimage.restoration.denoise_wavelet"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The wavelet domain is a sparse representation of the image, and can be thought of similarly to the frequency domain of the Fourier transform. Sparse representations have most values zero or near-zero and truly random noise is (usually) represented by many small values in the wavelet domain. Setting all values below some threshold to 0 reduces the noise in the image, but larger thresholds also decrease the detail present in the image."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If the input is 3D, this function performs wavelet denoising on each color plane separately."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionchanged 0.16"
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "For floating point inputs, the original input range is maintained and there is no clipping applied to the output. Other input types will be converted to a floating point value in the range [-1, 1] or [0, 1] depending on the input image range. Unless "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "rescale_sigma = False"
+                },
+                {
+                  "type": "text",
+                  "value": ", any internal rescaling applied to the "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "image"
+                },
+                {
+                  "type": "text",
+                  "value": " will also be applied to "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "sigma"
+                },
+                {
+                  "type": "text",
+                  "value": " to maintain the same relative amplitude."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Many wavelet coefficient thresholding approaches have been proposed. By default, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "denoise_wavelet"
+            },
+            {
+              "type": "text",
+              "value": " applies BayesShrink, which is an adaptive thresholding method that computes separate thresholds for each wavelet sub-band as described in ."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If "
+            },
+            {
+              "type": "inlineCode",
+              "value": "method == \"VisuShrink\""
+            },
+            {
+              "type": "text",
+              "value": ", a single \"universal threshold\" is applied to all wavelet detail coefficients as described in . This threshold is designed to remove all Gaussian noise at a given "
+            },
+            {
+              "type": "inlineCode",
+              "value": "sigma"
+            },
+            {
+              "type": "text",
+              "value": " with high probability, but tends to produce images that appear overly smooth."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Although any of the wavelets from "
+            },
+            {
+              "type": "inlineCode",
+              "value": "PyWavelets"
+            },
+            {
+              "type": "text",
+              "value": " can be selected, the thresholding methods assume an orthogonal wavelet transform and may not choose the threshold appropriately for biorthogonal wavelets. Orthogonal wavelets are desirable because white noise in the input remains white noise in the subbands. Biorthogonal wavelets lead to colored noise in the subbands. Additionally, the orthogonal wavelets in PyWavelets are orthonormal so that noise variance in the subbands remains identical to the noise variance of the input. Example orthogonal wavelets are the Daubechies (e.g. 'db2') or symmlet (e.g. 'sym2') families."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Deprecated in favor of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "channel_axis",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "channel_axis"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "deprecated 0.19"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "multichannel",
+              "type": "Param",
+              "type_": "DEPRECATED"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Input data to be denoised. "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "image",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "image"
+                    },
+                    {
+                      "type": "text",
+                      "value": " can be of any numeric type, but it is cast into an ndarray of floats for the computation of the denoised image."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "image",
+              "type": "Param",
+              "type_": "ndarray ([M[, N[, ...P]][, C]) of ints, uints or floats"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The noise standard deviation used when computing the wavelet detail coefficient threshold(s). When None (default), the noise standard deviation is estimated via the method in ."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sigma",
+              "type": "Param",
+              "type_": "float or list, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The type of wavelet to perform and can be any of the options "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "pywt.wavelist"
+                    },
+                    {
+                      "type": "text",
+                      "value": " outputs. The default is "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "'db1'"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". For example, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "wavelet"
+                    },
+                    {
+                      "type": "text",
+                      "value": " can be any of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "{'db2', 'haar', 'sym9'}"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and many more."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "wavelet",
+              "type": "Param",
+              "type_": "string, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An optional argument to choose the type of denoising performed. It noted that choosing soft thresholding given additive noise finds the best approximation of the original image."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mode",
+              "type": "Param",
+              "type_": "{'soft', 'hard'}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The number of wavelet decomposition levels to use.  The default is three less than the maximum number of possible decomposition levels."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "wavelet_levels",
+              "type": "Param",
+              "type_": "int or None, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Apply wavelet denoising separately for each channel (where channels correspond to the final axis of the array). This argument is deprecated: specify "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "channel_axis",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "channel_axis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instead."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "multichannel",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True and multichannel True, do the wavelet denoising in the YCbCr colorspace instead of the RGB color space. This typically results in better performance for RGB images."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "convert2ycbcr",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Thresholding method to be used. The currently supported methods are \"BayesShrink\"  and \"VisuShrink\" . Defaults to \"BayesShrink\"."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "method",
+              "type": "Param",
+              "type_": "{'BayesShrink', 'VisuShrink'}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If False, no rescaling of the user-provided "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "sigma"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will be performed. The default of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": " rescales sigma appropriately if the image is rescaled internally."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 0.16"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "inlineCode",
+                          "value": "rescale_sigma"
+                        },
+                        {
+                          "type": "text",
+                          "value": " was introduced in 0.16"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "rescale_sigma",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If None, the image is assumed to be a grayscale (single channel) image. Otherwise, this parameter indicates which axis of the array corresponds to channels."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 0.19"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "inlineCode",
+                          "value": "channel_axis"
+                        },
+                        {
+                          "type": "text",
+                          "value": " was added in 0.19."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "channel_axis",
+              "type": "Param",
+              "type_": "int or None, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Denoised image."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "out",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Perform wavelet denoising on an image."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from skimage import color, data\nimg = img_as_float(data.astronaut())\nimg = color.rgb2gray(img)\nrng = np.random.default_rng()\nimg += 0.1 * rng.standard_normal(img.shape)\nimg = np.clip(img, 0, 1)\ndenoised_img = denoise_wavelet(img, sigma=0.1, rescale_sigma=True)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/skimage/restoration/_denoise.py",
+  "item_line": 755,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Other Parameters",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(image, sigma=None, wavelet='db1', mode='soft', wavelet_levels=None, multichannel=False, convert2ycbcr=False, method='BayesShrink', rescale_sigma=True, *, channel_axis=None)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,341 @@
+{
+  "aliases": [
+    "distributed.protocol.serialize"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This takes in an arbitrary Python object and returns a msgpack serializable header and a list of bytes or memoryview objects."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The serialization protocols to use are configurable: a list of names define the set of serializers to use, in order. These names are keys in the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "serializer_registry"
+            },
+            {
+              "type": "text",
+              "value": " dict (e.g., 'pickle', 'msgpack'), which maps to the de/serialize functions. The name 'dask' is special, and will use the per-class serialization methods. "
+            },
+            {
+              "type": "inlineCode",
+              "value": "None"
+            },
+            {
+              "type": "text",
+              "value": " gives the default list "
+            },
+            {
+              "type": "inlineCode",
+              "value": "['dask', 'pickle']"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Notes on the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "iterate_collection"
+            },
+            {
+              "type": "text",
+              "value": " argument (only relevant when "
+            },
+            {
+              "type": "inlineCode",
+              "value": "x"
+            },
+            {
+              "type": "text",
+              "value": " is a collection): - "
+            },
+            {
+              "type": "inlineCode",
+              "value": "iterate_collection=True"
+            },
+            {
+              "type": "text",
+              "value": ": Serialize collection elements separately. - "
+            },
+            {
+              "type": "inlineCode",
+              "value": "iterate_collection=False"
+            },
+            {
+              "type": "text",
+              "value": ": Serialize collection elements together. - "
+            },
+            {
+              "type": "inlineCode",
+              "value": "iterate_collection=None"
+            },
+            {
+              "type": "text",
+              "value": " (default): Infer the best setting."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "header: dictionary containing any msgpack-serializable metadata"
+            },
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "frames: list of bytes or memoryviews, commonly of length one"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Convert object to a header and list of bytestrings"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "serialize(1)"
+      },
+      {
+        "type": "code",
+        "value": "serialize(b'123')  # some special types get custom treatment"
+      },
+      {
+        "type": "code",
+        "value": "deserialize(*serialize(1))"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/distributed/protocol/serialize.py",
+  "item_line": 210,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Examples",
+    "Returns",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Convert header and frames back to object"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "distributed",
+          "path": "distributed.protocol.serialize:ObjectDictSerializer.deserialize",
+          "type": "RefInfo",
+          "version": "2023.1.1"
+        },
+        "type": "Link",
+        "value": "deserialize"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Mark that data in a message should be serialized"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "to_serialize",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "to_serialize"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Register custom serialization functions"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "register_serialization",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "register_serialization"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(x: 'object', serializers=None, on_error: \"Literal['message' | 'raise']\" = 'message', context=None, iterate_collection: 'bool | None' = None) -> 'tuple[dict[str, Any], list[bytes | memoryview]]'"
+  },
+  "type": "DocBlob"
+}

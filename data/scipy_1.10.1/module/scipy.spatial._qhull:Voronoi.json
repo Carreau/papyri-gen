@@ -1,0 +1,473 @@
+{
+  "aliases": [
+    "scipy.spatial.Voronoi"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Coordinates of input points."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "points",
+              "type": "Param",
+              "type_": "ndarray of double, shape (npoints, ndim)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Coordinates of the Voronoi vertices."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "vertices",
+              "type": "Param",
+              "type_": "ndarray of double, shape (nvertices, ndim)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Indices of the points between which each Voronoi ridge lies."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ridge_points",
+              "type": "Param",
+              "type_": "ndarray of ints, shape ``(nridges, 2)``"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Indices of the Voronoi vertices forming each Voronoi ridge."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ridge_vertices",
+              "type": "Param",
+              "type_": "list of list of ints, shape ``(nridges, *)``"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Indices of the Voronoi vertices forming each Voronoi region. -1 indicates vertex outside the Voronoi diagram. When qhull option \"Qz\" was specified, an empty sublist represents the Voronoi region for a point at infinity that was added internally."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "regions",
+              "type": "Param",
+              "type_": "list of list of ints, shape ``(nregions, *)``"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Index of the Voronoi region for each input point. If qhull option \"Qc\" was not specified, the list will contain -1 for points that are not associated with a Voronoi region. If qhull option \"Qz\" was specified, there will be one less element than the number of regions because an extra point at infinity is added internally to facilitate computation."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "point_region",
+              "type": "Param",
+              "type_": "array of ints, shape (npoints)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "True if this was a furthest site triangulation and False if not."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.4.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "furthest_site",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 0.12.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The Voronoi diagram is computed using the "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Qhull library"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "http://www.qhull.org/"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Coordinates of points to construct a Voronoi diagram from"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "points",
+              "type": "Param",
+              "type_": "ndarray of floats, shape (npoints, ndim)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to compute a furthest-site Voronoi diagram. Default: False"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "furthest_site",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Allow adding new points incrementally. This takes up some additional resources."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "incremental",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Additional options to pass to Qhull. See Qhull manual for details. (Default: \"Qbb Qc Qz Qx\" for ndim > 4 and \"Qbb Qc Qz\" otherwise. Incremental mode omits \"Qz\".)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "qhull_options",
+              "type": "Param",
+              "type_": "str, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Raised when Qhull encounters an error condition, such as geometrical degeneracy when options to resolve are not enabled."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "QhullError"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Raised if an incompatible array is given as input."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "ValueError"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Voronoi diagrams in N dimensions."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Voronoi diagram for a set of point:"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\npoints = np.array([[0, 0], [0, 1], [0, 2], [1, 0], [1, 1], [1, 2],\n                   [2, 0], [2, 1], [2, 2]])\nfrom scipy.spatial import Voronoi, voronoi_plot_2d\nvor = Voronoi(points)"
+      },
+      {
+        "type": "text",
+        "value": "Plot it:"
+      },
+      {
+        "type": "code",
+        "value": "import matplotlib.pyplot as plt\nfig = voronoi_plot_2d(vor)\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.spatial._qhull:Voronoi-0-879d2ea8.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      },
+      {
+        "type": "text",
+        "value": "The Voronoi vertices:"
+      },
+      {
+        "type": "code",
+        "value": "vor.vertices"
+      },
+      {
+        "type": "text",
+        "value": "There is a single finite Voronoi region, and four finite Voronoi\nridges:"
+      },
+      {
+        "type": "code",
+        "value": "vor.regions"
+      },
+      {
+        "type": "code",
+        "value": "vor.ridge_vertices"
+      },
+      {
+        "type": "text",
+        "value": "The ridges are perpendicular between lines drawn between the following\ninput points:"
+      },
+      {
+        "type": "code",
+        "value": "vor.ridge_points"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/spatial/_qhull.cpython-311-darwin.so",
+  "item_line": null,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Signature",
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Attributes",
+    "Raises",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "Voronoi(points, furthest_site=False, incremental=False, qhull_options=None)"
+  },
+  "type": "DocBlob"
+}

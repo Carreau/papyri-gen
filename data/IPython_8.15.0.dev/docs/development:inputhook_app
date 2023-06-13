@@ -1,0 +1,178 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "IPython allows GUI event loops to be run in an interactive IPython session. This is done using Python's PyOS_InputHook hook which Python calls when the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "raw_input"
+            },
+            {
+              "type": "text",
+              "value": " function is called and waiting for user input. IPython has versions of this hook for wx, pyqt4 and pygtk."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When a GUI program is used interactively within IPython, the event loop of the GUI should "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "not"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " be started. This is because, the PyOS_Inputhook itself is responsible for iterating the GUI event loop."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "IPython has facilities for installing the needed input hook for each GUI  toolkit and for creating the needed main GUI application object. Usually, these main application objects should be created only once and for some GUI toolkits, special options have to be passed to the application object to enable it to function properly in IPython."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "We need to answer the following questions:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Who is responsible for creating the main GUI application object, IPython   or third parties (matplotlib, enthought.traits, etc.)?"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "What is the proper way for third party code to detect if a GUI application   object has already been created?  If one has been created, how should   the existing instance be retrieved?"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "In a GUI application object has been created, how should third party code   detect if the GUI event loop is running. It is not sufficient to call the   relevant function methods in the GUI toolkits (like "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "IsMainLoopRunning"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")   because those don't know if the GUI event loop is running through the   input hook."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "We might need a way for third party code to determine if it is running   in IPython or not.  Currently, the only way of running GUI code in IPython   is by using the input hook, but eventually, GUI based versions of IPython   will allow the GUI event loop in the more traditional manner. We will need   a way for third party code to distinguish between these two cases."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Here is some sample code I have been using to debug this issue      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "from matplotlib import pyplot as plt\n\nfrom enthought.traits import api as traits\n\nclass Foo(traits.HasTraits):\n    a = traits.Float()\n\nf = Foo()\nf.configure_traits()\n\nplt.plot(range(10))"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": "IPython GUI Support Notes",
+      "type": "Section"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

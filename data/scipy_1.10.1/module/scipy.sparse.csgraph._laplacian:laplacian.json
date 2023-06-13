@@ -1,0 +1,816 @@
+{
+  "aliases": [
+    "scipy.sparse.csgraph.laplacian"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The Laplacian matrix of a graph is sometimes referred to as the \"Kirchhoff matrix\" or just the \"Laplacian\", and is useful in many parts of spectral graph theory. In particular, the eigen-decomposition of the Laplacian can give insight into many properties of the graph, e.g., is commonly used for spectral data embedding and clustering."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The constructed Laplacian doubles the memory use if "
+            },
+            {
+              "type": "inlineCode",
+              "value": "copy=True"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "form=\"array\""
+            },
+            {
+              "type": "text",
+              "value": " which is the default. Choosing "
+            },
+            {
+              "type": "inlineCode",
+              "value": "copy=False"
+            },
+            {
+              "type": "text",
+              "value": " has no effect unless "
+            },
+            {
+              "type": "inlineCode",
+              "value": "form=\"array\""
+            },
+            {
+              "type": "text",
+              "value": " or the matrix is sparse in the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "coo"
+            },
+            {
+              "type": "text",
+              "value": " format, or dense array, except for the integer input with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "normed=True"
+            },
+            {
+              "type": "text",
+              "value": " that forces the float output."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Sparse input is reformatted into "
+            },
+            {
+              "type": "inlineCode",
+              "value": "coo"
+            },
+            {
+              "type": "text",
+              "value": " if "
+            },
+            {
+              "type": "inlineCode",
+              "value": "form=\"array\""
+            },
+            {
+              "type": "text",
+              "value": ", which is the default."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If the input adjacency matrix is not symmetic, the Laplacian is also non-symmetric unless "
+            },
+            {
+              "type": "inlineCode",
+              "value": "symmetrized=True"
+            },
+            {
+              "type": "text",
+              "value": " is used."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Diagonal entries of the input adjacency matrix are ignored and replaced with zeros for the purpose of normalization where "
+            },
+            {
+              "type": "inlineCode",
+              "value": "normed=True"
+            },
+            {
+              "type": "text",
+              "value": ". The normalization uses the inverse square roots of row-sums of the input adjacency matrix, and thus may fail if the row-sums contain negative or complex with a non-zero imaginary part values."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The normalization is symmetric, making the normalized Laplacian also symmetric if the input csgraph was symmetric."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "compressed-sparse graph, with shape (N, N)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "csgraph",
+              "type": "Param",
+              "type_": "array_like or sparse matrix, 2 dimensions"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, then compute symmetrically normalized Laplacian. Default: False."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "normed",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, then also return an array related to vertex degrees. Default: False."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "return_diag",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, then use out-degree instead of in-degree. This distinction matters only if the graph is asymmetric. Default: False."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "use_out_degree",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If False, then change "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "csgraph",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "csgraph"
+                    },
+                    {
+                      "type": "text",
+                      "value": " in place if possible, avoiding doubling the memory use. Default: True, for backward compatibility."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "copy: bool, optional",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Determines the format of the output Laplacian:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'array' is a numpy array;"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'function' is a pointer to evaluating the Laplacian-vector   or Laplacian-matrix product;"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'lo' results in the format of the "
+                            },
+                            {
+                              "domain": null,
+                              "role": null,
+                              "type": "Directive",
+                              "value": "LinearOperator"
+                            },
+                            {
+                              "type": "text",
+                              "value": "."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Choosing 'function' or 'lo' always avoids doubling the memory use, ignoring "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "copy",
+                        "path": "copy",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "copy"
+                    },
+                    {
+                      "type": "text",
+                      "value": " value. Default: 'array', for backward compatibility."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "form: 'array', or 'function', or 'lo'",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The dtype of the output. If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "dtype=None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the dtype of the output matches the dtype of the input csgraph, except for the case "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "normed=True"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and integer-like csgraph, where the output dtype is 'float' allowing accurate normalization, but dramatically increasing the memory use. Default: None, for backward compatibility."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dtype: None or one of numeric numpy dtypes, optional",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, then the output Laplacian is symmetric/Hermitian. The symmetrization is done by "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "csgraph + csgraph.T.conj"
+                    },
+                    {
+                      "type": "text",
+                      "value": " without dividing by 2 to preserve integer dtypes if possible prior to the construction of the Laplacian. The symmetrization will increase the memory footprint of sparse matrices unless the sparsity pattern is symmetric or "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "form"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is 'function' or 'lo'. Default: False, for backward compatibility."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "symmetrized: bool, optional",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The N x N Laplacian of csgraph. It will be a NumPy array (dense) if the input was dense, or a sparse matrix otherwise, or the format of a function or "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "LinearOperator"
+                    },
+                    {
+                      "type": "text",
+                      "value": " if "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "form"
+                    },
+                    {
+                      "type": "text",
+                      "value": " equals 'function' or 'lo', respectively."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "lap",
+              "type": "Param",
+              "type_": "ndarray, or sparse matrix, or `LinearOperator`"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The length-N main diagonal of the Laplacian matrix. For the normalized Laplacian, this is the array of square roots of vertex degrees or 1 if the degree is zero."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "diag",
+              "type": "Param",
+              "type_": "ndarray, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Return the Laplacian of a directed graph."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.sparse import csgraph"
+      },
+      {
+        "type": "text",
+        "value": "Our first illustration is the symmetric graph"
+      },
+      {
+        "type": "code",
+        "value": "G = np.arange(4) * np.arange(4)[:, np.newaxis]\nG"
+      },
+      {
+        "type": "text",
+        "value": "and its symmetric Laplacian matrix"
+      },
+      {
+        "type": "code",
+        "value": "csgraph.laplacian(G)"
+      },
+      {
+        "type": "text",
+        "value": "The non-symmetric graph"
+      },
+      {
+        "type": "code",
+        "value": "G = np.arange(9).reshape(3, 3)\nG"
+      },
+      {
+        "type": "text",
+        "value": "has different row- and column sums, resulting in two varieties\nof the Laplacian matrix, using an in-degree, which is the default"
+      },
+      {
+        "type": "code",
+        "value": "L_in_degree = csgraph.laplacian(G)\nL_in_degree"
+      },
+      {
+        "type": "text",
+        "value": "or alternatively an out-degree"
+      },
+      {
+        "type": "code",
+        "value": "L_out_degree = csgraph.laplacian(G, use_out_degree=True)\nL_out_degree"
+      },
+      {
+        "type": "text",
+        "value": "Constructing a symmetric Laplacian matrix, one can add the two as"
+      },
+      {
+        "type": "code",
+        "value": "L_in_degree + L_out_degree.T"
+      },
+      {
+        "type": "text",
+        "value": "or use the ``symmetrized=True`` option"
+      },
+      {
+        "type": "code",
+        "value": "csgraph.laplacian(G, symmetrized=True)"
+      },
+      {
+        "type": "text",
+        "value": "that is equivalent to symmetrizing the original graph"
+      },
+      {
+        "type": "code",
+        "value": "csgraph.laplacian(G + G.T)"
+      },
+      {
+        "type": "text",
+        "value": "The goal of normalization is to make the non-zero diagonal entries\nof the Laplacian matrix to be all unit, also scaling off-diagonal\nentries correspondingly. The normalization can be done manually, e.g.,"
+      },
+      {
+        "type": "code",
+        "value": "G = np.array([[0, 1, 1], [1, 0, 1], [1, 1, 0]])\nL, d = csgraph.laplacian(G, return_diag=True)\nL"
+      },
+      {
+        "type": "code",
+        "value": "d"
+      },
+      {
+        "type": "code",
+        "value": "scaling = np.sqrt(d)\nscaling"
+      },
+      {
+        "type": "code",
+        "value": "(1/scaling)*L*(1/scaling)"
+      },
+      {
+        "type": "text",
+        "value": "Or using ``normed=True`` option"
+      },
+      {
+        "type": "code",
+        "value": "L, d = csgraph.laplacian(G, return_diag=True, normed=True)\nL"
+      },
+      {
+        "type": "text",
+        "value": "which now instead of the diagonal returns the scaling coefficients"
+      },
+      {
+        "type": "code",
+        "value": "d"
+      },
+      {
+        "type": "text",
+        "value": "Zero scaling coefficients are substituted with 1s, where scaling\nhas thus no effect, e.g.,"
+      },
+      {
+        "type": "code",
+        "value": "G = np.array([[0, 0, 0], [0, 0, 1], [0, 1, 0]])\nG"
+      },
+      {
+        "type": "code",
+        "value": "L, d = csgraph.laplacian(G, return_diag=True, normed=True)\nL"
+      },
+      {
+        "type": "code",
+        "value": "d"
+      },
+      {
+        "type": "text",
+        "value": "Only the symmetric normalization is implemented, resulting\nin a symmetric Laplacian matrix if and only if its graph is symmetric\nand has all non-negative degrees, like in the examples above."
+      },
+      {
+        "type": "text",
+        "value": "The output Laplacian matrix is by default a dense array or a sparse matrix\ninferring its shape, format, and dtype from the input graph matrix:"
+      },
+      {
+        "type": "code",
+        "value": "G = np.array([[0, 1, 1], [1, 0, 1], [1, 1, 0]]).astype(np.float32)\nG"
+      },
+      {
+        "type": "code",
+        "value": "csgraph.laplacian(G)"
+      },
+      {
+        "type": "text",
+        "value": "but can alternatively be generated matrix-free as a LinearOperator:"
+      },
+      {
+        "type": "code",
+        "value": "L = csgraph.laplacian(G, form=\"lo\")\nL"
+      },
+      {
+        "type": "code",
+        "value": "L(np.eye(3))"
+      },
+      {
+        "type": "text",
+        "value": "or as a lambda-function:"
+      },
+      {
+        "type": "code",
+        "value": "L = csgraph.laplacian(G, form=\"function\")\nL"
+      },
+      {
+        "type": "code",
+        "value": "L(np.eye(3))"
+      },
+      {
+        "type": "text",
+        "value": "The Laplacian matrix is used for\nspectral data clustering and embedding\nas well as for spectral graph partitioning.\nOur final example illustrates the latter\nfor a noisy directed linear graph."
+      },
+      {
+        "type": "code",
+        "value": "from scipy.sparse import diags, random\nfrom scipy.sparse.linalg import lobpcg"
+      },
+      {
+        "type": "text",
+        "value": "Create a directed linear graph with ``N=35`` vertices\nusing a sparse adjacency matrix ``G``:"
+      },
+      {
+        "type": "code",
+        "value": "N = 35\nG = diags(np.ones(N-1), 1, format=\"csr\")"
+      },
+      {
+        "type": "text",
+        "value": "Fix a random seed ``rng`` and add a random sparse noise to the graph ``G``:"
+      },
+      {
+        "type": "code",
+        "value": "rng = np.random.default_rng()\nG += 1e-2 * random(N, N, density=0.1, random_state=rng)"
+      },
+      {
+        "type": "text",
+        "value": "Set initial approximations for eigenvectors:"
+      },
+      {
+        "type": "code",
+        "value": "X = rng.random((N, 2))"
+      },
+      {
+        "type": "text",
+        "value": "The constant vector of ones is always a trivial eigenvector\nof the non-normalized Laplacian to be filtered out:"
+      },
+      {
+        "type": "code",
+        "value": "Y = np.ones((N, 1))"
+      },
+      {
+        "type": "text",
+        "value": "Alternating (1) the sign of the graph weights allows determining\nlabels for spectral max- and min- cuts in a single loop.\nSince the graph is undirected, the option ``symmetrized=True``\nmust be used in the construction of the Laplacian.\nThe option ``normed=True`` cannot be used in (2) for the negative weights\nhere as the symmetric normalization evaluates square roots.\nThe option ``form=\"lo\"`` in (2) is matrix-free, i.e., guarantees\na fixed memory footprint and read-only access to the graph.\nCalling the eigenvalue solver ``lobpcg`` (3) computes the Fiedler vector\nthat determines the labels as the signs of its components in (5).\nSince the sign in an eigenvector is not deterministic and can flip,\nwe fix the sign of the first component to be always +1 in (4)."
+      },
+      {
+        "type": "code",
+        "value": "for cut in [\"max\", \"min\"]:\n    G = -G  # 1.\n    L = csgraph.laplacian(G, symmetrized=True, form=\"lo\")  # 2.\n    _, eves = lobpcg(L, X, Y=Y, largest=False, tol=1e-3)  # 3.\n    eves *= np.sign(eves[0, 0])  # 4.\n    print(cut + \"-cut labels:\\n\", 1 * (eves[:, 0]>0))  # 5."
+      },
+      {
+        "type": "text",
+        "value": "As anticipated for a (slightly noisy) linear graph,\nthe max-cut strips all the edges of the graph coloring all\nodd vertices into one color and all even vertices into another one,\nwhile the balanced min-cut partitions the graph\nin the middle by deleting a single edge.\nBoth determined partitions are optimal."
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/sparse/csgraph/_laplacian.py",
+  "item_line": 12,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(csgraph, normed=False, return_diag=False, use_out_degree=False, *, copy=True, form='array', dtype=None, symmetrized=False)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,310 @@
+{
+  "aliases": [
+    "distributed.active_memory_manager.ActiveMemoryManagerPolicy.run"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "It is an iterator that must emit "
+            },
+            {
+              "type": "inlineCode",
+              "value": "~distributed.active_memory_manager.Suggestion"
+            },
+            {
+              "type": "text",
+              "value": " objects:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "Suggestion(\"replicate\", <TaskState>)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "Suggestion(\"replicate\", <TaskState>, {subset of potential workers to replicate to})"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "Suggeston(\"drop\", <TaskState>)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "Suggestion(\"drop\", <TaskState>, {subset of potential workers to drop from})"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Each element yielded indicates the desire to create or destroy a single replica of a key. If a subset of workers is not provided, it defaults to all workers on the cluster. Either the ActiveMemoryManager or the Worker may later decide to disregard the request, e.g. because it would delete the last copy of a key or because the key is currently needed on that worker."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You may optionally retrieve which worker it was decided the key will be replicated to or dropped from, as follows:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "python",
+          "children": [],
+          "name": "code-block",
+          "options": {},
+          "type": "mystDirective",
+          "value": "choice = (yield Suggestion(\"replicate\", ts))"
+        },
+        {
+          "children": [
+            {
+              "type": "inlineCode",
+              "value": "choice"
+            },
+            {
+              "type": "text",
+              "value": " is either a WorkerState or None; the latter is returned if the ActiveMemoryManager chose to disregard the request."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The current pending (accepted) suggestions can be inspected on "
+            },
+            {
+              "type": "inlineCode",
+              "value": "self.manager.pending"
+            },
+            {
+              "type": "text",
+              "value": "; this includes the suggestions previously yielded by this same method."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The current memory usage on each worker, "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "downstream of all pending\nsuggestions"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": ", can be inspected on "
+            },
+            {
+              "type": "inlineCode",
+              "value": "self.manager.workers_memory"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This method is invoked by the ActiveMemoryManager every few seconds, or whenever the user invokes "
+            },
+            {
+              "type": "inlineCode",
+              "value": "client.amm.run_once"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/distributed/active_memory_manager.py",
+  "item_line": 444,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(self) -> 'SuggestionGenerator'"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,651 @@
+{
+  "aliases": [
+    "scipy.integrate._quadrature._qmc_quad"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Values of the integrand at each of the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "n_points",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "n_points"
+            },
+            {
+              "type": "text",
+              "value": " points of a QMC sample are used to produce an estimate of the integral. This estimate is drawn from a population of possible estimates of the integral, the value of which we obtain depends on the particular points at which the integral was evaluated. We perform this process "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "n_estimates",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "n_estimates"
+            },
+            {
+              "type": "text",
+              "value": " times, each time evaluating the integrand at different scrambled QMC points, effectively drawing i.i.d. random samples from the population of integral estimates. The sample mean "
+            },
+            {
+              "type": "inlineMath",
+              "value": "m"
+            },
+            {
+              "type": "text",
+              "value": " of these integral estimates is an unbiased estimator of the true value of the integral, and the standard error of the mean "
+            },
+            {
+              "type": "inlineMath",
+              "value": "s"
+            },
+            {
+              "type": "text",
+              "value": " of these estimates may be used to generate confidence intervals using the t distribution with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "n_estimates - 1"
+            },
+            {
+              "type": "text",
+              "value": " degrees of freedom. Perhaps counter-intuitively, increasing "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "n_points",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "n_points"
+            },
+            {
+              "type": "text",
+              "value": " while keeping the total number of function evaluation points "
+            },
+            {
+              "type": "inlineCode",
+              "value": "n_points * n_estimates"
+            },
+            {
+              "type": "text",
+              "value": " fixed tends to reduce the actual error, whereas increasing "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "n_estimates",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "n_estimates"
+            },
+            {
+              "type": "text",
+              "value": " tends to decrease the error estimate."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The integrand. Must accept a single arguments "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", an array which specifies the point at which to evaluate the integrand. For efficiency, the function should be vectorized to compute the integrand for each element an array of shape "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(n_points, n)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "n"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is number of variables."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "func",
+              "type": "Param",
+              "type_": "callable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "One-dimensional arrays specifying the lower and upper integration limits, respectively, of each of the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "n"
+                    },
+                    {
+                      "type": "text",
+                      "value": " variables."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "a, b",
+              "type": "Param",
+              "type_": "array-like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "One QMC sample of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "n_points",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "n_points"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (default: 256) points will be generated by "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "qrng",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "qrng"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "n_estimates",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "n_estimates"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (default: 8) statistically independent estimates of the integral will be produced. The total number of points at which the integrand "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "func",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "func"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will be evaluated is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "n_points * n_estimates"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". See Notes for details."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "n_points, n_estimates",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An instance of the QMCEngine from which to sample QMC points. The QMCEngine must be initialized to a number of dimensions corresponding with the number of variables "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x0, ..., xn"
+                    },
+                    {
+                      "type": "text",
+                      "value": " passed to "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "func",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "func"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". The provided QMCEngine is used to produce the first integral estimate. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "n_estimates",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "n_estimates"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is greater than one, additional QMCEngines are spawned from the first (with scrambling enabled, if it is an option.) If a QMCEngine is not provided, the default "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "scipy.stats._qmc",
+                        "path": "scipy.stats._qmc:Halton",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "scipy.stats.qmc.Halton"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will be initialized with the number of dimensions determine from "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "qrng",
+              "type": "Param",
+              "type_": "`~scipy.stats.qmc.QMCEngine`, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "When set to True, "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "func",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "func"
+                    },
+                    {
+                      "type": "text",
+                      "value": " returns the log of the integrand, and the result object contains the log of the integral."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "log",
+              "type": "Param",
+              "type_": "boolean, default: False"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A result object with attributes:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "integral"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "integral"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "The error estimate. See Notes for interpretation."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "standard_error :"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "param": "result",
+              "type": "Param",
+              "type_": "object"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute an integral in N-dimensions using Quasi-Monte Carlo quadrature."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "QMC quadrature is particularly useful for computing integrals in higher\ndimensions. An example integrand is the probability density function\nof a multivariate normal distribution."
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy import stats\ndim = 8\nmean = np.zeros(dim)\ncov = np.eye(dim)\ndef func(x):\n    return stats.multivariate_normal.pdf(x, mean, cov)"
+      },
+      {
+        "type": "text",
+        "value": "To compute the integral over the unit hypercube:"
+      },
+      {
+        "type": "code",
+        "value": ">>> from scipy.integrate import qmc_quad\n>>> a = np.zeros(dim)\n>>> b = np.ones(dim)\n>>> rng = np.random.default_rng()\n>>> qrng = stats.qmc.Halton(d=dim, seed=rng)\n>>> n_estimates = 8\n>>> res = qmc_quad(func, a, b, n_estimates=n_estimates, qrng=qrng)\n>>> res.integral, res.standard_error"
+      },
+      {
+        "type": "text",
+        "value": "A two-sided, 99% confidence interval for the integral may be estimated\nas:"
+      },
+      {
+        "type": "code",
+        "value": ">>> t = stats.t(df=n_estimates-1, loc=res.integral,\n>>>             scale=res.standard_error)\n>>> t.interval(0.99)"
+      },
+      {
+        "type": "text",
+        "value": "Indeed, the value reported by `scipy.stats.multivariate_normal` is\nwithin this range."
+      },
+      {
+        "type": "code",
+        "value": ">>> stats.multivariate_normal.cdf(b, mean, cov, lower_limit=a)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/integrate/_quadrature.py",
+  "item_line": 1216,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(func, a, b, *, n_points=1024, n_estimates=8, qrng=None, log=False, args=None)"
+  },
+  "type": "DocBlob"
+}

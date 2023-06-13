@@ -1,0 +1,518 @@
+{
+  "aliases": [
+    "dask.array.ufunc.ufunc.outer"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Some inconsistencies with the Dask version may exist."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Apply the ufunc "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "op"
+            },
+            {
+              "type": "text",
+              "value": " to all pairs (a, b) with a in "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "A",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": " and b in "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "B",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "B"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Let "
+            },
+            {
+              "type": "inlineCode",
+              "value": "M = A.ndim"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "N = B.ndim"
+            },
+            {
+              "type": "text",
+              "value": ". Then the result, "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "C"
+            },
+            {
+              "type": "text",
+              "value": ", of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "op.outer(A, B)"
+            },
+            {
+              "type": "text",
+              "value": " is an array of dimension M + N such that:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "C[i_0, ..., i_{M-1}, j_0, ..., j_{N-1}] =op(A[i_0, ..., i_{M-1}], B[j_0, ..., j_{N-1}])"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "A",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "B",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "B"
+            },
+            {
+              "type": "text",
+              "value": " one-dimensional, this is equivalent to    "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "r = empty(len(A),len(B))\nfor i in range(len(A)):\n    for j in range(len(B)):\n        r[i,j] = op(A[i], B[j])  # op = ufunc in question"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "First array"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "A",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Second array"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "B",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Arguments to pass on to the ufunc. Typically "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "dtype"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "out"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". See "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "dask",
+                        "path": "dask.array.ufunc",
+                        "type": "RefInfo",
+                        "version": "2023.1.0"
+                      },
+                      "type": "Link",
+                      "value": "ufunc"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for a comprehensive overview of all available arguments."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "kwargs",
+              "type": "Param",
+              "type_": "any"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Output array"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "r",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This docstring was copied from numpy.ufunc.outer."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "np.multiply.outer([1, 2, 3], [4, 5, 6])  # doctest: +SKIP"
+      },
+      {
+        "type": "text",
+        "value": "A multi-dimensional example:"
+      },
+      {
+        "type": "code",
+        "value": "A = np.array([[1, 2, 3], [4, 5, 6]])  # doctest: +SKIP\nA.shape  # doctest: +SKIP"
+      },
+      {
+        "type": "code",
+        "value": "B = np.array([[1, 2, 3, 4]])  # doctest: +SKIP\nB.shape  # doctest: +SKIP"
+      },
+      {
+        "type": "code",
+        "value": "C = np.multiply.outer(A, B)  # doctest: +SKIP\nC.shape; C  # doctest: +SKIP"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dask/array/ufunc.py",
+  "item_line": 116,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Signature",
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A less powerful version of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.multiply.outer"
+            },
+            {
+              "type": "text",
+              "value": " that "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "ravel"
+            },
+            {
+              "type": "text",
+              "value": "\\ s all inputs to 1D. This exists primarily for compatibility with old code."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "numpy.outer",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "numpy.outer"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "inlineCode",
+              "value": "np.tensordot(a, b, axes=((), ()))"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.multiply.outer(a, b)"
+            },
+            {
+              "type": "text",
+              "value": " behave same for all dimensions of a and b."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "tensordot",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "tensordot"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "outer(A, B, /, **kwargs)"
+  },
+  "type": "DocBlob"
+}

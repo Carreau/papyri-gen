@@ -1,0 +1,413 @@
+{
+  "aliases": [
+    "numpy.random.PCG64"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "PCG-64 is a 128-bit implementation of O'Neill's permutation congruential generator (, ). PCG-64 has a period of "
+            },
+            {
+              "type": "inlineMath",
+              "value": "2^{128}"
+            },
+            {
+              "type": "text",
+              "value": " and supports advancing an arbitrary number of steps as well as "
+            },
+            {
+              "type": "inlineMath",
+              "value": "2^{127}"
+            },
+            {
+              "type": "text",
+              "value": " streams. The specific member of the PCG family that we use is PCG XSL RR 128/64 as described in the paper ()."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "inlineCode",
+              "value": "PCG64"
+            },
+            {
+              "type": "text",
+              "value": " provides a capsule containing function pointers that produce doubles, and unsigned 32 and 64- bit integers. These are not directly consumable in Python and must be consumed by a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Generator"
+            },
+            {
+              "type": "text",
+              "value": " or similar object that supports low-level access."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Supports the method "
+            },
+            {
+              "type": "inlineCode",
+              "value": "advance"
+            },
+            {
+              "type": "text",
+              "value": " to advance the RNG an arbitrary number of steps. The state of the PCG-64 RNG is represented by 2 128-bit unsigned integers."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "State and Seeding"
+                }
+              ],
+              "type": "strong"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "type": "inlineCode",
+              "value": "PCG64"
+            },
+            {
+              "type": "text",
+              "value": " state vector consists of 2 unsigned 128-bit values, which are represented externally as Python ints. One is the state of the PRNG, which is advanced by a linear congruential generator (LCG). The second is a fixed odd increment used in the LCG."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The input seed is processed by "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "SeedSequence"
+            },
+            {
+              "type": "text",
+              "value": " to generate both values. The increment is not independently settable."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Parallel Features"
+                }
+              ],
+              "type": "strong"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The preferred way to use a BitGenerator in parallel applications is to use the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "numpy",
+                "path": "numpy.random.bit_generator:ISpawnableSeedSequence.spawn",
+                "type": "RefInfo",
+                "version": "1.24.1"
+              },
+              "type": "Link",
+              "value": "SeedSequence.spawn"
+            },
+            {
+              "type": "text",
+              "value": " method to obtain entropy values, and to use these to generate new BitGenerators:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> from numpy.random import Generator, PCG64, SeedSequence\n>>> sg = SeedSequence(1234)\n>>> rg = [Generator(PCG64(s)) for s in sg.spawn(10)]"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Compatibility Guarantee"
+                }
+              ],
+              "type": "strong"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "inlineCode",
+              "value": "PCG64"
+            },
+            {
+              "type": "text",
+              "value": " makes a guarantee that a fixed seed will always produce the same random integer stream."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A seed to initialize the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "numpy",
+                        "path": "numpy.random.bit_generator:BitGenerator",
+                        "type": "RefInfo",
+                        "version": "1.24.1"
+                      },
+                      "type": "Link",
+                      "value": "BitGenerator"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If None, then fresh, unpredictable entropy will be pulled from the OS. If an "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "int"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "array_like[ints]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is passed, then it will be passed to "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "SeedSequence"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to derive the initial "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "numpy",
+                        "path": "numpy.random.bit_generator:BitGenerator",
+                        "type": "RefInfo",
+                        "version": "1.24.1"
+                      },
+                      "type": "Link",
+                      "value": "BitGenerator"
+                    },
+                    {
+                      "type": "text",
+                      "value": " state. One may also pass in a "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "SeedSequence"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instance."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "seed",
+              "type": "Param",
+              "type_": "{None, int, array_like[ints], SeedSequence}, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "BitGenerator for the PCG-64 pseudo-random number generator."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/numpy/random/_pcg64.cpython-311-darwin.so",
+  "item_line": null,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Signature",
+    "Summary",
+    "Parameters",
+    "Notes",
+    "References"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "PCG64(seed=None)"
+  },
+  "type": "DocBlob"
+}

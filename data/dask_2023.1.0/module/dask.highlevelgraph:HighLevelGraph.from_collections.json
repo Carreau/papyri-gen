@@ -1,0 +1,222 @@
+{
+  "aliases": [
+    "dask.blockwise.HighLevelGraph.from_collections"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This constructs a HighLevelGraph in the common case where we have a single new layer and a set of old collections on which we want to depend."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This pulls out the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "__dask_layers__()"
+            },
+            {
+              "type": "text",
+              "value": " method of the collections if they exist, and adds them to the dependencies for this new layer.  It also merges all of the layers from all of the dependent collections together into the new layers for this graph."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The name of the new layer"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "name",
+              "type": "Param",
+              "type_": "str"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The graph layer itself"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "layer",
+              "type": "Param",
+              "type_": "Mapping"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A list of other dask collections (like arrays or dataframes) that have graphs themselves"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dependencies",
+              "type": "Param",
+              "type_": "List of Dask collections"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Construct a HighLevelGraph from a new layer and a set of collections"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "In typical usage we make a new task layer, and then pass that layer\nalong with all dependent collections to this method."
+      },
+      {
+        "type": "code",
+        "value": "def add(self, other):\n    name = 'add-' + tokenize(self, other)\n    layer = {(name, i): (add, input_key, other)\n             for i, input_key in enumerate(self.__dask_keys__())}\n    graph = HighLevelGraph.from_collections(name, layer, dependencies=[self])\n    return new_collection(name, graph)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dask/highlevelgraph.py",
+  "item_line": 664,
+  "item_type": "<class 'classmethod'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

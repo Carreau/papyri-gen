@@ -1,0 +1,337 @@
+{
+  "aliases": [
+    "networkx.utils.argmap.assemble"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "f",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "f"
+            },
+            {
+              "type": "text",
+              "value": " has multiple argmap decorators, we recursively assemble the stack of decorators into a single flattened function."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This method is part of the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "networkx",
+                "path": "networkx.utils.decorators:argmap.compile",
+                "type": "RefInfo",
+                "version": "3.1"
+              },
+              "type": "Link",
+              "value": "compile"
+            },
+            {
+              "type": "text",
+              "value": " method's process yet separated from that method to allow recursive processing. The outputs are strings, dictionaries and lists that collect needed info to flatten any nested argmap-decoration."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The function to be decorated.  If f is argmapped, we assemble it."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "f",
+              "type": "Param",
+              "type_": "callable"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The function signature as an "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "argmap.Signature"
+                    },
+                    {
+                      "type": "text",
+                      "value": " object."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sig",
+              "type": "Param",
+              "type_": "argmap.Signature"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The mangled name used to represent the wrapped function in the code being assembled."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "wrapped_name",
+              "type": "Param",
+              "type_": "str"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A dictionary mapping id(g) -> (mangled_name(g), g) for functions g referred to in the code being assembled. These need to be present in the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "globals"
+                    },
+                    {
+                      "type": "text",
+                      "value": " scope of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "exec"
+                    },
+                    {
+                      "type": "text",
+                      "value": " when defining the decorated function."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "functions",
+              "type": "Param",
+              "type_": "dict"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Code that implements mapping of parameters including any try blocks if needed. This code will precede the decorated function call."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mapblock",
+              "type": "Param",
+              "type_": "list of lists and/or strings"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Code that implements the finally blocks to post-process the arguments (usually close any files if needed) after the decorated function is called."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "finallys",
+              "type": "Param",
+              "type_": "list of lists and/or strings"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "True if the decorator needs to modify positional arguments via their indices. The compile method then turns the argument tuple into a list so that the arguments can be modified."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mutable_args",
+              "type": "Param",
+              "type_": "bool"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Collects components of the source for the decorated function wrapping f."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/utils/decorators.py",
+  "item_line": 899,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, f)"
+  },
+  "type": "DocBlob"
+}

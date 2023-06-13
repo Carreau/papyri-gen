@@ -1,0 +1,316 @@
+{
+  "aliases": [
+    "networkx.all_node_cuts"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This implementation is based on Kanevsky's algorithm  for finding all minimum-size node cut-sets of an undirected graph G; ie the set (or sets) of nodes of cardinality equal to the node connectivity of G. Thus if removed, would break G into two or more connected components."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This implementation is based on the sequential algorithm for finding all minimum-size separating vertex sets in a graph . The main idea is to compute minimum cuts using local maximum flow computations among a set of nodes of highest degree and all other non-adjacent nodes in the Graph. Once we find a minimum cut, we add an edge between the high degree node and the target node of the local maximum flow computation to make sure that we will not find that minimum cut again."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Undirected graph"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "G",
+              "type": "Param",
+              "type_": "NetworkX graph"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Node connectivity of the input graph. If k is None, then it is computed. Default value: None."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "k",
+              "type": "Param",
+              "type_": "Integer"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Function to perform the underlying flow computations. Default value is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "~networkx.algorithms.flow.edmonds_karp"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". This function performs better in sparse graphs with right tailed degree distributions. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "~networkx.algorithms.flow.shortest_augmenting_path"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will perform better in denser graphs."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "flow_func",
+              "type": "Param",
+              "type_": "function"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Each node cutset has cardinality equal to the node connectivity of the input graph."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "cuts",
+              "type": "Param",
+              "type_": "a generator of node cutsets"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Returns all minimum k cutsets of an undirected graph G."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "# A two-dimensional grid graph has 4 cutsets of cardinality 2\nG = nx.grid_2d_graph(5, 5)\ncutsets = list(nx.all_node_cuts(G))\nlen(cutsets)"
+      },
+      {
+        "type": "code",
+        "value": "all(2 == len(cutset) for cutset in cutsets)"
+      },
+      {
+        "type": "code",
+        "value": "nx.node_connectivity(G)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/algorithms/connectivity/kcutsets.py",
+  "item_line": 24,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Examples",
+    "Notes",
+    "See Also",
+    "References"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "node_connectivity",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "node_connectivity"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "edmonds_karp",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "edmonds_karp"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "shortest_augmenting_path",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "shortest_augmenting_path"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(G, k=None, flow_func=None)"
+  },
+  "type": "DocBlob"
+}

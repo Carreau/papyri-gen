@@ -1,0 +1,457 @@
+{
+  "aliases": [
+    "skimage.segmentation.find_boundaries"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An array in which different regions are labeled with either different integers or boolean values."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "label_img",
+              "type": "Param",
+              "type_": "array of int or bool"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A pixel is considered a boundary pixel if any of its neighbors has a different label. "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "connectivity",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "connectivity"
+                    },
+                    {
+                      "type": "text",
+                      "value": " controls which pixels are considered neighbors. A connectivity of 1 (default) means pixels sharing an edge (in 2D) or a face (in 3D) will be considered neighbors. A connectivity of "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "label_img.ndim"
+                    },
+                    {
+                      "type": "text",
+                      "value": " means pixels sharing a corner will be considered neighbors."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "connectivity",
+              "type": "Param",
+              "type_": "int in {1, ..., `label_img.ndim`}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "How to mark the boundaries:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "thick: any pixel not completely surrounded by pixels of the   same label (defined by "
+                            },
+                            {
+                              "anchor": null,
+                              "exists": true,
+                              "kind": "local",
+                              "reference": {
+                                "kind": "local",
+                                "module": null,
+                                "path": "connectivity",
+                                "type": "RefInfo",
+                                "version": null
+                              },
+                              "type": "Link",
+                              "value": "connectivity"
+                            },
+                            {
+                              "type": "text",
+                              "value": ") is marked as a boundary.   This results in boundaries that are 2 pixels thick."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "inner: outline the pixels "
+                            },
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "just inside"
+                                }
+                              ],
+                              "type": "emphasis"
+                            },
+                            {
+                              "type": "text",
+                              "value": " of objects, leaving   background pixels untouched."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "outer: outline pixels in the background around object   boundaries. When two objects touch, their boundary is also   marked."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "subpixel: return a doubled image, with pixels "
+                            },
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "between"
+                                }
+                              ],
+                              "type": "emphasis"
+                            },
+                            {
+                              "type": "text",
+                              "value": " the   original pixels marked as boundary where appropriate."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "param": "mode",
+              "type": "Param",
+              "type_": "string in {'thick', 'inner', 'outer', 'subpixel'}"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "For modes 'inner' and 'outer', a definition of a background label is required. See "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "mode",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "mode"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for descriptions of these two."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "background",
+              "type": "Param",
+              "type_": "int, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A bool image where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": " represents a boundary pixel. For "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "mode",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "mode"
+                    },
+                    {
+                      "type": "text",
+                      "value": " equal to 'subpixel', "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "boundaries.shape[i]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is equal to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "2 * label_img.shape[i] - 1"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for all "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "i"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (a pixel is inserted in between all other pairs of pixels)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "boundaries",
+              "type": "Param",
+              "type_": "array of bool, same shape as `label_img`"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Return bool array where boundaries between labeled regions are True."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "labels = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],\n                   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],\n                   [0, 0, 0, 0, 0, 5, 5, 5, 0, 0],\n                   [0, 0, 1, 1, 1, 5, 5, 5, 0, 0],\n                   [0, 0, 1, 1, 1, 5, 5, 5, 0, 0],\n                   [0, 0, 1, 1, 1, 5, 5, 5, 0, 0],\n                   [0, 0, 0, 0, 0, 5, 5, 5, 0, 0],\n                   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],\n                   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=np.uint8)\nfind_boundaries(labels, mode='thick').astype(np.uint8)"
+      },
+      {
+        "type": "code",
+        "value": "find_boundaries(labels, mode='inner').astype(np.uint8)"
+      },
+      {
+        "type": "code",
+        "value": "find_boundaries(labels, mode='outer').astype(np.uint8)"
+      },
+      {
+        "type": "code",
+        "value": "labels_small = labels[::2, ::3]\nlabels_small"
+      },
+      {
+        "type": "code",
+        "value": "find_boundaries(labels_small, mode='subpixel').astype(np.uint8)"
+      },
+      {
+        "type": "code",
+        "value": "bool_image = np.array([[False, False, False, False, False],\n                       [False, False, False, False, False],\n                       [False, False,  True,  True,  True],\n                       [False, False,  True,  True,  True],\n                       [False, False,  True,  True,  True]],\n                      dtype=bool)\nfind_boundaries(bool_image)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/skimage/segmentation/boundaries.py",
+  "item_line": 49,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(label_img, connectivity=1, mode='thick', background=0)"
+  },
+  "type": "DocBlob"
+}

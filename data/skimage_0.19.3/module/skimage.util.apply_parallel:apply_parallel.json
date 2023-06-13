@@ -1,0 +1,734 @@
+{
+  "aliases": [
+    "skimage.util.apply_parallel"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Split an array into possibly overlapping chunks of a given depth and boundary type, call the given function in parallel on the chunks, combine the chunks and return the resulting array."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Numpy edge modes 'symmetric', 'wrap', and 'edge' are converted to the equivalent "
+            },
+            {
+              "type": "inlineCode",
+              "value": "dask"
+            },
+            {
+              "type": "text",
+              "value": " boundary modes 'reflect', 'periodic' and 'nearest', respectively. Setting "
+            },
+            {
+              "type": "inlineCode",
+              "value": "compute=False"
+            },
+            {
+              "type": "text",
+              "value": " can be useful for chaining later operations. For example region selection to preview a result or storing large data to disk instead of loading in memory."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Deprecated in favor of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "channel_axis",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "channel_axis"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "deprecated 0.19"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "multichannel",
+              "type": "Param",
+              "type_": "DEPRECATED"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Function to be mapped which takes an array as an argument."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "function",
+              "type": "Param",
+              "type_": "function"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Array which the function will be applied to."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "array",
+              "type": "Param",
+              "type_": "numpy array or dask array"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A single integer is interpreted as the length of one side of a square chunk that should be tiled across the array.  One tuple of length "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "array.ndim"
+                    },
+                    {
+                      "type": "text",
+                      "value": " represents the shape of a chunk, and it is tiled across the array.  A list of tuples of length "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ndim"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", where each sub-tuple is a sequence of chunk sizes along the corresponding dimension. If None, the array is broken up into chunks based on the number of available cpus. More information about chunks is in the documentation "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "here"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://dask.pydata.org/en/latest/array-design.html"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". When "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "channel_axis",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "channel_axis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is not None, the tuples can be length "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ndim - 1"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and a single chunk will be used along the channel axis."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "chunks",
+              "type": "Param",
+              "type_": "int, tuple, or tuple of tuples, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The depth of the added boundary cells. A tuple can be used to specify a different depth per array axis. Defaults to zero. When "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "channel_axis",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "channel_axis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is not None, and a tuple of length "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ndim - 1"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is provided, a depth of 0 will be used along the channel axis."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "depth",
+              "type": "Param",
+              "type_": "int or sequence of int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Type of external boundary padding."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mode",
+              "type": "Param",
+              "type_": "{'reflect', 'symmetric', 'periodic', 'wrap', 'nearest', 'edge'}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Tuple of arguments to be passed to the function."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "extra_arguments",
+              "type": "Param",
+              "type_": "tuple, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Dictionary of keyword arguments to be passed to the function."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "extra_keywords",
+              "type": "Param",
+              "type_": "dictionary, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The data-type of the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "function",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "function"
+                    },
+                    {
+                      "type": "text",
+                      "value": " output. If None, Dask will attempt to infer this by calling the function on data of shape "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(1,) * ndim"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". For functions expecting RGB or multichannel data this may be problematic. In such cases, the user should manually specify this dtype argument instead."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 0.18"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "inlineCode",
+                          "value": "dtype"
+                        },
+                        {
+                          "type": "text",
+                          "value": " was added in 0.18."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "dtype",
+              "type": "Param",
+              "type_": "data-type or None, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", compute eagerly returning a NumPy Array. If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", compute lazily returning a Dask Array. If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (default), compute based on array type provided (eagerly for NumPy Arrays and lazily for Dask Arrays)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "compute",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If None, the image is assumed to be a grayscale (single channel) image. Otherwise, this parameter indicates which axis of the array corresponds to channels."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "channel_axis",
+              "type": "Param",
+              "type_": "int or None, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "chunks",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "chunks"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is None and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "multichannel",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "multichannel"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is True, this function will keep only a single chunk along the channels axis. When "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "depth",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "depth"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is specified as a scalar value, that depth will be applied only to the non-channels axes (a depth of 0 will be used along the channels axis). If the user manually specified both "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "chunks",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "chunks"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and a "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "depth",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "depth"
+                    },
+                    {
+                      "type": "text",
+                      "value": " tuple, then this argument will have no effect. This argument is deprecated: specify "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "channel_axis",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "channel_axis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instead."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 0.18"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "inlineCode",
+                          "value": "multichannel"
+                        },
+                        {
+                          "type": "text",
+                          "value": " was added in 0.18."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "multichannel",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Returns the result of the applying the operation. Type is dependent on the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "compute"
+                    },
+                    {
+                      "type": "text",
+                      "value": " argument."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "out",
+              "type": "Param",
+              "type_": "ndarray or dask Array"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Map a function in parallel across an array."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/skimage/util/apply_parallel.py",
+  "item_line": 59,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Other Parameters",
+    "Notes"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(function, array, chunks=None, depth=0, mode=None, extra_arguments=(), extra_keywords={}, *, dtype=None, compute=None, channel_axis=None, multichannel=False)"
+  },
+  "type": "DocBlob"
+}

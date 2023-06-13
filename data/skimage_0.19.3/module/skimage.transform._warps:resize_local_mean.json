@@ -1,0 +1,506 @@
+{
+  "aliases": [
+    "skimage.transform.resize_local_mean"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This method is sometimes referred to as \"area-based\" interpolation or \"pixel mixing\" interpolation . When "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "grid_mode",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "grid_mode"
+            },
+            {
+              "type": "text",
+              "value": " is True, it is equivalent to using OpenCV's resize with "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "INTER_AREA"
+            },
+            {
+              "type": "text",
+              "value": " interpolation mode. It is commonly used for image downsizing. If the downsizing factors are integers, then "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "skimage",
+                "path": "skimage.transform._warps:downscale_local_mean",
+                "type": "RefInfo",
+                "version": "0.19.3"
+              },
+              "type": "Link",
+              "value": "downscale_local_mean"
+            },
+            {
+              "type": "text",
+              "value": " should be preferred instead."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Input image. If this is a multichannel image, the axis corresponding to channels should be specified using "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "skimage",
+                        "path": "skimage.color.colorconv:_validate_channel_axis",
+                        "type": "RefInfo",
+                        "version": "0.19.3"
+                      },
+                      "type": "Link",
+                      "value": "channel_axis"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "image",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Size of the generated output image. When "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "skimage",
+                        "path": "skimage.color.colorconv:_validate_channel_axis",
+                        "type": "RefInfo",
+                        "version": "0.19.3"
+                      },
+                      "type": "Link",
+                      "value": "channel_axis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is not None, the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "skimage",
+                        "path": "skimage.color.colorconv:_validate_channel_axis",
+                        "type": "RefInfo",
+                        "version": "0.19.3"
+                      },
+                      "type": "Link",
+                      "value": "channel_axis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " should either be omitted from "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "output_shape",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "output_shape"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "output_shape[channel_axis]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must match "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "image.shape[channel_axis]"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If the length of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "output_shape",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "output_shape"
+                    },
+                    {
+                      "type": "text",
+                      "value": " exceeds image.ndim, additional singleton dimensions will be appended to the input "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "image"
+                    },
+                    {
+                      "type": "text",
+                      "value": " as needed."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "output_shape",
+              "type": "Param",
+              "type_": "iterable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Defines "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "image"
+                    },
+                    {
+                      "type": "text",
+                      "value": " pixels position: if True, pixels are assumed to be at grid intersections, otherwise at cell centers. As a consequence, for example, a 1d signal of length 5 is considered to have length 4 when "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "grid_mode",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "grid_mode"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is False, but length 5 when "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "grid_mode",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "grid_mode"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is True. See the following visual illustration:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "args": "text",
+                  "children": [],
+                  "name": "code-block",
+                  "options": {},
+                  "type": "mystDirective",
+                  "value": "| pixel 1 | pixel 2 | pixel 3 | pixel 4 | pixel 5 |\n     |<-------------------------------------->|\n                        vs.\n|<----------------------------------------------->|"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The starting point of the arrow in the diagram above corresponds to coordinate location 0 in each mode."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "grid_mode",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to keep the original range of values. Otherwise, the input image is converted according to the conventions of "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "img_as_float"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Also see https://scikit-image.org/docs/dev/user_guide/data_types.html"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "preserve_range",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Resized version of the input."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "resized",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Resize an array with the local mean / bilinear scaling."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from skimage import data\nfrom skimage.transform import resize_local_mean\nimage = data.camera()\nresize_local_mean(image, (100, 100)).shape"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/skimage/transform/_warps.py",
+  "item_line": 1219,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "resize",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "resize"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "skimage",
+          "path": "skimage.transform._warps:downscale_local_mean",
+          "type": "RefInfo",
+          "version": "0.19.3"
+        },
+        "type": "Link",
+        "value": "downscale_local_mean"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(image, output_shape, grid_mode=True, preserve_range=False, *, channel_axis=None)"
+  },
+  "type": "DocBlob"
+}

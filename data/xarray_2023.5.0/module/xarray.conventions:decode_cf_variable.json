@@ -1,0 +1,338 @@
+{
+  "aliases": [
+    "xarray.conventions.decode_cf_variable"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This includes variables that have been masked and scaled, which hold CF style time variables (this is almost always the case if the dataset has been serialized) and which have strings encoded as character arrays."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Name of the variable. Used for better error messages."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "name",
+              "type": "Param",
+              "type_": "str"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A variable holding potentially CF encoded information."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "var",
+              "type": "Param",
+              "type_": "Variable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Should character arrays be concatenated to strings, for example: [\"h\", \"e\", \"l\", \"l\", \"o\"] -> \"hello\""
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "concat_characters",
+              "type": "Param",
+              "type_": "bool"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Lazily scale (using scale_factor and add_offset) and mask (using _FillValue). If the _Unsigned attribute is present treat integer arrays as unsigned."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mask_and_scale",
+              "type": "Param",
+              "type_": "bool"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Decode cf times (\"hours since 2000-01-01\") to np.datetime64."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "decode_times",
+              "type": "Param",
+              "type_": "bool"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Decode arrays from non-native to native endianness."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "decode_endianness",
+              "type": "Param",
+              "type_": "bool"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to stack characters into bytes along the last dimension of this array. Passed as an argument because we need to look at the full dataset to figure out if this is appropriate."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "stack_char_dim",
+              "type": "Param",
+              "type_": "bool"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Only relevant if encoded dates come from a standard calendar (e.g. \"gregorian\", \"proleptic_gregorian\", \"standard\", or not specified).  If None (default), attempt to decode times to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.datetime64[ns]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " objects; if this is not possible, decode times to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "cftime.datetime"
+                    },
+                    {
+                      "type": "text",
+                      "value": " objects. If True, always decode times to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "cftime.datetime"
+                    },
+                    {
+                      "type": "text",
+                      "value": " objects, regardless of whether or not they can be represented using "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.datetime64[ns]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " objects.  If False, always decode times to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.datetime64[ns]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " objects; if this is not possible raise an error."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "use_cftime",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A variable holding the decoded equivalent of var."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "out",
+              "type": "Param",
+              "type_": "Variable"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Decodes a variable which may hold CF encoded information."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/xarray/conventions.py",
+  "item_line": 196,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(name: 'Hashable', var: 'Variable', concat_characters: 'bool' = True, mask_and_scale: 'bool' = True, decode_times: 'bool' = True, decode_endianness: 'bool' = True, stack_char_dim: 'bool' = True, use_cftime: 'bool | None' = None, decode_timedelta: 'bool | None' = None) -> 'Variable'"
+  },
+  "type": "DocBlob"
+}

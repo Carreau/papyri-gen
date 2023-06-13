@@ -1,0 +1,381 @@
+{
+  "aliases": [
+    "scipy.optimize._trustregion_constr.canonical_constraint.CanonicalConstraint"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "It represents the set of constraints of the form      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "f_eq(x) = 0\nf_ineq(x) <= 0"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where "
+            },
+            {
+              "type": "inlineCode",
+              "value": "f_eq"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "f_ineq"
+            },
+            {
+              "type": "text",
+              "value": " are evaluated by a single function, see below."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The class is supposed to be instantiated by factory methods, which should prepare the parameters listed below."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of equality and inequality constraints respectively."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "n_eq, n_ineq",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Function defining the constraints. The signature is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "fun(x) -> c_eq, c_ineq"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "c_eq"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is ndarray with "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "n_eq",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "n_eq"
+                    },
+                    {
+                      "type": "text",
+                      "value": " components and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "c_ineq"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is ndarray with "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "n_ineq",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "n_ineq"
+                    },
+                    {
+                      "type": "text",
+                      "value": " components."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fun",
+              "type": "Param",
+              "type_": "callable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Function to evaluate the Jacobian of the constraint. The signature is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "jac(x) -> J_eq, J_ineq"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "J_eq"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "J_ineq"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are either ndarray of csr_matrix of shapes (n_eq, n) and (n_ineq, n), respectively."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "jac",
+              "type": "Param",
+              "type_": "callable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Function to evaluate the Hessian of the constraints multiplied by Lagrange multipliers, that is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "dot(f_eq, v_eq) + dot(f_ineq, v_ineq)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". The signature is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "hess(x, v_eq, v_ineq) -> H"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "H"
+                    },
+                    {
+                      "type": "text",
+                      "value": " has an implied shape (n, n) and provide a matrix-vector product operation "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "H.dot(p)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "hess",
+              "type": "Param",
+              "type_": "callable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Mask indicating which inequality constraints should be kept feasible."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "keep_feasible",
+              "type": "Param",
+              "type_": "ndarray, shape (n_ineq,)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Canonical constraint to use with trust-constr algorithm."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/optimize/_trustregion_constr/canonical_constraint.py",
+  "item_line": 5,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

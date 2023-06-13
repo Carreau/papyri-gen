@@ -1,0 +1,1664 @@
+{
+  "aliases": [
+    "scipy.cluster.hierarchy.dendrogram"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The dendrogram illustrates how each cluster is composed by drawing a U-shaped link between a non-singleton cluster and its children. The top of the U-link indicates a cluster merge. The two legs of the U-link indicate which clusters were merged. The length of the two legs of the U-link represents the distance between the child clusters. It is also the cophenetic distance between original observations in the two children clusters."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "It is expected that the distances in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Z[:,2]"
+            },
+            {
+              "type": "text",
+              "value": " be monotonic, otherwise crossings appear in the dendrogram."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The linkage matrix encoding the hierarchical clustering to render as a dendrogram. See the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "linkage"
+                    },
+                    {
+                      "type": "text",
+                      "value": " function for more information on the format of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Z"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "Z",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "p"
+                    },
+                    {
+                      "type": "text",
+                      "value": " parameter for "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "truncate_mode"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "p",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The dendrogram can be hard to read when the original observation matrix from which the linkage is derived is large. Truncation is used to condense the dendrogram. There are several modes:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "No truncation is performed (default).   Note: "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "'none'"
+                            },
+                            {
+                              "type": "text",
+                              "value": " is an alias for "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "None"
+                            },
+                            {
+                              "type": "text",
+                              "value": " that's kept for   backward compatibility."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "inlineCode",
+                            "value": "None"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "The last "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "p"
+                            },
+                            {
+                              "type": "text",
+                              "value": " non-singleton clusters formed in the linkage are the   only non-leaf nodes in the linkage; they correspond to rows   "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "Z[n-p-2:end]"
+                            },
+                            {
+                              "type": "text",
+                              "value": " in "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "Z"
+                            },
+                            {
+                              "type": "text",
+                              "value": ". All other non-singleton clusters are   contracted into leaf nodes."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "inlineCode",
+                            "value": "'lastp'"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "No more than "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "p"
+                            },
+                            {
+                              "type": "text",
+                              "value": " levels of the dendrogram tree are displayed.   A \"level\" includes all nodes with "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "p"
+                            },
+                            {
+                              "type": "text",
+                              "value": " merges from the final merge."
+                            }
+                          ],
+                          "type": "paragraph"
+                        },
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Note: "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "'mtica'"
+                            },
+                            {
+                              "type": "text",
+                              "value": " is an alias for "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "'level'"
+                            },
+                            {
+                              "type": "text",
+                              "value": " that's kept for   backward compatibility."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "inlineCode",
+                            "value": "'level'"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "param": "truncate_mode",
+              "type": "Param",
+              "type_": "str, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "For brevity, let "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "t"
+                    },
+                    {
+                      "type": "text",
+                      "value": " be the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "color_threshold"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Colors all the descendent links below a cluster node "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "k"
+                    },
+                    {
+                      "type": "text",
+                      "value": " the same color if "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "k"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the first node below the cut threshold "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "t"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". All links connecting nodes with distances greater than or equal to the threshold are colored with de default matplotlib color "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "'C0'"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "t"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is less than or equal to zero, all nodes are colored "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "'C0'"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "color_threshold"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is None or 'default', corresponding with MATLAB(TM) behavior, the threshold is set to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "0.7*max(Z[:,2])"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "color_threshold",
+              "type": "Param",
+              "type_": "double, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Includes a list "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "R['leaves']=H"
+                    },
+                    {
+                      "type": "text",
+                      "value": " in the result dictionary. For each "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "i"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "H[i] == j"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", cluster node "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "j"
+                    },
+                    {
+                      "type": "text",
+                      "value": " appears in position "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "i"
+                    },
+                    {
+                      "type": "text",
+                      "value": " in the left-to-right traversal of the leaves, where "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "j < 2n-1"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "i < n"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "get_leaves",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The direction to plot the dendrogram, which can be any of the following strings:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Plots the root at the top, and plot descendent links going downwards.   (default)."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "inlineCode",
+                            "value": "'top'"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Plots the root at the bottom, and plot descendent links going   upwards."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "inlineCode",
+                            "value": "'bottom'"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Plots the root at the left, and plot descendent links going right."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "inlineCode",
+                            "value": "'left'"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Plots the root at the right, and plot descendent links going left."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "inlineCode",
+                            "value": "'right'"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "param": "orientation",
+              "type": "Param",
+              "type_": "str, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "By default, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "labels"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is None so the index of the original observation is used to label the leaf nodes.  Otherwise, this is an "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "n"
+                    },
+                    {
+                      "type": "text",
+                      "value": "-sized sequence, with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "n == Z.shape[0] + 1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". The "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "labels[i]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " value is the text to put under the "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "i"
+                    },
+                    {
+                      "type": "text",
+                      "value": " th leaf node only if it corresponds to an original observation and not a non-singleton cluster."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "labels",
+              "type": "Param",
+              "type_": "ndarray, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "For each node n, the order (visually, from left-to-right) n's two descendent links are plotted is determined by this parameter, which can be any of the following values:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Nothing is done."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "inlineCode",
+                            "value": "False"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "The child with the minimum number of original objects in its cluster   is plotted first."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "inlineCode",
+                            "value": "'ascending'"
+                          },
+                          {
+                            "type": "text",
+                            "value": " or "
+                          },
+                          {
+                            "type": "inlineCode",
+                            "value": "True"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "The child with the maximum number of original objects in its cluster   is plotted first."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "inlineCode",
+                            "value": "'descending'"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Note, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "distance_sort"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "count_sort"
+                    },
+                    {
+                      "type": "text",
+                      "value": " cannot both be True."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "count_sort",
+              "type": "Param",
+              "type_": "str or bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "For each node n, the order (visually, from left-to-right) n's two descendent links are plotted is determined by this parameter, which can be any of the following values:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Nothing is done."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "inlineCode",
+                            "value": "False"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "The child with the minimum distance between its direct descendents is   plotted first."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "inlineCode",
+                            "value": "'ascending'"
+                          },
+                          {
+                            "type": "text",
+                            "value": " or "
+                          },
+                          {
+                            "type": "inlineCode",
+                            "value": "True"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "The child with the maximum distance between its direct descendents is   plotted first."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "inlineCode",
+                            "value": "'descending'"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Note "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "distance_sort"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "count_sort"
+                    },
+                    {
+                      "type": "text",
+                      "value": " cannot both be True."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "distance_sort",
+              "type": "Param",
+              "type_": "str or bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "When True, leaf nodes representing "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "k>1"
+                    },
+                    {
+                      "type": "text",
+                      "value": " original observation are labeled with the number of observations they contain in parentheses."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "show_leaf_counts",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "When True, the final rendering is not performed. This is useful if only the data structures computed for the rendering are needed or if matplotlib is not available."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "no_plot",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "When True, no labels appear next to the leaf nodes in the rendering of the dendrogram."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "no_labels",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Specifies the angle (in degrees) to rotate the leaf labels. When unspecified, the rotation is based on the number of nodes in the dendrogram (default is 0)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "leaf_rotation",
+              "type": "Param",
+              "type_": "double, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Specifies the font size (in points) of the leaf labels. When unspecified, the size based on the number of nodes in the dendrogram."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "leaf_font_size",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "When "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "leaf_label_func"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a callable function, for each leaf with cluster index "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "k < 2n-1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". The function is expected to return a string with the label for the leaf."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Indices "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "k < n"
+                    },
+                    {
+                      "type": "text",
+                      "value": " correspond to original observations while indices "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "k \\geq n"
+                    },
+                    {
+                      "type": "text",
+                      "value": " correspond to non-singleton clusters."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "For example, to label singletons with their node id and non-singletons with their id, count, and inconsistency coefficient, simply do      "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "# First define the leaf label function.\ndef llf(id):\n    if id < n:\n        return str(id)\n    else:\n        return '[%d %d %1.2f]' % (id, count, R[n-id,3])\n\n# The text for the leaf nodes is going to be big so force\n# a rotation of 90 degrees.\ndendrogram(Z, leaf_label_func=llf, leaf_rotation=90)\n\n# leaf_label_func can also be used together with ``truncate_mode`` parameter,\n# in which case you will get your leaves labeled after truncation:\ndendrogram(Z, leaf_label_func=llf, leaf_rotation=90,\n           truncate_mode='level', p=2)"
+                }
+              ],
+              "param": "leaf_label_func",
+              "type": "Param",
+              "type_": "lambda or function, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "When True the heights of non-singleton nodes contracted into a leaf node are plotted as crosses along the link connecting that leaf node.  This really is only useful when truncation is used (see "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "truncate_mode"
+                    },
+                    {
+                      "type": "text",
+                      "value": " parameter)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "show_contracted",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If given, "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "link_color_function"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is called with each non-singleton id corresponding to each U-shaped link it will paint. The function is expected to return the color to paint the link, encoded as a matplotlib color string code. For example      "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "dendrogram(Z, link_color_func=lambda k: colors[k])"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "colors the direct links below each untruncated non-singleton node "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "k"
+                    },
+                    {
+                      "type": "text",
+                      "value": " using "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "colors[k]"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "link_color_func",
+              "type": "Param",
+              "type_": "callable, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If None and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "no_plot",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "no_plot"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is not True, the dendrogram will be plotted on the current axes.  Otherwise if "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "no_plot",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "no_plot"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is not True the dendrogram will be plotted on the given "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Axes"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instance. This can be useful if the dendrogram is part of a more complex figure."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ax",
+              "type": "Param",
+              "type_": "matplotlib Axes instance, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This matplotlib color string sets the color of the links above the color_threshold. The default is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "'C0'"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "above_threshold_color",
+              "type": "Param",
+              "type_": "str, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A dictionary of data structures computed to render the dendrogram. Its has the following keys:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "A list of color names. The k'th element represents the color of the   k'th link."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "inlineCode",
+                            "value": "'color_list'"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Each of them is a list of lists. Let "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "icoord = [I1, I2, ..., Ip]"
+                            },
+                            {
+                              "type": "text",
+                              "value": "   where "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "Ik = [xk1, xk2, xk3, xk4]"
+                            },
+                            {
+                              "type": "text",
+                              "value": " and "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "dcoord = [D1, D2, ..., Dp]"
+                            },
+                            {
+                              "type": "text",
+                              "value": "   where "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "Dk = [yk1, yk2, yk3, yk4]"
+                            },
+                            {
+                              "type": "text",
+                              "value": ", then the k'th link painted is   "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "(xk1, yk1)"
+                            },
+                            {
+                              "type": "text",
+                              "value": " - "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "(xk2, yk2)"
+                            },
+                            {
+                              "type": "text",
+                              "value": " - "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "(xk3, yk3)"
+                            },
+                            {
+                              "type": "text",
+                              "value": " - "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "(xk4, yk4)"
+                            },
+                            {
+                              "type": "text",
+                              "value": "."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "inlineCode",
+                            "value": "'icoord'"
+                          },
+                          {
+                            "type": "text",
+                            "value": " and "
+                          },
+                          {
+                            "type": "inlineCode",
+                            "value": "'dcoord'"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "A list of labels corresponding to the leaf nodes."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "inlineCode",
+                            "value": "'ivl'"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "For each i, "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "H[i] == j"
+                            },
+                            {
+                              "type": "text",
+                              "value": ", cluster node "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "j"
+                            },
+                            {
+                              "type": "text",
+                              "value": " appears in position   "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "i"
+                            },
+                            {
+                              "type": "text",
+                              "value": " in the left-to-right traversal of the leaves, where   "
+                            },
+                            {
+                              "type": "inlineMath",
+                              "value": "j < 2n-1"
+                            },
+                            {
+                              "type": "text",
+                              "value": " and "
+                            },
+                            {
+                              "type": "inlineMath",
+                              "value": "i < n"
+                            },
+                            {
+                              "type": "text",
+                              "value": ". If "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "j"
+                            },
+                            {
+                              "type": "text",
+                              "value": " is less than "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "n"
+                            },
+                            {
+                              "type": "text",
+                              "value": ", the   "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "i"
+                            },
+                            {
+                              "type": "text",
+                              "value": "-th leaf node corresponds to an original observation.   Otherwise, it corresponds to a non-singleton cluster."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "inlineCode",
+                            "value": "'leaves'"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "A list of color names. The k'th element represents the color of the   k'th leaf."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "inlineCode",
+                            "value": "'leaves_color_list'"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "param": "R",
+              "type": "Param",
+              "type_": "dict"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Plot the hierarchical clustering as a dendrogram."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.cluster import hierarchy\nimport matplotlib.pyplot as plt"
+      },
+      {
+        "type": "text",
+        "value": "A very basic example:"
+      },
+      {
+        "type": "code",
+        "value": "ytdist = np.array([662., 877., 255., 412., 996., 295., 468., 268.,\n                   400., 754., 564., 138., 219., 869., 669.])\nZ = hierarchy.linkage(ytdist, 'single')\nplt.figure()\ndn = hierarchy.dendrogram(Z)"
+      },
+      {
+        "type": "text",
+        "value": "Now, plot in given axes, improve the color scheme and use both vertical and\nhorizontal orientations:"
+      },
+      {
+        "type": "code",
+        "value": "hierarchy.set_link_color_palette(['m', 'c', 'y', 'k'])\nfig, axes = plt.subplots(1, 2, figsize=(8, 3))\ndn1 = hierarchy.dendrogram(Z, ax=axes[0], above_threshold_color='y',\n                           orientation='top')\ndn2 = hierarchy.dendrogram(Z, ax=axes[1],\n                           above_threshold_color='#bcbddc',\n                           orientation='right')\nhierarchy.set_link_color_palette(None)  # reset to default after use\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.cluster.hierarchy:dendrogram-0-79533c1d.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.cluster.hierarchy:dendrogram-1-ece02546.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/cluster/hierarchy.py",
+  "item_line": 3023,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "linkage",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "linkage"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.cluster.hierarchy:set_link_color_palette",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "set_link_color_palette"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(Z, p=30, truncate_mode=None, color_threshold=None, get_leaves=True, orientation='top', labels=None, count_sort=False, distance_sort=False, show_leaf_counts=True, no_plot=False, no_labels=False, leaf_font_size=None, leaf_rotation=None, leaf_label_func=None, show_contracted=False, link_color_func=None, ax=None, above_threshold_color='C0')"
+  },
+  "type": "DocBlob"
+}

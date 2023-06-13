@@ -1,0 +1,337 @@
+{
+  "aliases": [
+    "matplotlib.cbook.CallbackRegistry"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "code",
+              "value": ">>> def oneat(x):\n...     print('eat', x)\n>>> def ondrink(x):\n...     print('drink', x)"
+            },
+            {
+              "type": "code",
+              "value": ">>> from matplotlib.cbook import CallbackRegistry\n>>> callbacks = CallbackRegistry()"
+            },
+            {
+              "type": "code",
+              "value": ">>> id_eat = callbacks.connect('eat', oneat)\n>>> id_drink = callbacks.connect('drink', ondrink)"
+            },
+            {
+              "type": "code",
+              "value": ">>> callbacks.process('drink', 123)\ndrink 123\n>>> callbacks.process('eat', 456)\neat 456\n>>> callbacks.process('be merry', 456)   # nothing will be called"
+            },
+            {
+              "type": "code",
+              "value": ">>> callbacks.disconnect(id_eat)\n>>> callbacks.process('eat', 456)        # nothing will be called"
+            },
+            {
+              "type": "code",
+              "value": ">>> with callbacks.blocked(signal='drink'):\n...     callbacks.process('drink', 123)  # nothing will be called\n>>> callbacks.process('drink', 123)\ndrink 123"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In practice, one should always disconnect all callbacks when they are no longer needed to avoid dangling references (and thus memory leaks). However, real code in Matplotlib rarely does so, and due to its design, it is rather difficult to place this kind of code.  To get around this, and prevent this class of memory leaks, we instead store weak references to bound methods only, so when the destination object needs to die, the CallbackRegistry won't keep it alive."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If not None, "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "exception_handler"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must be a function that takes an "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "Exception"
+                    },
+                    {
+                      "type": "text",
+                      "value": " as single parameter.  It gets called with any "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "Exception"
+                    },
+                    {
+                      "type": "text",
+                      "value": " raised by the callbacks during "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "matplotlib",
+                        "path": "matplotlib.cbook:CallbackRegistry.process",
+                        "type": "RefInfo",
+                        "version": "3.6.3"
+                      },
+                      "type": "Link",
+                      "value": "CallbackRegistry.process"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", and may either re-raise the exception or handle it in another manner."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The default handler prints the exception (with "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "traceback:print_exc",
+                        "path": "traceback:print_exc",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "traceback.print_exc"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") if an interactive event loop is running; it re-raises the exception if no interactive event loop is running."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "exception_handler",
+              "type": "Param",
+              "type_": "callable, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If not None, "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "signals"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a list of signals that this registry handles: attempting to "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "matplotlib",
+                        "path": "matplotlib.cbook:CallbackRegistry.process",
+                        "type": "RefInfo",
+                        "version": "3.6.3"
+                      },
+                      "type": "Link",
+                      "value": "process"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or to "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "connect"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to a signal not in the list throws a "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "ValueError"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  The default, None, does not restrict the handled signals."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "signals",
+              "type": "Param",
+              "type_": "list, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Handle registering, processing, blocking, and disconnecting for a set of signals and callbacks:"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/matplotlib/cbook/__init__.py",
+  "item_line": 129,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

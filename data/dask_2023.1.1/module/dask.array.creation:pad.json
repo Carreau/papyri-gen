@@ -1,0 +1,1003 @@
+{
+  "aliases": [
+    "dask.array.pad"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This docstring was copied from numpy.pad."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Some inconsistencies with the Dask version may exist."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 1.7.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For an array with rank greater than 1, some of the padding of later axes is calculated from padding of previous axes.  This is easiest to think about with a rank 2 array where the corners of the padded array are calculated by using padded values from the first axis."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The padding function, if used, should modify a rank 1 array in-place. It has the following signature      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "padding_func(vector, iaxis_pad_width, iaxis, kwargs)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "dd": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "vector"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "dt": {
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "vector"
+                      }
+                    ],
+                    "type": "paragraph"
+                  },
+                  "type": "DefListItem"
+                },
+                {
+                  "dd": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "iaxis_pad_width"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "dt": {
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "iaxis_pad_width"
+                      }
+                    ],
+                    "type": "paragraph"
+                  },
+                  "type": "DefListItem"
+                },
+                {
+                  "dd": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "iaxis"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "dt": {
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "iaxis"
+                      }
+                    ],
+                    "type": "paragraph"
+                  },
+                  "type": "DefListItem"
+                },
+                {
+                  "dd": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "kwargs"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "dt": {
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "kwargs"
+                      }
+                    ],
+                    "type": "paragraph"
+                  },
+                  "type": "DefListItem"
+                }
+              ],
+              "type": "DefList"
+            }
+          ],
+          "type": "blockquote"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The array to pad."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "array",
+              "type": "Param",
+              "type_": "array_like of rank N"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of values padded to the edges of each axis. ((before_1, after_1), ... (before_N, after_N)) unique pad widths for each axis. ((before, after),) yields same before and after pad for each axis. (pad,) or int is a shortcut for before = after = pad width for all axes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "pad_width",
+              "type": "Param",
+              "type_": "{sequence, array_like, int}"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "One of the following string values or a user supplied function."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Pads with a constant value."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "'constant' (default)"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Pads with the edge values of array."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "'edge'"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Pads with the linear ramp between end_value and the     array edge value."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "'linear_ramp'"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Pads with the maximum value of all or part of the     vector along each axis."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "'maximum'"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Pads with the mean value of all or part of the     vector along each axis."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "'mean'"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Pads with the median value of all or part of the     vector along each axis."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "'median'"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Pads with the minimum value of all or part of the     vector along each axis."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "'minimum'"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Pads with the reflection of the vector mirrored on     the first and last values of the vector along each     axis."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "'reflect'"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Pads with the reflection of the vector mirrored     along the edge of the array."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "'symmetric'"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Pads with the wrap of the vector along the axis.     The first values are used to pad the end and the     end values are used to pad the beginning."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "'wrap'"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Pads with undefined values."
+                            }
+                          ],
+                          "type": "paragraph"
+                        },
+                        {
+                          "children": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "versionadded 1.17"
+                                }
+                              ],
+                              "type": "admonitionTitle"
+                            }
+                          ],
+                          "kind": "note",
+                          "type": "admonition"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "'empty'"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Padding function, see Notes."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "<function>"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "param": "mode",
+              "type": "Param",
+              "type_": "str or function, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Used in 'maximum', 'mean', 'median', and 'minimum'.  Number of values at edge of each axis used to calculate the statistic value."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "((before_1, after_1), ... (before_N, after_N)) unique statistic lengths for each axis."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "((before, after),) yields same before and after statistic lengths for each axis."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "(stat_length,) or int is a shortcut for before = after = statistic length for all axes."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Default is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", to use the entire axis."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "stat_length",
+              "type": "Param",
+              "type_": "sequence or int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Used in 'constant'.  The values to set the padded values for each axis."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "((before_1, after_1), ... (before_N, after_N))"
+                    },
+                    {
+                      "type": "text",
+                      "value": " unique pad constants for each axis."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "((before, after),)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " yields same before and after constants for each axis."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "(constant,)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "constant"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a shortcut for "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "before = after = constant"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for all axes."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Default is 0."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "constant_values",
+              "type": "Param",
+              "type_": "sequence or scalar, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Used in 'linear_ramp'.  The values used for the ending value of the linear_ramp and that will form the edge of the padded array."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "((before_1, after_1), ... (before_N, after_N))"
+                    },
+                    {
+                      "type": "text",
+                      "value": " unique end values for each axis."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "((before, after),)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " yields same before and after end values for each axis."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "(constant,)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "constant"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a shortcut for "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "before = after = constant"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for all axes."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Default is 0."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "end_values",
+              "type": "Param",
+              "type_": "sequence or scalar, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Used in 'reflect', and 'symmetric'.  The 'even' style is the default with an unaltered reflection around the edge value.  For the 'odd' style, the extended part of the array is created by subtracting the reflected values from two times the edge value."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "reflect_type",
+              "type": "Param",
+              "type_": "{'even', 'odd'}, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Padded array of rank equal to "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "array",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "array"
+                    },
+                    {
+                      "type": "text",
+                      "value": " with shape increased according to "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "pad_width",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "pad_width"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "pad",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Pad an array."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "a = [1, 2, 3, 4, 5]  # doctest: +SKIP\nnp.pad(a, (2, 3), 'constant', constant_values=(4, 6))  # doctest: +SKIP"
+      },
+      {
+        "type": "code",
+        "value": "np.pad(a, (2, 3), 'edge')  # doctest: +SKIP"
+      },
+      {
+        "type": "code",
+        "value": "np.pad(a, (2, 3), 'linear_ramp', end_values=(5, -4))  # doctest: +SKIP"
+      },
+      {
+        "type": "code",
+        "value": "np.pad(a, (2,), 'maximum')  # doctest: +SKIP"
+      },
+      {
+        "type": "code",
+        "value": "np.pad(a, (2,), 'mean')  # doctest: +SKIP"
+      },
+      {
+        "type": "code",
+        "value": "np.pad(a, (2,), 'median')  # doctest: +SKIP"
+      },
+      {
+        "type": "code",
+        "value": "a = [[1, 2], [3, 4]]  # doctest: +SKIP\nnp.pad(a, ((3, 2), (2, 3)), 'minimum')  # doctest: +SKIP"
+      },
+      {
+        "type": "code",
+        "value": "a = [1, 2, 3, 4, 5]  # doctest: +SKIP\nnp.pad(a, (2, 3), 'reflect')  # doctest: +SKIP"
+      },
+      {
+        "type": "code",
+        "value": "np.pad(a, (2, 3), 'reflect', reflect_type='odd')  # doctest: +SKIP"
+      },
+      {
+        "type": "code",
+        "value": "np.pad(a, (2, 3), 'symmetric')  # doctest: +SKIP"
+      },
+      {
+        "type": "code",
+        "value": "np.pad(a, (2, 3), 'symmetric', reflect_type='odd')  # doctest: +SKIP"
+      },
+      {
+        "type": "code",
+        "value": "np.pad(a, (2, 3), 'wrap')  # doctest: +SKIP"
+      },
+      {
+        "type": "code",
+        "value": "def pad_with(vector, pad_width, iaxis, kwargs):  # doctest: +SKIP\n    pad_value = kwargs.get('padder', 10)\n    vector[:pad_width[0]] = pad_value\n    vector[-pad_width[1]:] = pad_value\na = np.arange(6)  # doctest: +SKIP\na = a.reshape((2, 3))  # doctest: +SKIP\nnp.pad(a, 2, pad_with)  # doctest: +SKIP"
+      },
+      {
+        "type": "code",
+        "value": "np.pad(a, 2, pad_with, padder=100)  # doctest: +SKIP"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dask/array/creation.py",
+  "item_line": 1219,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(array, pad_width, mode='constant', **kwargs)"
+  },
+  "type": "DocBlob"
+}

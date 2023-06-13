@@ -1,0 +1,336 @@
+{
+  "aliases": [
+    "networkx.simple_cycles"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "simple cycle"
+            },
+            {
+              "type": "text",
+              "value": ", or "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "elementary circuit"
+            },
+            {
+              "type": "text",
+              "value": ", is a closed path where no node appears twice.  In a directed graph, two simple cycles are distinct if they are not cyclic permutations of each other.  In an undirected graph, two simple cycles are distinct if they are not cyclic permutations of each other nor of the other's reversal."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Optionally, the cycles are bounded in length.  In the unbounded case, we use a nonrecursive, iterator/generator version of Johnson's algorithm .  In the bounded case, we use a version of the algorithm of Gupta and Suzumura. There may be better algorithms for some cases   ."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The algorithms of Johnson, and Gupta and Suzumura, are enhanced by some well-known preprocessing techniques.  When G is directed, we restrict our attention to strongly connected components of G, generate all simple cycles containing a certain node, remove that node, and further decompose the remainder into strongly connected components.  When G is undirected, we restrict our attention to biconnected components, generate all simple cycles containing a particular edge, remove that edge, and further decompose the remainder into biconnected components."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Note that multigraphs are supported by this function -- and in undirected multigraphs, a pair of parallel edges is considered a cycle of length 2. Likewise, self-loops are considered to be cycles of length 1.  We define cycles as sequences of nodes; so the presence of loops and parallel edges does not change the number of simple cycles in a graph."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When length_bound is None, the time complexity is $O((n+e)(c+1))$ for $n$ nodes, $e$ edges and $c$ simple circuits.  Otherwise, when length_bound > 1, the time complexity is $O((c+n)(k-1)d^k)$ where $d$ is the average degree of the nodes of G and $k$ = length_bound."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A directed graph"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "G",
+              "type": "Param",
+              "type_": "NetworkX DiGraph"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If length_bound is an int, generate all simple cycles of G with length at most length_bound.  Otherwise, generate all simple cycles of G."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "length_bound",
+              "type": "Param",
+              "type_": "int or None, optional (default=None)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "when length_bound < 0."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "ValueError"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Find simple cycles (elementary circuits) of a graph."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Each cycle is represented by a list of nodes along the cycle."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "list of nodes"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "edges = [(0, 0), (0, 1), (0, 2), (1, 2), (2, 0), (2, 1), (2, 2)]\nG = nx.DiGraph(edges)\nsorted(nx.simple_cycles(G))"
+      },
+      {
+        "type": "text",
+        "value": "To filter the cycles so that they don't include certain nodes or edges,\ncopy your graph and eliminate those nodes or edges before calling.\nFor example, to exclude self-loops from the above example:"
+      },
+      {
+        "type": "code",
+        "value": "H = G.copy()\nH.remove_edges_from(nx.selfloop_edges(G))\nsorted(nx.simple_cycles(H))"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/algorithms/cycles.py",
+  "item_line": 100,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Yields",
+    "Examples",
+    "Notes",
+    "Raises",
+    "References",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "cycle_basis",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "cycle_basis"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "networkx",
+          "path": "networkx.algorithms.cycles:chordless_cycles",
+          "type": "RefInfo",
+          "version": "3.1"
+        },
+        "type": "Link",
+        "value": "chordless_cycles"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(G, length_bound=None)"
+  },
+  "type": "DocBlob"
+}

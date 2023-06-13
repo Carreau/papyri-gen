@@ -1,0 +1,597 @@
+{
+  "aliases": [
+    "scipy.sparse.csc_array"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Data type of the array"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dtype",
+              "type": "Param",
+              "type_": "dtype"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Shape of the array"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "shape",
+              "type": "Param",
+              "type_": "2-tuple"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of dimensions (this is always 2)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ndim",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of stored values, including explicit zeros"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "nnz",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Data array of the array"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "data",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "CSC format index array"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "indices",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "CSC format index pointer array"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "indptr",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether indices are sorted"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "has_sorted_indices",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This can be instantiated in several ways:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "dd": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "with a dense array or rank-2 ndarray D"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "dt": {
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "csc_array(D)"
+                      }
+                    ],
+                    "type": "paragraph"
+                  },
+                  "type": "DefListItem"
+                },
+                {
+                  "dd": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "with another sparse array S (equivalent to S.tocsc())"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "dt": {
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "csc_array(S)"
+                      }
+                    ],
+                    "type": "paragraph"
+                  },
+                  "type": "DefListItem"
+                },
+                {
+                  "dd": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "to construct an empty array with shape (M, N)         dtype is optional, defaulting to dtype='d'."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "dt": {
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "csc_array((M, N), [dtype])"
+                      }
+                    ],
+                    "type": "paragraph"
+                  },
+                  "type": "DefListItem"
+                },
+                {
+                  "dd": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "where "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "data"
+                        },
+                        {
+                          "type": "text",
+                          "value": ", "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "row_ind"
+                        },
+                        {
+                          "type": "text",
+                          "value": " and "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "col_ind"
+                        },
+                        {
+                          "type": "text",
+                          "value": " satisfy the         relationship "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "a[row_ind[k], col_ind[k]] = data[k]"
+                        },
+                        {
+                          "type": "text",
+                          "value": "."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "dt": {
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "csc_array((data, (row_ind, col_ind)), [shape=(M, N)])"
+                      }
+                    ],
+                    "type": "paragraph"
+                  },
+                  "type": "DefListItem"
+                },
+                {
+                  "dd": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "is the standard CSC representation where the row indices for         column i are stored in "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "indices[indptr[i]:indptr[i+1]]"
+                        },
+                        {
+                          "type": "text",
+                          "value": "         and their corresponding values are stored in         "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "data[indptr[i]:indptr[i+1]]"
+                        },
+                        {
+                          "type": "text",
+                          "value": ".  If the shape parameter is         not supplied, the array dimensions are inferred from         the index arrays."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "dt": {
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "csc_array((data, indices, indptr), [shape=(M, N)])"
+                      }
+                    ],
+                    "type": "paragraph"
+                  },
+                  "type": "DefListItem"
+                }
+              ],
+              "type": "DefList"
+            }
+          ],
+          "type": "blockquote"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Sparse arrays can be used in arithmetic operations: they support addition, subtraction, multiplication, division, and array power."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "efficient arithmetic operations CSC + CSC, CSC * CSC, etc."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "efficient column slicing"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "fast array vector products (CSR, BSR may be faster)"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Advantages of the CSC format"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "slow row slicing operations (consider CSR)"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "changes to the sparsity structure are expensive (consider LIL or DOK)"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Disadvantages of the CSC format"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            }
+          ],
+          "type": "DefList"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compressed Sparse Column array"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.sparse import csc_array\ncsc_array((3, 4), dtype=np.int8).toarray()"
+      },
+      {
+        "type": "code",
+        "value": "row = np.array([0, 2, 2, 0, 1, 2])\ncol = np.array([0, 0, 1, 2, 2, 2])\ndata = np.array([1, 2, 3, 4, 5, 6])\ncsc_array((data, (row, col)), shape=(3, 3)).toarray()"
+      },
+      {
+        "type": "code",
+        "value": "indptr = np.array([0, 2, 3, 6])\nindices = np.array([0, 2, 2, 0, 1, 2])\ndata = np.array([1, 2, 3, 4, 5, 6])\ncsc_array((data, indices, indptr), shape=(3, 3)).toarray()"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/sparse/_arrays.py",
+  "item_line": 72,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Attributes",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

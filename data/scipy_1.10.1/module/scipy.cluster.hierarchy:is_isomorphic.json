@@ -1,0 +1,323 @@
+{
+  "aliases": [
+    "scipy.cluster.hierarchy.is_isomorphic"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An assignment of singleton cluster ids to flat cluster ids."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "T1",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An assignment of singleton cluster ids to flat cluster ids."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "T2",
+              "type": "Param",
+              "type_": "array_like"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether the flat cluster assignments "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "T1",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "T1"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "T2",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "T2"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are equivalent."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "b",
+              "type": "Param",
+              "type_": "bool"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Determine if two different cluster assignments are equivalent."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from scipy.cluster.hierarchy import fcluster, is_isomorphic\nfrom scipy.cluster.hierarchy import single, complete\nfrom scipy.spatial.distance import pdist"
+      },
+      {
+        "type": "text",
+        "value": "Two flat cluster assignments can be isomorphic if they represent the same\ncluster assignment, with different labels."
+      },
+      {
+        "type": "text",
+        "value": "For example, we can use the `scipy.cluster.hierarchy.single`: method\nand flatten the output to four clusters:"
+      },
+      {
+        "type": "code",
+        "value": "X = [[0, 0], [0, 1], [1, 0],\n     [0, 4], [0, 3], [1, 4],\n     [4, 0], [3, 0], [4, 1],\n     [4, 4], [3, 4], [4, 3]]"
+      },
+      {
+        "type": "code",
+        "value": "Z = single(pdist(X))\nT = fcluster(Z, 1, criterion='distance')\nT"
+      },
+      {
+        "type": "text",
+        "value": "We can then do the same using the\n`scipy.cluster.hierarchy.complete`: method:"
+      },
+      {
+        "type": "code",
+        "value": "Z = complete(pdist(X))\nT_ = fcluster(Z, 1.5, criterion='distance')\nT_"
+      },
+      {
+        "type": "text",
+        "value": "As we can see, in both cases we obtain four clusters and all the data\npoints are distributed in the same way - the only thing that changes\nare the flat cluster labels (3 => 1, 4 =>2, 2 =>3 and 4 =>1), so both\ncluster assignments are isomorphic:"
+      },
+      {
+        "type": "code",
+        "value": "is_isomorphic(T, T_)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/cluster/hierarchy.py",
+  "item_line": 3695,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "for a description of what a linkage matrix is."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "linkage",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "linkage"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "for the creation of flat cluster assignments."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "fcluster",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "fcluster"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(T1, T2)"
+  },
+  "type": "DocBlob"
+}

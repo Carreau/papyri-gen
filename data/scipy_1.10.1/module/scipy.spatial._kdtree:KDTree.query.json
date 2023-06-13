@@ -1,0 +1,448 @@
+{
+  "aliases": [
+    "scipy.spatial.KDTree.query"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An array of points to query."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "array_like, last dimension self.m"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Either the number of nearest neighbors to return, or a list of the k-th nearest neighbors to return, starting from 1."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "k",
+              "type": "Param",
+              "type_": "int or Sequence[int], optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Return approximate nearest neighbors; the kth returned value is guaranteed to be no further than (1+eps) times the distance to the real kth nearest neighbor."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "eps",
+              "type": "Param",
+              "type_": "nonnegative float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Which Minkowski p-norm to use. 1 is the sum-of-absolute-values distance (\"Manhattan\" distance). 2 is the usual Euclidean distance. infinity is the maximum-coordinate-difference distance. A large, finite p may cause a ValueError if overflow can occur."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "p",
+              "type": "Param",
+              "type_": "float, 1<=p<=infinity, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Return only neighbors within this distance. This is used to prune tree searches, so if you are doing a series of nearest-neighbor queries, it may help to supply the distance to the nearest neighbor of the most recent point."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "distance_upper_bound",
+              "type": "Param",
+              "type_": "nonnegative float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of workers to use for parallel processing. If -1 is given all CPU threads are used. Default: 1."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.6.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "workers",
+              "type": "Param",
+              "type_": "int, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The distances to the nearest neighbors. If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " has shape "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "tuple+(self.m,)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", then "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "d"
+                    },
+                    {
+                      "type": "text",
+                      "value": " has shape "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "tuple+(k,)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". When k == 1, the last dimension of the output is squeezed. Missing neighbors are indicated with infinite distances. Hits are sorted by distance (nearest first)."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionchanged 1.9.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Previously if "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "k=None"
+                        },
+                        {
+                          "type": "text",
+                          "value": ", then "
+                        },
+                        {
+                          "domain": null,
+                          "role": null,
+                          "type": "Directive",
+                          "value": "d"
+                        },
+                        {
+                          "type": "text",
+                          "value": " was an object array of shape "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "tuple"
+                        },
+                        {
+                          "type": "text",
+                          "value": ", containing lists of distances. This behavior has been removed, use "
+                        },
+                        {
+                          "domain": null,
+                          "role": null,
+                          "type": "Directive",
+                          "value": "query_ball_point"
+                        },
+                        {
+                          "type": "text",
+                          "value": " instead."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "d",
+              "type": "Param",
+              "type_": "float or array of floats"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The index of each neighbor in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "self.data"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "i"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the same shape as d. Missing neighbors are indicated with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "self.n"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "i",
+              "type": "Param",
+              "type_": "integer or array of integers"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Query the kd-tree for nearest neighbors."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.spatial import KDTree\nx, y = np.mgrid[0:5, 2:8]\ntree = KDTree(np.c_[x.ravel(), y.ravel()])"
+      },
+      {
+        "type": "text",
+        "value": "To query the nearest neighbours and return squeezed result, use"
+      },
+      {
+        "type": "code",
+        "value": "dd, ii = tree.query([[0, 0], [2.2, 2.9]], k=1)\nprint(dd, ii, sep='\\n')"
+      },
+      {
+        "type": "text",
+        "value": "To query the nearest neighbours and return unsqueezed result, use"
+      },
+      {
+        "type": "code",
+        "value": "dd, ii = tree.query([[0, 0], [2.2, 2.9]], k=[1])\nprint(dd, ii, sep='\\n')"
+      },
+      {
+        "type": "text",
+        "value": "To query the second nearest neighbours and return unsqueezed result,\nuse"
+      },
+      {
+        "type": "code",
+        "value": "dd, ii = tree.query([[0, 0], [2.2, 2.9]], k=[2])\nprint(dd, ii, sep='\\n')"
+      },
+      {
+        "type": "text",
+        "value": "To query the first and second nearest neighbours, use"
+      },
+      {
+        "type": "code",
+        "value": "dd, ii = tree.query([[0, 0], [2.2, 2.9]], k=2)\nprint(dd, ii, sep='\\n')"
+      },
+      {
+        "type": "text",
+        "value": "or, be more specific"
+      },
+      {
+        "type": "code",
+        "value": "dd, ii = tree.query([[0, 0], [2.2, 2.9]], k=[1, 2])\nprint(dd, ii, sep='\\n')"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/spatial/_kdtree.py",
+  "item_line": 363,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, x, k=1, eps=0, p=2, distance_upper_bound=inf, workers=1)"
+  },
+  "type": "DocBlob"
+}

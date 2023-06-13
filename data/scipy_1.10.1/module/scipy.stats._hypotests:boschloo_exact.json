@@ -1,0 +1,701 @@
+{
+  "aliases": [
+    "scipy.stats.boschloo_exact"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Boschloo's test is an exact test used in the analysis of contingency tables. It examines the association of two categorical variables, and is a uniformly more powerful alternative to Fisher's exact test for 2x2 contingency tables."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Boschloo's exact test uses the p-value of Fisher's exact test as a statistic, and Boschloo's p-value is the probability under the null hypothesis of observing such an extreme value of this statistic."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Let's define "
+            },
+            {
+              "type": "inlineMath",
+              "value": "X_0"
+            },
+            {
+              "type": "text",
+              "value": " a 2x2 matrix representing the observed sample, where each column stores the binomial experiment, as in the example below. Let's also define "
+            },
+            {
+              "type": "inlineMath",
+              "value": "p_1, p_2"
+            },
+            {
+              "type": "text",
+              "value": " the theoretical binomial probabilities for  "
+            },
+            {
+              "type": "inlineMath",
+              "value": "x_{11}"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "x_{12}"
+            },
+            {
+              "type": "text",
+              "value": ". When using Boschloo exact test, we can assert three different alternative hypotheses:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineMath",
+                      "value": "H_0 : p_1=p_2"
+                    },
+                    {
+                      "type": "text",
+                      "value": " versus "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "H_1 : p_1 < p_2"
+                    },
+                    {
+                      "type": "text",
+                      "value": ",   with "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "alternative",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "alternative"
+                    },
+                    {
+                      "type": "text",
+                      "value": " = \"less\""
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineMath",
+                      "value": "H_0 : p_1=p_2"
+                    },
+                    {
+                      "type": "text",
+                      "value": " versus "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "H_1 : p_1 > p_2"
+                    },
+                    {
+                      "type": "text",
+                      "value": ",   with "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "alternative",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "alternative"
+                    },
+                    {
+                      "type": "text",
+                      "value": " = \"greater\""
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineMath",
+                      "value": "H_0 : p_1=p_2"
+                    },
+                    {
+                      "type": "text",
+                      "value": " versus "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "H_1 : p_1 \\neq p_2"
+                    },
+                    {
+                      "type": "text",
+                      "value": ",   with "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "alternative",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "alternative"
+                    },
+                    {
+                      "type": "text",
+                      "value": " = \"two-sided\" (default)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "There are multiple conventions for computing a two-sided p-value when the null distribution is asymmetric. Here, we apply the convention that the p-value of a two-sided test is twice the minimum of the p-values of the one-sided tests (clipped to 1.0). Note that "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.stats._stats_py:fisher_exact",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "fisher_exact"
+            },
+            {
+              "type": "text",
+              "value": " follows a different convention, so for a given "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "table",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "table"
+            },
+            {
+              "type": "text",
+              "value": ", the statistic reported by "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.stats._hypotests:boschloo_exact",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "boschloo_exact"
+            },
+            {
+              "type": "text",
+              "value": " may differ from the p-value reported by "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.stats._stats_py:fisher_exact",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "fisher_exact"
+            },
+            {
+              "type": "text",
+              "value": " when "
+            },
+            {
+              "type": "inlineCode",
+              "value": "alternative='two-sided'"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 1.7.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A 2x2 contingency table.  Elements should be non-negative integers."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "table",
+              "type": "Param",
+              "type_": "array_like of ints"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Defines the null and alternative hypotheses. Default is 'two-sided'. Please see explanations in the Notes section below."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "alternative",
+              "type": "Param",
+              "type_": "{'two-sided', 'less', 'greater'}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of sampling points used in the construction of the sampling method. Note that this argument will automatically be converted to the next higher power of 2 since "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "scipy.stats._qmc",
+                        "path": "scipy.stats._qmc:Sobol",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "scipy.stats.qmc.Sobol"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is used to select sample points. Default is 32. Must be positive. In most cases, 32 points is enough to reach good precision. More points comes at performance cost."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "n",
+              "type": "Param",
+              "type_": "int, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A result object with the following attributes."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "statistic"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "statistic"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "pvalue"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "pvalue"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "param": "ber",
+              "type": "Param",
+              "type_": "BoschlooExactResult"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Perform Boschloo's exact test on a 2x2 contingency table."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "In the following example, we consider the article \"Employee\nattitudes and job satisfaction\" [3]_\nwhich reports the results of a survey from 63 scientists and 117 college\nprofessors. Of the 63 scientists, 31 said they were very satisfied with\ntheir jobs, whereas 74 of the college professors were very satisfied\nwith their work. Is this significant evidence that college\nprofessors are happier with their work than scientists?\nThe following table summarizes the data mentioned above::"
+      },
+      {
+        "type": "text",
+        "value": "                     college professors   scientists\n    Very Satisfied   74                     31\n    Dissatisfied     43                     32"
+      },
+      {
+        "type": "text",
+        "value": "When working with statistical hypothesis testing, we usually use a\nthreshold probability or significance level upon which we decide\nto reject the null hypothesis :math:`H_0`. Suppose we choose the common\nsignificance level of 5%."
+      },
+      {
+        "type": "text",
+        "value": "Our alternative hypothesis is that college professors are truly more\nsatisfied with their work than scientists. Therefore, we expect\n:math:`p_1` the proportion of very satisfied college professors to be\ngreater than :math:`p_2`, the proportion of very satisfied scientists.\nWe thus call `boschloo_exact` with the ``alternative=\"greater\"`` option:"
+      },
+      {
+        "type": "code",
+        "value": "import scipy.stats as stats\nres = stats.boschloo_exact([[74, 31], [43, 32]], alternative=\"greater\")\nres.statistic"
+      },
+      {
+        "type": "code",
+        "value": "res.pvalue"
+      },
+      {
+        "type": "text",
+        "value": "Under the null hypothesis that scientists are happier in their work than\ncollege professors, the probability of obtaining test\nresults at least as extreme as the observed data is approximately 3.55%.\nSince this p-value is less than our chosen significance level, we have\nevidence to reject :math:`H_0` in favor of the alternative hypothesis."
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_hypotests.py",
+  "item_line": 1180,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Chi-square test of independence of variables in a contingency table."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.stats.contingency:chi2_contingency",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "chi2_contingency"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Fisher exact test on a 2x2 contingency table."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.stats._stats_py:fisher_exact",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "fisher_exact"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Barnard's exact test, which is a more powerful alternative than Fisher's exact test for 2x2 contingency tables."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.stats._hypotests:barnard_exact",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "barnard_exact"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(table, alternative='two-sided', n=32)"
+  },
+  "type": "DocBlob"
+}

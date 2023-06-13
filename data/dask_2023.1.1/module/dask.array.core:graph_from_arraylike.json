@@ -1,0 +1,173 @@
+{
+  "aliases": [
+    "dask.array.core.graph_from_arraylike"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If "
+            },
+            {
+              "type": "inlineCode",
+              "value": "inline_array"
+            },
+            {
+              "type": "text",
+              "value": " is True, this make a Blockwise layer of slicing tasks where the array-like is embedded into every task.,"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If "
+            },
+            {
+              "type": "inlineCode",
+              "value": "inline_array"
+            },
+            {
+              "type": "text",
+              "value": " is False, this inserts the array-like as a standalone value in a MaterializedLayer, then generates a Blockwise layer of slicing tasks that refer to it."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> dict(graph_from_arraylike(arr, chunks=(2, 3), shape=(4, 6), name=\"X\", inline_array=True))  # doctest: +SKIP\n{(arr, 0, 0): (getter, arr, (slice(0, 2), slice(0, 3))),\n (arr, 1, 0): (getter, arr, (slice(2, 4), slice(0, 3))),\n (arr, 1, 1): (getter, arr, (slice(2, 4), slice(3, 6))),\n (arr, 0, 1): (getter, arr, (slice(0, 2), slice(3, 6)))}"
+        },
+        {
+          "type": "code",
+          "value": ">>> dict(  # doctest: +SKIP\n        graph_from_arraylike(arr, chunks=((2, 2), (3, 3)), shape=(4,6), name=\"X\", inline_array=False)\n    )\n{\"original-X\": arr,\n ('X', 0, 0): (getter, 'original-X', (slice(0, 2), slice(0, 3))),\n ('X', 1, 0): (getter, 'original-X', (slice(2, 4), slice(0, 3))),\n ('X', 1, 1): (getter, 'original-X', (slice(2, 4), slice(3, 6))),\n ('X', 0, 1): (getter, 'original-X', (slice(0, 2), slice(3, 6)))}"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "HighLevelGraph for slicing chunks from an array-like according to a chunk pattern."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dask/array/core.py",
+  "item_line": 246,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(arr, chunks, shape, name, getitem=<function getter at 0x108618e50>, lock=False, asarray=True, dtype=None, inline_array=False) -> 'HighLevelGraph'"
+  },
+  "type": "DocBlob"
+}

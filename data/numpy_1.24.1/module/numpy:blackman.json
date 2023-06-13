@@ -1,0 +1,363 @@
+{
+  "aliases": [
+    "numpy.blackman"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The Blackman window is a taper formed by using the first three terms of a summation of cosines. It was designed to have close to the minimal leakage possible.  It is close to optimal, only slightly worse than a Kaiser window."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The Blackman window is defined as"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "w(n) = 0.42 - 0.5 \\cos(2\\pi n/M) + 0.08 \\cos(4\\pi n/M)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Most references to the Blackman window come from the signal processing literature, where it is used as one of many windowing functions for smoothing values.  It is also known as an apodization (which means \"removing the foot\", i.e. smoothing discontinuities at the beginning and end of the sampled signal) or tapering function. It is known as a \"near optimal\" tapering function, almost as good (by some measures) as the kaiser window."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of points in the output window. If zero or less, an empty array is returned."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "M",
+              "type": "Param",
+              "type_": "int"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The window, with the maximum value normalized to one (the value one appears only if the number of samples is odd)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "out",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Return the Blackman window."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import matplotlib.pyplot as plt\nnp.blackman(12)"
+      },
+      {
+        "type": "text",
+        "value": "Plot the window and the frequency response:"
+      },
+      {
+        "type": "code",
+        "value": "from numpy.fft import fft, fftshift\nwindow = np.blackman(51)\nplt.plot(window)"
+      },
+      {
+        "type": "code",
+        "value": "plt.title(\"Blackman window\")"
+      },
+      {
+        "type": "code",
+        "value": "plt.ylabel(\"Amplitude\")"
+      },
+      {
+        "type": "code",
+        "value": "plt.xlabel(\"Sample\")"
+      },
+      {
+        "type": "code",
+        "value": "plt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "numpy",
+          "path": "fig-numpy:blackman-0-7d66b2c2.png",
+          "type": "RefInfo",
+          "version": "1.24.1"
+        }
+      },
+      {
+        "type": "code",
+        "value": "plt.figure()"
+      },
+      {
+        "type": "code",
+        "value": "A = fft(window, 2048) / 25.5\nmag = np.abs(fftshift(A))\nfreq = np.linspace(-0.5, 0.5, len(A))\nwith np.errstate(divide='ignore', invalid='ignore'):\n    response = 20 * np.log10(mag)"
+      },
+      {
+        "type": "code",
+        "value": "response = np.clip(response, -100, 100)\nplt.plot(freq, response)"
+      },
+      {
+        "type": "code",
+        "value": "plt.title(\"Frequency response of Blackman window\")"
+      },
+      {
+        "type": "code",
+        "value": "plt.ylabel(\"Magnitude [dB]\")"
+      },
+      {
+        "type": "code",
+        "value": "plt.xlabel(\"Normalized frequency [cycles per sample]\")"
+      },
+      {
+        "type": "code",
+        "value": "_ = plt.axis('tight')\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "numpy",
+          "path": "fig-numpy:blackman-1-4ecfde95.png",
+          "type": "RefInfo",
+          "version": "1.24.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/numpy/lib/function_base.py",
+  "item_line": 2867,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "bartlett",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "bartlett"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "hamming",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "hamming"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "hanning",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "hanning"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "kaiser",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "kaiser"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(M)"
+  },
+  "type": "DocBlob"
+}

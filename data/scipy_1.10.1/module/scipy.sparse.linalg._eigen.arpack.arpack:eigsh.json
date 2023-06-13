@@ -1,0 +1,1157 @@
+{
+  "aliases": [
+    "scipy.sparse.linalg.eigsh"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Solves "
+            },
+            {
+              "type": "inlineCode",
+              "value": "A @ x[i] = w[i] * x[i]"
+            },
+            {
+              "type": "text",
+              "value": ", the standard eigenvalue problem for w[i] eigenvalues with corresponding eigenvectors x[i]."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If M is specified, solves "
+            },
+            {
+              "type": "inlineCode",
+              "value": "A @ x[i] = w[i] * M @ x[i]"
+            },
+            {
+              "type": "text",
+              "value": ", the generalized eigenvalue problem for w[i] eigenvalues with corresponding eigenvectors x[i]."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Note that there is no specialized routine for the case when A is a complex Hermitian matrix. In this case, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "eigsh()"
+            },
+            {
+              "type": "text",
+              "value": " will call "
+            },
+            {
+              "type": "inlineCode",
+              "value": "eigs()"
+            },
+            {
+              "type": "text",
+              "value": " and return the real parts of the eigenvalues thus obtained."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function is a wrapper to the ARPACK  SSEUPD and DSEUPD functions which use the Implicitly Restarted Lanczos Method to find the eigenvalues and eigenvectors ."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "the operation "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "M @ x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for the generalized eigenvalue problem"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "A @ x = w * M @ x."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "type": "blockquote"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "M must represent a real symmetric matrix if A is real, and must represent a complex Hermitian matrix if A is complex. For best results, the data type of M should be the same as that of A. Additionally:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "If sigma is None, M is symmetric positive definite."
+                        }
+                      ],
+                      "type": "paragraph"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "If sigma is specified, M is symmetric positive semi-definite."
+                        }
+                      ],
+                      "type": "paragraph"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "In buckling mode, M is symmetric indefinite."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "type": "blockquote"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If sigma is None, eigsh requires an operator to compute the solution of the linear equation "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "M @ x = b"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". This is done internally via a (sparse) LU decomposition for an explicit matrix M, or via an iterative solver for a general linear operator.  Alternatively, the user can supply the matrix or operator Minv, which gives "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x = Minv @ b = M^-1 @ b"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "M",
+              "type": "Param",
+              "type_": "An N x N matrix, array, sparse matrix, or linear operator representing"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Find eigenvalues near sigma using shift-invert mode.  This requires an operator to compute the solution of the linear system "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "[A - sigma * M] x = b"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", where M is the identity matrix if unspecified.  This is computed internally via a (sparse) LU decomposition for explicit matrices A & M, or via an iterative solver if either A or M is a general linear operator. Alternatively, the user can supply the matrix or operator OPinv, which gives "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x = OPinv @ b = [A - sigma * M]^-1 @ b"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Note that when sigma is specified, the keyword 'which' refers to the shifted eigenvalues "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "w'[i]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " where:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "if mode == 'normal', "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "w'[i] = 1 / (w[i] - sigma)"
+                        },
+                        {
+                          "type": "text",
+                          "value": "."
+                        }
+                      ],
+                      "type": "paragraph"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "if mode == 'cayley', "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "w'[i] = (w[i] + sigma) / (w[i] - sigma)"
+                        },
+                        {
+                          "type": "text",
+                          "value": "."
+                        }
+                      ],
+                      "type": "paragraph"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "if mode == 'buckling', "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "w'[i] = w[i] / (w[i] - sigma)"
+                        },
+                        {
+                          "type": "text",
+                          "value": "."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "type": "blockquote"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "(see further discussion in 'mode' below)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sigma",
+              "type": "Param",
+              "type_": "real"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Starting vector for iteration. Default: random"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "v0",
+              "type": "Param",
+              "type_": "ndarray, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The number of Lanczos vectors generated ncv must be greater than k and smaller than n; it is recommended that "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ncv > 2*k"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Default: "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "min(n, max(2*k + 1, 20))"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ncv",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If A is a complex Hermitian matrix, 'BE' is invalid. Which "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "k",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "k"
+                    },
+                    {
+                      "type": "text",
+                      "value": " eigenvectors and eigenvalues to find:"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "which",
+              "type": "Param",
+              "type_": "str ['LM' | 'SM' | 'LA' | 'SA' | 'BE']"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum number of Arnoldi update iterations allowed. Default: "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "n*10"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "maxiter",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Relative accuracy for eigenvalues (stopping criterion). The default value of 0 implies machine precision."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "tol",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "See notes in M, above."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "Minv",
+              "type": "Param",
+              "type_": "N x N matrix, array, sparse matrix, or LinearOperator"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "See notes in sigma, above."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "OPinv",
+              "type": "Param",
+              "type_": "N x N matrix, array, sparse matrix, or LinearOperator"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Return eigenvectors (True) in addition to eigenvalues. This value determines the order in which eigenvalues are sorted. The sort order is also dependent on the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "which",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "which"
+                    },
+                    {
+                      "type": "text",
+                      "value": " variable."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "dd": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "If "
+                                },
+                                {
+                                  "anchor": null,
+                                  "exists": true,
+                                  "kind": "local",
+                                  "reference": {
+                                    "kind": "local",
+                                    "module": null,
+                                    "path": "return_eigenvectors",
+                                    "type": "RefInfo",
+                                    "version": null
+                                  },
+                                  "type": "Link",
+                                  "value": "return_eigenvectors"
+                                },
+                                {
+                                  "type": "text",
+                                  "value": " is True, eigenvalues are sorted by         algebraic value."
+                                }
+                              ],
+                              "type": "paragraph"
+                            },
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "If "
+                                },
+                                {
+                                  "anchor": null,
+                                  "exists": true,
+                                  "kind": "local",
+                                  "reference": {
+                                    "kind": "local",
+                                    "module": null,
+                                    "path": "return_eigenvectors",
+                                    "type": "RefInfo",
+                                    "version": null
+                                  },
+                                  "type": "Link",
+                                  "value": "return_eigenvectors"
+                                },
+                                {
+                                  "type": "text",
+                                  "value": " is False, eigenvalues are sorted by         absolute value."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "For which = 'LM' or 'SA':"
+                              }
+                            ],
+                            "type": "paragraph"
+                          },
+                          "type": "DefListItem"
+                        },
+                        {
+                          "dd": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "eigenvalues are always sorted by algebraic value."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "For which = 'BE' or 'LA':"
+                              }
+                            ],
+                            "type": "paragraph"
+                          },
+                          "type": "DefListItem"
+                        },
+                        {
+                          "dd": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "If "
+                                },
+                                {
+                                  "anchor": null,
+                                  "exists": true,
+                                  "kind": "local",
+                                  "reference": {
+                                    "kind": "local",
+                                    "module": null,
+                                    "path": "return_eigenvectors",
+                                    "type": "RefInfo",
+                                    "version": null
+                                  },
+                                  "type": "Link",
+                                  "value": "return_eigenvectors"
+                                },
+                                {
+                                  "type": "text",
+                                  "value": " is True, eigenvalues are sorted by         algebraic value."
+                                }
+                              ],
+                              "type": "paragraph"
+                            },
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "If "
+                                },
+                                {
+                                  "anchor": null,
+                                  "exists": true,
+                                  "kind": "local",
+                                  "reference": {
+                                    "kind": "local",
+                                    "module": null,
+                                    "path": "return_eigenvectors",
+                                    "type": "RefInfo",
+                                    "version": null
+                                  },
+                                  "type": "Link",
+                                  "value": "return_eigenvectors"
+                                },
+                                {
+                                  "type": "text",
+                                  "value": " is False, eigenvalues are sorted by         decreasing absolute value."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "For which = 'SM':"
+                              }
+                            ],
+                            "type": "paragraph"
+                          },
+                          "type": "DefListItem"
+                        }
+                      ],
+                      "type": "DefList"
+                    }
+                  ],
+                  "type": "blockquote"
+                }
+              ],
+              "param": "return_eigenvectors",
+              "type": "Param",
+              "type_": "bool"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Specify strategy to use for shift-invert mode.  This argument applies only for real-valued A and sigma != None.  For shift-invert mode, ARPACK internally solves the eigenvalue problem "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "OP @ x'[i] = w'[i] * B @ x'[i]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and transforms the resulting Ritz vectors x'[i] and Ritz values w'[i] into the desired eigenvectors and eigenvalues of the problem "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "A @ x[i] = w[i] * M @ x[i]"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". The modes are as follows:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "dd": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "OP = [A - sigma * M]^-1 @ M,         B = M,         w'[i] = 1 / (w[i] - sigma)"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "'normal' :"
+                              }
+                            ],
+                            "type": "paragraph"
+                          },
+                          "type": "DefListItem"
+                        },
+                        {
+                          "dd": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "OP = [A - sigma * M]^-1 @ A,         B = A,         w'[i] = w[i] / (w[i] - sigma)"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "'buckling' :"
+                              }
+                            ],
+                            "type": "paragraph"
+                          },
+                          "type": "DefListItem"
+                        },
+                        {
+                          "dd": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "OP = [A - sigma * M]^-1 @ [A + sigma * M],         B = M,         w'[i] = (w[i] + sigma) / (w[i] - sigma)"
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "'cayley' :"
+                              }
+                            ],
+                            "type": "paragraph"
+                          },
+                          "type": "DefListItem"
+                        }
+                      ],
+                      "type": "DefList"
+                    }
+                  ],
+                  "type": "blockquote"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The choice of mode will affect which eigenvalues are selected by the keyword 'which', and can also impact the stability of convergence (see [2] for a discussion)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mode",
+              "type": "Param",
+              "type_": "string ['normal' | 'buckling' | 'cayley']"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A square operator representing the operation "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "A @ x"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "A"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is real symmetric or complex Hermitian. For buckling mode (see below) "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "A"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must additionally be positive-definite."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "A",
+              "type": "Param",
+              "type_": "ndarray, sparse matrix or LinearOperator"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The number of eigenvalues and eigenvectors desired. "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "k",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "k"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must be smaller than N. It is not possible to compute all eigenvectors of a matrix."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "k",
+              "type": "Param",
+              "type_": "int, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "When the requested convergence is not obtained."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The currently converged eigenvalues and eigenvectors can be found as "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "eigenvalues"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "eigenvectors"
+                    },
+                    {
+                      "type": "text",
+                      "value": " attributes of the exception object."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "ArpackNoConvergence"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Array of k eigenvalues."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "w",
+              "type": "Param",
+              "type_": "array"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An array representing the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "k",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "k"
+                    },
+                    {
+                      "type": "text",
+                      "value": " eigenvectors.  The column "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "v[:, i]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the eigenvector corresponding to the eigenvalue "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "w[i]"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "v",
+              "type": "Param",
+              "type_": "array"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Find k eigenvalues and eigenvectors of the real symmetric square matrix or complex Hermitian matrix A."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.sparse.linalg import eigsh\nidentity = np.eye(13)\neigenvalues, eigenvectors = eigsh(identity, k=6)\neigenvalues"
+      },
+      {
+        "type": "code",
+        "value": "eigenvectors.shape"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/sparse/linalg/_eigen/arpack/arpack.py",
+  "item_line": 1357,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Other Parameters",
+    "Raises",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "eigenvalues and eigenvectors for a general (nonsymmetric) matrix A"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "eigs",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "eigs"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "singular value decomposition for a matrix A"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "svds",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "svds"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(A, k=6, M=None, sigma=None, which='LM', v0=None, ncv=None, maxiter=None, tol=0, return_eigenvectors=True, Minv=None, OPinv=None, mode='normal')"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,277 @@
+{
+  "aliases": [
+    "numpy.testing.suppress_warnings"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "However, it also provides a filter mechanism to work around https://bugs.python.org/issue4180."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This bug causes Python before 3.4 to not reliably show warnings again after they have been ignored once (even within catch_warnings). It means that no \"ignore\" filter can be used easily, since following tests might need to see the warning. Additionally it allows easier specificity for testing warnings and can be nested."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Filters added inside the context manager will be discarded again when leaving it. Upon entering all filters defined outside a context will be applied automatically."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When a recording filter is added, matching warnings are stored in the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "log"
+            },
+            {
+              "type": "text",
+              "value": " attribute as well as in the list returned by "
+            },
+            {
+              "type": "inlineCode",
+              "value": "record"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If filters are added and the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "module"
+            },
+            {
+              "type": "text",
+              "value": " keyword is given, the warning registry of this module will additionally be cleared when applying it, entering the context, or exiting it. This could cause warnings to appear a second time after leaving the context if they were configured to be printed once (default) and were already printed before the context was entered."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Nesting this context manager will work as expected when the forwarding rule is \"always\" (default). Unfiltered and unrecorded warnings will be passed out and be matched by the outer level. On the outmost level they will be printed (or caught by another warnings context). The forwarding rule argument can modify this behaviour."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Like "
+            },
+            {
+              "type": "inlineCode",
+              "value": "catch_warnings"
+            },
+            {
+              "type": "text",
+              "value": " this context manager is not threadsafe."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "One of \"always\", \"once\", \"module\", or \"location\". Analogous to the usual warnings module filter mode, it is useful to reduce noise mostly on the outmost level. Unsuppressed and unrecorded warnings will be forwarded based on this rule. Defaults to \"always\". \"location\" is equivalent to the warnings \"default\", match by exact location the warning warning originated from."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "forwarding_rule",
+              "type": "Param",
+              "type_": "str, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Context manager and decorator doing much the same as "
+            },
+            {
+              "type": "inlineCode",
+              "value": "warnings.catch_warnings"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "With a context manager::"
+      },
+      {
+        "type": "text",
+        "value": "    with np.testing.suppress_warnings() as sup:\n        sup.filter(DeprecationWarning, \"Some text\")\n        sup.filter(module=np.ma.core)\n        log = sup.record(FutureWarning, \"Does this occur?\")\n        command_giving_warnings()\n        # The FutureWarning was given once, the filtered warnings were\n        # ignored. All other warnings abide outside settings (may be\n        # printed/error)\n        assert_(len(log) == 1)\n        assert_(len(sup.log) == 1)  # also stored in log attribute"
+      },
+      {
+        "type": "text",
+        "value": "Or as a decorator::"
+      },
+      {
+        "type": "text",
+        "value": "    sup = np.testing.suppress_warnings()\n    sup.filter(module=np.ma.core)  # module must match exactly\n    @sup\n    def some_function():\n        # do something which causes a warning in np.ma.core\n        pass"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/numpy/testing/_private/utils.py",
+  "item_line": 2090,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,287 @@
+{
+  "aliases": [
+    "skimage.restoration.inpaint._inpaint_biharmonic_single_region"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function creates a linear system of the form:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "inlineCode",
+              "value": "A @ u = b"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where "
+            },
+            {
+              "type": "inlineCode",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": " is a sparse matrix, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "b"
+            },
+            {
+              "type": "text",
+              "value": " is a vector enforcing smoothness and boundary constraints and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "u"
+            },
+            {
+              "type": "text",
+              "value": " is the vector of inpainted values to be (uniquely) determined by solving the linear system."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "inlineCode",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": " is a sparse matrix of shape (n_mask, n_mask) where "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "n_mask'"
+            },
+            {
+              "type": "text",
+              "value": " corresponds to the number of non-zero values in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "mask"
+            },
+            {
+              "type": "text",
+              "value": " (i.e. the number of pixels to be inpainted). Each row in A will have a number of non-zero values equal to the number of non-zero values in the biharmonic kernel, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "neigh_coef_full"
+            },
+            {
+              "type": "text",
+              "value": ". In practice, biharmonic kernels with reduced extent are used at the image borders. This matrix, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": " is the same for all image channels (since the same inpainting mask is currently used for all channels)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "inlineCode",
+              "value": "u"
+            },
+            {
+              "type": "text",
+              "value": " is a dense matrix of shape "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(n_mask, n_channels)"
+            },
+            {
+              "type": "text",
+              "value": " and represents the vector of unknown values for each channel."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "inlineCode",
+              "value": "b"
+            },
+            {
+              "type": "text",
+              "value": " is a dense matrix of shape "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(n_mask, n_channels)"
+            },
+            {
+              "type": "text",
+              "value": " and represents the desired output of convolving the solution with the biharmonic kernel. At mask locations where there is no overlap with known values, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "b"
+            },
+            {
+              "type": "text",
+              "value": " will have a value of 0. This enforces the biharmonic smoothness constraint in the interior of inpainting regions. For regions near the boundary that overlap with known values, the entries in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "b"
+            },
+            {
+              "type": "text",
+              "value": " enforce boundary conditions designed to avoid discontinuity with the known values."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Solve a (sparse) linear system corresponding to biharmonic inpainting."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/skimage/restoration/inpaint.py",
+  "item_line": 33,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(image, mask, out, neigh_coef_full, coef_vals, raveled_offsets)"
+  },
+  "type": "DocBlob"
+}

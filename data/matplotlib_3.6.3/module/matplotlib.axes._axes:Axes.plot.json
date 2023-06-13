@@ -1,0 +1,1673 @@
+{
+  "aliases": [
+    "matplotlib.pyplot.Axes.plot"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Call signatures      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "plot([x], y, [fmt], *, data=None, **kwargs)\nplot([x], y, [fmt], [x2], y2, [fmt2], ..., **kwargs)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The coordinates of the points or line nodes are given by "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "x"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "y"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The optional parameter "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "fmt"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " is a convenient way for defining basic formatting like color, marker and linestyle. It's a shortcut string notation described in the "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Notes"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " section below."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> plot(x, y)        # plot x and y using default line style and color\n>>> plot(x, y, 'bo')  # plot x and y using blue circle markers\n>>> plot(y)           # plot y using x as index array 0..N-1\n>>> plot(y, 'r+')     # ditto, but with red plusses"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You can use "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": ".Line2D"
+            },
+            {
+              "type": "text",
+              "value": " properties as keyword arguments for more control on the appearance. Line properties and "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "fmt"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " can be mixed. The following two calls yield identical results:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> plot(x, y, 'go--', linewidth=2, markersize=12)\n>>> plot(x, y, color='green', marker='o', linestyle='dashed',\n...      linewidth=2, markersize=12)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When conflicting with "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "fmt"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": ", keyword arguments take precedence."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Plotting labelled data"
+                }
+              ],
+              "type": "strong"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "There's a convenient way for plotting objects with labelled data (i.e. data that can be accessed by index "
+            },
+            {
+              "type": "inlineCode",
+              "value": "obj['y']"
+            },
+            {
+              "type": "text",
+              "value": "). Instead of giving the data in "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "x"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "y"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": ", you can provide the object in the "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "data"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " parameter and just give the labels for "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "x"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "y"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": "  "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> plot('xlabel', 'ylabel', data=obj)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "All indexable objects are supported. This could e.g. be a "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "dict"
+            },
+            {
+              "type": "text",
+              "value": ", a "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "pandas",
+                "path": "pandas.core.frame:DataFrame",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "pandas.DataFrame"
+            },
+            {
+              "type": "text",
+              "value": " or a structured numpy array."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Plotting multiple sets of data"
+                }
+              ],
+              "type": "strong"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "There are various ways to plot multiple sets of data."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The most straight forward way is just to call "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "matplotlib",
+                        "path": "matplotlib.axes._axes:Axes.plot",
+                        "type": "RefInfo",
+                        "version": "3.6.3"
+                      },
+                      "type": "Link",
+                      "value": "plot"
+                    },
+                    {
+                      "type": "text",
+                      "value": " multiple times.   Example:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": ">>> plot(x1, y1, 'bo')\n>>> plot(x2, y2, 'go')"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "x"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and/or "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "y"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are 2D arrays a separate data set will be drawn   for every column. If both "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "x"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "y"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are 2D, they must have the   same shape. If only one of them is 2D with shape (N, m) the other   must have length N and will be used for every data set m."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Example:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": ">>> x = [1, 2, 3]\n>>> y = np.array([[1, 2], [3, 4], [5, 6]])\n>>> plot(x, y)"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "is equivalent to:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": ">>> for col in range(y.shape[1]):\n...     plot(x, y[:, col])"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The third way is to specify multiple sets of "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "[x]"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "y"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "[fmt]"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": "   groups    "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": ">>> plot(x1, y1, 'g^', x2, y2, 'g-')"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "In this case, any additional keyword argument applies to all   datasets. Also this syntax cannot be combined with the "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "data"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": "   parameter."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "By default, each line is assigned a different style specified by a 'style cycle'. The "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "fmt"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " and line property parameters are only necessary if you want explicit deviations from these defaults. Alternatively, you can also change the style cycle using "
+            },
+            {
+              "type": "inlineCode",
+              "value": "axes.prop_cycle"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Format Strings"
+                }
+              ],
+              "type": "strong"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A format string consists of a part for color, marker and line      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "fmt = '[marker][line][color]'"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Each of them is optional. If not provided, the value from the style cycle is used. Exception: If "
+            },
+            {
+              "type": "inlineCode",
+              "value": "line"
+            },
+            {
+              "type": "text",
+              "value": " is given, but no "
+            },
+            {
+              "type": "inlineCode",
+              "value": "marker"
+            },
+            {
+              "type": "text",
+              "value": ", the data will be a line without markers."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Other combinations such as "
+            },
+            {
+              "type": "inlineCode",
+              "value": "[color][marker][line]"
+            },
+            {
+              "type": "text",
+              "value": " are also supported, but note that their parsing may be ambiguous."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Markers"
+                }
+              ],
+              "type": "strong"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "=============   =============================== character       description =============   =============================== "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'.'"
+            },
+            {
+              "type": "text",
+              "value": "         point marker "
+            },
+            {
+              "type": "inlineCode",
+              "value": "','"
+            },
+            {
+              "type": "text",
+              "value": "         pixel marker "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'o'"
+            },
+            {
+              "type": "text",
+              "value": "         circle marker "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'v'"
+            },
+            {
+              "type": "text",
+              "value": "         triangle_down marker "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'^'"
+            },
+            {
+              "type": "text",
+              "value": "         triangle_up marker "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'<'"
+            },
+            {
+              "type": "text",
+              "value": "         triangle_left marker "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'>'"
+            },
+            {
+              "type": "text",
+              "value": "         triangle_right marker "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'1'"
+            },
+            {
+              "type": "text",
+              "value": "         tri_down marker "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'2'"
+            },
+            {
+              "type": "text",
+              "value": "         tri_up marker "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'3'"
+            },
+            {
+              "type": "text",
+              "value": "         tri_left marker "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'4'"
+            },
+            {
+              "type": "text",
+              "value": "         tri_right marker "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'8'"
+            },
+            {
+              "type": "text",
+              "value": "         octagon marker "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'s'"
+            },
+            {
+              "type": "text",
+              "value": "         square marker "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'p'"
+            },
+            {
+              "type": "text",
+              "value": "         pentagon marker "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'P'"
+            },
+            {
+              "type": "text",
+              "value": "         plus (filled) marker "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'*'"
+            },
+            {
+              "type": "text",
+              "value": "         star marker "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'h'"
+            },
+            {
+              "type": "text",
+              "value": "         hexagon1 marker "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'H'"
+            },
+            {
+              "type": "text",
+              "value": "         hexagon2 marker "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'+'"
+            },
+            {
+              "type": "text",
+              "value": "         plus marker "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'x'"
+            },
+            {
+              "type": "text",
+              "value": "         x marker "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'X'"
+            },
+            {
+              "type": "text",
+              "value": "         x (filled) marker "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'D'"
+            },
+            {
+              "type": "text",
+              "value": "         diamond marker "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'d'"
+            },
+            {
+              "type": "text",
+              "value": "         thin_diamond marker "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'|'"
+            },
+            {
+              "type": "text",
+              "value": "         vline marker "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'_'"
+            },
+            {
+              "type": "text",
+              "value": "         hline marker =============   ==============================="
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Line Styles"
+                }
+              ],
+              "type": "strong"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "=============    =============================== character        description =============    =============================== "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'-'"
+            },
+            {
+              "type": "text",
+              "value": "          solid line style "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'--'"
+            },
+            {
+              "type": "text",
+              "value": "         dashed line style "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'-.'"
+            },
+            {
+              "type": "text",
+              "value": "         dash-dot line style "
+            },
+            {
+              "type": "inlineCode",
+              "value": "':'"
+            },
+            {
+              "type": "text",
+              "value": "          dotted line style =============    ==============================="
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Example format strings      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "'b'    # blue markers with default shape\n'or'   # red circles\n'-g'   # green solid line\n'--'   # dashed line with default color\n'^k:'  # black triangle_up markers connected by a dotted line"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Colors"
+                }
+              ],
+              "type": "strong"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The supported color abbreviations are the single letter codes"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "=============    =============================== character        color =============    =============================== "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'b'"
+            },
+            {
+              "type": "text",
+              "value": "          blue "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'g'"
+            },
+            {
+              "type": "text",
+              "value": "          green "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'r'"
+            },
+            {
+              "type": "text",
+              "value": "          red "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'c'"
+            },
+            {
+              "type": "text",
+              "value": "          cyan "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'m'"
+            },
+            {
+              "type": "text",
+              "value": "          magenta "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'y'"
+            },
+            {
+              "type": "text",
+              "value": "          yellow "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'k'"
+            },
+            {
+              "type": "text",
+              "value": "          black "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'w'"
+            },
+            {
+              "type": "text",
+              "value": "          white =============    ==============================="
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "and the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'CN'"
+            },
+            {
+              "type": "text",
+              "value": " colors that index into the default property cycle."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If the color is the only part of the format string, you can additionally use any  "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "matplotlib",
+                "path": "matplotlib.colors",
+                "type": "RefInfo",
+                "version": "3.6.3"
+              },
+              "type": "Link",
+              "value": "matplotlib.colors"
+            },
+            {
+              "type": "text",
+              "value": " spec, e.g. full names ("
+            },
+            {
+              "type": "inlineCode",
+              "value": "'green'"
+            },
+            {
+              "type": "text",
+              "value": ") or hex strings ("
+            },
+            {
+              "type": "inlineCode",
+              "value": "'#008000'"
+            },
+            {
+              "type": "text",
+              "value": ")."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "These parameters determine if the view limits are adapted to the data limits. The values are passed on to "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "~.axes.Axes.autoscale_view"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "scalex, scaley",
+              "type": "Param",
+              "type_": "bool, default: True"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "kwargs"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are used to specify properties like a line label (for auto legends), linewidth, antialiasing, marker face color. Example  "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": ">>> plot([1, 2, 3], [1, 2, 3], 'go-', label='line 1', linewidth=2)\n>>> plot([1, 2, 3], [1, 4, 9], 'rs', label='line 2')"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If you specify multiple lines with one plot call, the kwargs apply to all those lines. In case the label object is iterable, each element is used as labels for each set of data."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Here is a list of available "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": ".Line2D"
+                    },
+                    {
+                      "type": "text",
+                      "value": " properties:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Properties: agg_filter: a filter function, which takes a (m, n, 3) float array and a dpi value, and returns a (m, n, 3) array and two offsets from the bottom left corner of the image alpha: scalar or None animated: bool antialiased or aa: bool clip_box: "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": ".Bbox"
+                    },
+                    {
+                      "type": "text",
+                      "value": " clip_on: bool clip_path: Patch or (Path, Transform) or None color or c: color dash_capstyle: "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": ".CapStyle"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or {'butt', 'projecting', 'round'} dash_joinstyle: "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": ".JoinStyle"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or {'miter', 'round', 'bevel'} dashes: sequence of floats (on/off ink in points) or (None, None) data: (2, N) array or two 1D arrays drawstyle or ds: {'default', 'steps', 'steps-pre', 'steps-mid', 'steps-post'}, default: 'default' figure: "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": ".Figure"
+                    },
+                    {
+                      "type": "text",
+                      "value": " fillstyle: {'full', 'left', 'right', 'bottom', 'top', 'none'} gapcolor: color or None gid: str in_layout: bool label: object linestyle or ls: {'-', '--', '-.', ':', '', (offset, on-off-seq), ...} linewidth or lw: float marker: marker style string, "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "~.path.Path"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "~.markers.MarkerStyle"
+                    },
+                    {
+                      "type": "text",
+                      "value": " markeredgecolor or mec: color markeredgewidth or mew: float markerfacecolor or mfc: color markerfacecoloralt or mfcalt: color markersize or ms: float markevery: None or int or (int, int) or slice or list[int] or float or (float, float) or list[bool] mouseover: bool path_effects: "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": ".AbstractPathEffect"
+                    },
+                    {
+                      "type": "text",
+                      "value": " picker: float or callable[[Artist, Event], tuple[bool, dict]] pickradius: unknown rasterized: bool sketch_params: (scale: float, length: float, randomness: float) snap: bool or None solid_capstyle: "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": ".CapStyle"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or {'butt', 'projecting', 'round'} solid_joinstyle: "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": ".JoinStyle"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or {'miter', 'round', 'bevel'} transform: unknown url: str visible: bool xdata: 1D array ydata: 1D array zorder: float"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "**kwargs",
+              "type": "Param",
+              "type_": "`.Line2D` properties, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The horizontal / vertical coordinates of the data points. "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "x"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " values are optional and default to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "range(len(y))"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Commonly, these parameters are 1D arrays."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "They can also be scalars, or two-dimensional (in that case, the columns represent separate data sets)."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "These arguments cannot be passed as keywords."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x, y",
+              "type": "Param",
+              "type_": "array-like or scalar"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A format string, e.g. 'ro' for red circles. See the "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Notes"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " section for a full description of the format strings."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Format strings are just an abbreviation for quickly setting basic line properties. All of these and more can also be controlled by keyword arguments."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This argument cannot be passed as keyword."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fmt",
+              "type": "Param",
+              "type_": "str, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An object with labelled data. If given, provide the label names to plot in "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "x"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "y"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "note "
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Technically there's a slight ambiguity in calls where the second label is a valid "
+                        },
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "fmt"
+                            }
+                          ],
+                          "type": "emphasis"
+                        },
+                        {
+                          "type": "text",
+                          "value": ". "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "plot('n', 'o', data=obj)"
+                        },
+                        {
+                          "type": "text",
+                          "value": " could be "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "plt(x, y)"
+                        },
+                        {
+                          "type": "text",
+                          "value": " or "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "plt(y, fmt)"
+                        },
+                        {
+                          "type": "text",
+                          "value": ". In such cases, the former interpretation is chosen, but a warning is issued. You may suppress the warning by adding an empty format string "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "plot('n', 'o', '', data=obj)"
+                        },
+                        {
+                          "type": "text",
+                          "value": "."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "data",
+              "type": "Param",
+              "type_": "indexable object, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A list of lines representing the plotted data."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "list of `.Line2D`"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Plot y versus x as lines and/or markers."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/matplotlib/axes/_axes.py",
+  "item_line": 1423,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Other Parameters",
+    "See Also",
+    "Notes"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "XY scatter plot with markers of varying size and/or color ( sometimes also called bubble chart)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "matplotlib",
+          "path": "matplotlib.axes._axes:Axes.scatter",
+          "type": "RefInfo",
+          "version": "3.6.3"
+        },
+        "type": "Link",
+        "value": "scatter"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, *args, scalex=True, scaley=True, data=None, **kwargs)"
+  },
+  "type": "DocBlob"
+}

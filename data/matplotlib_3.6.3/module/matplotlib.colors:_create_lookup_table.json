@@ -1,0 +1,460 @@
+{
+  "aliases": [
+    "matplotlib.colors._create_lookup_table"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This assumes a mapping "
+            },
+            {
+              "type": "inlineMath",
+              "value": "f : [0, 1] \\rightarrow [0, 1]"
+            },
+            {
+              "type": "text",
+              "value": ". The returned data is an array of N values "
+            },
+            {
+              "type": "inlineMath",
+              "value": "y = f(x)"
+            },
+            {
+              "type": "text",
+              "value": " where x is sampled from [0, 1]."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "By default ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "gamma"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " = 1) x is equidistantly sampled from [0, 1]. The "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "gamma"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " correction factor "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\gamma"
+            },
+            {
+              "type": "text",
+              "value": " distorts this equidistant sampling by "
+            },
+            {
+              "type": "inlineMath",
+              "value": "x \\rightarrow x^\\gamma"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function is internally used for "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": ".LinearSegmentedColormap"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The number of elements of the created lookup table; at least 1."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "N",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Defines the mapping "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "f"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If a (M, 3) array-like, the rows define values (x, y0, y1).  The x values must start with x=0, end with x=1, and all x values be in increasing order."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A value between "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "x_i"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "x_{i+1}"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is mapped to the range "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "y^1_{i-1} \\ldots y^0_i"
+                    },
+                    {
+                      "type": "text",
+                      "value": " by linear interpolation."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "For the simple case of a y-continuous mapping, y0 and y1 are identical."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The two values of y are to allow for discontinuous mapping functions. E.g. a sawtooth with a period of 0.2 and an amplitude of 1 would be      "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "[(0, 1, 0), (0.2, 1, 0), (0.4, 1, 0), ..., [(1, 1, 0)]"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "In the special case of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "N == 1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", by convention the returned value is y0 for x == 1."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "data"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a callable, it must accept and return numpy arrays     "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "data(x : ndarray) -> ndarray"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "and map values between 0 - 1 to 0 - 1."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "data",
+              "type": "Param",
+              "type_": "(M, 3) array-like or callable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Gamma correction factor for input distribution x of the mapping."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "See also https://en.wikipedia.org/wiki/Gamma_correction."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "gamma",
+              "type": "Param",
+              "type_": "float"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The lookup table where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "lut[x * (N-1)]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " gives the closest value for values of x between 0 and 1."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "array"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Create an "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "N"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " -element 1D lookup table."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/matplotlib/colors.py",
+  "item_line": 549,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(N, data, gamma=1.0)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,268 @@
+{
+  "aliases": [
+    "scipy.stats.Covariance.from_cholesky"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Let the covariance matrix be "
+            },
+            {
+              "type": "inlineMath",
+              "value": "A'and :math:'L"
+            },
+            {
+              "type": "text",
+              "value": " be the lower Cholesky factor such that "
+            },
+            {
+              "type": "inlineMath",
+              "value": "L L^T = A"
+            },
+            {
+              "type": "text",
+              "value": ". Whitening of a data point "
+            },
+            {
+              "type": "inlineMath",
+              "value": "x"
+            },
+            {
+              "type": "text",
+              "value": " is performed by computing "
+            },
+            {
+              "type": "inlineMath",
+              "value": "L^{-1} x"
+            },
+            {
+              "type": "text",
+              "value": ". "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\log\\det{A}"
+            },
+            {
+              "type": "text",
+              "value": " is calculated as "
+            },
+            {
+              "type": "inlineMath",
+              "value": "2tr(\\log{L})"
+            },
+            {
+              "type": "text",
+              "value": ", where the "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\log"
+            },
+            {
+              "type": "text",
+              "value": " operation is performed element-wise."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "Covariance"
+            },
+            {
+              "type": "text",
+              "value": " class does not support singular covariance matrices because the Cholesky decomposition does not exist for a singular covariance matrix."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The lower triangular Cholesky factor of the covariance matrix."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "cholesky",
+              "type": "Param",
+              "type_": "array_like"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Representation of a covariance provided via the (lower) Cholesky factor"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Prepare a symmetric positive definite covariance matrix ``A`` and a\ndata point ``x``."
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy import stats\nrng = np.random.default_rng()\nn = 5\nA = rng.random(size=(n, n))\nA = A @ A.T  # make the covariance symmetric positive definite\nx = rng.random(size=n)"
+      },
+      {
+        "type": "text",
+        "value": "Perform the Cholesky decomposition of ``A`` and create the\n`Covariance` object."
+      },
+      {
+        "type": "code",
+        "value": "L = np.linalg.cholesky(A)\ncov = stats.Covariance.from_cholesky(L)"
+      },
+      {
+        "type": "text",
+        "value": "Compare the functionality of the `Covariance` object against\nreference implementation."
+      },
+      {
+        "type": "code",
+        "value": "from scipy.linalg import solve_triangular\nres = cov.whiten(x)\nref = solve_triangular(L, x, lower=True)\nnp.allclose(res, ref)"
+      },
+      {
+        "type": "code",
+        "value": "res = cov.log_pdet\nref = np.linalg.slogdet(A)[-1]\nnp.allclose(res, ref)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_covariance.py",
+  "item_line": 189,
+  "item_type": "<class 'staticmethod'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

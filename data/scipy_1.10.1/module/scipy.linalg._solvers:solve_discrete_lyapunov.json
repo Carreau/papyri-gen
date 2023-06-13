@@ -1,0 +1,408 @@
+{
+  "aliases": [
+    "scipy.linalg.solve_discrete_lyapunov"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This section describes the available solvers that can be selected by the 'method' parameter. The default method is "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "direct"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " if "
+            },
+            {
+              "type": "inlineCode",
+              "value": "M"
+            },
+            {
+              "type": "text",
+              "value": " is less than 10 and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "bilinear"
+            },
+            {
+              "type": "text",
+              "value": " otherwise."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Method "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "direct"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " uses a direct analytical solution to the discrete Lyapunov equation. The algorithm is given in, for example, . However, it requires the linear solution of a system with dimension "
+            },
+            {
+              "type": "inlineMath",
+              "value": "M^2"
+            },
+            {
+              "type": "text",
+              "value": " so that performance degrades rapidly for even moderately sized matrices."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Method "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "bilinear"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " uses a bilinear transformation to convert the discrete Lyapunov equation to a continuous Lyapunov equation "
+            },
+            {
+              "type": "inlineMath",
+              "value": "(BX+XB'=-C)"
+            },
+            {
+              "type": "text",
+              "value": " where "
+            },
+            {
+              "type": "inlineMath",
+              "value": "B=(A-I)(A+I)^{-1}"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "C=2(A' + I)^{-1} Q (A + I)^{-1}"
+            },
+            {
+              "type": "text",
+              "value": ". The continuous equation can be efficiently solved since it is a special case of a Sylvester equation. The transformation algorithm is from Popov (1964) as described in ."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 0.11.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Square matrices corresponding to A and Q in the equation above respectively. Must have the same shape."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "a, q",
+              "type": "Param",
+              "type_": "(M, M) array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Type of solver."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If not given, chosen to be "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "direct"
+                    },
+                    {
+                      "type": "text",
+                      "value": " if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "M"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is less than 10 and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "bilinear"
+                    },
+                    {
+                      "type": "text",
+                      "value": " otherwise."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "method",
+              "type": "Param",
+              "type_": "{'direct', 'bilinear'}, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Solution to the discrete Lyapunov equation"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Solves the discrete Lyapunov equation "
+            },
+            {
+              "type": "inlineMath",
+              "value": "AXA^H - X + Q = 0"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Given `a` and `q` solve for `x`:"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy import linalg\na = np.array([[0.2, 0.5],[0.7, -0.9]])\nq = np.eye(2)\nx = linalg.solve_discrete_lyapunov(a, q)\nx"
+      },
+      {
+        "type": "code",
+        "value": "np.allclose(a.dot(x).dot(a.T)-x, -q)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/linalg/_solvers.py",
+  "item_line": 236,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "computes the solution to the continuous-time Lyapunov equation"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.linalg._solvers:solve_continuous_lyapunov",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "solve_continuous_lyapunov"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(a, q, method=None)"
+  },
+  "type": "DocBlob"
+}

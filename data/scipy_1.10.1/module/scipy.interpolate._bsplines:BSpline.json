@@ -1,0 +1,650 @@
+{
+  "aliases": [
+    "scipy.interpolate.BSpline"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "knot vector"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "t",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "spline coefficients"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "c",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "spline degree"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "k",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, extrapolates the first and last polynomial pieces of b-spline functions active on the base interval."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "extrapolate",
+              "type": "Param",
+              "type_": "bool"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Interpolation axis."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "axis",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A read-only equivalent of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(self.t, self.c, self.k)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "tck",
+              "type": "Param",
+              "type_": "tuple"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "type": "math",
+          "value": "S(x) = \\sum_{j=0}^{n-1} c_j  B_{j, k; t}(x)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where "
+            },
+            {
+              "type": "inlineMath",
+              "value": "B_{j, k; t}"
+            },
+            {
+              "type": "text",
+              "value": " are B-spline basis functions of degree "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "k",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "k"
+            },
+            {
+              "type": "text",
+              "value": " and knots "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "t",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "t"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "__call__",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [],
+              "param": "basis_element",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [],
+              "param": "derivative",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [],
+              "param": "antiderivative",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [],
+              "param": "integrate",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [],
+              "param": "construct_fast",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [],
+              "param": "design_matrix",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [],
+              "param": "from_power_basis",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "B-spline basis elements are defined via"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "B_{i, 0}(x) = 1, \\textrm{if $t_i \\le x < t_{i+1}$, otherwise $0$,}\n\nB_{i, k}(x) = \\frac{x - t_i}{t_{i+k} - t_i} B_{i, k-1}(x)\n         + \\frac{t_{i+k+1} - x}{t_{i+k+1} - t_{i+1}} B_{i+1, k-1}(x)"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Implementation details"
+                }
+              ],
+              "type": "strong"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "At least "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "k+1"
+                    },
+                    {
+                      "type": "text",
+                      "value": " coefficients are required for a spline of degree "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "k",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "k"
+                    },
+                    {
+                      "type": "text",
+                      "value": ",   so that "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "n >= k+1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Additional coefficients, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "c[j]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " with   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "j > n"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", are ignored."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "B-spline basis elements of degree "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "k",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "k"
+                    },
+                    {
+                      "type": "text",
+                      "value": " form a partition of unity on the   "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "base interval"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "t[k] <= x <= t[n]"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "knots"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "t",
+              "type": "Param",
+              "type_": "ndarray, shape (n+k+1,)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "spline coefficients"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "c",
+              "type": "Param",
+              "type_": "ndarray, shape (>=n, ...)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "B-spline degree"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "k",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "whether to extrapolate beyond the base interval, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "t[k] .. t[n]"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", or to return nans. If True, extrapolates the first and last polynomial pieces of b-spline functions active on the base interval. If 'periodic', periodic extrapolation is used. Default is True."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "extrapolate",
+              "type": "Param",
+              "type_": "bool or 'periodic', optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Interpolation axis. Default is zero."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "axis",
+              "type": "Param",
+              "type_": "int, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Univariate spline in the B-spline basis."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Translating the recursive definition of B-splines into Python code, we have:"
+      },
+      {
+        "type": "code",
+        "value": "def B(x, k, i, t):\n   if k == 0:\n      return 1.0 if t[i] <= x < t[i+1] else 0.0\n   if t[i+k] == t[i]:\n      c1 = 0.0\n   else:\n      c1 = (x - t[i])/(t[i+k] - t[i]) * B(x, k-1, i, t)\n   if t[i+k+1] == t[i+1]:\n      c2 = 0.0\n   else:\n      c2 = (t[i+k+1] - x)/(t[i+k+1] - t[i+1]) * B(x, k-1, i+1, t)\n   return c1 + c2"
+      },
+      {
+        "type": "code",
+        "value": "def bspline(x, t, c, k):\n   n = len(t) - k - 1\n   assert (n >= k+1) and (len(c) >= n)\n   return sum(c[i] * B(x, k, i, t) for i in range(n))"
+      },
+      {
+        "type": "text",
+        "value": "Note that this is an inefficient (if straightforward) way to\nevaluate B-splines --- this spline class does it in an equivalent,\nbut much more efficient way."
+      },
+      {
+        "type": "text",
+        "value": "Here we construct a quadratic spline function on the base interval\n``2 <= x <= 4`` and compare with the naive way of evaluating the spline:"
+      },
+      {
+        "type": "code",
+        "value": "from scipy.interpolate import BSpline\nk = 2\nt = [0, 1, 2, 3, 4, 5, 6]\nc = [-1, 2, 0, -1]\nspl = BSpline(t, c, k)\nspl(2.5)"
+      },
+      {
+        "type": "code",
+        "value": "bspline(2.5, t, c, k)"
+      },
+      {
+        "type": "text",
+        "value": "Note that outside of the base interval results differ. This is because\n`BSpline` extrapolates the first and last polynomial pieces of B-spline\nfunctions active on the base interval."
+      },
+      {
+        "type": "code",
+        "value": "import matplotlib.pyplot as plt\nimport numpy as np\nfig, ax = plt.subplots()\nxx = np.linspace(1.5, 4.5, 50)\nax.plot(xx, [bspline(x, t, c ,k) for x in xx], 'r-', lw=3, label='naive')\nax.plot(xx, spl(xx), 'b-', lw=4, alpha=0.7, label='BSpline')\nax.grid(True)\nax.legend(loc='best')\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.interpolate._bsplines:BSpline-0-d1167576.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/interpolate/_bsplines.py",
+  "item_line": 68,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Attributes",
+    "Methods",
+    "Notes",
+    "Examples",
+    "References"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

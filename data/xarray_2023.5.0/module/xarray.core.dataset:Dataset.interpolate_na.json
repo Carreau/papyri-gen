@@ -1,0 +1,594 @@
+{
+  "aliases": [
+    "xarray.Dataset.interpolate_na"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Specifies the dimension along which to interpolate."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dim",
+              "type": "Param",
+              "type_": "Hashable or None, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "String indicating which method to use for interpolation:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'linear': linear interpolation. Additional keyword   arguments are passed to "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "numpy.interp"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'nearest', 'zero', 'slinear', 'quadratic', 'cubic', 'polynomial':   are passed to "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "scipy.interpolate.interp1d"
+                            },
+                            {
+                              "type": "text",
+                              "value": ". If   "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "method='polynomial'"
+                            },
+                            {
+                              "type": "text",
+                              "value": ", the "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "order"
+                            },
+                            {
+                              "type": "text",
+                              "value": " keyword argument must also be   provided."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'barycentric', 'krog', 'pchip', 'spline', 'akima': use their   respective "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "scipy.interpolate"
+                            },
+                            {
+                              "type": "text",
+                              "value": " classes."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "param": "method",
+              "type": "Param",
+              "type_": "{\"linear\", \"nearest\", \"zero\", \"slinear\", \"quadratic\", \"cubic\", \"polynomial\",             \"barycentric\", \"krog\", \"pchip\", \"spline\", \"akima\"}, default: \"linear\""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Specifies which index to use as the x values in the interpolation formulated as "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "y = f(x)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If False, values are treated as if equally-spaced along "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "dim"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If True, the IndexVariable "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "dim",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "dim"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is used. If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "use_coordinate"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a string, it specifies the name of a coordinate variable to use as the index."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "use_coordinate",
+              "type": "Param",
+              "type_": "bool or Hashable, default: True"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum number of consecutive NaNs to fill. Must be greater than 0 or None for no limit. This filling is done regardless of the size of the gap in the data. To only interpolate over gaps less than a given length, see "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "max_gap"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "limit",
+              "type": "Param",
+              "type_": "int, default: None"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum size of gap, a continuous sequence of NaNs, that will be filled. Use None for no limit. When interpolating along a datetime64 dimension and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "use_coordinate=True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "max_gap"
+                    },
+                    {
+                      "type": "text",
+                      "value": " can be one of the following:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "a string that is valid input for pandas.to_timedelta"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "a "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "numpy.timedelta64"
+                            },
+                            {
+                              "type": "text",
+                              "value": " object"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "a "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "pandas.Timedelta"
+                            },
+                            {
+                              "type": "text",
+                              "value": " object"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "a "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "datetime.timedelta"
+                            },
+                            {
+                              "type": "text",
+                              "value": " object"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Otherwise, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "max_gap"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must be an int or a float. Use of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "max_gap"
+                    },
+                    {
+                      "type": "text",
+                      "value": " with unlabeled dimensions has not been implemented yet. Gap length is defined as the difference between coordinate values at the first data point after a gap and the last value before a gap. For gaps at the beginning (end), gap length is defined as the difference between coordinate values at the first (last) valid data point and the first (last) NaN. For example, consider      "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "<xarray.DataArray (x: 9)>\narray([nan, nan, nan,  1., nan, nan,  4., nan, nan])\nCoordinates:\n  * x        (x) int64 0 1 2 3 4 5 6 7 8"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The gap lengths are 3-0 = 3; 6-3 = 3; and 8-6 = 2 respectively"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "max_gap",
+              "type": "Param",
+              "type_": "int, float, str, pandas.Timedelta, numpy.timedelta64, datetime.timedelta, default: None"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "parameters passed verbatim to the underlying interpolation function"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "**kwargs",
+              "type": "Param",
+              "type_": "dict, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Filled in Dataset."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "interpolated: Dataset"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Fill in NaNs by interpolating according to different methods."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "ds = xr.Dataset(\n    {\n        \"A\": (\"x\", [np.nan, 2, 3, np.nan, 0]),\n        \"B\": (\"x\", [3, 4, np.nan, 1, 7]),\n        \"C\": (\"x\", [np.nan, np.nan, np.nan, 5, 0]),\n        \"D\": (\"x\", [np.nan, 3, np.nan, -1, 4]),\n    },\n    coords={\"x\": [0, 1, 2, 3, 4]},\n)\nds"
+      },
+      {
+        "type": "code",
+        "value": "ds.interpolate_na(dim=\"x\", method=\"linear\")"
+      },
+      {
+        "type": "code",
+        "value": "ds.interpolate_na(dim=\"x\", method=\"linear\", fill_value=\"extrapolate\")"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/xarray/core/dataset.py",
+  "item_line": 5669,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "numpy.interp",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "numpy.interp"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "scipy.interpolate",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "scipy.interpolate"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(self: 'T_Dataset', dim: 'Hashable | None' = None, method: 'InterpOptions' = 'linear', limit: 'int | None' = None, use_coordinate: 'bool | Hashable' = True, max_gap: 'int | float | str | pd.Timedelta | np.timedelta64 | datetime.timedelta' = None, **kwargs: 'Any') -> 'T_Dataset'"
+  },
+  "type": "DocBlob"
+}

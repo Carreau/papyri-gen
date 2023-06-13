@@ -1,0 +1,3706 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": "IPython reference",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You start IPython with the command      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "$ ipython [options] files"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If invoked with no options, it executes the file and exits, passing the remaining arguments to the script, just as if you had specified the same command with python. You may need to specify "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "--"
+            },
+            {
+              "type": "text",
+              "value": " before args to be passed to the script, to prevent IPython from attempting to parse them. If you add the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "-i"
+            },
+            {
+              "type": "text",
+              "value": " flag, it drops you into the interpreter while still acknowledging any options you may have set in your "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ipython_config.py"
+            },
+            {
+              "type": "text",
+              "value": ". This behavior is different from standard Python, which when called as python "
+            },
+            {
+              "type": "inlineCode",
+              "value": "-i"
+            },
+            {
+              "type": "text",
+              "value": " will only execute one file and ignore your configuration setup."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Please note that some of the configuration options are not available at the command line, simply because they are not practical here. Look into your configuration files for details on those. There are separate configuration files for each profile, and the files look like "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ipython_config.py"
+            },
+            {
+              "type": "text",
+              "value": " or "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ipython_config_{frontendname}.py"
+            },
+            {
+              "type": "text",
+              "value": ".  Profile directories look like "
+            },
+            {
+              "type": "inlineCode",
+              "value": "profile_{profilename}"
+            },
+            {
+              "type": "text",
+              "value": " and are typically installed in the "
+            },
+            {
+              "domain": null,
+              "role": "envvar",
+              "type": "Directive",
+              "value": "IPYTHONDIR"
+            },
+            {
+              "type": "text",
+              "value": " directory, which defaults to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "$HOME/.ipython"
+            },
+            {
+              "type": "text",
+              "value": ". For Windows users, "
+            },
+            {
+              "domain": null,
+              "role": "envvar",
+              "type": "Directive",
+              "value": "HOME"
+            },
+            {
+              "type": "text",
+              "value": " resolves to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "C:\\\\Users\\\\{YourUserName}"
+            },
+            {
+              "type": "text",
+              "value": " in most instances."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": "command_line_options",
+      "title": "Command-line usage",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To see the options IPython accepts, use "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ipython --help"
+            },
+            {
+              "type": "text",
+              "value": " (and you probably should run the output through a pager such as "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ipython --help | less"
+            },
+            {
+              "type": "text",
+              "value": " for more convenient reading).  This shows all the options that have a single-word alias to control them, but IPython lets you configure all of its objects from the command-line by passing the full class name and a corresponding value; type "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ipython --help-all"
+            },
+            {
+              "type": "text",
+              "value": " to see this full list.  For example      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "$ ipython --help-all\n<...snip...>\n--matplotlib=<CaselessStrEnum> (InteractiveShellApp.matplotlib)\n    Default: None\n    Choices: ['auto', 'gtk', 'gtk3', 'gtk4', 'inline', 'nbagg', 'notebook', 'osx', 'qt', 'qt5', 'qt6', 'tk', 'wx']\n    Configure matplotlib for interactive use with the default matplotlib\n    backend.\n<...snip...>"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Indicate that the following     "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "$ ipython --matplotlib qt"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "is equivalent to     "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "$ ipython --InteractiveShellApp.matplotlib='qt'"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Note that in the second form, you "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "must"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " use the equal sign, as the expression is evaluated as an actual Python assignment.  While in the above example the short form is more convenient, only the most common options have a short form, while any configurable variable in IPython can be set at the command-line by using the long form.  This long form is the same syntax used in the configuration files, if you want to set these options permanently."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Command-line Options",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "IPython is meant to work as a drop-in replacement for the standard interactive interpreter. As such, any code which is valid python should execute normally under IPython (cases where this is not true should be reported as bugs). It does, however, offer many features which are not available at a standard python prompt. What follows is a list of these."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Interactive use",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Windows, unfortunately, uses the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "\\`` character as a path separator. This is a\nterrible choice, because ``\\"
+            },
+            {
+              "type": "text",
+              "value": " also represents the escape character in most modern programming languages, including Python. For this reason, using '/' character is recommended if you have problems with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "\\``.  However, in Windows\ncommands '/' flags options, so you can not use it for the root directory. This\nmeans that paths beginning at the root must be typed in a contrived manner\nlike: ``%copy \\opt/foo/bar.txt \\tmp"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Caution for Windows users",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "IPython will treat any line whose first character is a % as a special call to a 'magic' function. These allow you to control the behavior of IPython itself, plus a lot of system-type features. They are all prefixed with a % character, but parameters are given without parentheses or quotes."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Lines that begin with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%%"
+            },
+            {
+              "type": "text",
+              "value": " signal a "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "cell magic"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": ": they take as arguments not only the rest of the current line, but all lines below them as well, in the current execution block.  Cell magics can in fact make arbitrary modifications to the input they receive, which need not even be valid Python code at all. They receive the whole block as a single string."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "As a line magic example, the "
+            },
+            {
+              "domain": null,
+              "role": "magic",
+              "type": "Directive",
+              "value": "cd"
+            },
+            {
+              "type": "text",
+              "value": " magic works just like the OS command of the same name        "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "In [8]: %cd\n/home/fperez"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The following uses the builtin "
+            },
+            {
+              "domain": null,
+              "role": "magic",
+              "type": "Directive",
+              "value": "timeit"
+            },
+            {
+              "type": "text",
+              "value": " in cell mode    "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "In [10]: %%timeit x = range(10000)\n    ...: min(x)\n    ...: max(x)\n    ...:\n1000 loops, best of 3: 438 us per loop"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In this case, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "x = range(10000)"
+            },
+            {
+              "type": "text",
+              "value": " is called as the line argument, and the block with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "min(x)"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "max(x)"
+            },
+            {
+              "type": "text",
+              "value": " is called as the cell body.  The "
+            },
+            {
+              "domain": null,
+              "role": "magic",
+              "type": "Directive",
+              "value": "timeit"
+            },
+            {
+              "type": "text",
+              "value": " magic receives both."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If you have 'automagic' enabled (as it is by default), you don't need to type in the single "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%"
+            },
+            {
+              "type": "text",
+              "value": " explicitly for line magics; IPython will scan its internal list of magic functions and call one if it exists. With automagic on you can then just type "
+            },
+            {
+              "type": "inlineCode",
+              "value": "cd mydir"
+            },
+            {
+              "type": "text",
+              "value": " to go to directory 'mydir'        "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "In [9]: cd mydir\n/home/fperez/mydir"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Cell magics "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "always"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " require an explicit "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%%"
+            },
+            {
+              "type": "text",
+              "value": " prefix, automagic calling only works for line magics."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The automagic system has the lowest possible precedence in name searches, so you can freely use variables with the same names as magic commands. If a magic command is 'shadowed' by a variable, you will need the explicit "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%"
+            },
+            {
+              "type": "text",
+              "value": " prefix to use it:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "ipython",
+          "children": [],
+          "name": "sourcecode",
+          "options": {},
+          "type": "mystDirective",
+          "value": "In [1]: cd ipython     # %cd is called by automagic\n/home/fperez/ipython\n\nIn [2]: cd=1 \t   # now cd is just a variable\n\nIn [3]: cd .. \t   # and doesn't work as a function anymore\nFile \"<ipython-input-3-9fedb3aff56c>\", line 1\n  cd ..\n      ^\nSyntaxError: invalid syntax\n\n\nIn [4]: %cd .. \t   # but %cd always works\n/home/fperez\n\nIn [5]: del cd     # if you remove the cd variable, automagic works again\n\nIn [6]: cd ipython\n\n/home/fperez/ipython"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Line magics, if they return a value, can be assigned to a variable using the syntax "
+            },
+            {
+              "type": "inlineCode",
+              "value": "l = %sx ls"
+            },
+            {
+              "type": "text",
+              "value": " (which in this particular case returns the result of "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "ls"
+            },
+            {
+              "type": "text",
+              "value": " as a python list). See "
+            },
+            {
+              "type": "inlineCode",
+              "value": "below <manual_capture>"
+            },
+            {
+              "type": "text",
+              "value": " for more information."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Type "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%magic"
+            },
+            {
+              "type": "text",
+              "value": " for more information, including a list of all available magic functions at any time and their docstrings. You can also type "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%magic_function_name?"
+            },
+            {
+              "type": "text",
+              "value": " (see "
+            },
+            {
+              "type": "inlineCode",
+              "value": "below <dynamic_object_info>"
+            },
+            {
+              "type": "text",
+              "value": " for information on the '?' system) to get information about any particular magic function you are interested in."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The API documentation for the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "IPython.core.magic"
+            },
+            {
+              "type": "text",
+              "value": " module contains the full docstrings of all currently available magic commands."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "",
+          "children": [],
+          "name": "seealso",
+          "options": {},
+          "type": "mystDirective",
+          "value": ":doc:`magics`\n  A list of the line and cell magics available in IPython by default\n\n:ref:`defining_magics`\n  How to define and register additional magic functions"
+        }
+      ],
+      "level": 2,
+      "target": "magic",
+      "title": "Magic command system",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Simply type "
+            },
+            {
+              "type": "inlineCode",
+              "value": "help()"
+            },
+            {
+              "type": "text",
+              "value": " to access Python's standard help system. You can also type "
+            },
+            {
+              "type": "inlineCode",
+              "value": "help(object)"
+            },
+            {
+              "type": "text",
+              "value": " for information about a given object, or "
+            },
+            {
+              "type": "inlineCode",
+              "value": "help('keyword')"
+            },
+            {
+              "type": "text",
+              "value": " for information on a keyword. You may need to configure your PYTHONDOCS environment variable for this feature to work correctly."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Access to the standard Python help",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Typing "
+            },
+            {
+              "type": "inlineCode",
+              "value": "?word"
+            },
+            {
+              "type": "text",
+              "value": " or "
+            },
+            {
+              "type": "inlineCode",
+              "value": "word?"
+            },
+            {
+              "type": "text",
+              "value": " prints detailed information about an object. If certain strings in the object are too long (e.g. function signatures) they get snipped in the center for brevity. This system gives access variable types and values, docstrings, function prototypes and other useful information."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If the information will not fit in the terminal, it is displayed in a pager ("
+            },
+            {
+              "type": "inlineCode",
+              "value": "less"
+            },
+            {
+              "type": "text",
+              "value": " if available, otherwise a basic internal pager)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Typing "
+            },
+            {
+              "type": "inlineCode",
+              "value": "??word"
+            },
+            {
+              "type": "text",
+              "value": " or "
+            },
+            {
+              "type": "inlineCode",
+              "value": "word??"
+            },
+            {
+              "type": "text",
+              "value": " gives access to the full information, including the source code where possible. Long strings are not snipped."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The following magic functions are particularly useful for gathering information about your working environment:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "domain": null,
+                          "role": "magic",
+                          "type": "Directive",
+                          "value": "pdoc"
+                        },
+                        {
+                          "type": "text",
+                          "value": " "
+                        },
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "<object>"
+                            }
+                          ],
+                          "type": "strong"
+                        },
+                        {
+                          "type": "text",
+                          "value": ": Print (or run through a pager if too long) the       docstring for an object. If the given object is a class, it will       print both the class and the constructor docstrings."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "domain": null,
+                          "role": "magic",
+                          "type": "Directive",
+                          "value": "pdef"
+                        },
+                        {
+                          "type": "text",
+                          "value": " "
+                        },
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "<object>"
+                            }
+                          ],
+                          "type": "strong"
+                        },
+                        {
+                          "type": "text",
+                          "value": ": Print the call signature for any callable       object. If the object is a class, print the constructor information."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "domain": null,
+                          "role": "magic",
+                          "type": "Directive",
+                          "value": "psource"
+                        },
+                        {
+                          "type": "text",
+                          "value": " "
+                        },
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "<object>"
+                            }
+                          ],
+                          "type": "strong"
+                        },
+                        {
+                          "type": "text",
+                          "value": ": Print (or run through a pager if too long)       the source code for an object."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "domain": null,
+                          "role": "magic",
+                          "type": "Directive",
+                          "value": "pfile"
+                        },
+                        {
+                          "type": "text",
+                          "value": " "
+                        },
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "<object>"
+                            }
+                          ],
+                          "type": "strong"
+                        },
+                        {
+                          "type": "text",
+                          "value": ": Show the entire source file where an object was       defined via a pager, opening it at the line where the object       definition begins."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "domain": null,
+                          "role": "magic",
+                          "type": "Directive",
+                          "value": "who"
+                        },
+                        {
+                          "type": "text",
+                          "value": "/"
+                        },
+                        {
+                          "domain": null,
+                          "role": "magic",
+                          "type": "Directive",
+                          "value": "whos"
+                        },
+                        {
+                          "type": "text",
+                          "value": ": These functions give information about identifiers       you have defined interactively (not things you loaded or defined       in your configuration files). %who just prints a list of       identifiers and %whos prints a table with some basic details about       each identifier."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                }
+              ],
+              "ordered": false,
+              "spread": false,
+              "start": 1,
+              "type": "list"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The dynamic object information functions (?/??, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%pdoc"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%pfile"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%pdef"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%psource"
+            },
+            {
+              "type": "text",
+              "value": ") work on object attributes, as well as directly on variables. For example, after doing "
+            },
+            {
+              "type": "inlineCode",
+              "value": "import os"
+            },
+            {
+              "type": "text",
+              "value": ", you can use "
+            },
+            {
+              "type": "inlineCode",
+              "value": "os.path.abspath??"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": "dynamic_object_info",
+      "title": "Dynamic object information",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "At any time, hitting TAB will complete any available python commands or variable names, and show you a list of the possible completions if there's no unambiguous one. It will also complete filenames in the current directory if no python names match what you've typed so far."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 3,
+      "target": null,
+      "title": "Command line completion",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "IPython provides two ways for searching through previous input and thus reduce the need for repetitive typing:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Start typing, and then use the up and down arrow keys (or "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "Ctrl-p"
+                        },
+                        {
+                          "type": "text",
+                          "value": "       and "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "Ctrl-n"
+                        },
+                        {
+                          "type": "text",
+                          "value": ") to search through only the history items that match       what you've typed so far."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Hit "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "Ctrl-r"
+                        },
+                        {
+                          "type": "text",
+                          "value": ": to open a search prompt. Begin typing and the system       searches your history for lines that contain what you've typed so       far, completing as much as it can."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                }
+              ],
+              "ordered": true,
+              "spread": false,
+              "start": 1,
+              "type": "list"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "IPython will save your input history when it leaves and reload it next time you restart it. By default, the history file is named "
+            },
+            {
+              "type": "inlineCode",
+              "value": ".ipython/profile_{name}/history.sqlite"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 3,
+      "target": null,
+      "title": "Search command history",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Starting with 5.0, IPython uses "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "prompt_toolkit",
+                "path": "prompt_toolkit",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "prompt_toolkit"
+            },
+            {
+              "type": "text",
+              "value": " in place of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "readline"
+            },
+            {
+              "type": "text",
+              "value": ", it thus can recognize lines ending in ':' and indent the next line, while also un-indenting automatically after 'raise' or 'return', and support real multi-line editing as well as syntactic coloration during edition."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This feature does not use the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "readline"
+            },
+            {
+              "type": "text",
+              "value": " library anymore, so it will not honor your "
+            },
+            {
+              "type": "inlineCode",
+              "value": "~/.inputrc"
+            },
+            {
+              "type": "text",
+              "value": " configuration (or whatever file your "
+            },
+            {
+              "domain": null,
+              "role": "envvar",
+              "type": "Directive",
+              "value": "INPUTRC"
+            },
+            {
+              "type": "text",
+              "value": " environment variable points to)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In particular if you want to change the input mode to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "vi"
+            },
+            {
+              "type": "text",
+              "value": ", you will need to set the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "TerminalInteractiveShell.editing_mode"
+            },
+            {
+              "type": "text",
+              "value": " configuration  option of IPython."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 3,
+      "target": null,
+      "title": "Autoindent",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You can log all input from a session either by starting IPython with the command line switch "
+            },
+            {
+              "type": "inlineCode",
+              "value": "--logfile=foo.py"
+            },
+            {
+              "type": "text",
+              "value": " (see "
+            },
+            {
+              "type": "inlineCode",
+              "value": "here <command_line_options>"
+            },
+            {
+              "type": "text",
+              "value": ") or by activating the logging at any moment with the magic function "
+            },
+            {
+              "domain": null,
+              "role": "magic",
+              "type": "Directive",
+              "value": "logstart"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Log files can later be reloaded by running them as scripts and IPython will attempt to 'replay' the log by executing all the lines in it, thus restoring the state of a previous session. This feature is not quite perfect, but can still be useful in many cases."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The log files can also be used as a way to have a permanent record of any code you wrote while experimenting. Log files are regular text files which you can later open in your favorite text editor to extract code or to 'clean them up' before using them to replay a session."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "domain": null,
+              "role": "magic",
+              "type": "Directive",
+              "value": "logstart"
+            },
+            {
+              "type": "text",
+              "value": " function for activating logging in mid-session is used as follows      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "%logstart [log_name [log_mode]]"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If no name is given, it defaults to a file named 'ipython_log.py' in your current working directory, in 'rotate' mode (see below)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "'%logstart name' saves to file 'name' in 'backup' mode. It saves your history up to that point and then continues logging."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "%logstart takes a second optional parameter: logging mode. This can be one of (note that the modes are given unquoted):"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "[over:] overwrite existing log_name."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "[backup:] rename (if exists) to log_name~ and start log_name."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "[append:] well, that says it."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "[rotate:] create rotating logs log_name.1~, log_name.2~, etc."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                }
+              ],
+              "ordered": false,
+              "spread": false,
+              "start": 1,
+              "type": "list"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Adding the '-o' flag to '%logstart' magic (as in '%logstart -o [log_name [log_mode]]') will also include output from iPython in the log file."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "domain": null,
+              "role": "magic",
+              "type": "Directive",
+              "value": "logoff"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "domain": null,
+              "role": "magic",
+              "type": "Directive",
+              "value": "logon"
+            },
+            {
+              "type": "text",
+              "value": " functions allow you to temporarily stop and resume logging to a file which had previously been started with %logstart. They will fail (with an explanation) if you try to use them before logging has been started."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Session logging and restoring",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Any input line beginning with a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "!"
+            },
+            {
+              "type": "text",
+              "value": " character is passed verbatim (minus the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "!"
+            },
+            {
+              "type": "text",
+              "value": ", of course) to the underlying operating system. For example, typing "
+            },
+            {
+              "type": "inlineCode",
+              "value": "!ls"
+            },
+            {
+              "type": "text",
+              "value": " will run 'ls' in the current directory."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": "system_shell_access",
+      "title": "System shell access",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You can assign the result of a system command to a Python variable with the syntax "
+            },
+            {
+              "type": "inlineCode",
+              "value": "myfiles = !ls"
+            },
+            {
+              "type": "text",
+              "value": ". Similarly, the result of a magic (as long as it returns a value) can be assigned to a variable.  For example, the syntax "
+            },
+            {
+              "type": "inlineCode",
+              "value": "myfiles = %sx ls"
+            },
+            {
+              "type": "text",
+              "value": " is equivalent to the above system command example (the "
+            },
+            {
+              "domain": null,
+              "role": "magic",
+              "type": "Directive",
+              "value": "sx"
+            },
+            {
+              "type": "text",
+              "value": " magic runs a shell command and captures the output).  Each of these gets machine readable output from stdout (e.g. without colours), and splits on newlines. To explicitly get this sort of output without assigning to a variable, use two exclamation marks ("
+            },
+            {
+              "type": "inlineCode",
+              "value": "!!ls"
+            },
+            {
+              "type": "text",
+              "value": ") or the "
+            },
+            {
+              "domain": null,
+              "role": "magic",
+              "type": "Directive",
+              "value": "sx"
+            },
+            {
+              "type": "text",
+              "value": " magic command without an assignment. (However, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "!!"
+            },
+            {
+              "type": "text",
+              "value": " commands cannot be assigned to a variable.)"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The captured list in this example has some convenience features. "
+            },
+            {
+              "type": "inlineCode",
+              "value": "myfiles.n"
+            },
+            {
+              "type": "text",
+              "value": " or "
+            },
+            {
+              "type": "inlineCode",
+              "value": "myfiles.s"
+            },
+            {
+              "type": "text",
+              "value": " returns a string delimited by newlines or spaces, respectively. "
+            },
+            {
+              "type": "inlineCode",
+              "value": "myfiles.p"
+            },
+            {
+              "type": "text",
+              "value": " produces "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "path objects"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "http://pypi.python.org/pypi/path.py"
+            },
+            {
+              "type": "text",
+              "value": " from the list items. See "
+            },
+            {
+              "type": "inlineCode",
+              "value": "string_lists"
+            },
+            {
+              "type": "text",
+              "value": " for details."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "IPython also allows you to expand the value of python variables when making system calls. Wrap variables or expressions in {braces}      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "In [1]: pyvar = 'Hello world'\nIn [2]: !echo \"A python variable: {pyvar}\"\nA python variable: Hello world\nIn [3]: import math\nIn [4]: x = 8\nIn [5]: !echo {math.factorial(x)}\n40320"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For simple cases, you can alternatively prepend $ to a variable name      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "In [6]: !echo $sys.argv\n[/home/fperez/usr/bin/ipython]\nIn [7]: !echo \"A system variable: $$HOME\"  # Use $$ for literal $\nA system variable: /home/fperez"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Note that "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "$$"
+            },
+            {
+              "type": "text",
+              "value": " is used to represent a literal "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "$"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": "manual_capture",
+      "title": "Manual capture of command output and magic output",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "domain": null,
+              "role": "magic",
+              "type": "Directive",
+              "value": "alias"
+            },
+            {
+              "type": "text",
+              "value": " magic function allows you to define magic functions which are in fact system shell commands. These aliases can have parameters."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "inlineCode",
+              "value": "%alias alias_name cmd"
+            },
+            {
+              "type": "text",
+              "value": " defines 'alias_name' as an alias for 'cmd'"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Then, typing "
+            },
+            {
+              "type": "inlineCode",
+              "value": "alias_name params"
+            },
+            {
+              "type": "text",
+              "value": " will execute the system command 'cmd params' (from your underlying operating system)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You can also define aliases with parameters using "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%s"
+            },
+            {
+              "type": "text",
+              "value": " specifiers (one per parameter). The following example defines the parts function as an alias to the command "
+            },
+            {
+              "type": "inlineCode",
+              "value": "echo first %s second %s"
+            },
+            {
+              "type": "text",
+              "value": " where each "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%s"
+            },
+            {
+              "type": "text",
+              "value": " will be replaced by a positional parameter to the call to %parts      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "In [1]: %alias parts echo first %s second %s\nIn [2]: parts A B\nfirst A second B\nIn [3]: parts A\nERROR: Alias <parts> requires 2 arguments, 1 given."
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If called with no parameters, "
+            },
+            {
+              "domain": null,
+              "role": "magic",
+              "type": "Directive",
+              "value": "alias"
+            },
+            {
+              "type": "text",
+              "value": " prints the table of currently defined aliases."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "domain": null,
+              "role": "magic",
+              "type": "Directive",
+              "value": "rehashx"
+            },
+            {
+              "type": "text",
+              "value": " magic allows you to load your entire $PATH as ipython aliases. See its docstring for further details."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "System command aliases",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "type": "inlineCode",
+              "value": "IPython.lib.deepreload"
+            },
+            {
+              "type": "text",
+              "value": " module allows you to recursively reload a module: changes made to any of its dependencies will be reloaded without having to exit. To start using it, do      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "from IPython.lib.deepreload import reload as dreload"
+        }
+      ],
+      "level": 2,
+      "target": "dreload",
+      "title": "Recursive reload",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "IPython provides the option to see very detailed exception tracebacks, which can be especially useful when debugging large programs. You can run any Python file with the %run function to benefit from these detailed tracebacks. Furthermore, both normal and verbose tracebacks can be colored (if your terminal supports it) which makes them much easier to parse visually."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "See the magic "
+            },
+            {
+              "domain": null,
+              "role": "magic",
+              "type": "Directive",
+              "value": "xmode"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "domain": null,
+              "role": "magic",
+              "type": "Directive",
+              "value": "colors"
+            },
+            {
+              "type": "text",
+              "value": " functions for details."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "These features are basically a terminal version of Ka-Ping Yee's cgitb module, now part of the standard Python library."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Verbose and colored exception traceback printouts",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "IPython offers numbered prompts (In/Out) with input and output caching (also referred to as 'input history'). All input is saved and can be retrieved as variables (besides the usual arrow key recall), in addition to the "
+            },
+            {
+              "domain": null,
+              "role": "magic",
+              "type": "Directive",
+              "value": "rep"
+            },
+            {
+              "type": "text",
+              "value": " magic command that brings a history entry up for editing on the next command line."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The following variables always exist:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "_i"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "_ii"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "_iii"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": store previous, next previous and next-next   previous inputs."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "inlineCode",
+                              "value": "In"
+                            },
+                            {
+                              "type": "text",
+                              "value": ", "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "_ih"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "inlineCode",
+                            "value": "In"
+                          },
+                          {
+                            "type": "text",
+                            "value": ","
+                          },
+                          {
+                            "type": "inlineCode",
+                            "value": "_ih"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Additionally, global variables named _<n> are dynamically created (<n> being the prompt counter), such that the result of output <n> is always available as _<n> (don't use the angle brackets, just the number, e.g. "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_21"
+            },
+            {
+              "type": "text",
+              "value": ")."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "These variables are also stored in a global dictionary (not a list, since it only has entries for lines which returned a result) available under the names _oh and Out (similar to _ih and In). So the output from line 12 can be obtained as "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_12"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Out[12]"
+            },
+            {
+              "type": "text",
+              "value": " or "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_oh[12]"
+            },
+            {
+              "type": "text",
+              "value": ". If you accidentally overwrite the Out variable you can recover it by typing "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Out=_oh"
+            },
+            {
+              "type": "text",
+              "value": " at the prompt."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This system obviously can potentially put heavy memory demands on your system, since it prevents Python's garbage collector from removing any previously computed results. You can control how many results are kept in memory with the configuration option "
+            },
+            {
+              "type": "inlineCode",
+              "value": "InteractiveShell.cache_size"
+            },
+            {
+              "type": "text",
+              "value": ". If you set it to 0, output caching is disabled. You can also use the "
+            },
+            {
+              "domain": null,
+              "role": "magic",
+              "type": "Directive",
+              "value": "reset"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "domain": null,
+              "role": "magic",
+              "type": "Directive",
+              "value": "xdel"
+            },
+            {
+              "type": "text",
+              "value": " magics to clear large items from memory."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": "input_caching",
+      "title": "Input caching system",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Your history of visited directories is kept in the global list _dh, and the magic "
+            },
+            {
+              "domain": null,
+              "role": "magic",
+              "type": "Directive",
+              "value": "cd"
+            },
+            {
+              "type": "text",
+              "value": " command can be used to go to any entry in that list. The "
+            },
+            {
+              "domain": null,
+              "role": "magic",
+              "type": "Directive",
+              "value": "dhist"
+            },
+            {
+              "type": "text",
+              "value": " command allows you to view this history. Do "
+            },
+            {
+              "type": "inlineCode",
+              "value": "cd -<TAB>"
+            },
+            {
+              "type": "text",
+              "value": " to conveniently view the directory history."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Directory history",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "These features were adapted from Nathan Gray's LazyPython. They are meant to allow less typing for common situations."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Callable objects (i.e. functions, methods, etc) can be invoked like this (notice the commas between the arguments)      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "In [1]: callable_ob arg1, arg2, arg3\n------> callable_ob(arg1, arg2, arg3)"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "note "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "This feature is disabled by default. To enable it, use the "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "%autocall"
+                },
+                {
+                  "type": "text",
+                  "value": " magic command. The commands below with special prefixes will always work, however."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You can force automatic parentheses by using '/' as the first character of a line. For example      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "In [2]: /globals # becomes 'globals()'"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Note that the '/' MUST be the first character on the line! This won't work      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "In [3]: print /globals # syntax error"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In most cases the automatic algorithm should work, so you should rarely need to explicitly invoke /. One notable exception is if you are trying to call a function with a list of tuples as arguments (the parenthesis will confuse IPython)      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "In [4]: zip (1,2,3),(4,5,6) # won't work"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "but this will work      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "In [5]: /zip (1,2,3),(4,5,6)\n------> zip ((1,2,3),(4,5,6))\nOut[5]: [(1, 4), (2, 5), (3, 6)]"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "IPython tells you that it has altered your command line by displaying the new command line preceded by "
+            },
+            {
+              "type": "inlineCode",
+              "value": "--->"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You can force automatic quoting of a function's arguments by using "
+            },
+            {
+              "type": "inlineCode",
+              "value": ","
+            },
+            {
+              "type": "text",
+              "value": " or "
+            },
+            {
+              "type": "inlineCode",
+              "value": ";"
+            },
+            {
+              "type": "text",
+              "value": " as the first character of a line. For example      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "In [1]: ,my_function /home/me  # becomes my_function(\"/home/me\")"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If you use ';' the whole argument is quoted as a single string, while ',' splits on whitespace      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "In [2]: ,my_function a b c    # becomes my_function(\"a\",\"b\",\"c\")\n\nIn [3]: ;my_function a b c    # becomes my_function(\"a b c\")"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Note that the ',' or ';' MUST be the first character on the line! This won't work      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "In [4]: x = ,my_function /home/me # syntax error"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Automatic parentheses and quotes",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Python honors the environment variable "
+            },
+            {
+              "domain": null,
+              "role": "envvar",
+              "type": "Directive",
+              "value": "PYTHONSTARTUP"
+            },
+            {
+              "type": "text",
+              "value": " and will execute at startup the file referenced by this variable. If you put the following code at the end of that file, then IPython will be your working environment anytime you start Python      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "import os, IPython\nos.environ['PYTHONSTARTUP'] = ''  # Prevent running this again\nIPython.start_ipython()\nraise SystemExit"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "type": "inlineCode",
+              "value": "raise SystemExit"
+            },
+            {
+              "type": "text",
+              "value": " is needed to exit Python when it finishes, otherwise you'll be back at the normal Python "
+            },
+            {
+              "type": "inlineCode",
+              "value": ">>>"
+            },
+            {
+              "type": "text",
+              "value": " prompt."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This is probably useful to developers who manage multiple Python versions and don't want to have correspondingly multiple IPython versions. Note that in this mode, there is no way to pass IPython any command-line options, as those are trapped first by Python itself."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "IPython as your default Python environment",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You can start a regular IPython session with"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "python",
+          "children": [],
+          "name": "sourcecode",
+          "options": {},
+          "type": "mystDirective",
+          "value": "import IPython\nIPython.start_ipython(argv=[])"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "at any point in your program.  This will load IPython configuration, startup files, and everything, just as if it were a normal IPython session. For information on setting configuration options when running IPython from python, see "
+            },
+            {
+              "type": "inlineCode",
+              "value": "configure_start_ipython"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "It is also possible to embed an IPython shell in a namespace in your Python code. This allows you to evaluate dynamically the state of your code, operate with your variables, analyze them, etc. For example, if you run the following code snippet    "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "import IPython\n\na = 42\nIPython.embed()"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "and within the IPython shell, you reassign "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " to "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "23"
+            },
+            {
+              "type": "text",
+              "value": " to do further testing of  some sort, you can then exit    "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> IPython.embed()\nPython 3.6.2 (default, Jul 17 2017, 16:44:45) \nType 'copyright', 'credits' or 'license' for more information\nIPython 6.2.0.dev -- An enhanced Interactive Python. Type '?' for help.\n\nIn [1]: a = 23\n\nIn [2]: exit()"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Once you exit and print "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": ", the value 23 will be shown     "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "In: print(a)\n23"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "It's important to note that the code run in the embedded IPython shell will  "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "not"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " change the state of your code and variables, "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "unless"
+                }
+              ],
+              "type": "strong"
+            },
+            {
+              "type": "text",
+              "value": " the shell is  contained within the global namespace. In the above example, "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " is changed  because this is true."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To further exemplify this, consider the following example    "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "import IPython\ndef do():\n    a = 42\n    print(a)\n    IPython.embed()\n    print(a)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Now if call the function and complete the state changes as we did above, the value "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "42"
+            },
+            {
+              "type": "text",
+              "value": " will be printed. Again, this is because it's not in the global namespace     "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "do()"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Running a file with the above code can lead to the following session    "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> do()\n42\nPython 3.6.2 (default, Jul 17 2017, 16:44:45) \nType 'copyright', 'credits' or 'license' for more information\nIPython 6.2.0.dev -- An enhanced Interactive Python. Type '?' for help.\n\nIn [1]: a = 23\n\nIn [2]: exit()\n42"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "note "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "At present, embedding IPython cannot be done from inside IPython. Run the code samples below outside IPython."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This feature allows you to easily have a fully functional python environment for doing object introspection anywhere in your code with a simple function call. In some cases a simple print statement is enough, but if you need to do more detailed analysis of a code fragment this feature can be very valuable."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "It can also be useful in scientific computing situations where it is common to need to do some automatic, computationally intensive part and then stop to look at data, plots, etc. Opening an IPython instance will give you full access to your data and functions, and you can resume program execution once you are done with the interactive part (perhaps to stop again later, as many times as needed)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The following code snippet is the bare minimum you need to include in your Python programs for this to work (detailed examples follow later)      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "from IPython import embed\n\nembed() # this call anywhere in your program will start IPython"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You can also embed an IPython "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "kernel"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": ", for use with qtconsole, etc. via "
+            },
+            {
+              "type": "inlineCode",
+              "value": "IPython.embed_kernel()"
+            },
+            {
+              "type": "text",
+              "value": ". This should work the same way, but you can connect an external frontend ("
+            },
+            {
+              "type": "inlineCode",
+              "value": "ipython qtconsole"
+            },
+            {
+              "type": "text",
+              "value": " or "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ipython console"
+            },
+            {
+              "type": "text",
+              "value": "), rather than interacting with it in the terminal."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You can run embedded instances even in code which is itself being run at the IPython interactive prompt with '%run <filename>'. Since it's easy to get lost as to where you are (in your top-level IPython or in your embedded one), it's a good idea in such cases to set the in/out prompts to something different for the embedded instances. The code examples below illustrate this."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You can also have multiple IPython instances in your program and open them separately, for example with different options for data presentation. If you close and open the same instance multiple times, its prompt counters simply continue from each execution to the next."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Please look at the docstrings in the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "~IPython.frontend.terminal.embed"
+            },
+            {
+              "type": "text",
+              "value": " module for more details on the use of this system."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The following sample file illustrating how to use the embedding functionality is provided in the examples directory as embed_class_long.py. It should be fairly self-explanatory:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "../../../examples/Embedding/embed_class_long.py",
+          "children": [],
+          "name": "literalinclude",
+          "options": {
+            "language": "python"
+          },
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Once you understand how the system functions, you can use the following code fragments in your programs which are ready for cut and paste:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "../../../examples/Embedding/embed_class_short.py",
+          "children": [],
+          "name": "literalinclude",
+          "options": {
+            "language": "python"
+          },
+          "type": "mystDirective",
+          "value": ""
+        }
+      ],
+      "level": 1,
+      "target": "Embedding",
+      "title": "Embedding IPython",
+      "type": "Section"
+    },
+    {
+      "children": [],
+      "level": 1,
+      "target": null,
+      "title": "Using the Python debugger (pdb)",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "pdb, the Python debugger, is a powerful interactive debugger which allows you to step through code, set breakpoints, watch variables, etc.  IPython makes it very easy to start any script under the control of pdb, regardless of whether you have wrapped it into a 'main()' function or not. For this, simply type "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%run -d myscript"
+            },
+            {
+              "type": "text",
+              "value": " at an IPython prompt. See the "
+            },
+            {
+              "domain": null,
+              "role": "magic",
+              "type": "Directive",
+              "value": "run"
+            },
+            {
+              "type": "text",
+              "value": " command's documentation for more details, including how to control where pdb will stop execution first."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For more information on the use of the pdb debugger, see "
+            },
+            {
+              "type": "inlineCode",
+              "value": "debugger-commands"
+            },
+            {
+              "type": "text",
+              "value": " in the Python documentation."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "IPython extends the debugger with a few useful additions, like coloring of tracebacks. The debugger will adopt the color scheme selected for IPython."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "type": "inlineCode",
+              "value": "where"
+            },
+            {
+              "type": "text",
+              "value": " command has also been extended to take as argument the number of context line to show. This allows to a many line of context on shallow stack trace:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "In [5]: def foo(x):\n...:     1\n...:     2\n...:     3\n...:     return 1/x+foo(x-1)\n...:     5\n...:     6\n...:     7\n...:\n\nIn[6]: foo(1)\n# ...\nipdb> where 8\n<ipython-input-6-9e45007b2b59>(1)<module>\n----> 1 foo(1)\n\n<ipython-input-5-7baadc3d1465>(5)foo()\n    1 def foo(x):\n    2     1\n    3     2\n    4     3\n----> 5     return 1/x+foo(x-1)\n    6     5\n    7     6\n    8     7\n\n> <ipython-input-5-7baadc3d1465>(5)foo()\n    1 def foo(x):\n    2     1\n    3     2\n    4     3\n----> 5     return 1/x+foo(x-1)\n    6     5\n    7     6\n    8     7"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "And less context on shallower Stack Trace:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "ipdb> where 1\n<ipython-input-13-afa180a57233>(1)<module>\n----> 1 foo(7)\n\n<ipython-input-5-7baadc3d1465>(5)foo()\n----> 5     return 1/x+foo(x-1)\n\n<ipython-input-5-7baadc3d1465>(5)foo()\n----> 5     return 1/x+foo(x-1)\n\n<ipython-input-5-7baadc3d1465>(5)foo()\n----> 5     return 1/x+foo(x-1)\n\n<ipython-input-5-7baadc3d1465>(5)foo()\n----> 5     return 1/x+foo(x-1)"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Running entire programs via pdb",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Going into a debugger when an exception occurs can be extremely useful in order to find the origin of subtle bugs, because pdb opens up at the point in your code which triggered the exception, and while your program is at this point 'dead', all the data is still available and you can walk up and down the stack frame and understand the origin of the problem."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You can use the "
+            },
+            {
+              "domain": null,
+              "role": "magic",
+              "type": "Directive",
+              "value": "debug"
+            },
+            {
+              "type": "text",
+              "value": " magic after an exception has occurred to start post-mortem debugging. IPython can also call debugger every time your code triggers an uncaught exception. This feature can be toggled with the "
+            },
+            {
+              "domain": null,
+              "role": "magic",
+              "type": "Directive",
+              "value": "pdb"
+            },
+            {
+              "type": "text",
+              "value": " magic command, or you can start IPython with the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "--pdb"
+            },
+            {
+              "type": "text",
+              "value": " option."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For a post-mortem debugger in your programs outside IPython, put the following lines toward the top of your 'main' routine      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "import sys\nfrom IPython.core import ultratb\nsys.excepthook = ultratb.FormattedTB(mode='Verbose',\ncolor_scheme='Linux', call_pdb=1)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The mode keyword can be either 'Verbose' or 'Plain', giving either very detailed or normal tracebacks respectively. The color_scheme keyword can be one of 'NoColor', 'Linux' (default) or 'LightBG'. These are the same options which can be set in IPython with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "--colors"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "--xmode"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This will give any of your programs detailed, colored tracebacks with automatic invocation of pdb."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Post-mortem debugging",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "IPython is smart enough to filter out input prompts, be they plain Python ones ("
+            },
+            {
+              "type": "inlineCode",
+              "value": ">>>"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "..."
+            },
+            {
+              "type": "text",
+              "value": ") or IPython ones ("
+            },
+            {
+              "type": "inlineCode",
+              "value": "In [N]:"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "...:"
+            },
+            {
+              "type": "text",
+              "value": ").  You can therefore copy and paste from existing interactive sessions without worry."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The following is a 'screenshot' of how things work, copying an example from the standard Python tutorial      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "In [1]: >>> # Fibonacci series:\n\nIn [2]: ... # the sum of two elements defines the next\n\nIn [3]: ... a, b = 0, 1\n\nIn [4]: >>> while b < 10:\n   ...:     ...     print(b)\n   ...:     ...     a, b = b, a+b\n   ...:\n1\n1\n2\n3\n5\n8"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "And pasting from IPython sessions works equally well      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "In [1]: In [5]: def f(x):\n   ...:        ...:     \"A simple function\"\n   ...:        ...:     return x**2\n   ...:    ...:\n\nIn [2]: f(3)\nOut[2]: 9"
+        }
+      ],
+      "level": 1,
+      "target": "pasting_with_prompts",
+      "title": "Pasting of code starting with Python or IPython prompts",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "IPython has excellent support for working interactively with Graphical User Interface (GUI) toolkits, such as wxPython, PyQt/PySide, PyGTK and Tk. This is implemented by running the toolkit's event loop while IPython is waiting for input."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For users, enabling GUI event loop integration is simple.  You simple use the "
+            },
+            {
+              "domain": null,
+              "role": "magic",
+              "type": "Directive",
+              "value": "gui"
+            },
+            {
+              "type": "text",
+              "value": " magic as follows      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "%gui [GUINAME]"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "With no arguments, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%gui"
+            },
+            {
+              "type": "text",
+              "value": " removes all GUI support.  Valid "
+            },
+            {
+              "type": "inlineCode",
+              "value": "GUINAME"
+            },
+            {
+              "type": "text",
+              "value": " arguments include "
+            },
+            {
+              "type": "inlineCode",
+              "value": "wx"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "qt"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "qt5"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "qt6"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "gtk"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "gtk3"
+            },
+            {
+              "type": "text",
+              "value": " "
+            },
+            {
+              "type": "inlineCode",
+              "value": "gtk4"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "tk"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Thus, to use wxPython interactively and create a running "
+            },
+            {
+              "type": "inlineCode",
+              "value": "wx.App"
+            },
+            {
+              "type": "text",
+              "value": " object, do      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "%gui wx"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You can also start IPython with an event loop set up using the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "--gui"
+            },
+            {
+              "type": "text",
+              "value": " flag      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "$ ipython --gui=qt"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For information on IPython's "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "matplotlib_"
+            },
+            {
+              "type": "text",
+              "value": " integration (and the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "matplotlib"
+            },
+            {
+              "type": "text",
+              "value": " mode) see "
+            },
+            {
+              "type": "inlineCode",
+              "value": "this section <matplotlib_support>"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For developers that want to integrate additional event loops with IPython, see "
+            },
+            {
+              "type": "inlineCode",
+              "value": "/config/eventloops"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When running inside IPython with an integrated event loop, a GUI application should "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "not"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " start its own event loop. This means that applications that are meant to be used both in IPython and as standalone apps need to have special code to detects how the application is being run. We highly recommend using IPython's support for this. Since the details vary slightly between toolkits, we point you to the various examples in our source directory "
+            },
+            {
+              "type": "inlineCode",
+              "value": "examples/IPython Kernel/gui/"
+            },
+            {
+              "type": "text",
+              "value": " that demonstrate these capabilities."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": "gui_support",
+      "title": "GUI event loop support",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "type": "mystComment",
+          "value": ".. attempt at explanation of the complete mess that is Qt support"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When you use "
+            },
+            {
+              "type": "inlineCode",
+              "value": "--gui=qt"
+            },
+            {
+              "type": "text",
+              "value": " or "
+            },
+            {
+              "type": "inlineCode",
+              "value": "--matplotlib=qt"
+            },
+            {
+              "type": "text",
+              "value": ", IPython can work with either PyQt or PySide.  "
+            },
+            {
+              "type": "inlineCode",
+              "value": "qt"
+            },
+            {
+              "type": "text",
+              "value": " implies \"use the latest version available\", and it favors PyQt over PySide. To request a specific version, use "
+            },
+            {
+              "type": "inlineCode",
+              "value": "qt5"
+            },
+            {
+              "type": "text",
+              "value": " or "
+            },
+            {
+              "type": "inlineCode",
+              "value": "qt6"
+            },
+            {
+              "type": "text",
+              "value": ". Note that Qt4 is not supported with the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "--gui"
+            },
+            {
+              "type": "text",
+              "value": " switch (and has not been for some time now)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If specified, IPython will respect the environment variable "
+            },
+            {
+              "type": "inlineCode",
+              "value": "QT_API"
+            },
+            {
+              "type": "text",
+              "value": " used by ETS.  ETS 4.0 also works with both PyQt4 and PySide, but it requires PyQt4 to use its v2 API.  So if "
+            },
+            {
+              "type": "inlineCode",
+              "value": "QT_API=pyside"
+            },
+            {
+              "type": "text",
+              "value": " PySide will be used, and if "
+            },
+            {
+              "type": "inlineCode",
+              "value": "QT_API=pyqt"
+            },
+            {
+              "type": "text",
+              "value": " then PyQt4 will be used "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "with the v2 API"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " for QString and QVariant, so ETS codes like MayaVi will also work with IPython."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If you launch IPython in matplotlib mode with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ipython --matplotlib=qt"
+            },
+            {
+              "type": "text",
+              "value": ", then IPython will ask matplotlib which Qt library to use (only if QT_API is "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "not set"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": "), via the 'backend.qt4' rcParam.  If matplotlib is version 1.0.1 or older, then IPython will always use PyQt4 without setting the v2 APIs, since neither v2 PyQt nor PySide work."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "warning "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Note that this means for ETS 4 to work with PyQt4, "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "QT_API"
+                },
+                {
+                  "type": "text",
+                  "value": " "
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "must"
+                    }
+                  ],
+                  "type": "emphasis"
+                },
+                {
+                  "type": "text",
+                  "value": " be set to work with IPython's qt integration, because otherwise PyQt4 will be loaded in an incompatible mode."
+                }
+              ],
+              "type": "paragraph"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "It also means that you must "
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "not"
+                    }
+                  ],
+                  "type": "emphasis"
+                },
+                {
+                  "type": "text",
+                  "value": " have "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "QT_API"
+                },
+                {
+                  "type": "text",
+                  "value": " set if you want to use "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "--gui=qt"
+                },
+                {
+                  "type": "text",
+                  "value": " with code that requires PyQt4 API v1."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "PyQt and PySide",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "matplotlib_"
+            },
+            {
+              "type": "text",
+              "value": " provides high quality 2D and 3D plotting for Python. "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "matplotlib_"
+            },
+            {
+              "type": "text",
+              "value": " can produce plots on screen using a variety of GUI toolkits, including Tk, PyGTK, PyQt4 and wxPython. It also provides a number of commands useful for scientific computing, all with a syntax compatible with that of the popular Matlab program."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To start IPython with matplotlib support, use the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "--matplotlib"
+            },
+            {
+              "type": "text",
+              "value": " switch. If IPython is already running, you can run the "
+            },
+            {
+              "domain": null,
+              "role": "magic",
+              "type": "Directive",
+              "value": "matplotlib"
+            },
+            {
+              "type": "text",
+              "value": " magic.  If no arguments are given, IPython will automatically detect your choice of matplotlib backend.  You can also request a specific backend with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%matplotlib backend"
+            },
+            {
+              "type": "text",
+              "value": ", where "
+            },
+            {
+              "type": "inlineCode",
+              "value": "backend"
+            },
+            {
+              "type": "text",
+              "value": " must be one of: 'tk', 'qt', 'wx', 'gtk', 'osx'.  In the web notebook and Qt console, 'inline' is also a valid backend value, which produces static figures inlined inside the application window instead of matplotlib's interactive figures that live in separate windows."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": "matplotlib_support",
+      "title": "Plotting with matplotlib",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "IPython ships with a basic system for running scripts interactively in sections, useful when presenting code to audiences. A few tags embedded in comments (so that the script remains valid Python code) divide a file into separate blocks, and the demo can be run one block at a time, with IPython printing (with syntax highlighting) the block before executing it, and returning to the interactive prompt after each block. The interactive namespace is updated after each block is run with the contents of the demo's namespace."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This allows you to show a piece of code, run it and then execute interactively commands based on the variables just created. Once you want to continue, you simply execute the next block of the demo. The following listing shows the markup necessary for dividing a script into sections for execution as a demo:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "../../../examples/IPython Kernel/example-demo.py",
+          "children": [],
+          "name": "literalinclude",
+          "options": {
+            "language": "python"
+          },
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In order to run a file as a demo, you must first make a Demo object out of it. If the file is named myscript.py, the following code will make a demo      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "from IPython.lib.demo import Demo\n\nmydemo = Demo('myscript.py')"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This creates the mydemo object, whose blocks you run one at a time by simply calling the object with no arguments. Then call it to run each step of the demo      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "mydemo()"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Demo objects can be restarted, you can move forward or back skipping blocks, re-execute the last block, etc. See the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "IPython.lib.demo"
+            },
+            {
+              "type": "text",
+              "value": " module and the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "~IPython.lib.demo.Demo"
+            },
+            {
+              "type": "text",
+              "value": " class for details."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Limitations: These demos are limited to fairly simple uses. In particular, you cannot break up sections within indented code (loops, if statements, function definitions, etc.) Supporting something like this would basically require tracking the internal execution state of the Python interpreter, so only top-level divisions are allowed. If you want to be able to open an IPython instance at an arbitrary point in a program, you can use IPython's "
+            },
+            {
+              "type": "inlineCode",
+              "value": "embedding facilities <Embedding>"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "../links.txt",
+          "children": [],
+          "name": "include",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        }
+      ],
+      "level": 1,
+      "target": "interactive_demos",
+      "title": "Interactive demos with IPython",
+      "type": "Section"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

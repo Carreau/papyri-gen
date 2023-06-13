@@ -1,0 +1,367 @@
+{
+  "aliases": [
+    "distributed.active_memory_manager.RetireWorker"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "At any given time, the AMM may have registered multiple instances of this policy, one for each worker currently being retired - meaning that most of the time no instances will be registered at all. For this reason, this policy doesn't figure in the dask config ("
+            },
+            {
+              "type": "inlineCode",
+              "value": "distributed.yaml"
+            },
+            {
+              "type": "text",
+              "value": "). Instances are added by "
+            },
+            {
+              "type": "inlineCode",
+              "value": "distributed.Scheduler.retire_workers"
+            },
+            {
+              "type": "text",
+              "value": " and automatically remove themselves once the worker has been retired. If the AMM is disabled in the dask config, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "~distributed.Scheduler.retire_workers"
+            },
+            {
+              "type": "text",
+              "value": " will start a temporary ad-hoc one."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Failure condition"
+                }
+              ],
+              "type": "strong"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "There may not be any suitable workers to receive the tasks from the retiring worker. This happens in two use cases:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This is the only worker in the cluster, or"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "All workers are either paused or being retired at the same time"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": true,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In either case, this policy will fail to move out all keys and set the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "no_recipients"
+            },
+            {
+              "type": "text",
+              "value": " boolean to True. "
+            },
+            {
+              "type": "inlineCode",
+              "value": "~distributed.Scheduler.retire_workers"
+            },
+            {
+              "type": "text",
+              "value": " will abort the retirement."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "There is a third use case, where a task fails to be replicated away for whatever reason, e.g. because its recipient is unresponsive but the Scheduler doesn't know yet. In this case we'll just wait for the next AMM iteration and try again (possibly with a different receiving worker, e.g. if the receiving worker was hung but not yet declared dead)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Retiring a worker with spilled tasks"
+                }
+              ],
+              "type": "strong"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "On its very first iteration, this policy suggests that other workers should fetch all unique in-memory tasks of the retiring worker. Frequently, this means that in the next few moments the retiring worker will be bombarded by "
+            },
+            {
+              "type": "inlineCode",
+              "value": "distributed.worker.Worker.get_data"
+            },
+            {
+              "type": "text",
+              "value": " calls from the rest of the cluster. This can be a problem if most of the managed memory of the worker has been spilled out, as it could send the worker above its terminate threshold. Two measures are in place in order to prevent this:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "At every iteration, this policy drops all tasks on the retiring worker that have   already been replicated somewhere else. This makes room for further tasks to be   moved out of the spill file in order to be replicated onto another worker."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Once the worker passes the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "pause"
+                    },
+                    {
+                      "type": "text",
+                      "value": " threshold,   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "~distributed.worker.Worker.get_data"
+                    },
+                    {
+                      "type": "text",
+                      "value": " throttles the number of outgoing   connections to 1."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "URI of the worker to be retired"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "address: str",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Replicate somewhere else all unique in-memory tasks on a worker, preparing for its shutdown."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/distributed/active_memory_manager.py",
+  "item_line": 552,
+  "item_type": "<class 'abc.ABCMeta'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

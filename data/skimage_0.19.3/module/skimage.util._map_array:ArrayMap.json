@@ -1,0 +1,225 @@
+{
+  "aliases": [
+    "skimage.segmentation._join.ArrayMap"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This class is designed to replicate the use of NumPy arrays for mapping values with indexing:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> values = np.array([0.25, 0.5, 1.0])\n>>> indices = np.array([[0, 0, 1], [2, 2, 1]])\n>>> values[indices]\narray([[0.25, 0.25, 0.5 ],\n       [1.  , 1.  , 0.5 ]])"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The issue with this indexing is that you need a very large "
+            },
+            {
+              "type": "inlineCode",
+              "value": "values"
+            },
+            {
+              "type": "text",
+              "value": " array if the values in the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "indices"
+            },
+            {
+              "type": "text",
+              "value": " array are large."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> values = np.array([0.25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.0])\n>>> indices = np.array([[0, 0, 10], [0, 10, 10]])\n>>> values[indices]\narray([[0.25, 0.25, 1.  ],\n       [0.25, 1.  , 1.  ]])"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Using this class, the approach is similar, but there is no need to create a large values array:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> in_indices = np.array([0, 10])\n>>> out_values = np.array([0.25, 1.0])\n>>> values = ArrayMap(in_indices, out_values)\n>>> values\nArrayMap(array([ 0, 10]), array([0.25, 1.  ]))\n>>> print(values)\nArrayMap:\n  0 \u2192 0.25\n  10 \u2192 1.0\n>>> indices = np.array([[0, 0, 10], [0, 10, 10]])\n>>> values[indices]\narray([[0.25, 0.25, 1.  ],\n       [0.25, 1.  , 1.  ]])"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The source values from which to map."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "in_values",
+              "type": "Param",
+              "type_": "array of int, shape (N,)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The destination values from which to map."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "out_values",
+              "type": "Param",
+              "type_": "array, shape (N,)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Class designed to mimic mapping by NumPy array indexing."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/skimage/util/_map_array.py",
+  "item_line": 61,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

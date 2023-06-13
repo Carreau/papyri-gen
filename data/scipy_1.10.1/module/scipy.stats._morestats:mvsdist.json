@@ -1,0 +1,320 @@
+{
+  "aliases": [
+    "scipy.stats.mvsdist"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The return values from "
+            },
+            {
+              "type": "inlineCode",
+              "value": "bayes_mvs(data)"
+            },
+            {
+              "type": "text",
+              "value": " is equivalent to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "tuple((x.mean(), x.interval(0.90)) for x in mvsdist(data))"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In other words, calling "
+            },
+            {
+              "type": "inlineCode",
+              "value": "<dist>.mean()"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "<dist>.interval(0.90)"
+            },
+            {
+              "type": "text",
+              "value": " on the three distribution objects returned from this function will give the same results that are returned from "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.stats._morestats:bayes_mvs",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "bayes_mvs"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Input array. Converted to 1-D using ravel. Requires 2 or more data-points."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "data",
+              "type": "Param",
+              "type_": "array_like"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Distribution object representing the mean of the data."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mdist",
+              "type": "Param",
+              "type_": "\"frozen\" distribution object"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Distribution object representing the variance of the data."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "vdist",
+              "type": "Param",
+              "type_": "\"frozen\" distribution object"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Distribution object representing the standard deviation of the data."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sdist",
+              "type": "Param",
+              "type_": "\"frozen\" distribution object"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "'Frozen' distributions for mean, variance, and standard deviation of data."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from scipy import stats\ndata = [6, 9, 12, 7, 8, 8, 13]\nmean, var, std = stats.mvsdist(data)"
+      },
+      {
+        "type": "text",
+        "value": "We now have frozen distribution objects \"mean\", \"var\" and \"std\" that we can\nexamine:"
+      },
+      {
+        "type": "code",
+        "value": "mean.mean()"
+      },
+      {
+        "type": "code",
+        "value": "mean.interval(0.95)"
+      },
+      {
+        "type": "code",
+        "value": "mean.std()"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_morestats.py",
+  "item_line": 144,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.stats._morestats:bayes_mvs",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "bayes_mvs"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(data)"
+  },
+  "type": "DocBlob"
+}

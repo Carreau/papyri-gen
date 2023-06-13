@@ -1,0 +1,351 @@
+{
+  "aliases": [
+    "numpy.lib.mixins.NDArrayOperatorsMixin"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This class implements the special methods for almost all of Python's builtin operators defined in the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "operator",
+                "path": "operator",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "operator"
+            },
+            {
+              "type": "text",
+              "value": " module, including comparisons ("
+            },
+            {
+              "type": "inlineCode",
+              "value": "=="
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": ">"
+            },
+            {
+              "type": "text",
+              "value": ", etc.) and arithmetic ("
+            },
+            {
+              "type": "inlineCode",
+              "value": "+"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "*"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "-"
+            },
+            {
+              "type": "text",
+              "value": ", etc.), by deferring to the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "__array_ufunc__"
+            },
+            {
+              "type": "text",
+              "value": " method, which subclasses must implement."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "It is useful for writing classes that do not inherit from "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy",
+                "path": "numpy:ndarray",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "numpy.ndarray"
+            },
+            {
+              "type": "text",
+              "value": ", but that should support arithmetic and numpy universal functions like arrays as described in "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "A Mechanism for Overriding Ufuncs"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://numpy.org/neps/nep-0013-ufunc-overrides.html"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "As an trivial example, consider this implementation of an "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ArrayLike"
+            },
+            {
+              "type": "text",
+              "value": " class that simply wraps a NumPy array and ensures that the result of any arithmetic operation is also an "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ArrayLike"
+            },
+            {
+              "type": "text",
+              "value": " object      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "class ArrayLike(np.lib.mixins.NDArrayOperatorsMixin):\n    def __init__(self, value):\n        self.value = np.asarray(value)\n\n    # One might also consider adding the built-in list type to this\n    # list, to support operations like np.add(array_like, list)\n    _HANDLED_TYPES = (np.ndarray, numbers.Number)\n\n    def __array_ufunc__(self, ufunc, method, *inputs, **kwargs):\n        out = kwargs.get('out', ())\n        for x in inputs + out:\n            # Only support operations with instances of _HANDLED_TYPES.\n            # Use ArrayLike instead of type(self) for isinstance to\n            # allow subclasses that don't override __array_ufunc__ to\n            # handle ArrayLike objects.\n            if not isinstance(x, self._HANDLED_TYPES + (ArrayLike,)):\n                return NotImplemented\n\n        # Defer to the implementation of the ufunc on unwrapped values.\n        inputs = tuple(x.value if isinstance(x, ArrayLike) else x\n                       for x in inputs)\n        if out:\n            kwargs['out'] = tuple(\n                x.value if isinstance(x, ArrayLike) else x\n                for x in out)\n        result = getattr(ufunc, method)(*inputs, **kwargs)\n\n        if type(result) is tuple:\n            # multiple return values\n            return tuple(type(self)(x) for x in result)\n        elif method == 'at':\n            # no return value\n            return None\n        else:\n            # one return value\n            return type(self)(result)\n\n    def __repr__(self):\n        return '%s(%r)' % (type(self).__name__, self.value)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In interactions between "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ArrayLike"
+            },
+            {
+              "type": "text",
+              "value": " objects and numbers or numpy arrays, the result is always another "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ArrayLike"
+            },
+            {
+              "type": "text",
+              "value": ":"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "code",
+              "value": ">>> x = ArrayLike([1, 2, 3])\n>>> x - 1\nArrayLike(array([0, 1, 2]))\n>>> 1 - x\nArrayLike(array([ 0, -1, -2]))\n>>> np.arange(3) - x\nArrayLike(array([-1, -1, -1]))\n>>> x - np.arange(3)\nArrayLike(array([1, 1, 1]))"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Note that unlike "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.ndarray"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ArrayLike"
+            },
+            {
+              "type": "text",
+              "value": " does not allow operations with arbitrary, unrecognized types. This ensures that interactions with ArrayLike preserve a well-defined casting hierarchy."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 1.13"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Mixin defining all operator special methods using __array_ufunc__."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/numpy/lib/mixins.py",
+  "item_line": 59,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,561 @@
+{
+  "aliases": [
+    "scipy.signal.iircomb"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A notching comb filter consists of regularly-spaced band-stop filters with a narrow bandwidth (high quality factor). Each rejects a narrow frequency band and leaves the rest of the spectrum little changed."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A peaking comb filter consists of regularly-spaced band-pass filters with a narrow bandwidth (high quality factor). Each rejects components outside a narrow frequency band."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For implementation details, see . The TF implementation of the comb filter is numerically stable even at higher orders due to the use of a single repeated pole, which won't suffer from precision loss."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The fundamental frequency of the comb filter (the spacing between its peaks). This must evenly divide the sampling frequency. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "fs",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "fs"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is specified, this is in the same units as "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "fs",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "fs"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". By default, it is a normalized scalar that must satisfy  "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "0 < w0 < 1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "w0 = 1"
+                    },
+                    {
+                      "type": "text",
+                      "value": " corresponding to half of the sampling frequency."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "w0",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Quality factor. Dimensionless parameter that characterizes notch filter -3 dB bandwidth "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "bw"
+                    },
+                    {
+                      "type": "text",
+                      "value": " relative to its center frequency, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Q = w0/bw"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "Q",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The type of comb filter generated by the function. If 'notch', then the Q factor applies to the notches. If 'peak', then the Q factor applies to the peaks.  Default is 'notch'."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ftype",
+              "type": "Param",
+              "type_": "{'notch', 'peak'}"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The sampling frequency of the signal. Default is 2.0."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fs",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If False (default), the notches (nulls) of the filter are centered on frequencies [0, w0, 2*w0, ...], and the peaks are centered on the midpoints [w0/2, 3*w0/2, 5*w0/2, ...].  If True, the peaks are centered on [0, w0, 2*w0, ...] (passing zero frequency) and vice versa."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.9.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "pass_zero",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "w0",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "w0"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is less than or equal to 0 or greater than or equal to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "fs/2"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", if "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "fs",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "fs"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is not divisible by "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "w0",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "w0"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", if "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "ftype",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "ftype"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is not 'notch' or 'peak'"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "ValueError"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Numerator ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "b"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") and denominator ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") polynomials of the IIR filter."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "b, a",
+              "type": "Param",
+              "type_": "ndarray, ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Design IIR notching or peaking digital comb filter."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Design and plot notching comb filter at 20 Hz for a\nsignal sampled at 200 Hz, using quality factor Q = 30"
+      },
+      {
+        "type": "code",
+        "value": "from scipy import signal\nimport matplotlib.pyplot as plt\nimport numpy as np"
+      },
+      {
+        "type": "code",
+        "value": "fs = 200.0  # Sample frequency (Hz)\nf0 = 20.0  # Frequency to be removed from signal (Hz)\nQ = 30.0  # Quality factor\n# Design notching comb filter\nb, a = signal.iircomb(f0, Q, ftype='notch', fs=fs)"
+      },
+      {
+        "type": "code",
+        "value": "# Frequency response\nfreq, h = signal.freqz(b, a, fs=fs)\nresponse = abs(h)\n# To avoid divide by zero when graphing\nresponse[response == 0] = 1e-20\n# Plot\nfig, ax = plt.subplots(2, 1, figsize=(8, 6), sharex=True)\nax[0].plot(freq, 20*np.log10(abs(response)), color='blue')\nax[0].set_title(\"Frequency Response\")\nax[0].set_ylabel(\"Amplitude (dB)\", color='blue')\nax[0].set_xlim([0, 100])\nax[0].set_ylim([-30, 10])\nax[0].grid(True)\nax[1].plot(freq, (np.angle(h)*180/np.pi+180)%360 - 180, color='green')\nax[1].set_ylabel(\"Angle (degrees)\", color='green')\nax[1].set_xlabel(\"Frequency (Hz)\")\nax[1].set_xlim([0, 100])\nax[1].set_yticks([-90, -60, -30, 0, 30, 60, 90])\nax[1].set_ylim([-90, 90])\nax[1].grid(True)\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.signal._filter_design:iircomb-0-d9aedf40.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      },
+      {
+        "type": "text",
+        "value": "Design and plot peaking comb filter at 250 Hz for a\nsignal sampled at 1000 Hz, using quality factor Q = 30"
+      },
+      {
+        "type": "code",
+        "value": "fs = 1000.0  # Sample frequency (Hz)\nf0 = 250.0  # Frequency to be retained (Hz)\nQ = 30.0  # Quality factor\n# Design peaking filter\nb, a = signal.iircomb(f0, Q, ftype='peak', fs=fs, pass_zero=True)"
+      },
+      {
+        "type": "code",
+        "value": "# Frequency response\nfreq, h = signal.freqz(b, a, fs=fs)\nresponse = abs(h)\n# To avoid divide by zero when graphing\nresponse[response == 0] = 1e-20\n# Plot\nfig, ax = plt.subplots(2, 1, figsize=(8, 6), sharex=True)\nax[0].plot(freq, 20*np.log10(np.maximum(abs(h), 1e-5)), color='blue')\nax[0].set_title(\"Frequency Response\")\nax[0].set_ylabel(\"Amplitude (dB)\", color='blue')\nax[0].set_xlim([0, 500])\nax[0].set_ylim([-80, 10])\nax[0].grid(True)\nax[1].plot(freq, (np.angle(h)*180/np.pi+180)%360 - 180, color='green')\nax[1].set_ylabel(\"Angle (degrees)\", color='green')\nax[1].set_xlabel(\"Frequency (Hz)\")\nax[1].set_xlim([0, 500])\nax[1].set_yticks([-90, -60, -30, 0, 30, 60, 90])\nax[1].set_ylim([-90, 90])\nax[1].grid(True)\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.signal._filter_design:iircomb-1-2c886ffc.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/signal/_filter_design.py",
+  "item_line": 5167,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._filter_design:iirnotch",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "iirnotch"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._filter_design:iirpeak",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "iirpeak"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(w0, Q, ftype='notch', fs=2.0, *, pass_zero=False)"
+  },
+  "type": "DocBlob"
+}

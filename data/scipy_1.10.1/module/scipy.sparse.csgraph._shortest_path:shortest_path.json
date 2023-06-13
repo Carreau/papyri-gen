@@ -1,0 +1,522 @@
+{
+  "aliases": [
+    "scipy.sparse.csgraph.shortest_path"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 0.11.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "As currently implemented, Dijkstra's algorithm and Johnson's algorithm do not work for graphs with direction-dependent distances when directed == False.  i.e., if csgraph[i,j] and csgraph[j,i] are non-equal edges, method='D' may yield an incorrect result."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The N x N array of distances representing the input graph."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "csgraph",
+              "type": "Param",
+              "type_": "array, matrix, or sparse matrix, 2 dimensions"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Algorithm to use for shortest paths.  Options are:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "dd": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "based on the input data."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "'auto' -- (default) select the best among 'FW', 'D', 'BF', or 'J'"
+                              }
+                            ],
+                            "type": "paragraph"
+                          },
+                          "type": "DefListItem"
+                        },
+                        {
+                          "dd": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "approximately "
+                                },
+                                {
+                                  "type": "inlineCode",
+                                  "value": "O[N^3]"
+                                },
+                                {
+                                  "type": "text",
+                                  "value": ".  The input csgraph will be              converted to a dense representation."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "'FW'   -- Floyd-Warshall algorithm.  Computational cost is"
+                              }
+                            ],
+                            "type": "paragraph"
+                          },
+                          "type": "DefListItem"
+                        },
+                        {
+                          "dd": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "cost is approximately "
+                                },
+                                {
+                                  "type": "inlineCode",
+                                  "value": "O[N(N*k + N*log(N))]"
+                                },
+                                {
+                                  "type": "text",
+                                  "value": ", where              "
+                                },
+                                {
+                                  "type": "inlineCode",
+                                  "value": "k"
+                                },
+                                {
+                                  "type": "text",
+                                  "value": " is the average number of connected edges per node.              The input csgraph will be converted to a csr              representation."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "'D'    -- Dijkstra's algorithm with Fibonacci heaps.  Computational"
+                              }
+                            ],
+                            "type": "paragraph"
+                          },
+                          "type": "DefListItem"
+                        },
+                        {
+                          "dd": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "weights are negative.  If a negative cycle is encountered,              an error will be raised.  Computational cost is              approximately "
+                                },
+                                {
+                                  "type": "inlineCode",
+                                  "value": "O[N(N^2 k)]"
+                                },
+                                {
+                                  "type": "text",
+                                  "value": ", where "
+                                },
+                                {
+                                  "type": "inlineCode",
+                                  "value": "k"
+                                },
+                                {
+                                  "type": "text",
+                                  "value": " is the average              number of connected edges per node. The input csgraph will              be converted to a csr representation."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "'BF'   -- Bellman-Ford algorithm.  This algorithm can be used when"
+                              }
+                            ],
+                            "type": "paragraph"
+                          },
+                          "type": "DefListItem"
+                        },
+                        {
+                          "dd": [
+                            {
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "value": "Johnson's algorithm is designed for use when the weights              are negative.  It combines the Bellman-Ford algorithm              with Dijkstra's algorithm for faster computation."
+                                }
+                              ],
+                              "type": "paragraph"
+                            }
+                          ],
+                          "dt": {
+                            "children": [
+                              {
+                                "type": "text",
+                                "value": "'J'    -- Johnson's algorithm.  Like the Bellman-Ford algorithm,"
+                              }
+                            ],
+                            "type": "paragraph"
+                          },
+                          "type": "DefListItem"
+                        }
+                      ],
+                      "type": "DefList"
+                    }
+                  ],
+                  "type": "blockquote"
+                }
+              ],
+              "param": "method",
+              "type": "Param",
+              "type_": "string ['auto'|'FW'|'D'], optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True (default), then find the shortest path on a directed graph: only move from point i to point j along paths csgraph[i, j]. If False, then find the shortest path on an undirected graph: the algorithm can progress from point i to j along csgraph[i, j] or csgraph[j, i]"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "directed",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, return the size (N, N) predecesor matrix"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "return_predecessors",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, then find unweighted distances.  That is, rather than finding the path between each point such that the sum of weights is minimized, find the path such that the number of edges is minimized."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "unweighted",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, overwrite csgraph with the result.  This applies only if method == 'FW' and csgraph is a dense, c-ordered array with dtype=float64."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "overwrite",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If specified, only compute the paths from the points at the given indices. Incompatible with method == 'FW'."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "indices",
+              "type": "Param",
+              "type_": "array_like or int, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "if there are negative cycles in the graph"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "NegativeCycleError:"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The N x N matrix of distances between graph nodes. dist_matrix[i,j] gives the shortest distance from point i to point j along the graph."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dist_matrix",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Returned only if return_predecessors == True. The N x N matrix of predecessors, which can be used to reconstruct the shortest paths.  Row i of the predecessor matrix contains information on the shortest paths from point i: each entry predecessors[i, j] gives the index of the previous node in the path from point i to point j.  If no path exists between point i and j, then predecessors[i, j] = -9999"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "predecessors",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Perform a shortest-path graph search on a positive directed or undirected graph."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from scipy.sparse import csr_matrix\nfrom scipy.sparse.csgraph import shortest_path"
+      },
+      {
+        "type": "code",
+        "value": "graph = [\n[0, 1, 2, 0],\n[0, 0, 0, 1],\n[2, 0, 0, 3],\n[0, 0, 0, 0]\n]\ngraph = csr_matrix(graph)\nprint(graph)"
+      },
+      {
+        "type": "code",
+        "value": "dist_matrix, predecessors = shortest_path(csgraph=graph, directed=False, indices=0, return_predecessors=True)\ndist_matrix"
+      },
+      {
+        "type": "code",
+        "value": "predecessors"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": "<class 'builtin_function_or_method'>",
+  "ordered_sections": [
+    "Signature",
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "shortest_path(csgraph, method='auto', directed=True, return_predecessors=False, unweighted=False, overwrite=False, indices=None)"
+  },
+  "type": "DocBlob"
+}

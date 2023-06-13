@@ -1,0 +1,333 @@
+{
+  "aliases": [
+    "xarray.Dataset.to_stacked_array"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This method is similar to Dataset.to_array but does not broadcast the variables."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Name of the new stacked coordinate"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "new_dim",
+              "type": "Param",
+              "type_": "hashable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "List of dimensions that "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "will not"
+                        }
+                      ],
+                      "type": "strong"
+                    },
+                    {
+                      "type": "text",
+                      "value": " be stacked. Each array in the dataset must share these dimensions. For machine learning applications, these define the dimensions over which samples are drawn."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sample_dims",
+              "type": "Param",
+              "type_": "Collection of hashables"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Name of the level in the stacked coordinate which corresponds to the variables."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "variable_dim",
+              "type": "Param",
+              "type_": "hashable, default: \"variable\""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Name of the new data array."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "name",
+              "type": "Param",
+              "type_": "hashable, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "DataArray with the specified dimensions and data variables stacked together. The stacked coordinate is named "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "new_dim"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and represented by a MultiIndex object with a level containing the data variable names. The name of this level is controlled using the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "variable_dim"
+                    },
+                    {
+                      "type": "text",
+                      "value": " argument."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "stacked",
+              "type": "Param",
+              "type_": "DataArray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Combine variables of differing dimensionality into a DataArray without broadcasting."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "data = xr.Dataset(\n    data_vars={\n        \"a\": ((\"x\", \"y\"), [[0, 1, 2], [3, 4, 5]]),\n        \"b\": (\"x\", [6, 7]),\n    },\n    coords={\"y\": [\"u\", \"v\", \"w\"]},\n)"
+      },
+      {
+        "type": "code",
+        "value": "data"
+      },
+      {
+        "type": "code",
+        "value": "data.to_stacked_array(\"z\", sample_dims=[\"x\"])"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/xarray/core/dataset.py",
+  "item_line": 4673,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "xarray",
+          "path": "xarray.core.dataset:Dataset.to_array",
+          "type": "RefInfo",
+          "version": "2023.5.0"
+        },
+        "type": "Link",
+        "value": "Dataset.to_array"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "xarray",
+          "path": "xarray.core.dataset:Dataset.stack",
+          "type": "RefInfo",
+          "version": "2023.5.0"
+        },
+        "type": "Link",
+        "value": "Dataset.stack"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "xarray",
+          "path": "xarray.core.dataarray:DataArray.to_unstacked_dataset",
+          "type": "RefInfo",
+          "version": "2023.5.0"
+        },
+        "type": "Link",
+        "value": "DataArray.to_unstacked_dataset"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, new_dim: 'Hashable', sample_dims: 'Collection[Hashable]', variable_dim: 'Hashable' = 'variable', name: 'Hashable | None' = None) -> 'DataArray'"
+  },
+  "type": "DocBlob"
+}

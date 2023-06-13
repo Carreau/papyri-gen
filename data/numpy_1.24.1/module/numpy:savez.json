@@ -1,0 +1,575 @@
+{
+  "aliases": [
+    "numpy.savez"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Provide arrays as keyword arguments to store them under the corresponding name in the output file: "
+            },
+            {
+              "type": "inlineCode",
+              "value": "savez(fn, x=x, y=y)"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If arrays are specified as positional arguments, i.e., "
+            },
+            {
+              "type": "inlineCode",
+              "value": "savez(fn,\nx, y)"
+            },
+            {
+              "type": "text",
+              "value": ", their names will be "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "arr_0"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "arr_1"
+            },
+            {
+              "type": "text",
+              "value": ", etc."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "type": "inlineCode",
+              "value": ".npz"
+            },
+            {
+              "type": "text",
+              "value": " file format is a zipped archive of files named after the variables they contain.  The archive is not compressed and each file in the archive contains one variable in "
+            },
+            {
+              "type": "inlineCode",
+              "value": ".npy"
+            },
+            {
+              "type": "text",
+              "value": " format. For a description of the "
+            },
+            {
+              "type": "inlineCode",
+              "value": ".npy"
+            },
+            {
+              "type": "text",
+              "value": " format, see "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.lib.format"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When opening the saved "
+            },
+            {
+              "type": "inlineCode",
+              "value": ".npz"
+            },
+            {
+              "type": "text",
+              "value": " file with "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "load"
+            },
+            {
+              "type": "text",
+              "value": " a "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "NpzFile"
+            },
+            {
+              "type": "text",
+              "value": " object is returned. This is a dictionary-like object which can be queried for its list of arrays (with the "
+            },
+            {
+              "type": "inlineCode",
+              "value": ".files"
+            },
+            {
+              "type": "text",
+              "value": " attribute), and for the arrays themselves."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Keys passed in "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "kwds",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "kwds"
+            },
+            {
+              "type": "text",
+              "value": " are used as filenames inside the ZIP archive. Therefore, keys should be valid filenames; e.g., avoid keys that begin with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "/"
+            },
+            {
+              "type": "text",
+              "value": " or contain "
+            },
+            {
+              "type": "inlineCode",
+              "value": "."
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When naming variables with keyword arguments, it is not possible to name a variable "
+            },
+            {
+              "type": "inlineCode",
+              "value": "file"
+            },
+            {
+              "type": "text",
+              "value": ", as this would cause the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "file"
+            },
+            {
+              "type": "text",
+              "value": " argument to be defined twice in the call to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "savez"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Either the filename (string) or an open file (file-like object) where the data will be saved. If file is a string or a Path, the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": ".npz"
+                    },
+                    {
+                      "type": "text",
+                      "value": " extension will be appended to the filename if it is not already there."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "file",
+              "type": "Param",
+              "type_": "str or file"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Arrays to save to the file. Please use keyword arguments (see "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "kwds",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "kwds"
+                    },
+                    {
+                      "type": "text",
+                      "value": " below) to assign names to arrays.  Arrays specified as args will be named \"arr_0\", \"arr_1\", and so on."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "args",
+              "type": "Param",
+              "type_": "Arguments, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Arrays to save to the file. Each array will be saved to the output file with its corresponding keyword name."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "kwds",
+              "type": "Param",
+              "type_": "Keyword arguments, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "None"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Save several arrays into a single file in uncompressed "
+            },
+            {
+              "type": "inlineCode",
+              "value": ".npz"
+            },
+            {
+              "type": "text",
+              "value": " format."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from tempfile import TemporaryFile\noutfile = TemporaryFile()\nx = np.arange(10)\ny = np.sin(x)"
+      },
+      {
+        "type": "text",
+        "value": "Using `savez` with \\*args, the arrays are saved with default names."
+      },
+      {
+        "type": "code",
+        "value": "np.savez(outfile, x, y)\n_ = outfile.seek(0) # Only needed here to simulate closing & reopening file\nnpzfile = np.load(outfile)\nnpzfile.files"
+      },
+      {
+        "type": "code",
+        "value": "npzfile['arr_0']"
+      },
+      {
+        "type": "text",
+        "value": "Using `savez` with \\**kwds, the arrays are saved with the keyword names."
+      },
+      {
+        "type": "code",
+        "value": "outfile = TemporaryFile()\nnp.savez(outfile, x=x, y=y)\n_ = outfile.seek(0)\nnpzfile = np.load(outfile)\nsorted(npzfile.files)"
+      },
+      {
+        "type": "code",
+        "value": "npzfile['x']"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/numpy/lib/npyio.py",
+  "item_line": 531,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Save a single array to a binary file in NumPy format."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "save",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "save"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Save an array to a file as plain text."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "savetxt",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "savetxt"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Save several arrays into a compressed "
+            },
+            {
+              "type": "inlineCode",
+              "value": ".npz"
+            },
+            {
+              "type": "text",
+              "value": " archive"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "numpy",
+          "path": "numpy:savez_compressed",
+          "type": "RefInfo",
+          "version": "1.24.1"
+        },
+        "type": "Link",
+        "value": "savez_compressed"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(file, *args, **kwds)"
+  },
+  "type": "DocBlob"
+}

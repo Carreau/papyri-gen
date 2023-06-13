@@ -1,0 +1,623 @@
+{
+  "aliases": [
+    "dask.array.float_power"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Some inconsistencies with the Dask version may exist."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "First array elements raised to powers from second array, element-wise."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Raise each base in "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "x1",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "x1"
+            },
+            {
+              "type": "text",
+              "value": " to the positionally-corresponding power in "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "x2",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "x2"
+            },
+            {
+              "type": "text",
+              "value": ". "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "x1",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "x1"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "x2",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "x2"
+            },
+            {
+              "type": "text",
+              "value": " must be broadcastable to the same shape. This differs from the power function in that integers, float16, and float32  are promoted to floats with a minimum precision of float64 so that the result is always inexact.  The intent is that the function will return a usable result for negative powers and seldom overflow for positive powers."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Negative values raised to a non-integral value will return "
+            },
+            {
+              "type": "inlineCode",
+              "value": "nan"
+            },
+            {
+              "type": "text",
+              "value": ". To get complex results, cast the input to complex, or specify the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "dtype"
+            },
+            {
+              "type": "text",
+              "value": " to be "
+            },
+            {
+              "type": "inlineCode",
+              "value": "complex"
+            },
+            {
+              "type": "text",
+              "value": " (see the example below)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 1.12.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The bases."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x1",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The exponents. If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x1.shape != x2.shape"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", they must be broadcastable to a common shape (which becomes the shape of the output)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x2",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A location into which the result is stored. If provided, it must have a shape that the inputs broadcast to. If not provided or None, a freshly-allocated array is returned. A tuple (possible only as a keyword argument) must have length equal to the number of outputs."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "out",
+              "type": "Param",
+              "type_": "ndarray, None, or tuple of ndarray and None, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This condition is broadcast over the input. At locations where the condition is True, the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "out",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "out"
+                    },
+                    {
+                      "type": "text",
+                      "value": " array will be set to the ufunc result. Elsewhere, the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "out",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "out"
+                    },
+                    {
+                      "type": "text",
+                      "value": " array will retain its original value. Note that if an uninitialized "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "out",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "out"
+                    },
+                    {
+                      "type": "text",
+                      "value": " array is created via the default "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "out=None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", locations within it where the condition is False will remain uninitialized."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "where",
+              "type": "Param",
+              "type_": "array_like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "For other keyword-only arguments, see the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ufunc docs <ufuncs.kwargs>"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "**kwargs",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The bases in "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x1",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x1"
+                    },
+                    {
+                      "type": "text",
+                      "value": " raised to the exponents in "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x2",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x2"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". This is a scalar if both "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x1",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x1"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x2",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x2"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are scalars."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "y",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This docstring was copied from numpy.float_power."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Cube each element in a list."
+      },
+      {
+        "type": "code",
+        "value": "x1 = range(6)  # doctest: +SKIP\nx1  # doctest: +SKIP"
+      },
+      {
+        "type": "code",
+        "value": "np.float_power(x1, 3)  # doctest: +SKIP"
+      },
+      {
+        "type": "text",
+        "value": "Raise the bases to different exponents."
+      },
+      {
+        "type": "code",
+        "value": "x2 = [1.0, 2.0, 3.0, 3.0, 2.0, 1.0]  # doctest: +SKIP\nnp.float_power(x1, x2)  # doctest: +SKIP"
+      },
+      {
+        "type": "text",
+        "value": "The effect of broadcasting."
+      },
+      {
+        "type": "code",
+        "value": "x2 = np.array([[1, 2, 3, 3, 2, 1], [1, 2, 3, 3, 2, 1]])  # doctest: +SKIP\nx2  # doctest: +SKIP"
+      },
+      {
+        "type": "code",
+        "value": "np.float_power(x1, x2)  # doctest: +SKIP"
+      },
+      {
+        "type": "text",
+        "value": "Negative values raised to a non-integral value will result in ``nan``\n(and a warning will be generated)."
+      },
+      {
+        "type": "code",
+        "value": "x3 = np.array([-1, -4])  # doctest: +SKIP\nwith np.errstate(invalid='ignore'):  # doctest: +SKIP\n    p = np.float_power(x3, 1.5)"
+      },
+      {
+        "type": "code",
+        "value": "p  # doctest: +SKIP"
+      },
+      {
+        "type": "text",
+        "value": "To get complex results, give the argument ``dtype=complex``."
+      },
+      {
+        "type": "code",
+        "value": "np.float_power(x3, 1.5, dtype=complex)  # doctest: +SKIP"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dask/array/ufunc.py",
+  "item_line": null,
+  "item_type": "<class 'dask.array.ufunc.ufunc'>",
+  "ordered_sections": [
+    "Signature",
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "power function that preserves type"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "dask",
+          "path": "dask.array.random:RandomState.power",
+          "type": "RefInfo",
+          "version": "2023.1.0"
+        },
+        "type": "Link",
+        "value": "power"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "float_power(x1, x2, /, out=None, *, where=True, casting='same_kind', order='K', dtype=None, subok=True[, signature, extobj])"
+  },
+  "type": "DocBlob"
+}

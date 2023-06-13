@@ -1,0 +1,582 @@
+{
+  "aliases": [
+    "scipy.interpolate.BPoly._construct_from_derivatives"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Return the coefficients of a polynomial in the Bernstein basis defined on "
+            },
+            {
+              "type": "inlineCode",
+              "value": "[xa, xb]"
+            },
+            {
+              "type": "text",
+              "value": " and having the values and derivatives at the endpoints "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "xa",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "xa"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "xb",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "xb"
+            },
+            {
+              "type": "text",
+              "value": " as specified by "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "ya'"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "yb",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "yb"
+            },
+            {
+              "type": "text",
+              "value": ". The polynomial constructed is of the minimal possible degree, i.e., if the lengths of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "ya",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "ya"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "yb",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "yb"
+            },
+            {
+              "type": "text",
+              "value": " are "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "na"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "nb"
+            },
+            {
+              "type": "text",
+              "value": ", the degree of the polynomial is "
+            },
+            {
+              "type": "inlineCode",
+              "value": "na + nb - 1"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This uses several facts from life of Bernstein basis functions. First of all,"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "math",
+              "value": "b'_{a, n} = n (b_{a-1, n-1} - b_{a, n-1})"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If B(x) is a linear combination of the form"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "math",
+              "value": "B(x) = \\sum_{a=0}^{n} c_a b_{a, n},"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "then math: B'(x) = n \\sum_{a=0}^{n-1} (c_{a+1} - c_{a}) b_{a, n-1}. Iterating the latter one, one finds for the q-th derivative"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "math",
+              "value": "B^{q}(x) = n!/(n-q)! \\sum_{a=0}^{n-q} Q_a b_{a, n-q},"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "with"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "math",
+              "value": "Q_a = \\sum_{j=0}^{q} (-)^{j+q} comb(q, j) c_{j+a}"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This way, only "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "a=0"
+            },
+            {
+              "type": "text",
+              "value": " contributes to math: "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "B^{q}(x = xa)"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "c_q"
+            },
+            {
+              "type": "text",
+              "value": " are found one by one by iterating "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "q = 0, ..., na"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "At "
+            },
+            {
+              "type": "inlineCode",
+              "value": "x = xb"
+            },
+            {
+              "type": "text",
+              "value": " it's the same with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "a = n - q"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Left-hand end point of the interval"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "xa",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Right-hand end point of the interval"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "xb",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Derivatives at "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "xa",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "xa"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "ya[0]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the value of the function, and "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "ya[i]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "i > 0"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the value of the ``i``th derivative."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ya",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Derivatives at "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "xb",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "xb"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "yb",
+              "type": "Param",
+              "type_": "array_like"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "coefficient array of a polynomial having specified derivatives"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "array"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute the coefficients of a polynomial in the Bernstein basis given the values and derivatives at the edges."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/interpolate/_interpolate.py",
+  "item_line": 1904,
+  "item_type": "<class 'staticmethod'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,2119 @@
+{
+  "aliases": [
+    "scipy.stats.permutation_test"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For independent sample statistics, the null hypothesis is that the data are randomly sampled from the same distribution. For paired sample statistics, two null hypothesis can be tested: that the data are paired at random or that the data are assigned to samples at random."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The three types of permutation tests supported by this function are described below."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Unpaired statistics"
+                }
+              ],
+              "type": "strong"
+            },
+            {
+              "type": "text",
+              "value": " ("
+            },
+            {
+              "type": "inlineCode",
+              "value": "permutation_type='independent'"
+            },
+            {
+              "type": "text",
+              "value": "):"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The null hypothesis associated with this permutation type is that all observations are sampled from the same underlying distribution and that they have been assigned to one of the samples at random."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Suppose "
+            },
+            {
+              "type": "inlineCode",
+              "value": "data"
+            },
+            {
+              "type": "text",
+              "value": " contains two samples; e.g. "
+            },
+            {
+              "type": "inlineCode",
+              "value": "a, b = data"
+            },
+            {
+              "type": "text",
+              "value": ". When "
+            },
+            {
+              "type": "inlineCode",
+              "value": "1 < n_resamples < binom(n, k)"
+            },
+            {
+              "type": "text",
+              "value": ", where"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "k"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the number of observations in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": ","
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "n"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the total number of observations in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "b"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", and"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "binom(n, k)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the binomial coefficient ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "n"
+                    },
+                    {
+                      "type": "text",
+                      "value": " choose "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "k"
+                    },
+                    {
+                      "type": "text",
+                      "value": "),"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "the data are pooled (concatenated), randomly assigned to either the first or second sample, and the statistic is calculated. This process is performed repeatedly, "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "permutation"
+            },
+            {
+              "type": "text",
+              "value": " times, generating a distribution of the statistic under the null hypothesis. The statistic of the original data is compared to this distribution to determine the p-value."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When "
+            },
+            {
+              "type": "inlineCode",
+              "value": "n_resamples >= binom(n, k)"
+            },
+            {
+              "type": "text",
+              "value": ", an exact test is performed: the data are "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "partitioned"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " between the samples in each distinct way exactly once, and the exact null distribution is formed. Note that for a given partitioning of the data between the samples, only one ordering/permutation of the data "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "within"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " each sample is considered. For statistics that do not depend on the order of the data within samples, this dramatically reduces computational cost without affecting the shape of the null distribution (because the frequency/count of each value is affected by the same factor)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For "
+            },
+            {
+              "type": "inlineCode",
+              "value": "a = [a1, a2, a3, a4]"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "b = [b1, b2, b3]"
+            },
+            {
+              "type": "text",
+              "value": ", an example of this permutation type is "
+            },
+            {
+              "type": "inlineCode",
+              "value": "x = [b3, a1, a2, b2]"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "y = [a4, b1, a3]"
+            },
+            {
+              "type": "text",
+              "value": ". Because only one ordering/permutation of the data "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "within"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " each sample is considered in an exact test, a resampling like "
+            },
+            {
+              "type": "inlineCode",
+              "value": "x = [b3, a1, b2, a2]"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "y = [a4, a3, b1]"
+            },
+            {
+              "type": "text",
+              "value": " would "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "not"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " be considered distinct from the example above."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "inlineCode",
+              "value": "permutation_type='independent'"
+            },
+            {
+              "type": "text",
+              "value": " does not support one-sample statistics, but it can be applied to statistics with more than two samples. In this case, if "
+            },
+            {
+              "type": "inlineCode",
+              "value": "n"
+            },
+            {
+              "type": "text",
+              "value": " is an array of the number of observations within each sample, the number of distinct partitions is      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "np.product([binom(sum(n[i:]), sum(n[i+1:])) for i in range(len(n)-1)])"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Paired statistics, permute pairings"
+                }
+              ],
+              "type": "strong"
+            },
+            {
+              "type": "text",
+              "value": " ("
+            },
+            {
+              "type": "inlineCode",
+              "value": "permutation_type='pairings'"
+            },
+            {
+              "type": "text",
+              "value": "):"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The null hypothesis associated with this permutation type is that observations within each sample are drawn from the same underlying distribution and that pairings with elements of other samples are assigned at random."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Suppose "
+            },
+            {
+              "type": "inlineCode",
+              "value": "data"
+            },
+            {
+              "type": "text",
+              "value": " contains only one sample; e.g. "
+            },
+            {
+              "type": "inlineCode",
+              "value": "a, = data"
+            },
+            {
+              "type": "text",
+              "value": ", and we wish to consider all possible pairings of elements of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " with elements of a second sample, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "b"
+            },
+            {
+              "type": "text",
+              "value": ". Let "
+            },
+            {
+              "type": "inlineCode",
+              "value": "n"
+            },
+            {
+              "type": "text",
+              "value": " be the number of observations in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": ", which must also equal the number of observations in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "b"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When "
+            },
+            {
+              "type": "inlineCode",
+              "value": "1 < n_resamples < factorial(n)"
+            },
+            {
+              "type": "text",
+              "value": ", the elements of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " are randomly permuted. The user-supplied statistic accepts one data argument, say "
+            },
+            {
+              "type": "inlineCode",
+              "value": "a_perm"
+            },
+            {
+              "type": "text",
+              "value": ", and calculates the statistic considering "
+            },
+            {
+              "type": "inlineCode",
+              "value": "a_perm"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "b"
+            },
+            {
+              "type": "text",
+              "value": ". This process is performed repeatedly, "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "permutation"
+            },
+            {
+              "type": "text",
+              "value": " times, generating a distribution of the statistic under the null hypothesis. The statistic of the original data is compared to this distribution to determine the p-value."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When "
+            },
+            {
+              "type": "inlineCode",
+              "value": "n_resamples >= factorial(n)"
+            },
+            {
+              "type": "text",
+              "value": ", an exact test is performed: "
+            },
+            {
+              "type": "inlineCode",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " is permuted in each distinct way exactly once. Therefore, the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "statistic",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "statistic"
+            },
+            {
+              "type": "text",
+              "value": " is computed for each unique pairing of samples between "
+            },
+            {
+              "type": "inlineCode",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "b"
+            },
+            {
+              "type": "text",
+              "value": " exactly once."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For "
+            },
+            {
+              "type": "inlineCode",
+              "value": "a = [a1, a2, a3]"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "b = [b1, b2, b3]"
+            },
+            {
+              "type": "text",
+              "value": ", an example of this permutation type is "
+            },
+            {
+              "type": "inlineCode",
+              "value": "a_perm = [a3, a1, a2]"
+            },
+            {
+              "type": "text",
+              "value": " while "
+            },
+            {
+              "type": "inlineCode",
+              "value": "b"
+            },
+            {
+              "type": "text",
+              "value": " is left in its original order."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "inlineCode",
+              "value": "permutation_type='pairings'"
+            },
+            {
+              "type": "text",
+              "value": " supports "
+            },
+            {
+              "type": "inlineCode",
+              "value": "data"
+            },
+            {
+              "type": "text",
+              "value": " containing any number of samples, each of which must contain the same number of observations. All samples provided in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "data"
+            },
+            {
+              "type": "text",
+              "value": " are permuted "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "independently"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": ". Therefore, if "
+            },
+            {
+              "type": "inlineCode",
+              "value": "m"
+            },
+            {
+              "type": "text",
+              "value": " is the number of samples and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "n"
+            },
+            {
+              "type": "text",
+              "value": " is the number of observations within each sample, then the number of permutations in an exact test is      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "factorial(n)**m"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Note that if a two-sample statistic, for example, does not inherently depend on the order in which observations are provided - only on the "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "pairings"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " of observations - then only one of the two samples should be provided in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "data"
+            },
+            {
+              "type": "text",
+              "value": ". This dramatically reduces computational cost without affecting the shape of the null distribution (because the frequency/count of each value is affected by the same factor)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Paired statistics, permute samples"
+                }
+              ],
+              "type": "strong"
+            },
+            {
+              "type": "text",
+              "value": " ("
+            },
+            {
+              "type": "inlineCode",
+              "value": "permutation_type='samples'"
+            },
+            {
+              "type": "text",
+              "value": "):"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The null hypothesis associated with this permutation type is that observations within each pair are drawn from the same underlying distribution and that the sample to which they are assigned is random."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Suppose "
+            },
+            {
+              "type": "inlineCode",
+              "value": "data"
+            },
+            {
+              "type": "text",
+              "value": " contains two samples; e.g. "
+            },
+            {
+              "type": "inlineCode",
+              "value": "a, b = data"
+            },
+            {
+              "type": "text",
+              "value": ". Let "
+            },
+            {
+              "type": "inlineCode",
+              "value": "n"
+            },
+            {
+              "type": "text",
+              "value": " be the number of observations in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": ", which must also equal the number of observations in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "b"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When "
+            },
+            {
+              "type": "inlineCode",
+              "value": "1 < n_resamples < 2**n"
+            },
+            {
+              "type": "text",
+              "value": ", the elements of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " are "
+            },
+            {
+              "type": "inlineCode",
+              "value": "b"
+            },
+            {
+              "type": "text",
+              "value": " are randomly swapped between samples (maintaining their pairings) and the statistic is calculated. This process is performed repeatedly, "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "permutation"
+            },
+            {
+              "type": "text",
+              "value": " times,  generating a distribution of the statistic under the null hypothesis. The statistic of the original data is compared to this distribution to determine the p-value."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When "
+            },
+            {
+              "type": "inlineCode",
+              "value": "n_resamples >= 2**n"
+            },
+            {
+              "type": "text",
+              "value": ", an exact test is performed: the observations are assigned to the two samples in each distinct way (while maintaining pairings) exactly once."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For "
+            },
+            {
+              "type": "inlineCode",
+              "value": "a = [a1, a2, a3]"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "b = [b1, b2, b3]"
+            },
+            {
+              "type": "text",
+              "value": ", an example of this permutation type is "
+            },
+            {
+              "type": "inlineCode",
+              "value": "x = [b1, a2, b3]"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "y = [a1, b2, a3]"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "inlineCode",
+              "value": "permutation_type='samples'"
+            },
+            {
+              "type": "text",
+              "value": " supports "
+            },
+            {
+              "type": "inlineCode",
+              "value": "data"
+            },
+            {
+              "type": "text",
+              "value": " containing any number of samples, each of which must contain the same number of observations. If "
+            },
+            {
+              "type": "inlineCode",
+              "value": "data"
+            },
+            {
+              "type": "text",
+              "value": " contains more than one sample, paired observations within "
+            },
+            {
+              "type": "inlineCode",
+              "value": "data"
+            },
+            {
+              "type": "text",
+              "value": " are exchanged between samples "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "independently"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": ". Therefore, if "
+            },
+            {
+              "type": "inlineCode",
+              "value": "m"
+            },
+            {
+              "type": "text",
+              "value": " is the number of samples and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "n"
+            },
+            {
+              "type": "text",
+              "value": " is the number of observations within each sample, then the number of permutations in an exact test is      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "factorial(m)**n"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Several paired-sample statistical tests, such as the Wilcoxon signed rank test and paired-sample t-test, can be performed considering only the "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "difference"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " between two paired elements. Accordingly, if "
+            },
+            {
+              "type": "inlineCode",
+              "value": "data"
+            },
+            {
+              "type": "text",
+              "value": " contains only one sample, then the null distribution is formed by independently changing the "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "sign"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " of each observation."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "warning "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "The p-value is calculated by counting the elements of the null distribution that are as extreme or more extreme than the observed value of the statistic. Due to the use of finite precision arithmetic, some statistic functions return numerically distinct values when the theoretical values would be exactly equal. In some cases, this could lead to a large error in the calculated p-value. "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "permutation_test"
+                },
+                {
+                  "type": "text",
+                  "value": " guards against this by considering elements in the null distribution that are \"close\" (within a factor of "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "1+1e-14"
+                },
+                {
+                  "type": "text",
+                  "value": ") to the observed value of the test statistic as equal to the observed value of the test statistic. However, the user is advised to inspect the null distribution to assess whether this method of comparison is appropriate, and if not, calculate the p-value manually. See example below."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Contains the samples, each of which is an array of observations. Dimensions of sample arrays must be compatible for broadcasting except along "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "axis",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "axis"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "data",
+              "type": "Param",
+              "type_": "iterable of array-like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Statistic for which the p-value of the hypothesis test is to be calculated. "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "statistic",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "statistic"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must be a callable that accepts samples as separate arguments (e.g. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "statistic(*data)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") and returns the resulting statistic. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "vectorized",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "vectorized"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is set "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "statistic",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "statistic"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must also accept a keyword argument "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "axis",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "axis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and be vectorized to compute the statistic along the provided "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "axis",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "axis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " of the sample arrays."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "statistic",
+              "type": "Param",
+              "type_": "callable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The type of permutations to be performed, in accordance with the null hypothesis. The first two permutation types are for paired sample statistics, in which all samples contain the same number of observations and observations with corresponding indices along "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "axis",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "axis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are considered to be paired; the third is for independent sample statistics."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "param": "permutation_type",
+              "type": "Param",
+              "type_": "{'independent', 'samples', 'pairings'}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "vectorized",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "vectorized"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is set "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "statistic",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "statistic"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will not be passed keyword argument "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "axis",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "axis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and is expected to calculate the statistic only for 1D samples. If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "statistic",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "statistic"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will be passed keyword argument "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "axis",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "axis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and is expected to calculate the statistic along "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "axis",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "axis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " when passed an ND sample array. If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (default), "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "vectorized",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "vectorized"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will be set "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": " if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "axis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a parameter of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "statistic",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "statistic"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Use of a vectorized statistic typically reduces computation time."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "vectorized",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of random permutations (resamples) used to approximate the null distribution. If greater than or equal to the number of distinct permutations, the exact null distribution will be computed. Note that the number of distinct permutations grows very rapidly with the sizes of samples, so exact tests are feasible only for very small data sets."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "n_resamples",
+              "type": "Param",
+              "type_": "int or np.inf, default: 9999"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The number of permutations to process in each call to "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "statistic",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "statistic"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Memory usage is O("
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "batch'*''n'"
+                    },
+                    {
+                      "type": "text",
+                      "value": "), where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "n"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the total size of all samples, regardless of the value of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "vectorized",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "vectorized"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Default is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", in which case "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "batch"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the number of permutations."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "batch",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The alternative hypothesis for which the p-value is calculated. For each alternative, the p-value is defined for exact tests as follows."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "param": "alternative",
+              "type": "Param",
+              "type_": "{'two-sided', 'less', 'greater'}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The axis of the (broadcasted) samples over which to calculate the statistic. If samples have a different number of dimensions, singleton dimensions are prepended to samples with fewer dimensions before "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "axis",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "axis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is considered."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "axis",
+              "type": "Param",
+              "type_": "int, default: 0"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "anchor": null,
+                          "exists": true,
+                          "kind": "module",
+                          "reference": {
+                            "kind": "api",
+                            "module": "numpy.random.mtrand",
+                            "path": "numpy.random.mtrand:RandomState",
+                            "type": "RefInfo",
+                            "version": "*"
+                          },
+                          "type": "Link",
+                          "value": "numpy.random.RandomState"
+                        },
+                        {
+                          "type": "text",
+                          "value": "}, optional"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "type": "blockquote"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Pseudorandom number generator state used to generate permutations."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "random_state",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "random_state"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (default), the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "numpy.random.mtrand",
+                        "path": "numpy.random.mtrand:RandomState",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "numpy.random.RandomState"
+                    },
+                    {
+                      "type": "text",
+                      "value": " singleton is used. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "random_state",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "random_state"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is an int, a new "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "RandomState"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instance is used, seeded with "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "random_state",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "random_state"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "random_state",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "random_state"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is already a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Generator"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "RandomState"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instance then that instance is used."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "random_state",
+              "type": "Param",
+              "type_": "{None, int, `numpy.random.Generator`,"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The observed test statistic of the data."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "statistic",
+              "type": "Param",
+              "type_": "float or ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The p-value for the given alternative."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "pvalue",
+              "type": "Param",
+              "type_": "float or ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The values of the test statistic generated under the null hypothesis."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "null_distribution",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Performs a permutation test of a given statistic on provided data."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Suppose we wish to test whether two samples are drawn from the same\ndistribution. Assume that the underlying distributions are unknown to us,\nand that before observing the data, we hypothesized that the mean of the\nfirst sample would be less than that of the second sample. We decide that\nwe will use the difference between the sample means as a test statistic,\nand we will consider a p-value of 0.05 to be statistically significant."
+      },
+      {
+        "type": "text",
+        "value": "For efficiency, we write the function defining the test statistic in a\nvectorized fashion: the samples ``x`` and ``y`` can be ND arrays, and the\nstatistic will be calculated for each axis-slice along `axis`."
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\ndef statistic(x, y, axis):\n    return np.mean(x, axis=axis) - np.mean(y, axis=axis)"
+      },
+      {
+        "type": "text",
+        "value": "After collecting our data, we calculate the observed value of the test\nstatistic."
+      },
+      {
+        "type": "code",
+        "value": "from scipy.stats import norm\nrng = np.random.default_rng()\nx = norm.rvs(size=5, random_state=rng)\ny = norm.rvs(size=6, loc = 3, random_state=rng)\nstatistic(x, y, 0)"
+      },
+      {
+        "type": "text",
+        "value": "Indeed, the test statistic is negative, suggesting that the true mean of\nthe distribution underlying ``x`` is less than that of the distribution\nunderlying ``y``. To determine the probability of this occuring by chance\nif the two samples were drawn from the same distribution, we perform\na permutation test."
+      },
+      {
+        "type": "code",
+        "value": "from scipy.stats import permutation_test\n# because our statistic is vectorized, we pass `vectorized=True`\n# `n_resamples=np.inf` indicates that an exact test is to be performed\nres = permutation_test((x, y), statistic, vectorized=True,\n                       n_resamples=np.inf, alternative='less')\nprint(res.statistic)"
+      },
+      {
+        "type": "code",
+        "value": "print(res.pvalue)"
+      },
+      {
+        "type": "text",
+        "value": "The probability of obtaining a test statistic less than or equal to the\nobserved value under the null hypothesis is 0.4329%. This is less than our\nchosen threshold of 5%, so we consider this to be significant evidence\nagainst the null hypothesis in favor of the alternative."
+      },
+      {
+        "type": "text",
+        "value": "Because the size of the samples above was small, `permutation_test` could\nperform an exact test. For larger samples, we resort to a randomized\npermutation test."
+      },
+      {
+        "type": "code",
+        "value": "x = norm.rvs(size=100, random_state=rng)\ny = norm.rvs(size=120, loc=0.3, random_state=rng)\nres = permutation_test((x, y), statistic, n_resamples=100000,\n                       vectorized=True, alternative='less',\n                       random_state=rng)\nprint(res.statistic)"
+      },
+      {
+        "type": "code",
+        "value": "print(res.pvalue)"
+      },
+      {
+        "type": "text",
+        "value": "The approximate probability of obtaining a test statistic less than or\nequal to the observed value under the null hypothesis is 0.0225%. This is\nagain less than our chosen threshold of 5%, so again we have significant\nevidence to reject the null hypothesis in favor of the alternative."
+      },
+      {
+        "type": "text",
+        "value": "For large samples and number of permutations, the result is comparable to\nthat of the corresponding asymptotic test, the independent sample t-test."
+      },
+      {
+        "type": "code",
+        "value": "from scipy.stats import ttest_ind\nres_asymptotic = ttest_ind(x, y, alternative='less')\nprint(res_asymptotic.pvalue)"
+      },
+      {
+        "type": "text",
+        "value": "The permutation distribution of the test statistic is provided for\nfurther investigation."
+      },
+      {
+        "type": "code",
+        "value": "import matplotlib.pyplot as plt\nplt.hist(res.null_distribution, bins=50)\nplt.title(\"Permutation distribution of test statistic\")\nplt.xlabel(\"Value of Statistic\")\nplt.ylabel(\"Frequency\")\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.stats._resampling:permutation_test-0-604c252c.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      },
+      {
+        "type": "text",
+        "value": "Inspection of the null distribution is essential if the statistic suffers\nfrom inaccuracy due to limited machine precision. Consider the following\ncase:"
+      },
+      {
+        "type": "code",
+        "value": "from scipy.stats import pearsonr\nx = [1, 2, 4, 3]\ny = [2, 4, 6, 8]\ndef statistic(x, y):\n    return pearsonr(x, y).statistic\nres = permutation_test((x, y), statistic, vectorized=False,\n                       permutation_type='pairings',\n                       alternative='greater')\nr, pvalue, null = res.statistic, res.pvalue, res.null_distribution"
+      },
+      {
+        "type": "text",
+        "value": "In this case, some elements of the null distribution differ from the\nobserved value of the correlation coefficient ``r`` due to numerical noise.\nWe manually inspect the elements of the null distribution that are nearly\nthe same as the observed value of the test statistic."
+      },
+      {
+        "type": "code",
+        "value": "r"
+      },
+      {
+        "type": "code",
+        "value": "unique = np.unique(null)\nunique"
+      },
+      {
+        "type": "code",
+        "value": "unique[np.isclose(r, unique)].tolist()"
+      },
+      {
+        "type": "text",
+        "value": "If `permutation_test` were to perform the comparison naively, the\nelements of the null distribution with value ``0.7999999999999999`` would\nnot be considered as extreme or more extreme as the observed value of the\nstatistic, so the calculated p-value would be too small."
+      },
+      {
+        "type": "code",
+        "value": "incorrect_pvalue = np.count_nonzero(null >= r) / len(null)\nincorrect_pvalue"
+      },
+      {
+        "type": "text",
+        "value": "Instead, `permutation_test` treats elements of the null distribution that\nare within ``max(1e-14, abs(r)*1e-14)`` of the observed value of the\nstatistic ``r`` to be equal to ``r``."
+      },
+      {
+        "type": "code",
+        "value": "correct_pvalue = np.count_nonzero(null >= r - 1e-14) / len(null)\ncorrect_pvalue"
+      },
+      {
+        "type": "code",
+        "value": "res.pvalue == correct_pvalue"
+      },
+      {
+        "type": "text",
+        "value": "This method of comparison is expected to be accurate in most practical\nsituations, but the user is advised to assess this by inspecting the\nelements of the null distribution that are close to the observed value\nof the statistic. Also, consider the use of statistics that can be\ncalculated using exact arithmetic (e.g. integer statistics)."
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_resampling.py",
+  "item_line": 1133,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(data, statistic, *, permutation_type='independent', vectorized=None, n_resamples=9999, batch=None, alternative='two-sided', axis=0, random_state=None)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,258 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": "How IPython works",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When you type "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ipython"
+            },
+            {
+              "type": "text",
+              "value": ", you get the original IPython interface, running in the terminal. It does something like this      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "while True:\n    code = input(\">>> \")\n    exec(code)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Of course, it's much more complex, because it has to deal with multi-line code, tab completion using "
+            },
+            {
+              "type": "inlineCode",
+              "value": "readline"
+            },
+            {
+              "type": "text",
+              "value": ", magic commands, and so on. But the model is like that: prompt the user for some code, and when they've entered it, exec it in the same process. This model is often called a REPL, or Read-Eval-Print-Loop."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Terminal IPython",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "All the other interfaces\u2014the Notebook, the Qt console, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ipython console"
+            },
+            {
+              "type": "text",
+              "value": " in the terminal, and third party interfaces\u2014use the IPython Kernel. This is a separate process which is responsible for running user code, and things like computing possible completions. Frontends communicate with it using JSON messages sent over "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "ZeroMQ"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "http://zeromq.org/"
+            },
+            {
+              "type": "text",
+              "value": " sockets; the protocol they use is described in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "jupyterclient:messaging"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The core execution machinery for the kernel is shared with terminal IPython:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "figs/ipy_kernel_and_terminal.png",
+          "children": [],
+          "name": "image",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A kernel process can be connected to more than one frontend simultaneously. In this case, the different frontends will have access to the same variables."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "mystComment",
+          "value": ".. TODO: Diagram illustrating this?"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This design was intended to allow easy development of different frontends based on the same kernel, but it also made it possible to support new languages in the same frontends, by developing kernels in those languages, and we are refining IPython to make that more practical."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Today, there are two ways to develop a kernel for another language. Wrapper kernels reuse the communications machinery from IPython, and implement only the core execution part. Native kernels implement execution and communications in the target language:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "figs/other_kernels.png",
+          "children": [],
+          "name": "image",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Wrapper kernels are easier to write quickly for languages that have good Python wrappers, like "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "octave_kernel"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://pypi.python.org/pypi/octave_kernel"
+            },
+            {
+              "type": "text",
+              "value": ", or languages where it's impractical to implement the communications machinery, like "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "bash_kernel"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://pypi.python.org/pypi/bash_kernel"
+            },
+            {
+              "type": "text",
+              "value": ". Native kernels are likely to be better maintained by the community using them, like "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "IJulia"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/JuliaLang/IJulia.jl"
+            },
+            {
+              "type": "text",
+              "value": " or "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "IHaskell"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/gibiansky/IHaskell"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "",
+          "children": [],
+          "name": "seealso",
+          "options": {},
+          "type": "mystDirective",
+          "value": ":ref:`jupyterclient:kernels`\n\n:doc:`wrapperkernels`"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "The IPython Kernel",
+      "type": "Section"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

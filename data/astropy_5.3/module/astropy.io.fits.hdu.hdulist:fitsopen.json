@@ -1,0 +1,1065 @@
+{
+  "aliases": [
+    "astropy.io.fits.open"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "File to be opened."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "name",
+              "type": "Param",
+              "type_": "str, file-like or `pathlib.Path`"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Open mode, 'readonly', 'update', 'append', 'denywrite', or 'ostream'. Default is 'readonly'."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "name"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a file object that is already opened, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "mode"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must match the mode the file was opened with, readonly (rb), update (rb+), append (ab+), ostream (w), denywrite (rb))."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mode",
+              "type": "Param",
+              "type_": "str, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Is memory mapping to be used? This value is obtained from the configuration item "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "astropy.io.fits.Conf.use_memmap"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Default is "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "memmap",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If the file was opened in update or append mode, this ensures that a backup of the original file is saved before any changes are flushed. The backup has the same name as the original file with \".bak\" appended. If \"file.bak\" already exists then \"file.bak.1\" is used, and so on. Default is "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "save_backup",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If the file name is a URL, "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "astropy",
+                        "path": "astropy.utils.data:download_file",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "download_file"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is used to open the file.  This specifies whether or not to save the file locally in Astropy's download cache. Default is "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "cache",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "To avoid reading all the HDUs and headers in a FITS file immediately upon opening.  This is an optimization especially useful for large files, as FITS has no way of determining the number and offsets of all the HDUs in a file without scanning through the file and reading all the headers. Default is "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "To disable lazy loading and read all HDUs immediately (the old behavior) use "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "lazy_load_hdus=False"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  This can lead to fewer surprises--for example with lazy loading enabled, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "len(hdul)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " can be slow, as it means the entire FITS file needs to be read in order to determine the number of HDUs.  "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "lazy_load_hdus=False"
+                    },
+                    {
+                      "type": "text",
+                      "value": " ensures that all HDUs have already been loaded after the file has been opened."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.3"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "lazy_load_hdus",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Interpret signed integer data where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "BZERO"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the central value and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "BSCALE == 1"
+                    },
+                    {
+                      "type": "text",
+                      "value": " as unsigned integer data.  For example, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "int16"
+                    },
+                    {
+                      "type": "text",
+                      "value": " data with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "BZERO = 32768"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "BSCALE = 1"
+                    },
+                    {
+                      "type": "text",
+                      "value": " would be treated as "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "uint16"
+                    },
+                    {
+                      "type": "text",
+                      "value": " data. Default is "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": " so that the pseudo-unsigned integer convention is assumed."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "uint",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Do not raise an exception when opening a file that is missing an "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "END"
+                    },
+                    {
+                      "type": "text",
+                      "value": " card in the last header. Default is "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ignore_missing_end",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Do not raise an exception when the SIMPLE keyword is missing. Note that io.fits will raise a warning if a SIMPLE card is present but written in a way that does not follow the FITS Standard. Default is "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 4.2"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "ignore_missing_simple",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", verifies that both "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "DATASUM"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "CHECKSUM"
+                    },
+                    {
+                      "type": "text",
+                      "value": " card values (when present in the HDU header) match the header and data of all HDU's in the file.  Updates to a file that already has a checksum will preserve and update the existing checksums unless this argument is given a value of 'remove', in which case the CHECKSUM and DATASUM values are not checked, and are removed when saving changes to the file. Default is "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "checksum",
+              "type": "Param",
+              "type_": "bool, str, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", treats compressed image HDU's like normal binary table HDU's.  Default is "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "disable_image_compression",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", image data is not scaled using BSCALE/BZERO values when read.  Default is "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "do_not_scale_image_data",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to return bytes for string columns, otherwise unicode strings are returned, but this does not respect memory mapping and loads the whole column in memory when accessed. Default is "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "character_as_bytes",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the BLANK keyword is ignored if present. Default is "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ignore_blank",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", when saving changes to a file that contained scaled image data, restore the data to the original type and reapply the original BSCALE/BZERO values. This could lead to loss of accuracy if scaling back to integer values after performing floating point operations on the data. Default is "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "scale_back",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Output verification option.  Must be one of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "\"fix\""
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "\"silentfix\""
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "\"ignore\""
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "\"warn\""
+                    },
+                    {
+                      "type": "text",
+                      "value": ", or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "\"exception\""
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  May also be any combination of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "\"fix\""
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "\"silentfix\""
+                    },
+                    {
+                      "type": "text",
+                      "value": " with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "\"+ignore\""
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "+warn"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "+exception\"\n(e.g. ``\"fix+warn\""
+                    },
+                    {
+                      "type": "text",
+                      "value": ").  See "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "astropy:verify"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for more info."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "output_verify",
+              "type": "Param",
+              "type_": "str"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Use "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "fsspec",
+                        "path": "fsspec.core:open",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "fsspec.open"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to open the file? Defaults to "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": " unless "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "name"
+                    },
+                    {
+                      "type": "text",
+                      "value": " starts with the Amazon S3 storage prefix "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "s3://"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or the Google Cloud Storage prefix "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "gs://"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  Can also be used for paths with other prefixes (e.g., "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "http://"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") but in this case you must explicitly pass "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "use_fsspec=True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Use of this feature requires the optional "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "fsspec"
+                    },
+                    {
+                      "type": "text",
+                      "value": " package. A "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ModuleNotFoundError"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will be raised if the dependency is missing."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 5.2"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "use_fsspec",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Keyword arguments passed on to "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "fsspec",
+                        "path": "fsspec.core:open",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "fsspec.open"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". This can be used to configure cloud storage credentials and caching behavior. For example, pass "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "fsspec_kwargs={\"anon\": True}"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to enable anonymous access to Amazon S3 open data buckets. See "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "fsspec"
+                    },
+                    {
+                      "type": "text",
+                      "value": "'s documentation for available parameters."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 5.2"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "fsspec_kwargs",
+              "type": "Param",
+              "type_": "dict, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "HDUList"
+                    },
+                    {
+                      "type": "text",
+                      "value": " containing all of the header data units in the file."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "hdulist",
+              "type": "Param",
+              "type_": "`HDUList`"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Factory function to open a FITS file and return an "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "HDUList"
+            },
+            {
+              "type": "text",
+              "value": " object."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/astropy/io/fits/hdu/hdulist.py",
+  "item_line": 46,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(name, mode='readonly', memmap=None, save_backup=False, cache=True, lazy_load_hdus=None, ignore_missing_simple=False, *, use_fsspec=None, fsspec_kwargs=None, **kwargs)"
+  },
+  "type": "DocBlob"
+}

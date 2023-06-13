@@ -1,0 +1,636 @@
+{
+  "aliases": [
+    "dask.array.histogram"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Input data; the histogram is computed over the flattened array. If the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "weights"
+                    },
+                    {
+                      "type": "text",
+                      "value": " argument is used, the chunks of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are accessed to check chunking compatibility between "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "weights"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "weights"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "dask.dataframe.Series"
+                    },
+                    {
+                      "type": "text",
+                      "value": " object can be passed as input data."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "a",
+              "type": "Param",
+              "type_": "dask.array.Array"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Either an iterable specifying the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "bins"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or the number of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "bins"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "range"
+                    },
+                    {
+                      "type": "text",
+                      "value": " argument is required as computing "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "min"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "max"
+                    },
+                    {
+                      "type": "text",
+                      "value": " over blocked arrays is an expensive operation that must be performed explicitly. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "bins",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "bins"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is an int, it defines the number of equal-width bins in the given range (10, by default). If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "bins",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "bins"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a sequence, it defines a monotonically increasing array of bin edges, including the rightmost edge, allowing for non-uniform bin widths."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "bins",
+              "type": "Param",
+              "type_": "int or sequence of scalars, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The lower and upper range of the bins.  If not provided, range is simply "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(a.min(), a.max())"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  Values outside the range are ignored. The first element of the range must be less than or equal to the second. "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "range",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "range"
+                    },
+                    {
+                      "type": "text",
+                      "value": " affects the automatic bin computation as well. While bin width is computed to be optimal based on the actual data within "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "range",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "range"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the bin count will fill the entire range including portions containing no data."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "range",
+              "type": "Param",
+              "type_": "(float, float), optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This is equivalent to the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "density"
+                    },
+                    {
+                      "type": "text",
+                      "value": " argument, but produces incorrect results for unequal bin widths. It should not be used."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "normed",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A dask.array.Array of weights, of the same block structure as "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  Each value in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": " only contributes its associated weight towards the bin count (instead of 1). If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "density"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is True, the weights are normalized, so that the integral of the density over the range remains 1."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "weights",
+              "type": "Param",
+              "type_": "dask.array.Array, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the result will contain the number of samples in each bin. If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the result is the value of the probability "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "density"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " function at the bin, normalized such that the "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "integral"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " over the range is 1. Note that the sum of the histogram values will not be equal to 1 unless bins of unity width are chosen; it is not a probability "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "mass"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " function. Overrides the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "normed"
+                    },
+                    {
+                      "type": "text",
+                      "value": " keyword if given. If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "density"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is True, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "bins"
+                    },
+                    {
+                      "type": "text",
+                      "value": " cannot be a single-number delayed value. It must be a concrete number, or a (possibly-delayed) array/sequence of the bin edges."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "density",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The values of the histogram. See "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "density",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "density"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "weights",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "weights"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for a description of the possible semantics."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "hist",
+              "type": "Param",
+              "type_": "dask Array"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Return the bin edges "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(length(hist)+1)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "bin_edges",
+              "type": "Param",
+              "type_": "dask Array of dtype float"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Blocked variant of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.histogram"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Using number of bins and range:"
+      },
+      {
+        "type": "code",
+        "value": "import dask.array as da\nimport numpy as np\nx = da.from_array(np.arange(10000), chunks=10)\nh, bins = da.histogram(x, bins=10, range=[0, 10000])\nbins"
+      },
+      {
+        "type": "code",
+        "value": "h.compute()"
+      },
+      {
+        "type": "text",
+        "value": "Explicitly specifying the bins:"
+      },
+      {
+        "type": "code",
+        "value": "h, bins = da.histogram(x, bins=np.array([0, 5000, 10000]))\nbins"
+      },
+      {
+        "type": "code",
+        "value": "h.compute()"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dask/array/routines.py",
+  "item_line": 867,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(a, bins=None, range=None, normed=False, weights=None, density=None)"
+  },
+  "type": "DocBlob"
+}

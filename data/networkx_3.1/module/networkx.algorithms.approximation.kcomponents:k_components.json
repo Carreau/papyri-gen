@@ -1,0 +1,454 @@
+{
+  "aliases": [
+    "networkx.approximation.k_components"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "k"
+            },
+            {
+              "type": "text",
+              "value": "-component is a maximal subgraph of a graph G that has, at least, node connectivity "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "k"
+            },
+            {
+              "type": "text",
+              "value": ": we need to remove at least "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "k"
+            },
+            {
+              "type": "text",
+              "value": " nodes to break it into more components. "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "k"
+            },
+            {
+              "type": "text",
+              "value": "-components have an inherent hierarchical structure because they are nested in terms of connectivity: a connected graph can contain several 2-components, each of which can contain one or more 3-components, and so forth."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This implementation is based on the fast heuristics to approximate the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "k"
+            },
+            {
+              "type": "text",
+              "value": "-component structure of a graph . Which, in turn, it is based on a fast approximation algorithm for finding good lower bounds of the number of node independent paths between two nodes ."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The logic of the approximation algorithm for computing the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "k"
+            },
+            {
+              "type": "text",
+              "value": "-component structure  is based on repeatedly applying simple and fast algorithms for "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "k"
+            },
+            {
+              "type": "text",
+              "value": "-cores and biconnected components in order to narrow down the number of pairs of nodes over which we have to compute White and Newman's approximation algorithm for finding node independent paths . More formally, this algorithm is based on Whitney's theorem, which states an inclusion relation among node connectivity, edge connectivity, and minimum degree for any graph G. This theorem implies that every "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "k"
+            },
+            {
+              "type": "text",
+              "value": "-component is nested inside a "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "k"
+            },
+            {
+              "type": "text",
+              "value": "-edge-component, which in turn, is contained in a "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "k"
+            },
+            {
+              "type": "text",
+              "value": "-core. Thus, this algorithm computes node independent paths among pairs of nodes in each biconnected part of each "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "k"
+            },
+            {
+              "type": "text",
+              "value": "-core, and repeats this procedure for each "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "k"
+            },
+            {
+              "type": "text",
+              "value": " from 3 to the maximal core number of a node in the input graph."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Because, in practice, many nodes of the core of level "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "k"
+            },
+            {
+              "type": "text",
+              "value": " inside a bicomponent actually are part of a component of level k, the auxiliary graph needed for the algorithm is likely to be very dense. Thus, we use a complement graph data structure (see "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "AntiGraph"
+            },
+            {
+              "type": "text",
+              "value": ") to save memory. AntiGraph only stores information of the edges that are "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "not"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " present in the actual auxiliary graph. When applying algorithms to this complement graph data structure, it behaves as if it were the dense version."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Undirected graph"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "G",
+              "type": "Param",
+              "type_": "NetworkX graph"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Density relaxation threshold. Default value 0.95"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "min_density",
+              "type": "Param",
+              "type_": "Float"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If G is directed."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "NetworkXNotImplemented"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Dictionary with connectivity level "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "k"
+                    },
+                    {
+                      "type": "text",
+                      "value": " as key and a list of sets of nodes that form a k-component of level "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "k"
+                    },
+                    {
+                      "type": "text",
+                      "value": " as values."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "k_components",
+              "type": "Param",
+              "type_": "dict"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Returns the approximate k-component structure of a graph G."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "# Petersen graph has 10 nodes and it is triconnected, thus all\n# nodes are in a single component on all three connectivity levels\nfrom networkx.algorithms import approximation as apxa\nG = nx.petersen_graph()\nk_components = apxa.k_components(G)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/algorithms/approximation/kcomponents.py",
+  "item_line": 16,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "Examples",
+    "Notes",
+    "See Also",
+    "References"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "k_components",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "k_components"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(G, min_density=0.95)"
+  },
+  "type": "DocBlob"
+}

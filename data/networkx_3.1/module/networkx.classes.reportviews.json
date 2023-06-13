@@ -1,0 +1,795 @@
+{
+  "aliases": [
+    "networkx.reportviews"
+  ],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "View Classes provide node, edge and degree \"views\" of a graph."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Views for nodes, edges and degree are provided for all base graph classes. A view means a read-only object that is quick to create, automatically updated when the graph changes, and provides basic access like "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "n in V"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "for n in V"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "V[n]"
+            },
+            {
+              "type": "text",
+              "value": " and sometimes set operations."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The views are read-only iterable containers that are updated as the graph is updated. As with dicts, the graph should not be updated while iterating through the view. Views can be iterated multiple times."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Edge and Node views also allow data attribute lookup. The resulting attribute dict is writable as "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "G.edges[3, 4]['color']='red'"
+            },
+            {
+              "type": "text",
+              "value": " Degree views allow lookup of degree values for single nodes. Weighted degree is supported with the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "weight"
+            },
+            {
+              "type": "text",
+              "value": " argument."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "V = G.nodes"
+                },
+                {
+                  "type": "text",
+                  "value": " (or "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "V = G.nodes()"
+                },
+                {
+                  "type": "text",
+                  "value": ") allows "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "len(V)"
+                },
+                {
+                  "type": "text",
+                  "value": ", "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "n in V"
+                },
+                {
+                  "type": "text",
+                  "value": ", set     operations e.g. \"G.nodes & H.nodes\", and "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "dd = G.nodes[n]"
+                },
+                {
+                  "type": "text",
+                  "value": ", where     "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "dd"
+                },
+                {
+                  "type": "text",
+                  "value": " is the node data dict. Iteration is over the nodes by default."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "type": "blockquote"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": "NodeView",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "To iterate over (node, data) pairs, use arguments to "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "G.nodes()"
+                },
+                {
+                  "type": "text",
+                  "value": "     to create a DataView e.g. "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "DV = G.nodes(data='color', default='red')"
+                },
+                {
+                  "type": "text",
+                  "value": ".     The DataView iterates as "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "for n, color in DV"
+                },
+                {
+                  "type": "text",
+                  "value": " and allows     "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "(n, 'red') in DV"
+                },
+                {
+                  "type": "text",
+                  "value": ". Using "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "DV = G.nodes(data=True)"
+                },
+                {
+                  "type": "text",
+                  "value": ", the DataViews     use the full datadict in writeable form also allowing contain testing as     "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "(n, {'color': 'red'}) in VD"
+                },
+                {
+                  "type": "text",
+                  "value": ". DataViews allow set operations when     data attributes are hashable."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "type": "blockquote"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": "NodeDataView",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "V = G.degree"
+                },
+                {
+                  "type": "text",
+                  "value": " allows iteration over (node, degree) pairs as well     as lookup: "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "deg=V[n]"
+                },
+                {
+                  "type": "text",
+                  "value": ". There are many flavors of DegreeView     for In/Out/Directed/Multi. For Directed Graphs, "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "G.degree"
+                },
+                {
+                  "type": "text",
+                  "value": "     counts both in and out going edges. "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "G.out_degree"
+                },
+                {
+                  "type": "text",
+                  "value": " and     "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "G.in_degree"
+                },
+                {
+                  "type": "text",
+                  "value": " count only specific directions.     Weighted degree using edge data attributes is provide via     "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "V = G.degree(weight='attr_name')"
+                },
+                {
+                  "type": "text",
+                  "value": " where any string with the     attribute name can be used. "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "weight=None"
+                },
+                {
+                  "type": "text",
+                  "value": " is the default.     No set operations are implemented for degrees, use NodeView."
+                }
+              ],
+              "type": "paragraph"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "The argument "
+                },
+                {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx.classes.graph:Graph.nbunch_iter",
+                    "type": "RefInfo",
+                    "version": "3.1"
+                  },
+                  "type": "Link",
+                  "value": "nbunch"
+                },
+                {
+                  "type": "text",
+                  "value": " restricts iteration to nodes in nbunch.     The DegreeView can still lookup any node even if nbunch is specified."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "type": "blockquote"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": "DegreeView",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "V = G.edges"
+                },
+                {
+                  "type": "text",
+                  "value": " or "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "V = G.edges()"
+                },
+                {
+                  "type": "text",
+                  "value": " allows iteration over edges as well as     "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "e in V"
+                },
+                {
+                  "type": "text",
+                  "value": ", set operations and edge data lookup "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "dd = G.edges[2, 3]"
+                },
+                {
+                  "type": "text",
+                  "value": ".     Iteration is over 2-tuples "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "(u, v)"
+                },
+                {
+                  "type": "text",
+                  "value": " for Graph/DiGraph. For multigraphs     edges 3-tuples "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "(u, v, key)"
+                },
+                {
+                  "type": "text",
+                  "value": " are the default but 2-tuples can be obtained     via "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "V = G.edges(keys=False)"
+                },
+                {
+                  "type": "text",
+                  "value": "."
+                }
+              ],
+              "type": "paragraph"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Set operations for directed graphs treat the edges as a set of 2-tuples.     For undirected graphs, 2-tuples are not a unique representation of edges.     So long as the set being compared to contains unique representations     of its edges, the set operations will act as expected. If the other     set contains both "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "(0, 1)"
+                },
+                {
+                  "type": "text",
+                  "value": " and "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "(1, 0)"
+                },
+                {
+                  "type": "text",
+                  "value": " however, the result of set     operations may contain both representations of the same edge."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "type": "blockquote"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": "EdgeView",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Edge data can be reported using an EdgeDataView typically created     by calling an EdgeView: "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "DV = G.edges(data='weight', default=1)"
+                },
+                {
+                  "type": "text",
+                  "value": ".     The EdgeDataView allows iteration over edge tuples, membership checking     but no set operations."
+                }
+              ],
+              "type": "paragraph"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Iteration depends on "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "data"
+                },
+                {
+                  "type": "text",
+                  "value": " and "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "default"
+                },
+                {
+                  "type": "text",
+                  "value": " and for multigraph "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "keys"
+                },
+                {
+                  "type": "text",
+                  "value": "     If "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "data is False"
+                },
+                {
+                  "type": "text",
+                  "value": " (the default) then iterate over 2-tuples "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "(u, v)"
+                },
+                {
+                  "type": "text",
+                  "value": ".     If "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "data is True"
+                },
+                {
+                  "type": "text",
+                  "value": " iterate over 3-tuples "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "(u, v, datadict)"
+                },
+                {
+                  "type": "text",
+                  "value": ".     Otherwise iterate over "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "(u, v, datadict.get(data, default))"
+                },
+                {
+                  "type": "text",
+                  "value": ".     For Multigraphs, if "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "keys is True"
+                },
+                {
+                  "type": "text",
+                  "value": ", replace "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "u, v"
+                },
+                {
+                  "type": "text",
+                  "value": " with "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "u, v, key"
+                },
+                {
+                  "type": "text",
+                  "value": "     to create 3-tuples and 4-tuples."
+                }
+              ],
+              "type": "paragraph"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "The argument "
+                },
+                {
+                  "anchor": null,
+                  "exists": true,
+                  "kind": "module",
+                  "reference": {
+                    "kind": "module",
+                    "module": "networkx",
+                    "path": "networkx.classes.graph:Graph.nbunch_iter",
+                    "type": "RefInfo",
+                    "version": "3.1"
+                  },
+                  "type": "Link",
+                  "value": "nbunch"
+                },
+                {
+                  "type": "text",
+                  "value": " restricts edges to those incident to nodes in nbunch."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "type": "blockquote"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": "EdgeDataView",
+      "type": "Section"
+    }
+  ],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To remove in the future \u2013\u2013 networkx.classes.reportviews"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/classes/reportviews.py",
+  "item_line": 0,
+  "item_type": "<class 'module'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

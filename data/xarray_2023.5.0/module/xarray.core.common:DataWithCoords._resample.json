@@ -1,0 +1,594 @@
+{
+  "aliases": [
+    "xarray.core.alignment.DataWithCoords._resample"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Handles both downsampling and upsampling. The resampled dimension must be a datetime-like coordinate. If any intervals contain no values from the original object, they will be given the value "
+            },
+            {
+              "type": "inlineCode",
+              "value": "NaN"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Mapping from the dimension name to resample frequency . The dimension must be datetime-like."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "indexer",
+              "type": "Param",
+              "type_": "{dim: freq}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to skip missing values when aggregating in downsampling."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "skipna",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Side of each interval to treat as closed."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "closed",
+              "type": "Param",
+              "type_": "{\"left\", \"right\"}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Side of each interval to use for labeling."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "label",
+              "type": "Param",
+              "type_": "{\"left\", \"right\"}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "For frequencies that evenly subdivide 1 day, the \"origin\" of the aggregated intervals. For example, for \"24H\" frequency, base could range from 0 through 23."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "deprecated 2023.03.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Following pandas, the "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "base"
+                        },
+                        {
+                          "type": "text",
+                          "value": " parameter is deprecated in favor of the "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "origin"
+                        },
+                        {
+                          "type": "text",
+                          "value": " and "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "offset"
+                        },
+                        {
+                          "type": "text",
+                          "value": " parameters, and will be removed in a future version of xarray."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "base",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The datetime on which to adjust the grouping. The timezone of origin must match the timezone of the index."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If a datetime is not used, these values are also supported: - 'epoch': "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "origin",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "origin"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is 1970-01-01 - 'start': "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "origin",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "origin"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the first value of the timeseries - 'start_day': "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "origin",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "origin"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the first day at midnight of the timeseries - 'end': "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "origin",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "origin"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the last value of the timeseries - 'end_day': "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "origin",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "origin"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the ceiling midnight of the last day"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "origin",
+              "type": "Param",
+              "type_": "{'epoch', 'start', 'start_day', 'end', 'end_day'}, pd.Timestamp, datetime.datetime, np.datetime64, or cftime.datetime, default 'start_day'"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An offset timedelta added to the origin."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "offset",
+              "type": "Param",
+              "type_": "pd.Timedelta, datetime.timedelta, or str, default is None"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Offset used to adjust the resampled time labels. Some pandas date offset strings are supported."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "deprecated 2023.03.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Following pandas, the "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "loffset"
+                        },
+                        {
+                          "type": "text",
+                          "value": " parameter is deprecated in favor of using time offset arithmetic, and will be removed in a future version of xarray."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "loffset",
+              "type": "Param",
+              "type_": "timedelta or str, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, also restore the dimension order of multi-dimensional coordinates."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "restore_coord_dims",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The keyword arguments form of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "indexer"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". One of indexer or indexer_kwargs must be provided."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "**indexer_kwargs",
+              "type": "Param",
+              "type_": "{dim: freq}"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This object resampled."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "resampled",
+              "type": "Param",
+              "type_": "same type as caller"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Returns a Resample object for performing resampling operations."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Downsample monthly time-series data to seasonal data:"
+      },
+      {
+        "type": "code",
+        "value": "da = xr.DataArray(\n    np.linspace(0, 11, num=12),\n    coords=[\n        pd.date_range(\n            \"1999-12-15\",\n            periods=12,\n            freq=pd.DateOffset(months=1),\n        )\n    ],\n    dims=\"time\",\n)\nda"
+      },
+      {
+        "type": "code",
+        "value": "da.resample(time=\"QS-DEC\").mean()"
+      },
+      {
+        "type": "text",
+        "value": "Upsample monthly time-series data to daily data:"
+      },
+      {
+        "type": "code",
+        "value": "da.resample(time=\"1D\").interpolate(\"linear\")  # +doctest: ELLIPSIS"
+      },
+      {
+        "type": "text",
+        "value": "Limit scope of upsampling method"
+      },
+      {
+        "type": "code",
+        "value": "da.resample(time=\"1D\").nearest(tolerance=\"1D\")"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/xarray/core/common.py",
+  "item_line": 819,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Examples",
+    "See Also",
+    "References"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "pandas.Series.resample",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "pandas.Series.resample"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "pandas.DataFrame.resample",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "pandas.DataFrame.resample"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, resample_cls: 'type[T_Resample]', indexer: 'Mapping[Any, str] | None', skipna: 'bool | None', closed: 'SideOptions | None', label: 'SideOptions | None', base: 'int | None', offset: 'pd.Timedelta | datetime.timedelta | str | None', origin: 'str | DatetimeLike', keep_attrs: 'bool | None', loffset: 'datetime.timedelta | str | None', restore_coord_dims: 'bool | None', **indexer_kwargs: 'str') -> 'T_Resample'"
+  },
+  "type": "DocBlob"
+}

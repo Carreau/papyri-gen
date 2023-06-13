@@ -1,0 +1,376 @@
+{
+  "aliases": [
+    "networkx.snap_aggregation"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function uses the Summarization by Grouping Nodes on Attributes and Pairwise edges (SNAP) algorithm for summarizing a given graph by grouping nodes by node attributes and their edge attributes into supernodes in a summary graph.  This name SNAP should not be confused with the Stanford Network Analysis Project (SNAP)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Here is a high-level view of how this algorithm works:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Group nodes by node attribute values."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Iteratively split groups until all nodes in each group have edges"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": true,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "to nodes in the same groups. That is, until all the groups are homogeneous in their member nodes' edges to other groups.  For example, if all the nodes in group A only have edge to nodes in group B, then the group is homogeneous and does not need to be split. If all nodes in group B have edges with nodes in groups {A, C}, but some also have edges with other nodes in B, then group B is not homogeneous and needs to be split into groups have edges with {A, C} and a group of nodes having edges with {A, B, C}.  This way, viewers of the summary graph can assume that all nodes in the group have the exact same node attributes and the exact same edges."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Build the output summary graph, where the groups are represented by"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": true,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "super-nodes. Edges represent the edges shared between all the nodes in each respective groups."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A SNAP summary graph can be used to visualize graphs that are too large to display or visually analyze, or to efficiently identify sets of similar nodes with similar connectivity patterns to other sets of similar nodes based on specified node and/or edge attributes in a graph."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The summary graph produced is called a maximum Attribute-edge compatible (AR-compatible) grouping.  According to , an AR-compatible grouping means that all nodes in each group have the same exact node attribute values and the same exact edges and edge types to one or more nodes in the same groups.  The maximal AR-compatible grouping is the grouping with the minimal cardinality."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The AR-compatible grouping is the most detailed grouping provided by any of the SNAP algorithms."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Networkx Graph to be summarized"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "G: graph",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An iterable of the edge attributes considered in the summarization process.  If provided, unique combinations of the attribute values found in the graph are used to determine the edge types in the graph.  If not provided, all edges are considered to be of the same type."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "edge_attributes: iterable, optional",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The prefix used to denote supernodes in the summary graph. Defaults to 'Supernode-'."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "prefix: str",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The node attribute for recording the supernode groupings of nodes. Defaults to 'group'."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "supernode_attribute: str",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The edge attribute for recording the edge types of multiple edges. Defaults to 'types'."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "superedge_attribute: str",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "",
+              "type": "Param",
+              "type_": "networkx.Graph: summary graph"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Creates a summary graph based on attributes and connectivity."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "SNAP aggregation takes a graph and summarizes it in the context of user-provided\nnode and edge attributes such that a viewer can more easily extract and\nanalyze the information represented by the graph"
+      },
+      {
+        "type": "code",
+        "value": "nodes = {\n    \"A\": dict(color=\"Red\"),\n    \"B\": dict(color=\"Red\"),\n    \"C\": dict(color=\"Red\"),\n    \"D\": dict(color=\"Red\"),\n    \"E\": dict(color=\"Blue\"),\n    \"F\": dict(color=\"Blue\"),\n}\nedges = [\n    (\"A\", \"E\", \"Strong\"),\n    (\"B\", \"F\", \"Strong\"),\n    (\"C\", \"E\", \"Weak\"),\n    (\"D\", \"F\", \"Weak\"),\n]\nG = nx.Graph()\nfor node in nodes:\n    attributes = nodes[node]\n    G.add_node(node, **attributes)"
+      },
+      {
+        "type": "code",
+        "value": "for source, target, type in edges:\n    G.add_edge(source, target, type=type)"
+      },
+      {
+        "type": "code",
+        "value": "node_attributes = ('color', )\nedge_attributes = ('type', )\nsummary_graph = nx.snap_aggregation(G, node_attributes=node_attributes, edge_attributes=edge_attributes)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/algorithms/summarization.py",
+  "item_line": 406,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Examples",
+    "Notes",
+    "References"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(G, node_attributes, edge_attributes=(), prefix='Supernode-', supernode_attribute='group', superedge_attribute='types')"
+  },
+  "type": "DocBlob"
+}

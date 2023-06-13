@@ -1,0 +1,752 @@
+{
+  "aliases": [
+    "numpy.memmap"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Path to the mapped file."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "filename",
+              "type": "Param",
+              "type_": "str or pathlib.Path instance"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Offset position in the file."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "offset",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "File mode."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mode",
+              "type": "Param",
+              "type_": "str"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Memory-mapped files are used for accessing small segments of large files on disk, without reading the entire file into memory.  NumPy's memmap's are array-like objects.  This differs from Python's "
+            },
+            {
+              "type": "inlineCode",
+              "value": "mmap"
+            },
+            {
+              "type": "text",
+              "value": " module, which uses file-like objects."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This subclass of ndarray has some unpleasant interactions with some operations, because it doesn't quite fit properly as a subclass. An alternative to using this subclass is to create the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "mmap"
+            },
+            {
+              "type": "text",
+              "value": " object yourself, then create an ndarray with ndarray.__new__ directly, passing the object created in its 'buffer=' parameter."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This class may at some point be turned into a factory function which returns a view into an mmap buffer."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Flush the memmap instance to write the changes to the file. Currently there is no API to close the underlying "
+            },
+            {
+              "type": "inlineCode",
+              "value": "mmap"
+            },
+            {
+              "type": "text",
+              "value": ". It is tricky to ensure the resource is actually closed, since it may be shared between different memmap instances."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Flush any changes in memory to file on disk. When you delete a memmap object, flush is called first to write changes to disk."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "flush",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The memmap object can be used anywhere an ndarray is accepted. Given a memmap "
+            },
+            {
+              "type": "inlineCode",
+              "value": "fp"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "isinstance(fp, numpy.ndarray)"
+            },
+            {
+              "type": "text",
+              "value": " returns "
+            },
+            {
+              "type": "inlineCode",
+              "value": "True"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Memory-mapped files cannot be larger than 2GB on 32-bit systems."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When a memmap causes a file to be created or extended beyond its current size in the filesystem, the contents of the new part are unspecified. On systems with POSIX filesystem semantics, the extended part will be filled with zero bytes."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The file name or file object to be used as the array data buffer."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "filename",
+              "type": "Param",
+              "type_": "str, file-like object, or pathlib.Path instance"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The data-type used to interpret the file contents. Default is "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "uint8"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dtype",
+              "type": "Param",
+              "type_": "data-type, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The file is opened in this mode:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "+------+-------------------------------------------------------------+ | 'r'  | Open existing file for reading only.                        | +------+-------------------------------------------------------------+ | 'r+' | Open existing file for reading and writing.                 | +------+-------------------------------------------------------------+ | 'w+' | Create or overwrite existing file for reading and writing.  | +------+-------------------------------------------------------------+ | 'c'  | Copy-on-write: assignments affect data in memory, but       | |      | changes are not saved to disk.  The file on disk is         | |      | read-only.                                                  | +------+-------------------------------------------------------------+"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Default is 'r+'."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mode",
+              "type": "Param",
+              "type_": "{'r+', 'r', 'w+', 'c'}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "In the file, array data starts at this offset. Since "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "offset",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "offset"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is measured in bytes, it should normally be a multiple of the byte-size of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "dtype",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "dtype"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". When "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "mode != 'r'"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", even positive offsets beyond end of file are valid; The file will be extended to accommodate the additional data. By default, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "memmap"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will start at the beginning of the file, even if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "filename"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a file pointer "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "fp"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "fp.tell() != 0"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "offset",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The desired shape of the array. If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "mode == 'r'"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and the number of remaining bytes after "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "offset",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "offset"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is not a multiple of the byte-size of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "dtype",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "dtype"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", you must specify "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "shape",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "shape"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". By default, the returned array will be 1-D with the number of elements determined by file size and data-type."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "shape",
+              "type": "Param",
+              "type_": "tuple, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Specify the order of the ndarray memory layout: "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "row-major"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", C-style or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "column-major"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", Fortran-style.  This only has an effect if the shape is greater than 1-D.  The default order is 'C'."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "order",
+              "type": "Param",
+              "type_": "{'C', 'F'}, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Create a memory-map to an array stored in a "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "binary"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " file on disk."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "data = np.arange(12, dtype='float32')\ndata.resize((3,4))"
+      },
+      {
+        "type": "text",
+        "value": "This example uses a temporary file so that doctest doesn't write\nfiles to your directory. You would use a 'normal' filename."
+      },
+      {
+        "type": "code",
+        "value": "from tempfile import mkdtemp\nimport os.path as path\nfilename = path.join(mkdtemp(), 'newfile.dat')"
+      },
+      {
+        "type": "text",
+        "value": "Create a memmap with dtype and shape that matches our data:"
+      },
+      {
+        "type": "code",
+        "value": "fp = np.memmap(filename, dtype='float32', mode='w+', shape=(3,4))\nfp"
+      },
+      {
+        "type": "text",
+        "value": "Write data to memmap array:"
+      },
+      {
+        "type": "code",
+        "value": "fp[:] = data[:]\nfp"
+      },
+      {
+        "type": "code",
+        "value": "fp.filename == path.abspath(filename)"
+      },
+      {
+        "type": "text",
+        "value": "Flushes memory changes to disk in order to read them back"
+      },
+      {
+        "type": "code",
+        "value": "fp.flush()"
+      },
+      {
+        "type": "text",
+        "value": "Load the memmap and verify data was stored:"
+      },
+      {
+        "type": "code",
+        "value": "newfp = np.memmap(filename, dtype='float32', mode='r', shape=(3,4))\nnewfp"
+      },
+      {
+        "type": "text",
+        "value": "Read-only memmap:"
+      },
+      {
+        "type": "code",
+        "value": "fpr = np.memmap(filename, dtype='float32', mode='r', shape=(3,4))\nfpr.flags.writeable"
+      },
+      {
+        "type": "text",
+        "value": "Copy-on-write memmap:"
+      },
+      {
+        "type": "code",
+        "value": "fpc = np.memmap(filename, dtype='float32', mode='c', shape=(3,4))\nfpc.flags.writeable"
+      },
+      {
+        "type": "text",
+        "value": "It's possible to assign to copy-on-write array, but values are only\nwritten into the memory copy of the array, and not written to disk:"
+      },
+      {
+        "type": "code",
+        "value": "fpc"
+      },
+      {
+        "type": "code",
+        "value": "fpc[0,:] = 0\nfpc"
+      },
+      {
+        "type": "text",
+        "value": "File on disk is unchanged:"
+      },
+      {
+        "type": "code",
+        "value": "fpr"
+      },
+      {
+        "type": "text",
+        "value": "Offset into a memmap:"
+      },
+      {
+        "type": "code",
+        "value": "fpo = np.memmap(filename, dtype='float32', mode='r', offset=16)\nfpo"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/numpy/__init__.py",
+  "item_line": null,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Attributes",
+    "Methods",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Create or load a memory-mapped "
+            },
+            {
+              "type": "inlineCode",
+              "value": ".npy"
+            },
+            {
+              "type": "text",
+              "value": " file."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "lib.format.open_memmap",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "lib.format.open_memmap"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,413 @@
+{
+  "aliases": [
+    "networkx.bipartite.generic_weighted_projected_graph"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The bipartite network B is projected on to the specified nodes with weights computed by a user-specified function.  This function must accept as a parameter the neighborhood sets of two nodes and return an integer or a float."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The nodes retain their attributes and are connected in the resulting graph if they have an edge to a common node in the original graph."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "No attempt is made to verify that the input graph B is bipartite. The graph and node properties are (shallow) copied to the projected graph."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "See "
+            },
+            {
+              "type": "inlineCode",
+              "value": "bipartite documentation <networkx.algorithms.bipartite>"
+            },
+            {
+              "type": "text",
+              "value": " for further details on how bipartite graphs are handled in NetworkX."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The input graph should be bipartite."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "B",
+              "type": "Param",
+              "type_": "NetworkX graph"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Nodes to project onto (the \"bottom\" nodes)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "nodes",
+              "type": "Param",
+              "type_": "list or iterable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This function must accept as parameters the same input graph that this function, and two nodes; and return an integer or a float. The default function computes the number of shared neighbors."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "weight_function",
+              "type": "Param",
+              "type_": "function"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A graph that is the projection onto the given nodes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "Graph",
+              "type": "Param",
+              "type_": "NetworkX graph"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Weighted projection of B with a user-specified weight function."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from networkx.algorithms import bipartite\n# Define some custom weight functions\ndef jaccard(G, u, v):\n    unbrs = set(G[u])\n    vnbrs = set(G[v])\n    return float(len(unbrs & vnbrs)) / len(unbrs | vnbrs)"
+      },
+      {
+        "type": "code",
+        "value": "def my_weight(G, u, v, weight=\"weight\"):\n    w = 0\n    for nbr in set(G[u]) & set(G[v]):\n        w += G[u][nbr].get(weight, 1) + G[v][nbr].get(weight, 1)\n    return w"
+      },
+      {
+        "type": "code",
+        "value": "# A complete bipartite graph with 4 nodes and 4 edges\nB = nx.complete_bipartite_graph(2, 2)\n# Add some arbitrary weight to the edges\nfor i, (u, v) in enumerate(B.edges()):\n    B.edges[u, v][\"weight\"] = i + 1"
+      },
+      {
+        "type": "code",
+        "value": "for edge in B.edges(data=True):\n    print(edge)"
+      },
+      {
+        "type": "code",
+        "value": "# By default, the weight is the number of shared neighbors\nG = bipartite.generic_weighted_projected_graph(B, [0, 1])\nprint(list(G.edges(data=True)))"
+      },
+      {
+        "type": "code",
+        "value": "# To specify a custom weight function use the weight_function parameter\nG = bipartite.generic_weighted_projected_graph(\n    B, [0, 1], weight_function=jaccard\n)\nprint(list(G.edges(data=True)))"
+      },
+      {
+        "type": "code",
+        "value": "G = bipartite.generic_weighted_projected_graph(\n    B, [0, 1], weight_function=my_weight\n)\nprint(list(G.edges(data=True)))"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/algorithms/bipartite/projection.py",
+  "item_line": 411,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Examples",
+    "Notes",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "is_bipartite",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "is_bipartite"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "networkx",
+          "path": "networkx.algorithms.bipartite.basic:is_bipartite_node_set",
+          "type": "RefInfo",
+          "version": "3.1"
+        },
+        "type": "Link",
+        "value": "is_bipartite_node_set"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "sets",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "sets"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "weighted_projected_graph",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "weighted_projected_graph"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "networkx",
+          "path": "networkx.algorithms.bipartite.projection:collaboration_weighted_projected_graph",
+          "type": "RefInfo",
+          "version": "3.1"
+        },
+        "type": "Link",
+        "value": "collaboration_weighted_projected_graph"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "networkx",
+          "path": "networkx.algorithms.bipartite.projection:overlap_weighted_projected_graph",
+          "type": "RefInfo",
+          "version": "3.1"
+        },
+        "type": "Link",
+        "value": "overlap_weighted_projected_graph"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "projected_graph",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "projected_graph"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(B, nodes, weight_function=None)"
+  },
+  "type": "DocBlob"
+}

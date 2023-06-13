@@ -1,0 +1,208 @@
+{
+  "aliases": [
+    "astropy.config.configuration.validate.is_mixed_list"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You specify each member as a positional argument specifying type"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "'integer', 'float', 'ip_addr', 'string', 'boolean'"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Each type should be one of the following strings :"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            }
+          ],
+          "type": "DefList"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "So you can specify a list of two strings, followed by two integers as :"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "mixed_list('string', 'string', 'integer', 'integer')"
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The length of the list must match the number of positional arguments you supply."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": ">>> mix_str = \"mixed_list('integer', 'float', 'ip_addr', 'string', 'boolean')\"\n>>> check_res = vtor.check(mix_str, (1, 2.0, '1.2.3.4', 'a', True))\n>>> check_res == [1, 2.0, '1.2.3.4', 'a', True]\n1\n>>> check_res = vtor.check(mix_str, ('1', '2.0', '1.2.3.4', 'a', 'True'))\n>>> check_res == [1, 2.0, '1.2.3.4', 'a', True]\n1\n>>> vtor.check(mix_str, ('b', 2.0, '1.2.3.4', 'a', True))\nTraceback (most recent call last):\nVdtTypeError: the value \"b\" is of the wrong type.\n>>> vtor.check(mix_str, (1, 2.0, '1.2.3.4', 'a'))\nTraceback (most recent call last):\nVdtValueTooShortError: the value \"(1, 2.0, '1.2.3.4', 'a')\" is too short.\n>>> vtor.check(mix_str, (1, 2.0, '1.2.3.4', 'a', 1, 'b'))\nTraceback (most recent call last):\nVdtValueTooLongError: the value \"(1, 2.0, '1.2.3.4', 'a', 1, 'b')\" is too long.\n>>> vtor.check(mix_str, 0)\nTraceback (most recent call last):\nVdtTypeError: the value \"0\" is of the wrong type."
+        },
+        {
+          "type": "code",
+          "value": ">>> vtor.check('mixed_list(\"yoda\")', ('a'))\nTraceback (most recent call last):\nVdtParamError: passed an incorrect value \"KeyError('yoda',)\" for parameter \"'mixed_list'\""
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Check that the value is a list. Allow specifying the type of each member. Work on lists of specific lengths."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/astropy/extern/configobj/validate.py",
+  "item_line": 1259,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(value, *args)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,523 @@
+{
+  "aliases": [
+    "scipy.signal.czt"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The defaults are chosen such that "
+            },
+            {
+              "type": "inlineCode",
+              "value": "signal.czt(x)"
+            },
+            {
+              "type": "text",
+              "value": " is equivalent to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "fft.fft(x)"
+            },
+            {
+              "type": "text",
+              "value": " and, if "
+            },
+            {
+              "type": "inlineCode",
+              "value": "m > len(x)"
+            },
+            {
+              "type": "text",
+              "value": ", that "
+            },
+            {
+              "type": "inlineCode",
+              "value": "signal.czt(x, m)"
+            },
+            {
+              "type": "text",
+              "value": " is equivalent to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "fft.fft(x, m)"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If the transform needs to be repeated, use "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "CZT"
+            },
+            {
+              "type": "text",
+              "value": " to construct a specialized transform function which can be reused without recomputing constants."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "An example application is in system identification, repeatedly evaluating small slices of the z-transform of a system, around where a pole is expected to exist, to refine the estimate of the pole's true location."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The signal to transform."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "array"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The number of output points desired.  Default is the length of the input data."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "m",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The ratio between points in each step.  This must be precise or the accumulated error will degrade the tail of the output sequence. Defaults to equally spaced points around the entire unit circle."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "w",
+              "type": "Param",
+              "type_": "complex, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The starting point in the complex plane.  Default is 1+0j."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "a",
+              "type": "Param",
+              "type_": "complex, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Axis over which to compute the FFT. If not given, the last axis is used."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "axis",
+              "type": "Param",
+              "type_": "int, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An array of the same dimensions as "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", but with the length of the transformed axis set to "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "m",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "m"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "out",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute the frequency response around a spiral in the Z plane."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Generate a sinusoid:"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nf1, f2, fs = 8, 10, 200  # Hz\nt = np.linspace(0, 1, fs, endpoint=False)\nx = np.sin(2*np.pi*t*f2)\nimport matplotlib.pyplot as plt\nplt.plot(t, x)\nplt.axis([0, 1, -1.1, 1.1])\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.signal._czt:czt-0-697dfa43.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      },
+      {
+        "type": "text",
+        "value": "Its discrete Fourier transform has all of its energy in a single frequency\nbin:"
+      },
+      {
+        "type": "code",
+        "value": "from scipy.fft import rfft, rfftfreq\nfrom scipy.signal import czt, czt_points\nplt.plot(rfftfreq(fs, 1/fs), abs(rfft(x)))\nplt.margins(0, 0.1)\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.signal._czt:czt-1-b1ede3c4.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      },
+      {
+        "type": "text",
+        "value": "However, if the sinusoid is logarithmically-decaying:"
+      },
+      {
+        "type": "code",
+        "value": "x = np.exp(-t*f1) * np.sin(2*np.pi*t*f2)\nplt.plot(t, x)\nplt.axis([0, 1, -1.1, 1.1])\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.signal._czt:czt-2-1be80ba2.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      },
+      {
+        "type": "text",
+        "value": "the DFT will have spectral leakage:"
+      },
+      {
+        "type": "code",
+        "value": "plt.plot(rfftfreq(fs, 1/fs), abs(rfft(x)))\nplt.margins(0, 0.1)\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.signal._czt:czt-3-5a10dc6d.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      },
+      {
+        "type": "text",
+        "value": "While the DFT always samples the z-transform around the unit circle, the\nchirp z-transform allows us to sample the Z-transform along any\nlogarithmic spiral, such as a circle with radius smaller than unity:"
+      },
+      {
+        "type": "code",
+        "value": "M = fs // 2  # Just positive frequencies, like rfft\na = np.exp(-f1/fs)  # Starting point of the circle, radius < 1\nw = np.exp(-1j*np.pi/M)  # \"Step size\" of circle\npoints = czt_points(M + 1, w, a)  # M + 1 to include Nyquist\nplt.plot(points.real, points.imag, '.')\nplt.gca().add_patch(plt.Circle((0,0), radius=1, fill=False, alpha=.3))\nplt.axis('equal'); plt.axis([-1.05, 1.05, -0.05, 1.05])\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.signal._czt:czt-4-81969805.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      },
+      {
+        "type": "text",
+        "value": "With the correct radius, this transforms the decaying sinusoid (and others\nwith the same decay rate) without spectral leakage:"
+      },
+      {
+        "type": "code",
+        "value": "z_vals = czt(x, M + 1, w, a)  # Include Nyquist for comparison to rfft\nfreqs = np.angle(points)*fs/(2*np.pi)  # angle = omega, radius = sigma\nplt.plot(freqs, abs(z_vals))\nplt.margins(0, 0.1)\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.signal._czt:czt-5-41ccbaf4.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/signal/_czt.py",
+  "item_line": 394,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Class that creates a callable chirp z-transform function."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "CZT",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "CZT"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Convenience function for partial FFT calculations."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._czt:zoom_fft",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "zoom_fft"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(x, m=None, w=None, a=(1+0j), *, axis=-1)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,687 @@
+{
+  "aliases": [
+    "networkx.approximation.threshold_accepting_tsp"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function uses threshold accepting methods to approximate the minimal cost cycle through the nodes. Starting from a suboptimal solution, threshold accepting methods perturb that solution, accepting any changes that make the solution no worse than increasing by a threshold amount. Improvements in cost are accepted, but so are changes leading to small increases in cost. This allows the solution to leave suboptimal local minima in solution space. The threshold is decreased slowly as iterations proceed helping to ensure an optimum. In summary, the function returns a cycle starting at "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "source",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "source"
+            },
+            {
+              "type": "text",
+              "value": " for which the total cost is minimized."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Threshold Accepting is a metaheuristic local search algorithm. The main characteristic of this algorithm is that it accepts even solutions which lead to the increase of the cost in order to escape from low quality local optimal solutions."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This algorithm needs an initial solution. This solution can be constructed by a simple greedy algorithm. At every iteration, it selects thoughtfully a neighbor solution. Consider $c(x)$ cost of current solution and $c(x')$ cost of neighbor solution. If $c(x') - c(x) <= threshold$ then the neighbor solution becomes the current solution for the next iteration, where the threshold is named threshold."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In comparison to the Simulated Annealing algorithm, the Threshold Accepting algorithm does not accept very low quality solutions (due to the presence of the threshold value). In the case of Simulated Annealing, even a very low quality solution can be accepted with probability $p$."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Time complexity: It has a running time $O(m * n * "
+            },
+            {
+              "type": "SubstitutionRef",
+              "value": "|V|"
+            },
+            {
+              "type": "text",
+              "value": ")$ where $m$ and $n$ are the number of times the outer and inner loop run respectively."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For more information and how algorithm is inspired see: https://doi.org/10.1016/0021-9991(90)90201-B"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "G",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "G"
+                    },
+                    {
+                      "type": "text",
+                      "value": " should be a complete weighted undirected graph. The distance between all pairs of nodes should be included."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "G",
+              "type": "Param",
+              "type_": "Graph"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The initial solution (a cycle through all nodes returning to the start). This argument has no default to make you think about it. If \"greedy\", use "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "greedy_tsp(G, weight)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Other common starting cycles are "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "list(G) + [next(iter(G))]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or the final result of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "networkx",
+                        "path": "networkx.algorithms.approximation.traveling_salesman:simulated_annealing_tsp",
+                        "type": "RefInfo",
+                        "version": "3.1"
+                      },
+                      "type": "Link",
+                      "value": "simulated_annealing_tsp"
+                    },
+                    {
+                      "type": "text",
+                      "value": " when doing "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "networkx",
+                        "path": "networkx.algorithms.approximation.traveling_salesman:threshold_accepting_tsp",
+                        "type": "RefInfo",
+                        "version": "3.1"
+                      },
+                      "type": "Link",
+                      "value": "threshold_accepting_tsp"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "init_cycle",
+              "type": "Param",
+              "type_": "list or \"greedy\""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Edge data key corresponding to the edge weight. If any edge does not have this attribute the weight is set to 1."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "weight",
+              "type": "Param",
+              "type_": "string, optional (default=\"weight\")"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Starting node.  If None, defaults to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "next(iter(G))"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "source",
+              "type": "Param",
+              "type_": "node, optional (default: first node in list(G))"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The algorithm's threshold parameter. It represents the initial threshold's value"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "threshold",
+              "type": "Param",
+              "type_": "int, optional (default=1)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Indicator of what move to use when finding new trial solutions. Strings indicate two special built-in moves:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "\"1-1\": 1-1 exchange which transposes the position   of two elements of the current solution.   The function called is "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "swap_two_nodes"
+                            },
+                            {
+                              "type": "text",
+                              "value": ".   For example if we apply 1-1 exchange in the solution   "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "A = [3, 2, 1, 4, 3]"
+                            },
+                            {
+                              "type": "text",
+                              "value": "   we can get the following by the transposition of 1 and 4 elements:   "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "A' = [3, 2, 4, 1, 3]"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "\"1-0\": 1-0 exchange which moves an node in the solution   to a new position.   The function called is "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "move_one_node"
+                            },
+                            {
+                              "type": "text",
+                              "value": ".   For example if we apply 1-0 exchange in the solution   "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "A = [3, 2, 1, 4, 3]"
+                            },
+                            {
+                              "type": "text",
+                              "value": "   we can transfer the fourth element to the second position:   "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "A' = [3, 4, 2, 1, 3]"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "You may provide your own functions to enact a move from one solution to a neighbor solution. The function must take the solution as input along with a "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "seed",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "seed"
+                    },
+                    {
+                      "type": "text",
+                      "value": " input to control random number generation (see the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "seed",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "seed"
+                    },
+                    {
+                      "type": "text",
+                      "value": " input here). Your function should maintain the solution as a cycle with equal first and last node and all others appearing once. Your function should return the new solution."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "move",
+              "type": "Param",
+              "type_": "\"1-1\" or \"1-0\" or function, optional (default=\"1-1\")"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Declared done when this number of consecutive iterations of the outer loop occurs without any change in the best cost solution."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "max_iterations",
+              "type": "Param",
+              "type_": "int, optional (default=10)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The number of iterations of the inner loop."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "N_inner",
+              "type": "Param",
+              "type_": "int, optional (default=100)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Percentage of threshold decrease when there is at least one acceptance of a neighbor solution. If no inner loop moves are accepted the threshold remains unchanged."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "alpha",
+              "type": "Param",
+              "type_": "float between (0, 1), optional (default=0.1)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Indicator of random number generation state. See "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Randomness<randomness>"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "seed",
+              "type": "Param",
+              "type_": "integer, random_state, or None (default)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "G",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "G"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is not complete the algorithm raises an exception."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "NetworkXError"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Returns the cycle (list of nodes) that a salesman can follow to minimize total weight of the trip."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "cycle",
+              "type": "Param",
+              "type_": "list of nodes"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Returns an approximate solution to the traveling salesman problem."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from networkx.algorithms import approximation as approx\nG = nx.DiGraph()\nG.add_weighted_edges_from({\n    (\"A\", \"B\", 3), (\"A\", \"C\", 17), (\"A\", \"D\", 14), (\"B\", \"A\", 3),\n    (\"B\", \"C\", 12), (\"B\", \"D\", 16), (\"C\", \"A\", 13),(\"C\", \"B\", 12),\n    (\"C\", \"D\", 4), (\"D\", \"A\", 14), (\"D\", \"B\", 15), (\"D\", \"C\", 2)\n})\ncycle = approx.threshold_accepting_tsp(G, \"greedy\", source=\"D\")\ncost = sum(G[n][nbr][\"weight\"] for n, nbr in nx.utils.pairwise(cycle))\ncycle"
+      },
+      {
+        "type": "code",
+        "value": "cost"
+      },
+      {
+        "type": "code",
+        "value": "incycle = [\"D\", \"B\", \"A\", \"C\", \"D\"]\ncycle = approx.threshold_accepting_tsp(G, incycle, source=\"D\")\ncost = sum(G[n][nbr][\"weight\"] for n, nbr in nx.utils.pairwise(cycle))\ncycle"
+      },
+      {
+        "type": "code",
+        "value": "cost"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/algorithms/approximation/traveling_salesman.py",
+  "item_line": 1216,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "Examples",
+    "Notes",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "networkx",
+          "path": "networkx.algorithms.approximation.traveling_salesman:simulated_annealing_tsp",
+          "type": "RefInfo",
+          "version": "3.1"
+        },
+        "type": "Link",
+        "value": "simulated_annealing_tsp"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(G, init_cycle, weight='weight', source=None, threshold=1, move='1-1', max_iterations=10, N_inner=100, alpha=0.1, seed=None)"
+  },
+  "type": "DocBlob"
+}

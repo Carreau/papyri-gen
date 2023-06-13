@@ -1,0 +1,808 @@
+{
+  "aliases": [
+    "scipy.interpolate.RBFInterpolator"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "An RBF is a scalar valued function in N-dimensional space whose value at "
+            },
+            {
+              "type": "inlineMath",
+              "value": "x"
+            },
+            {
+              "type": "text",
+              "value": " can be expressed in terms of "
+            },
+            {
+              "type": "inlineMath",
+              "value": "r=||x - c||"
+            },
+            {
+              "type": "text",
+              "value": ", where "
+            },
+            {
+              "type": "inlineMath",
+              "value": "c"
+            },
+            {
+              "type": "text",
+              "value": " is the center of the RBF."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "An RBF interpolant for the vector of data values "
+            },
+            {
+              "type": "inlineMath",
+              "value": "d"
+            },
+            {
+              "type": "text",
+              "value": ", which are from locations "
+            },
+            {
+              "type": "inlineMath",
+              "value": "y"
+            },
+            {
+              "type": "text",
+              "value": ", is a linear combination of RBFs centered at "
+            },
+            {
+              "type": "inlineMath",
+              "value": "y"
+            },
+            {
+              "type": "text",
+              "value": " plus a polynomial with a specified degree. The RBF interpolant is written as"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "f(x) = K(x, y) a + P(x) b,"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where "
+            },
+            {
+              "type": "inlineMath",
+              "value": "K(x, y)"
+            },
+            {
+              "type": "text",
+              "value": " is a matrix of RBFs with centers at "
+            },
+            {
+              "type": "inlineMath",
+              "value": "y"
+            },
+            {
+              "type": "text",
+              "value": " evaluated at the points "
+            },
+            {
+              "type": "inlineMath",
+              "value": "x"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "P(x)"
+            },
+            {
+              "type": "text",
+              "value": " is a matrix of monomials, which span polynomials with the specified degree, evaluated at "
+            },
+            {
+              "type": "inlineMath",
+              "value": "x"
+            },
+            {
+              "type": "text",
+              "value": ". The coefficients "
+            },
+            {
+              "type": "inlineMath",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "b"
+            },
+            {
+              "type": "text",
+              "value": " are the solution to the linear equations"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "(K(y, y) + \\lambda I) a + P(y) b = d"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "and"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "P(y)^T a = 0,"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\lambda"
+            },
+            {
+              "type": "text",
+              "value": " is a non-negative smoothing parameter that controls how well we want to fit the data. The data are fit exactly when the smoothing parameter is 0."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The above system is uniquely solvable if the following requirements are met:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "inlineMath",
+                          "value": "P(y)"
+                        },
+                        {
+                          "type": "text",
+                          "value": " must have full column rank. "
+                        },
+                        {
+                          "type": "inlineMath",
+                          "value": "P(y)"
+                        },
+                        {
+                          "type": "text",
+                          "value": " always has full       column rank when "
+                        },
+                        {
+                          "anchor": null,
+                          "exists": true,
+                          "kind": "local",
+                          "reference": {
+                            "kind": "local",
+                            "module": null,
+                            "path": "degree",
+                            "type": "RefInfo",
+                            "version": null
+                          },
+                          "type": "Link",
+                          "value": "degree"
+                        },
+                        {
+                          "type": "text",
+                          "value": " is -1 or 0. When "
+                        },
+                        {
+                          "anchor": null,
+                          "exists": true,
+                          "kind": "local",
+                          "reference": {
+                            "kind": "local",
+                            "module": null,
+                            "path": "degree",
+                            "type": "RefInfo",
+                            "version": null
+                          },
+                          "type": "Link",
+                          "value": "degree"
+                        },
+                        {
+                          "type": "text",
+                          "value": " is 1,       "
+                        },
+                        {
+                          "type": "inlineMath",
+                          "value": "P(y)"
+                        },
+                        {
+                          "type": "text",
+                          "value": " has full column rank if the data point locations are not       all collinear (N=2), coplanar (N=3), etc."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "If "
+                        },
+                        {
+                          "anchor": null,
+                          "exists": true,
+                          "kind": "local",
+                          "reference": {
+                            "kind": "local",
+                            "module": null,
+                            "path": "kernel",
+                            "type": "RefInfo",
+                            "version": null
+                          },
+                          "type": "Link",
+                          "value": "kernel"
+                        },
+                        {
+                          "type": "text",
+                          "value": " is 'multiquadric', 'linear', 'thin_plate_spline',       'cubic', or 'quintic', then "
+                        },
+                        {
+                          "anchor": null,
+                          "exists": true,
+                          "kind": "local",
+                          "reference": {
+                            "kind": "local",
+                            "module": null,
+                            "path": "degree",
+                            "type": "RefInfo",
+                            "version": null
+                          },
+                          "type": "Link",
+                          "value": "degree"
+                        },
+                        {
+                          "type": "text",
+                          "value": " must not be lower than the       minimum value listed above."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "If "
+                        },
+                        {
+                          "anchor": null,
+                          "exists": true,
+                          "kind": "local",
+                          "reference": {
+                            "kind": "local",
+                            "module": null,
+                            "path": "smoothing",
+                            "type": "RefInfo",
+                            "version": null
+                          },
+                          "type": "Link",
+                          "value": "smoothing"
+                        },
+                        {
+                          "type": "text",
+                          "value": " is 0, then each data point location must be distinct."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                }
+              ],
+              "ordered": false,
+              "spread": false,
+              "start": 1,
+              "type": "list"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When using an RBF that is not scale invariant ('multiquadric', 'inverse_multiquadric', 'inverse_quadratic', or 'gaussian'), an appropriate shape parameter must be chosen (e.g., through cross validation). Smaller values for the shape parameter correspond to wider RBFs. The problem can become ill-conditioned or singular when the shape parameter is too small."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The memory required to solve for the RBF interpolation coefficients increases quadratically with the number of data points, which can become impractical when interpolating more than about a thousand data points. To overcome memory limitations for large interpolation problems, the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "neighbors",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "neighbors"
+            },
+            {
+              "type": "text",
+              "value": " argument can be specified to compute an RBF interpolant for each evaluation point using only the nearest data points."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 1.7.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Data point coordinates."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "y",
+              "type": "Param",
+              "type_": "(P, N) array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Data values at "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "y",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "y"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "d",
+              "type": "Param",
+              "type_": "(P, ...) array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If specified, the value of the interpolant at each evaluation point will be computed using only this many nearest data points. All the data points are used by default."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "neighbors",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Smoothing parameter. The interpolant perfectly fits the data when this is set to 0. For large values, the interpolant approaches a least squares fit of a polynomial with the specified degree. Default is 0."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "smoothing",
+              "type": "Param",
+              "type_": "float or (P,) array_like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Type of RBF. This should be one of"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "spread": false,
+                          "type": "listItem"
+                        }
+                      ],
+                      "ordered": false,
+                      "spread": false,
+                      "start": 1,
+                      "type": "list"
+                    }
+                  ],
+                  "type": "blockquote"
+                }
+              ],
+              "param": "kernel",
+              "type": "Param",
+              "type_": "str, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Shape parameter that scales the input to the RBF. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "kernel",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "kernel"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is 'linear', 'thin_plate_spline', 'cubic', or 'quintic', this defaults to 1 and can be ignored because it has the same effect as scaling the smoothing parameter. Otherwise, this must be specified."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "epsilon",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Degree of the added polynomial. For some RBFs the interpolant may not be well-posed if the polynomial degree is too small. Those RBFs and their corresponding minimum degrees are"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "spread": false,
+                          "type": "listItem"
+                        }
+                      ],
+                      "ordered": false,
+                      "spread": false,
+                      "start": 1,
+                      "type": "list"
+                    }
+                  ],
+                  "type": "blockquote"
+                }
+              ],
+              "param": "degree",
+              "type": "Param",
+              "type_": "int, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Radial basis function (RBF) interpolation in N dimensions."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Demonstrate interpolating scattered data to a grid in 2-D."
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.interpolate import RBFInterpolator\nfrom scipy.stats.qmc import Halton"
+      },
+      {
+        "type": "code",
+        "value": "rng = np.random.default_rng()\nxobs = 2*Halton(2, seed=rng).random(100) - 1\nyobs = np.sum(xobs, axis=1)*np.exp(-6*np.sum(xobs**2, axis=1))"
+      },
+      {
+        "type": "code",
+        "value": "xgrid = np.mgrid[-1:1:50j, -1:1:50j]\nxflat = xgrid.reshape(2, -1).T\nyflat = RBFInterpolator(xobs, yobs)(xflat)\nygrid = yflat.reshape(50, 50)"
+      },
+      {
+        "type": "code",
+        "value": "fig, ax = plt.subplots()\nax.pcolormesh(*xgrid, ygrid, vmin=-0.25, vmax=0.25, shading='gouraud')\np = ax.scatter(*xobs.T, c=yobs, s=50, ec='k', vmin=-0.25, vmax=0.25)\nfig.colorbar(p)\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.interpolate._rbfinterp:RBFInterpolator-0-834cc835.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/interpolate/_rbfinterp.py",
+  "item_line": 134,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Notes",
+    "See Also",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "NearestNDInterpolator",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "NearestNDInterpolator"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "LinearNDInterpolator",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "LinearNDInterpolator"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "CloughTocher2DInterpolator",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "CloughTocher2DInterpolator"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,554 @@
+{
+  "aliases": [
+    "scipy.stats.rv_continuous.expect"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The expected value of a function "
+            },
+            {
+              "type": "inlineCode",
+              "value": "f(x)"
+            },
+            {
+              "type": "text",
+              "value": " with respect to a distribution "
+            },
+            {
+              "type": "inlineCode",
+              "value": "dist"
+            },
+            {
+              "type": "text",
+              "value": " is defined as              "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "        ub\nE[f(x)] = Integral(f(x) * dist.pdf(x)),\n        lb"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ub"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "lb"
+            },
+            {
+              "type": "text",
+              "value": " are arguments and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "x"
+            },
+            {
+              "type": "text",
+              "value": " has the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "dist.pdf(x)"
+            },
+            {
+              "type": "text",
+              "value": " distribution. If the bounds "
+            },
+            {
+              "type": "inlineCode",
+              "value": "lb"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ub"
+            },
+            {
+              "type": "text",
+              "value": " correspond to the support of the distribution, e.g. "
+            },
+            {
+              "type": "inlineCode",
+              "value": "[-inf, inf]"
+            },
+            {
+              "type": "text",
+              "value": " in the default case, then the integral is the unrestricted expectation of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "f(x)"
+            },
+            {
+              "type": "text",
+              "value": ". Also, the function "
+            },
+            {
+              "type": "inlineCode",
+              "value": "f(x)"
+            },
+            {
+              "type": "text",
+              "value": " may be defined such that "
+            },
+            {
+              "type": "inlineCode",
+              "value": "f(x)"
+            },
+            {
+              "type": "text",
+              "value": " is "
+            },
+            {
+              "type": "inlineCode",
+              "value": "0"
+            },
+            {
+              "type": "text",
+              "value": " outside a finite interval in which case the expectation is calculated within the finite range "
+            },
+            {
+              "type": "inlineCode",
+              "value": "[lb, ub]"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The integration behavior of this function is inherited from "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.integrate.quadpack",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "scipy.integrate.quad"
+            },
+            {
+              "type": "text",
+              "value": ". Neither this function nor "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.integrate.quadpack",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "scipy.integrate.quad"
+            },
+            {
+              "type": "text",
+              "value": " can verify whether the integral exists or is finite. For example "
+            },
+            {
+              "type": "inlineCode",
+              "value": "cauchy(0).mean()"
+            },
+            {
+              "type": "text",
+              "value": " returns "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.nan"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "cauchy(0).expect()"
+            },
+            {
+              "type": "text",
+              "value": " returns "
+            },
+            {
+              "type": "inlineCode",
+              "value": "0.0"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Likewise, the accuracy of results is not verified by the function. "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.integrate.quadpack",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "scipy.integrate.quad"
+            },
+            {
+              "type": "text",
+              "value": " is typically reliable for integrals that are numerically favorable, but it is not guaranteed to converge to a correct value for all possible intervals and integrands. This function is provided for convenience; for critical applications, check results against other integration methods."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The function is not vectorized."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Function for which integral is calculated. Takes only one argument. The default is the identity mapping f(x) = x."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "func",
+              "type": "Param",
+              "type_": "callable, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Shape parameters of the distribution."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "args",
+              "type": "Param",
+              "type_": "tuple, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Location parameter (default=0)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "loc",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Scale parameter (default=1)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "scale",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Lower and upper bound for integration. Default is set to the support of the distribution."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "lb, ub",
+              "type": "Param",
+              "type_": "scalar, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, the integral is corrected by the conditional probability of the integration interval.  The return value is the expectation of the function, conditional on being in the given interval. Default is False."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "conditional",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [],
+              "param": "Additional keyword arguments are passed to the integration routine.",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The calculated expected value."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "expect",
+              "type": "Param",
+              "type_": "float"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Calculate expected value of a function with respect to the distribution by numerical integration."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "To understand the effect of the bounds of integration consider"
+      },
+      {
+        "type": "code",
+        "value": "from scipy.stats import expon\nexpon(1).expect(lambda x: 1, lb=0.0, ub=2.0)"
+      },
+      {
+        "type": "text",
+        "value": "This is close to"
+      },
+      {
+        "type": "code",
+        "value": "expon(1).cdf(2.0) - expon(1).cdf(0.0)"
+      },
+      {
+        "type": "text",
+        "value": "If ``conditional=True``"
+      },
+      {
+        "type": "code",
+        "value": "expon(1).expect(lambda x: 1, lb=0.0, ub=2.0, conditional=True)"
+      },
+      {
+        "type": "text",
+        "value": "The slight deviation from 1 is due to numerical integration."
+      },
+      {
+        "type": "text",
+        "value": "The integrand can be treated as a complex-valued function\nby passing ``complex_func=True`` to `scipy.integrate.quad` ."
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.stats import vonmises\nres = vonmises(loc=2, kappa=1).expect(lambda x: np.exp(1j*x),\n                                      complex_func=True)\nres"
+      },
+      {
+        "type": "code",
+        "value": "np.angle(res)  # location of the (circular) distribution"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_distn_infrastructure.py",
+  "item_line": 2821,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, func=None, args=(), loc=0, scale=1, lb=None, ub=None, conditional=False, **kwds)"
+  },
+  "type": "DocBlob"
+}

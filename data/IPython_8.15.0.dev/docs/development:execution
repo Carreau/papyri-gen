@@ -1,0 +1,575 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When IPython kernel receives "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "execute_request"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://jupyter-client.readthedocs.io/en/latest/messaging.html#execute"
+            },
+            {
+              "type": "text",
+              "value": " with user code, it processes the message in the following phases:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Fire the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "pre_execute"
+                    },
+                    {
+                      "type": "text",
+                      "value": " event."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Fire the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "pre_run_cell"
+                    },
+                    {
+                      "type": "text",
+                      "value": " event unless silent is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Execute "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "run_cell"
+                    },
+                    {
+                      "type": "text",
+                      "value": " method to preprocess "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "code"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", compile and run it, see below for details."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If execution succeeds, expressions in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "user_expressions"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are computed.    This ensures that any error in the expressions don't affect the main code execution."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Fire the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "post_execute"
+                    },
+                    {
+                      "type": "text",
+                      "value": " event."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Fire the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "post_run_cell"
+                    },
+                    {
+                      "type": "text",
+                      "value": " event unless silent is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": true,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "args": "",
+          "children": [],
+          "name": "seealso",
+          "options": {},
+          "type": "mystDirective",
+          "value": ":doc:`/config/callbacks`"
+        }
+      ],
+      "level": 0,
+      "target": "execution_semantics",
+      "title": "Execution of cells in the IPython kernel",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "First, the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "code"
+            },
+            {
+              "type": "text",
+              "value": " cell is transformed to expand "
+            },
+            {
+              "type": "inlineCode",
+              "value": "%magic"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "!system"
+            },
+            {
+              "type": "text",
+              "value": " commands by "
+            },
+            {
+              "type": "inlineCode",
+              "value": "IPython.core.inputtransformer2"
+            },
+            {
+              "type": "text",
+              "value": ". Then expanded cell is compiled using standard Python "
+            },
+            {
+              "type": "inlineCode",
+              "value": "compile"
+            },
+            {
+              "type": "text",
+              "value": " function and executed."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Python "
+            },
+            {
+              "type": "inlineCode",
+              "value": "compile"
+            },
+            {
+              "type": "text",
+              "value": " function provides "
+            },
+            {
+              "type": "inlineCode",
+              "value": "mode"
+            },
+            {
+              "type": "text",
+              "value": " argument to select one of three ways of compiling code:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Valid for a single interactive statement (though the source can contain   multiple lines, such as a for loop).  When compiled in this mode, the   generated bytecode contains special instructions that trigger the calling of   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "sys.displayhook"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for any expression in the block that returns a value.   This means that a single statement can actually produce multiple calls to   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "sys.displayhook"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", if for example it contains a loop where each   iteration computes an unassigned expression would generate 10 calls        "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "for i in range(10):\n    i**2"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "single"
+                      }
+                    ],
+                    "type": "emphasis"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An arbitrary amount of source code, this is how modules are compiled.   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "sys.displayhook"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "never"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " implicitly called."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "exec"
+                      }
+                    ],
+                    "type": "emphasis"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A single expression that returns a value.  "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "sys.displayhook"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "never"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": "   implicitly called."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "eval"
+                      }
+                    ],
+                    "type": "emphasis"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            }
+          ],
+          "type": "DefList"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "type": "inlineCode",
+              "value": "code"
+            },
+            {
+              "type": "text",
+              "value": " field is split into individual blocks each of which is valid for execution in 'single' mode, and then:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If there is only a single block: it is executed in 'single' mode."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If there is more than one block:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "if the last block is a single line long, run all but the last in 'exec' mode     and the very last one in 'single' mode.  This makes it easy to type simple     expressions at the end to see computed values."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "if the last block is no more than two lines long, run all but the last in     'exec' mode and the very last one in 'single' mode.  This makes it easy to     type simple expressions at the end to see computed values.  - otherwise     (last one is also multiline), run all in 'exec' mode"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "otherwise (last block is also multiline), run all in 'exec' mode as a single     unit."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": "Running user ``code``",
+      "type": "Section"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

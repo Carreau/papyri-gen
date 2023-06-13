@@ -1,0 +1,340 @@
+{
+  "aliases": [
+    "skimage.segmentation._slic._slic_cython"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The image is considered to be in (z, y, x) order, which can be surprising. More commonly, the order (x, y, z) is used. However, in 3D image analysis, 'z' is usually the \"special\" dimension, with, for example, a different effective resolution than the other two axes. Therefore, x and y are often processed together, or viewed as a cut-plane through the volume. So, if the order was (x, y, z) and we wanted to look at the 5th cut plane, we would write      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "my_z_plane = img3d[:, :, 5]"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "but, assuming a C-contiguous array, this would grab a discontiguous slice of memory, which is bad for performance. In contrast, if we see the image as (z, y, x) ordered, we would do      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "my_z_plane = img3d[5]"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "and get back a contiguous block of memory. This is better both for performance and for readability."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The input image."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "image_zyx",
+              "type": "Param",
+              "type_": "4D array of np_floats, shape (Z, Y, X, C)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The input mask."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mask",
+              "type": "Param",
+              "type_": "3D array of bool, shape (Z, Y, X), optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The initial centroids obtained by SLIC as [Z, Y, X, C...]."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "segments",
+              "type": "Param",
+              "type_": "2D array of np_floats, shape (N, 3 + C)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The size of the step between two seeds in voxels."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "step",
+              "type": "Param",
+              "type_": "np_floats"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The maximum number of k-means iterations."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "max_num_iter",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The voxel spacing along each image dimension. This parameter controls the weights of the distances along z, y, and x during k-means clustering."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "spacing",
+              "type": "Param",
+              "type_": "1D array of np_floats, shape (3,)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "True to run SLIC-zero, False to run original SLIC."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "slic_zero",
+              "type": "Param",
+              "type_": "bool"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The label indexing start value."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "start_label: int",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "True to update centroid positions without considering pixels color."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ignore_color",
+              "type": "Param",
+              "type_": "bool"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The label field/superpixels found by SLIC."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "nearest_segments",
+              "type": "Param",
+              "type_": "3D array of int, shape (Z, Y, X)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Helper function for SLIC segmentation."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": "<class 'fused_cython_function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Notes"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

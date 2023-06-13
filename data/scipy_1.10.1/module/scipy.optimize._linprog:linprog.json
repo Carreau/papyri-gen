@@ -1,0 +1,1732 @@
+{
+  "aliases": [
+    "scipy.optimize.linprog"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Linear programming solves problems of the following form:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "\\min_x \\ & c^T x \\\\\n\\mbox{such that} \\ & A_{ub} x \\leq b_{ub},\\\\\n& A_{eq} x = b_{eq},\\\\\n& l \\leq x \\leq u ,"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where "
+            },
+            {
+              "type": "inlineMath",
+              "value": "x"
+            },
+            {
+              "type": "text",
+              "value": " is a vector of decision variables; "
+            },
+            {
+              "type": "inlineMath",
+              "value": "c"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineMath",
+              "value": "b_{ub}"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineMath",
+              "value": "b_{eq}"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineMath",
+              "value": "l"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "u"
+            },
+            {
+              "type": "text",
+              "value": " are vectors; and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "A_{ub}"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "A_{eq}"
+            },
+            {
+              "type": "text",
+              "value": " are matrices."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Alternatively, that's:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "minimize      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "c @ x"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "such that      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "A_ub @ x <= b_ub\nA_eq @ x == b_eq\nlb <= x <= ub"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Note that by default "
+            },
+            {
+              "type": "inlineCode",
+              "value": "lb = 0"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ub = None"
+            },
+            {
+              "type": "text",
+              "value": " unless specified with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "bounds"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This section describes the available solvers that can be selected by the 'method' parameter."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "'highs-ds'"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "'highs-ipm'"
+            },
+            {
+              "type": "text",
+              "value": " are interfaces to the HiGHS simplex and interior-point method solvers , respectively. "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "'highs'"
+            },
+            {
+              "type": "text",
+              "value": " (default) chooses between the two automatically. These are the fastest linear programming solvers in SciPy, especially for large, sparse problems; which of these two is faster is problem-dependent. The other solvers ("
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "'interior-point'"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "'revised simplex'"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "'simplex'"
+            },
+            {
+              "type": "text",
+              "value": ") are legacy methods and will be removed in SciPy 1.11.0."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Method "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "highs-ds"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " is a wrapper of the C++ high performance dual revised simplex implementation (HSOL) , . Method "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "highs-ipm"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " is a wrapper of a C++ implementation of an "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "i"
+                }
+              ],
+              "type": "strong"
+            },
+            {
+              "type": "text",
+              "value": "\\ nterior-\\ "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "p"
+                }
+              ],
+              "type": "strong"
+            },
+            {
+              "type": "text",
+              "value": "\\ oint "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "m"
+                }
+              ],
+              "type": "strong"
+            },
+            {
+              "type": "text",
+              "value": "\\ ethod ; it features a crossover routine, so it is as accurate as a simplex solver. Method "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "highs"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " chooses between the two automatically. For new code involving "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "linprog"
+            },
+            {
+              "type": "text",
+              "value": ", we recommend explicitly choosing one of these three method values."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 1.6.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Method "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "interior-point"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " uses the primal-dual path following algorithm as outlined in . This algorithm supports sparse constraint matrices and is typically faster than the simplex methods, especially for large, sparse problems. Note, however, that the solution returned may be slightly less accurate than those of the simplex methods and will not, in general, correspond with a vertex of the polytope defined by the constraints."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 1.0.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Method "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "revised simplex"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " uses the revised simplex method as described in , except that a factorization  of the basis matrix, rather than its inverse, is efficiently maintained and used to solve the linear systems at each iteration of the algorithm."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 1.3.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Method "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "simplex"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " uses a traditional, full-tableau implementation of Dantzig's simplex algorithm ,  ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "not"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " the Nelder-Mead simplex). This algorithm is included for backwards compatibility and educational purposes."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 0.15.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Before applying "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "interior-point"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "revised simplex"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": ", or "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "simplex"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": ", a presolve procedure based on  attempts to identify trivial infeasibilities, trivial unboundedness, and potential problem simplifications. Specifically, it checks for:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "rows of zeros in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "A_eq"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "A_ub"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", representing trivial constraints;"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "columns of zeros in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "A_eq"
+                    },
+                    {
+                      "type": "text",
+                      "value": " "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "and"
+                    },
+                    {
+                      "type": "text",
+                      "value": " "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "A_ub"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", representing unconstrained   variables;"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "column singletons in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "A_eq"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", representing fixed variables; and"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "column singletons in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "A_ub"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", representing simple bounds."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If presolve reveals that the problem is unbounded (e.g. an unconstrained and unbounded variable has negative cost) or infeasible (e.g., a row of zeros in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "A_eq"
+            },
+            {
+              "type": "text",
+              "value": " corresponds with a nonzero in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "b_eq"
+            },
+            {
+              "type": "text",
+              "value": "), the solver terminates with the appropriate status code. Note that presolve terminates as soon as any sign of unboundedness is detected; consequently, a problem may be reported as unbounded when in reality the problem is infeasible (but infeasibility has not been detected yet). Therefore, if it is important to know whether the problem is actually infeasible, solve the problem again with option "
+            },
+            {
+              "type": "inlineCode",
+              "value": "presolve=False"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If neither infeasibility nor unboundedness are detected in a single pass of the presolve, bounds are tightened where possible and fixed variables are removed from the problem. Then, linearly dependent rows of the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "A_eq"
+            },
+            {
+              "type": "text",
+              "value": " matrix are removed, (unless they represent an infeasibility) to avoid numerical difficulties in the primary solve routine. Note that rows that are nearly linearly dependent (within a prescribed tolerance) may also be removed, which can change the optimal solution in rare cases. If this is a concern, eliminate redundancy from your problem formulation and run with option "
+            },
+            {
+              "type": "inlineCode",
+              "value": "rr=False"
+            },
+            {
+              "type": "text",
+              "value": " or "
+            },
+            {
+              "type": "inlineCode",
+              "value": "presolve=False"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Several potential improvements can be made here: additional presolve checks outlined in  should be implemented, the presolve routine should be run multiple times (until no further simplifications can be made), and more of the efficiency improvements from  should be implemented in the redundancy removal routines."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "After presolve, the problem is transformed to standard form by converting the (tightened) simple bounds to upper bound constraints, introducing non-negative slack variables for inequality constraints, and expressing unbounded variables as the difference between two non-negative variables. Optionally, the problem is automatically scaled via equilibration . The selected algorithm solves the standard form problem, and a postprocessing routine converts the result to a solution to the original problem."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The coefficients of the linear objective function to be minimized."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "c",
+              "type": "Param",
+              "type_": "1-D array"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The inequality constraint matrix. Each row of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "A_ub"
+                    },
+                    {
+                      "type": "text",
+                      "value": " specifies the coefficients of a linear inequality constraint on "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "A_ub",
+              "type": "Param",
+              "type_": "2-D array, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The inequality constraint vector. Each element represents an upper bound on the corresponding value of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "A_ub @ x"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "b_ub",
+              "type": "Param",
+              "type_": "1-D array, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The equality constraint matrix. Each row of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "A_eq"
+                    },
+                    {
+                      "type": "text",
+                      "value": " specifies the coefficients of a linear equality constraint on "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "A_eq",
+              "type": "Param",
+              "type_": "2-D array, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The equality constraint vector. Each element of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "A_eq @ x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must equal the corresponding element of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "b_eq"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "b_eq",
+              "type": "Param",
+              "type_": "1-D array, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A sequence of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(min, max)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " pairs for each element in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", defining the minimum and maximum values of that decision variable. Use "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to indicate that there is no bound. By default, bounds are "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(0, None)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (all decision variables are non-negative). If a single tuple "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(min, max)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is provided, then "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "min"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "max"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will serve as bounds for all decision variables."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "bounds",
+              "type": "Param",
+              "type_": "sequence, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The algorithm used to solve the standard form problem. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "'highs' <optimize.linprog-highs>"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (default), "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "'highs-ds' <optimize.linprog-highs-ds>"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "'highs-ipm' <optimize.linprog-highs-ipm>"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "'interior-point' <optimize.linprog-interior-point>"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (legacy), "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "'revised simplex' <optimize.linprog-revised_simplex>"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (legacy), and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "'simplex' <optimize.linprog-simplex>"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (legacy) are supported. The legacy methods are deprecated and will be removed in SciPy 1.11.0."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "method",
+              "type": "Param",
+              "type_": "str, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If a callback function is provided, it will be called at least once per iteration of the algorithm. The callback function must accept a single "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "scipy.optimize._optimize",
+                        "path": "scipy.optimize._optimize:OptimizeResult",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "scipy.optimize.OptimizeResult"
+                    },
+                    {
+                      "type": "text",
+                      "value": " consisting of the following fields:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "x"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "x"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "fun"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "fun"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "success"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "success"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "slack"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "slack"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "con"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "con"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "phase"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "phase"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "status"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "status"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Callback functions are not currently supported by the HiGHS methods."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "callback",
+              "type": "Param",
+              "type_": "callable, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A dictionary of solver options. All methods accept the following options:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "maxiter"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "maxiter"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "disp"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "disp"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "presolve"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "presolve"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "All methods except the HiGHS solvers also accept:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "tol"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "tol"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "autoscale"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "autoscale"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "rr"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "rr"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "rr_method"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "rr_method"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "For method-specific options, see "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "show_options('linprog') <show_options>"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "options",
+              "type": "Param",
+              "type_": "dict, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Guess values of the decision variables, which will be refined by the optimization algorithm. This argument is currently used only by the 'revised simplex' method, and can only be used if "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "x0",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "x0"
+                    },
+                    {
+                      "type": "text",
+                      "value": " represents a basic feasible solution."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x0",
+              "type": "Param",
+              "type_": "1-D array, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Indicates the type of integrality constraint on each decision variable."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "integrality",
+              "type": "Param",
+              "type_": "1-D array or int, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "scipy.optimize.OptimizeResult"
+                    },
+                    {
+                      "type": "text",
+                      "value": " consisting of the fields below. Note that the return types of the fields may depend on whether the optimization was successful, therefore it is recommended to check "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "OptimizeResult.status"
+                    },
+                    {
+                      "type": "text",
+                      "value": " before relying on the other fields:"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "res",
+              "type": "Param",
+              "type_": "OptimizeResult"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Linear programming: minimize a linear objective function subject to linear equality and inequality constraints."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Consider the following problem:"
+      },
+      {
+        "type": "text",
+        "value": ".. math::"
+      },
+      {
+        "type": "text",
+        "value": "    \\min_{x_0, x_1} \\ -x_0 + 4x_1 & \\\\\n    \\mbox{such that} \\ -3x_0 + x_1 & \\leq 6,\\\\\n    -x_0 - 2x_1 & \\geq -4,\\\\\n    x_1 & \\geq -3."
+      },
+      {
+        "type": "text",
+        "value": "The problem is not presented in the form accepted by `linprog`. This is\neasily remedied by converting the \"greater than\" inequality\nconstraint to a \"less than\" inequality constraint by\nmultiplying both sides by a factor of :math:`-1`. Note also that the last\nconstraint is really the simple bound :math:`-3 \\leq x_1 \\leq \\infty`.\nFinally, since there are no bounds on :math:`x_0`, we must explicitly\nspecify the bounds :math:`-\\infty \\leq x_0 \\leq \\infty`, as the\ndefault is for variables to be non-negative. After collecting coeffecients\ninto arrays and tuples, the input for this problem is:"
+      },
+      {
+        "type": "code",
+        "value": "from scipy.optimize import linprog\nc = [-1, 4]\nA = [[-3, 1], [1, 2]]\nb = [6, 4]\nx0_bounds = (None, None)\nx1_bounds = (-3, None)\nres = linprog(c, A_ub=A, b_ub=b, bounds=[x0_bounds, x1_bounds])\nres.fun"
+      },
+      {
+        "type": "code",
+        "value": "res.x"
+      },
+      {
+        "type": "code",
+        "value": "res.message"
+      },
+      {
+        "type": "text",
+        "value": "The marginals (AKA dual values / shadow prices / Lagrange multipliers)\nand residuals (slacks) are also available."
+      },
+      {
+        "type": "code",
+        "value": "res.ineqlin"
+      },
+      {
+        "type": "text",
+        "value": "For example, because the marginal associated with the second inequality\nconstraint is -1, we expect the optimal value of the objective function\nto decrease by ``eps`` if we add a small amount ``eps`` to the right hand\nside of the second inequality constraint:"
+      },
+      {
+        "type": "code",
+        "value": "eps = 0.05\nb[1] += eps\nlinprog(c, A_ub=A, b_ub=b, bounds=[x0_bounds, x1_bounds]).fun"
+      },
+      {
+        "type": "text",
+        "value": "Also, because the residual on the first inequality constraint is 39, we\ncan decrease the right hand side of the first constraint by 39 without\naffecting the optimal solution."
+      },
+      {
+        "type": "code",
+        "value": "b = [6, 4]  # reset to original values\nb[0] -= 39\nlinprog(c, A_ub=A, b_ub=b, bounds=[x0_bounds, x1_bounds]).fun"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/optimize/_linprog.py",
+  "item_line": 168,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Additional options accepted by the solvers."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.optimize._optimize:show_options",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "show_options"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(c, A_ub=None, b_ub=None, A_eq=None, b_eq=None, bounds=None, method='highs', callback=None, options=None, x0=None, integrality=None)"
+  },
+  "type": "DocBlob"
+}

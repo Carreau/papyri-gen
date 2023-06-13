@@ -1,0 +1,787 @@
+{
+  "aliases": [
+    "scipy.fft.fht"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Computes the discrete Hankel transform of a logarithmically spaced periodic sequence using the FFTLog algorithm , ."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function computes a discrete version of the Hankel transform"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "A(k) = \\int_{0}^{\\infty} \\! a(r) \\, J_\\mu(kr) \\, k \\, dr \\;,"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where "
+            },
+            {
+              "type": "inlineMath",
+              "value": "J_\\mu"
+            },
+            {
+              "type": "text",
+              "value": " is the Bessel function of order "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\mu"
+            },
+            {
+              "type": "text",
+              "value": ".  The index "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\mu"
+            },
+            {
+              "type": "text",
+              "value": " may be any real number, positive or negative."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The input array "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "a",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " is a periodic sequence of length "
+            },
+            {
+              "type": "inlineMath",
+              "value": "n"
+            },
+            {
+              "type": "text",
+              "value": ", uniformly logarithmically spaced with spacing "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "dln",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "dln"
+            },
+            {
+              "type": "text",
+              "value": ","
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "a_j = a(r_j) \\;, \\quad\nr_j = r_c \\exp[(j-j_c) \\, \\mathtt{dln}]"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "centred about the point "
+            },
+            {
+              "type": "inlineMath",
+              "value": "r_c"
+            },
+            {
+              "type": "text",
+              "value": ".  Note that the central index "
+            },
+            {
+              "type": "inlineMath",
+              "value": "j_c = (n-1)/2"
+            },
+            {
+              "type": "text",
+              "value": " is half-integral if "
+            },
+            {
+              "type": "inlineMath",
+              "value": "n"
+            },
+            {
+              "type": "text",
+              "value": " is even, so that "
+            },
+            {
+              "type": "inlineMath",
+              "value": "r_c"
+            },
+            {
+              "type": "text",
+              "value": " falls between two input elements.  Similarly, the output array "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "A",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": " is a periodic sequence of length "
+            },
+            {
+              "type": "inlineMath",
+              "value": "n"
+            },
+            {
+              "type": "text",
+              "value": ", also uniformly logarithmically spaced with spacing "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "dln",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "dln"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "A_j = A(k_j) \\;, \\quad\nk_j = k_c \\exp[(j-j_c) \\, \\mathtt{dln}]"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "centred about the point "
+            },
+            {
+              "type": "inlineMath",
+              "value": "k_c"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The centre points "
+            },
+            {
+              "type": "inlineMath",
+              "value": "r_c"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "k_c"
+            },
+            {
+              "type": "text",
+              "value": " of the periodic intervals may be chosen arbitrarily, but it would be usual to choose the product "
+            },
+            {
+              "type": "inlineMath",
+              "value": "k_c r_c = k_j r_{n-1-j} = k_{n-1-j} r_j"
+            },
+            {
+              "type": "text",
+              "value": " to be unity.  This can be changed using the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "offset",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "offset"
+            },
+            {
+              "type": "text",
+              "value": " parameter, which controls the logarithmic offset "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\log(k_c) = \\mathtt{offset} - \\log(r_c)"
+            },
+            {
+              "type": "text",
+              "value": " of the output array. Choosing an optimal value for "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "offset",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "offset"
+            },
+            {
+              "type": "text",
+              "value": " may reduce ringing of the discrete Hankel transform."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "bias",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "bias"
+            },
+            {
+              "type": "text",
+              "value": " parameter is nonzero, this function computes a discrete version of the biased Hankel transform"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "A(k) = \\int_{0}^{\\infty} \\! a_q(r) \\, (kr)^q \\, J_\\mu(kr) \\, k \\, dr"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where "
+            },
+            {
+              "type": "inlineMath",
+              "value": "q"
+            },
+            {
+              "type": "text",
+              "value": " is the value of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "bias",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "bias"
+            },
+            {
+              "type": "text",
+              "value": ", and a power law bias "
+            },
+            {
+              "type": "inlineMath",
+              "value": "a_q(r) = a(r) \\, (kr)^{-q}"
+            },
+            {
+              "type": "text",
+              "value": " is applied to the input sequence. Biasing the transform can help approximate the continuous transform of "
+            },
+            {
+              "type": "inlineMath",
+              "value": "a(r)"
+            },
+            {
+              "type": "text",
+              "value": " if there is a value "
+            },
+            {
+              "type": "inlineMath",
+              "value": "q"
+            },
+            {
+              "type": "text",
+              "value": " such that "
+            },
+            {
+              "type": "inlineMath",
+              "value": "a_q(r)"
+            },
+            {
+              "type": "text",
+              "value": " is close to a periodic sequence, in which case the resulting "
+            },
+            {
+              "type": "inlineMath",
+              "value": "A(k)"
+            },
+            {
+              "type": "text",
+              "value": " will be close to the continuous transform."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Real periodic input array, uniformly logarithmically spaced.  For multidimensional input, the transform is performed over the last axis."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "a",
+              "type": "Param",
+              "type_": "array_like (..., n)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Uniform logarithmic spacing of the input array."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dln",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Order of the Hankel transform, any positive or negative real number."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mu",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Offset of the uniform logarithmic spacing of the output array."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "offset",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Exponent of power law bias, any positive or negative real number."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "bias",
+              "type": "Param",
+              "type_": "float, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The transformed output array, which is real, periodic, uniformly logarithmically spaced, and of the same shape as the input array."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "A",
+              "type": "Param",
+              "type_": "array_like (..., n)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute the fast Hankel transform."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "This example is the adapted version of ``fftlogtest.f`` which is provided\nin [2]_. It evaluates the integral"
+      },
+      {
+        "type": "text",
+        "value": ".. math::"
+      },
+      {
+        "type": "text",
+        "value": "    \\int^\\infty_0 r^{\\mu+1} \\exp(-r^2/2) J_\\mu(k, r) k dr\n    = k^{\\mu+1} \\exp(-k^2/2) ."
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy import fft\nimport matplotlib.pyplot as plt"
+      },
+      {
+        "type": "text",
+        "value": "Parameters for the transform."
+      },
+      {
+        "type": "code",
+        "value": "mu = 0.0                     # Order mu of Bessel function\nr = np.logspace(-7, 1, 128)  # Input evaluation points\ndln = np.log(r[1]/r[0])      # Step size\noffset = fft.fhtoffset(dln, initial=-6*np.log(10), mu=mu)\nk = np.exp(offset)/r[::-1]   # Output evaluation points"
+      },
+      {
+        "type": "text",
+        "value": "Define the analytical function."
+      },
+      {
+        "type": "code",
+        "value": "def f(x, mu):\n    \"\"\"Analytical function: x^(mu+1) exp(-x^2/2).\"\"\"\n    return x**(mu + 1)*np.exp(-x**2/2)"
+      },
+      {
+        "type": "text",
+        "value": "Evaluate the function at ``r`` and compute the corresponding values at\n``k`` using FFTLog."
+      },
+      {
+        "type": "code",
+        "value": "a_r = f(r, mu)\nfht = fft.fht(a_r, dln, mu=mu, offset=offset)"
+      },
+      {
+        "type": "text",
+        "value": "For this example we can actually compute the analytical response (which in\nthis case is the same as the input function) for comparison and compute the\nrelative error."
+      },
+      {
+        "type": "code",
+        "value": "a_k = f(k, mu)\nrel_err = abs((fht-a_k)/a_k)"
+      },
+      {
+        "type": "text",
+        "value": "Plot the result."
+      },
+      {
+        "type": "code",
+        "value": "figargs = {'sharex': True, 'sharey': True, 'constrained_layout': True}\nfig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 4), **figargs)\nax1.set_title(r'$r^{\\mu+1}\\ \\exp(-r^2/2)$')\nax1.loglog(r, a_r, 'k', lw=2)\nax1.set_xlabel('r')\nax2.set_title(r'$k^{\\mu+1} \\exp(-k^2/2)$')\nax2.loglog(k, a_k, 'k', lw=2, label='Analytical')\nax2.loglog(k, fht, 'C3--', lw=2, label='FFTLog')\nax2.set_xlabel('k')\nax2.legend(loc=3, framealpha=1)\nax2.set_ylim([1e-10, 1e1])\nax2b = ax2.twinx()\nax2b.loglog(k, rel_err, 'C0', label='Rel. Error (-)')\nax2b.set_ylabel('Rel. Error (-)', color='C0')\nax2b.tick_params(axis='y', labelcolor='C0')\nax2b.legend(loc=4, framealpha=1)\nax2b.set_ylim([1e-9, 1e-3])\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.fft._fftlog_multimethods:fht-0-4a359b29.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/fft/_fftlog_multimethods.py",
+  "item_line": 15,
+  "item_type": "<class 'uarray._Function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The inverse of "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "fht"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "ifht",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "ifht"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Return an optimal offset for "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "fht"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.fft._fftlog:fhtoffset",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "fhtoffset"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

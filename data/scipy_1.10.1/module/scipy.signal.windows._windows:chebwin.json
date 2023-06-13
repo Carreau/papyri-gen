@@ -1,0 +1,380 @@
+{
+  "aliases": [
+    "scipy.signal.windows.chebwin"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This window optimizes for the narrowest main lobe width for a given order "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "M",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "M"
+            },
+            {
+              "type": "text",
+              "value": " and sidelobe equiripple attenuation "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "at",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "at"
+            },
+            {
+              "type": "text",
+              "value": ", using Chebyshev polynomials.  It was originally developed by Dolph to optimize the directionality of radio antenna arrays."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Unlike most windows, the Dolph-Chebyshev is defined in terms of its frequency response:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "W(k) = \\frac{\\cos\\{M \\cos^{-1}[\\beta \\cos(\\frac{\\pi k}{M})]\\}}\n{\\cosh[M \\cosh^{-1}(\\beta)]}"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "\\beta = \\cosh \\left [\\frac{1}{M}\\cosh^{-1}(10^\\frac{A}{20}) \\right ]"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "and 0 <= abs(k) <= M-1. A is the attenuation in decibels ("
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "at",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "at"
+            },
+            {
+              "type": "text",
+              "value": ")."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The time domain window is then generated using the IFFT, so power-of-two "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "M",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "M"
+            },
+            {
+              "type": "text",
+              "value": " are the fastest to generate, and prime number "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "M",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "M"
+            },
+            {
+              "type": "text",
+              "value": " are the slowest."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The equiripple condition in the frequency domain creates impulses in the time domain, which appear at the ends of the window."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of points in the output window. If zero, an empty array is returned. An exception is thrown when it is negative."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "M",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Attenuation (in dB)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "at",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "When True (default), generates a symmetric window, for use in filter design. When False, generates a periodic window, for use in spectral analysis."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sym",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The window, with the maximum value always normalized to 1"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "w",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Return a Dolph-Chebyshev window."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Plot the window and its frequency response:"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy import signal\nfrom scipy.fft import fft, fftshift\nimport matplotlib.pyplot as plt"
+      },
+      {
+        "type": "code",
+        "value": "window = signal.windows.chebwin(51, at=100)\nplt.plot(window)\nplt.title(\"Dolph-Chebyshev window (100 dB)\")\nplt.ylabel(\"Amplitude\")\nplt.xlabel(\"Sample\")"
+      },
+      {
+        "type": "code",
+        "value": "plt.figure()\nA = fft(window, 2048) / (len(window)/2.0)\nfreq = np.linspace(-0.5, 0.5, len(A))\nresponse = 20 * np.log10(np.abs(fftshift(A / abs(A).max())))\nplt.plot(freq, response)\nplt.axis([-0.5, 0.5, -120, 0])\nplt.title(\"Frequency response of the Dolph-Chebyshev window (100 dB)\")\nplt.ylabel(\"Normalized magnitude [dB]\")\nplt.xlabel(\"Normalized frequency [cycles per sample]\")"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/signal/windows/_windows.py",
+  "item_line": 1456,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(M, at, sym=True)"
+  },
+  "type": "DocBlob"
+}

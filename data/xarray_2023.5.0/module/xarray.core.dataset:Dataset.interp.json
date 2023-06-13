@@ -1,0 +1,506 @@
+{
+  "aliases": [
+    "xarray.Dataset.interp"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Performs univariate or multivariate interpolation of a Dataset onto new coordinates using scipy's interpolation routines. If interpolating along an existing dimension, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "scipy.interpolate.interp1d"
+            },
+            {
+              "type": "text",
+              "value": " is called.  When interpolating along multiple existing dimensions, an attempt is made to decompose the interpolation into multiple 1-dimensional interpolations. If this is possible, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "scipy.interpolate.interp1d"
+            },
+            {
+              "type": "text",
+              "value": " is called. Otherwise, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "scipy.interpolate.interpn"
+            },
+            {
+              "type": "text",
+              "value": " is called."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "scipy is required."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Mapping from dimension names to the new coordinates. New coordinate can be a scalar, array-like or DataArray. If DataArrays are passed as new coordinates, their dimensions are used for the broadcasting. Missing values are skipped."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "coords",
+              "type": "Param",
+              "type_": "dict, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "String indicating which method to use for interpolation:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'linear': linear interpolation. Additional keyword   arguments are passed to "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "numpy.interp"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'nearest', 'zero', 'slinear', 'quadratic', 'cubic', 'polynomial':   are passed to "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "scipy.interpolate.interp1d"
+                            },
+                            {
+                              "type": "text",
+                              "value": ". If   "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "method='polynomial'"
+                            },
+                            {
+                              "type": "text",
+                              "value": ", the "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "order"
+                            },
+                            {
+                              "type": "text",
+                              "value": " keyword argument must also be   provided."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "'barycentric', 'krog', 'pchip', 'spline', 'akima': use their   respective "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "scipy.interpolate"
+                            },
+                            {
+                              "type": "text",
+                              "value": " classes."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": false,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "param": "method",
+              "type": "Param",
+              "type_": "{\"linear\", \"nearest\", \"zero\", \"slinear\", \"quadratic\", \"cubic\", \"polynomial\",             \"barycentric\", \"krog\", \"pchip\", \"spline\", \"akima\"}, default: \"linear\""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If False, values of coordinates that are interpolated over can be in any order and they are sorted first. If True, interpolated coordinates are assumed to be an array of monotonically increasing values."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "assume_sorted",
+              "type": "Param",
+              "type_": "bool, default: False"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Additional keyword arguments passed to scipy's interpolator. Valid options and their behavior depend whether "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "interp1d"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "interpn"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is used."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "kwargs",
+              "type": "Param",
+              "type_": "dict, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Method for non-numeric types. Passed on to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Dataset.reindex"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "\"nearest\""
+                    },
+                    {
+                      "type": "text",
+                      "value": " is used by default."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "method_non_numeric",
+              "type": "Param",
+              "type_": "{\"nearest\", \"pad\", \"ffill\", \"backfill\", \"bfill\"}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The keyword arguments form of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "coords"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". One of coords or coords_kwargs must be provided."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "**coords_kwargs",
+              "type": "Param",
+              "type_": "{dim: coordinate, ...}, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "New dataset on the new coordinates."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "interpolated",
+              "type": "Param",
+              "type_": "Dataset"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Interpolate a Dataset onto new coordinates"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "ds = xr.Dataset(\n    data_vars={\n        \"a\": (\"x\", [5, 7, 4]),\n        \"b\": (\n            (\"x\", \"y\"),\n            [[1, 4, 2, 9], [2, 7, 6, np.nan], [6, np.nan, 5, 8]],\n        ),\n    },\n    coords={\"x\": [0, 1, 2], \"y\": [10, 12, 14, 16]},\n)\nds"
+      },
+      {
+        "type": "text",
+        "value": "1D interpolation with the default method (linear):"
+      },
+      {
+        "type": "code",
+        "value": "ds.interp(x=[0, 0.75, 1.25, 1.75])"
+      },
+      {
+        "type": "text",
+        "value": "1D interpolation with a different method:"
+      },
+      {
+        "type": "code",
+        "value": "ds.interp(x=[0, 0.75, 1.25, 1.75], method=\"nearest\")"
+      },
+      {
+        "type": "text",
+        "value": "1D extrapolation:"
+      },
+      {
+        "type": "code",
+        "value": "ds.interp(\n    x=[1, 1.5, 2.5, 3.5],\n    method=\"linear\",\n    kwargs={\"fill_value\": \"extrapolate\"},\n)"
+      },
+      {
+        "type": "text",
+        "value": "2D interpolation:"
+      },
+      {
+        "type": "code",
+        "value": "ds.interp(x=[0, 0.75, 1.25, 1.75], y=[11, 13, 15], method=\"linear\")"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/xarray/core/dataset.py",
+  "item_line": 3232,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "See Also",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "scipy.interpolate.interp1d",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "scipy.interpolate.interp1d"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "scipy.interpolate.interpn",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "scipy.interpolate.interpn"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(self: 'T_Dataset', coords: 'Mapping[Any, Any] | None' = None, method: 'InterpOptions' = 'linear', assume_sorted: 'bool' = False, kwargs: 'Mapping[str, Any] | None' = None, method_non_numeric: 'str' = 'nearest', **coords_kwargs: 'Any') -> 'T_Dataset'"
+  },
+  "type": "DocBlob"
+}

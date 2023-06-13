@@ -1,0 +1,379 @@
+{
+  "aliases": [
+    "xarray.core.alignment.DataWithCoords.assign_coords"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Returns a new object with all the original data in addition to the new coordinates."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Since "
+            },
+            {
+              "type": "inlineCode",
+              "value": "coords_kwargs"
+            },
+            {
+              "type": "text",
+              "value": " is a dictionary, the order of your arguments may not be preserved, and so the order of the new variables is not well defined. Assigning multiple variables within the same "
+            },
+            {
+              "type": "inlineCode",
+              "value": "assign_coords"
+            },
+            {
+              "type": "text",
+              "value": " is possible, but you cannot reference other variables created within the same "
+            },
+            {
+              "type": "inlineCode",
+              "value": "assign_coords"
+            },
+            {
+              "type": "text",
+              "value": " call."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A dict where the keys are the names of the coordinates with the new values to assign. If the values are callable, they are computed on this object and assigned to new coordinate variables. If the values are not callable, (e.g. a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "DataArray"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", scalar, or array), they are simply assigned. A new coordinate can also be defined and attached to an existing dimension using a tuple with the first element the dimension name and the second element the values for this new coordinate."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "coords",
+              "type": "Param",
+              "type_": "dict-like or None, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The keyword arguments form of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "coords"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". One of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "coords"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "coords_kwargs"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must be provided."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "**coords_kwargs",
+              "type": "Param",
+              "type_": "optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A new object with the new coordinates in addition to the existing data."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "assigned",
+              "type": "Param",
+              "type_": "same type as caller"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Assign new coordinates to this object."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Convert `DataArray` longitude coordinates from 0-359 to -180-179:"
+      },
+      {
+        "type": "code",
+        "value": "da = xr.DataArray(\n    np.random.rand(4),\n    coords=[np.array([358, 359, 0, 1])],\n    dims=\"lon\",\n)\nda"
+      },
+      {
+        "type": "code",
+        "value": "da.assign_coords(lon=(((da.lon + 180) % 360) - 180))"
+      },
+      {
+        "type": "text",
+        "value": "The function also accepts dictionary arguments:"
+      },
+      {
+        "type": "code",
+        "value": "da.assign_coords({\"lon\": (((da.lon + 180) % 360) - 180)})"
+      },
+      {
+        "type": "text",
+        "value": "New coordinate can also be attached to an existing dimension:"
+      },
+      {
+        "type": "code",
+        "value": "lon_2 = np.array([300, 289, 0, 1])\nda.assign_coords(lon_2=(\"lon\", lon_2))"
+      },
+      {
+        "type": "text",
+        "value": "Note that the same result can also be obtained with a dict e.g."
+      },
+      {
+        "type": "code",
+        "value": "_ = da.assign_coords({\"lon_2\": (\"lon\", lon_2)})"
+      },
+      {
+        "type": "text",
+        "value": "Note the same method applies to `Dataset` objects."
+      },
+      {
+        "type": "text",
+        "value": "Convert `Dataset` longitude coordinates from 0-359 to -180-179:"
+      },
+      {
+        "type": "code",
+        "value": "temperature = np.linspace(20, 32, num=16).reshape(2, 2, 4)\nprecipitation = 2 * np.identity(4).reshape(2, 2, 4)\nds = xr.Dataset(\n    data_vars=dict(\n        temperature=([\"x\", \"y\", \"time\"], temperature),\n        precipitation=([\"x\", \"y\", \"time\"], precipitation),\n    ),\n    coords=dict(\n        lon=([\"x\", \"y\"], [[260.17, 260.68], [260.21, 260.77]]),\n        lat=([\"x\", \"y\"], [[42.25, 42.21], [42.63, 42.59]]),\n        time=pd.date_range(\"2014-09-06\", periods=4),\n        reference_time=pd.Timestamp(\"2014-09-05\"),\n    ),\n    attrs=dict(description=\"Weather-related data\"),\n)\nds"
+      },
+      {
+        "type": "code",
+        "value": "ds.assign_coords(lon=(((ds.lon + 180) % 360) - 180))"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/xarray/core/common.py",
+  "item_line": 477,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Examples",
+    "Notes",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "xarray",
+          "path": "xarray.core.dataset:Dataset.assign",
+          "type": "RefInfo",
+          "version": "2023.5.0"
+        },
+        "type": "Link",
+        "value": "Dataset.assign"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "xarray",
+          "path": "xarray.core.dataset:Dataset.swap_dims",
+          "type": "RefInfo",
+          "version": "2023.5.0"
+        },
+        "type": "Link",
+        "value": "Dataset.swap_dims"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "xarray",
+          "path": "xarray.core.dataset:Dataset.set_coords",
+          "type": "RefInfo",
+          "version": "2023.5.0"
+        },
+        "type": "Link",
+        "value": "Dataset.set_coords"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(self: 'T_DataWithCoords', coords: 'Mapping[Any, Any] | None' = None, **coords_kwargs: 'Any') -> 'T_DataWithCoords'"
+  },
+  "type": "DocBlob"
+}

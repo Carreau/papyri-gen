@@ -1,0 +1,903 @@
+{
+  "aliases": [
+    "scipy.stats.barnard_exact"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Barnard's test is an exact test used in the analysis of contingency tables. It examines the association of two categorical variables, and is a more powerful alternative than Fisher's exact test for 2x2 contingency tables."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Let's define "
+            },
+            {
+              "type": "inlineMath",
+              "value": "X_0"
+            },
+            {
+              "type": "text",
+              "value": " a 2x2 matrix representing the observed sample, where each column stores the binomial experiment, as in the example below. Let's also define "
+            },
+            {
+              "type": "inlineMath",
+              "value": "p_1, p_2"
+            },
+            {
+              "type": "text",
+              "value": " the theoretical binomial probabilities for  "
+            },
+            {
+              "type": "inlineMath",
+              "value": "x_{11}"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "x_{12}"
+            },
+            {
+              "type": "text",
+              "value": ". When using Barnard exact test, we can assert three different null hypotheses :"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineMath",
+                      "value": "H_0 : p_1 \\geq p_2"
+                    },
+                    {
+                      "type": "text",
+                      "value": " versus "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "H_1 : p_1 < p_2"
+                    },
+                    {
+                      "type": "text",
+                      "value": ",   with "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "alternative",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "alternative"
+                    },
+                    {
+                      "type": "text",
+                      "value": " = \"less\""
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineMath",
+                      "value": "H_0 : p_1 \\leq p_2"
+                    },
+                    {
+                      "type": "text",
+                      "value": " versus "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "H_1 : p_1 > p_2"
+                    },
+                    {
+                      "type": "text",
+                      "value": ",   with "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "alternative",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "alternative"
+                    },
+                    {
+                      "type": "text",
+                      "value": " = \"greater\""
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineMath",
+                      "value": "H_0 : p_1 = p_2"
+                    },
+                    {
+                      "type": "text",
+                      "value": " versus "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "H_1 : p_1 \\neq p_2"
+                    },
+                    {
+                      "type": "text",
+                      "value": ",   with "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "alternative",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "alternative"
+                    },
+                    {
+                      "type": "text",
+                      "value": " = \"two-sided\" (default one)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In order to compute Barnard's exact test, we are using the Wald statistic  with pooled or unpooled variance. Under the default assumption that both variances are equal ("
+            },
+            {
+              "type": "inlineCode",
+              "value": "pooled = True"
+            },
+            {
+              "type": "text",
+              "value": "), the statistic is computed as:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "T(X) = \\frac{\n    \\hat{p}_1 - \\hat{p}_2\n}{\n    \\sqrt{\n        \\hat{p}(1 - \\hat{p})\n        (\\frac{1}{c_1} +\n        \\frac{1}{c_2})\n    }\n}"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "with "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\hat{p}_1, \\hat{p}_2"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\hat{p}"
+            },
+            {
+              "type": "text",
+              "value": " the estimator of "
+            },
+            {
+              "type": "inlineMath",
+              "value": "p_1, p_2"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "p"
+            },
+            {
+              "type": "text",
+              "value": ", the latter being the combined probability, given the assumption that "
+            },
+            {
+              "type": "inlineMath",
+              "value": "p_1 = p_2"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If this assumption is invalid ("
+            },
+            {
+              "type": "inlineCode",
+              "value": "pooled = False"
+            },
+            {
+              "type": "text",
+              "value": "), the statistic is:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "T(X) = \\frac{\n    \\hat{p}_1 - \\hat{p}_2\n}{\n    \\sqrt{\n        \\frac{\\hat{p}_1 (1 - \\hat{p}_1)}{c_1} +\n        \\frac{\\hat{p}_2 (1 - \\hat{p}_2)}{c_2}\n    }\n}"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The p-value is then computed as:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "\\sum\n    \\binom{c_1}{x_{11}}\n    \\binom{c_2}{x_{12}}\n    \\pi^{x_{11} + x_{12}}\n    (1 - \\pi)^{t - x_{11} - x_{12}}"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where the sum is over all  2x2 contingency tables "
+            },
+            {
+              "type": "inlineMath",
+              "value": "X"
+            },
+            {
+              "type": "text",
+              "value": " such that: * "
+            },
+            {
+              "type": "inlineMath",
+              "value": "T(X) \\leq T(X_0)"
+            },
+            {
+              "type": "text",
+              "value": " when "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "alternative",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "alternative"
+            },
+            {
+              "type": "text",
+              "value": " = \"less\", * "
+            },
+            {
+              "type": "inlineMath",
+              "value": "T(X) \\geq T(X_0)"
+            },
+            {
+              "type": "text",
+              "value": " when "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "alternative",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "alternative"
+            },
+            {
+              "type": "text",
+              "value": " = \"greater\", or * "
+            },
+            {
+              "type": "inlineMath",
+              "value": "T(X) \\geq |T(X_0)|"
+            },
+            {
+              "type": "text",
+              "value": " when "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "alternative",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "alternative"
+            },
+            {
+              "type": "text",
+              "value": " = \"two-sided\". Above, "
+            },
+            {
+              "type": "inlineMath",
+              "value": "c_1, c_2"
+            },
+            {
+              "type": "text",
+              "value": " are the sum of the columns 1 and 2, and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "t"
+            },
+            {
+              "type": "text",
+              "value": " the total (sum of the 4 sample's element)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The returned p-value is the maximum p-value taken over the nuisance parameter "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\pi"
+            },
+            {
+              "type": "text",
+              "value": ", where "
+            },
+            {
+              "type": "inlineMath",
+              "value": "0 \\leq \\pi \\leq 1"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function's complexity is "
+            },
+            {
+              "type": "inlineMath",
+              "value": "O(n c_1 c_2)"
+            },
+            {
+              "type": "text",
+              "value": ", where "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "n",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "n"
+            },
+            {
+              "type": "text",
+              "value": " is the number of sample points."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A 2x2 contingency table.  Elements should be non-negative integers."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "table",
+              "type": "Param",
+              "type_": "array_like of ints"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Defines the null and alternative hypotheses. Default is 'two-sided'. Please see explanations in the Notes section below."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "alternative",
+              "type": "Param",
+              "type_": "{'two-sided', 'less', 'greater'}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to compute score statistic with pooled variance (as in Student's t-test, for example) or unpooled variance (as in Welch's t-test). Default is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "pooled",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of sampling points used in the construction of the sampling method. Note that this argument will automatically be converted to the next higher power of 2 since "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "scipy.stats._qmc",
+                        "path": "scipy.stats._qmc:Sobol",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "scipy.stats.qmc.Sobol"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is used to select sample points. Default is 32. Must be positive. In most cases, 32 points is enough to reach good precision. More points comes at performance cost."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "n",
+              "type": "Param",
+              "type_": "int, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A result object with the following attributes."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "statistic"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "statistic"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "pvalue"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "pvalue"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "param": "ber",
+              "type": "Param",
+              "type_": "BarnardExactResult"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Perform a Barnard exact test on a 2x2 contingency table."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "An example use of Barnard's test is presented in [2]_."
+      },
+      {
+        "type": "text",
+        "value": "    Consider the following example of a vaccine efficacy study\n    (Chan, 1998). In a randomized clinical trial of 30 subjects, 15 were\n    inoculated with a recombinant DNA influenza vaccine and the 15 were\n    inoculated with a placebo. Twelve of the 15 subjects in the placebo\n    group (80%) eventually became infected with influenza whereas for the\n    vaccine group, only 7 of the 15 subjects (47%) became infected. The\n    data are tabulated as a 2 x 2 table::"
+      },
+      {
+        "type": "text",
+        "value": "            Vaccine  Placebo\n        Yes     7        12\n        No      8        3"
+      },
+      {
+        "type": "text",
+        "value": "When working with statistical hypothesis testing, we usually use a\nthreshold probability or significance level upon which we decide\nto reject the null hypothesis :math:`H_0`. Suppose we choose the common\nsignificance level of 5%."
+      },
+      {
+        "type": "text",
+        "value": "Our alternative hypothesis is that the vaccine will lower the chance of\nbecoming infected with the virus; that is, the probability :math:`p_1` of\ncatching the virus with the vaccine will be *less than* the probability\n:math:`p_2` of catching the virus without the vaccine.  Therefore, we call\n`barnard_exact` with the ``alternative=\"less\"`` option:"
+      },
+      {
+        "type": "code",
+        "value": "import scipy.stats as stats\nres = stats.barnard_exact([[7, 12], [8, 3]], alternative=\"less\")\nres.statistic"
+      },
+      {
+        "type": "code",
+        "value": "res.pvalue"
+      },
+      {
+        "type": "text",
+        "value": "Under the null hypothesis that the vaccine will not lower the chance of\nbecoming infected, the probability of obtaining test results at least as\nextreme as the observed data is approximately 3.4%. Since this p-value is\nless than our chosen significance level, we have evidence to reject\n:math:`H_0` in favor of the alternative."
+      },
+      {
+        "type": "text",
+        "value": "Suppose we had used Fisher's exact test instead:"
+      },
+      {
+        "type": "code",
+        "value": "_, pvalue = stats.fisher_exact([[7, 12], [8, 3]], alternative=\"less\")\npvalue"
+      },
+      {
+        "type": "text",
+        "value": "With the same threshold significance of 5%, we would not have been able\nto reject the null hypothesis in favor of the alternative. As stated in\n[2]_, Barnard's test is uniformly more powerful than Fisher's exact test\nbecause Barnard's test does not condition on any margin. Fisher's test\nshould only be used when both sets of marginals are fixed."
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_hypotests.py",
+  "item_line": 910,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Chi-square test of independence of variables in a contingency table."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.stats.contingency:chi2_contingency",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "chi2_contingency"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Fisher exact test on a 2x2 contingency table."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.stats._stats_py:fisher_exact",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "fisher_exact"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Boschloo's exact test on a 2x2 contingency table, which is an uniformly more powerful alternative to Fisher's exact test."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.stats._hypotests:boschloo_exact",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "boschloo_exact"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(table, alternative='two-sided', pooled=True, n=32)"
+  },
+  "type": "DocBlob"
+}

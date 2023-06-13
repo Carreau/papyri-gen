@@ -1,0 +1,1338 @@
+{
+  "aliases": [
+    "scipy.cluster.hierarchy.linkage"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The input y may be either a 1-D condensed distance matrix or a 2-D array of observation vectors."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If y is a 1-D condensed distance matrix, then y must be a "
+            },
+            {
+              "type": "inlineMath",
+              "value": "\\binom{n}{2}"
+            },
+            {
+              "type": "text",
+              "value": " sized vector, where n is the number of original observations paired in the distance matrix. The behavior of this function is very similar to the MATLAB linkage function."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A "
+            },
+            {
+              "type": "inlineMath",
+              "value": "(n-1)"
+            },
+            {
+              "type": "text",
+              "value": " by 4 matrix "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Z"
+            },
+            {
+              "type": "text",
+              "value": " is returned. At the "
+            },
+            {
+              "type": "inlineMath",
+              "value": "i"
+            },
+            {
+              "type": "text",
+              "value": "-th iteration, clusters with indices "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Z[i, 0]"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Z[i, 1]"
+            },
+            {
+              "type": "text",
+              "value": " are combined to form cluster "
+            },
+            {
+              "type": "inlineMath",
+              "value": "n + i"
+            },
+            {
+              "type": "text",
+              "value": ". A cluster with an index less than "
+            },
+            {
+              "type": "inlineMath",
+              "value": "n"
+            },
+            {
+              "type": "text",
+              "value": " corresponds to one of the "
+            },
+            {
+              "type": "inlineMath",
+              "value": "n"
+            },
+            {
+              "type": "text",
+              "value": " original observations. The distance between clusters "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Z[i, 0]"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Z[i, 1]"
+            },
+            {
+              "type": "text",
+              "value": " is given by "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Z[i, 2]"
+            },
+            {
+              "type": "text",
+              "value": ". The fourth value "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Z[i, 3]"
+            },
+            {
+              "type": "text",
+              "value": " represents the number of original observations in the newly formed cluster."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The following linkage methods are used to compute the distance "
+            },
+            {
+              "type": "inlineMath",
+              "value": "d(s, t)"
+            },
+            {
+              "type": "text",
+              "value": " between two clusters "
+            },
+            {
+              "type": "inlineMath",
+              "value": "s"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "t"
+            },
+            {
+              "type": "text",
+              "value": ". The algorithm begins with a forest of clusters that have yet to be used in the hierarchy being formed. When two clusters "
+            },
+            {
+              "type": "inlineMath",
+              "value": "s"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "t"
+            },
+            {
+              "type": "text",
+              "value": " from this forest are combined into a single cluster "
+            },
+            {
+              "type": "inlineMath",
+              "value": "u"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineMath",
+              "value": "s"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "t"
+            },
+            {
+              "type": "text",
+              "value": " are removed from the forest, and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "u"
+            },
+            {
+              "type": "text",
+              "value": " is added to the forest. When only one cluster remains in the forest, the algorithm stops, and this cluster becomes the root."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A distance matrix is maintained at each iteration. The "
+            },
+            {
+              "type": "inlineCode",
+              "value": "d[i,j]"
+            },
+            {
+              "type": "text",
+              "value": " entry corresponds to the distance between cluster "
+            },
+            {
+              "type": "inlineMath",
+              "value": "i"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "j"
+            },
+            {
+              "type": "text",
+              "value": " in the original forest."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "At each iteration, the algorithm must update the distance matrix to reflect the distance of the newly formed cluster u with the remaining clusters in the forest."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Suppose there are "
+            },
+            {
+              "type": "inlineMath",
+              "value": "|u|"
+            },
+            {
+              "type": "text",
+              "value": " original observations "
+            },
+            {
+              "type": "inlineMath",
+              "value": "u[0], \\ldots, u[|u|-1]"
+            },
+            {
+              "type": "text",
+              "value": " in cluster "
+            },
+            {
+              "type": "inlineMath",
+              "value": "u"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "|v|"
+            },
+            {
+              "type": "text",
+              "value": " original objects "
+            },
+            {
+              "type": "inlineMath",
+              "value": "v[0], \\ldots, v[|v|-1]"
+            },
+            {
+              "type": "text",
+              "value": " in cluster "
+            },
+            {
+              "type": "inlineMath",
+              "value": "v"
+            },
+            {
+              "type": "text",
+              "value": ". Recall, "
+            },
+            {
+              "type": "inlineMath",
+              "value": "s"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "t"
+            },
+            {
+              "type": "text",
+              "value": " are combined to form cluster "
+            },
+            {
+              "type": "inlineMath",
+              "value": "u"
+            },
+            {
+              "type": "text",
+              "value": ". Let "
+            },
+            {
+              "type": "inlineMath",
+              "value": "v"
+            },
+            {
+              "type": "text",
+              "value": " be any remaining cluster in the forest that is not "
+            },
+            {
+              "type": "inlineMath",
+              "value": "u"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The following are methods for calculating the distance between the newly formed cluster "
+            },
+            {
+              "type": "inlineMath",
+              "value": "u"
+            },
+            {
+              "type": "text",
+              "value": " and each "
+            },
+            {
+              "type": "inlineMath",
+              "value": "v"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "method='single' assigns"
+                        }
+                      ],
+                      "type": "paragraph"
+                    },
+                    {
+                      "type": "math",
+                      "value": "d(u,v) = \\min(dist(u[i],v[j]))"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "for all points "
+                        },
+                        {
+                          "type": "inlineMath",
+                          "value": "i"
+                        },
+                        {
+                          "type": "text",
+                          "value": " in cluster "
+                        },
+                        {
+                          "type": "inlineMath",
+                          "value": "u"
+                        },
+                        {
+                          "type": "text",
+                          "value": " and     "
+                        },
+                        {
+                          "type": "inlineMath",
+                          "value": "j"
+                        },
+                        {
+                          "type": "text",
+                          "value": " in cluster "
+                        },
+                        {
+                          "type": "inlineMath",
+                          "value": "v"
+                        },
+                        {
+                          "type": "text",
+                          "value": ". This is also known as the     Nearest Point Algorithm."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "method='complete' assigns"
+                        }
+                      ],
+                      "type": "paragraph"
+                    },
+                    {
+                      "type": "math",
+                      "value": "d(u, v) = \\max(dist(u[i],v[j]))"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "for all points "
+                        },
+                        {
+                          "type": "inlineMath",
+                          "value": "i"
+                        },
+                        {
+                          "type": "text",
+                          "value": " in cluster u and "
+                        },
+                        {
+                          "type": "inlineMath",
+                          "value": "j"
+                        },
+                        {
+                          "type": "text",
+                          "value": " in     cluster "
+                        },
+                        {
+                          "type": "inlineMath",
+                          "value": "v"
+                        },
+                        {
+                          "type": "text",
+                          "value": ". This is also known by the Farthest Point     Algorithm or Voor Hees Algorithm."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "method='average' assigns"
+                        }
+                      ],
+                      "type": "paragraph"
+                    },
+                    {
+                      "type": "math",
+                      "value": "d(u,v) = \\sum_{ij} \\frac{d(u[i], v[j])}\n                            {(|u|*|v|)}"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "for all points "
+                        },
+                        {
+                          "type": "inlineMath",
+                          "value": "i"
+                        },
+                        {
+                          "type": "text",
+                          "value": " and "
+                        },
+                        {
+                          "type": "inlineMath",
+                          "value": "j"
+                        },
+                        {
+                          "type": "text",
+                          "value": " where "
+                        },
+                        {
+                          "type": "inlineMath",
+                          "value": "|u|"
+                        },
+                        {
+                          "type": "text",
+                          "value": "     and "
+                        },
+                        {
+                          "type": "inlineMath",
+                          "value": "|v|"
+                        },
+                        {
+                          "type": "text",
+                          "value": " are the cardinalities of clusters "
+                        },
+                        {
+                          "type": "inlineMath",
+                          "value": "u"
+                        },
+                        {
+                          "type": "text",
+                          "value": "     and "
+                        },
+                        {
+                          "type": "inlineMath",
+                          "value": "v"
+                        },
+                        {
+                          "type": "text",
+                          "value": ", respectively. This is also called the UPGMA     algorithm."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "method='weighted' assigns"
+                        }
+                      ],
+                      "type": "paragraph"
+                    },
+                    {
+                      "type": "math",
+                      "value": "d(u,v) = (dist(s,v) + dist(t,v))/2"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "where cluster u was formed with cluster s and t and v     is a remaining cluster in the forest (also called WPGMA)."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "method='centroid' assigns"
+                        }
+                      ],
+                      "type": "paragraph"
+                    },
+                    {
+                      "type": "math",
+                      "value": "dist(s,t) = ||c_s-c_t||_2"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "where "
+                        },
+                        {
+                          "type": "inlineMath",
+                          "value": "c_s"
+                        },
+                        {
+                          "type": "text",
+                          "value": " and "
+                        },
+                        {
+                          "type": "inlineMath",
+                          "value": "c_t"
+                        },
+                        {
+                          "type": "text",
+                          "value": " are the centroids of     clusters "
+                        },
+                        {
+                          "type": "inlineMath",
+                          "value": "s"
+                        },
+                        {
+                          "type": "text",
+                          "value": " and "
+                        },
+                        {
+                          "type": "inlineMath",
+                          "value": "t"
+                        },
+                        {
+                          "type": "text",
+                          "value": ", respectively. When two     clusters "
+                        },
+                        {
+                          "type": "inlineMath",
+                          "value": "s"
+                        },
+                        {
+                          "type": "text",
+                          "value": " and "
+                        },
+                        {
+                          "type": "inlineMath",
+                          "value": "t"
+                        },
+                        {
+                          "type": "text",
+                          "value": " are combined into a new     cluster "
+                        },
+                        {
+                          "type": "inlineMath",
+                          "value": "u"
+                        },
+                        {
+                          "type": "text",
+                          "value": ", the new centroid is computed over all the     original objects in clusters "
+                        },
+                        {
+                          "type": "inlineMath",
+                          "value": "s"
+                        },
+                        {
+                          "type": "text",
+                          "value": " and "
+                        },
+                        {
+                          "type": "inlineMath",
+                          "value": "t"
+                        },
+                        {
+                          "type": "text",
+                          "value": ". The     distance then becomes the Euclidean distance between the     centroid of "
+                        },
+                        {
+                          "type": "inlineMath",
+                          "value": "u"
+                        },
+                        {
+                          "type": "text",
+                          "value": " and the centroid of a remaining cluster     "
+                        },
+                        {
+                          "type": "inlineMath",
+                          "value": "v"
+                        },
+                        {
+                          "type": "text",
+                          "value": " in the forest. This is also known as the UPGMC     algorithm."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "method='median' assigns "
+                        },
+                        {
+                          "type": "inlineMath",
+                          "value": "d(s,t)"
+                        },
+                        {
+                          "type": "text",
+                          "value": " like the "
+                        },
+                        {
+                          "type": "inlineCode",
+                          "value": "centroid"
+                        },
+                        {
+                          "type": "text",
+                          "value": "     method. When two clusters "
+                        },
+                        {
+                          "type": "inlineMath",
+                          "value": "s"
+                        },
+                        {
+                          "type": "text",
+                          "value": " and "
+                        },
+                        {
+                          "type": "inlineMath",
+                          "value": "t"
+                        },
+                        {
+                          "type": "text",
+                          "value": " are combined     into a new cluster "
+                        },
+                        {
+                          "type": "inlineMath",
+                          "value": "u"
+                        },
+                        {
+                          "type": "text",
+                          "value": ", the average of centroids s and t     give the new centroid "
+                        },
+                        {
+                          "type": "inlineMath",
+                          "value": "u"
+                        },
+                        {
+                          "type": "text",
+                          "value": ". This is also known as the     WPGMC algorithm."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "method='ward' uses the Ward variance minimization algorithm.     The new entry "
+                        },
+                        {
+                          "type": "inlineMath",
+                          "value": "d(u,v)"
+                        },
+                        {
+                          "type": "text",
+                          "value": " is computed as follows,"
+                        }
+                      ],
+                      "type": "paragraph"
+                    },
+                    {
+                      "type": "math",
+                      "value": "d(u,v) = \\sqrt{\\frac{|v|+|s|}\n                        {T}d(v,s)^2\n                 + \\frac{|v|+|t|}\n                        {T}d(v,t)^2\n                 - \\frac{|v|}\n                        {T}d(s,t)^2}"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "where "
+                        },
+                        {
+                          "type": "inlineMath",
+                          "value": "u"
+                        },
+                        {
+                          "type": "text",
+                          "value": " is the newly joined cluster consisting of     clusters "
+                        },
+                        {
+                          "type": "inlineMath",
+                          "value": "s"
+                        },
+                        {
+                          "type": "text",
+                          "value": " and "
+                        },
+                        {
+                          "type": "inlineMath",
+                          "value": "t"
+                        },
+                        {
+                          "type": "text",
+                          "value": ", "
+                        },
+                        {
+                          "type": "inlineMath",
+                          "value": "v"
+                        },
+                        {
+                          "type": "text",
+                          "value": " is an unused     cluster in the forest, "
+                        },
+                        {
+                          "type": "inlineMath",
+                          "value": "T=|v|+|s|+|t|"
+                        },
+                        {
+                          "type": "text",
+                          "value": ", and     "
+                        },
+                        {
+                          "type": "inlineMath",
+                          "value": "|*|"
+                        },
+                        {
+                          "type": "text",
+                          "value": " is the cardinality of its argument. This is also     known as the incremental algorithm."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                }
+              ],
+              "ordered": false,
+              "spread": false,
+              "start": 1,
+              "type": "list"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Warning: When the minimum distance pair in the forest is chosen, there may be two or more pairs with the same minimum distance. This implementation may choose a different minimum than the MATLAB version."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "For method 'single', an optimized algorithm based on minimum spanning    tree is implemented. It has time complexity "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "O(n^2)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".    For methods 'complete', 'average', 'weighted' and 'ward', an algorithm    called nearest-neighbors chain is implemented. It also has time    complexity "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "O(n^2)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".    For other methods, a naive algorithm is implemented with "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "O(n^3)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "    time complexity.    All algorithms use "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "O(n^2)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " memory.    Refer to  for details about the algorithms."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Methods 'centroid', 'median', and 'ward' are correctly defined only if    Euclidean pairwise metric is used. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "y",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "y"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is passed as precomputed    pairwise distances, then it is the user's responsibility to assure that    these distances are in fact Euclidean, otherwise the produced result    will be incorrect."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": true,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A condensed distance matrix. A condensed distance matrix is a flat array containing the upper triangular of the distance matrix. This is the form that "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "pdist"
+                    },
+                    {
+                      "type": "text",
+                      "value": " returns. Alternatively, a collection of "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "m"
+                    },
+                    {
+                      "type": "text",
+                      "value": " observation vectors in "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "n"
+                    },
+                    {
+                      "type": "text",
+                      "value": " dimensions may be passed as an "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "m"
+                    },
+                    {
+                      "type": "text",
+                      "value": " by "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "n"
+                    },
+                    {
+                      "type": "text",
+                      "value": " array. All elements of the condensed distance matrix must be finite, i.e., no NaNs or infs."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "y",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The linkage algorithm to use. See the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Linkage Methods"
+                    },
+                    {
+                      "type": "text",
+                      "value": " section below for full descriptions."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "method",
+              "type": "Param",
+              "type_": "str, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The distance metric to use in the case that y is a collection of observation vectors; ignored otherwise. See the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "pdist"
+                    },
+                    {
+                      "type": "text",
+                      "value": " function for a list of valid distance metrics. A custom distance function can also be used."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "metric",
+              "type": "Param",
+              "type_": "str or function, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, the linkage matrix will be reordered so that the distance between successive leaves is minimal. This results in a more intuitive tree structure when the data are visualized. defaults to False, because this algorithm can be slow, particularly on large datasets . See also the "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "optimal_leaf_ordering"
+                    },
+                    {
+                      "type": "text",
+                      "value": " function."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.0.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "optimal_ordering",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The hierarchical clustering encoded as a linkage matrix."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "Z",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Perform hierarchical/agglomerative clustering."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from scipy.cluster.hierarchy import dendrogram, linkage\nfrom matplotlib import pyplot as plt\nX = [[i] for i in [2, 8, 0, 4, 1, 9, 9, 0]]"
+      },
+      {
+        "type": "code",
+        "value": "Z = linkage(X, 'ward')\nfig = plt.figure(figsize=(25, 10))\ndn = dendrogram(Z)"
+      },
+      {
+        "type": "code",
+        "value": "Z = linkage(X, 'single')\nfig = plt.figure(figsize=(25, 10))\ndn = dendrogram(Z)\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.cluster.hierarchy:linkage-0-6c424d51.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.cluster.hierarchy:linkage-1-2c588f2a.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/cluster/hierarchy.py",
+  "item_line": 837,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "See Also",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "pairwise distance metrics"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "scipy.spatial.distance.pdist",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "scipy.spatial.distance.pdist"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(y, method='single', metric='euclidean', optimal_ordering=False)"
+  },
+  "type": "DocBlob"
+}

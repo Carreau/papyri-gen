@@ -1,0 +1,3167 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "args": "numpy",
+          "children": [],
+          "name": "currentmodule",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In addition to the usual bug fixes, this NumPy release cleans up and documents the new random C-API, expires a large number of old deprecations, and improves the appearance of the documentation. The Python versions supported are 3.5-3.8. This is the last NumPy release series that will support Python 3.5."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Downstream developers should use Cython >= 0.29.14 for Python 3.8 support and OpenBLAS >= 3.7 to avoid problems on the Skylake architecture."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": "NumPy 1.18.0 Release Notes",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The C-API for "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "numpy.random"
+                    },
+                    {
+                      "type": "text",
+                      "value": " has been defined and documented."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Basic infrastructure for linking with 64 bit BLAS and LAPACK libraries."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Many documentation improvements."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Highlights",
+      "type": "Section"
+    },
+    {
+      "children": [],
+      "level": 1,
+      "target": null,
+      "title": "New functions",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The method "
+            },
+            {
+              "type": "inlineCode",
+              "value": "multivariate_hypergeometric"
+            },
+            {
+              "type": "text",
+              "value": " has been added to the class "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy",
+                "path": "numpy.random._generator:Generator",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "numpy.random.Generator"
+            },
+            {
+              "type": "text",
+              "value": ".  This method generates random variates from the multivariate hypergeometric probability distribution. ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "gh-13794"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/numpy/numpy/pull/13794"
+            },
+            {
+              "type": "text",
+              "value": ")"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Multivariate hypergeometric distribution added to ``numpy.random``",
+      "type": "Section"
+    },
+    {
+      "children": [],
+      "level": 1,
+      "target": null,
+      "title": "Deprecations",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In future numpy releases, the functions "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.fromfile"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.fromstring"
+            },
+            {
+              "type": "text",
+              "value": " will throw an error when parsing bad data. This will now give a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "DeprecationWarning"
+            },
+            {
+              "type": "text",
+              "value": " where previously partial or even invalid data was silently returned. This deprecation also affects the C defined functions "
+            },
+            {
+              "type": "inlineCode",
+              "value": "PyArray_FromString"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "PyArray_FromFile"
+            },
+            {
+              "type": "text",
+              "value": " ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "gh-13605"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/numpy/numpy/pull/13605"
+            },
+            {
+              "type": "text",
+              "value": ")"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "``np.fromfile`` and ``np.fromstring`` will error on bad data",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Setting a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "MaskedArray.fill_value"
+            },
+            {
+              "type": "text",
+              "value": " to a non-scalar array is deprecated since the logic to broadcast the fill value to the array is fragile, especially when slicing. ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "gh-13698"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/numpy/numpy/pull/13698"
+            },
+            {
+              "type": "text",
+              "value": ")"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Deprecate non-scalar arrays as fill values in ``ma.fill_value``",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "inlineCode",
+              "value": "PyArray_As1D"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "PyArray_As2D"
+            },
+            {
+              "type": "text",
+              "value": " are deprecated, use "
+            },
+            {
+              "type": "inlineCode",
+              "value": "PyArray_AsCArray"
+            },
+            {
+              "type": "text",
+              "value": " instead ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "gh-14036"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/numpy/numpy/pull/14036"
+            },
+            {
+              "type": "text",
+              "value": ")"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Deprecate ``PyArray_As1D``, ``PyArray_As2D``",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "inlineCode",
+              "value": "np.alen"
+            },
+            {
+              "type": "text",
+              "value": " was deprecated. Use "
+            },
+            {
+              "type": "inlineCode",
+              "value": "len"
+            },
+            {
+              "type": "text",
+              "value": " instead. ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "gh-14181"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/numpy/numpy/pull/14181"
+            },
+            {
+              "type": "text",
+              "value": ")"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Deprecate ``np.alen``",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In accordance with "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "NEP-32"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://numpy.org/neps/nep-0032-remove-financial-functions.html"
+            },
+            {
+              "type": "text",
+              "value": ", the financial functions "
+            },
+            {
+              "type": "inlineCode",
+              "value": "fv"
+            },
+            {
+              "type": "text",
+              "value": " "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ipmt"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "irr"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "mirr"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "nper"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "npv"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "pmt"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ppmt"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "pv"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "rate"
+            },
+            {
+              "type": "text",
+              "value": " are deprecated, and will be removed from NumPy 1.20.The replacement for these functions is the Python package "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "numpy-financial"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://pypi.org/project/numpy-financial"
+            },
+            {
+              "type": "text",
+              "value": ". ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "gh-14720"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/numpy/numpy/pull/14720"
+            },
+            {
+              "type": "text",
+              "value": ")"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Deprecate the financial functions",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This argument was always ignored. ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "gh-14996"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/numpy/numpy/pull/14996"
+            },
+            {
+              "type": "text",
+              "value": ")"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "The ``axis`` argument to ``numpy.ma.mask_cols`` and ``numpy.ma.mask_row`` is deprecated",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "PyArray_As1D"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "PyArray_As2D"
+                    },
+                    {
+                      "type": "text",
+                      "value": " have been removed in favor of   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "PyArray_AsCArray"
+                    },
+                    {
+                      "type": "text",
+                      "value": "   ("
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "gh-14036"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/numpy/numpy/pull/14036"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "np.rank"
+                    },
+                    {
+                      "type": "text",
+                      "value": " has been removed. This was deprecated in NumPy 1.10   and has been replaced by "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.ndim"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".   ("
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "gh-14039"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/numpy/numpy/pull/14039"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The deprecation of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "expand_dims"
+                    },
+                    {
+                      "type": "text",
+                      "value": " out-of-range axes in 1.13.0 has   expired.   ("
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "gh-14051"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/numpy/numpy/pull/14051"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "PyArray_FromDimsAndDataAndDescr"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "PyArray_FromDims"
+                    },
+                    {
+                      "type": "text",
+                      "value": " have been   removed (they will always raise an error). Use "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "PyArray_NewFromDescr"
+                    },
+                    {
+                      "type": "text",
+                      "value": "   and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "PyArray_SimpleNew"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instead.   ("
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "gh-14100"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/numpy/numpy/pull/14100"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "numeric.loads"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "numeric.load"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.ma.dump"
+                    },
+                    {
+                      "type": "text",
+                      "value": ",   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.ma.dumps"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.ma.load"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.ma.loads"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are removed,   use "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "pickle"
+                    },
+                    {
+                      "type": "text",
+                      "value": " methods instead   ("
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "gh-14256"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/numpy/numpy/pull/14256"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "arrayprint.FloatFormat"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "arrayprint.LongFloatFormat"
+                    },
+                    {
+                      "type": "text",
+                      "value": " has been removed,   use "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "FloatingFormat"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instead"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "arrayprint.ComplexFormat"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "arrayprint.LongComplexFormat"
+                    },
+                    {
+                      "type": "text",
+                      "value": " has been   removed, use "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ComplexFloatingFormat"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instead"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "arrayprint.StructureFormat"
+                    },
+                    {
+                      "type": "text",
+                      "value": " has been removed, use "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "StructureVoidFormat"
+                    },
+                    {
+                      "type": "text",
+                      "value": "   instead   ("
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "gh-14259"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/numpy/numpy/pull/14259"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "inlineCode",
+                      "value": "np.testing.rand"
+                    },
+                    {
+                      "type": "text",
+                      "value": " has been removed. This was deprecated in NumPy 1.11   and has been replaced by "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.random.rand"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".   ("
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "gh-14325"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/numpy/numpy/pull/14325"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Class "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "SafeEval"
+                    },
+                    {
+                      "type": "text",
+                      "value": " in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "numpy/lib/utils.py"
+                    },
+                    {
+                      "type": "text",
+                      "value": " has been removed.   This was deprecated in NumPy 1.10. Use "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.safe_eval"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instead.   ("
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "gh-14335"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/numpy/numpy/pull/14335"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Remove deprecated support for boolean and empty condition lists in   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.select"
+                    },
+                    {
+                      "type": "text",
+                      "value": "   ("
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "gh-14583"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/numpy/numpy/pull/14583"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Array order only accepts 'C', 'F', 'A', and 'K'. More permissive options   were deprecated in NumPy 1.11.   ("
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "gh-14596"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/numpy/numpy/pull/14596"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "np.linspace parameter "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "num"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must be an integer. Deprecated in NumPy 1.12.   ("
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "gh-14620"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/numpy/numpy/pull/14620"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "UFuncs with multiple outputs must use a tuple for the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "out"
+                    },
+                    {
+                      "type": "text",
+                      "value": " kwarg. This   finishes a deprecation started in NumPy 1.10.   ("
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "gh-14682"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "https://github.com/numpy/numpy/pull/14682"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The files "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy/testing/decorators.py"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy/testing/noseclasses.py"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy/testing/nosetester.py"
+            },
+            {
+              "type": "text",
+              "value": " have been removed.  They were never meant to be public (all relevant objects are present in the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.testing"
+            },
+            {
+              "type": "text",
+              "value": " namespace), and importing them has given a deprecation warning since NumPy 1.15.0 ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "gh-14567"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/numpy/numpy/pull/14567"
+            },
+            {
+              "type": "text",
+              "value": ")"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Expired deprecations",
+      "type": "Section"
+    },
+    {
+      "children": [],
+      "level": 1,
+      "target": null,
+      "title": "Compatibility notes",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If "
+            },
+            {
+              "type": "inlineCode",
+              "value": "drop_fields"
+            },
+            {
+              "type": "text",
+              "value": " is used to drop all fields, previously the array would be completely discarded and None returned. Now it returns an array of the same shape as the input, but with no fields. The old behavior can be retained with      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "dropped_arr = drop_fields(arr, ['a', 'b'])\nif dropped_arr.dtype.names == ():\n    dropped_arr = None"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "converting the empty recarray to None ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "gh-14510"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/numpy/numpy/pull/14510"
+            },
+            {
+              "type": "text",
+              "value": ")"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "`numpy.lib.recfunctions.drop_fields` can no longer return None",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "inlineCode",
+              "value": "numpy.argmin"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.argmax"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.min"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.max"
+            },
+            {
+              "type": "text",
+              "value": " will return "
+            },
+            {
+              "type": "inlineCode",
+              "value": "NaT"
+            },
+            {
+              "type": "text",
+              "value": " if it exists in the array. ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "gh-14717"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/numpy/numpy/pull/14717"
+            },
+            {
+              "type": "text",
+              "value": ")"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "``numpy.argmin/argmax/min/max`` returns ``NaT`` if it exists in array",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Previously this was "
+            },
+            {
+              "type": "inlineCode",
+              "value": "True"
+            },
+            {
+              "type": "text",
+              "value": " - however, this was inconsistent with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "uint64"
+            },
+            {
+              "type": "text",
+              "value": " not being safely castable to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "int64"
+            },
+            {
+              "type": "text",
+              "value": ", and resulting in strange type resolution."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If this impacts your code, cast "
+            },
+            {
+              "type": "inlineCode",
+              "value": "uint64"
+            },
+            {
+              "type": "text",
+              "value": " to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "int64"
+            },
+            {
+              "type": "text",
+              "value": " first. ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "gh-14718"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/numpy/numpy/pull/14718"
+            },
+            {
+              "type": "text",
+              "value": ")"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "``np.can_cast(np.uint64, np.timedelta64, casting='safe')`` is now ``False``",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "There was a bug in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.random.Generator.integers"
+            },
+            {
+              "type": "text",
+              "value": " that caused biased sampling of 8 and 16 bit integer types. Fixing that bug has changed the output stream from what it was in previous releases. ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "gh-14777"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/numpy/numpy/pull/14777"
+            },
+            {
+              "type": "text",
+              "value": ")"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Changed random variate stream from ``numpy.random.Generator.integers``",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "inlineCode",
+              "value": "np.datetime('NaT')"
+            },
+            {
+              "type": "text",
+              "value": " should behave more like "
+            },
+            {
+              "type": "inlineCode",
+              "value": "float('Nan')"
+            },
+            {
+              "type": "text",
+              "value": ". Add needed infrastructure so "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.isinf(a)"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.isnan(a)"
+            },
+            {
+              "type": "text",
+              "value": " will run on "
+            },
+            {
+              "type": "inlineCode",
+              "value": "datetime64"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "timedelta64"
+            },
+            {
+              "type": "text",
+              "value": " dtypes. Also added specific loops for "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.fmin"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.fmax"
+            },
+            {
+              "type": "text",
+              "value": " that mask "
+            },
+            {
+              "type": "inlineCode",
+              "value": "NaT"
+            },
+            {
+              "type": "text",
+              "value": ". This may require adjustment to user- facing code. Specifically, code that either disallowed the calls to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.isinf"
+            },
+            {
+              "type": "text",
+              "value": " or "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.isnan"
+            },
+            {
+              "type": "text",
+              "value": " or checked that they raised an exception will require adaptation, and code that mistakenly called "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.fmax"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.fmin"
+            },
+            {
+              "type": "text",
+              "value": " instead of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.maximum"
+            },
+            {
+              "type": "text",
+              "value": " or "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.minimum"
+            },
+            {
+              "type": "text",
+              "value": " respectively will require adjustment. This also affects "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.nanmax"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.nanmin"
+            },
+            {
+              "type": "text",
+              "value": ". ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "gh-14841"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/numpy/numpy/pull/14841"
+            },
+            {
+              "type": "text",
+              "value": ")"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Add more ufunc loops for ``datetime64``, ``timedelta64``",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "As part of the API cleanup, the submodules in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.random"
+            },
+            {
+              "type": "text",
+              "value": " "
+            },
+            {
+              "type": "inlineCode",
+              "value": "bit_generator"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "philox"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "pcg64"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "sfc64, ``common"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "generator"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "bounded_integers"
+            },
+            {
+              "type": "text",
+              "value": " were moved to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_bit_generator"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_philox"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_pcg64"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_sfc64, ``_common"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_generator"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_bounded_integers"
+            },
+            {
+              "type": "text",
+              "value": " respectively to indicate that they are not part of the public interface. ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "gh-14608"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/numpy/numpy/pull/14608"
+            },
+            {
+              "type": "text",
+              "value": ")"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Moved modules in ``numpy.random``",
+      "type": "Section"
+    },
+    {
+      "children": [],
+      "level": 1,
+      "target": null,
+      "title": "C API changes",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Previously this returned True for any datatype of itemsize 0, but now this returns false for the non-flexible datatype with itemsize 0, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.dtype([])"
+            },
+            {
+              "type": "text",
+              "value": ". ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "gh-14393"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/numpy/numpy/pull/14393"
+            },
+            {
+              "type": "text",
+              "value": ")"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "``PyDataType_ISUNSIZED(descr)`` now returns False for structured datatypes",
+      "type": "Section"
+    },
+    {
+      "children": [],
+      "level": 1,
+      "target": null,
+      "title": "New Features",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Added a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy/__init__.pxd"
+            },
+            {
+              "type": "text",
+              "value": " file. It will be used for "
+            },
+            {
+              "type": "inlineCode",
+              "value": "cimport numpy"
+            },
+            {
+              "type": "text",
+              "value": " ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "gh-12284"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/numpy/numpy/pull/12284"
+            },
+            {
+              "type": "text",
+              "value": ")"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Add our own ``*.pxd`` cython import file",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.expand_dims"
+            },
+            {
+              "type": "text",
+              "value": " "
+            },
+            {
+              "type": "inlineCode",
+              "value": "axis"
+            },
+            {
+              "type": "text",
+              "value": " keyword can now accept a tuple of axes.  Previously, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "axis"
+            },
+            {
+              "type": "text",
+              "value": " was required to be an integer. ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "gh-14051"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/numpy/numpy/pull/14051"
+            },
+            {
+              "type": "text",
+              "value": ")"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "A tuple of axes can now be input to ``expand_dims``",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Added support for 64-bit (ILP64) OpenBLAS. See "
+            },
+            {
+              "type": "inlineCode",
+              "value": "site.cfg.example"
+            },
+            {
+              "type": "text",
+              "value": " for details. ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "gh-15012"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/numpy/numpy/pull/15012"
+            },
+            {
+              "type": "text",
+              "value": ")"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Support for 64-bit OpenBLAS",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Allow specifying a file to load Fortran-to-C type map customizations from. ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "gh-15113"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/numpy/numpy/pull/15113"
+            },
+            {
+              "type": "text",
+              "value": ")"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Add ``--f2cmap`` option to F2PY",
+      "type": "Section"
+    },
+    {
+      "children": [],
+      "level": 1,
+      "target": null,
+      "title": "Improvements",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "On any given platform, two of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.intc"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.int_"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.longlong"
+            },
+            {
+              "type": "text",
+              "value": " would previously appear indistinguishable through their "
+            },
+            {
+              "type": "inlineCode",
+              "value": "repr"
+            },
+            {
+              "type": "text",
+              "value": ", despite their corresponding "
+            },
+            {
+              "type": "inlineCode",
+              "value": "dtype"
+            },
+            {
+              "type": "text",
+              "value": " having different properties. A similar problem existed for the unsigned counterparts to these types, and on some platforms for "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.double"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.longdouble"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "These types now always print with a unique "
+            },
+            {
+              "type": "inlineCode",
+              "value": "__name__"
+            },
+            {
+              "type": "text",
+              "value": ". ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "gh-10151"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/numpy/numpy/pull/10151"
+            },
+            {
+              "type": "text",
+              "value": ")"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Different C numeric types of the same size have unique names",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "On N-d arrays, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.argwhere"
+            },
+            {
+              "type": "text",
+              "value": " now always produces an array of shape "
+            },
+            {
+              "type": "inlineCode",
+              "value": "(n_non_zero, arr.ndim)"
+            },
+            {
+              "type": "text",
+              "value": ", even when "
+            },
+            {
+              "type": "inlineCode",
+              "value": "arr.ndim == 0"
+            },
+            {
+              "type": "text",
+              "value": ". Previously, the last axis would have a dimension of 1 in this case. ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "gh-13610"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/numpy/numpy/pull/13610"
+            },
+            {
+              "type": "text",
+              "value": ")"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "``argwhere`` now produces a consistent result on 0d arrays",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Previously the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "random.permutation"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "random.shuffle"
+            },
+            {
+              "type": "text",
+              "value": " functions can only shuffle an array along the first axis; they now have a new argument "
+            },
+            {
+              "type": "inlineCode",
+              "value": "axis"
+            },
+            {
+              "type": "text",
+              "value": " which allows shuffle along a specified axis. ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "gh-13829"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/numpy/numpy/pull/13829"
+            },
+            {
+              "type": "text",
+              "value": ")"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Add ``axis`` argument for ``random.permutation`` and ``random.shuffle``",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A "
+            },
+            {
+              "type": "inlineCode",
+              "value": "method"
+            },
+            {
+              "type": "text",
+              "value": " keyword argument is now available for "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.random.multivariate_normal"
+            },
+            {
+              "type": "text",
+              "value": " with possible values "
+            },
+            {
+              "type": "inlineCode",
+              "value": "{'svd', 'eigh', 'cholesky'}"
+            },
+            {
+              "type": "text",
+              "value": ". To use it, write "
+            },
+            {
+              "type": "inlineCode",
+              "value": "np.random.multivariate_normal(..., method=<method>)"
+            },
+            {
+              "type": "text",
+              "value": ". ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "gh-14197"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/numpy/numpy/pull/14197"
+            },
+            {
+              "type": "text",
+              "value": ")"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "``method`` keyword argument for ``np.random.multivariate_normal``",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Now "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.fromstring"
+            },
+            {
+              "type": "text",
+              "value": " can read complex numbers. ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "gh-14227"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/numpy/numpy/pull/14227"
+            },
+            {
+              "type": "text",
+              "value": ")"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Add complex number support for ``numpy.fromstring``",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Using "
+            },
+            {
+              "type": "inlineCode",
+              "value": "moveaxis"
+            },
+            {
+              "type": "text",
+              "value": " instead of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "swapaxes"
+            },
+            {
+              "type": "text",
+              "value": " in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.unique"
+            },
+            {
+              "type": "text",
+              "value": ", so that the ordering of axes except the axis in arguments will not be broken. ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "gh-14255"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/numpy/numpy/pull/14255"
+            },
+            {
+              "type": "text",
+              "value": ")"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "``numpy.unique`` has consistent axes order when ``axis`` is not None",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Calling "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.matmul"
+            },
+            {
+              "type": "text",
+              "value": " where the output is a boolean array would fill the array with uint8 equivalents of the result, rather than 0/1. Now it forces the output to 0 or 1 ("
+            },
+            {
+              "type": "inlineCode",
+              "value": "NPY_TRUE"
+            },
+            {
+              "type": "text",
+              "value": " or "
+            },
+            {
+              "type": "inlineCode",
+              "value": "NPY_FALSE"
+            },
+            {
+              "type": "text",
+              "value": "). ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "gh-14464"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/numpy/numpy/pull/14464"
+            },
+            {
+              "type": "text",
+              "value": ")"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "``numpy.matmul`` with boolean output now converts to boolean values",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The implementation introduced in 1.17.0 had an incorrect check when determining whether to use the 32-bit path or the full 64-bit path that incorrectly redirected random integer generation with a high - low range of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "2**32"
+            },
+            {
+              "type": "text",
+              "value": " to the 64-bit generator. ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "gh-14501"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/numpy/numpy/pull/14501"
+            },
+            {
+              "type": "text",
+              "value": ")"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "``numpy.random.randint`` produced incorrect value when the range was ``2**32``",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Now "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.fromfile"
+            },
+            {
+              "type": "text",
+              "value": " can read complex numbers. ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "gh-14730"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/numpy/numpy/pull/14730"
+            },
+            {
+              "type": "text",
+              "value": ")"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Add complex number support for ``numpy.fromfile``",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "GCC before version 5 requires the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "-std=c99"
+            },
+            {
+              "type": "text",
+              "value": " command line argument. Newer compilers automatically turn on C99 mode. The compiler setup code will automatically add the code if the compiler name has "
+            },
+            {
+              "type": "inlineCode",
+              "value": "gcc"
+            },
+            {
+              "type": "text",
+              "value": " in it. ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "gh-14771"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/numpy/numpy/pull/14771"
+            },
+            {
+              "type": "text",
+              "value": ")"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "``std=c99`` added if compiler is named ``gcc``",
+      "type": "Section"
+    },
+    {
+      "children": [],
+      "level": 1,
+      "target": null,
+      "title": "Changes",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "inlineCode",
+              "value": "NaT"
+            },
+            {
+              "type": "text",
+              "value": " is now effectively treated as the largest integer for sorting purposes, so that it sorts to the end of arrays. This change is for consistency with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "NaN"
+            },
+            {
+              "type": "text",
+              "value": " sorting behavior. ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "gh-12658"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/numpy/numpy/pull/12658"
+            },
+            {
+              "type": "text",
+              "value": ") ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "gh-15068"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/numpy/numpy/pull/15068"
+            },
+            {
+              "type": "text",
+              "value": ")"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "``NaT`` now sorts to the end of arrays",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Previously an incorrect "
+            },
+            {
+              "type": "inlineCode",
+              "value": "threshold"
+            },
+            {
+              "type": "text",
+              "value": " raised "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ValueError"
+            },
+            {
+              "type": "text",
+              "value": "; it now raises "
+            },
+            {
+              "type": "inlineCode",
+              "value": "TypeError"
+            },
+            {
+              "type": "text",
+              "value": " for non-numeric types and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ValueError"
+            },
+            {
+              "type": "text",
+              "value": " for "
+            },
+            {
+              "type": "inlineCode",
+              "value": "nan"
+            },
+            {
+              "type": "text",
+              "value": " values. ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "gh-13899"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/numpy/numpy/pull/13899"
+            },
+            {
+              "type": "text",
+              "value": ")"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Incorrect ``threshold`` in ``np.set_printoptions`` raises ``TypeError`` or ``ValueError``",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A "
+            },
+            {
+              "type": "inlineCode",
+              "value": "UserWarning"
+            },
+            {
+              "type": "text",
+              "value": " will be emitted when saving an array via "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.save"
+            },
+            {
+              "type": "text",
+              "value": " with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "metadata"
+            },
+            {
+              "type": "text",
+              "value": ". Saving such an array may not preserve metadata, and if metadata is preserved, loading it will cause a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ValueError"
+            },
+            {
+              "type": "text",
+              "value": ". This shortcoming in save and load will be addressed in a future release. ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "gh-14142"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/numpy/numpy/pull/14142"
+            },
+            {
+              "type": "text",
+              "value": ")"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Warn when saving a dtype with metadata",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy",
+                "path": "numpy.distutils",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "numpy.distutils"
+            },
+            {
+              "type": "text",
+              "value": " has always overridden rather than appended to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "LDFLAGS"
+            },
+            {
+              "type": "text",
+              "value": " and other similar such environment variables for compiling Fortran extensions. Now the default behavior has changed to appending - which is the expected behavior in most situations.  To preserve the old (overwriting) behavior, set the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "NPY_DISTUTILS_APPEND_FLAGS"
+            },
+            {
+              "type": "text",
+              "value": " environment variable to 0.  This applies to: "
+            },
+            {
+              "type": "inlineCode",
+              "value": "LDFLAGS"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "F77FLAGS"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "F90FLAGS"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "FREEFLAGS"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "FOPT"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": "FDEBUG"
+            },
+            {
+              "type": "text",
+              "value": ", and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "FFLAGS"
+            },
+            {
+              "type": "text",
+              "value": ". NumPy 1.16 and 1.17 gave build warnings in situations where this change in behavior would have affected the compile flags used. ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "gh-14248"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/numpy/numpy/pull/14248"
+            },
+            {
+              "type": "text",
+              "value": ")"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "``numpy.distutils`` append behavior changed for LDFLAGS and similar",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "inlineCode",
+              "value": "numpy.random.entropy"
+            },
+            {
+              "type": "text",
+              "value": " was added to the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.random"
+            },
+            {
+              "type": "text",
+              "value": " namespace in 1.17.0. It was meant to be a private c-extension module, but was exposed as public. It has been replaced by "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.random.SeedSequence"
+            },
+            {
+              "type": "text",
+              "value": " so the module was completely removed. ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "gh-14498"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/numpy/numpy/pull/14498"
+            },
+            {
+              "type": "text",
+              "value": ")"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Remove ``numpy.random.entropy`` without a deprecation",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Added two new configuration options. During the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "build_src"
+            },
+            {
+              "type": "text",
+              "value": " subcommand, as part of configuring NumPy, the files "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_numpyconfig.h"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "config.h"
+            },
+            {
+              "type": "text",
+              "value": " are created by probing support for various runtime functions and routines. Previously, the very verbose compiler output during this stage clouded more important information. By default the output is silenced. Running "
+            },
+            {
+              "type": "inlineCode",
+              "value": "runtests.py --debug-info"
+            },
+            {
+              "type": "text",
+              "value": " will add "
+            },
+            {
+              "type": "inlineCode",
+              "value": "--verbose-cfg"
+            },
+            {
+              "type": "text",
+              "value": " to the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "build_src"
+            },
+            {
+              "type": "text",
+              "value": " subcommand,which will restore the previous behaviour."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Adding "
+            },
+            {
+              "type": "inlineCode",
+              "value": "CFLAGS=-Werror"
+            },
+            {
+              "type": "text",
+              "value": " to turn warnings into errors would trigger errors during the configuration. Now "
+            },
+            {
+              "type": "inlineCode",
+              "value": "runtests.py --warn-error"
+            },
+            {
+              "type": "text",
+              "value": " will add "
+            },
+            {
+              "type": "inlineCode",
+              "value": "--warn-error"
+            },
+            {
+              "type": "text",
+              "value": " to the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "build"
+            },
+            {
+              "type": "text",
+              "value": " subcommand, which will percolate to the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "build_ext"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "build_lib"
+            },
+            {
+              "type": "text",
+              "value": " subcommands. This will add the compiler flag to those stages and turn compiler warnings into errors while actually building NumPy itself, avoiding the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "build_src"
+            },
+            {
+              "type": "text",
+              "value": " subcommand compiler calls."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "gh-14527"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/numpy/numpy/pull/14527"
+            },
+            {
+              "type": "text",
+              "value": ") ("
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "gh-14518"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://github.com/numpy/numpy/pull/14518"
+            },
+            {
+              "type": "text",
+              "value": ")"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Add options to quiet build configuration and build with ``-Werror``",
+      "type": "Section"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,2817 @@
+{
+  "aliases": [
+    "scipy.integrate.quad"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Integrate func from "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "a",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " to "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "b",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "b"
+            },
+            {
+              "type": "text",
+              "value": " (possibly infinite interval) using a technique from the Fortran library QUADPACK."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Extra information for quad() inputs and outputs"
+                }
+              ],
+              "type": "strong"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If full_output is non-zero, then the third output argument (infodict) is a dictionary with entries as tabulated below. For infinite limits, the range is transformed to (0,1) and the optional outputs are given with respect to this transformed range. Let M be the input argument limit and let K be infodict['last']. The entries are:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The number of function evaluations."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "'neval'"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The number, K, of subintervals produced in the subdivision process."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "'last'"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A rank-1 array of length M, the first K elements of which are the     left end points of the subintervals in the partition of the     integration range."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "'alist'"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A rank-1 array of length M, the first K elements of which are the     right end points of the subintervals."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "'blist'"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A rank-1 array of length M, the first K elements of which are the     integral approximations on the subintervals."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "'rlist'"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A rank-1 array of length M, the first K elements of which are the     moduli of the absolute error estimates on the subintervals."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "'elist'"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A rank-1 integer array of length M, the first L elements of     which are pointers to the error estimates over the subintervals     with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "L=K"
+                    },
+                    {
+                      "type": "text",
+                      "value": " if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "K<=M/2+2"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "L=M+1-K"
+                    },
+                    {
+                      "type": "text",
+                      "value": " otherwise. Let I be the     sequence "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "infodict['iord']"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and let E be the sequence     "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "infodict['elist']"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  Then "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "E[I[1]], ..., E[I[L]]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " forms a     decreasing sequence."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "'iord'"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            }
+          ],
+          "type": "DefList"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If the input argument points is provided (i.e., it is not None), the following additional outputs are placed in the output dictionary. Assume the points sequence is of length P."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A rank-1 array of length P+2 containing the integration limits     and the break points of the intervals in ascending order.     This is an array giving the subintervals over which integration     will occur."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "'pts'"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A rank-1 integer array of length M (=limit), containing the     subdivision levels of the subintervals, i.e., if (aa,bb) is a     subinterval of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(pts[1], pts[2])"
+                    },
+                    {
+                      "type": "text",
+                      "value": " where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "pts[0]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "pts[2]"
+                    },
+                    {
+                      "type": "text",
+                      "value": "     are adjacent elements of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "infodict['pts']"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", then (aa,bb) has level l     if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "|bb-aa| = |pts[2]-pts[1]| * 2**(-l)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "'level'"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A rank-1 integer array of length P+2. After the first integration     over the intervals (pts[1], pts[2]), the error estimates over some     of the intervals may have been increased artificially in order to     put their subdivision forward. This array has ones in slots     corresponding to the subintervals for which this happens."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "'ndin'"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            }
+          ],
+          "type": "DefList"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Weighting the integrand"
+                }
+              ],
+              "type": "strong"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The input variables, "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "weight"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "wvar"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": ", are used to weight the integrand by a select list of functions. Different integration methods are used to compute the integral with these weighting functions, and these do not support specifying break points. The possible values of weight and the corresponding weighting functions are."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "==========  ===================================   ===================== "
+            },
+            {
+              "type": "inlineCode",
+              "value": "weight"
+            },
+            {
+              "type": "text",
+              "value": "  Weight function used                  "
+            },
+            {
+              "type": "inlineCode",
+              "value": "wvar"
+            },
+            {
+              "type": "text",
+              "value": " ==========  ===================================   ===================== 'cos'       cos(w*x)                              wvar = w 'sin'       sin(w*x)                              wvar = w 'alg'       g(x) = ((x-a)**alpha)*((b-x)**beta)   wvar = (alpha, beta) 'alg-loga'  g(x)*log(x-a)                         wvar = (alpha, beta) 'alg-logb'  g(x)*log(b-x)                         wvar = (alpha, beta) 'alg-log'   g(x)*log(x-a)*log(b-x)                wvar = (alpha, beta) 'cauchy'    1/(x-c)                               wvar = c ==========  ===================================   ====================="
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "wvar holds the parameter w, (alpha, beta), or c depending on the weight selected. In these expressions, a and b are the integration limits."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For the 'cos' and 'sin' weighting, additional inputs and outputs are available."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For finite integration limits, the integration is performed using a Clenshaw-Curtis method which uses Chebyshev moments. For repeated calculations, these moments are saved in the output dictionary:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The maximum level of Chebyshev moments that have been computed,     i.e., if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "M_c"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "infodict['momcom']"
+                    },
+                    {
+                      "type": "text",
+                      "value": " then the moments have been     computed for intervals of length "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "|b-a| * 2**(-l)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ",     "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "l=0,1,...,M_c"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "'momcom'"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A rank-1 integer array of length M(=limit), containing the     subdivision levels of the subintervals, i.e., an element of this     array is equal to l if the corresponding subinterval is     "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "|b-a|* 2**(-l)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "'nnlog'"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A rank-2 array of shape (25, maxp1) containing the computed     Chebyshev moments. These can be passed on to an integration     over the same interval by passing this array as the second     element of the sequence wopts and passing infodict['momcom'] as     the first element."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "'chebmo'"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            }
+          ],
+          "type": "DefList"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If one of the integration limits is infinite, then a Fourier integral is computed (assuming w neq 0). If full_output is 1 and a numerical error is encountered, besides the error message attached to the output tuple, a dictionary is also appended to the output tuple which translates the error codes in the array "
+            },
+            {
+              "type": "inlineCode",
+              "value": "info['ierlst']"
+            },
+            {
+              "type": "text",
+              "value": " to English messages. The output information dictionary contains the following entries instead of 'last', 'alist', 'blist', 'rlist', and 'elist':"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The number of subintervals needed for the integration (call it "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "K_f"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "'lst'"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A rank-1 array of length M_f=limlst, whose first "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "K_f"
+                    },
+                    {
+                      "type": "text",
+                      "value": " elements     contain the integral contribution over the interval     "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(a+(k-1)c, a+kc)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "c = (2*floor(|w|) + 1) * pi / |w|"
+                    },
+                    {
+                      "type": "text",
+                      "value": "     and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "k=1,2,...,K_f"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "'rslst'"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A rank-1 array of length "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "M_f"
+                    },
+                    {
+                      "type": "text",
+                      "value": " containing the error estimate     corresponding to the interval in the same position in     "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "infodict['rslist']"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "'erlst'"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A rank-1 integer array of length "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "M_f"
+                    },
+                    {
+                      "type": "text",
+                      "value": " containing an error flag     corresponding to the interval in the same position in     "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "infodict['rslist']"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  See the explanation dictionary (last entry     in the output tuple) for the meaning of the codes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "'ierlst'"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            }
+          ],
+          "type": "DefList"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Details of QUADPACK level routines"
+                }
+              ],
+              "type": "strong"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "quad"
+            },
+            {
+              "type": "text",
+              "value": " calls routines from the FORTRAN library QUADPACK. This section provides details on the conditions for each routine to be called and a short description of each routine. The routine called depends on "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "weight",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "weight"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "points",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "points"
+            },
+            {
+              "type": "text",
+              "value": " and the integration limits "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "a",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "b",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "b"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "================  ==============  ==========  ===================== QUADPACK routine  "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "weight",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "weight"
+            },
+            {
+              "type": "text",
+              "value": "        "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "points",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "points"
+            },
+            {
+              "type": "text",
+              "value": "    infinite bounds ================  ==============  ==========  ===================== qagse             None            No          No qagie             None            No          Yes qagpe             None            Yes         No qawoe             'sin', 'cos'    No          No qawfe             'sin', 'cos'    No          either "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "a",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " or "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "b",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "b"
+            },
+            {
+              "type": "text",
+              "value": " qawse             'alg*'          No          No qawce             'cauchy'        No          No ================  ==============  ==========  ====================="
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The following provides a short desciption from  for each routine."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "is an integrator based on globally adaptive interval     subdivision in connection with extrapolation, which will     eliminate the effects of integrand singularities of     several types."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "qagse"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "handles integration over infinite intervals. The infinite range is     mapped onto a finite interval and subsequently the same strategy as     in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "QAGS"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is applied."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "qagie"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "serves the same purposes as QAGS, but also allows the     user to provide explicit information about the location     and type of trouble-spots i.e. the abscissae of internal     singularities, discontinuities and other difficulties of     the integrand function."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "qagpe"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "is an integrator for the evaluation of     "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "\\int^b_a \\cos(\\omega x)f(x)dx"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or     "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "\\int^b_a \\sin(\\omega x)f(x)dx"
+                    },
+                    {
+                      "type": "text",
+                      "value": "     over a finite interval [a,b], where "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "\\omega"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "f"
+                    },
+                    {
+                      "type": "text",
+                      "value": "     are specified by the user. The rule evaluation component is based     on the modified Clenshaw-Curtis technique"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An adaptive subdivision scheme is used in connection     with an extrapolation procedure, which is a modification     of that in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "QAGS"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and allows the algorithm to deal with     singularities in "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "f(x)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "qawoe"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "calculates the Fourier transform     "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "\\int^\\infty_a \\cos(\\omega x)f(x)dx"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or     "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "\\int^\\infty_a \\sin(\\omega x)f(x)dx"
+                    },
+                    {
+                      "type": "text",
+                      "value": "     for user-provided "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "\\omega"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "f"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". The procedure of     "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "QAWO"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is applied on successive finite intervals, and convergence     acceleration by means of the "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "\\varepsilon"
+                    },
+                    {
+                      "type": "text",
+                      "value": "-algorithm is applied     to the series of integral approximations."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "qawfe"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "approximate "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "\\int^b_a w(x)f(x)dx"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", with "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "a < b"
+                    },
+                    {
+                      "type": "text",
+                      "value": " where     "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "w(x) = (x-a)^{\\alpha}(b-x)^{\\beta}v(x)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " with     "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "\\alpha,\\beta > -1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", where "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "v(x)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " may be one of the     following functions: "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "\\log(x-a)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "\\log(b-x)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ",     "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "\\log(x-a)\\log(b-x)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The user specifies "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "\\alpha"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "\\beta"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and the type of the     function "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "v"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". A globally adaptive subdivision strategy is     applied, with modified Clenshaw-Curtis integration on those     subintervals which contain "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "b",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "b"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "qawse"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            },
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "compute "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "\\int^b_a f(x) / (x-c)dx"
+                    },
+                    {
+                      "type": "text",
+                      "value": " where the integral must be     interpreted as a Cauchy principal value integral, for user specified     "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "c"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "f"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". The strategy is globally adaptive. Modified     Clenshaw-Curtis integration is used on those intervals containing the     point "
+                    },
+                    {
+                      "type": "inlineMath",
+                      "value": "x = c"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "qawce"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            }
+          ],
+          "type": "DefList"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Integration of Complex Function of a Real Variable"
+                }
+              ],
+              "type": "strong"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A complex valued function, "
+            },
+            {
+              "type": "inlineMath",
+              "value": "f"
+            },
+            {
+              "type": "text",
+              "value": ", of a real variable can be written as "
+            },
+            {
+              "type": "inlineMath",
+              "value": "f = g + ih"
+            },
+            {
+              "type": "text",
+              "value": ".  Similarly, the integral of "
+            },
+            {
+              "type": "inlineMath",
+              "value": "f"
+            },
+            {
+              "type": "text",
+              "value": " can be written as"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "\\int_a^b f(x) dx = \\int_a^b g(x) dx + i\\int_a^b h(x) dx"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "assuming that the integrals of "
+            },
+            {
+              "type": "inlineMath",
+              "value": "g"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "h"
+            },
+            {
+              "type": "text",
+              "value": " exist over the inteval "
+            },
+            {
+              "type": "inlineMath",
+              "value": "[a,b]"
+            },
+            {
+              "type": "text",
+              "value": " . Therefore, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "quad"
+            },
+            {
+              "type": "text",
+              "value": " integrates complex-valued functions by integrating the real and imaginary components separately."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Absolute error tolerance. Default is 1.49e-8. "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "quad"
+                    },
+                    {
+                      "type": "text",
+                      "value": " tries to obtain an accuracy of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "abs(i-result) <= max(epsabs, epsrel*abs(i))"
+                    },
+                    {
+                      "type": "text",
+                      "value": " where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "i"
+                    },
+                    {
+                      "type": "text",
+                      "value": " = integral of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "func",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "func"
+                    },
+                    {
+                      "type": "text",
+                      "value": " from "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "b",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "b"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "result"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the numerical approximation. See "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "epsrel",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "epsrel"
+                    },
+                    {
+                      "type": "text",
+                      "value": " below."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "epsabs",
+              "type": "Param",
+              "type_": "float or int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Relative error tolerance. Default is 1.49e-8. If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "epsabs <= 0"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "epsrel",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "epsrel"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must be greater than both 5e-29 and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "50 * (machine epsilon)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". See "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "epsabs",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "epsabs"
+                    },
+                    {
+                      "type": "text",
+                      "value": " above."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "epsrel",
+              "type": "Param",
+              "type_": "float or int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An upper bound on the number of subintervals used in the adaptive algorithm."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "limit",
+              "type": "Param",
+              "type_": "float or int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A sequence of break points in the bounded integration interval where local difficulties of the integrand may occur (e.g., singularities, discontinuities). The sequence does not have to be sorted. Note that this option cannot be used in conjunction with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "weight"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "points",
+              "type": "Param",
+              "type_": "(sequence of floats,ints), optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "String indicating weighting function. Full explanation for this and the remaining arguments can be found below."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "weight",
+              "type": "Param",
+              "type_": "float or int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Variables for use with weighting functions."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "wvar",
+              "type": "Param",
+              "type_": "optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Optional input for reusing Chebyshev moments."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "wopts",
+              "type": "Param",
+              "type_": "optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An upper bound on the number of Chebyshev moments."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "maxp1",
+              "type": "Param",
+              "type_": "float or int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Upper bound on the number of cycles (>=3) for use with a sinusoidal weighting and an infinite end-point."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "limlst",
+              "type": "Param",
+              "type_": "int, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A Python function or method to integrate. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "func",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "func"
+                    },
+                    {
+                      "type": "text",
+                      "value": " takes many arguments, it is integrated along the axis corresponding to the first argument."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If the user desires improved integration performance, then "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "scipy",
+                        "path": "scipy.optimize._bglu_dense:_consider_refactor.<locals>.f",
+                        "type": "RefInfo",
+                        "version": "1.10.1"
+                      },
+                      "type": "Link",
+                      "value": "f"
+                    },
+                    {
+                      "type": "text",
+                      "value": " may be a "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "scipy._lib._ccallback",
+                        "path": "scipy._lib._ccallback:LowLevelCallable",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "scipy.LowLevelCallable"
+                    },
+                    {
+                      "type": "text",
+                      "value": " with one of the signatures      "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "double func(double x)\ndouble func(double x, void *user_data)\ndouble func(int n, double *xx)\ndouble func(int n, double *xx, void *user_data)"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "user_data"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the data contained in the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "scipy._lib._ccallback",
+                        "path": "scipy._lib._ccallback:LowLevelCallable",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "scipy.LowLevelCallable"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". In the call forms with "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "xx"
+                    },
+                    {
+                      "type": "text",
+                      "value": ",  "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "n"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the length of the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "xx"
+                    },
+                    {
+                      "type": "text",
+                      "value": " array which contains "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "xx[0] == x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and the rest of the items are numbers contained in the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "args"
+                    },
+                    {
+                      "type": "text",
+                      "value": " argument of quad."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "In addition, certain ctypes call signatures are supported for backward compatibility, but those should not be used in new code."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "func",
+              "type": "Param",
+              "type_": "{function, scipy.LowLevelCallable}"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Lower limit of integration (use -numpy.inf for -infinity)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "a",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Upper limit of integration (use numpy.inf for +infinity)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "b",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Extra arguments to pass to "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "func",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "func"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "args",
+              "type": "Param",
+              "type_": "tuple, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Non-zero to return a dictionary of integration information. If non-zero, warning messages are also suppressed and the message is appended to the output tuple."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "full_output",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Indicate if the function's ("
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "func",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "func"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") return type is real ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "complex_func=False"
+                    },
+                    {
+                      "type": "text",
+                      "value": ": default) or complex ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "complex_func=True"
+                    },
+                    {
+                      "type": "text",
+                      "value": "). In both cases, the function's argument is real. If full_output is also non-zero, the "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "infodict",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "infodict"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "message"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", and "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "explain"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for the real and complex components are returned in a dictionary with keys \"real output\" and \"imag output\"."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "complex_func",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The integral of func from "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "b",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "b"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "y",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An estimate of the absolute error in the result."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "abserr",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A dictionary containing additional information."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "infodict",
+              "type": "Param",
+              "type_": "dict"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A convergence message."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "message"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Appended only with 'cos' or 'sin' weighting and infinite integration limits, it contains an explanation of the codes in infodict['ierlst']"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "explain"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute a definite integral."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Calculate :math:`\\int^4_0 x^2 dx` and compare with an analytic result"
+      },
+      {
+        "type": "code",
+        "value": "from scipy import integrate\nimport numpy as np\nx2 = lambda x: x**2\nintegrate.quad(x2, 0, 4)"
+      },
+      {
+        "type": "code",
+        "value": "print(4**3 / 3.)  # analytical result"
+      },
+      {
+        "type": "text",
+        "value": "Calculate :math:`\\int^\\infty_0 e^{-x} dx`"
+      },
+      {
+        "type": "code",
+        "value": "invexp = lambda x: np.exp(-x)\nintegrate.quad(invexp, 0, np.inf)"
+      },
+      {
+        "type": "text",
+        "value": "Calculate :math:`\\int^1_0 a x \\,dx` for :math:`a = 1, 3`"
+      },
+      {
+        "type": "code",
+        "value": "f = lambda x, a: a*x\ny, err = integrate.quad(f, 0, 1, args=(1,))\ny"
+      },
+      {
+        "type": "code",
+        "value": "y, err = integrate.quad(f, 0, 1, args=(3,))\ny"
+      },
+      {
+        "type": "text",
+        "value": "Calculate :math:`\\int^1_0 x^2 + y^2 dx` with ctypes, holding\ny parameter as 1::"
+      },
+      {
+        "type": "text",
+        "value": "    testlib.c =>\n        double func(int n, double args[n]){\n            return args[0]*args[0] + args[1]*args[1];}\n    compile to library testlib.*"
+      },
+      {
+        "type": "text",
+        "value": "::"
+      },
+      {
+        "type": "text",
+        "value": "   from scipy import integrate\n   import ctypes\n   lib = ctypes.CDLL('/home/.../testlib.*') #use absolute path\n   lib.func.restype = ctypes.c_double\n   lib.func.argtypes = (ctypes.c_int,ctypes.c_double)\n   integrate.quad(lib.func,0,1,(1))\n   #(1.3333333333333333, 1.4802973661668752e-14)\n   print((1.0**3/3.0 + 1.0) - (0.0**3/3.0 + 0.0)) #Analytic result\n   # 1.3333333333333333"
+      },
+      {
+        "type": "text",
+        "value": "Be aware that pulse shapes and other sharp features as compared to the\nsize of the integration interval may not be integrated correctly using\nthis method. A simplified example of this limitation is integrating a\ny-axis reflected step function with many zero values within the integrals\nbounds."
+      },
+      {
+        "type": "code",
+        "value": "y = lambda x: 1 if x<=0 else 0\nintegrate.quad(y, -1, 1)"
+      },
+      {
+        "type": "code",
+        "value": "integrate.quad(y, -1, 100)"
+      },
+      {
+        "type": "code",
+        "value": "integrate.quad(y, -1, 10000)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/integrate/_quadpack_py.py",
+  "item_line": 23,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Other Parameters",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "double integral"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.integrate._quadpack_py:dblquad",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "dblquad"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "triple integral"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.integrate._quadpack_py:tplquad",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "tplquad"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "n-dimensional integrals (uses "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "quad"
+            },
+            {
+              "type": "text",
+              "value": " recursively)"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.integrate._quadpack_py:nquad",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "nquad"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "fixed-order Gaussian quadrature"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.integrate._quadrature:fixed_quad",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "fixed_quad"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "adaptive Gaussian quadrature"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "quadrature",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "quadrature"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "ODE integrator"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "odeint",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "odeint"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "ODE integrator"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "ode",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "ode"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "integrator for sampled data"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "simpson",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "simpson"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "integrator for sampled data"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "romb",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "romb"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "for coefficients and roots of orthogonal polynomials"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.special",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "scipy.special"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(func, a, b, args=(), full_output=0, epsabs=1.49e-08, epsrel=1.49e-08, limit=50, points=None, weight=None, wvar=None, wopts=None, maxp1=50, limlst=50, complex_func=False)"
+  },
+  "type": "DocBlob"
+}

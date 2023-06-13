@@ -1,0 +1,481 @@
+{
+  "aliases": [
+    "matplotlib.tri.TriInterpolator._interpolate_multikeys"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "inlineCode",
+              "value": "_interpolate_multikeys"
+            },
+            {
+              "type": "text",
+              "value": " is a wrapper around method "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_interpolate_single_key"
+            },
+            {
+              "type": "text",
+              "value": " (to be defined in the child subclasses). `_interpolate_single_key actually performs the interpolation, but only for 1-dimensional inputs and at valid locations (inside unmasked triangles of the triangulation)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The purpose of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_interpolate_multikeys"
+            },
+            {
+              "type": "text",
+              "value": " is to implement the following common tasks needed in all subclasses implementations:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "calculation of containing triangles"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "dealing with more than one interpolation request at the same   location (e.g., if the 2 derivatives are requested, it is   unnecessary to compute the containing triangles twice)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "scaling according to self._unit_x, self._unit_y"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "dealing with points outside of the grid (with fill value np.nan)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "dealing with multi-dimensional "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "x"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "y"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " arrays: flattening for   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "_interpolate_params"
+                    },
+                    {
+                      "type": "text",
+                      "value": " call and final reshaping."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "(Note that np.vectorize could do most of those things very well for you, but it does it by function evaluations over successive tuples of the input arrays. Therefore, this tends to be more time consuming than using optimized numpy functions - e.g., np.dot - which can be used easily on the flattened inputs, in the child-subclass methods "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_interpolate_single_key"
+            },
+            {
+              "type": "text",
+              "value": ".)"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "It is guaranteed that the calls to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "_interpolate_single_key"
+            },
+            {
+              "type": "text",
+              "value": " will be done with flattened (1-d) array-like input parameters "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "x"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "y"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " and with flattened, valid "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "tri_index",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "tri_index"
+            },
+            {
+              "type": "text",
+              "value": " arrays (no -1 index allowed)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "x and y coordinates where interpolated values are requested."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x, y",
+              "type": "Param",
+              "type_": "array-like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Array of the containing triangle indices, same shape as "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "x"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "y"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Defaults to None. If None, these indices will be computed by a TriFinder instance. (Note: For point outside the grid, tri_index[ipt] shall be -1)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "tri_index",
+              "type": "Param",
+              "type_": "array-like of int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Defines the interpolation arrays to return, and in which order."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "return_keys",
+              "type": "Param",
+              "type_": "tuple of keys from {'z', 'dzdx', 'dzdy'}"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Each array-like contains the expected interpolated values in the order defined by "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "return_keys"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " parameter."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "list of arrays"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Versatile (private) method defined for all TriInterpolators."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/matplotlib/tri/triinterpolate.py",
+  "item_line": 102,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, x, y, tri_index=None, return_keys=('z',))"
+  },
+  "type": "DocBlob"
+}

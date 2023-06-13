@@ -1,0 +1,277 @@
+{
+  "aliases": [
+    "scipy.datasets.electrocardiogram"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The returned signal is a 5 minute long electrocardiogram (ECG), a medical recording of the heart's electrical activity, sampled at 360 Hz."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The provided signal is an excerpt (19:35 to 24:35) from the `record 208`_ (lead MLII) provided by the MIT-BIH Arrhythmia Database  on PhysioNet . The excerpt includes noise induced artifacts, typical heartbeats as well as pathological changes."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "placeholder": "target",
+          "type": "Unimplemented",
+          "value": ".. _record 208: https://physionet.org/physiobank/database/html/mitdbdir/records.htm#208"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 1.1.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The electrocardiogram in millivolt (mV) sampled at 360 Hz."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ecg",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Load an electrocardiogram as an example for a 1-D signal."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from scipy.datasets import electrocardiogram\necg = electrocardiogram()\necg"
+      },
+      {
+        "type": "code",
+        "value": "ecg.shape, ecg.mean(), ecg.std()"
+      },
+      {
+        "type": "text",
+        "value": "As stated the signal features several areas with a different morphology.\nE.g., the first few seconds show the electrical activity of a heart in\nnormal sinus rhythm as seen below."
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nimport matplotlib.pyplot as plt\nfs = 360\ntime = np.arange(ecg.size) / fs\nplt.plot(time, ecg)\nplt.xlabel(\"time in s\")\nplt.ylabel(\"ECG in mV\")\nplt.xlim(9, 10.2)\nplt.ylim(-1, 1.5)\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.datasets._fetchers:electrocardiogram-0-71b46b7b.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      },
+      {
+        "type": "text",
+        "value": "After second 16, however, the first premature ventricular contractions,\nalso called extrasystoles, appear. These have a different morphology\ncompared to typical heartbeats. The difference can easily be observed\nin the following plot."
+      },
+      {
+        "type": "code",
+        "value": "plt.plot(time, ecg)\nplt.xlabel(\"time in s\")\nplt.ylabel(\"ECG in mV\")\nplt.xlim(46.5, 50)\nplt.ylim(-2, 1.5)\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.datasets._fetchers:electrocardiogram-1-395a375c.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      },
+      {
+        "type": "text",
+        "value": "At several points large artifacts disturb the recording, e.g.:"
+      },
+      {
+        "type": "code",
+        "value": "plt.plot(time, ecg)\nplt.xlabel(\"time in s\")\nplt.ylabel(\"ECG in mV\")\nplt.xlim(207, 215)\nplt.ylim(-2, 3.5)\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.datasets._fetchers:electrocardiogram-2-c87d7c51.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      },
+      {
+        "type": "text",
+        "value": "Finally, examining the power spectrum reveals that most of the biosignal is\nmade up of lower frequencies. At 60 Hz the noise induced by the mains\nelectricity can be clearly observed."
+      },
+      {
+        "type": "code",
+        "value": "from scipy.signal import welch\nf, Pxx = welch(ecg, fs=fs, nperseg=2048, scaling=\"spectrum\")\nplt.semilogy(f, Pxx)\nplt.xlabel(\"Frequency in Hz\")\nplt.ylabel(\"Power spectrum of the ECG in mV**2\")\nplt.xlim(f[[0, -1]])\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.datasets._fetchers:electrocardiogram-3-4d4d7756.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/datasets/_fetchers.py",
+  "item_line": 78,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Returns",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "()"
+  },
+  "type": "DocBlob"
+}

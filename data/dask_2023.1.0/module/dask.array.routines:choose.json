@@ -1,0 +1,922 @@
+{
+  "aliases": [
+    "dask.array.choose"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This docstring was copied from numpy.choose."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Some inconsistencies with the Dask version may exist."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "First of all, if confused or uncertain, definitely look at the Examples - in its full generality, this function is less simple than it might seem from the following code description (below ndi = "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy.lib.index_tricks",
+                "path": "numpy.lib.index_tricks",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "numpy.lib.index_tricks"
+            },
+            {
+              "type": "text",
+              "value": "):"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "inlineCode",
+              "value": "np.choose(a,c) == np.array([c[a[I]][I] for I in ndi.ndindex(a.shape)])"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "But this omits some subtleties.  Here is a fully general summary:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Given an \"index\" array ("
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "a",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": ") of integers and a sequence of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "n"
+            },
+            {
+              "type": "text",
+              "value": " arrays ("
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "choices",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "choices"
+            },
+            {
+              "type": "text",
+              "value": "), "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "a",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " and each choice array are first broadcast, as necessary, to arrays of a common shape; calling these "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Ba"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Bchoices[i], i =\n0,...,n-1"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " we have that, necessarily, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Ba.shape == Bchoices[i].shape"
+            },
+            {
+              "type": "text",
+              "value": " for each "
+            },
+            {
+              "type": "inlineCode",
+              "value": "i"
+            },
+            {
+              "type": "text",
+              "value": ".  Then, a new array with shape "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Ba.shape"
+            },
+            {
+              "type": "text",
+              "value": " is created as follows:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "mode='raise'"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (the default), then, first of all, each element of   "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (and thus "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Ba"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") must be in the range "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "[0, n-1]"
+                    },
+                    {
+                      "type": "text",
+                      "value": "; now, suppose   that "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "i"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (in that range) is the value at the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(j0, j1, ..., jm)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "   position in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Ba"
+                    },
+                    {
+                      "type": "text",
+                      "value": " - then the value at the same position in the new array   is the value in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Bchoices[i]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " at that same position;"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "mode='wrap'"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", values in "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (and thus "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "Ba"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") may be any (signed)   integer; modular arithmetic is used to map integers outside the range   "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "[0, n-1]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " back into that range; and then the new array is constructed   as above;"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "mode='clip'"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", values in "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (and thus "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Ba"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") may be any (signed)   integer; negative integers are mapped to 0; values greater than "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "n-1"
+                    },
+                    {
+                      "type": "text",
+                      "value": "   are mapped to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "n-1"
+                    },
+                    {
+                      "type": "text",
+                      "value": "; and then the new array is constructed as above."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To reduce the chance of misinterpretation, even though the following \"abuse\" is nominally supported, "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "choices",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "choices"
+            },
+            {
+              "type": "text",
+              "value": " should neither be, nor be thought of as, a single array, i.e., the outermost sequence-like container should be either a list or a tuple."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "This array must contain integers in "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "[0, n-1]"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "n"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the number of choices, unless "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "mode=wrap"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "mode=clip"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", in which cases any integers are permissible."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "a",
+              "type": "Param",
+              "type_": "int array"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Choice arrays. "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and all of the choices must be broadcastable to the same shape.  If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "choices",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "choices"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is itself an array (not recommended), then its outermost dimension (i.e., the one corresponding to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "choices.shape[0]"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") is taken as defining the \"sequence\"."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "choices",
+              "type": "Param",
+              "type_": "sequence of arrays"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If provided, the result will be inserted into this array. It should be of the appropriate shape and dtype. Note that "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "out",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "out"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is always buffered if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "mode='raise'"
+                    },
+                    {
+                      "type": "text",
+                      "value": "; use other modes for better performance."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "out",
+              "type": "Param",
+              "type_": "array, optional  (Not supported in Dask)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Specifies how indices outside "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "[0, n-1]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " will be treated:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [],
+                          "spread": false,
+                          "type": "listItem"
+                        }
+                      ],
+                      "ordered": false,
+                      "spread": false,
+                      "start": 1,
+                      "type": "list"
+                    }
+                  ],
+                  "type": "blockquote"
+                }
+              ],
+              "param": "mode",
+              "type": "Param",
+              "type_": "{'raise' (default), 'wrap', 'clip'}, optional  (Not supported in Dask)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and each choice array are not all broadcastable to the same shape."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "ValueError: shape mismatch"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The merged result."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "merged_array",
+              "type": "Param",
+              "type_": "array"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Construct an array from an index array and a list of arrays to choose from."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "choices = [[0, 1, 2, 3], [10, 11, 12, 13],  # doctest: +SKIP\n  [20, 21, 22, 23], [30, 31, 32, 33]]\nnp.choose([2, 3, 1, 0], choices  # doctest: +SKIP\n# the first element of the result will be the first element of the\n# third (2+1) \"array\" in choices, namely, 20; the second element\n# will be the second element of the fourth (3+1) choice array, i.e.,\n# 31, etc.\n)"
+      },
+      {
+        "type": "code",
+        "value": "np.choose([2, 4, 1, 0], choices, mode='clip') # 4 goes to 3 (4-1)  # doctest: +SKIP"
+      },
+      {
+        "type": "code",
+        "value": "# because there are 4 choice arrays\nnp.choose([2, 4, 1, 0], choices, mode='wrap') # 4 goes to (4 mod 4)  # doctest: +SKIP"
+      },
+      {
+        "type": "code",
+        "value": "# i.e., 0"
+      },
+      {
+        "type": "text",
+        "value": "A couple examples illustrating how choose broadcasts:"
+      },
+      {
+        "type": "code",
+        "value": "a = [[1, 0, 1], [0, 1, 0], [1, 0, 1]]  # doctest: +SKIP\nchoices = [-10, 10]  # doctest: +SKIP\nnp.choose(a, choices)  # doctest: +SKIP"
+      },
+      {
+        "type": "code",
+        "value": "# With thanks to Anne Archibald\na = np.array([0, 1]).reshape((2,1,1))  # doctest: +SKIP\nc1 = np.array([1, 2, 3]).reshape((1,3,1))  # doctest: +SKIP\nc2 = np.array([-1, -2, -3, -4, -5]).reshape((1,1,5))  # doctest: +SKIP\nnp.choose(a, (c1, c2)) # result is 2x3x5, res[0,:,:]=c1, res[1,:,:]=c2  # doctest: +SKIP"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dask/array/routines.py",
+  "item_line": 2046,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "equivalent method"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "ndarray.choose",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "ndarray.choose"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Preferable if "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "choices"
+            },
+            {
+              "type": "text",
+              "value": " is an array"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "numpy.take_along_axis",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "numpy.take_along_axis"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(a, choices)"
+  },
+  "type": "DocBlob"
+}

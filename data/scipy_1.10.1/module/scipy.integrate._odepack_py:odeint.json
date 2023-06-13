@@ -1,0 +1,1173 @@
+{
+  "aliases": [
+    "scipy.integrate.odeint"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "note For new code, use `scipy.integrate.solve_ivp` to solve a"
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "differential equation."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Solve a system of ordinary differential equations using lsoda from the FORTRAN library odepack."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Solves the initial value problem for stiff or non-stiff systems of first order ode-s      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "dy/dt = func(y, t, ...)  [or func(t, y, ...)]"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where y can be a vector."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "note By default, the required order of the first two arguments of"
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "func"
+                },
+                {
+                  "type": "text",
+                  "value": " are in the opposite order of the arguments in the system definition function used by the "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "scipy.integrate.ode"
+                },
+                {
+                  "type": "text",
+                  "value": " class and the function "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "scipy.integrate.solve_ivp"
+                },
+                {
+                  "type": "text",
+                  "value": ". To use a function with the signature "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "func(t, y, ...)"
+                },
+                {
+                  "type": "text",
+                  "value": ", the argument "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "tfirst"
+                },
+                {
+                  "type": "text",
+                  "value": " must be set to "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "True"
+                },
+                {
+                  "type": "text",
+                  "value": "."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If either of these are not None or non-negative, then the Jacobian is assumed to be banded. These give the number of lower and upper non-zero diagonals in this banded matrix. For the banded case, "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "Dfun",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "Dfun"
+                    },
+                    {
+                      "type": "text",
+                      "value": " should return a matrix whose rows contain the non-zero bands (starting with the lowest diagonal). Thus, the return matrix "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "jac"
+                    },
+                    {
+                      "type": "text",
+                      "value": " from "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "Dfun",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "Dfun"
+                    },
+                    {
+                      "type": "text",
+                      "value": " should have shape "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(ml + mu + 1, len(y0))"
+                    },
+                    {
+                      "type": "text",
+                      "value": " when "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ml >=0"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "mu >=0"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". The data in "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "jac"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must be stored such that "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "jac[i - j + mu, j]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " holds the derivative of the "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "i'th equation with respect to the 'j'th\nstate variable.  If 'col_deriv"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is True, the transpose of this "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "jac"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must be returned."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ml, mu",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The input parameters "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "rtol",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "rtol"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "atol",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "atol"
+                    },
+                    {
+                      "type": "text",
+                      "value": " determine the error control performed by the solver.  The solver will control the vector, e, of estimated local errors in y, according to an inequality of the form "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "max-norm of (e / ewt) <= 1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", where ewt is a vector of positive error weights computed as "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ewt = rtol * abs(y) + atol"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". rtol and atol can be either vectors the same length as y or scalars. Defaults to 1.49012e-8."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "rtol, atol",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Vector of critical points (e.g., singularities) where integration care should be taken."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "tcrit",
+              "type": "Param",
+              "type_": "ndarray, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The step size to be attempted on the first step."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "h0",
+              "type": "Param",
+              "type_": "float, (0: solver-determined), optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The maximum absolute step size allowed."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "hmax",
+              "type": "Param",
+              "type_": "float, (0: solver-determined), optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The minimum absolute step size allowed."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "hmin",
+              "type": "Param",
+              "type_": "float, (0: solver-determined), optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to generate extra printing at method switches."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "ixpr",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum number of (internally defined) steps allowed for each integration point in t."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mxstep",
+              "type": "Param",
+              "type_": "int, (0: solver-determined), optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum number of messages printed."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mxhnil",
+              "type": "Param",
+              "type_": "int, (0: solver-determined), optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum order to be allowed for the non-stiff (Adams) method."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mxordn",
+              "type": "Param",
+              "type_": "int, (0: solver-determined), optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum order to be allowed for the stiff (BDF) method."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mxords",
+              "type": "Param",
+              "type_": "int, (0: solver-determined), optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Computes the derivative of y at t. If the signature is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "callable(t, y, ...)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", then the argument "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "tfirst",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "tfirst"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must be set "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "func",
+              "type": "Param",
+              "type_": "callable(y, t, ...) or callable(t, y, ...)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Initial condition on y (can be a vector)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "y0",
+              "type": "Param",
+              "type_": "array"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A sequence of time points for which to solve for y. The initial value point should be the first element of this sequence. This sequence must be monotonically increasing or monotonically decreasing; repeated values are allowed."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "t",
+              "type": "Param",
+              "type_": "array"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Extra arguments to pass to function."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "args",
+              "type": "Param",
+              "type_": "tuple, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Gradient (Jacobian) of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "func",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "func"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If the signature is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "callable(t, y, ...)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", then the argument "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "tfirst",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "tfirst"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must be set "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "Dfun",
+              "type": "Param",
+              "type_": "callable(y, t, ...) or callable(t, y, ...)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "True if "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "Dfun",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "Dfun"
+                    },
+                    {
+                      "type": "text",
+                      "value": " defines derivatives down columns (faster), otherwise "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "Dfun",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "Dfun"
+                    },
+                    {
+                      "type": "text",
+                      "value": " should define derivatives across rows."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "col_deriv",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "True if to return a dictionary of optional outputs as the second output"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "full_output",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to print the convergence message"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "printmessg",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, the first two arguments of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "func",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "func"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "Dfun",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "Dfun"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", if given) must "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "t, y"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instead of the default "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "y, t"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.1.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "tfirst",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Array containing the value of y for each desired time in t, with the initial value "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "y0",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "y0"
+                    },
+                    {
+                      "type": "text",
+                      "value": " in the first row."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "y",
+              "type": "Param",
+              "type_": "array, shape (len(t), len(y0))"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Dictionary containing additional output information"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "=======  ============================================================ key      meaning =======  ============================================================ 'hu'     vector of step sizes successfully used for each time step 'tcur'   vector with the value of t reached for each time step          (will always be at least as large as the input times) 'tolsf'  vector of tolerance scale factors, greater than 1.0,          computed when a request for too much accuracy was detected 'tsw'    value of t at the time of the last method switch          (given for each time step) 'nst'    cumulative number of time steps 'nfe'    cumulative number of function evaluations for each time step 'nje'    cumulative number of jacobian evaluations for each time step 'nqu'    a vector of method orders for each successful step 'imxer'  index of the component of largest magnitude in the          weighted local error vector (e / ewt) on an error return, -1          otherwise 'lenrw'  the length of the double work array required 'leniw'  the length of integer work array required 'mused'  a vector of method indicators for each successful time step:          1: adams (nonstiff), 2: bdf (stiff) =======  ============================================================"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "infodict",
+              "type": "Param",
+              "type_": "dict, only returned if full_output == True"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Integrate a system of ordinary differential equations."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "The second order differential equation for the angle `theta` of a\npendulum acted on by gravity with friction can be written::"
+      },
+      {
+        "type": "text",
+        "value": "    theta''(t) + b*theta'(t) + c*sin(theta(t)) = 0"
+      },
+      {
+        "type": "text",
+        "value": "where `b` and `c` are positive constants, and a prime (') denotes a\nderivative. To solve this equation with `odeint`, we must first convert\nit to a system of first order equations. By defining the angular\nvelocity ``omega(t) = theta'(t)``, we obtain the system::"
+      },
+      {
+        "type": "text",
+        "value": "    theta'(t) = omega(t)\n    omega'(t) = -b*omega(t) - c*sin(theta(t))"
+      },
+      {
+        "type": "text",
+        "value": "Let `y` be the vector [`theta`, `omega`]. We implement this system\nin Python as:"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\ndef pend(y, t, b, c):\n    theta, omega = y\n    dydt = [omega, -b*omega - c*np.sin(theta)]\n    return dydt"
+      },
+      {
+        "type": "text",
+        "value": "We assume the constants are `b` = 0.25 and `c` = 5.0:"
+      },
+      {
+        "type": "code",
+        "value": "b = 0.25\nc = 5.0"
+      },
+      {
+        "type": "text",
+        "value": "For initial conditions, we assume the pendulum is nearly vertical\nwith `theta(0)` = `pi` - 0.1, and is initially at rest, so\n`omega(0)` = 0.  Then the vector of initial conditions is"
+      },
+      {
+        "type": "code",
+        "value": "y0 = [np.pi - 0.1, 0.0]"
+      },
+      {
+        "type": "text",
+        "value": "We will generate a solution at 101 evenly spaced samples in the interval\n0 <= `t` <= 10.  So our array of times is:"
+      },
+      {
+        "type": "code",
+        "value": "t = np.linspace(0, 10, 101)"
+      },
+      {
+        "type": "text",
+        "value": "Call `odeint` to generate the solution. To pass the parameters\n`b` and `c` to `pend`, we give them to `odeint` using the `args`\nargument."
+      },
+      {
+        "type": "code",
+        "value": "from scipy.integrate import odeint\nsol = odeint(pend, y0, t, args=(b, c))"
+      },
+      {
+        "type": "text",
+        "value": "The solution is an array with shape (101, 2). The first column\nis `theta(t)`, and the second is `omega(t)`. The following code\nplots both components."
+      },
+      {
+        "type": "code",
+        "value": "import matplotlib.pyplot as plt\nplt.plot(t, sol[:, 0], 'b', label='theta(t)')\nplt.plot(t, sol[:, 1], 'g', label='omega(t)')\nplt.legend(loc='best')\nplt.xlabel('t')\nplt.grid()\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.integrate._odepack_py:odeint-0-7c50040d.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/integrate/_odepack_py.py",
+  "item_line": 28,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Other Parameters",
+    "See Also",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "solve an initial value problem for a system of ODEs"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.integrate._ivp.ivp:solve_ivp",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "solve_ivp"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "a more object-oriented integrator based on VODE"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "ode",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "ode"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "for finding the area under a curve"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "quad",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "quad"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(func, y0, t, args=(), Dfun=None, col_deriv=0, full_output=0, ml=None, mu=None, rtol=None, atol=None, tcrit=None, h0=0.0, hmax=0.0, hmin=0.0, ixpr=0, mxstep=0, mxhnil=0, mxordn=12, mxords=5, printmessg=0, tfirst=False)"
+  },
+  "type": "DocBlob"
+}

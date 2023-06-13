@@ -1,0 +1,920 @@
+{
+  "aliases": [
+    "scipy.optimize.direct"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "DIviding RECTangles (DIRECT) is a deterministic global optimization algorithm capable of minimizing a black box function with its variables subject to lower and upper bound constraints by sampling potential solutions in the search space . The algorithm starts by normalising the search space to an n-dimensional unit hypercube. It samples the function at the center of this hypercube and at 2n (n is the number of variables) more points, 2 in each coordinate direction. Using these function values, DIRECT then divides the domain into hyperrectangles, each having exactly one of the sampling points as its center. In each iteration, DIRECT chooses, using the "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "eps",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "eps"
+            },
+            {
+              "type": "text",
+              "value": " parameter which defaults to 1e-4, some of the existing hyperrectangles to be further divided. This division process continues until either the maximum number of iterations or maximum function evaluations allowed are exceeded, or the hyperrectangle containing the minimal value found so far becomes small enough. If "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "f_min",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "f_min"
+            },
+            {
+              "type": "text",
+              "value": " is specified, the optimization will stop once this function value is reached within a relative tolerance. The locally biased variant of DIRECT (originally called DIRECT_L)  is used by default. It makes the search more locally biased and more efficient for cases with only a few local minima."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A note about termination criteria: "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "vol_tol",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "vol_tol"
+            },
+            {
+              "type": "text",
+              "value": " refers to the volume of the hyperrectangle containing the lowest function value found so far. This volume decreases exponentially with increasing dimensionality of the problem. Therefore "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "vol_tol",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "vol_tol"
+            },
+            {
+              "type": "text",
+              "value": " should be decreased to avoid premature termination of the algorithm for higher dimensions. This does not hold for "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "len_tol",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "len_tol"
+            },
+            {
+              "type": "text",
+              "value": ": it refers either to half of the maximal side length (for "
+            },
+            {
+              "type": "inlineCode",
+              "value": "locally_biased=True"
+            },
+            {
+              "type": "text",
+              "value": ") or half of the diagonal of the hyperrectangle (for "
+            },
+            {
+              "type": "inlineCode",
+              "value": "locally_biased=False"
+            },
+            {
+              "type": "text",
+              "value": ")."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This code is based on the DIRECT 2.0.4 Fortran code by Gablonsky et al. at https://ctk.math.ncsu.edu/SOFTWARE/DIRECTv204.tar.gz . This original version was initially converted via f2c and then cleaned up and reorganized by Steven G. Johnson, August 2007, for the NLopt project. The "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "direct"
+            },
+            {
+              "type": "text",
+              "value": " function wraps the C implementation."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 1.9.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The objective function to be minimized. "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "func(x, *args) -> float"
+                    },
+                    {
+                      "type": "text",
+                      "value": " where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is an 1-D array with shape (n,) and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "args"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a tuple of the fixed parameters needed to completely specify the function."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "func",
+              "type": "Param",
+              "type_": "callable"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Bounds for variables. There are two ways to specify the bounds:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Instance of "
+                            },
+                            {
+                              "domain": null,
+                              "role": null,
+                              "type": "Directive",
+                              "value": "Bounds"
+                            },
+                            {
+                              "type": "text",
+                              "value": " class."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    },
+                    {
+                      "children": [
+                        {
+                          "children": [
+                            {
+                              "type": "inlineCode",
+                              "value": "(min, max)"
+                            },
+                            {
+                              "type": "text",
+                              "value": " pairs for each element in "
+                            },
+                            {
+                              "type": "inlineCode",
+                              "value": "x"
+                            },
+                            {
+                              "type": "text",
+                              "value": "."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "spread": false,
+                      "type": "listItem"
+                    }
+                  ],
+                  "ordered": true,
+                  "spread": false,
+                  "start": 1,
+                  "type": "list"
+                }
+              ],
+              "param": "bounds",
+              "type": "Param",
+              "type_": "sequence or `Bounds`"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Any additional fixed parameters needed to completely specify the objective function."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "args",
+              "type": "Param",
+              "type_": "tuple, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Minimal required difference of the objective function values between the current best hyperrectangle and the next potentially optimal hyperrectangle to be divided. In consequence, "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "eps",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "eps"
+                    },
+                    {
+                      "type": "text",
+                      "value": " serves as a tradeoff between local and global search: the smaller, the more local the search becomes. Default is 1e-4."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "eps",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Approximate upper bound on objective function evaluations. If "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", will be automatically set to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "1000 * N"
+                    },
+                    {
+                      "type": "text",
+                      "value": " where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "N"
+                    },
+                    {
+                      "type": "text",
+                      "value": " represents the number of dimensions. Will be capped if necessary to limit DIRECT's RAM usage to app. 1GiB. This will only occur for very high dimensional problems and excessive "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "max_fun"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Default is "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "maxfun",
+              "type": "Param",
+              "type_": "int or None, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum number of iterations. Default is 1000."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "maxiter",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": " (default), use the locally biased variant of the algorithm known as DIRECT_L. If "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", use the original unbiased DIRECT algorithm. For hard problems with many local minima, "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is recommended."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "locally_biased",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Function value of the global optimum. Set this value only if the global optimum is known. Default is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "-np.inf"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", so that this termination criterion is deactivated."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "f_min",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Terminate the optimization once the relative error between the current best minimum "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "scipy",
+                        "path": "scipy.optimize._bglu_dense:_consider_refactor.<locals>.f",
+                        "type": "RefInfo",
+                        "version": "1.10.1"
+                      },
+                      "type": "Link",
+                      "value": "f"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and the supplied global minimum "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "f_min",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "f_min"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is smaller than "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "f_min_rtol",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "f_min_rtol"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". This parameter is only used if "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "f_min",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "f_min"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is also set. Must lie between 0 and 1. Default is 1e-4."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "f_min_rtol",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Terminate the optimization once the volume of the hyperrectangle containing the lowest function value is smaller than "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "vol_tol",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "vol_tol"
+                    },
+                    {
+                      "type": "text",
+                      "value": " of the complete search space. Must lie between 0 and 1. Default is 1e-16."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "vol_tol",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "locally_biased=True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", terminate the optimization once half of the normalized maximal side length of the hyperrectangle containing the lowest function value is smaller than "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "len_tol",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "len_tol"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "locally_biased=False"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", terminate the optimization once half of the normalized diagonal of the hyperrectangle containing the lowest function value is smaller than "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "len_tol",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "len_tol"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Must lie between 0 and 1. Default is 1e-6."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "len_tol",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A callback function with signature "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "callback(xk)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " where "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "xk"
+                    },
+                    {
+                      "type": "text",
+                      "value": " represents the best function value found so far."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "callback",
+              "type": "Param",
+              "type_": "callable, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The optimization result represented as a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "OptimizeResult"
+                    },
+                    {
+                      "type": "text",
+                      "value": " object. Important attributes are: "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": " the solution array, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "success"
+                    },
+                    {
+                      "type": "text",
+                      "value": " a Boolean flag indicating if the optimizer exited successfully and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "message"
+                    },
+                    {
+                      "type": "text",
+                      "value": " which describes the cause of the termination. See "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "OptimizeResult"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for a description of other attributes."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "res",
+              "type": "Param",
+              "type_": "OptimizeResult"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Finds the global minimum of a function using the DIRECT algorithm."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "The following example is a 2-D problem with four local minima: minimizing\nthe Styblinski-Tang function\n(https://en.wikipedia.org/wiki/Test_functions_for_optimization)."
+      },
+      {
+        "type": "code",
+        "value": "from scipy.optimize import direct, Bounds\ndef styblinski_tang(pos):\n    x, y = pos\n    return 0.5 * (x**4 - 16*x**2 + 5*x + y**4 - 16*y**2 + 5*y)\nbounds = Bounds([-4., -4.], [4., 4.])\nresult = direct(styblinski_tang, bounds)\nresult.x, result.fun, result.nfev"
+      },
+      {
+        "type": "text",
+        "value": "The correct global minimum was found but with a huge number of function\nevaluations (2011). Loosening the termination tolerances `vol_tol` and\n`len_tol` can be used to stop DIRECT earlier."
+      },
+      {
+        "type": "code",
+        "value": "result = direct(styblinski_tang, bounds, len_tol=1e-3)\nresult.x, result.fun, result.nfev"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/optimize/_direct_py.py",
+  "item_line": 41,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(func: 'Callable[[npt.ArrayLike, Tuple[Any]], float]', bounds: 'Union[Iterable, Bounds]', *, args: 'tuple' = (), eps: 'float' = 0.0001, maxfun: 'Union[int, None]' = None, maxiter: 'int' = 1000, locally_biased: 'bool' = True, f_min: 'float' = -inf, f_min_rtol: 'float' = 0.0001, vol_tol: 'float' = 1e-16, len_tol: 'float' = 1e-06, callback: 'Optional[Callable[[npt.ArrayLike], NoneType]]' = None) -> 'OptimizeResult'"
+  },
+  "type": "DocBlob"
+}

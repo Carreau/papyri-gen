@@ -1,0 +1,506 @@
+{
+  "aliases": [
+    "scipy.spatial.HalfspaceIntersection"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Input halfspaces."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "halfspaces",
+              "type": "Param",
+              "type_": "ndarray of double, shape (nineq, ndim+1)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Input interior point."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "interior_point :ndarray of floats, shape (ndim,)",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Intersections of all halfspaces."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "intersections",
+              "type": "Param",
+              "type_": "ndarray of double, shape (ninter, ndim)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Dual points of the input halfspaces."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dual_points",
+              "type": "Param",
+              "type_": "ndarray of double, shape (nineq, ndim)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Indices of points forming the (non necessarily simplicial) facets of the dual convex hull."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dual_facets",
+              "type": "Param",
+              "type_": "list of lists of ints"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Indices of halfspaces forming the vertices of the dual convex hull. For 2-D convex hulls, the vertices are in counterclockwise order. For other dimensions, they are in input order."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dual_vertices",
+              "type": "Param",
+              "type_": "ndarray of ints, shape (nvertices,)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "[normal, offset] forming the hyperplane equation of the dual facet (see "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Qhull documentation"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "http://www.qhull.org/"
+                    },
+                    {
+                      "type": "text",
+                      "value": "  for more)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dual_equations",
+              "type": "Param",
+              "type_": "ndarray of double, shape (nfacet, ndim+1)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Area of the dual convex hull"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dual_area",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Volume of the dual convex hull"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dual_volume",
+              "type": "Param",
+              "type_": "float"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 0.19.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The intersections are computed using the "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Qhull library"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "http://www.qhull.org/"
+            },
+            {
+              "type": "text",
+              "value": ". This reproduces the \"qhalf\" functionality of Qhull."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Stacked Inequalities of the form Ax + b <= 0 in format [A; b]"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "halfspaces",
+              "type": "Param",
+              "type_": "ndarray of floats, shape (nineq, ndim+1)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Point clearly inside the region defined by halfspaces. Also called a feasible point, it can be obtained by linear programming."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "interior_point",
+              "type": "Param",
+              "type_": "ndarray of floats, shape (ndim,)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Allow adding new halfspaces incrementally. This takes up some additional resources."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "incremental",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Additional options to pass to Qhull. See Qhull manual for details. (Default: \"Qx\" for ndim > 4 and \"\" otherwise) Option \"H\" is always enabled."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "qhull_options",
+              "type": "Param",
+              "type_": "str, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Raised when Qhull encounters an error condition, such as geometrical degeneracy when options to resolve are not enabled."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "QhullError"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Raised if an incompatible array is given as input."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "ValueError"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Halfspace intersections in N dimensions."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Halfspace intersection of planes forming some polygon"
+      },
+      {
+        "type": "code",
+        "value": "from scipy.spatial import HalfspaceIntersection\nimport numpy as np\nhalfspaces = np.array([[-1, 0., 0.],\n                       [0., -1., 0.],\n                       [2., 1., -4.],\n                       [-0.5, 1., -2.]])\nfeasible_point = np.array([0.5, 0.5])\nhs = HalfspaceIntersection(halfspaces, feasible_point)"
+      },
+      {
+        "type": "text",
+        "value": "Plot halfspaces as filled regions and intersection points:"
+      },
+      {
+        "type": "code",
+        "value": "import matplotlib.pyplot as plt\nfig = plt.figure()\nax = fig.add_subplot(1, 1, 1, aspect='equal')\nxlim, ylim = (-1, 3), (-1, 3)\nax.set_xlim(xlim)\nax.set_ylim(ylim)\nx = np.linspace(-1, 3, 100)\nsymbols = ['-', '+', 'x', '*']\nsigns = [0, 0, -1, -1]\nfmt = {\"color\": None, \"edgecolor\": \"b\", \"alpha\": 0.5}\nfor h, sym, sign in zip(halfspaces, symbols, signs):\n    hlist = h.tolist()\n    fmt[\"hatch\"] = sym\n    if h[1]== 0:\n        ax.axvline(-h[2]/h[0], label='{}x+{}y+{}=0'.format(*hlist))\n        xi = np.linspace(xlim[sign], -h[2]/h[0], 100)\n        ax.fill_between(xi, ylim[0], ylim[1], **fmt)\n    else:\n        ax.plot(x, (-h[2]-h[0]*x)/h[1], label='{}x+{}y+{}=0'.format(*hlist))\n        ax.fill_between(x, (-h[2]-h[0]*x)/h[1], ylim[sign], **fmt)\nx, y = zip(*hs.intersections)\nax.plot(x, y, 'o', markersize=8)"
+      },
+      {
+        "type": "text",
+        "value": "By default, qhull does not provide with a way to compute an interior point.\nThis can easily be computed using linear programming. Considering halfspaces\nof the form :math:`Ax + b \\leq 0`, solving the linear program:"
+      },
+      {
+        "type": "text",
+        "value": ".. math::"
+      },
+      {
+        "type": "text",
+        "value": "    max \\: y"
+      },
+      {
+        "type": "text",
+        "value": "    s.t. Ax + y ||A_i|| \\leq -b"
+      },
+      {
+        "type": "text",
+        "value": "With :math:`A_i` being the rows of A, i.e. the normals to each plane."
+      },
+      {
+        "type": "text",
+        "value": "Will yield a point x that is furthest inside the convex polyhedron. To\nbe precise, it is the center of the largest hypersphere of radius y\ninscribed in the polyhedron. This point is called the Chebyshev center\nof the polyhedron (see [1]_ 4.3.1, pp148-149). The\nequations outputted by Qhull are always normalized."
+      },
+      {
+        "type": "code",
+        "value": "from scipy.optimize import linprog\nfrom matplotlib.patches import Circle\nnorm_vector = np.reshape(np.linalg.norm(halfspaces[:, :-1], axis=1),\n    (halfspaces.shape[0], 1))\nc = np.zeros((halfspaces.shape[1],))\nc[-1] = -1\nA = np.hstack((halfspaces[:, :-1], norm_vector))\nb = - halfspaces[:, -1:]\nres = linprog(c, A_ub=A, b_ub=b, bounds=(None, None))\nx = res.x[:-1]\ny = res.x[-1]\ncircle = Circle(x, radius=y, alpha=0.3)\nax.add_patch(circle)\nplt.legend(bbox_to_anchor=(1.6, 1.0))\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.spatial._qhull:HalfspaceIntersection-0-99f09e68.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/spatial/_qhull.cpython-311-darwin.so",
+  "item_line": null,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Signature",
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Attributes",
+    "Raises",
+    "Notes",
+    "Examples",
+    "References"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "HalfspaceIntersection(halfspaces, interior_point, incremental=False, qhull_options=None)"
+  },
+  "type": "DocBlob"
+}

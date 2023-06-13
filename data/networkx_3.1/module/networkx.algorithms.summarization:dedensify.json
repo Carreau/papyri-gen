@@ -1,0 +1,264 @@
+{
+  "aliases": [
+    "networkx.dedensify"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Reduces the number of edges to high-degree nodes by adding compressor nodes that summarize multiple edges of the same type to high-degree nodes (nodes with a degree greater than a given threshold).  Dedensification also has the added benefit of reducing the number of edges around high-degree nodes. The implementation currently supports graphs with a single edge type."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "According to the algorithm in , removes edges in a graph by compressing/decompressing the neighborhoods around high degree nodes by adding compressor nodes that summarize multiple edges of the same type to high-degree nodes.  Dedensification will only add a compressor node when doing so will reduce the total number of edges in the given graph. This implementation currently supports graphs with a single edge type."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A networkx graph"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "G: graph",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Minimum degree threshold of a node to be considered a high degree node. The threshold must be greater than or equal to 2."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "threshold: int",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An optional prefix for denoting compressor nodes"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "prefix: str or None, optional (default: None)",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Indicates if dedensification should be done inplace"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "copy: bool, optional (default: True)",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "2-tuple of the dedensified graph and set of compressor nodes"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dedensified networkx graph",
+              "type": "Param",
+              "type_": "(graph, set)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compresses neighborhoods around high-degree nodes"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Dedensification will only add compressor nodes when doing so would result\nin fewer edges::"
+      },
+      {
+        "type": "text",
+        "value": "    >>> original_graph = nx.DiGraph()\n    >>> original_graph.add_nodes_from(\n    ...     [\"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"A\", \"B\", \"C\"]\n    ... )\n    >>> original_graph.add_edges_from(\n    ...     [\n    ...         (\"1\", \"C\"), (\"1\", \"B\"),\n    ...         (\"2\", \"C\"), (\"2\", \"B\"), (\"2\", \"A\"),\n    ...         (\"3\", \"B\"), (\"3\", \"A\"), (\"3\", \"6\"),\n    ...         (\"4\", \"C\"), (\"4\", \"B\"), (\"4\", \"A\"),\n    ...         (\"5\", \"B\"), (\"5\", \"A\"),\n    ...         (\"6\", \"5\"),\n    ...         (\"A\", \"6\")\n    ...     ]\n    ... )\n    >>> c_graph, c_nodes = nx.dedensify(original_graph, threshold=2)\n    >>> original_graph.number_of_edges()\n    15\n    >>> c_graph.number_of_edges()\n    14"
+      },
+      {
+        "type": "text",
+        "value": "A dedensified, directed graph can be \"densified\" to reconstruct the\noriginal graph::"
+      },
+      {
+        "type": "text",
+        "value": "    >>> original_graph = nx.DiGraph()\n    >>> original_graph.add_nodes_from(\n    ...     [\"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"A\", \"B\", \"C\"]\n    ... )\n    >>> original_graph.add_edges_from(\n    ...     [\n    ...         (\"1\", \"C\"), (\"1\", \"B\"),\n    ...         (\"2\", \"C\"), (\"2\", \"B\"), (\"2\", \"A\"),\n    ...         (\"3\", \"B\"), (\"3\", \"A\"), (\"3\", \"6\"),\n    ...         (\"4\", \"C\"), (\"4\", \"B\"), (\"4\", \"A\"),\n    ...         (\"5\", \"B\"), (\"5\", \"A\"),\n    ...         (\"6\", \"5\"),\n    ...         (\"A\", \"6\")\n    ...     ]\n    ... )\n    >>> c_graph, c_nodes = nx.dedensify(original_graph, threshold=2)\n    >>> # re-densifies the compressed graph into the original graph\n    >>> for c_node in c_nodes:\n    ...     all_neighbors = set(nx.all_neighbors(c_graph, c_node))\n    ...     out_neighbors = set(c_graph.neighbors(c_node))\n    ...     for out_neighbor in out_neighbors:\n    ...         c_graph.remove_edge(c_node, out_neighbor)\n    ...     in_neighbors = all_neighbors - out_neighbors\n    ...     for in_neighbor in in_neighbors:\n    ...         c_graph.remove_edge(in_neighbor, c_node)\n    ...         for out_neighbor in out_neighbors:\n    ...             c_graph.add_edge(in_neighbor, out_neighbor)\n    ...     c_graph.remove_node(c_node)\n    ...\n    >>> nx.is_isomorphic(original_graph, c_graph)\n    True"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/algorithms/summarization.py",
+  "item_line": 68,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "Examples",
+    "References"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(G, threshold, prefix=None, copy=True)"
+  },
+  "type": "DocBlob"
+}

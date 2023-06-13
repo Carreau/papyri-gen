@@ -1,0 +1,461 @@
+{
+  "aliases": [
+    "dask.local.get_async"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This is a general version of various asynchronous schedulers for dask.  It takes a "
+            },
+            {
+              "type": "inlineCode",
+              "value": "concurrent.futures.Executor.submit"
+            },
+            {
+              "type": "text",
+              "value": " function to form a more specific "
+            },
+            {
+              "type": "inlineCode",
+              "value": "get"
+            },
+            {
+              "type": "text",
+              "value": " method that walks through the dask array with parallel workers, avoiding repeat computation and minimizing memory use."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "concurrent.futures.Executor.submit"
+                    },
+                    {
+                      "type": "text",
+                      "value": " function"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "submit",
+              "type": "Param",
+              "type_": "function"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The number of workers that task submissions can be spread over"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "num_workers",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A dask dictionary specifying a workflow"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dsk",
+              "type": "Param",
+              "type_": "dict"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Keys corresponding to desired data"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "result",
+              "type": "Param",
+              "type_": "key or list of keys"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Temporary storage of results"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "cache",
+              "type": "Param",
+              "type_": "dict-like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Function to return the worker id, takes no arguments. Examples are "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "threading",
+                        "path": "threading:current_thread",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "threading.current_thread"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "multiprocessing.process",
+                        "path": "multiprocessing.process:current_process",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "multiprocessing.current_process"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "get_id",
+              "type": "Param",
+              "type_": "callable, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to rerun failing tasks in local process to enable debugging (False by default)"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "rerun_exceptions_locally",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Function to take an exception and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "dumps"
+                    },
+                    {
+                      "type": "text",
+                      "value": " method, and return a serialized tuple of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(exception, traceback)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " to send back to the scheduler. Default is to just raise the exception."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "pack_exception",
+              "type": "Param",
+              "type_": "callable, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Function that takes an exception and a traceback, and raises an error."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "raise_exception",
+              "type": "Param",
+              "type_": "callable, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Callbacks are passed in as tuples of length 5. Multiple sets of callbacks may be passed in as a list of tuples. For more information, see the dask.diagnostics documentation."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "callbacks",
+              "type": "Param",
+              "type_": "tuple or list of tuples, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Function to serialize task data and results to communicate between worker and parent.  Defaults to identity."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dumps: callable, optional",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Inverse function of "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "dumps"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  Defaults to identity."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "loads: callable, optional",
+              "type": "Param",
+              "type_": ""
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Size of chunks to use when dispatching work. Defaults to 1. If -1, will be computed to evenly divide ready work across workers."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "chunksize: int, optional",
+              "type": "Param",
+              "type_": ""
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Asynchronous get function"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/dask/local.py",
+  "item_line": 350,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "threaded.get",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "threaded.get"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(submit, num_workers, dsk, result, cache=None, get_id=<function default_get_id at 0x10418eb60>, rerun_exceptions_locally=None, pack_exception=<function default_pack_exception at 0x10418ec00>, raise_exception=<function reraise at 0x10418eca0>, callbacks=None, dumps=<function identity at 0x10418ed40>, loads=<function identity at 0x10418ed40>, chunksize=None, **kwargs)"
+  },
+  "type": "DocBlob"
+}

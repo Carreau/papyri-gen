@@ -1,0 +1,286 @@
+{
+  "aliases": [
+    "networkx._lazy_import"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "We often see the following pattern    "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "def myfunc():\n    import scipy as sp\n    sp.argmin(...)\n    ...."
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This is to prevent a library, in this case "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "scipy",
+                "path": "scipy",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "scipy"
+            },
+            {
+              "type": "text",
+              "value": ", from being imported at function definition time, since that can be slow."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This function provides a proxy module that, upon access, imports the actual module.  So the idiom equivalent to the above example is    "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "sp = lazy.load(\"scipy\")\n\ndef myfunc():\n    sp.argmin(...)\n    ...."
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The initial import time is fast because the actual import is delayed until the first attribute is requested. The overall import time may decrease as well for users that don't make use of large portions of the library."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The full name of the package or subpackage to import.  For example    "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "sp = lazy.load('scipy')  # import scipy as sp\nspla = lazy.load('scipy.linalg')  # import scipy.linalg as spla"
+                }
+              ],
+              "param": "fullname",
+              "type": "Param",
+              "type_": "str"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Proxy module. Can be used like any regularly imported module. Actual loading of the module occurs upon first attribute request."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "pm",
+              "type": "Param",
+              "type_": "importlib.util._LazyModule"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Return a lazily imported proxy for a module or library."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Importing using this function can currently cause trouble when the user tries to import from a subpackage of a module before the package is fully imported. In particular, this idiom may not work:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "np = lazy_import(\"numpy\")   from numpy.lib import recfunctions"
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This is due to a difference in the way Python's LazyLoader handles subpackage imports compared to the normal import process. Hopefully we will get Python's LazyLoader to fix this, or find a workaround. In the meantime, this is a potential problem."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The workaround is to import numpy before importing from the subpackage."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/lazy_imports.py",
+  "item_line": 102,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Warnings",
+    "Notes",
+    "Parameters",
+    "Returns"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(fullname)"
+  },
+  "type": "DocBlob"
+}

@@ -1,0 +1,740 @@
+{
+  "aliases": [
+    "skimage.restoration.denoise_nl_means"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The non-local means algorithm is well suited for denoising images with specific textures. The principle of the algorithm is to average the value of a given pixel with values of other pixels in a limited neighbourhood, provided that the "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "patches"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " centered on the other pixels are similar enough to the patch centered on the pixel of interest."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In the original version of the algorithm , corresponding to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "fast=False"
+            },
+            {
+              "type": "text",
+              "value": ", the computational complexity is      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "image.size * patch_size ** image.ndim * patch_distance ** image.ndim"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Hence, changing the size of patches or their maximal distance has a strong effect on computing times, especially for 3-D images."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "However, the default behavior corresponds to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "fast_mode=True"
+            },
+            {
+              "type": "text",
+              "value": ", for which another version of non-local means  is used, corresponding to a complexity of      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "image.size * patch_distance ** image.ndim"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The computing time depends only weakly on the patch size, thanks to the computation of the integral of patches distances for a given shift, that reduces the number of operations . Therefore, this algorithm executes faster than the classic algorithm ("
+            },
+            {
+              "type": "inlineCode",
+              "value": "fast_mode=False"
+            },
+            {
+              "type": "text",
+              "value": "), at the expense of using twice as much memory. This implementation has been proven to be more efficient compared to other alternatives, see e.g. ."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compared to the classic algorithm, all pixels of a patch contribute to the distance to another patch with the same weight, no matter their distance to the center of the patch. This coarser computation of the distance can result in a slightly poorer denoising performance. Moreover, for small images (images with a linear size that is only a few times the patch size), the classic algorithm can be faster due to boundary effects."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The image is padded using the "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "reflect"
+            },
+            {
+              "type": "text",
+              "value": " mode of "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "skimage.util.pad"
+            },
+            {
+              "type": "text",
+              "value": " before denoising."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If the noise standard deviation, "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "sigma",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "sigma"
+            },
+            {
+              "type": "text",
+              "value": ", is provided a more robust computation of patch weights is used.  Subtracting the known noise variance from the computed patch distances improves the estimates of patch similarity, giving a moderate improvement to denoising performance . It was also mentioned as an option for the fast variant of the algorithm in ."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "sigma",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "sigma"
+            },
+            {
+              "type": "text",
+              "value": " is provided, a smaller "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "h",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "h"
+            },
+            {
+              "type": "text",
+              "value": " should typically be used to avoid oversmoothing.  The optimal value for "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "h",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "h"
+            },
+            {
+              "type": "text",
+              "value": " depends on the image content and noise level, but a reasonable starting point is "
+            },
+            {
+              "type": "inlineCode",
+              "value": "h = 0.8 * sigma"
+            },
+            {
+              "type": "text",
+              "value": " when "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "fast_mode",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "fast_mode"
+            },
+            {
+              "type": "text",
+              "value": " is "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "True"
+            },
+            {
+              "type": "text",
+              "value": ", or "
+            },
+            {
+              "type": "inlineCode",
+              "value": "h = 0.6 * sigma"
+            },
+            {
+              "type": "text",
+              "value": " when "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "fast_mode",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "fast_mode"
+            },
+            {
+              "type": "text",
+              "value": " is "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "False"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Deprecated in favor of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "channel_axis",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "channel_axis"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "deprecated 0.19"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "multichannel",
+              "type": "Param",
+              "type_": "DEPRECATED"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Input image to be denoised, which can be 2D or 3D, and grayscale or RGB (for 2D images only, see "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "multichannel"
+                    },
+                    {
+                      "type": "text",
+                      "value": " parameter). There can be any number of channels (does not strictly have to be RGB)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "image",
+              "type": "Param",
+              "type_": "2D or 3D ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Size of patches used for denoising."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "patch_size",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximal distance in pixels where to search patches used for denoising."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "patch_distance",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Cut-off distance (in gray levels). The higher h, the more permissive one is in accepting patches. A higher h results in a smoother image, at the expense of blurring features. For a Gaussian noise of standard deviation sigma, a rule of thumb is to choose the value of h to be sigma of slightly less."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "h",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether the last axis of the image is to be interpreted as multiple channels or another spatial dimension. This argument is deprecated: specify "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "channel_axis",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "channel_axis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instead."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "multichannel",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True (default value), a fast version of the non-local means algorithm is used. If False, the original version of non-local means is used. See the Notes section for more details about the algorithms."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fast_mode",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The standard deviation of the (Gaussian) noise.  If provided, a more robust computation of patch weights is computed that takes the expected noise variance into account (see Notes below)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sigma",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to keep the original range of values. Otherwise, the input image is converted according to the conventions of "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "img_as_float"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Also see https://scikit-image.org/docs/dev/user_guide/data_types.html"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "preserve_range",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If None, the image is assumed to be a grayscale (single channel) image. Otherwise, this parameter indicates which axis of the array corresponds to channels."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 0.19"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "inlineCode",
+                          "value": "channel_axis"
+                        },
+                        {
+                          "type": "text",
+                          "value": " was added in 0.19."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "channel_axis",
+              "type": "Param",
+              "type_": "int or None, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Denoised image, of same shape as "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "image",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "image"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "result",
+              "type": "Param",
+              "type_": "ndarray"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Perform non-local means denoising on 2D-4D grayscale or RGB images."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "a = np.zeros((40, 40))\na[10:-10, 10:-10] = 1.\nrng = np.random.default_rng()\na += 0.3 * rng.standard_normal(a.shape)\ndenoised_a = denoise_nl_means(a, 7, 5, 0.1)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/skimage/restoration/non_local_means.py",
+  "item_line": 12,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Other Parameters",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(image, patch_size=7, patch_distance=11, h=0.1, multichannel=False, fast_mode=True, sigma=0.0, *, preserve_range=False, channel_axis=None)"
+  },
+  "type": "DocBlob"
+}

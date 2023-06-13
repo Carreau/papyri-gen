@@ -1,0 +1,453 @@
+{
+  "aliases": [
+    "scipy.stats._qmc.QMCEngine.integers"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "It is safe to just use the same "
+            },
+            {
+              "type": "inlineCode",
+              "value": "[0, 1)"
+            },
+            {
+              "type": "text",
+              "value": " to integer mapping with QMC that you would use with MC. You still get unbiasedness, a strong law of large numbers, an asymptotically infinite variance reduction and a finite sample variance bound."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To convert a sample from "
+            },
+            {
+              "type": "inlineMath",
+              "value": "[0, 1)"
+            },
+            {
+              "type": "text",
+              "value": " to "
+            },
+            {
+              "type": "inlineMath",
+              "value": "[a, b), b>a"
+            },
+            {
+              "type": "text",
+              "value": ", with "
+            },
+            {
+              "type": "inlineMath",
+              "value": "a"
+            },
+            {
+              "type": "text",
+              "value": " the lower bounds and "
+            },
+            {
+              "type": "inlineMath",
+              "value": "b"
+            },
+            {
+              "type": "text",
+              "value": " the upper bounds, the following transformation is used:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "\\text{floor}((b - a) \\cdot \\text{sample} + a)"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Lowest (signed) integers to be drawn (unless "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "u_bounds=None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", in which case this parameter is 0 and this value is used for "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "u_bounds",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "u_bounds"
+                    },
+                    {
+                      "type": "text",
+                      "value": ")."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "l_bounds",
+              "type": "Param",
+              "type_": "int or array-like of ints"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If provided, one above the largest (signed) integer to be drawn (see above for behavior if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "u_bounds=None"
+                    },
+                    {
+                      "type": "text",
+                      "value": "). If array-like, must contain integer values."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "u_bounds",
+              "type": "Param",
+              "type_": "int or array-like of ints, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of samples to generate in the parameter space. Default is 1."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "n",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If true, sample from the interval "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "[l_bounds, u_bounds]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " instead of the default "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "[l_bounds, u_bounds)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". Defaults is False."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "endpoint",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of workers to use for parallel processing. If -1 is given all CPU threads are used. Only supported when using "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "Halton"
+                    },
+                    {
+                      "type": "text",
+                      "value": " Default is 1."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "workers",
+              "type": "Param",
+              "type_": "int, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "QMC sample."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "sample",
+              "type": "Param",
+              "type_": "array_like (n, d)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Draw "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "n",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "n"
+            },
+            {
+              "type": "text",
+              "value": " integers from "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "l_bounds",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "l_bounds"
+            },
+            {
+              "type": "text",
+              "value": " (inclusive) to "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "u_bounds",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "u_bounds"
+            },
+            {
+              "type": "text",
+              "value": " (exclusive), or if endpoint=True, "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "l_bounds",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "l_bounds"
+            },
+            {
+              "type": "text",
+              "value": " (inclusive) to "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "u_bounds",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "u_bounds"
+            },
+            {
+              "type": "text",
+              "value": " (inclusive)."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_qmc.py",
+  "item_line": 770,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Notes"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(self, l_bounds: 'npt.ArrayLike', *, u_bounds: 'Optional[npt.ArrayLike]' = None, n: 'IntNumber' = 1, endpoint: 'bool' = False, workers: 'IntNumber' = 1) -> 'np.ndarray'"
+  },
+  "type": "DocBlob"
+}

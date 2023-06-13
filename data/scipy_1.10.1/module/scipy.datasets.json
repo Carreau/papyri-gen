@@ -1,0 +1,373 @@
+{
+  "aliases": [
+    "scipy.datasets"
+  ],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "args": "scipy.datasets",
+          "children": [],
+          "name": "currentmodule",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": "Datasets (:mod:`scipy.datasets`)",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "type": "code",
+          "value": ".. autosummary:: \n    :toctree:generated/\n    ascent\n    face\n    electrocardiogram"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Dataset Methods",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "type": "code",
+          "value": ".. autosummary:: \n    :toctree:generated/\n    download_all    -- Download all the dataset files to specified path.\n    clear_cache     -- Clear cached dataset directory."
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Utility Methods",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "SciPy dataset methods can be simply called as follows: "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'<dataset-name>()'"
+            },
+            {
+              "type": "text",
+              "value": " This downloads the dataset files over the network once, and saves the cache, before returning a "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy",
+                "path": "numpy:ndarray",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "numpy.ndarray"
+            },
+            {
+              "type": "text",
+              "value": " object representing the dataset."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Note that the return data structure and data type might be different for different dataset methods. For a more detailed example on usage, please look into the particular dataset method documentation above."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Usage of Datasets",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "SciPy dataset files are stored within individual github repositories under the SciPy GitHub organization, following a naming convention as "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'dataset-<name>'"
+            },
+            {
+              "type": "text",
+              "value": ", for example "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "scipy.datasets._fetchers",
+                "path": "scipy.datasets._fetchers:face",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "scipy.datasets.face"
+            },
+            {
+              "type": "text",
+              "value": " files live at https://github.com/scipy/dataset-face.  The "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.datasets",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "scipy.datasets"
+            },
+            {
+              "type": "text",
+              "value": " submodule utilizes and depends on "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Pooch"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://www.fatiando.org/pooch/latest/"
+            },
+            {
+              "type": "text",
+              "value": ", a Python package built to simplify fetching data files. Pooch uses these repos to retrieve the respective dataset files when calling the dataset function."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A registry of all the datasets, essentially a mapping of filenames with their SHA256 hash and repo urls are maintained, which Pooch uses to handle and verify the downloads on function call. After downloading the dataset once, the files are saved in the system cache directory under "
+            },
+            {
+              "type": "inlineCode",
+              "value": "'scipy-data'"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Dataset cache locations may vary on different platforms."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For macOS      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "'~/Library/Caches/scipy-data'"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For Linux and other Unix-like platforms      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "'~/.cache/scipy-data'  # or the value of the XDG_CACHE_HOME env var, if defined"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "For Windows      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "'C:\\Users\\<user>\\AppData\\Local\\<AppAuthor>\\scipy-data\\Cache'"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In environments with constrained network connectivity for various security reasons or on systems without continuous internet connections, one may manually load the cache of the datasets by placing the contents of the dataset repo in the above mentioned cache directory to avoid fetching dataset errors without the internet connectivity."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "How dataset retrieval and storage works",
+      "type": "Section"
+    }
+  ],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To remove in the future \u2013\u2013 scipy.datasets"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/datasets/__init__.py",
+  "item_line": 0,
+  "item_type": "<class 'module'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

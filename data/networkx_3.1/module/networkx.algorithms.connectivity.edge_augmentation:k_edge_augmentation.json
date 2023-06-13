@@ -1,0 +1,486 @@
+{
+  "aliases": [
+    "networkx.k_edge_augmentation"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Adding edges from the augmentation to G make it impossible to disconnect G unless k or more edges are removed. This function uses the most efficient function available (depending on the value of k and if the problem is weighted or unweighted) to search for a minimum weight subset of available edges that k-edge-connects G. In general, finding a k-edge-augmentation is NP-hard, so solutions are not guaranteed to be minimal. Furthermore, a k-edge-augmentation may not exist."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When k=1 this returns an optimal solution."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When k=2 and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "avail"
+            },
+            {
+              "type": "text",
+              "value": " is None, this returns an optimal solution. Otherwise when k=2, this returns a 2-approximation of the optimal solution."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "dd": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "produces a feasible solution, but provides no guarantees on the     solution weight."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "dt": {
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "For k>3, this problem is NP-hard and this uses a randomized algorithm that"
+                  }
+                ],
+                "type": "paragraph"
+              },
+              "type": "DefListItem"
+            }
+          ],
+          "type": "DefList"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An undirected graph."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "G",
+              "type": "Param",
+              "type_": "NetworkX graph"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Desired edge connectivity"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "k",
+              "type": "Param",
+              "type_": "integer"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The available edges that can be used in the augmentation."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If unspecified, then all edges in the complement of G are available. Otherwise, each item is an available edge (with an optional weight)."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "In the unweighted case, each item is an edge "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(u, v)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "In the weighted case, each item is a 3-tuple "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(u, v, d)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " or a dict with items "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "(u, v): d"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  The third item, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "d"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", can be a dictionary or a real number.  If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "d"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a dictionary "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "d[weight]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " correspondings to the weight."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "avail",
+              "type": "Param",
+              "type_": "dict or a set of 2 or 3 tuples"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "key to use to find weights if "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "avail"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a set of 3-tuples where the third item in each tuple is a dictionary."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "weight",
+              "type": "Param",
+              "type_": "string"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If partial is True and no feasible k-edge-augmentation exists, then all a partial k-edge-augmentation is generated. Adding the edges in a partial augmentation to G, minimizes the number of k-edge-connected components and maximizes the edge connectivity between those components. For details, see "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "partial_k_edge_augmentation"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "partial",
+              "type": "Param",
+              "type_": "boolean"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If partial is False and no k-edge-augmentation exists."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "NetworkXUnfeasible"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If the input graph is directed or a multigraph."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "NetworkXNotImplemented"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If k is less than 1"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "ValueError:"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Finds set of edges to k-edge-connect G."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Edges that, once added to G, would cause G to become k-edge-connected. If partial is False, an error is raised if this is not possible. Otherwise, generated edges form a partial augmentation, which k-edge-connects any part of G where it is possible, and maximally connects the remaining parts."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "edge",
+              "type": "Param",
+              "type_": "tuple"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "# Unweighted cases\nG = nx.path_graph((1, 2, 3, 4))\nG.add_node(5)\nsorted(nx.k_edge_augmentation(G, k=1))"
+      },
+      {
+        "type": "code",
+        "value": "sorted(nx.k_edge_augmentation(G, k=2))"
+      },
+      {
+        "type": "code",
+        "value": "sorted(nx.k_edge_augmentation(G, k=3))"
+      },
+      {
+        "type": "code",
+        "value": "complement = list(nx.k_edge_augmentation(G, k=5, partial=True))\nG.add_edges_from(complement)\nnx.edge_connectivity(G)"
+      },
+      {
+        "type": "code",
+        "value": "# Weighted cases\nG = nx.path_graph((1, 2, 3, 4))\nG.add_node(5)\n# avail can be a tuple with a dict\navail = [(1, 5, {\"weight\": 11}), (2, 5, {\"weight\": 10})]\nsorted(nx.k_edge_augmentation(G, k=1, avail=avail, weight=\"weight\"))"
+      },
+      {
+        "type": "code",
+        "value": "# or avail can be a 3-tuple with a real number\navail = [(1, 5, 11), (2, 5, 10), (4, 3, 1), (4, 5, 51)]\nsorted(nx.k_edge_augmentation(G, k=2, avail=avail))"
+      },
+      {
+        "type": "code",
+        "value": "# or avail can be a dict\navail = {(1, 5): 11, (2, 5): 10, (4, 3): 1, (4, 5): 51}\nsorted(nx.k_edge_augmentation(G, k=2, avail=avail))"
+      },
+      {
+        "type": "code",
+        "value": "# If augmentation is infeasible, then a partial solution can be found\navail = {(1, 5): 11}\nsorted(nx.k_edge_augmentation(G, k=2, avail=avail, partial=True))"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/algorithms/connectivity/edge_augmentation.py",
+  "item_line": 132,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Yields",
+    "Raises",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(G, k, avail=None, weight=None, partial=False)"
+  },
+  "type": "DocBlob"
+}

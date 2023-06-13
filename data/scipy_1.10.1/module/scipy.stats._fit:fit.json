@@ -1,0 +1,1076 @@
+{
+  "aliases": [
+    "scipy.stats.fit"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Given a distribution, data, and bounds on the parameters of the distribution, return maximum likelihood estimates of the parameters."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Optimization is more likely to converge to the maximum likelihood estimate when the user provides tight bounds containing the maximum likelihood estimate. For example, when fitting a binomial distribution to data, the number of experiments underlying each sample may be known, in which case the corresponding shape parameter "
+            },
+            {
+              "type": "inlineCode",
+              "value": "n"
+            },
+            {
+              "type": "text",
+              "value": " can be fixed."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The object representing the distribution to be fit to the data."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dist",
+              "type": "Param",
+              "type_": "`scipy.stats.rv_continuous` or `scipy.stats.rv_discrete`"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The data to which the distribution is to be fit. If the data contain any of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.nan"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.inf"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", or -"
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "np.inf"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the fit method will raise a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ValueError"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "data",
+              "type": "Param",
+              "type_": "1D array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If a dictionary, each key is the name of a parameter of the distribution, and the corresponding value is a tuple containing the lower and upper bound on that parameter.  If the distribution is defined only for a finite range of values of that parameter, no entry for that parameter is required; e.g., some distributions have parameters which must be on the interval [0, 1]. Bounds for parameters location ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "loc"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") and scale ("
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "scale"
+                    },
+                    {
+                      "type": "text",
+                      "value": ") are optional; by default, they are fixed to 0 and 1, respectively."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If a sequence, element "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "i"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a tuple containing the lower and upper bound on the "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "i"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": "\\ th parameter of the distribution. In this case, bounds for "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "all"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " distribution shape parameters must be provided. Optionally, bounds for location and scale may follow the distribution shape parameters."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If a shape is to be held fixed (e.g. if it is known), the lower and upper bounds may be equal. If a user-provided lower or upper bound is beyond a bound of the domain for which the distribution is defined, the bound of the distribution's domain will replace the user-provided value. Similarly, parameters which must be integral will be constrained to integral values within the user-provided bounds."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "bounds",
+              "type": "Param",
+              "type_": "dict or sequence of tuples, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If a dictionary, each key is the name of a parameter of the distribution, and the corresponding value is a guess for the value of the parameter."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If a sequence, element "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "i"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a guess for the "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "i"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": "\\ th parameter of the distribution. In this case, guesses for "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "all"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " distribution shape parameters must be provided."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "guess",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "guess"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is not provided, guesses for the decision variables will not be passed to the optimizer. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "guess",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "guess"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is provided, guesses for any missing parameters will be set at the mean of the lower and upper bounds. Guesses for parameters which must be integral will be rounded to integral values, and guesses that lie outside the intersection of the user-provided bounds and the domain of the distribution will be clipped."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "guess",
+              "type": "Param",
+              "type_": "dict or array_like, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "With "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "method=\"mle\""
+                    },
+                    {
+                      "type": "text",
+                      "value": " (default), the fit is computed by minimizing the negative log-likelihood function. A large, finite penalty (rather than infinite negative log-likelihood) is applied for observations beyond the support of the distribution. With "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "method=\"mse\""
+                    },
+                    {
+                      "type": "text",
+                      "value": ", the fit is computed by minimizing the negative log-product spacing function. The same penalty is applied for observations beyond the support. We follow the approach of , which is generalized for samples with repeated observations."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "method",
+              "type": "Param",
+              "type_": "{'mle', 'mse'}"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "optimizer",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "optimizer"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is a callable that accepts the following positional argument."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "fun"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "fun"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                },
+                {
+                  "children": [
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "optimizer",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "optimizer"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must also accept the following keyword argument."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "bounds"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "bounds"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "guess",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "guess"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is provided, "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "optimizer",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "optimizer"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must also accept the following keyword argument."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "x0"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "x0"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If the distribution has any shape parameters that must be integral or if the distribution is discrete and the location parameter is not fixed, "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "optimizer",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "optimizer"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must also accept the following keyword argument."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "integrality"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "integrality"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                },
+                {
+                  "children": [
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "optimizer",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "optimizer"
+                    },
+                    {
+                      "type": "text",
+                      "value": " must return an object, such as an instance of "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "scipy.optimize._optimize",
+                        "path": "scipy.optimize._optimize:OptimizeResult",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "scipy.optimize.OptimizeResult"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", which holds the optimal values of the decision variables in an attribute "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If attributes "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "fun"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "status"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", or "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "message"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are provided, they will be included in the result object returned by "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "fit"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "optimizer",
+              "type": "Param",
+              "type_": "callable, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An object with the following fields."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "params"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "params"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "success"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "success"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "message"
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "message"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The object has the following method:"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "By default, the negative log-likehood function at the fitted     "
+                            },
+                            {
+                              "domain": null,
+                              "role": null,
+                              "type": "Directive",
+                              "value": "params"
+                            },
+                            {
+                              "type": "text",
+                              "value": " for the given "
+                            },
+                            {
+                              "anchor": null,
+                              "exists": true,
+                              "kind": "local",
+                              "reference": {
+                                "kind": "local",
+                                "module": null,
+                                "path": "data",
+                                "type": "RefInfo",
+                                "version": null
+                              },
+                              "type": "Link",
+                              "value": "data"
+                            },
+                            {
+                              "type": "text",
+                              "value": ". Accepts a tuple containing     alternative shapes, location, and scale of the distribution and     an array of alternative data."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "nllf(params=None, data=None)"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    },
+                    {
+                      "dd": [
+                        {
+                          "children": [
+                            {
+                              "type": "text",
+                              "value": "Superposes the PDF/PMF of the fitted distribution over a normalized     histogram of the data."
+                            }
+                          ],
+                          "type": "paragraph"
+                        }
+                      ],
+                      "dt": {
+                        "children": [
+                          {
+                            "type": "text",
+                            "value": "plot(ax=None)"
+                          }
+                        ],
+                        "type": "paragraph"
+                      },
+                      "type": "DefListItem"
+                    }
+                  ],
+                  "type": "DefList"
+                }
+              ],
+              "param": "result",
+              "type": "Param",
+              "type_": "`~scipy.stats._result_classes.FitResult`"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Fit a discrete or continuous distribution to data"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Suppose we wish to fit a distribution to the following data."
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy import stats\nrng = np.random.default_rng()\ndist = stats.nbinom\nshapes = (5, 0.5)\ndata = dist.rvs(*shapes, size=1000, random_state=rng)"
+      },
+      {
+        "type": "text",
+        "value": "Suppose we do not know how the data were generated, but we suspect that\nit follows a negative binomial distribution with parameters *n* and *p*\\.\n(See `scipy.stats.nbinom`.) We believe that the parameter *n* was fewer\nthan 30, and we know that the parameter *p* must lie on the interval\n[0, 1]. We record this information in a variable `bounds` and pass\nthis information to `fit`."
+      },
+      {
+        "type": "code",
+        "value": "bounds = [(0, 30), (0, 1)]\nres = stats.fit(dist, data, bounds)"
+      },
+      {
+        "type": "text",
+        "value": "`fit` searches within the user-specified `bounds` for the\nvalues that best match the data (in the sense of maximum likelihood\nestimation). In this case, it found shape values similar to those\nfrom which the data were actually generated."
+      },
+      {
+        "type": "code",
+        "value": "res.params"
+      },
+      {
+        "type": "text",
+        "value": "We can visualize the results by superposing the probability mass function\nof the distribution (with the shapes fit to the data) over a normalized\nhistogram of the data."
+      },
+      {
+        "type": "code",
+        "value": "import matplotlib.pyplot as plt  # matplotlib must be installed to plot\nres.plot()\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.stats._fit:fit-0-2bbbe742.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      },
+      {
+        "type": "text",
+        "value": "Note that the estimate for *n* was exactly integral; this is because\nthe domain of the `nbinom` PMF includes only integral *n*, and the `nbinom`\nobject \"knows\" that. `nbinom` also knows that the shape *p* must be a\nvalue between 0 and 1. In such a case - when the domain of the distribution\nwith respect to a parameter is finite - we are not required to specify\nbounds for the parameter."
+      },
+      {
+        "type": "code",
+        "value": "bounds = {'n': (0, 30)}  # omit parameter p using a `dict`\nres2 = stats.fit(dist, data, bounds)\nres2.params"
+      },
+      {
+        "type": "text",
+        "value": "If we wish to force the distribution to be fit with *n* fixed at 6, we can\nset both the lower and upper bounds on *n* to 6. Note, however, that the\nvalue of the objective function being optimized is typically worse (higher)\nin this case."
+      },
+      {
+        "type": "code",
+        "value": "bounds = {'n': (6, 6)}  # fix parameter `n`\nres3 = stats.fit(dist, data, bounds)\nres3.params"
+      },
+      {
+        "type": "code",
+        "value": "res3.nllf() > res.nllf()"
+      },
+      {
+        "type": "text",
+        "value": "Note that the numerical results of the previous examples are typical, but\nthey may vary because the default optimizer used by `fit`,\n`scipy.optimize.differential_evolution`, is stochastic. However, we can\ncustomize the settings used by the optimizer to ensure reproducibility -\nor even use a different optimizer entirely - using the `optimizer`\nparameter."
+      },
+      {
+        "type": "code",
+        "value": "from scipy.optimize import differential_evolution\nrng = np.random.default_rng(767585560716548)\ndef optimizer(fun, bounds, *, integrality):\n    return differential_evolution(fun, bounds, strategy='best2bin',\n                                  seed=rng, integrality=integrality)\nbounds = [(0, 30), (0, 1)]\nres4 = stats.fit(dist, data, bounds, optimizer=optimizer)\nres4.params"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/stats/_fit.py",
+  "item_line": 297,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "rv_continuous",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "rv_continuous"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "rv_discrete",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "rv_discrete"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(dist, data, bounds=None, *, guess=None, method='mle', optimizer=<function differential_evolution at 0x1195c5580>)"
+  },
+  "type": "DocBlob"
+}

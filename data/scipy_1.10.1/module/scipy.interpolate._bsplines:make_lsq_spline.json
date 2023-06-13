@@ -1,0 +1,551 @@
+{
+  "aliases": [
+    "scipy.interpolate.make_lsq_spline"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The result is a linear combination"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "S(x) = \\sum_j c_j B_j(x; t)"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "of the B-spline basis elements, "
+            },
+            {
+              "type": "inlineMath",
+              "value": "B_j(x; t)"
+            },
+            {
+              "type": "text",
+              "value": ", which minimizes"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "math",
+          "value": "\\sum_{j} \\left( w_j \\times (S(x_j) - y_j) \\right)^2"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The number of data points must be larger than the spline degree "
+            },
+            {
+              "type": "inlineCode",
+              "value": "k"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Knots "
+            },
+            {
+              "type": "inlineCode",
+              "value": "t"
+            },
+            {
+              "type": "text",
+              "value": " must satisfy the Schoenberg-Whitney conditions, i.e., there must be a subset of data points "
+            },
+            {
+              "type": "inlineCode",
+              "value": "x[j]"
+            },
+            {
+              "type": "text",
+              "value": " such that "
+            },
+            {
+              "type": "inlineCode",
+              "value": "t[j] < x[j] < t[j+k+1]"
+            },
+            {
+              "type": "text",
+              "value": ", for "
+            },
+            {
+              "type": "inlineCode",
+              "value": "j=0, 1,...,n-k-2"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Abscissas."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "array_like, shape (m,)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Ordinates."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "y",
+              "type": "Param",
+              "type_": "array_like, shape (m, ...)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Knots. Knots and data points must satisfy Schoenberg-Whitney conditions."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "t",
+              "type": "Param",
+              "type_": "array_like, shape (n + k + 1,)."
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "B-spline degree. Default is cubic, "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "k = 3"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "k",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Weights for spline fitting. Must be positive. If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", then weights are all equal. Default is "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "None"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "w",
+              "type": "Param",
+              "type_": "array_like, shape (m,), optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Interpolation axis. Default is zero."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "axis",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Whether to check that the input arrays contain only finite numbers. Disabling may give a performance gain, but may result in problems (crashes, non-termination) if the inputs do contain infinities or NaNs. Default is True."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "check_finite",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [],
+              "param": "b",
+              "type": "Param",
+              "type_": "a BSpline object of the degree ``k`` with knots ``t``."
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute the (coefficients of) an LSQ (Least SQuared) based fitting B-spline."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Generate some noisy data:"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nimport matplotlib.pyplot as plt\nrng = np.random.default_rng()\nx = np.linspace(-3, 3, 50)\ny = np.exp(-x**2) + 0.1 * rng.standard_normal(50)"
+      },
+      {
+        "type": "text",
+        "value": "Now fit a smoothing cubic spline with a pre-defined internal knots.\nHere we make the knot vector (k+1)-regular by adding boundary knots:"
+      },
+      {
+        "type": "code",
+        "value": "from scipy.interpolate import make_lsq_spline, BSpline\nt = [-1, 0, 1]\nk = 3\nt = np.r_[(x[0],)*(k+1),\n          t,\n          (x[-1],)*(k+1)]\nspl = make_lsq_spline(x, y, t, k)"
+      },
+      {
+        "type": "text",
+        "value": "For comparison, we also construct an interpolating spline for the same\nset of data:"
+      },
+      {
+        "type": "code",
+        "value": "from scipy.interpolate import make_interp_spline\nspl_i = make_interp_spline(x, y)"
+      },
+      {
+        "type": "text",
+        "value": "Plot both:"
+      },
+      {
+        "type": "code",
+        "value": "xs = np.linspace(-3, 3, 100)\nplt.plot(x, y, 'ro', ms=5)\nplt.plot(xs, spl(xs), 'g-', lw=3, label='LSQ spline')\nplt.plot(xs, spl_i(xs), 'b-', lw=3, alpha=0.7, label='interp spline')\nplt.legend(loc='best')\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.interpolate._bsplines:make_lsq_spline-0-34e38b3c.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      },
+      {
+        "type": "text",
+        "value": "**NaN handling**: If the input arrays contain ``nan`` values, the result is\nnot useful since the underlying spline fitting routines cannot deal with\n``nan``. A workaround is to use zero weights for not-a-number data points:"
+      },
+      {
+        "type": "code",
+        "value": "y[8] = np.nan\nw = np.isnan(y)\ny[w] = 0.\ntck = make_lsq_spline(x, y, t, w=~w)"
+      },
+      {
+        "type": "text",
+        "value": "Notice the need to replace a ``nan`` by a numerical value (precise value\ndoes not matter as long as the corresponding weight is zero.)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/interpolate/_bsplines.py",
+  "item_line": 1411,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "Examples",
+    "See Also"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "base class representing the B-spline objects"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "BSpline",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "BSpline"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "a similar factory function for interpolating splines"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.interpolate._bsplines:make_interp_spline",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "make_interp_spline"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "a FITPACK-based spline fitting routine"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "LSQUnivariateSpline",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "LSQUnivariateSpline"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "a FITPACK-based fitting routine"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "splrep",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "splrep"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(x, y, t, k=3, w=None, axis=0, check_finite=True)"
+  },
+  "type": "DocBlob"
+}

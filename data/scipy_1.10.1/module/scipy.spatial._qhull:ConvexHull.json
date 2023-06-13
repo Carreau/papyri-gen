@@ -1,0 +1,636 @@
+{
+  "aliases": [
+    "scipy.spatial.ConvexHull"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Coordinates of input points."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "points",
+              "type": "Param",
+              "type_": "ndarray of double, shape (npoints, ndim)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Indices of points forming the vertices of the convex hull. For 2-D convex hulls, the vertices are in counterclockwise order. For other dimensions, they are in input order."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "vertices",
+              "type": "Param",
+              "type_": "ndarray of ints, shape (nvertices,)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Indices of points forming the simplical facets of the convex hull."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "simplices",
+              "type": "Param",
+              "type_": "ndarray of ints, shape (nfacet, ndim)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Indices of neighbor facets for each facet. The kth neighbor is opposite to the kth vertex. -1 denotes no neighbor."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "neighbors",
+              "type": "Param",
+              "type_": "ndarray of ints, shape (nfacet, ndim)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "[normal, offset] forming the hyperplane equation of the facet (see "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Qhull documentation"
+                        }
+                      ],
+                      "title": "",
+                      "type": "link",
+                      "url": "http://www.qhull.org/"
+                    },
+                    {
+                      "type": "text",
+                      "value": "  for more)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "equations",
+              "type": "Param",
+              "type_": "ndarray of double, shape (nfacet, ndim+1)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Indices of coplanar points and the corresponding indices of the nearest facets and nearest vertex indices.  Coplanar points are input points which were "
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "not"
+                        }
+                      ],
+                      "type": "emphasis"
+                    },
+                    {
+                      "type": "text",
+                      "value": " included in the triangulation due to numerical precision issues."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If option \"Qc\" is not specified, this list is not computed."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "coplanar",
+              "type": "Param",
+              "type_": "ndarray of int, shape (ncoplanar, 3)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A one-dimensional Boolean array indicating which facets are good. Used with options that compute good facets, e.g. QGn and QG-n. Good facets are defined as those that are visible (n) or invisible (-n) from point n, where n is the nth point in 'points'. The 'good' attribute may be used as an index into 'simplices' to return the good (visible) facets: simplices[good]. A facet is visible from the outside of the hull only, and neither coplanarity nor degeneracy count as cases of visibility."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If a \"QGn\" or \"QG-n\" option is not specified, None is returned."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.3.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "good",
+              "type": "Param",
+              "type_": "ndarray of bool or None"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Surface area of the convex hull when input dimension > 2. When input "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "points",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "points"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are 2-dimensional, this is the perimeter of the convex hull."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 0.17.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "area",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Volume of the convex hull when input dimension > 2. When input "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "points",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "points"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are 2-dimensional, this is the area of the convex hull."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 0.17.0"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "volume",
+              "type": "Param",
+              "type_": "float"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 0.12.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The convex hull is computed using the "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Qhull library"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "http://www.qhull.org/"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Coordinates of points to construct a convex hull from"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "points",
+              "type": "Param",
+              "type_": "ndarray of floats, shape (npoints, ndim)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Allow adding new points incrementally. This takes up some additional resources."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "incremental",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Additional options to pass to Qhull. See Qhull manual for details. (Default: \"Qx\" for ndim > 4 and \"\" otherwise) Option \"Qt\" is always enabled."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "qhull_options",
+              "type": "Param",
+              "type_": "str, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Raised when Qhull encounters an error condition, such as geometrical degeneracy when options to resolve are not enabled."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "QhullError"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Raised if an incompatible array is given as input."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "ValueError"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Convex hulls in N dimensions."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Convex hull of a random set of points:"
+      },
+      {
+        "type": "code",
+        "value": "from scipy.spatial import ConvexHull, convex_hull_plot_2d\nimport numpy as np\nrng = np.random.default_rng()\npoints = rng.random((30, 2))   # 30 random points in 2-D\nhull = ConvexHull(points)"
+      },
+      {
+        "type": "text",
+        "value": "Plot it:"
+      },
+      {
+        "type": "code",
+        "value": "import matplotlib.pyplot as plt\nplt.plot(points[:,0], points[:,1], 'o')\nfor simplex in hull.simplices:\n    plt.plot(points[simplex, 0], points[simplex, 1], 'k-')"
+      },
+      {
+        "type": "text",
+        "value": "We could also have directly used the vertices of the hull, which\nfor 2-D are guaranteed to be in counterclockwise order:"
+      },
+      {
+        "type": "code",
+        "value": "plt.plot(points[hull.vertices,0], points[hull.vertices,1], 'r--', lw=2)\nplt.plot(points[hull.vertices[0],0], points[hull.vertices[0],1], 'ro')\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.spatial._qhull:ConvexHull-0-214c0f02.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      },
+      {
+        "type": "text",
+        "value": "Facets visible from a point:"
+      },
+      {
+        "type": "text",
+        "value": "Create a square and add a point above the square."
+      },
+      {
+        "type": "code",
+        "value": "generators = np.array([[0.2, 0.2],\n                       [0.2, 0.4],\n                       [0.4, 0.4],\n                       [0.4, 0.2],\n                       [0.3, 0.6]])"
+      },
+      {
+        "type": "text",
+        "value": "Call ConvexHull with the QG option. QG4 means\ncompute the portions of the hull not including\npoint 4, indicating the facets that are visible\nfrom point 4."
+      },
+      {
+        "type": "code",
+        "value": "hull = ConvexHull(points=generators,\n                  qhull_options='QG4')"
+      },
+      {
+        "type": "text",
+        "value": "The \"good\" array indicates which facets are\nvisible from point 4."
+      },
+      {
+        "type": "code",
+        "value": "print(hull.simplices)"
+      },
+      {
+        "type": "code",
+        "value": "print(hull.good)"
+      },
+      {
+        "type": "text",
+        "value": "Now plot it, highlighting the visible facets."
+      },
+      {
+        "type": "code",
+        "value": "fig = plt.figure()\nax = fig.add_subplot(1,1,1)\nfor visible_facet in hull.simplices[hull.good]:\n    ax.plot(hull.points[visible_facet, 0],\n            hull.points[visible_facet, 1],\n            color='violet',\n            lw=6)\nconvex_hull_plot_2d(hull, ax=ax)"
+      },
+      {
+        "type": "code",
+        "value": "plt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.spatial._qhull:ConvexHull-1-5e677b4e.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/spatial/_qhull.cpython-311-darwin.so",
+  "item_line": null,
+  "item_type": "<class 'type'>",
+  "ordered_sections": [
+    "Signature",
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Attributes",
+    "Raises",
+    "Notes",
+    "Examples",
+    "References"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "ConvexHull(points, incremental=False, qhull_options=None)"
+  },
+  "type": "DocBlob"
+}

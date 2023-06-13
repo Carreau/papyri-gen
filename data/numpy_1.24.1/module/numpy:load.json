@@ -1,0 +1,781 @@
+{
+  "aliases": [
+    "numpy.load"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "warning Loading files that contain object arrays uses the ``pickle``"
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "module, which is not secure against erroneous or maliciously constructed data. Consider passing "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "allow_pickle=False"
+                },
+                {
+                  "type": "text",
+                  "value": " to load data that is known not to contain object arrays for the safer handling of untrusted sources."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If the file contains pickle data, then whatever object is stored   in the pickle is returned."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If the file is a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": ".npy"
+                    },
+                    {
+                      "type": "text",
+                      "value": " file, then a single array is returned."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If the file is a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": ".npz"
+                    },
+                    {
+                      "type": "text",
+                      "value": " file, then a dictionary-like object is   returned, containing "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "{filename: array}"
+                    },
+                    {
+                      "type": "text",
+                      "value": " key-value pairs, one for   each file in the archive."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            },
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If the file is a "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": ".npz"
+                    },
+                    {
+                      "type": "text",
+                      "value": " file, the returned value supports the   context manager protocol in a similar fashion to the open function      "
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "type": "code",
+                  "value": "with load('foo.npz') as data:\n    a = data['a']"
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The underlying file descriptor is closed when exiting the 'with'   block."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "spread": false,
+              "type": "listItem"
+            }
+          ],
+          "ordered": false,
+          "spread": false,
+          "start": 1,
+          "type": "list"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The file to read. File-like objects must support the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "seek()"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "read()"
+                    },
+                    {
+                      "type": "text",
+                      "value": " methods and must always be opened in binary mode.  Pickled files require that the file-like object support the "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "readline()"
+                    },
+                    {
+                      "type": "text",
+                      "value": " method as well."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "file",
+              "type": "Param",
+              "type_": "file-like object, string, or pathlib.Path"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If not None, then memory-map the file, using the given mode (see "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "api",
+                        "module": "numpy",
+                        "path": "numpy:memmap",
+                        "type": "RefInfo",
+                        "version": "*"
+                      },
+                      "type": "Link",
+                      "value": "numpy.memmap"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for a detailed description of the modes).  A memory-mapped array is kept on disk. However, it can be accessed and sliced like any ndarray.  Memory mapping is especially useful for accessing small fragments of large files without reading the entire file into memory."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "mmap_mode",
+              "type": "Param",
+              "type_": "{None, 'r+', 'r', 'w+', 'c'}, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Allow loading pickled object arrays stored in npy files. Reasons for disallowing pickles include security, as loading pickled data can execute arbitrary code. If pickles are disallowed, loading object arrays will fail. Default: False"
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionchanged 1.16.3"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Made default False in response to CVE-2019-6446."
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "allow_pickle",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Only useful when loading Python 2 generated pickled files on Python 3, which includes npy/npz files containing object arrays. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "fix_imports",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "fix_imports"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is True, pickle will try to map the old Python 2 names to the new names used in Python 3."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fix_imports",
+              "type": "Param",
+              "type_": "bool, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "What encoding to use when reading Python 2 strings. Only useful when loading Python 2 generated pickled files in Python 3, which includes npy/npz files containing object arrays. Values other than 'latin1', 'ASCII', and 'bytes' are not allowed, as they can corrupt numerical data. Default: 'ASCII'"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "encoding",
+              "type": "Param",
+              "type_": "str, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum allowed size of the header.  Large headers may not be safe to load securely and thus require explicitly passing a larger value. See "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "ast.literal_eval()"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for details. This option is ignored when "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "allow_pickle",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "allow_pickle"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is passed.  In that case the file is by definition trusted and the limit is unnecessary."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "max_header_size",
+              "type": "Param",
+              "type_": "int, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If the input file does not exist or cannot be read."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "OSError"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "allow_pickle=True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", but the file cannot be loaded as a pickle."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "UnpicklingError"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The file contains an object array, but "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "allow_pickle=False"
+                    },
+                    {
+                      "type": "text",
+                      "value": " given."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "ValueError"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Data stored in the file. For "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": ".npz"
+                    },
+                    {
+                      "type": "text",
+                      "value": " files, the returned instance of NpzFile class must be closed to avoid leaking file descriptors."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "result",
+              "type": "Param",
+              "type_": "array, tuple, dict, etc."
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Load arrays or pickled objects from "
+            },
+            {
+              "type": "inlineCode",
+              "value": ".npy"
+            },
+            {
+              "type": "text",
+              "value": ", "
+            },
+            {
+              "type": "inlineCode",
+              "value": ".npz"
+            },
+            {
+              "type": "text",
+              "value": " or pickled files."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Store data to disk, and load it again:"
+      },
+      {
+        "type": "code",
+        "value": "np.save('/tmp/123', np.array([[1, 2, 3], [4, 5, 6]]))\nnp.load('/tmp/123.npy')"
+      },
+      {
+        "type": "text",
+        "value": "Store compressed data to disk, and load it again:"
+      },
+      {
+        "type": "code",
+        "value": "a=np.array([[1, 2, 3], [4, 5, 6]])\nb=np.array([1, 2])\nnp.savez('/tmp/123.npz', a=a, b=b)\ndata = np.load('/tmp/123.npz')\ndata['a']"
+      },
+      {
+        "type": "code",
+        "value": "data['b']"
+      },
+      {
+        "type": "code",
+        "value": "data.close()"
+      },
+      {
+        "type": "text",
+        "value": "Mem-map the stored array, and then access the second row\ndirectly from disk:"
+      },
+      {
+        "type": "code",
+        "value": "X = np.load('/tmp/123.npy', mmap_mode='r')\nX[1, :]"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/numpy/lib/npyio.py",
+  "item_line": 263,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "save",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "save"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "savez",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "savez"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "savez_compressed",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "savez_compressed"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "numpy",
+          "path": "numpy:loadtxt",
+          "type": "RefInfo",
+          "version": "1.24.1"
+        },
+        "type": "Link",
+        "value": "loadtxt"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Create a memory-map to an array stored in a file on disk."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "memmap",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "memmap"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Create or load a memory-mapped "
+            },
+            {
+              "type": "inlineCode",
+              "value": ".npy"
+            },
+            {
+              "type": "text",
+              "value": " file."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "lib.format.open_memmap",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "lib.format.open_memmap"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(file, mmap_mode=None, allow_pickle=False, fix_imports=True, encoding='ASCII', *, max_header_size=10000)"
+  },
+  "type": "DocBlob"
+}

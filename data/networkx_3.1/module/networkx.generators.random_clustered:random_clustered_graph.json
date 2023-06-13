@@ -1,0 +1,336 @@
+{
+  "aliases": [
+    "networkx.random_clustered_graph"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This uses a configuration model-like approach to generate a random graph (with parallel edges and self-loops) by randomly assigning edges to match the given joint degree sequence."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The joint degree sequence is a list of pairs of integers of the form $[(d_{1,i}, d_{1,t}), \\dotsc, (d_{n,i}, d_{n,t})]$. According to this list, vertex $u$ is a member of $d_{u,t}$ triangles and has $d_{u, i}$ other edges. The number $d_{u,t}$ is the "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "triangle degree"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " of $u$ and the number $d_{u,i}$ is the "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "independent edge degree"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "As described by Miller  (see also Newman  for an equivalent description)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A non-graphical degree sequence (not realizable by some simple graph) is allowed since this function returns graphs with self loops and parallel edges.  An exception is raised if the independent degree sequence does not have an even sum or the triangle degree sequence sum is not divisible by 3."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This configuration model-like construction process can lead to duplicate edges and loops.  You can remove the self-loops and parallel edges (see below) which will likely result in a graph that doesn't have the exact degree sequence specified.  This \"finite-size effect\" decreases as the size of the graph increases."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Each list entry corresponds to the independent edge degree and triangle degree of a node."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "joint_degree_sequence",
+              "type": "Param",
+              "type_": "list of integer pairs"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Graph type to create. If graph instance, then cleared before populated."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "create_using",
+              "type": "Param",
+              "type_": "NetworkX graph constructor, optional (default MultiGraph)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Indicator of random number generation state. See "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "Randomness<randomness>"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "seed",
+              "type": "Param",
+              "type_": "integer, random_state, or None (default)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If the independent edge degree sequence sum is not even or the triangle degree sequence sum is not divisible by 3."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "",
+              "type": "Param",
+              "type_": "NetworkXError"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A graph with the specified degree sequence. Nodes are labeled starting at 0 with an index corresponding to the position in deg_sequence."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "G",
+              "type": "Param",
+              "type_": "MultiGraph"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Generate a random graph with the given joint independent edge degree and triangle degree sequence."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "deg = [(1, 0), (1, 0), (1, 0), (2, 0), (1, 0), (2, 1), (0, 1), (0, 1)]\nG = nx.random_clustered_graph(deg)"
+      },
+      {
+        "type": "text",
+        "value": "To remove parallel edges:"
+      },
+      {
+        "type": "code",
+        "value": "G = nx.Graph(G)"
+      },
+      {
+        "type": "text",
+        "value": "To remove self loops:"
+      },
+      {
+        "type": "code",
+        "value": "G.remove_edges_from(nx.selfloop_edges(G))"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/generators/random_clustered.py",
+  "item_line": 9,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Raises",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(joint_degree_sequence, create_using=None, seed=None)"
+  },
+  "type": "DocBlob"
+}

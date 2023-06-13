@@ -1,0 +1,512 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [
+        {
+          "placeholder": "untarget",
+          "type": "Unimplemented",
+          "value": "_random-compatibility:"
+        },
+        {
+          "args": "numpy.random",
+          "children": [],
+          "name": "currentmodule",
+          "options": {},
+          "type": "mystDirective",
+          "value": ""
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "api",
+                "module": "numpy.random",
+                "path": "numpy.random",
+                "type": "RefInfo",
+                "version": "*"
+              },
+              "type": "Link",
+              "value": "numpy.random"
+            },
+            {
+              "type": "text",
+              "value": " has a somewhat stricter compatibility policy than the rest of NumPy. Users of pseudorandomness often have use cases for being able to reproduce runs in fine detail given the same seed (so-called \"stream compatibility\"), and so we try to balance those needs with the flexibility to enhance our algorithms. "
+            },
+            {
+              "type": "inlineCode",
+              "value": "NEP 19 <NEP19>"
+            },
+            {
+              "type": "text",
+              "value": " describes the evolution of this policy."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The main kind of compatibility that we enforce is stream-compatibility from run to run under certain conditions. If you create a "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "Generator"
+            },
+            {
+              "type": "text",
+              "value": " with the same "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "BitGenerator"
+            },
+            {
+              "type": "text",
+              "value": ", with the same seed, perform the same sequence of method calls with the same arguments, on the same build of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy"
+            },
+            {
+              "type": "text",
+              "value": ", in the same environment, on the same machine, you should get the same stream of numbers. Note that these conditions are very strict. There are a number of factors outside of NumPy's control that limit our ability to guarantee much more than this. For example, different CPUs implement floating point arithmetic differently, and this can cause differences in certain edge cases that cascade to the rest of the stream. "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "Generator.multivariate_normal"
+            },
+            {
+              "type": "text",
+              "value": ", for another example, uses a matrix decomposition from "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy.linalg"
+            },
+            {
+              "type": "text",
+              "value": ". Even on the same platform, a different build of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "numpy"
+            },
+            {
+              "type": "text",
+              "value": " may use a different version of this matrix decomposition algorithm from the LAPACK that it links to, causing "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "Generator.multivariate_normal"
+            },
+            {
+              "type": "text",
+              "value": " to return completely different (but equally valid!) results. We strive to prefer algorithms that are more resistant to these effects, but this is always imperfect."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "note "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Most of the "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "Generator"
+                },
+                {
+                  "type": "text",
+                  "value": " methods allow you to draw multiple values from a distribution as arrays. The requested size of this array is a parameter, for the purposes of the above policy. Calling "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "rng.random()"
+                },
+                {
+                  "type": "text",
+                  "value": " 5 times is not "
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "guaranteed"
+                    }
+                  ],
+                  "type": "emphasis"
+                },
+                {
+                  "type": "text",
+                  "value": " to give the same numbers as "
+                },
+                {
+                  "type": "inlineCode",
+                  "value": "rng.random(5)"
+                },
+                {
+                  "type": "text",
+                  "value": ". We reserve the ability to decide to use different algorithms for different-sized blocks. In practice, this happens rarely."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Like the rest of NumPy, we generally maintain API source compatibility from version to version. If we "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "must"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " make an API-breaking change, then we will only do so with an appropriate deprecation period and warnings, according to "
+            },
+            {
+              "type": "inlineCode",
+              "value": "general NumPy policy <NEP23>"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Breaking stream-compatibility in order to introduce new features or improve performance in "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "Generator"
+            },
+            {
+              "type": "text",
+              "value": " or "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "default_rng"
+            },
+            {
+              "type": "text",
+              "value": " will be "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "allowed"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " with "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "caution"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": ". Such changes will be considered features, and as such will be no faster than the standard release cadence of features (i.e. on "
+            },
+            {
+              "type": "inlineCode",
+              "value": "X.Y"
+            },
+            {
+              "type": "text",
+              "value": " releases, never "
+            },
+            {
+              "type": "inlineCode",
+              "value": "X.Y.Z"
+            },
+            {
+              "type": "text",
+              "value": ").  Slowness will not be considered a bug for this purpose. Correctness bug fixes that break stream-compatibility can happen on bugfix releases, per usual, but developers should consider if they can wait until the next feature release. We encourage developers to strongly weight user\u2019s pain from the break in stream-compatibility against the improvements. One example of a worthwhile improvement would be to change algorithms for a significant increase in performance, for example, moving from the "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Box-Muller transform"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://en.wikipedia.org/wiki/Box%E2%80%93Muller_transform"
+            },
+            {
+              "type": "text",
+              "value": " method of Gaussian variate generation to the faster "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Ziggurat algorithm"
+                }
+              ],
+              "title": "",
+              "type": "link",
+              "url": "https://en.wikipedia.org/wiki/Ziggurat_algorithm"
+            },
+            {
+              "type": "text",
+              "value": ". An example of a discouraged improvement would be tweaking the Ziggurat tables just a little bit for a small performance improvement."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "note "
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "In particular, "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "default_rng"
+                },
+                {
+                  "type": "text",
+                  "value": " is allowed to change the default "
+                },
+                {
+                  "domain": null,
+                  "role": null,
+                  "type": "Directive",
+                  "value": "BitGenerator"
+                },
+                {
+                  "type": "text",
+                  "value": " that it uses (again, with "
+                },
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "caution"
+                    }
+                  ],
+                  "type": "emphasis"
+                },
+                {
+                  "type": "text",
+                  "value": " and plenty of advance warning)."
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In general, "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "BitGenerator"
+            },
+            {
+              "type": "text",
+              "value": " classes have stronger guarantees of version-to-version stream compatibility. This allows them to be a firmer building block for downstream users that need it. Their limited API surface makes it easier for them to maintain this compatibility from version to version. See the docstrings of each "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "BitGenerator"
+            },
+            {
+              "type": "text",
+              "value": " class for their individual compatibility guarantees."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The legacy "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "RandomState"
+            },
+            {
+              "type": "text",
+              "value": " and the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "associated convenience functions\n<functions-in-numpy-random>"
+            },
+            {
+              "type": "text",
+              "value": " have a stricter version-to-version compatibility guarantee. For reasons outlined in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "NEP 19 <NEP19>"
+            },
+            {
+              "type": "text",
+              "value": ", we had made stronger promises about their version-to-version stability early in NumPy's development. There are still some limited use cases for this kind of compatibility (like generating data for tests), so we maintain as much compatibility as we can. There will be no more modifications to "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "RandomState"
+            },
+            {
+              "type": "text",
+              "value": ", not even to fix correctness bugs. There are a few gray areas where we can make minor fixes to keep "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "RandomState"
+            },
+            {
+              "type": "text",
+              "value": " working without segfaulting as NumPy's internals change, and some docstring fixes. However, the previously-mentioned caveats about the variability from machine to machine and build to build still apply to "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "RandomState"
+            },
+            {
+              "type": "text",
+              "value": " just as much as it does to "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "Generator"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": "Compatibility Policy",
+      "type": "Section"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

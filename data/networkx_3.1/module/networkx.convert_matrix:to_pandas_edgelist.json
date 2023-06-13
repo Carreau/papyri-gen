@@ -1,0 +1,265 @@
+{
+  "aliases": [
+    "networkx.to_pandas_edgelist"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The NetworkX graph used to construct the Pandas DataFrame."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "G",
+              "type": "Param",
+              "type_": "graph"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A valid column name (string or integer) for the source nodes (for the directed case)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "source",
+              "type": "Param",
+              "type_": "str or int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A valid column name (string or integer) for the target nodes (for the directed case)."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "target",
+              "type": "Param",
+              "type_": "str or int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Use only nodes specified in nodelist"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "nodelist",
+              "type": "Param",
+              "type_": "list, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Use to create the DataFrame. Data type to force. Only a single dtype is allowed. If None, infer."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "dtype",
+              "type": "Param",
+              "type_": "dtype, default None"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A valid column name (string or integer) for the edge keys (for the multigraph case). If None, edge keys are not stored in the DataFrame."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "edge_key",
+              "type": "Param",
+              "type_": "str or int or None, optional (default=None)"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Graph edge list"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "df",
+              "type": "Param",
+              "type_": "Pandas DataFrame"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Returns the graph edge list as a Pandas DataFrame."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "G = nx.Graph(\n    [\n        (\"A\", \"B\", {\"cost\": 1, \"weight\": 7}),\n        (\"C\", \"E\", {\"cost\": 9, \"weight\": 10}),\n    ]\n)\ndf = nx.to_pandas_edgelist(G, nodelist=[\"A\", \"C\"])\ndf[[\"source\", \"target\", \"cost\", \"weight\"]]"
+      },
+      {
+        "type": "code",
+        "value": "G = nx.MultiGraph([('A', 'B', {'cost': 1}), ('A', 'B', {'cost': 9})])\ndf = nx.to_pandas_edgelist(G, nodelist=['A', 'C'], edge_key='ekey')\ndf[['source', 'target', 'cost', 'ekey']]"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/networkx/convert_matrix.py",
+  "item_line": 212,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(G, source='source', target='target', nodelist=None, dtype=None, edge_key=None)"
+  },
+  "type": "DocBlob"
+}

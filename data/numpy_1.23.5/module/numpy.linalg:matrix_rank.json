@@ -1,0 +1,669 @@
+{
+  "aliases": [
+    "numpy.linalg.matrix_rank"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Rank of the array is the number of singular values of the array that are greater than "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "tol",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "tol"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionchanged 1.14"
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Can now operate on stacks of matrices"
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The default threshold to detect rank deficiency is a test on the magnitude of the singular values of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "A",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": ".  By default, we identify singular values less than "
+            },
+            {
+              "type": "inlineCode",
+              "value": "S.max() * max(M, N) * eps"
+            },
+            {
+              "type": "text",
+              "value": " as indicating rank deficiency (with the symbols defined above). This is the algorithm MATLAB uses [1].  It also appears in "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Numerical recipes"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " in the discussion of SVD solutions for linear least squares [2]."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "This default threshold is designed to detect rank deficiency accounting for the numerical errors of the SVD computation.  Imagine that there is a column in "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "A",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": " that is an exact (in floating point) linear combination of other columns in "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "A",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": ". Computing the SVD on "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "A",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": " will not produce a singular value exactly equal to 0 in general: any difference of the smallest SVD value from 0 will be caused by numerical imprecision in the calculation of the SVD. Our threshold for small SVD values takes this numerical imprecision into account, and the default threshold will detect such numerical rank deficiency.  The threshold may declare a matrix "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "A",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": " rank deficient even if the linear combination of some columns of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "A",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": " is not exactly equal to another column of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "A",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": " but only numerically very close to another column of "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "A",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "We chose our default threshold because it is in wide use.  Other thresholds are possible.  For example, elsewhere in the 2007 edition of "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "Numerical\nrecipes"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " there is an alternative threshold of "
+            },
+            {
+              "type": "inlineCode",
+              "value": "S.max() *\nnp.finfo(A.dtype).eps / 2. * np.sqrt(m + n + 1.)"
+            },
+            {
+              "type": "text",
+              "value": ". The authors describe this threshold as being based on \"expected roundoff error\" (p 71)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The thresholds above deal with floating point roundoff error in the calculation of the SVD.  However, you may have more information about the sources of error in "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "A",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "A"
+            },
+            {
+              "type": "text",
+              "value": " that would make you consider other tolerance values to detect "
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "effective"
+                }
+              ],
+              "type": "emphasis"
+            },
+            {
+              "type": "text",
+              "value": " rank deficiency.  The most useful measure of the tolerance depends on the operations you intend to use on your matrix.  For example, if your data come from uncertain measurements with uncertainties greater than floating point epsilon, choosing a tolerance near that uncertainty may be preferable.  The tolerance may be absolute if the uncertainties are absolute rather than relative."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Input vector or stack of matrices."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "A",
+              "type": "Param",
+              "type_": "{(M,), (..., M, N)} array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Threshold below which SVD values are considered zero. If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "tol",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "tol"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is None, and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "S"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is an array with singular values for "
+                    },
+                    {
+                      "domain": null,
+                      "role": null,
+                      "type": "Directive",
+                      "value": "M"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "eps"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is the epsilon value for datatype of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "S"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", then "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "tol",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "tol"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is set to "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "S.max() * max(M, N) * eps"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionchanged 1.14"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    },
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "Broadcasted against the stack of matrices"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "tol",
+              "type": "Param",
+              "type_": "(...) array_like, float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If True, "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "A",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "A"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is assumed to be Hermitian (symmetric if real-valued), enabling a more efficient method for finding singular values. Defaults to False."
+                    }
+                  ],
+                  "type": "paragraph"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "text",
+                          "value": "versionadded 1.14"
+                        }
+                      ],
+                      "type": "admonitionTitle"
+                    }
+                  ],
+                  "kind": "note",
+                  "type": "admonition"
+                }
+              ],
+              "param": "hermitian",
+              "type": "Param",
+              "type_": "bool, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Rank of A."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "rank",
+              "type": "Param",
+              "type_": "(...) array_like"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Return matrix rank of array using SVD method"
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "from numpy.linalg import matrix_rank\nmatrix_rank(np.eye(4)) # Full rank matrix"
+      },
+      {
+        "type": "code",
+        "value": "I=np.eye(4); I[-1,-1] = 0. # rank deficient matrix\nmatrix_rank(I)"
+      },
+      {
+        "type": "code",
+        "value": "matrix_rank(np.ones((4,))) # 1 dimension - rank 1 unless all 0"
+      },
+      {
+        "type": "code",
+        "value": "matrix_rank(np.zeros((4,)))"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/numpy/linalg/linalg.py",
+  "item_line": 1801,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "References",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(A, tol=None, hermitian=False)"
+  },
+  "type": "DocBlob"
+}

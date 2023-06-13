@@ -1,0 +1,751 @@
+{
+  "aliases": [],
+  "arbitrary": [
+    {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": "Introduction to IPython configuration",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Many of IPython's classes have configurable attributes (see "
+            },
+            {
+              "type": "inlineCode",
+              "value": "options/index"
+            },
+            {
+              "type": "text",
+              "value": " for the list). These can be configured in several ways."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": "setting_config",
+      "title": "Setting configurable options",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To create the blank configuration files, run      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "ipython profile create [profilename]"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If you leave out the profile name, the files will be created for the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "default"
+            },
+            {
+              "type": "text",
+              "value": " profile (see "
+            },
+            {
+              "type": "inlineCode",
+              "value": "profiles"
+            },
+            {
+              "type": "text",
+              "value": "). These will typically be located in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "~/.ipython/profile_default/"
+            },
+            {
+              "type": "text",
+              "value": ", and will be named "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ipython_config.py"
+            },
+            {
+              "type": "text",
+              "value": ", for historical reasons you may also find files named with IPython prefix instead of Jupyter: "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ipython_notebook_config.py"
+            },
+            {
+              "type": "text",
+              "value": ", etc. The settings in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ipython_config.py"
+            },
+            {
+              "type": "text",
+              "value": " apply to all IPython commands."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "By default, configuration files are fully featured Python scripts that can execute arbitrary code, the main usage is to set value on the configuration object "
+            },
+            {
+              "type": "inlineCode",
+              "value": "c"
+            },
+            {
+              "type": "text",
+              "value": " which exist in your configuration file."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You can then configure class attributes like this      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "c.InteractiveShell.automagic = False"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Be careful with spelling--incorrect names will simply be ignored, with no error."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To add to a collection which may have already been defined elsewhere or have default values, you can use methods like those found on lists, dicts and sets: append, extend, "
+            },
+            {
+              "type": "inlineCode",
+              "value": "~traitlets.config.LazyConfigValue.prepend"
+            },
+            {
+              "type": "text",
+              "value": " (like extend, but at the front), add and update (which works both for dicts and sets)      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "c.InteractiveShellApp.extensions.append('Cython')"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "versionadded 2.0"
+                }
+              ],
+              "type": "admonitionTitle"
+            },
+            {
+              "children": [
+                {
+                  "type": "text",
+                  "value": "list, dict and set methods for config values"
+                }
+              ],
+              "type": "paragraph"
+            }
+          ],
+          "kind": "note",
+          "type": "admonition"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Python configuration files",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "type": "code",
+          "value": "# sample ipython_config.py\n\nc.TerminalIPythonApp.display_banner = True\nc.InteractiveShellApp.log_level = 20\nc.InteractiveShellApp.extensions = [\n    'myextension'\n]\nc.InteractiveShellApp.exec_lines = [\n    'import numpy',\n    'import scipy'\n]\nc.InteractiveShellApp.exec_files = [\n    'mycode.py',\n    'fancy.ipy'\n]\nc.InteractiveShell.colors = 'LightBG'\nc.InteractiveShell.xmode = 'Context'\nc.TerminalInteractiveShell.confirm_exit = False\nc.TerminalInteractiveShell.editor = 'nano'\n\nc.PrefilterManager.multi_line_specials = True\n\nc.AliasManager.user_aliases = [\n ('la', 'ls -al')\n]"
+        }
+      ],
+      "level": 3,
+      "target": null,
+      "title": "Example configuration file",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In case where executability of configuration can be problematic, or configurations need to be modified programmatically, IPython also support a limited set of functionalities via "
+            },
+            {
+              "type": "inlineCode",
+              "value": ".json"
+            },
+            {
+              "type": "text",
+              "value": " configuration files."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You can defined most of the configuration options via a json object which hierarchy represent the value you would normally set on the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "c"
+            },
+            {
+              "type": "text",
+              "value": " object of "
+            },
+            {
+              "type": "inlineCode",
+              "value": ".py"
+            },
+            {
+              "type": "text",
+              "value": " configuration files. The following "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ipython_config.json"
+            },
+            {
+              "type": "text",
+              "value": " file      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "{\n    \"InteractiveShell\": {\n        \"colors\": \"LightBG\",\n    },\n    \"InteractiveShellApp\": {\n        \"extensions\": [\n            \"myextension\"\n        ]\n    },\n    \"TerminalInteractiveShell\": {\n        \"editor\": \"nano\"\n    }\n}"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Is equivalent to the following "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ipython_config.py"
+            },
+            {
+              "type": "text",
+              "value": "      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "c.InteractiveShellApp.extensions = [\n    'myextension'\n]\n\nc.InteractiveShell.colors = 'LightBG'\nc.TerminalInteractiveShell.editor = 'nano'"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "JSON Configuration files",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Every configurable value can be set from the command line, using this syntax      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "ipython --ClassName.attribute=value"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Many frequently used options have short aliases and flags, such as "
+            },
+            {
+              "type": "inlineCode",
+              "value": "--matplotlib"
+            },
+            {
+              "type": "text",
+              "value": " (to integrate with a matplotlib GUI event loop) or "
+            },
+            {
+              "type": "inlineCode",
+              "value": "--pdb"
+            },
+            {
+              "type": "text",
+              "value": " (automatic post-mortem debugging of exceptions)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To see all of these abbreviated options, run      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "ipython --help\njupyter notebook --help\n# etc."
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Options specified at the command line, in either format, override options set in a configuration file."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "Command line arguments",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You can also modify config from inside IPython, using a magic command      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "%config IPCompleter.greedy = True"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "At present, this only affects the current session - changes you make to config are not saved anywhere. Also, some options are only read when IPython starts, so they can't be changed like this."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 2,
+      "target": null,
+      "title": "The config magic",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "If you are using "
+            },
+            {
+              "type": "inlineCode",
+              "value": "embedding"
+            },
+            {
+              "type": "text",
+              "value": " to start IPython from a normal  python file, you can set configuration options the same way as in a  config file by creating a traitlets "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Config"
+            },
+            {
+              "type": "text",
+              "value": " object and passing it to  start_ipython like in the example below."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "../../../examples/Embedding/start_ipython_config.py",
+          "children": [],
+          "name": "literalinclude",
+          "options": {
+            "language": "python"
+          },
+          "type": "mystDirective",
+          "value": ""
+        }
+      ],
+      "level": 2,
+      "target": "configure_start_ipython",
+      "title": "Running IPython from Python",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "IPython can use multiple profiles, with separate configuration and history. By default, if you don't specify a profile, IPython always runs in the "
+            },
+            {
+              "type": "inlineCode",
+              "value": "default"
+            },
+            {
+              "type": "text",
+              "value": " profile. To use a new profile      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "ipython profile create foo   # create the profile foo\nipython --profile=foo        # start IPython using the new profile"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Profiles are typically stored in "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ipythondir"
+            },
+            {
+              "type": "text",
+              "value": ", but you can also keep a profile in the current working directory, for example to distribute it with a project. To find a profile directory on the filesystem      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "ipython locate profile foo"
+        }
+      ],
+      "level": 1,
+      "target": "profiles",
+      "title": "Profiles",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "IPython stores its files---config, command history and extensions---in the directory "
+            },
+            {
+              "type": "inlineCode",
+              "value": "~/.ipython/"
+            },
+            {
+              "type": "text",
+              "value": " by default."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "args": "IPYTHONDIR",
+          "children": [],
+          "name": "envvar",
+          "options": {},
+          "type": "mystDirective",
+          "value": "If set, this environment variable should be the path to a directory,\nwhich IPython will use for user data. IPython will create it if it\ndoes not exist."
+        },
+        {
+          "args": "--ipython-dir=<path>",
+          "children": [],
+          "name": "option",
+          "options": {},
+          "type": "mystDirective",
+          "value": "This command line option can also be used to override the default\nIPython directory."
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "To see where IPython is looking for the IPython directory, use the command "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ipython locate"
+            },
+            {
+              "type": "text",
+              "value": ", or the Python function "
+            },
+            {
+              "type": "inlineCode",
+              "value": "IPython.paths.get_ipython_dir"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 1,
+      "target": "ipythondir",
+      "title": "The IPython directory",
+      "type": "Section"
+    },
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "It can be useful to deploy systemwide ipython or ipykernel configuration when managing environment for many users. At startup time IPython and IPykernel will search for configuration file in multiple systemwide locations, mainly:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "inlineCode",
+                          "value": "/etc/ipython/"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "inlineCode",
+                          "value": "/usr/local/etc/ipython/"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                }
+              ],
+              "ordered": false,
+              "spread": false,
+              "start": 1,
+              "type": "list"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "When the global install is a standalone python distribution it may also search in distribution specific location, for example:"
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "type": "inlineCode",
+                          "value": "$ANACONDA_LOCATION/etc/ipython/"
+                        }
+                      ],
+                      "type": "paragraph"
+                    }
+                  ],
+                  "spread": false,
+                  "type": "listItem"
+                }
+              ],
+              "ordered": false,
+              "spread": false,
+              "start": 1,
+              "type": "list"
+            }
+          ],
+          "type": "blockquote"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "In those locations, Terminal IPython will look for a file called "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ipython_config.py"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ipython_config.json"
+            },
+            {
+              "type": "text",
+              "value": ", ipykernel will look for "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ipython_kernel_config.py"
+            },
+            {
+              "type": "text",
+              "value": " and "
+            },
+            {
+              "type": "inlineCode",
+              "value": "ipython_kernel.json"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Configuration files are loaded in order and merged with configuration on later location taking precedence on earlier locations (that is to say a user can overwrite a systemwide configuration option)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "You can see all locations in which IPython is looking for configuration files by starting ipython in debug mode      "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "$ ipython --debug -c 'exit()'"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Identically with ipykernel though the command is currently blocking until this process is killed with "
+            },
+            {
+              "type": "inlineCode",
+              "value": "Ctrl-\\"
+            },
+            {
+              "type": "text",
+              "value": "       "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "$ python -m ipykernel --debug"
+        }
+      ],
+      "level": 1,
+      "target": null,
+      "title": "Systemwide configuration",
+      "type": "Section"
+    }
+  ],
+  "content": {},
+  "example_section_data": {
+    "children": [],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": null,
+  "item_line": null,
+  "item_type": null,
+  "ordered_sections": [],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": null
+  },
+  "type": "DocBlob"
+}

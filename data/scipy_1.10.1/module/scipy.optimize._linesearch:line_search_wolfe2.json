@@ -1,0 +1,576 @@
+{
+  "aliases": [
+    "scipy.optimize.line_search"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Uses the line search algorithm to enforce strong Wolfe conditions. See Wright and Nocedal, 'Numerical Optimization', 1999, pp. 59-61."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Objective function."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "f",
+              "type": "Param",
+              "type_": "callable f(x,*args)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Objective function gradient."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "myfprime",
+              "type": "Param",
+              "type_": "callable f'(x,*args)"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Starting point."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "xk",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Search direction."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "pk",
+              "type": "Param",
+              "type_": "ndarray"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Gradient value for x=xk (xk being the current parameter estimate). Will be recomputed if omitted."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "gfk",
+              "type": "Param",
+              "type_": "ndarray, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Function value for x=xk. Will be recomputed if omitted."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "old_fval",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Function value for the point preceding x=xk."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "old_old_fval",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Additional arguments passed to objective function."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "args",
+              "type": "Param",
+              "type_": "tuple, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Parameter for Armijo condition rule."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "c1",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Parameter for curvature condition rule."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "c2",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum step size"
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "amax",
+              "type": "Param",
+              "type_": "float, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "A callable of the form "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "extra_condition(alpha, x, f, g)"
+                    },
+                    {
+                      "type": "text",
+                      "value": " returning a boolean. Arguments are the proposed step "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "alpha"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and the corresponding "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "f"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "g"
+                    },
+                    {
+                      "type": "text",
+                      "value": " values. The line search accepts the value of "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "alpha"
+                    },
+                    {
+                      "type": "text",
+                      "value": " only if this callable returns "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "True"
+                    },
+                    {
+                      "type": "text",
+                      "value": ". If the callable returns "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "False"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for the step length, the algorithm will continue with new iterates. The callable is only called for iterates satisfying the strong Wolfe conditions."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "extra_condition",
+              "type": "Param",
+              "type_": "callable, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Maximum number of iterations to perform."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "maxiter",
+              "type": "Param",
+              "type_": "int, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Alpha for which "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "x_new = x0 + alpha * pk"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", or None if the line search algorithm did not converge."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "alpha",
+              "type": "Param",
+              "type_": "float or None"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of function evaluations made."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "fc",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Number of gradient evaluations made."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "gc",
+              "type": "Param",
+              "type_": "int"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "New function value "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "f(x_new)=f(x0+alpha*pk)"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", or None if the line search algorithm did not converge."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "new_fval",
+              "type": "Param",
+              "type_": "float or None"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Old function value "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "f(x0)"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "old_fval",
+              "type": "Param",
+              "type_": "float"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The local slope along the search direction at the new value "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "<myfprime(x_new), pk>"
+                    },
+                    {
+                      "type": "text",
+                      "value": ", or None if the line search algorithm did not converge."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "new_slope",
+              "type": "Param",
+              "type_": "float or None"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Find alpha that satisfies strong Wolfe conditions."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy.optimize import line_search"
+      },
+      {
+        "type": "text",
+        "value": "A objective function and its gradient are defined."
+      },
+      {
+        "type": "code",
+        "value": "def obj_func(x):\n    return (x[0])**2+(x[1])**2\ndef obj_grad(x):\n    return [2*x[0], 2*x[1]]"
+      },
+      {
+        "type": "text",
+        "value": "We can find alpha that satisfies strong Wolfe conditions."
+      },
+      {
+        "type": "code",
+        "value": "start_point = np.array([1.8, 1.7])\nsearch_gradient = np.array([-1.0, -1.0])\nline_search(obj_func, obj_grad, start_point, search_gradient)"
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/optimize/_linesearch.py",
+  "item_line": 181,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Parameters",
+    "Returns",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [],
+  "signature": {
+    "type": "Signature",
+    "value": "(f, myfprime, xk, pk, gfk=None, old_fval=None, old_old_fval=None, args=(), c1=0.0001, c2=0.9, amax=None, extra_condition=None, maxiter=10)"
+  },
+  "type": "DocBlob"
+}

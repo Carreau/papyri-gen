@@ -1,0 +1,801 @@
+{
+  "aliases": [
+    "scipy.signal.lfilter"
+  ],
+  "arbitrary": [],
+  "content": {
+    "Attributes": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Extended Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Filter a data sequence, "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "local",
+              "reference": {
+                "kind": "local",
+                "module": null,
+                "path": "x",
+                "type": "RefInfo",
+                "version": null
+              },
+              "type": "Link",
+              "value": "x"
+            },
+            {
+              "type": "text",
+              "value": ", using a digital filter.  This works for many fundamental data types (including Object type).  The filter is a direct form II transposed implementation of the standard difference equation (see Notes)."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The function "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "sosfilt"
+            },
+            {
+              "type": "text",
+              "value": " (and filter design using "
+            },
+            {
+              "type": "inlineCode",
+              "value": "output='sos'"
+            },
+            {
+              "type": "text",
+              "value": ") should be preferred over "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "lfilter"
+            },
+            {
+              "type": "text",
+              "value": " for most filtering tasks, as second-order sections have fewer numerical problems."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Methods": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Notes": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The filter function is implemented as a direct II transposed structure. This means that the filter implements     "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "a[0]*y[n] = b[0]*x[n] + b[1]*x[n-1] + ... + b[M]*x[n-M]\n                      - a[1]*y[n-1] - ... - a[N]*y[n-N]"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "M"
+            },
+            {
+              "type": "text",
+              "value": " is the degree of the numerator, "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "N"
+            },
+            {
+              "type": "text",
+              "value": " is the degree of the denominator, and "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "n"
+            },
+            {
+              "type": "text",
+              "value": " is the sample number.  It is implemented using the following difference equations (assuming M = N)       "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "a[0]*y[n] = b[0] * x[n]               + d[0][n-1]\n  d[0][n] = b[1] * x[n] - a[1] * y[n] + d[1][n-1]\n  d[1][n] = b[2] * x[n] - a[2] * y[n] + d[2][n-1]\n...\nd[N-2][n] = b[N-1]*x[n] - a[N-1]*y[n] + d[N-1][n-1]\nd[N-1][n] = b[N] * x[n] - a[N] * y[n]"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "where "
+            },
+            {
+              "anchor": null,
+              "exists": true,
+              "kind": "module",
+              "reference": {
+                "kind": "module",
+                "module": "scipy",
+                "path": "scipy.sparse.linalg._expm_multiply:LazyOperatorNormInfo.d",
+                "type": "RefInfo",
+                "version": "1.10.1"
+              },
+              "type": "Link",
+              "value": "d"
+            },
+            {
+              "type": "text",
+              "value": " are the state variables."
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "The rational transfer function describing this filter in the z-transform domain is                           "
+            }
+          ],
+          "type": "paragraph"
+        },
+        {
+          "type": "code",
+          "value": "                    -1              -M\n        b[0] + b[1]z  + ... + b[M] z\nY(z) = -------------------------------- X(z)\n                    -1              -N\n        a[0] + a[1]z  + ... + a[N] z"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Other Parameters": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Parameters": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The numerator coefficient vector in a 1-D sequence."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "b",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The denominator coefficient vector in a 1-D sequence.  If "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "a[0]"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is not 1, then both "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "a",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "a"
+                    },
+                    {
+                      "type": "text",
+                      "value": " and "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "b",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "b"
+                    },
+                    {
+                      "type": "text",
+                      "value": " are normalized by "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "a[0]"
+                    },
+                    {
+                      "type": "text",
+                      "value": "."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "a",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "An N-dimensional input array."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "x",
+              "type": "Param",
+              "type_": "array_like"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The axis of the input data array along which to apply the linear filter. The filter is applied to each subarray along this axis.  Default is -1."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "axis",
+              "type": "Param",
+              "type_": "int, optional"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "Initial conditions for the filter delays.  It is a vector (or array of vectors for an N-dimensional input) of length "
+                    },
+                    {
+                      "type": "inlineCode",
+                      "value": "max(len(a), len(b)) - 1"
+                    },
+                    {
+                      "type": "text",
+                      "value": ".  If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "zi",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "zi"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is None or is not given then initial rest is assumed.  See "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "module",
+                      "reference": {
+                        "kind": "module",
+                        "module": "scipy",
+                        "path": "scipy.signal._signaltools:lfiltic",
+                        "type": "RefInfo",
+                        "version": "1.10.1"
+                      },
+                      "type": "Link",
+                      "value": "lfiltic"
+                    },
+                    {
+                      "type": "text",
+                      "value": " for more information."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "zi",
+              "type": "Param",
+              "type_": "array_like, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Raises": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Receives": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Returns": {
+      "children": [
+        {
+          "children": [
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "The output of the digital filter."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "y",
+              "type": "Param",
+              "type_": "array"
+            },
+            {
+              "desc": [
+                {
+                  "children": [
+                    {
+                      "type": "text",
+                      "value": "If "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "zi",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "zi"
+                    },
+                    {
+                      "type": "text",
+                      "value": " is None, this is not returned, otherwise, "
+                    },
+                    {
+                      "anchor": null,
+                      "exists": true,
+                      "kind": "local",
+                      "reference": {
+                        "kind": "local",
+                        "module": null,
+                        "path": "zf",
+                        "type": "RefInfo",
+                        "version": null
+                      },
+                      "type": "Link",
+                      "value": "zf"
+                    },
+                    {
+                      "type": "text",
+                      "value": " holds the final filter delay values."
+                    }
+                  ],
+                  "type": "paragraph"
+                }
+              ],
+              "param": "zf",
+              "type": "Param",
+              "type_": "array, optional"
+            }
+          ],
+          "type": "Parameters"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Summary": {
+      "children": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Filter data along one-dimension with an IIR or FIR filter."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warnings": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Warns": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    },
+    "Yields": {
+      "children": [],
+      "level": 0,
+      "target": null,
+      "title": null,
+      "type": "Section"
+    }
+  },
+  "example_section_data": {
+    "children": [
+      {
+        "type": "text",
+        "value": "Generate a noisy signal to be filtered:"
+      },
+      {
+        "type": "code",
+        "value": "import numpy as np\nfrom scipy import signal\nimport matplotlib.pyplot as plt\nrng = np.random.default_rng()\nt = np.linspace(-1, 1, 201)\nx = (np.sin(2*np.pi*0.75*t*(1-t) + 2.1) +\n     0.1*np.sin(2*np.pi*1.25*t + 1) +\n     0.18*np.cos(2*np.pi*3.85*t))\nxn = x + rng.standard_normal(len(t)) * 0.08"
+      },
+      {
+        "type": "text",
+        "value": "Create an order 3 lowpass butterworth filter:"
+      },
+      {
+        "type": "code",
+        "value": "b, a = signal.butter(3, 0.05)"
+      },
+      {
+        "type": "text",
+        "value": "Apply the filter to xn.  Use lfilter_zi to choose the initial condition of\nthe filter:"
+      },
+      {
+        "type": "code",
+        "value": "zi = signal.lfilter_zi(b, a)\nz, _ = signal.lfilter(b, a, xn, zi=zi*xn[0])"
+      },
+      {
+        "type": "text",
+        "value": "Apply the filter again, to have a result filtered at an order the same as\nfiltfilt:"
+      },
+      {
+        "type": "code",
+        "value": "z2, _ = signal.lfilter(b, a, z, zi=zi*z[0])"
+      },
+      {
+        "type": "text",
+        "value": "Use filtfilt to apply the filter:"
+      },
+      {
+        "type": "code",
+        "value": "y = signal.filtfilt(b, a, xn)"
+      },
+      {
+        "type": "text",
+        "value": "Plot the original signal and the various filtered versions:"
+      },
+      {
+        "type": "code",
+        "value": "plt.figure\nplt.plot(t, xn, 'b', alpha=0.75)\nplt.plot(t, z, 'r--', t, z2, 'r', t, y, 'k')\nplt.legend(('noisy signal', 'lfilter, once', 'lfilter, twice',\n            'filtfilt'), loc='best')\nplt.grid(True)\nplt.show()"
+      },
+      {
+        "type": "Fig",
+        "value": {
+          "kind": "assets",
+          "module": "scipy",
+          "path": "fig-scipy.signal._signaltools:lfilter-0-6edbb6fe.png",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        }
+      }
+    ],
+    "level": 0,
+    "target": null,
+    "title": null,
+    "type": "Section"
+  },
+  "item_file": "/scipy/signal/_signaltools.py",
+  "item_line": 1936,
+  "item_type": "<class 'function'>",
+  "ordered_sections": [
+    "Summary",
+    "Extended Summary",
+    "Parameters",
+    "Returns",
+    "See Also",
+    "Notes",
+    "Examples"
+  ],
+  "references": null,
+  "see_also": [
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Construct initial conditions for "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "lfilter"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._signaltools:lfiltic",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "lfiltic"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Compute initial state (steady state of step response) for "
+            },
+            {
+              "domain": null,
+              "role": null,
+              "type": "Directive",
+              "value": "lfilter"
+            },
+            {
+              "type": "text",
+              "value": "."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._signaltools:lfilter_zi",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "lfilter_zi"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A forward-backward filter, to obtain a filter with zero phase."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "filtfilt",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "filtfilt"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A Savitzky-Golay filter."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._savitzky_golay:savgol_filter",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "savgol_filter"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "Filter data using cascaded second-order sections."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "to-resolve",
+          "module": "current-module",
+          "path": "sosfilt",
+          "type": "RefInfo",
+          "version": "current-version"
+        },
+        "type": "Link",
+        "value": "sosfilt"
+      },
+      "type": null
+    },
+    {
+      "descriptions": [
+        {
+          "children": [
+            {
+              "type": "text",
+              "value": "A forward-backward filter using second-order sections."
+            }
+          ],
+          "type": "paragraph"
+        }
+      ],
+      "name": {
+        "anchor": null,
+        "exists": true,
+        "kind": "module",
+        "reference": {
+          "kind": "module",
+          "module": "scipy",
+          "path": "scipy.signal._signaltools:sosfiltfilt",
+          "type": "RefInfo",
+          "version": "1.10.1"
+        },
+        "type": "Link",
+        "value": "sosfiltfilt"
+      },
+      "type": null
+    }
+  ],
+  "signature": {
+    "type": "Signature",
+    "value": "(b, a, x, axis=-1, zi=None)"
+  },
+  "type": "DocBlob"
+}
